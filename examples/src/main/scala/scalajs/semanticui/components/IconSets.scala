@@ -44,7 +44,7 @@ object IconsExample {
   def apply(p: Props) = component(p)
 }
 
-object IconsPage {
+object IconSets {
 
   val webContentIcons = List(
     "alarm"               -> "Alarm",
@@ -618,32 +618,95 @@ object IconsPage {
     "youtube square"        -> "Youtube Square"
   )
 
-  def component = ReactComponentB[Unit]("IconsPage")
+  val dataTabAttr = "data-tab" .reactAttr
+
+  def component = ReactComponentB[Unit]("IconSets")
     .stateless
     .render(_ =>
       <.div(
-      IconsExample(IconsExample.Props(webContentIcons, "Web Content", "Icons can represent types of content found on websites")),
-      IconsExample(IconsExample.Props(userActionsIcons, "User Actions", "Icons can represent common actions a user can take")),
-      IconsExample(IconsExample.Props(messageIcons, "Message", "Icons can alert users to the type of message being displayed")),
-      IconsExample(IconsExample.Props(userTypesIcons, "User Types", "Icons can represent types of people")),
-      IconsExample(IconsExample.Props(genderSexualityIcons, "Gender & Sexuality", "Icons can represent genders or types of sexuality")),
-      IconsExample(IconsExample.Props(layoutIcons, "Layout Adjustment", "Icons can alert users to common ways to adjust page layouts")),
-      IconsExample(IconsExample.Props(objectsIcons, "Objects", "Icons can be used to represent common objects")),
-      IconsExample(IconsExample.Props(shapesIcons, "Shapes", "Icons can be used to create shapes")),
-      IconsExample(IconsExample.Props(selectionIcons, "Item Selection", "Icons can show whether an item is included in a set")),
-      IconsExample(IconsExample.Props(mediaIcons, "Media", "Icons can represent common media types")),
-      IconsExample(IconsExample.Props(pointersIcons, "Pointers", "Icons can be used to indicate a direction")),
-      IconsExample(IconsExample.Props(computersFSIcons, "Computer and File System", "Icons can represent elements of a computer and its file system")),
-      IconsExample(IconsExample.Props(technologiesIcons, "Technologies", "Icons can represent common technologies")),
-      IconsExample(IconsExample.Props(ratingIcons, "Rating", "Icons can be used to represent users attitude towards content")),
-      IconsExample(IconsExample.Props(audioIcons, "Audio", "Icons can be used to represent common ways to interact with audio")),
-      IconsExample(IconsExample.Props(mapIcons, "Map", "Icons can be used to represent elements on a map")),
-      IconsExample(IconsExample.Props(tablesIcons, "Tables", "Icons can be used to represent common actions inside a table")),
-      IconsExample(IconsExample.Props(textEditorIcons, "Text Editor", "Icons can represent common actions when editing text")),
-      IconsExample(IconsExample.Props(currencyIcons, "Currency", "Icons can represent units of currency")),
-      IconsExample(IconsExample.Props(paymentIcons, "Payment Options", "Icons can represent common forms of payment")),
-      IconsExample(IconsExample.Props(brandsIcons, "Brands", "Icons can represent logos to common brands"))
+        ^.cls := "ui active tab",
+        dataTabAttr := "icons",
+        <.h2(
+          ^.cls := "ui header",
+          "Icon Set"),
+        <.p("An icon set contains an arbitrary number of glyphs"),
+        <.div(
+          ^.cls := "ui ignored warning message",
+          "Icons serve a very similar function to text in a page. In Semantic icons receive a special tag",
+          <.code("<i>"),"which allow for an abbreviated markup when sitting along-side text."),
+        <.div(
+          ^.cls := "ui ignored message",
+          "Semantic includes a complete port of ",
+          <.a(
+            ^.href := "http://fortawesome.github.io/Font-Awesome",
+            ^.target := "_blank",
+            "Font Awesome 4.3"),
+          " designed by ",
+          <.a(
+            ^.href := "http://www.twitter.com/davegandy", "Dave Gandy"),
+          " for its standard icon set."),
+        <.div(
+          IconsExample(IconsExample.Props(webContentIcons, "Web Content", "Icons can represent types of content found on websites")),
+          IconsExample(IconsExample.Props(userActionsIcons, "User Actions", "Icons can represent common actions a user can take")),
+          IconsExample(IconsExample.Props(messageIcons, "Message", "Icons can alert users to the type of message being displayed")),
+          IconsExample(IconsExample.Props(userTypesIcons, "User Types", "Icons can represent types of people")),
+          IconsExample(IconsExample.Props(genderSexualityIcons, "Gender & Sexuality", "Icons can represent genders or types of sexuality")),
+          IconsExample(IconsExample.Props(layoutIcons, "Layout Adjustment", "Icons can alert users to common ways to adjust page layouts")),
+          IconsExample(IconsExample.Props(objectsIcons, "Objects", "Icons can be used to represent common objects")),
+          IconsExample(IconsExample.Props(shapesIcons, "Shapes", "Icons can be used to create shapes")),
+          IconsExample(IconsExample.Props(selectionIcons, "Item Selection", "Icons can show whether an item is included in a set")),
+          IconsExample(IconsExample.Props(mediaIcons, "Media", "Icons can represent common media types")),
+          IconsExample(IconsExample.Props(pointersIcons, "Pointers", "Icons can be used to indicate a direction")),
+          IconsExample(IconsExample.Props(computersFSIcons, "Computer and File System", "Icons can represent elements of a computer and its file system")),
+          IconsExample(IconsExample.Props(technologiesIcons, "Technologies", "Icons can represent common technologies")),
+          IconsExample(IconsExample.Props(ratingIcons, "Rating", "Icons can be used to represent users attitude towards content")),
+          IconsExample(IconsExample.Props(audioIcons, "Audio", "Icons can be used to represent common ways to interact with audio")),
+          IconsExample(IconsExample.Props(mapIcons, "Map", "Icons can be used to represent elements on a map")),
+          IconsExample(IconsExample.Props(tablesIcons, "Tables", "Icons can be used to represent common actions inside a table")),
+          IconsExample(IconsExample.Props(textEditorIcons, "Text Editor", "Icons can represent common actions when editing text")),
+          IconsExample(IconsExample.Props(currencyIcons, "Currency", "Icons can represent units of currency")),
+          IconsExample(IconsExample.Props(paymentIcons, "Payment Options", "Icons can represent common forms of payment")),
+          IconsExample(IconsExample.Props(brandsIcons, "Brands", "Icons can represent logos to common brands"))
+        )
       )
+    )
+    .buildU
+
+  def apply() = component()
+}
+
+object IconDefinitions {
+  val dataTabAttr = "data-tab" .reactAttr
+
+  def component = ReactComponentB[Unit]("IconDefinitions")
+    .stateless
+    .render(_ =>
+      <.div(
+        ^.cls := "ui tab",
+        dataTabAttr := "definition",
+        <.h2(
+          ^.cls := "ui dividing header",
+          "States"),
+        <.div(
+          ^.cls := "example",
+          <.h4(
+            ^.cls := "ui header",
+            "Disabled"),
+          <.p("An icon can show that it is disabled"),
+          Icon(Icon.Props("users", true))
+        )
+      )
+    ).buildU
+
+  def apply() = component()
+}
+object IconPage {
+  def component = ReactComponentB[Unit]("IconSets")
+    .render(_ =>
+      <.div(
+        ^.cls := "main ui container",
+        IconSets(),
+        IconDefinitions())
     )
     .componentDidMount { _ => Callback {
         val semReady = js.Dynamic.global.semantic.ready
