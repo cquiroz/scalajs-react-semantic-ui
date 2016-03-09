@@ -1,50 +1,9 @@
-package scalajs.semanticui.components
+package scalajs.semanticui.elements.icon
 
-import japgolly.scalajs.react._
+import japgolly.scalajs.react.ReactComponentB
 import japgolly.scalajs.react.vdom.prefix_<^._
 
-import scalajs.semanticui.elements.icon.Icon
 import scalajs.semanticui.common._
-import scala.scalajs.js
-import scalajs.semanticui.elements.icon.Icon.{Clockwise, CounterClockwise, Horizontally, Vertically}
-
-object IconsExample {
-
-  case class Props(icons: List[(String, String)], title: String, description: String)
-
-  def component = ReactComponentB[Props]("IconsPage")
-    .stateless
-    .render_P(p =>
-      <.div(
-        ^.cls := "icon example",
-        <.h4(
-          ^.cls := "ui header",
-          p.title),
-        <.p(p.description),
-        <.div(
-          ^.cls := "ui doubling five column grid",
-          p.icons.map { case (i, n) =>
-            <.div(
-              ^.cls := "column",
-              Icon(i),
-              n
-            )
-          }
-        ),
-        <.div(
-          ^.cls := "existing code",
-          p.icons.map { case (i, n) =>
-            <.i(
-              ^.cls := s"$i icon"
-            )
-          }
-        )
-      )
-    )
-    .build
-
-  def apply(p: Props) = component(p)
-}
 
 object IconSets {
 
@@ -633,7 +592,8 @@ object IconSets {
         <.div(
           ^.cls := "ui ignored warning message",
           "Icons serve a very similar function to text in a page. In Semantic icons receive a special tag",
-          <.code("<i>"),"which allow for an abbreviated markup when sitting along-side text."),
+          <.code("<i>"),
+          "which allow for an abbreviated markup when sitting along-side text."),
         <.div(
           ^.cls := "ui ignored message",
           "Semantic includes a complete port of ",
@@ -670,162 +630,6 @@ object IconSets {
         )
       )
     )
-    .buildU
-
-  def apply() = component()
-}
-
-object IconExample {
-  case class Props(header: String, description: String, inverted: Boolean = false)
-
-  def component = ReactComponentB[Props]("IconExample")
-    .stateless
-    .renderPC((_, p, c) =>
-      <.div(
-        ^.cls := "example",
-        <.h4(
-          ^.cls := "ui header",
-          p.header),
-        <.p(p.description),
-        if (p.inverted) <.div(
-          ^.cls := "ui inverted segment",
-          c) else c
-      )
-    ).build
-
-  def apply(p: Props, children: ReactNode*) = component(p, children: _*)
-}
-object IconDefinitions {
-
-  def component = ReactComponentB[Unit]("IconDefinitions")
-    .stateless
-    .render(_ =>
-      <.div(
-        ^.cls := "ui tab",
-        dataTabAttr := "definition",
-        <.h2(
-          ^.cls := "ui dividing header",
-          "States"),
-        IconExample(
-          IconExample.Props("Disabled", "An icon can show that it is disabled"),
-          Icon(Icon.Props("users", disabled = true))
-        ),
-        IconExample(
-          IconExample.Props("Loading", "An icon can be used as a simple loader"),
-          Icon(Icon.Props("spinner", loading = true)),
-          Icon(Icon.Props("notched circle", loading = true)),
-          Icon(Icon.Props("asterisk", loading = true))
-        ),
-        <.h2(
-          ^.cls := "ui dividing header",
-          "Variations"),
-        IconExample(
-          IconExample.Props("Fitted", "An icon can be fitted, without any space to the left or right of it."),
-          "Tight spacing",
-          Icon(Icon.Props("help", fitted = true)),
-          "Tight spacing"
-        ),
-        IconExample(
-          IconExample.Props("Size", "An icon can vary in size"),
-          Icon(Icon.Props("home", mini = true)),
-          Icon(Icon.Props("home", tiny = true)),
-          Icon(Icon.Props("home", small = true)),
-          <.br(),
-          Icon(Icon.Props("home")),
-          <.br(),
-          Icon(Icon.Props("home", large = true)),
-          <.br(),
-          Icon(Icon.Props("home", big = true)),
-          <.br(),
-          Icon(Icon.Props("home", huge = true)),
-          <.br(),
-          Icon(Icon.Props("home", massive = true))
-        ),
-        IconExample(
-          IconExample.Props("Link", "An icon can be formatted as a link"),
-          Icon(Icon.Props("close", link = true)),
-          Icon(Icon.Props("help", link = true))
-        ),
-        IconExample(
-          IconExample.Props("Flipped", "An icon can be flipped"),
-          Icon(Icon.Props("cloud", flipped = Horizontally)),
-          Icon(Icon.Props("cloud", flipped = Vertically))
-        ),
-        IconExample(
-          IconExample.Props("Rotated", "An icon can be rotated"),
-          Icon(Icon.Props("cloud", rotated = Clockwise)),
-          Icon(Icon.Props("cloud", rotated = CounterClockwise))
-        ),
-        IconExample(
-          IconExample.Props("Circular", "An icon can be formatted to appear circular"),
-          Icon(Icon.Props("users", circular = true)),
-          Icon(Icon.Props("users", circular = true, color = Some("teal"))),
-          Icon(Icon.Props("users", circular = true, inverted = true)),
-          Icon(Icon.Props("users", circular = true, inverted = true, color = Some("teal")))
-        ),
-        IconExample(
-          IconExample.Props("Bordered", "An icon can be formatted to appear bordered"),
-          Icon(Icon.Props("users", bordered = true)),
-          Icon(Icon.Props("users", bordered = true, color = Some("teal"))),
-          Icon(Icon.Props("users", bordered = true, inverted = true)),
-          Icon(Icon.Props("users", bordered = true, inverted = true, color = Some("teal")))
-        ),
-        IconExample(
-          IconExample.Props("Colored", "An icon can be formatted with different colors"),
-          Icon(Icon.Props("users", color = Some("red"))),
-          Icon(Icon.Props("users", color = Some("orange"))),
-          Icon(Icon.Props("users", color = Some("yellow"))),
-          Icon(Icon.Props("users", color = Some("olive"))),
-          Icon(Icon.Props("users", color = Some("green"))),
-          Icon(Icon.Props("users", color = Some("teal"))),
-          Icon(Icon.Props("users", color = Some("blue"))),
-          Icon(Icon.Props("users", color = Some("violet"))),
-          Icon(Icon.Props("users", color = Some("purple"))),
-          Icon(Icon.Props("users", color = Some("pink"))),
-          Icon(Icon.Props("users", color = Some("brown"))),
-          Icon(Icon.Props("users", color = Some("grey"))),
-          Icon(Icon.Props("users", color = Some("black")))
-        ),
-        IconExample(
-          IconExample.Props("Inverted", "An icon can have its colors inverted for contrast", inverted = true),
-          Icon(Icon.Props("users", inverted = true)),
-          Icon(Icon.Props("users", inverted = true, color = Some("red"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("orange"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("yellow"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("olive"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("green"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("teal"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("blue"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("violet"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("purple"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("pink"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("brown"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("grey"))),
-          Icon(Icon.Props("users", inverted = true, color = Some("black")))
-        ),
-        <.h2(
-          ^.cls := "ui dividing header",
-          "Groups")
-      )
-    ).buildU
-
-  def apply() = component()
-}
-object IconPage {
-  def component = ReactComponentB[Unit]("IconSets")
-    .render(_ =>
-      <.div(
-        ^.cls := "main ui container",
-        IconSets(),
-        IconDefinitions())
-    )
-    .componentDidMount { _ => Callback {
-        val semReady = js.Dynamic.global.semantic.ready
-        semReady()
-        val iconReady = js.Dynamic.global.semantic.icon.ready
-        iconReady()
-      }
-    }
     .buildU
 
   def apply() = component()
