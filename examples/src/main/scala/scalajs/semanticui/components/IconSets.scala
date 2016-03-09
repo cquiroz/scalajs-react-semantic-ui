@@ -4,6 +4,7 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.prefix_<^._
 
 import scalajs.semanticui.elements.icon.Icon
+import scalajs.semanticui.common._
 import scala.scalajs.js
 import scalajs.semanticui.elements.icon.Icon.{Clockwise, CounterClockwise, Horizontally, Vertically}
 
@@ -619,8 +620,6 @@ object IconSets {
     "youtube square"        -> "Youtube Square"
   )
 
-  val dataTabAttr = "data-tab" .reactAttr
-
   def component = ReactComponentB[Unit]("IconSets")
     .stateless
     .render(_ =>
@@ -697,7 +696,6 @@ object IconExample {
   def apply(p: Props, children: ReactNode*) = component(p, children: _*)
 }
 object IconDefinitions {
-  val dataTabAttr = "data-tab" .reactAttr
 
   def component = ReactComponentB[Unit]("IconDefinitions")
     .stateless
