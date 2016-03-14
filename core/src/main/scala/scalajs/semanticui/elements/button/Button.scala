@@ -8,7 +8,12 @@ object Button {
   case object Active extends ButtonState
   case object Inactive extends ButtonState
 
-  case class Props(state: ButtonState = Inactive, tabIndex: Option[Int] = None, onClick: Callback = Callback.empty)
+  sealed trait Emphasis
+  case object NoEmphasis extends Emphasis
+  case object Primary extends Emphasis
+  case object Secondary extends Emphasis
+
+  case class Props(state: ButtonState = Inactive, emphasis: Emphasis = NoEmphasis, tabIndex: Option[Int] = None, onClick: Callback = Callback.empty)
 
   def component = ReactComponentB[Props]("Button")
     .renderPC((_, p, c) =>
@@ -16,7 +21,9 @@ object Button {
         ^.cls := "ui button",
         ^.tabIndex := p.tabIndex,
         ^.classSet(
-          "active" -> (p.state == Active)
+          "active"    -> (p.state == Active),
+          "primary"   -> (p.emphasis == Primary),
+          "secondary" -> (p.emphasis == Secondary)
         ),
         ^.onClick --> p.onClick,
         c

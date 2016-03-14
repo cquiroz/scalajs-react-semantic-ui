@@ -584,7 +584,7 @@ object IconSets {
     .render(_ =>
       <.div(
         ^.cls := "ui active tab",
-        dataTabAttr := "icons",
+        dataTab := "icons",
         <.h2(
           ^.cls := "ui header",
           "Icon Set"),

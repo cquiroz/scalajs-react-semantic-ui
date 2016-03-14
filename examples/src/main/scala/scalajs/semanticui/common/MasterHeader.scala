@@ -22,12 +22,12 @@ object MasterHeader {
             ^.cls := "ui two item stackable tabs menu",
             <.a(
               ^.cls := "active item",
-              dataTabAttr := "icons",
+              dataTab := "icons",
               "Icons"
             ),
             <.a(
               ^.cls := "item",
-              dataTabAttr :="definition",
+              dataTab :="definition",
               "Definition"
             )
           )

@@ -13,7 +13,7 @@ object IconDefinitions {
     .render(_ =>
       <.div(
         ^.cls := "ui tab",
-        dataTabAttr := "definition",
+        dataTab := "definition",
         <.h2(
           ^.cls := "ui dividing header",
           "States"),
