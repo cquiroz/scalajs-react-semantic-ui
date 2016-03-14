@@ -20,7 +20,15 @@ object ButtonPage {
         PrimaryEmphasisExample(),
         SecondaryEmphasisExample(),
         AnimatedExample(),
-        IconExample()
+        IconExample(),
+        BasicButtonExample(),
+        ColorButtonExample(),
+        InvertedColorButtonExample(false),
+        InvertedColorButtonExample(true),
+        <.h2(
+          ^.cls := "ui dividing header",
+          "Groups"
+        )
       )
     )
     .componentDidMount { _ => Callback {

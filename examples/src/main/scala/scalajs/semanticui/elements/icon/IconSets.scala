@@ -122,16 +122,16 @@ object IconSets {
     "write square"            -> "Write Square"
   )
   val messageIcons = List(
-    "announcement" -> "Announcement",
-    "birthday" -> "Birthday",
-    "flag" -> "Flag",
-    "help" -> "Help",
-    "help circle" -> "Help Circle",
-    "info" -> "Info",
-    "info circle" -> "Info Circle",
-    "warning" -> "Warning",
+    "announcement"   -> "Announcement",
+    "birthday"       -> "Birthday",
+    "flag"           -> "Flag",
+    "help"           -> "Help",
+    "help circle"    -> "Help Circle",
+    "info"           -> "Info",
+    "info circle"    -> "Info Circle",
+    "warning"        -> "Warning",
     "warning circle" -> "Warning Circle",
-    "warning sign" -> "Warning Sign"
+    "warning sign"   -> "Warning Sign"
   )
 
   val userTypesIcons = List(

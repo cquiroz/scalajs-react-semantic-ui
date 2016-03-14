@@ -21,11 +21,15 @@ object Button {
   case object Vertical extends Animated
   case object Fade extends Animated
 
-  sealed trait IconButton
-  case object NoIconButton extends IconButton
-  case object IconButton extends IconButton
-
-  case class Props(state: ButtonState = Inactive, emphasis: Emphasis = NoEmphasis, animated: Animated = NotAnimated, icon: IconButton = NoIconButton, tabIndex: Option[Int] = None, onClick: Callback = Callback.empty)
+  case class Props(state: ButtonState = Inactive,
+                   emphasis: Emphasis = NoEmphasis,
+                   animated: Animated = NotAnimated,
+                   icon: Boolean = false,
+                   basic: Boolean = false,
+                   inverted: Boolean = false,
+                   tabIndex: Option[Int] = None,
+                   color: Option[String] = None,
+                   onClick: Callback = Callback.empty)
 
   def classSet(p: Props) =
     ^.classSet(
@@ -35,13 +39,16 @@ object Button {
       "animated"  -> (p.animated != NotAnimated),
       "vertical"  -> (p.animated == Vertical),
       "fade"      -> (p.animated == Fade),
-      "icon"      -> (p.icon != NoIconButton)
+      "icon"      -> p.icon,
+      "basic"     -> p.basic,
+      "inverted"  -> p.inverted
     )
   def component = ReactComponentB[Props]("Button")
     .renderPC((_, p, c) =>
       if (p.animated == NotAnimated)
         <.button(
           ^.cls := "ui button",
+          p.color.map(u => ^.cls := u),
           ^.tabIndex := p.tabIndex,
           classSet(p),
           ^.onClick --> p.onClick,

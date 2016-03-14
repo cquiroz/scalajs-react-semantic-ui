@@ -3,25 +3,24 @@ package scalajs.semanticui.elements.button
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.prefix_<^._
 
-import scalajs.semanticui.common._
-import scalajs.semanticui.elements.button.Button.{Animated, Fade, Vertical}
 import scalajs.semanticui.elements.icon.Icon
 
-object IconExample {
+object BasicButtonExample {
 
-  def component = ReactComponentB[Unit]("IconExample")
+  def component = ReactComponentB[Unit]("BasicButtonExample")
     .stateless
     .render(_ =>
       <.div(
         ^.cls := "example",
         <.h4(
           ^.cls := "ui header",
-          "Icon"
+          "Basic"
         ),
-        <.p("A button can have only an icon"),
+        <.p("A basic button is less pronounced"),
         Button(
-          Button.Props(icon = true),
-          Icon("cloud")
+          Button.Props(basic = true),
+          Icon("user"),
+          "Add Friend"
         )
       )
     )
