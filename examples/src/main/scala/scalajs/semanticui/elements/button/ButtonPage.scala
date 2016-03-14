@@ -18,7 +18,8 @@ object ButtonPage {
         FollowExample(),
         AnotherExample(),
         PrimaryEmphasisExample(),
-        SecondaryEmphasisExample()
+        SecondaryEmphasisExample(),
+        AnimatedExample()
       )
     )
     .componentDidMount { _ => Callback {
