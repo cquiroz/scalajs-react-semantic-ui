@@ -32,14 +32,14 @@ semantic.button.ready = function() {
     .on('click', handler.activate)
   ;
 
-  $follow
+  /*$follow
     .state({
       text: {
         inactive : 'Follow',
         active   : 'Following'
       }
     })
-  ;
+  ;*/
 
   $toggle
     .state({
@@ -54,6 +54,6 @@ semantic.button.ready = function() {
 
 
 // attach ready event
-$(document)
+/*$(document)
   .ready(semantic.button.ready)
-;
+;*/
