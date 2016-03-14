@@ -1,5 +1,7 @@
 package scalajs.semanticui.elements.button
 
+import scalajs.semanticui.elements.icon.Icon
+
 import japgolly.scalajs.react.{Callback, ReactComponentB, ReactNode}
 import japgolly.scalajs.react.vdom.prefix_<^._
 
@@ -19,7 +21,11 @@ object Button {
   case object Vertical extends Animated
   case object Fade extends Animated
 
-  case class Props(state: ButtonState = Inactive, emphasis: Emphasis = NoEmphasis, animated: Animated = NotAnimated, tabIndex: Option[Int] = None, onClick: Callback = Callback.empty)
+  sealed trait IconButton
+  case object NoIconButton extends IconButton
+  case object IconButton extends IconButton
+
+  case class Props(state: ButtonState = Inactive, emphasis: Emphasis = NoEmphasis, animated: Animated = NotAnimated, icon: IconButton = NoIconButton, tabIndex: Option[Int] = None, onClick: Callback = Callback.empty)
 
   def classSet(p: Props) =
     ^.classSet(
@@ -28,7 +34,8 @@ object Button {
       "secondary" -> (p.emphasis == Secondary),
       "animated"  -> (p.animated != NotAnimated),
       "vertical"  -> (p.animated == Vertical),
-      "fade"      -> (p.animated == Fade)
+      "fade"      -> (p.animated == Fade),
+      "icon"      -> (p.icon != NoIconButton)
     )
   def component = ReactComponentB[Props]("Button")
     .renderPC((_, p, c) =>

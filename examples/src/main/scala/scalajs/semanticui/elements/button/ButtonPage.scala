@@ -19,7 +19,8 @@ object ButtonPage {
         AnotherExample(),
         PrimaryEmphasisExample(),
         SecondaryEmphasisExample(),
-        AnimatedExample()
+        AnimatedExample(),
+        IconExample()
       )
     )
     .componentDidMount { _ => Callback {
