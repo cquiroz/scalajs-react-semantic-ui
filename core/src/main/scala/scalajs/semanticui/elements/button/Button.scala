@@ -1,7 +1,5 @@
 package scalajs.semanticui.elements.button
 
-import scalajs.semanticui.elements.icon.Icon
-
 import japgolly.scalajs.react.{Callback, ReactComponentB, ReactNode}
 import japgolly.scalajs.react.vdom.prefix_<^._
 
