@@ -17,7 +17,16 @@ object DividerPage {
         VerticalDividerExample(),
         AnotherVerticalDividerExample(),
         HorizontalDividerExample(),
-        AnotherHorizontalDividerExample()
+        AnotherHorizontalDividerExample(),
+        <.h2(
+          ^.cls := "ui dividing header",
+          "Variations"
+        ),
+        InvertedExample(),
+        FittedExample(),
+        HiddenExample(),
+        SectionExample(),
+        ClearingExample()
       )
     )
     .buildU

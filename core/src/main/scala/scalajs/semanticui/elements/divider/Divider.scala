@@ -4,7 +4,13 @@ import japgolly.scalajs.react.{ReactComponentB, ReactNode}
 import japgolly.scalajs.react.vdom.prefix_<^._
 
 object Divider {
-  case class Props(vertical: Boolean = false, horizontal: Boolean = false)
+  case class Props(vertical: Boolean = false,
+                   horizontal: Boolean = false,
+                   inverted: Boolean = false,
+                   fitted: Boolean = false,
+                   hidden: Boolean = false,
+                   section: Boolean = false,
+                   clearing: Boolean = false)
 
   def component = ReactComponentB[Props]("Divider")
     .renderPC((_, p, c) =>
@@ -12,7 +18,12 @@ object Divider {
         ^.cls := "ui divider",
         ^.classSet(
           "vertical"   -> p.vertical,
-          "horizontal" -> p.horizontal
+          "horizontal" -> p.horizontal,
+          "inverted"   -> p.inverted,
+          "fitted"     -> p.fitted,
+          "hidden"     -> p.hidden,
+          "section"    -> p.section,
+          "clearing"   -> p.clearing
         ),
         c
       )
