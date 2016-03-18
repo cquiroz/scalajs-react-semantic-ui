@@ -2,6 +2,7 @@ package scalajs.semanticui.elements.divider
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.prefix_<^._
+import scalajs.semanticui.common.ShortParagraph
 
 object DividerExample {
 
@@ -24,15 +25,9 @@ object DividerExample {
           ),
           " variation."
         ),
-        <.img(
-          ^.cls := "ui wireframe image",
-          ^.src := "images/wireframe/short-paragraph.png"
-        ),
+        ShortParagraph(),
         Divider(),
-        <.img(
-          ^.cls := "ui wireframe image",
-          ^.src := "images/wireframe/short-paragraph.png"
-        )
+        ShortParagraph()
       )
     )
     .buildU

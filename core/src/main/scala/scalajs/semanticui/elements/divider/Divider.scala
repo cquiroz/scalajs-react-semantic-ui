@@ -4,13 +4,19 @@ import japgolly.scalajs.react.{ReactComponentB, ReactNode}
 import japgolly.scalajs.react.vdom.prefix_<^._
 
 object Divider {
-  def component = ReactComponentB[Unit]("Divider")
-    .render_C(c =>
+  case class Props(vertical: Boolean = false)
+
+  def component = ReactComponentB[Props]("Divider")
+    .renderPC((_, p, c) =>
       <.div(
         ^.cls := "ui divider",
+        ^.classSet(
+          "vertical" -> p.vertical
+        ),
         c
       )
-    ).buildU
+    ).build
 
-  def apply(children: ReactNode*) = component(children: _*)
+  def apply(children: ReactNode*) = component(Props(), children: _*)
+  def apply(p: Props, children: ReactNode*) = component(p, children: _*)
 }

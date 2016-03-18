@@ -13,7 +13,9 @@ object DividerPage {
           ^.cls := "ui dividing header",
           "Types"
         ),
-        DividerExample()
+        DividerExample(),
+        VerticalDividerExample(),
+        AnotherVerticalDividerExample()
       )
     )
     .buildU
