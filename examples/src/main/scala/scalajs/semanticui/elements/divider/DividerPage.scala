@@ -15,7 +15,9 @@ object DividerPage {
         ),
         DividerExample(),
         VerticalDividerExample(),
-        AnotherVerticalDividerExample()
+        AnotherVerticalDividerExample(),
+        HorizontalDividerExample(),
+        AnotherHorizontalDividerExample()
       )
     )
     .buildU

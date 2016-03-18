@@ -6,7 +6,7 @@ import scalajs.semanticui.common.ShortParagraph
 
 object DividerExample {
 
-  def component = ReactComponentB[Unit]("AnimatedExample")
+  def component = ReactComponentB[Unit]("DividerExample")
     .stateless
     .render(_ =>
       <.div(
