@@ -4,10 +4,11 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.prefix_<^._
 
 object MasterHeader {
+  case class Props(name: String)
 
-  val component =  ReactComponentB[Unit]("MasterHeader")
+  val component =  ReactComponentB[Props]("MasterHeader")
     .stateless
-    .render(_ =>
+    .render_P(p =>
       <.div(
         ^.cls := "ui masthead vertical tab segment",
         <.div(
@@ -16,8 +17,9 @@ object MasterHeader {
             ^.cls := "introduction",
             <.h1(
               ^.cls := "ui header",
-              "Icon")
-          ),
+              p.name)
+          )
+          /*,
           <.div(
             ^.cls := "ui two item stackable tabs menu",
             <.a(
@@ -30,10 +32,10 @@ object MasterHeader {
               dataTab :="definition",
               "Definition"
             )
-          )
+          )*/
         )
       )
-    ).buildU
+    ).build
 
-  def apply() = component()
+  def apply(p: Props) = component(p)
 }

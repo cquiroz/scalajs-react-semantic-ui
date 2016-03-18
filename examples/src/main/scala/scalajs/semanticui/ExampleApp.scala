@@ -13,7 +13,7 @@ import scalajs.semanticui.elements.icon.IconPage
 object ExampleApp extends JSApp {
   override def main(): Unit = {
     //ReactDOM.render(IconPage(), dom.document.getElementById("example-icons-payment"))
-    ReactDOM.render(ButtonPage(), dom.document.getElementById("example-buttons"))
+    //ReactDOM.render(ButtonPage(), dom.document.getElementById("example-buttons"))
     //ReactDOM.render(MasterHeader(), dom.document.getElementById("master-header"))
     ReactDOM.render(Footer(), dom.document.getElementById("footer"))
   }

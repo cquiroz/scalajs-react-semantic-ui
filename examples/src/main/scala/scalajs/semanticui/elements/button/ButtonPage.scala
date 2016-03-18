@@ -33,9 +33,9 @@ object ButtonPage {
     )
     .componentDidMount { _ => Callback {
         val semReady = js.Dynamic.global.semantic.ready
-        //semReady()
+        semReady()
         val buttonReady = js.Dynamic.global.semantic.button.ready
-        //buttonReady()
+        buttonReady()
       }
     }
     .buildU

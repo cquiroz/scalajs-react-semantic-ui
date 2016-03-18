@@ -56,10 +56,6 @@ semantic.ready = function() {
     $pageDropdown        = $('.ui.main.menu .page.dropdown'),
     $pageTabs            = $('.masthead.tab.segment .tabs.menu .item'),
 
-    $languageDropdown    = $('.language.dropdown'),
-    $chineseModal        = $('.chinese.modal'),
-    $languageModal       = $('.language.modal'),
-
     $downloadPopup       = $('.download.button'),
     $downloads           = $('.download.popup'),
     $downloadFramework   = $('.framework.column .button'),
@@ -83,7 +79,6 @@ semantic.ready = function() {
     expertiseLevel       = ($.cookie !== undefined)
       ? $.cookie('expertiseLevel') || 0
       : 0,
-    languageDropdownUsed = false,
 
     metadata,
 
@@ -258,49 +253,6 @@ semantic.ready = function() {
           ;
           $activeSection
             .addClass('active')
-          ;
-        }
-      }
-    },
-
-    translatePage: function(languageCode, text, $choice) {
-      languageDropdownUsed = true;
-      if(window.Transifex !== undefined) {
-        window.Transifex.live.translateTo(languageCode, true);
-      }
-    },
-
-    showLanguageModal: function(languageCode) {
-      var
-        $choice = $languageDropdown.find('[data-value="' + languageCode + '"]').eq(0),
-        percent = $choice.data('percent') || 0,
-        text    = $choice.text()
-      ;
-      // dont trigger on translate event every page load
-      if(languageDropdownUsed) {
-        if(languageCode == 'zh' && window.location.host.replace('www.','') !== 'semantic-ui.cn') {
-          $chineseModal
-            .modal({
-              closable: false
-            })
-            .modal('show')
-          ;
-        }
-        else if(percent < 100) {
-          languageDropdownUsed = false;
-          $languageModal
-            .modal()
-            .find('.header .name')
-              .html(text)
-              .end()
-            .find('.complete')
-              .html(percent)
-              .end()
-          ;
-          $languageModal
-            .modal('show', function() {
-              $('.language.modal .progress .bar').css('width', percent + '%');
-            })
           ;
         }
       }
@@ -1385,35 +1337,11 @@ semantic.ready = function() {
     .on('click', handler.swapStyle)
   ;
 
-
-  $menuPopup
-    .add($languageDropdown)
-    .popup({
-      position  : 'bottom center',
-      delay: {
-        show: 100,
-        hide: 50
-      }
-    })
-  ;
-
   $pageDropdown
     .dropdown({
       on       : 'hover',
       action   : 'nothing',
       allowTab : false
-    })
-  ;
-
-  $languageDropdown
-    .dropdown({
-      allowTab       : false,
-      on             : 'click',
-      fullTextSearch : true,
-      onShow         : function() {
-        $(this).popup('hide');
-      },
-      onChange        : handler.translatePage
     })
   ;
 
@@ -1425,16 +1353,12 @@ semantic.ready = function() {
     search             : '//api.semantic-ui.com/search/{query}'
   });
 
-  if(window.Transifex !== undefined) {
-    window.Transifex.live.onTranslatePage(handler.showLanguageModal);
-  }
-
   handler.getMetadata();
 
 };
 
 
 // attach ready event
-/*$(document)
+$(document)
   .ready(semantic.ready)
-;*/
+;
