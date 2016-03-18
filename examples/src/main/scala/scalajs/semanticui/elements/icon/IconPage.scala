@@ -13,13 +13,6 @@ object IconPage {
         IconSets(),
         IconDefinitions())
     )
-    .componentDidMount { _ => Callback {
-        val semReady = js.Dynamic.global.semantic.ready
-        semReady()
-        val iconReady = js.Dynamic.global.semantic.icon.ready
-        iconReady()
-      }
-    }
     .buildU
 
   def apply() = component()
