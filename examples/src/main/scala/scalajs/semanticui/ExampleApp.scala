@@ -16,7 +16,7 @@ object ExampleApp extends JSApp {
   override def main(): Unit = {
     //ReactDOM.render(IconPage(), dom.document.getElementById("example-icons-payment"))
     ReactDOM.render(DividerPage(), dom.document.getElementById("divider-example"))
-    //ReactDOM.render(MasterHeader(), dom.document.getElementById("master-header"))
+    ReactDOM.render(MasterHeader(MasterHeader.Props("Divider", "A divider visually segments content into groups")), dom.document.getElementById("master-header"))
     ReactDOM.render(SideBar(SideBar.Props(sticky = false, sidebar = true, Some("toc"))), dom.document.getElementById("menu-toc"))
     dom.document.getElementsByClassName("toc").foreach(ReactDOM.render(SideBar(SideBar.Props(sticky = true, sidebar = false, None)), _))
     ReactDOM.render(Footer(), dom.document.getElementById("footer"))

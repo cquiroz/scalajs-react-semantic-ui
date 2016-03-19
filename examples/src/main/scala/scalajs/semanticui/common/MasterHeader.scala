@@ -4,7 +4,7 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.prefix_<^._
 
 object MasterHeader {
-  case class Props(name: String)
+  case class Props(name: String, description: String)
 
   val component =  ReactComponentB[Props]("MasterHeader")
     .stateless
@@ -17,7 +17,11 @@ object MasterHeader {
             ^.cls := "introduction",
             <.h1(
               ^.cls := "ui header",
-              p.name)
+              p.name),
+            <.div(
+              ^.cls := "sub header",
+              p.description
+            )
           )
           /*,
           <.div(

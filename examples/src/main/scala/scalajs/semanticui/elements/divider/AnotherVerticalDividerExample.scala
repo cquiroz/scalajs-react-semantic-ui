@@ -26,9 +26,9 @@ object AnotherVerticalDividerExample {
                     ^.cls:="ui left icon input",
                     <.input(
                       ^.`type` := "text",
-                      ^.placeholder :="Username",
-                      Icon("user")
-                    )
+                      ^.placeholder :="Username"
+                    ),
+                    Icon("user")
                   ),
                   <.div(
                     ^.cls := "field",
@@ -36,9 +36,9 @@ object AnotherVerticalDividerExample {
                     <.div(
                       ^.cls:="ui left icon input",
                       <.input(
-                        ^.`type` := "password",
-                        Icon("lock")
-                      )
+                        ^.`type` := "password"
+                      ),
+                      Icon("lock")
                     )
                   ),
                   <.div(
