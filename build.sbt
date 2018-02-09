@@ -47,20 +47,23 @@ lazy val demo =
       npmDevDependencies in Compile         ++= Seq(
         "compression-webpack-plugin" -> "1.0.0",
         "clean-webpack-plugin" -> "0.1.16",
-        "css-loader" -> "0.28.5",
-        "extract-text-webpack-plugin" -> "3.0.0",
+        "css-loader" -> "0.28.9",
+        "less" -> "2.3.1",
+        "less-loader" -> "4.0.5",
+        "extract-text-webpack-plugin" -> "3.0.2",
         "file-loader" -> "0.11.2",
         "html-webpack-plugin" -> "2.30.1",
-        "node-sass" -> "4.5.3",
-        "resolve-url-loader" -> "2.1.0",
-        "sass-loader" -> "6.0.6",
+        "copy-webpack-plugin" -> "4.4.1",
+        "url-loader" -> "0.6.2",
+        "resolve-url-loader" -> "2.2.1",
         "style-loader" -> "0.18.2",
         "uglifyjs-webpack-plugin" -> "0.4.6",
         "webpack-merge" -> "4.1.0"
       ),
       npmDependencies in Compile            ++= Seq(
-        "react" -> reactJS,
-        "react-dom" -> reactJS
+        "react"           -> reactJS,
+        "react-dom"       -> reactJS,
+        "semantic-ui-less" -> "2.2.14"
       ),
       // don't publish the demo
       publish                                := {},
@@ -80,13 +83,13 @@ lazy val facade =
       name                            := "scalajs-react-semantic-ui",
       // Compile tests to JS using fast-optimisation
       scalaJSStage in Test            := FastOptStage,
-      libraryDependencies    ++= Seq(
+      libraryDependencies            ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
         "com.lihaoyi"                       %%% "utest"      % "0.6.0" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.0.1" % Test
       ),
-      testFrameworks += new TestFramework("utest.runner.Framework")
+      testFrameworks                  += new TestFramework("utest.runner.Framework")
     )
 
 lazy val commonSettings = Seq(
