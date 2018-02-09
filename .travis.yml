@@ -19,4 +19,6 @@ install:
   - npm install jsdom
 script:
   - node --version
-  - sbt facade/test
+  - sbt facade/test facade/fastOptJS facade/fullOptJS
+after_script:
+  - $TRAVIS_BUILD_DIR/build/weigh.sh
