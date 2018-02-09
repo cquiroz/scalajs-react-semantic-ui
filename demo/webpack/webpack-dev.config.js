@@ -17,8 +17,7 @@ const Web = Merge(Common.Web, {
     publicPath: "/"
   },
   entry: {
-    app: Path.resolve(Common.resourcesDir, "./dev.js"),
-    embedded: Path.resolve(Common.resourcesDir, "./dev-embed.js")
+    app: Path.resolve(Common.resourcesDir, "./dev.js")
   },
   module: {
     rules: [
@@ -40,12 +39,6 @@ const Web = Merge(Common.Web, {
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      filename: "embed.html",
-      chunks: ["embedded"],
-      template: Path.resolve(Common.resourcesDir, "./embed.html"),
-      favicon: Path.resolve(Common.resourcesDir, "./images/favicon.ico")
-    }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       chunks: ["app"],

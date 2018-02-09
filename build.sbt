@@ -24,7 +24,6 @@ val root =
       publishArtifact      := false,
       Keys.`package`       := file(""))
 
-
 lazy val demo =
   project.in(file("demo"))
     .enablePlugins(GitVersioning)
@@ -32,15 +31,40 @@ lazy val demo =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      scalaJSUseMainModuleInitializer := true,
-      webpackBundlingMode             := BundlingMode.LibraryOnly(),
-      webpackDevServerExtraArgs       := Seq("--inline"),
-      webpackConfigFile in fastOptJS  := Some(baseDirectory.value / "dev.webpack.config.js"),
+      version in webpack                     := "3.5.5",
+      version in startWebpackDevServer       := "2.7.1",
+      webpackConfigFile in fastOptJS         := Some(baseDirectory.value / "webpack" / "webpack-dev.config.js"),
+      webpackConfigFile in fullOptJS         := Some(baseDirectory.value / "webpack" / "webpack-prod.config.js"),
+      webpackMonitoredDirectories            += (resourceDirectory in Compile).value,
+      webpackResources                       := (baseDirectory.value / "webpack") * "*.js",
+      includeFilter in webpackMonitoredFiles := "*",
+      useYarn                                := true,
+      webpackBundlingMode in fastOptJS       := BundlingMode.LibraryOnly(),
+      webpackBundlingMode in fullOptJS       := BundlingMode.Application,
+      test                                   := {},
+      npmDevDependencies in Compile         ++= Seq(
+        "compression-webpack-plugin" -> "1.0.0",
+        "clean-webpack-plugin" -> "0.1.16",
+        "css-loader" -> "0.28.5",
+        "extract-text-webpack-plugin" -> "3.0.0",
+        "file-loader" -> "0.11.2",
+        "html-webpack-plugin" -> "2.30.1",
+        "node-sass" -> "4.5.3",
+        "resolve-url-loader" -> "2.1.0",
+        "sass-loader" -> "6.0.6",
+        "style-loader" -> "0.18.2",
+        "uglifyjs-webpack-plugin" -> "0.4.6",
+        "webpack-merge" -> "4.1.0"
+      ),
+      npmDependencies in Compile            ++= Seq(
+        "react" -> reactJS,
+        "react-dom" -> reactJS
+      ),
       // don't publish the demo
-      publish                         := {},
-      publishLocal                    := {},
-      publishArtifact                 := false,
-      Keys.`package`                  := file("")
+      publish                                := {},
+      publishLocal                           := {},
+      publishArtifact                        := false,
+      Keys.`package`                         := file("")
     )
     .dependsOn(facade)
 
@@ -52,16 +76,6 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name                            := "scalajs-react-semantic-ui",
-      npmDependencies in Compile     ++= Seq(
-        "react" -> reactJS,
-        "react-dom" -> reactJS
-      ),
-      // Requires the DOM for tests
-      requiresDOM in Test             := true,
-      // Use yarn as it is faster than npm
-      useYarn                         := true,
-      version in webpack              := "3.5.5",
-      scalaJSUseMainModuleInitializer := false,
       // Compile tests to JS using fast-optimisation
       scalaJSStage in Test            := FastOptStage,
       libraryDependencies    ++= Seq(

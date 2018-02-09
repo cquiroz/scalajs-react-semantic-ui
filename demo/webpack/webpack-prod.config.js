@@ -1,24 +1,23 @@
-const Path = require('path');
+const Path = require("path");
 const Merge = require("webpack-merge");
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const Webpack = require('webpack');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const Webpack = require("webpack");
 
-const ProdConfig = 
-  new Webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify('production')
-    }
-  })
+const ProdConfig = new Webpack.DefinePlugin({
+  "process.env": {
+    NODE_ENV: JSON.stringify("production")
+  }
+});
 
-const Common = require('./webpack.common.js');
-const publicFolderName = "out/public"
+const Common = require("./webpack.common.js");
+const publicFolderName = "out/public";
 
-function extract(){
+function extract() {
   return new ExtractTextPlugin({
     filename: "[name].css"
   });
@@ -27,28 +26,28 @@ function extract(){
 const extractSassApp = extract();
 const extractSassEmbed = extract();
 
-function Web(extractSass){
+function Web(extractSass) {
   return Merge(Common.Web, {
     output: {
-      filename: '[name].js',
+      filename: "[name].js",
       path: Path.resolve(__dirname, publicFolderName),
-      publicPath: '/public/',
-      libraryTarget: 'window'
+      publicPath: "/public/",
+      libraryTarget: "window"
     },
     resolve: {
       alias: {
-        'scalajs': Path.resolve(__dirname)
+        scalajs: Path.resolve(__dirname)
       }
     },
     module: {
       rules: [
         {
           test: /\.scss$/,
-           use: extractSass.extract({
+          use: extractSass.extract({
             use: [
-              { loader: "css-loader", options: {sourceMap: true} },
-              { loader: "resolve-url-loader", options: {sourceMap: true} },
-              { loader: "sass-loader", options: {sourceMap: true} }
+              { loader: "css-loader", options: { sourceMap: true } },
+              { loader: "resolve-url-loader", options: { sourceMap: true } },
+              { loader: "sass-loader", options: { sourceMap: true } }
             ],
             fallback: "style-loader"
           })
@@ -79,34 +78,21 @@ function Web(extractSass){
 
 const WebApp = Merge(Web(extractSassApp), {
   entry: {
-    app: Path.resolve(Common.resourcesDir, './prod.js')
+    app: Path.resolve(Common.resourcesDir, "./prod.js")
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
       chunks: ["app"],
-      template: Path.resolve(Common.resourcesDir, './prod.html'),
-      favicon: Path.resolve(Common.resourcesDir, './images/favicon.ico')
+      template: Path.resolve(Common.resourcesDir, "./prod.html"),
+      favicon: Path.resolve(Common.resourcesDir, "./images/favicon.ico")
     }),
-    new CleanWebpackPlugin([publicFolderName], {verbose: false}),
+    new CleanWebpackPlugin([publicFolderName], { verbose: false })
   ]
 });
 
-const WebEmbed = Merge(Web(extractSassEmbed), {
-  entry: {
-    embedded: Path.resolve(Common.resourcesDir, './prod-embed.js')
-  }
+const ScalaJs = Merge(Common.ScalaJs, {
+  plugins: [ProdConfig]
 });
 
-const ScalaJs = Merge(Common.ScalaJs,{
-  plugins: [
-    ProdConfig
-  ]
-});
-
-
-module.exports = [
-  ScalaJs,
-  WebApp,
-  WebEmbed
-]
+module.exports = [ScalaJs, WebApp];
