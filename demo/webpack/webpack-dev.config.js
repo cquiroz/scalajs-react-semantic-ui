@@ -15,23 +15,21 @@ const Web = Merge(Common.Web, {
   output: {
     publicPath: "/"
   },
+  entry: {
+    app: Path.resolve(Common.resourcesDir, "./dev.js")
+  },
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          "css-loader",
-
-          "resolve-url-loader",
-          "sass-loader?sourceMap"
-        ]
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
   devServer: {
     hot: true,
     contentBase: [__dirname, Common.rootDir]
+    // watchContentBase: true
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
