@@ -4,7 +4,6 @@ const Webpack = require("webpack");
 const Merge = require("webpack-merge");
 
 const Common = require("./webpack.common.js");
-const devDir = Path.resolve(Common.rootDir, "dev-static");
 
 const ScalaJs = Merge(Common.ScalaJs, {
   output: {
@@ -15,9 +14,6 @@ const ScalaJs = Merge(Common.ScalaJs, {
 const Web = Merge(Common.Web, {
   output: {
     publicPath: "/"
-  },
-  entry: {
-    app: Path.resolve(Common.resourcesDir, "./dev.js")
   },
   module: {
     rules: [
@@ -35,7 +31,7 @@ const Web = Merge(Common.Web, {
   },
   devServer: {
     hot: true,
-    contentBase: [devDir, __dirname, Common.rootDir]
+    contentBase: [__dirname, Common.rootDir]
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),

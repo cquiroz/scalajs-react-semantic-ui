@@ -11,6 +11,8 @@ lazy val semanticdbScalacSettings = Seq(
   )
 )
 
+addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer")
+
 val root =
   project.in(file("."))
     .settings(commonSettings: _*)

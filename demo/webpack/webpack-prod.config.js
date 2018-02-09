@@ -24,7 +24,6 @@ function extract() {
 }
 
 const extractSassApp = extract();
-const extractSassEmbed = extract();
 
 function Web(extractSass) {
   return Merge(Common.Web, {
