@@ -66,10 +66,11 @@ lazy val facade =
       scalaJSStage in Test            := FastOptStage,
       libraryDependencies    ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
-        "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % "test",
-        "org.scalatest"                     %%% "scalatest"  % "3.0.3" % Test,
+        "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
+        "com.lihaoyi"                       %%% "utest"      % "0.6.0" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.0.1" % Test
-      )
+      ),
+      testFrameworks += new TestFramework("utest.runner.Framework")
     )
 
 lazy val commonSettings = Seq(
