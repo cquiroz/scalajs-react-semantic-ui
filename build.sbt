@@ -83,13 +83,16 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name                            := "scalajs-react-semantic-ui",
+      // Requires the DOM for tests
+      requiresDOM in Test             := true,
       // Compile tests to JS using fast-optimisation
       scalaJSStage in Test            := FastOptStage,
-      npmDependencies in Compile            ++= Seq(
+      npmDependencies in Compile     ++= Seq(
         "react"             -> reactJS,
         "react-dom"         -> reactJS,
         "semantic-ui-react" -> reactSUI
       ),
+      // webpackConfigFile in Test := Some(baseDirectory.value / "test.webpack.config.js"),
       libraryDependencies            ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
