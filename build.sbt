@@ -1,5 +1,7 @@
 val reactJS = "15.6.1"
 val scalaJsReact = "1.1.1"
+val SUI = "2.2.14"
+val reactSUI = "0.78.2"
 
 parallelExecution in (ThisBuild, Test) := false
 
@@ -63,7 +65,7 @@ lazy val demo =
       npmDependencies in Compile            ++= Seq(
         "react"           -> reactJS,
         "react-dom"       -> reactJS,
-        "semantic-ui-less" -> "2.2.14"
+        "semantic-ui-less" -> SUI
       ),
       // don't publish the demo
       publish                                := {},
@@ -81,8 +83,16 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name                            := "scalajs-react-semantic-ui",
+      // Requires the DOM for tests
+      requiresDOM in Test             := true,
       // Compile tests to JS using fast-optimisation
       scalaJSStage in Test            := FastOptStage,
+      npmDependencies in Compile     ++= Seq(
+        "react"             -> reactJS,
+        "react-dom"         -> reactJS,
+        "semantic-ui-react" -> reactSUI
+      ),
+      // webpackConfigFile in Test := Some(baseDirectory.value / "test.webpack.config.js"),
       libraryDependencies            ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
