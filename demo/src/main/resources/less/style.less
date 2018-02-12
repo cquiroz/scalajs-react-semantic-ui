@@ -1,3 +1,46 @@
+html,
 body {
-  background-color: green;
+  box-sizing: border-box;
+  background-color: #ffeead;
+  height: 100%;
+  padding: 10px;
+  margin: 0px;
+}
+
+#app {
+  height: 100%;
+}
+
+.app > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #ffeead;
+}
+
+.app {
+  display: grid;
+  height: 100%;
+  background-color: white;
+  height: 100%;
+  grid-gap: 3px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 40px;
+  grid-template-areas:
+    "m c c c c c c c c c c c"
+    "f f f f f f f f f f f f";
+}
+
+.menu {
+  background-color: black;
+  grid-area: m;
+}
+
+.body {
+  grid-area: c;
+}
+
+.footer {
+  grid-area: f;
 }

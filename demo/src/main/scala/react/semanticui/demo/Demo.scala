@@ -12,13 +12,16 @@ object Demo {
         <.div(
           ^.cls := "app",
           <.div(
-            ^.cls := "menu"
+            ^.cls := "menu",
+            "Menu"
           ),
           <.div(
-            ^.cls := "body"
+            ^.cls := "body",
+            "Body"
           ),
           <.div(
-            ^.cls := "footer"
+            ^.cls := "footer",
+            "Footer"
           )
         )
       }
