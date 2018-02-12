@@ -1,4 +1,4 @@
-// import "node_modules/semantic-ui-less/semantic.less";
+import "node_modules/semantic-ui-less/semantic.less";
 import "./less/style.less";
 
 console.log("here");

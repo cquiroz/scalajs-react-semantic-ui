@@ -43,6 +43,7 @@ const Web = Merge(Common.Web, {
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       chunks: ["app"],
