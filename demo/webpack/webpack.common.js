@@ -21,14 +21,15 @@ const ScalaJs = Merge(generatedConfig, {
         options: {
           name: "[name].[hash].[ext]"
         }
-      },
+      }
       // this handles .less translation
-      {
+      /*{
         use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
           use: ["css-loader", "less-loader"]
         }),
         test: /\.less$/
-      }
+      }*/
     ]
   }
 });
