@@ -41,7 +41,8 @@ const Web = {
       resources: resourcesDir,
       node_modules: Path.resolve(__dirname, "node_modules"),
       "../../theme.config$": Path.join(resourcesDir, "theme/theme.config")
-    }
+    },
+    modules: [Path.resolve(__dirname, "node_modules"), "node_modules"]
   },
   module: {
     rules: [
