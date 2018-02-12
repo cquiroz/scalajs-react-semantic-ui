@@ -95,6 +95,7 @@ lazy val facade =
       // webpackConfigFile in Test := Some(baseDirectory.value / "test.webpack.config.js"),
       libraryDependencies            ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
+        "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
         "com.lihaoyi"                       %%% "utest"      % "0.6.0" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.0.1" % Test
