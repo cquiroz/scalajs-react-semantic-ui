@@ -11,15 +11,29 @@ const ScalaJs = Merge(Common.ScalaJs, {
   }
 });
 
+console.log(__dirname);
+console.log(Common.rootDir);
+
 const Web = Merge(Common.Web, {
   output: {
     publicPath: "/"
   },
   entry: {
-    app: Path.resolve(Common.resourcesDir, "./dev.js")
+    // "demo-fastopt": ["./demo-fastopt-entrypoint.js"],
+    launcher: ["./dev.js"]
   },
+  devtool: "source-map",
   module: {
+    noParse: function(content) {
+      return content.endsWith("-fastopt.js");
+    },
     rules: [
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader",
+        exclude: [__dirname]
+      },
       {
         test: /\.less$/,
         use: [

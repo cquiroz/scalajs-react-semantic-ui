@@ -40,6 +40,7 @@ const Web = {
     alias: {
       resources: resourcesDir,
       node_modules: Path.resolve(__dirname, "node_modules"),
+      root: __dirname,
       "../../theme.config$": Path.join(resourcesDir, "theme/theme.config")
     },
     modules: [
