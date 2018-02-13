@@ -16,24 +16,17 @@ console.log(Common.rootDir);
 
 const Web = Merge(Common.Web, {
   output: {
+    path: __dirname,
     publicPath: "/"
   },
   entry: {
-    // "demo-fastopt": ["./demo-fastopt-entrypoint.js"],
-    launcher: ["./dev.js"]
+    app: Path.resolve(Common.resourcesDir, "./dev.js")
   },
-  devtool: "source-map",
   module: {
     noParse: function(content) {
-      return content.endsWith("-fastopt.js");
+      return content.endsWith("-fastopt");
     },
     rules: [
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "source-map-loader",
-        exclude: [__dirname]
-      },
       {
         test: /\.less$/,
         use: [
@@ -53,7 +46,6 @@ const Web = Merge(Common.Web, {
   devServer: {
     hot: true,
     contentBase: [__dirname, Common.rootDir]
-    // watchContentBase: true
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),

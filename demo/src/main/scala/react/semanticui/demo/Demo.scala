@@ -21,10 +21,10 @@ object Demo {
             ^.cls := "menu",
             ^.cls := "ui inverted vertical left fixed menu",
             <.div(
-              ^.cls :="item",
+              ^.cls := "item",
               <.img(
-                ^.src := Logo.asInstanceOf[String],
-                ^.cls := "ui mini right spaced image"
+                ^.cls := "ui mini right spaced image",
+                ^.src := Logo.asInstanceOf[String]
               ),
               <.strong(
                 "ScalaJS SUI React ",
@@ -34,16 +34,20 @@ object Demo {
               )
             ),
             <.div(
-              ^.cls :="item",
+              ^.cls := "item",
               <.div(
                 ^.cls := "header",
                 "Elements"
+              ),
+              <.div(
+                ^.cls := "item",
+                "Icons"
               )
             )
           ),
           <.div(
             ^.cls := "body",
-            "Body"
+            "ScalaJS React Semantic UI"
           ),
           <.div(
             ^.cls := "footer"
