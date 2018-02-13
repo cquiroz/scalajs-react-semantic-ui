@@ -32,6 +32,13 @@ object Demo {
                   <.em("0.0.1")
                 )
               )
+            ),
+            <.div(
+              ^.cls :="item",
+              <.div(
+                ^.cls := "header",
+                "Elements"
+              )
             )
           ),
           <.div(
@@ -39,8 +46,7 @@ object Demo {
             "Body"
           ),
           <.div(
-            ^.cls := "footer",
-            "Footer"
+            ^.cls := "footer"
           )
         )
       }
