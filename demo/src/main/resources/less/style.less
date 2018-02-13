@@ -28,13 +28,22 @@ body {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto 40px;
   grid-template-areas:
-    "m c c c c c c c c c c c"
+    "m m c c c c c c c c c c"
     "f f f f f f f f f f f f";
 }
 
 .menu {
-  background-color: black;
   grid-area: m;
+  // position: "fixed";
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // width: sidebarWidth,
+  paddingbottom: "1em";
+  // match menu background
+  // prevents a white background when items are filtered out by search
+  background-color: "#1B1C1D";
+  overflowy: "scroll";
 }
 
 .body {

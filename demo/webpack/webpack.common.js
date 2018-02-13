@@ -15,13 +15,13 @@ const ScalaJs = Merge(generatedConfig, {
   },
   module: {
     rules: [
-      {
-        test: /\.png$/,
-        loader: "file-loader",
-        options: {
-          name: "[name].[hash].[ext]"
-        }
-      }
+      // {
+      //   test: /\.png$/,
+      //   loader: "file-loader",
+      //   options: {
+      //     name: "[name].[hash].[ext]"
+      //   }
+      // }
       // this handles .less translation
       /*{
         use: ExtractTextPlugin.extract({
@@ -42,13 +42,20 @@ const Web = {
       node_modules: Path.resolve(__dirname, "node_modules"),
       "../../theme.config$": Path.join(resourcesDir, "theme/theme.config")
     },
-    modules: [Path.resolve(__dirname, "node_modules"), "node_modules"]
+    modules: [
+      Path.resolve(__dirname, "node_modules"),
+      resourcesDir,
+      "node_modules"
+    ]
   },
   module: {
     rules: [
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.ttf$|\.eot$|\.svg$/,
-        use: "file-loader?name=[name].[ext]?[hash]"
+        loader: "file-loader",
+        options: {
+          name: "[name].[hash].[ext]"
+        }
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
