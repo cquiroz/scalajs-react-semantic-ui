@@ -1,432 +1,424 @@
-package react.semanticui.icon
+package react.semanticui
 
-sealed trait SemanticIcon {
-  val name: String
-}
-case object Search extends SemanticIcon {
-  val name = "search"
-}
-case object MailOutline extends SemanticIcon {
-  val name = "mail outline"
-}
-case object Signal extends SemanticIcon {
-  val name = "signal"
-}
-case object Setting extends SemanticIcon {
-  val name = "setting"
-}
-case object Home extends SemanticIcon {
-  val name = "home"
-}
-case object Inbox extends SemanticIcon {
-  val name = "inbox"
-}
-case object Browser extends SemanticIcon {
-  val name = "browser"
+import react.semanticui.elements.icon.Icon
+
+trait SemanticIcons {
+  sealed trait SemanticIcon {
+    val name: String
+  }
+  val Search = Icon(Icon.props(name = "search"))
+  val MailOutline = Icon(Icon.props(name = "mail outline"))
+  val Signal = Icon(Icon.props(name = "signal"))
+  val Setting = Icon(Icon.props(name = "setting"))
+  val Home = Icon(Icon.props(name = "home"))
+  val Inbox = Icon(Icon.props(name = "inbox"))
+  val Browser = Icon(Icon.props(name = "browser"))
+
+  case object Tag extends SemanticIcon {
+    val name = "tag"
+  }
+  case object Tags extends SemanticIcon {
+    val name = "tags"
+  }
+  case object Image extends SemanticIcon {
+    val name = "image"
+  }
+  case object Calendar extends SemanticIcon {
+    val name = "calendar"
+  }
+  case object Comment extends SemanticIcon {
+    val name = "comment"
+  }
+  case object Shop extends SemanticIcon {
+    val name = "shop"
+  }
+  case object Comments extends SemanticIcon {
+    val name = "comments"
+  }
+  case object External extends SemanticIcon {
+    val name = "external"
+  }
+  case object Privacy extends SemanticIcon {
+    val name = "privacy"
+  }
+  case object Settings extends SemanticIcon {
+    val name = "settings"
+  }
+
+  case object Trophy extends SemanticIcon {
+    val name = "trophy"
+  }
+  case object Payment extends SemanticIcon {
+    val name = "payment"
+  }
+  case object Feed extends SemanticIcon {
+    val name = "feed"
+  }
+  case object AlarmOutline extends SemanticIcon {
+    val name = "alarm outline"
+  }
+  case object Tasks extends SemanticIcon {
+    val name = "tasks"
+  }
+  case object Cloud extends SemanticIcon {
+    val name = "cloud"
+  }
+  case object Lab extends SemanticIcon {
+    val name = "lab"
+  }
+  case object Mail extends SemanticIcon {
+    val name = "mail"
+  }
+  case object Dashboard extends SemanticIcon {
+    val name = "dashboard"
+  }
+  case object CommentOutline extends SemanticIcon {
+    val name = "comment outline"
+  }
+
+  case object CommentsOutline extends SemanticIcon {
+    val name = "comments outline"
+  }
+  case object Sitemap extends SemanticIcon {
+    val name = "sitemap"
+  }
+  case object Idea extends SemanticIcon {
+    val name = "idea"
+  }
+  case object Alarm extends SemanticIcon {
+    val name = "alarm"
+  }
+  case object Terminal extends SemanticIcon {
+    val name = "terminal"
+  }
+  case object Code extends SemanticIcon {
+    val name = "code"
+  }
+  case object Protect extends SemanticIcon {
+    val name = "protect"
+  }
+  case object CalendarOutline extends SemanticIcon {
+    val name = "calendar outline"
+  }
+  case object Ticket extends SemanticIcon {
+    val name = "ticket"
+  }
+
+  case object ExternalSquare extends SemanticIcon {
+    val name = "external square"
+  }
+  case object Bug extends SemanticIcon {
+    val name = "bug"
+  }
+  case object MailSquare extends SemanticIcon {
+    val name = "mail square"
+  }
+  case object History extends SemanticIcon {
+    val name = "history"
+  }
+  case object Options extends SemanticIcon {
+    val name = "options"
+  }
+  case object TextTelephone extends SemanticIcon {
+    val name = "text telephone"
+  }
+  case object Find extends SemanticIcon {
+    val name = "find"
+  }
+  case object Wifi extends SemanticIcon {
+    val name = "wifi"
+  }
+  case object AlarmMute extends SemanticIcon {
+    val name = "alarm mute"
+  }
+
+  case object AlarmMuteOutline extends SemanticIcon {
+    val name = "alarm mute outline"
+  }
+  case object Copyright extends SemanticIcon {
+    val name = "copyright"
+  }
+  case object At extends SemanticIcon {
+    val name = "at"
+  }
+  case object Eyedropper extends SemanticIcon {
+    val name = "eyedropper"
+  }
+  case object PaintBrush extends SemanticIcon {
+    val name = "paint brush"
+  }
+  case object Heartbeat extends SemanticIcon {
+    val name = "heartbeat"
+  }
+  case object MousePointer extends SemanticIcon {
+    val name = "mouse pointer"
+  }
+
+  case object HourglassEmpty extends SemanticIcon {
+    val name = "hourglass empty"
+  }
+  case object HourglassStart extends SemanticIcon {
+    val name = "hourglass start"
+  }
+  case object HourglassHalf extends SemanticIcon {
+    val name = "hourglass half"
+  }
+  case object HourglassEnd extends SemanticIcon {
+    val name = "hourglass end"
+  }
+  case object HourglassFull extends SemanticIcon {
+    val name = "hourglass full"
+  }
+  case object HandPointer extends SemanticIcon {
+    val name = "hand pointer"
+  }
+
+  case object Trademark extends SemanticIcon {
+    val name = "trademark"
+  }
+  case object Registered extends SemanticIcon {
+    val name = "registered"
+  }
+  case object CreativeCommons extends SemanticIcon {
+    val name = "creative commons"
+  }
+  case object AddToCalendar extends SemanticIcon {
+    val name = "add to calendar"
+  }
+  case object RemoveFromCalendar extends SemanticIcon {
+    val name = "remove from calendar"
+  }
+  case object DeleteCalendar extends SemanticIcon {
+    val name = "delete calendar"
+  }
+
+  case object CheckedCalendar extends SemanticIcon {
+    val name = "checked calendar"
+  }
+  case object Industry extends SemanticIcon {
+    val name = "industry"
+  }
+  case object ShoppingBag extends SemanticIcon {
+    val name = "shopping bag"
+  }
+  case object ShoppingBasket extends SemanticIcon {
+    val name = "shopping basket"
+  }
+  case object Hashtag extends SemanticIcon {
+    val name = "hashtag"
+  }
+  case object Percent extends SemanticIcon {
+    val name = "percent"
+  }
+  case object AddressBook extends SemanticIcon {
+    val name = "address book"
+  }
+
+  case object AddressBookOutline extends SemanticIcon {
+    val name = "address book outline"
+  }
+  case object AddressCard extends SemanticIcon {
+    val name = "address card"
+  }
+  case object AddressCardOutline extends SemanticIcon {
+    val name = "address card outline"
+  }
+  case object IdBadge extends SemanticIcon {
+    val name = "id badge"
+  }
+  case object IdCard extends SemanticIcon {
+    val name = "id card"
+  }
+  case object IdCardOutline extends SemanticIcon {
+    val name = "id card outline"
+  }
+
+  case object Podcast extends SemanticIcon {
+    val name = "podcast"
+  }
+  case object WindowClose extends SemanticIcon {
+    val name = "window close"
+  }
+  case object WindowCloseOutline extends SemanticIcon {
+    val name = "window close outline"
+  }
+  case object WindowMaximize extends SemanticIcon {
+    val name = "window maximize"
+  }
+  case object WindowMinimize extends SemanticIcon {
+    val name = "window minimize"
+  }
+  case object WindowRestore extends SemanticIcon {
+    val name = "window restore"
+  }
+
+  case object Wait extends SemanticIcon {
+    val name = "wait"
+  }
+  case object Download extends SemanticIcon {
+    val name = "download"
+  }
+  case object Repeat extends SemanticIcon {
+    val name = "repeat"
+  }
+  case object Refresh extends SemanticIcon {
+    val name = "refresh"
+  }
+  case object Lock extends SemanticIcon {
+    val name = "lock"
+  }
+  case object Bookmark extends SemanticIcon {
+    val name = "bookmark"
+  }
+  case object Print extends SemanticIcon {
+    val name = "print"
+  }
+  case object Write extends SemanticIcon {
+    val name = "write"
+  }
+  case object Adjust extends SemanticIcon {
+    val name = "adjust"
+  }
+  case object Theme extends SemanticIcon {
+    val name = "theme"
+  }
+  case object Edit extends SemanticIcon {
+    val name = "edit"
+  }
+
+  case object ExternalShare extends SemanticIcon {
+    val name = "external share"
+  }
+  case object Ban extends SemanticIcon {
+    val name = "ban"
+  }
+  case object MailForward extends SemanticIcon {
+    val name = "mail forward"
+  }
+  case object Share extends SemanticIcon {
+    val name = "share"
+  }
+  case object Expand extends SemanticIcon {
+    val name = "expand"
+  }
+  case object Compress extends SemanticIcon {
+    val name = "compress"
+  }
+  case object Unhide extends SemanticIcon {
+    val name = "unhide"
+  }
+  case object Hide extends SemanticIcon {
+    val name = "hide"
+  }
+  case object Random extends SemanticIcon {
+    val name = "random"
+  }
+  case object Retweet extends SemanticIcon {
+    val name = "retweet"
+  }
+
+  case object SignOut extends SemanticIcon {
+    val name = "sign out"
+  }
+  case object Pin extends SemanticIcon {
+    val name = "pin"
+  }
+  case object SignIn extends SemanticIcon {
+    val name = "sign in"
+  }
+  case object Upload extends SemanticIcon {
+    val name = "upload"
+  }
+  case object Call extends SemanticIcon {
+    val name = "call"
+  }
+  case object RemoveBookmark extends SemanticIcon {
+    val name = "remove bookmark"
+  }
+  case object CallSquare extends SemanticIcon {
+    val name = "call square"
+  }
+  case object Unlock extends SemanticIcon {
+    val name = "unlock"
+  }
+  case object Configure extends SemanticIcon {
+    val name = "configure"
+  }
+
+  case object Filter extends SemanticIcon {
+    val name = "filter"
+  }
+  case object Wizard extends SemanticIcon {
+    val name = "wizard"
+  }
+  case object Undo extends SemanticIcon {
+    val name = "undo"
+  }
+  case object Exchange extends SemanticIcon {
+    val name = "exchange"
+  }
+  case object CloudDownload extends SemanticIcon {
+    val name = "cloud download"
+  }
+  case object CloudUpload extends SemanticIcon {
+    val name = "cloud upload"
+  }
+  case object Reply extends SemanticIcon {
+    val name = "reply"
+  }
+  case object ReplyAll extends SemanticIcon {
+    val name = "reply all"
+  }
+
+  case object Erase extends SemanticIcon {
+    val name = "erase"
+  }
+  case object UnlockAlternate extends SemanticIcon {
+    val name = "unlock alternate"
+  }
+  case object WriteSquare extends SemanticIcon {
+    val name = "write square"
+  }
+  case object ShareSquare extends SemanticIcon {
+    val name = "share square"
+  }
+  case object Archive extends SemanticIcon {
+    val name = "archive"
+  }
+  case object Translate extends SemanticIcon {
+    val name = "translate"
+  }
+  case object Recycle extends SemanticIcon {
+    val name = "recycle"
+  }
+  case object Send extends SemanticIcon {
+    val name = "send"
+  }
+
+  case object SendOutline extends SemanticIcon {
+    val name = "send outline"
+  }
+  case object ShareAlternate extends SemanticIcon {
+    val name = "share alternate"
+  }
+  case object ShareAlternateSquare extends SemanticIcon {
+    val name = "share alternate square"
+  }
+  case object AddToCart extends SemanticIcon {
+    val name = "add to cart"
+  }
+  case object InCart extends SemanticIcon {
+    val name = "in cart"
+  }
+  case object AddUser extends SemanticIcon {
+    val name = "add user"
+  }
+  case object RemoveUser extends SemanticIcon {
+    val name = "remove user"
+  }
 }
 
-case object Tag extends SemanticIcon {
-  val name = "tag"
-}
-case object Tags extends SemanticIcon {
-  val name = "tags"
-}
-case object Image extends SemanticIcon {
-  val name = "image"
-}
-case object Calendar extends SemanticIcon {
-  val name = "calendar"
-}
-case object Comment extends SemanticIcon {
-  val name = "comment"
-}
-case object Shop extends SemanticIcon {
-  val name = "shop"
-}
-case object Comments extends SemanticIcon {
-  val name = "comments"
-}
-case object External extends SemanticIcon {
-  val name = "external"
-}
-case object Privacy extends SemanticIcon {
-  val name = "privacy"
-}
-case object Settings extends SemanticIcon {
-  val name = "settings"
-}
-
-case object Trophy extends SemanticIcon {
-  val name = "trophy"
-}
-case object Payment extends SemanticIcon {
-  val name = "payment"
-}
-case object Feed extends SemanticIcon {
-  val name = "feed"
-}
-case object AlarmOutline extends SemanticIcon {
-  val name = "alarm outline"
-}
-case object Tasks extends SemanticIcon {
-  val name = "tasks"
-}
-case object Cloud extends SemanticIcon {
-  val name = "cloud"
-}
-case object Lab extends SemanticIcon {
-  val name = "lab"
-}
-case object Mail extends SemanticIcon {
-  val name = "mail"
-}
-case object Dashboard extends SemanticIcon {
-  val name = "dashboard"
-}
-case object CommentOutline extends SemanticIcon {
-  val name = "comment outline"
-}
-
-case object CommentsOutline extends SemanticIcon {
-  val name = "comments outline"
-}
-case object Sitemap extends SemanticIcon {
-  val name = "sitemap"
-}
-case object Idea extends SemanticIcon {
-  val name = "idea"
-}
-case object Alarm extends SemanticIcon {
-  val name = "alarm"
-}
-case object Terminal extends SemanticIcon {
-  val name = "terminal"
-}
-case object Code extends SemanticIcon {
-  val name = "code"
-}
-case object Protect extends SemanticIcon {
-  val name = "protect"
-}
-case object CalendarOutline extends SemanticIcon {
-  val name = "calendar outline"
-}
-case object Ticket extends SemanticIcon {
-  val name = "ticket"
-}
-
-case object ExternalSquare extends SemanticIcon {
-  val name = "external square"
-}
-case object Bug extends SemanticIcon {
-  val name = "bug"
-}
-case object MailSquare extends SemanticIcon {
-  val name = "mail square"
-}
-case object History extends SemanticIcon {
-  val name = "history"
-}
-case object Options extends SemanticIcon {
-  val name = "options"
-}
-case object TextTelephone extends SemanticIcon {
-  val name = "text telephone"
-}
-case object Find extends SemanticIcon {
-  val name = "find"
-}
-case object Wifi extends SemanticIcon {
-  val name = "wifi"
-}
-case object AlarmMute extends SemanticIcon {
-  val name = "alarm mute"
-}
-
-case object AlarmMuteOutline extends SemanticIcon {
-  val name = "alarm mute outline"
-}
-case object Copyright extends SemanticIcon {
-  val name = "copyright"
-}
-case object At extends SemanticIcon {
-  val name = "at"
-}
-case object Eyedropper extends SemanticIcon {
-  val name = "eyedropper"
-}
-case object PaintBrush extends SemanticIcon {
-  val name = "paint brush"
-}
-case object Heartbeat extends SemanticIcon {
-  val name = "heartbeat"
-}
-case object MousePointer extends SemanticIcon {
-  val name = "mouse pointer"
-}
-
-case object HourglassEmpty extends SemanticIcon {
-  val name = "hourglass empty"
-}
-case object HourglassStart extends SemanticIcon {
-  val name = "hourglass start"
-}
-case object HourglassHalf extends SemanticIcon {
-  val name = "hourglass half"
-}
-case object HourglassEnd extends SemanticIcon {
-  val name = "hourglass end"
-}
-case object HourglassFull extends SemanticIcon {
-  val name = "hourglass full"
-}
-case object HandPointer extends SemanticIcon {
-  val name = "hand pointer"
-}
-
-case object Trademark extends SemanticIcon {
-  val name = "trademark"
-}
-case object Registered extends SemanticIcon {
-  val name = "registered"
-}
-case object CreativeCommons extends SemanticIcon {
-  val name = "creative commons"
-}
-case object AddToCalendar extends SemanticIcon {
-  val name = "add to calendar"
-}
-case object RemoveFromCalendar extends SemanticIcon {
-  val name = "remove from calendar"
-}
-case object DeleteCalendar extends SemanticIcon {
-  val name = "delete calendar"
-}
-
-case object CheckedCalendar extends SemanticIcon {
-  val name = "checked calendar"
-}
-case object Industry extends SemanticIcon {
-  val name = "industry"
-}
-case object ShoppingBag extends SemanticIcon {
-  val name = "shopping bag"
-}
-case object ShoppingBasket extends SemanticIcon {
-  val name = "shopping basket"
-}
-case object Hashtag extends SemanticIcon {
-  val name = "hashtag"
-}
-case object Percent extends SemanticIcon {
-  val name = "percent"
-}
-case object AddressBook extends SemanticIcon {
-  val name = "address book"
-}
-
-case object AddressBookOutline extends SemanticIcon {
-  val name = "address book outline"
-}
-case object AddressCard extends SemanticIcon {
-  val name = "address card"
-}
-case object AddressCardOutline extends SemanticIcon {
-  val name = "address card outline"
-}
-case object IdBadge extends SemanticIcon {
-  val name = "id badge"
-}
-case object IdCard extends SemanticIcon {
-  val name = "id card"
-}
-case object IdCardOutline extends SemanticIcon {
-  val name = "id card outline"
-}
-
-case object Podcast extends SemanticIcon {
-  val name = "podcast"
-}
-case object WindowClose extends SemanticIcon {
-  val name = "window close"
-}
-case object WindowCloseOutline extends SemanticIcon {
-  val name = "window close outline"
-}
-case object WindowMaximize extends SemanticIcon {
-  val name = "window maximize"
-}
-case object WindowMinimize extends SemanticIcon {
-  val name = "window minimize"
-}
-case object WindowRestore extends SemanticIcon {
-  val name = "window restore"
-}
-
-case object Wait extends SemanticIcon {
-  val name = "wait"
-}
-case object Download extends SemanticIcon {
-  val name = "download"
-}
-case object Repeat extends SemanticIcon {
-  val name = "repeat"
-}
-case object Refresh extends SemanticIcon {
-  val name = "refresh"
-}
-case object Lock extends SemanticIcon {
-  val name = "lock"
-}
-case object Bookmark extends SemanticIcon {
-  val name = "bookmark"
-}
-case object Print extends SemanticIcon {
-  val name = "print"
-}
-case object Write extends SemanticIcon {
-  val name = "write"
-}
-case object Adjust extends SemanticIcon {
-  val name = "adjust"
-}
-case object Theme extends SemanticIcon {
-  val name = "theme"
-}
-case object Edit extends SemanticIcon {
-  val name = "edit"
-}
-
-case object ExternalShare extends SemanticIcon {
-  val name = "external share"
-}
-case object Ban extends SemanticIcon {
-  val name = "ban"
-}
-case object MailForward extends SemanticIcon {
-  val name = "mail forward"
-}
-case object Share extends SemanticIcon {
-  val name = "share"
-}
-case object Expand extends SemanticIcon {
-  val name = "expand"
-}
-case object Compress extends SemanticIcon {
-  val name = "compress"
-}
-case object Unhide extends SemanticIcon {
-  val name = "unhide"
-}
-case object Hide extends SemanticIcon {
-  val name = "hide"
-}
-case object Random extends SemanticIcon {
-  val name = "random"
-}
-case object Retweet extends SemanticIcon {
-  val name = "retweet"
-}
-
-case object SignOut extends SemanticIcon {
-  val name = "sign out"
-}
-case object Pin extends SemanticIcon {
-  val name = "pin"
-}
-case object SignIn extends SemanticIcon {
-  val name = "sign in"
-}
-case object Upload extends SemanticIcon {
-  val name = "upload"
-}
-case object Call extends SemanticIcon {
-  val name = "call"
-}
-case object RemoveBookmark extends SemanticIcon {
-  val name = "remove bookmark"
-}
-case object CallSquare extends SemanticIcon {
-  val name = "call square"
-}
-case object Unlock extends SemanticIcon {
-  val name = "unlock"
-}
-case object Configure extends SemanticIcon {
-  val name = "configure"
-}
-
-case object Filter extends SemanticIcon {
-  val name = "filter"
-}
-case object Wizard extends SemanticIcon {
-  val name = "wizard"
-}
-case object Undo extends SemanticIcon {
-  val name = "undo"
-}
-case object Exchange extends SemanticIcon {
-  val name = "exchange"
-}
-case object CloudDownload extends SemanticIcon {
-  val name = "cloud download"
-}
-case object CloudUpload extends SemanticIcon {
-  val name = "cloud upload"
-}
-case object Reply extends SemanticIcon {
-  val name = "reply"
-}
-case object ReplyAll extends SemanticIcon {
-  val name = "reply all"
-}
-
-case object Erase extends SemanticIcon {
-  val name = "erase"
-}
-case object UnlockAlternate extends SemanticIcon {
-  val name = "unlock alternate"
-}
-case object WriteSquare extends SemanticIcon {
-  val name = "write square"
-}
-case object ShareSquare extends SemanticIcon {
-  val name = "share square"
-}
-case object Archive extends SemanticIcon {
-  val name = "archive"
-}
-case object Translate extends SemanticIcon {
-  val name = "translate"
-}
-case object Recycle extends SemanticIcon {
-  val name = "recycle"
-}
-case object Send extends SemanticIcon {
-  val name = "send"
-}
-
-case object SendOutline extends SemanticIcon {
-  val name = "send outline"
-}
-case object ShareAlternate extends SemanticIcon {
-  val name = "share alternate"
-}
-case object ShareAlternateSquare extends SemanticIcon {
-  val name = "share alternate square"
-}
-case object AddToCart extends SemanticIcon {
-  val name = "add to cart"
-}
-case object InCart extends SemanticIcon {
-  val name = "in cart"
-}
-case object AddUser extends SemanticIcon {
-  val name = "add user"
-}
-case object RemoveUser extends SemanticIcon {
-  val name = "remove user"
-}
+package object icons extends SemanticIcons
 // 'object group' | 'object ungroup' | 'clone' | 'talk' | 'talk outline' | 'help circle' | 'info circle' |
 // 'warning circle' | 'warning sign' | 'announcement' | 'help' | 'info' | 'warning' | 'birthday' | 'help circle outline' |
 // 'user' | 'users' | 'doctor' | 'handicap' | 'student' | 'child' | 'spy' | 'user circle' | 'user circle outline' |

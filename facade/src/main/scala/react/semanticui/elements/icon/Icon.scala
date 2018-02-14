@@ -3,6 +3,7 @@ package react.semanticui.elements.icon
 import scala.scalajs.js
 import js.annotation._
 import react.semanticui._
+import react.semanticui.sizes._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Js.{RawMounted, UnmountedMapped}
 import japgolly.scalajs.react.internal.Effect.Id
@@ -52,7 +53,7 @@ object Icon {
     loading: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[SemanticICONS] = js.undefined,
     rotated: js.UndefOr[String] = js.undefined,
-    size: js.UndefOr[IconSizeProp] = js.undefined
+    size: js.UndefOr[SemanticSize] = js.undefined
   ): IconProps = {
     val p = (new js.Object).asInstanceOf[IconProps]
     p.as = as
@@ -69,7 +70,7 @@ object Icon {
     p.loading = loading
     p.name = name
     p.rotated = rotated
-    p.size = size
+    p.size = size.map(_.name)
     p
   }
 

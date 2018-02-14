@@ -2,9 +2,11 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.semanticui.elements.icon._
+import react.semanticui.icons._
+// import react.semanticui.sizes._
 
 object IconsComponent {
+  private val sampleIcons = Map("mail outline" -> MailOutline, "search" -> Search)
 
   private val component =
     ScalaComponent
@@ -49,14 +51,17 @@ object IconsComponent {
                       "Samples"
                     )
                   ),
-                  <.div(
-                    ^.cls := "column docs-icon-set-column",
-                    Icon(Icon.props(name = "mail outline", size = "big")),
-                    <.p(
-                      ^.cls := "name",
-                      "mail outline"
-                    )
-                  )
+                  sampleIcons.map {
+                    case (name, icon) =>
+                      <.div(
+                        ^.cls := "column docs-icon-set-column",
+                        icon,
+                        <.p(
+                          ^.cls := "name",
+                          name
+                        )
+                      ),
+                  }.toTagMod
                 )
               )
             )
