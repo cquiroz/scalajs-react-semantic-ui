@@ -57,10 +57,10 @@ lazy val demo =
         "html-webpack-plugin" -> "2.30.1",
         "copy-webpack-plugin" -> "4.4.1",
         "url-loader" -> "0.6.2",
-        "resolve-url-loader" -> "2.2.1",
         "style-loader" -> "0.18.2",
         "uglifyjs-webpack-plugin" -> "0.4.6",
-        "webpack-merge" -> "4.1.0"
+        "webpack-merge" -> "4.1.0",
+        "webpack-dev-server-status-bar" -> "1.0.0"
       ),
       npmDependencies in Compile            ++= Seq(
         "react"           -> reactJS,

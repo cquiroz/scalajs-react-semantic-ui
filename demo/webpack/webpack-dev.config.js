@@ -14,13 +14,15 @@ const ScalaJs = Merge(Common.ScalaJs, {
 console.log(__dirname);
 console.log(Common.rootDir);
 
+const isDevServer = process.argv.some(s => s.match(/webpack-dev-server\.js$/));
+
 const Web = Merge(Common.Web, {
   output: {
     path: __dirname,
     publicPath: "/"
   },
   entry: {
-    app: Path.resolve(Common.resourcesDir, "./dev.js")
+    app: [Path.resolve(Common.resourcesDir, "./dev.js")]
   },
   module: {
     noParse: function(content) {
@@ -59,4 +61,7 @@ const Web = Merge(Common.Web, {
   ]
 });
 
+if (isDevServer) {
+  Web.entry.app.push("webpack-dev-server-status-bar");
+}
 module.exports = Merge(ScalaJs, Web);
