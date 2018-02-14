@@ -47,7 +47,10 @@ object Layout {
               )
             )
           ),
-          p.r.render(),
+          <.div(
+            ^.cls := "body",
+            p.r.render()
+          ),
           <.div(
             ^.cls := "footer"
           )

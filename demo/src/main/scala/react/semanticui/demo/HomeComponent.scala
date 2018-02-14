@@ -2,7 +2,6 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.semanticui.elements.icon._
 
 object HomeComponent {
 
@@ -11,12 +10,33 @@ object HomeComponent {
       .builder[Unit]("Home")
       .render { _ =>
         <.div(
-          ^.cls := "body",
-          "ScalaJS React Semantic UI",
-          Icon(Icon.props(name = "browser"))
+          ^.cls := "ui container",
+          <.div(
+            ^.cls := "ui basic center aligned segment",
+            <.img(
+              ^.src := Logo.asInstanceOf[String],
+              ^.cls :="ui small centered image"
+            ),
+            <.h1(
+              ^.cls := "ui center aligned header",
+              "ScalaJS Semantic UI React"
+            )
+          ),
+          <.div(
+            ^.cls := "ui basic padded segment",
+            <.h2(
+              ^.cls := "ui dividing header",
+              "Introduction"),
+            <.p(
+              "ScalaJS Semantic UI React is a facade for ",
+              <.a(
+                ^.href := "https://react.semantic-ui.com",
+                "Semantic React UI"
+              )
+            )
+          )
         )
-      }
-      .build
+      }.build
 
   def apply() = component()
 }
