@@ -3,7 +3,7 @@ package react.semanticui.demo
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.icons._
-// import react.semanticui.sizes._
+import react.semanticui.sizes._
 
 object IconsComponent {
   private val sampleIcons = Map("mail outline" -> MailOutline, "search" -> Search)
@@ -55,7 +55,7 @@ object IconsComponent {
                     case (name, icon) =>
                       <.div(
                         ^.cls := "column docs-icon-set-column",
-                        icon,
+                        icon.withSize(Big),
                         <.p(
                           ^.cls := "name",
                           name

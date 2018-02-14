@@ -1,12 +1,15 @@
 package react.semanticui
 
 import react.semanticui.elements.icon.Icon
+import react.semanticui.sizes._
 
 trait SemanticIcons {
+  type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[japgolly.scalajs.react.internal.Effect.Id,Icon.IconProps,Null,japgolly.scalajs.react.component.Js.RawMounted,Icon.IconProps,Null]
   sealed trait SemanticIcon {
     val name: String
   }
-  val Search = Icon(Icon.props(name = "search"))
+
+  val Search: UnmountedIcon = Icon(Icon.props(name = "search"))
   val MailOutline = Icon(Icon.props(name = "mail outline"))
   val Signal = Icon(Icon.props(name = "signal"))
   val Setting = Icon(Icon.props(name = "setting"))
@@ -418,7 +421,45 @@ trait SemanticIcons {
   }
 }
 
-package object icons extends SemanticIcons
+package object icons extends SemanticIcons {
+  implicit class CopyIconOps(val i: UnmountedIcon) extends AnyVal {
+    def copy: UnmountedIcon =
+      Icon(Icon.rawprops(
+        as = i.props.as,
+        bordered = i.props.bordered,
+        circular = i.props.circular,
+        className = i.props.className,
+        color = i.props.color,
+        corner = i.props.corner,
+        disabled = i.props.disabled,
+        fitted = i.props.fitted,
+        flipped = i.props.flipped,
+        inverted = i.props.inverted,
+        link = i.props.link,
+        loading = i.props.loading,
+        name = i.props.name,
+        rotated = i.props.rotated,
+        size = i.props.size))
+
+    def withSize(s: SemanticSize): UnmountedIcon =
+      Icon(Icon.rawprops(
+        as = i.props.as,
+        bordered = i.props.bordered,
+        circular = i.props.circular,
+        className = i.props.className,
+        color = i.props.color,
+        corner = i.props.corner,
+        disabled = i.props.disabled,
+        fitted = i.props.fitted,
+        flipped = i.props.flipped,
+        inverted = i.props.inverted,
+        link = i.props.link,
+        loading = i.props.loading,
+        name = i.props.name,
+        rotated = i.props.rotated,
+        size = s.name))
+  }
+}
 // 'object group' | 'object ungroup' | 'clone' | 'talk' | 'talk outline' | 'help circle' | 'info circle' |
 // 'warning circle' | 'warning sign' | 'announcement' | 'help' | 'info' | 'warning' | 'birthday' | 'help circle outline' |
 // 'user' | 'users' | 'doctor' | 'handicap' | 'student' | 'child' | 'spy' | 'user circle' | 'user circle outline' |

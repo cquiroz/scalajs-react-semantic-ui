@@ -74,6 +74,42 @@ object Icon {
     p
   }
 
+  private[semanticui] def rawprops(
+    as: js.UndefOr[js.Any] = js.undefined,
+    bordered: js.UndefOr[Boolean] = js.undefined,
+    circular: js.UndefOr[Boolean] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    color: js.UndefOr[SemanticCOLORS] = js.undefined,
+    corner: js.UndefOr[Boolean] = js.undefined,
+    disabled: js.UndefOr[Boolean] = js.undefined,
+    fitted: js.UndefOr[Boolean] = js.undefined,
+    flipped: js.UndefOr[String] = js.undefined,
+    inverted: js.UndefOr[Boolean] = js.undefined,
+    link: js.UndefOr[Boolean] = js.undefined,
+    loading: js.UndefOr[Boolean] = js.undefined,
+    name: js.UndefOr[SemanticICONS] = js.undefined,
+    rotated: js.UndefOr[String] = js.undefined,
+    size: js.UndefOr[IconSizeProp] = js.undefined
+  ): IconProps = {
+    val p = (new js.Object).asInstanceOf[IconProps]
+    p.as = as
+    p.bordered = bordered
+    p.circular = circular
+    p.className = className
+    p.color = color
+    p.corner = corner
+    p.disabled = disabled
+    p.fitted = fitted
+    p.flipped = flipped
+    p.inverted = inverted
+    p.link = link
+    p.loading = loading
+    p.name = name
+    p.rotated = rotated
+    p.size = size
+    p
+  }
+
   private val component = JsComponent[IconProps, Children.Varargs, Null](RawComponent)
 
   def apply(p: IconProps, children: VdomNode*): UnmountedMapped[Id, IconProps, Null, RawMounted, IconProps, Null] = component(p)(children: _*)
