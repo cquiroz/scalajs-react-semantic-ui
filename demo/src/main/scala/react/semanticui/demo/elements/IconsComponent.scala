@@ -51,7 +51,7 @@ object IconsComponent {
                   ),
                   <.div(
                     ^.cls := "column docs-icon-set-column",
-                    Icon(Icon.props(name = "mail outline")),
+                    Icon(Icon.props(name = "mail outline", size = "big")),
                     <.p(
                       ^.cls := "name",
                       "mail outline"

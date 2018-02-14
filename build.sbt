@@ -83,16 +83,17 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name                            := "scalajs-react-semantic-ui",
+      version in webpack                     := "3.5.5",
+      version in startWebpackDevServer       := "2.7.1",
       // Requires the DOM for tests
       requiresDOM in Test             := true,
       // Compile tests to JS using fast-optimisation
-      scalaJSStage in Test            := FastOptStage,
+      // scalaJSStage in Test            := FastOptStage,
       npmDependencies in Compile     ++= Seq(
         "react"             -> reactJS,
         "react-dom"         -> reactJS,
         "semantic-ui-react" -> reactSUI
       ),
-      // webpackConfigFile in Test := Some(baseDirectory.value / "test.webpack.config.js"),
       libraryDependencies            ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
@@ -100,6 +101,7 @@ lazy val facade =
         "com.lihaoyi"                       %%% "utest"      % "0.6.0" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.0.1" % Test
       ),
+      webpackConfigFile in Test       := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks                  += new TestFramework("utest.runner.Framework")
     )
 
