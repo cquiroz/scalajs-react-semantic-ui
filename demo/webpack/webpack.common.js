@@ -7,34 +7,7 @@ const generatedConfig = require("./scalajs.webpack.config");
 const rootDir = Path.resolve(__dirname, "../../../..");
 const resourcesDir = Path.resolve(rootDir, "src/main/resources");
 
-const ScalaJs = Merge(generatedConfig, {
-  resolve: {
-    alias: {
-      resources: resourcesDir
-    }
-  },
-  module: {
-    rules: [
-      // {
-      //   test: /\.png$/,
-      //   loader: "file-loader",
-      //   options: {
-      //     name: "[name].[hash].[ext]"
-      //   }
-      // }
-      // this handles .less translation
-      /*{
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ["css-loader", "less-loader"]
-        }),
-        test: /\.less$/
-      }*/
-    ]
-  }
-});
-
-const Web = {
+const Web = Merge(generatedConfig, {
   devtool: "source-map",
   resolve: {
     alias: {
@@ -43,11 +16,7 @@ const Web = {
       root: __dirname,
       "../../theme.config$": Path.join(resourcesDir, "theme/theme.config")
     },
-    modules: [
-      Path.resolve(__dirname, "node_modules"),
-      resourcesDir,
-      "node_modules"
-    ]
+    modules: [Path.resolve(__dirname, "node_modules"), resourcesDir]
   },
   module: {
     rules: [
@@ -69,11 +38,10 @@ const Web = {
       filename: "[name].[contenthash].css"
     })
   ]
-};
+});
 
 module.exports = {
   rootDir: rootDir,
   resourcesDir: resourcesDir,
-  Web: Web,
-  ScalaJs: ScalaJs
+  Web: Web
 };

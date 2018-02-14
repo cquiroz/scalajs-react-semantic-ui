@@ -5,12 +5,6 @@ const Merge = require("webpack-merge");
 
 const Common = require("./webpack.common.js");
 
-const ScalaJs = Merge(Common.ScalaJs, {
-  output: {
-    publicPath: "/"
-  }
-});
-
 console.log(__dirname);
 console.log(Common.rootDir);
 
@@ -64,4 +58,4 @@ const Web = Merge(Common.Web, {
 if (isDevServer) {
   Web.entry.app.push("webpack-dev-server-status-bar");
 }
-module.exports = Merge(ScalaJs, Web);
+module.exports = Web;
