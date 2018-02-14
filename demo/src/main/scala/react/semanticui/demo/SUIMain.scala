@@ -20,8 +20,12 @@ object SUiMain {
   }
 }
 
+sealed trait ElementItem
+case object IconsElement extends ElementItem
+
 sealed trait Page
 case object Home extends Page
+case class Element(e: ElementItem) extends Page
 
 object Routing {
   val config: RouterConfig[Page] = RouterConfigDsl[Page].buildConfig { dsl =>
@@ -30,13 +34,11 @@ object Routing {
     (
       trimSlashes
         | staticRoute(root, Home) ~>
-          renderR(renderDemoDefault)
+          render(HomeComponent.apply)
     ).notFound(redirectToPage(Home)(Redirect.Replace))
-      .renderWith((page, router) => layout(page, router))
+      .renderWith(layout)
+      .logToConsole
   }
 
-  private def renderDemoDefault(router: RouterCtl[Page]): VdomElement =
-    Demo()
-
-  private def layout(c: RouterCtl[Page], r: Resolution[Page]) = r.render()
+  private def layout(c: RouterCtl[Page], r: Resolution[Page]) = Layout(Layout.Props(c, r))
 }

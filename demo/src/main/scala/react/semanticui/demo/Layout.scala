@@ -2,6 +2,7 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
+import japgolly.scalajs.react.extra.router._
 import scala.scalajs.js
 import js.annotation._
 
@@ -9,12 +10,13 @@ import js.annotation._
 @js.native
 object Logo extends js.Object
 
-object Demo {
+object Layout {
+  final case class Props(c: RouterCtl[Page], r: Resolution[Page])
 
   private val component =
     ScalaComponent
-      .builder[Unit]("Demo")
-      .render { _ =>
+      .builder[Props]("Demo")
+      .render_P { p =>
         <.div(
           ^.cls := "app",
           <.div(
@@ -45,10 +47,7 @@ object Demo {
               )
             )
           ),
-          <.div(
-            ^.cls := "body",
-            "ScalaJS React Semantic UI"
-          ),
+          p.r.render(),
           <.div(
             ^.cls := "footer"
           )
@@ -56,5 +55,5 @@ object Demo {
       }
       .build
 
-  def apply() = component()
+  def apply(p: Props) = component(p)
 }
