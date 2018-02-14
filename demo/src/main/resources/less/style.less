@@ -12,10 +12,7 @@ body {
 }
 
 .app > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
+  margin-left: 1em;
 }
 
 .app {
@@ -31,7 +28,7 @@ body {
     "f f f f f f f f f f f f";
 }
 
-.menu {
+.appmenu {
   grid-area: m;
   // position: "fixed";
   // top: 0;
@@ -53,4 +50,13 @@ body {
 .footer {
   grid-area: f;
   background-color: #1b1c1d;
+}
+
+.docs-icon-set-column {
+  cursor: pointer;
+  .name {
+    display: block;
+    margin: 1em 0;
+    color: #777;
+  }
 }

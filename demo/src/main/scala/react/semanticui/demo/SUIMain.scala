@@ -24,8 +24,8 @@ sealed trait ElementItem
 case object IconsElement extends ElementItem
 
 sealed trait Page
-case object Home extends Page
-case class Element(e: ElementItem) extends Page
+case object HomePage extends Page
+final case class ElementPage(e: ElementItem) extends Page
 
 object Routing {
   val config: RouterConfig[Page] = RouterConfigDsl[Page].buildConfig { dsl =>
@@ -33,9 +33,11 @@ object Routing {
 
     (
       trimSlashes
-        | staticRoute(root, Home) ~>
+        | staticRoute(root, HomePage) ~>
           render(HomeComponent.apply)
-    ).notFound(redirectToPage(Home)(Redirect.Replace))
+        | staticRoute("elements/icons", ElementPage(IconsElement)) ~>
+          render(IconsComponent.apply)
+    ).notFound(redirectToPage(HomePage)(Redirect.Replace))
       .renderWith(layout)
       .logToConsole
   }

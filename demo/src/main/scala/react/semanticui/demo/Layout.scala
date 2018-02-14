@@ -20,7 +20,7 @@ object Layout {
         <.div(
           ^.cls := "app",
           <.div(
-            ^.cls := "menu",
+            ^.cls := "appmenu",
             ^.cls := "ui inverted vertical left fixed menu",
             <.div(
               ^.cls := "item",
@@ -42,8 +42,8 @@ object Layout {
                 "Elements"
               ),
               <.div(
-                ^.cls := "item",
-                "Icons"
+                ^.cls := "menu",
+                p.c.link(ElementPage(IconsElement))("Icons", ^.cls := "item")
               )
             )
           ),
