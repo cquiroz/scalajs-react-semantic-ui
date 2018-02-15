@@ -27,8 +27,13 @@ object IconTests extends TestSuite {
     'size - {
       val icon = Icon(Icon.props(size = Big, name = "edit"))
       ReactTestUtils.withRenderedIntoDocument(icon) { m =>
-        println(m.outerHtmlScrubbed)
         assert(m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit big icon"></i>""")
+      }
+    }
+    'flipped - {
+      val icon = Icon(Icon.props(flipped = Horizontally, name = "edit"))
+      ReactTestUtils.withRenderedIntoDocument(icon) { m =>
+        assert(m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit horizontally flipped icon"></i>""")
       }
     }
   }

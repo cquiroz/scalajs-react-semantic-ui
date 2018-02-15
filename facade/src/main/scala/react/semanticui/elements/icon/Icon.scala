@@ -9,6 +9,16 @@ import japgolly.scalajs.react.component.Js.{RawMounted, UnmountedMapped}
 import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 
+sealed trait IconFlip {
+  val value: String
+}
+case object Horizontally extends IconFlip {
+  val value = "horizontally"
+}
+case object Vertically extends IconFlip {
+  val value = "vertically"
+}
+
 object Icon {
 
   @js.native
@@ -47,7 +57,7 @@ object Icon {
     corner: js.UndefOr[Boolean] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     fitted: js.UndefOr[Boolean] = js.undefined,
-    flipped: js.UndefOr[String] = js.undefined,
+    flipped: js.UndefOr[IconFlip] = js.undefined,
     inverted: js.UndefOr[Boolean] = js.undefined,
     link: js.UndefOr[Boolean] = js.undefined,
     loading: js.UndefOr[Boolean] = js.undefined,
@@ -64,7 +74,7 @@ object Icon {
     p.corner = corner
     p.disabled = disabled
     p.fitted = fitted
-    p.flipped = flipped
+    p.flipped = flipped.map(_.value)
     p.inverted = inverted
     p.link = link
     p.loading = loading

@@ -2,7 +2,7 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.semanticui.icons._
+import react.semanticui.elements.icon._
 import react.semanticui.sizes._
 import react.semanticui.sizes
 
@@ -91,6 +91,37 @@ object IconsComponent {
                         <.p(
                           ^.cls := "name",
                           s.name
+                        )
+                      ),
+                  }.toTagMod
+                )
+              )
+            )
+          ),
+          <.div(
+            ^.cls := "equal width row",
+            <.div(
+              ^.cls := "ui padded one column grid",
+              <.div(
+                ^.cls := "column",
+                <.h2(
+                  ^.cls := "ui header",
+                   "Flipped"
+                ),
+                <.p("An icon can be flipped")
+              ),
+              <.div(
+                ^.cls := "center aligned column",
+                <.div(
+                  ^.cls := "ui doubling five column grid",
+                  List(Horizontally, Vertically).map {
+                    case o =>
+                      <.div(
+                        ^.cls := "column docs-icon-set-column",
+                        CloudUpload.flipped(o),
+                        <.p(
+                          ^.cls := "name",
+                          o.value
                         )
                       ),
                   }.toTagMod
