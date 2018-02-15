@@ -80,7 +80,7 @@ object Icon {
     p.loading = loading
     p.name = name
     p.rotated = rotated
-    p.size = size.map(_.name)
+    p.size = size.map(_.value)
     p
   }
 

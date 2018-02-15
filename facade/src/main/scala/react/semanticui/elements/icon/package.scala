@@ -38,7 +38,7 @@ package object icon extends SemanticIcons {
         loading = i.props.loading,
         name = i.props.name,
         rotated = i.props.rotated,
-        size = if (s == Medium) "" else s.name))
+        size = if (s == Medium) "" else s.value))
 
     def flipped(s: IconFlip): UnmountedIcon =
       Icon(Icon.rawprops(

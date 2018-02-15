@@ -90,7 +90,7 @@ object IconsComponent {
                         Feed.withSize(s),
                         <.p(
                           ^.cls := "name",
-                          s.name
+                          s.value
                         )
                       ),
                   }.toTagMod

@@ -2,31 +2,31 @@ package react.semanticui
 
 trait SemanticSizes {
   sealed trait SemanticSize {
-    val name: String
+    val value: String
   }
   case object Mini extends SemanticSize {
-    val name = "mini"
+    val value = "mini"
   }
   case object Tiny extends SemanticSize {
-    val name = "tiny"
+    val value = "tiny"
   }
   case object Small extends SemanticSize {
-    val name = "small"
+    val value = "small"
   }
   case object Medium extends SemanticSize {
-    val name = "medium"
+    val value = "medium"
   }
   case object Large extends SemanticSize {
-    val name = "large"
+    val value = "large"
   }
   case object Big extends SemanticSize {
-    val name = "big"
+    val value = "big"
   }
   case object Huge extends SemanticSize {
-    val name = "huge"
+    val value = "huge"
   }
   case object Massive extends SemanticSize {
-    val name = "massive"
+    val value = "massive"
   }
 }
 
