@@ -1,6 +1,7 @@
 package react.semanticui.elements.icon
 
-trait SemanticIcons {
+// Split the icon definitions to avoid clashes on the amount of code
+trait SemanticIconsWeb {
 
   val Search: UnmountedIcon      = Icon(Icon.props(name = "search"))
   val MailOutline: UnmountedIcon = Icon(Icon.props(name = "mail outline"))
@@ -95,7 +96,9 @@ trait SemanticIcons {
   val WindowMaximize: UnmountedIcon     = Icon(Icon.props(name = "window maximize"))
   val WindowMinimize: UnmountedIcon     = Icon(Icon.props(name = "window minimize"))
   val WindowRestore: UnmountedIcon      = Icon(Icon.props(name = "window restore"))
+}
 
+trait SemanticIconsUser {
   val Wait: UnmountedIcon     = Icon(Icon.props(name = "wait"))
   val Download: UnmountedIcon = Icon(Icon.props(name = "download"))
   val Repeat: UnmountedIcon   = Icon(Icon.props(name = "repeat"))
@@ -159,27 +162,36 @@ trait SemanticIcons {
   val Clone: UnmountedIcon                = Icon(Icon.props(name = "clone"))
   val Talk: UnmountedIcon                 = Icon(Icon.props(name = "talk"))
   val TalkOutline: UnmountedIcon          = Icon(Icon.props(name = "talk outline"))
-  val HelpCircle: UnmountedIcon           = Icon(Icon.props(name = "help circle"))
-  val InfoCircle: UnmountedIcon           = Icon(Icon.props(name = "info circle"))
-  val WarningCircle: UnmountedIcon        = Icon(Icon.props(name = "warning circle"))
-  val WarningSign: UnmountedIcon          = Icon(Icon.props(name = "warning sign"))
-  val Announcement: UnmountedIcon         = Icon(Icon.props(name = "announcement"))
-  val Help: UnmountedIcon                 = Icon(Icon.props(name = "help"))
-  val Info: UnmountedIcon                 = Icon(Icon.props(name = "info"))
-  val Warning: UnmountedIcon              = Icon(Icon.props(name = "warning"))
-  val Birthday: UnmountedIcon             = Icon(Icon.props(name = "birthday"))
-  val HelpCircleOutline: UnmountedIcon    = Icon(Icon.props(name = "help circle outline"))
-  val User: UnmountedIcon                 = Icon(Icon.props(name = "user"))
-  val Users: UnmountedIcon                = Icon(Icon.props(name = "users"))
+}
 
-  val Doctor: UnmountedIcon                = Icon(Icon.props(name = "doctor"))
-  val Handicap: UnmountedIcon              = Icon(Icon.props(name = "handicap"))
-  val Student: UnmountedIcon               = Icon(Icon.props(name = "student"))
-  val Child: UnmountedIcon                 = Icon(Icon.props(name = "child"))
-  val Spy: UnmountedIcon                   = Icon(Icon.props(name = "spy"))
-  val UserCircle: UnmountedIcon            = Icon(Icon.props(name = "user circle"))
-  val UserCircleOutline: UnmountedIcon     = Icon(Icon.props(name = "user circle outline"))
-  val UserOutline: UnmountedIcon           = Icon(Icon.props(name = "user outline"))
+trait SemanticIconsMessages {
+  val HelpCircle: UnmountedIcon        = Icon(Icon.props(name = "help circle"))
+  val InfoCircle: UnmountedIcon        = Icon(Icon.props(name = "info circle"))
+  val WarningCircle: UnmountedIcon     = Icon(Icon.props(name = "warning circle"))
+  val WarningSign: UnmountedIcon       = Icon(Icon.props(name = "warning sign"))
+  val Announcement: UnmountedIcon      = Icon(Icon.props(name = "announcement"))
+  val Help: UnmountedIcon              = Icon(Icon.props(name = "help"))
+  val Info: UnmountedIcon              = Icon(Icon.props(name = "info"))
+  val Warning: UnmountedIcon           = Icon(Icon.props(name = "warning"))
+  val Birthday: UnmountedIcon          = Icon(Icon.props(name = "birthday"))
+  val HelpCircleOutline: UnmountedIcon = Icon(Icon.props(name = "help circle outline"))
+}
+
+trait SemanticIconsUsers {
+  val User: UnmountedIcon  = Icon(Icon.props(name = "user"))
+  val Users: UnmountedIcon = Icon(Icon.props(name = "users"))
+
+  val Doctor: UnmountedIcon            = Icon(Icon.props(name = "doctor"))
+  val Handicap: UnmountedIcon          = Icon(Icon.props(name = "handicap"))
+  val Student: UnmountedIcon           = Icon(Icon.props(name = "student"))
+  val Child: UnmountedIcon             = Icon(Icon.props(name = "child"))
+  val Spy: UnmountedIcon               = Icon(Icon.props(name = "spy"))
+  val UserCircle: UnmountedIcon        = Icon(Icon.props(name = "user circle"))
+  val UserCircleOutline: UnmountedIcon = Icon(Icon.props(name = "user circle outline"))
+  val UserOutline: UnmountedIcon       = Icon(Icon.props(name = "user outline"))
+}
+
+trait SemanticIconsGender {
   val Female: UnmountedIcon                = Icon(Icon.props(name = "female"))
   val Male: UnmountedIcon                  = Icon(Icon.props(name = "male"))
   val Woman: UnmountedIcon                 = Icon(Icon.props(name = "woman"))
@@ -195,27 +207,37 @@ trait SemanticIcons {
   val OtherGenderHorizontal: UnmountedIcon = Icon(Icon.props(name = "other gender horizontal"))
   val Neuter: UnmountedIcon                = Icon(Icon.props(name = "neuter"))
   val Genderless: UnmountedIcon            = Icon(Icon.props(name = "genderless"))
-  val UniversalAccess: UnmountedIcon       = Icon(Icon.props(name = "universal access"))
-  val Wheelchair: UnmountedIcon            = Icon(Icon.props(name = "wheelchair"))
-  val Blind: UnmountedIcon                 = Icon(Icon.props(name = "blind"))
-  val AudioDescription: UnmountedIcon      = Icon(Icon.props(name = "audio description"))
-  val VolumeControlPhone: UnmountedIcon    = Icon(Icon.props(name = "volume control phone"))
-  val Braille: UnmountedIcon               = Icon(Icon.props(name = "braille"))
-  val Asl: UnmountedIcon                   = Icon(Icon.props(name = "asl"))
+}
+
+trait SemanticIconsAccessibility {
+
+  val UniversalAccess: UnmountedIcon    = Icon(Icon.props(name = "universal access"))
+  val Wheelchair: UnmountedIcon         = Icon(Icon.props(name = "wheelchair"))
+  val Blind: UnmountedIcon              = Icon(Icon.props(name = "blind"))
+  val AudioDescription: UnmountedIcon   = Icon(Icon.props(name = "audio description"))
+  val VolumeControlPhone: UnmountedIcon = Icon(Icon.props(name = "volume control phone"))
+  val Braille: UnmountedIcon            = Icon(Icon.props(name = "braille"))
+  val Asl: UnmountedIcon                = Icon(Icon.props(name = "asl"))
   val AssistiveListeningSystems: UnmountedIcon = Icon(
     Icon.props(name = "assistive listening systems"))
-  val Deafness: UnmountedIcon           = Icon(Icon.props(name = "deafness"))
-  val SignLanguage: UnmountedIcon       = Icon(Icon.props(name = "sign language"))
-  val LowVision: UnmountedIcon          = Icon(Icon.props(name = "low vision"))
-  val BlockLayout: UnmountedIcon        = Icon(Icon.props(name = "block layout"))
-  val GridLayout: UnmountedIcon         = Icon(Icon.props(name = "grid layout"))
-  val ListLayout: UnmountedIcon         = Icon(Icon.props(name = "list layout"))
-  val Zoom: UnmountedIcon               = Icon(Icon.props(name = "zoom"))
-  val ZoomOut: UnmountedIcon            = Icon(Icon.props(name = "zoom out"))
-  val ResizeVertical: UnmountedIcon     = Icon(Icon.props(name = "resize vertical"))
-  val ResizeHorizontal: UnmountedIcon   = Icon(Icon.props(name = "resize horizontal"))
-  val Maximize: UnmountedIcon           = Icon(Icon.props(name = "maximize"))
-  val Crop: UnmountedIcon               = Icon(Icon.props(name = "crop"))
+  val Deafness: UnmountedIcon     = Icon(Icon.props(name = "deafness"))
+  val SignLanguage: UnmountedIcon = Icon(Icon.props(name = "sign language"))
+  val LowVision: UnmountedIcon    = Icon(Icon.props(name = "low vision"))
+}
+
+trait SemanticIconsView {
+  val BlockLayout: UnmountedIcon      = Icon(Icon.props(name = "block layout"))
+  val GridLayout: UnmountedIcon       = Icon(Icon.props(name = "grid layout"))
+  val ListLayout: UnmountedIcon       = Icon(Icon.props(name = "list layout"))
+  val Zoom: UnmountedIcon             = Icon(Icon.props(name = "zoom"))
+  val ZoomOut: UnmountedIcon          = Icon(Icon.props(name = "zoom out"))
+  val ResizeVertical: UnmountedIcon   = Icon(Icon.props(name = "resize vertical"))
+  val ResizeHorizontal: UnmountedIcon = Icon(Icon.props(name = "resize horizontal"))
+  val Maximize: UnmountedIcon         = Icon(Icon.props(name = "maximize"))
+  val Crop: UnmountedIcon             = Icon(Icon.props(name = "crop"))
+}
+
+trait SemanticIconsLiteral {
   val Cocktail: UnmountedIcon           = Icon(Icon.props(name = "cocktail"))
   val Road: UnmountedIcon               = Icon(Icon.props(name = "road"))
   val Flag: UnmountedIcon               = Icon(Icon.props(name = "flag"))
@@ -267,8 +289,11 @@ trait SemanticIcons {
   val ThermometerQuarter: UnmountedIcon = Icon(Icon.props(name = "thermometer quarter"))
   val ThermometerThreeQuarters: UnmountedIcon = Icon(
     Icon.props(name = "thermometer three quarters"))
-  val Bath: UnmountedIcon               = Icon(Icon.props(name = "bath"))
-  val SnowflakeOutline: UnmountedIcon   = Icon(Icon.props(name = "snowflake outline"))
+  val Bath: UnmountedIcon             = Icon(Icon.props(name = "bath"))
+  val SnowflakeOutline: UnmountedIcon = Icon(Icon.props(name = "snowflake outline"))
+}
+
+trait SemanticIconsShapes {
   val Crosshairs: UnmountedIcon         = Icon(Icon.props(name = "crosshairs"))
   val Asterisk: UnmountedIcon           = Icon(Icon.props(name = "asterisk"))
   val SquareOutline: UnmountedIcon      = Icon(Icon.props(name = "square outline"))
@@ -284,66 +309,91 @@ trait SemanticIcons {
   val Cubes: UnmountedIcon              = Icon(Icon.props(name = "cubes"))
   val CircleNotched: UnmountedIcon      = Icon(Icon.props(name = "circle notched"))
   val CircleThin: UnmountedIcon         = Icon(Icon.props(name = "circle thin"))
-  val Checkmark: UnmountedIcon          = Icon(Icon.props(name = "checkmark"))
-  val Remove: UnmountedIcon             = Icon(Icon.props(name = "remove"))
-  val CheckmarkBox: UnmountedIcon       = Icon(Icon.props(name = "checkmark box"))
-  val Move: UnmountedIcon               = Icon(Icon.props(name = "move"))
-// val AddCircle: UnmountedIcon = Icon(Icon.props(name = "add circle"))
-// val MinusCircle: UnmountedIcon = Icon(Icon.props(name = "minus circle"))
-// val RemoveCircle: UnmountedIcon = Icon(Icon.props(name = "remove circle"))
-// val CheckCircle: UnmountedIcon = Icon(Icon.props(name = "check circle"))
-// val RemoveCircleOutline: UnmountedIcon = Icon(Icon.props(name = "remove circle outline"))
-// val CheckCircleOutline: UnmountedIcon = Icon(Icon.props(name = "check circle outline"))
-// val Plus: UnmountedIcon = Icon(Icon.props(name = "plus"))
-// val Minus: UnmountedIcon = Icon(Icon.props(name = "minus"))
-// val AddSquare: UnmountedIcon = Icon(Icon.props(name = "add square"))
-// val Radio: UnmountedIcon = Icon(Icon.props(name = "radio"))
-// val MinusSquare: UnmountedIcon = Icon(Icon.props(name = "minus square"))
-// val MinusSquareOutline: UnmountedIcon = Icon(Icon.props(name = "minus square outline"))
-// val CheckSquare: UnmountedIcon = Icon(Icon.props(name = "check square"))
-// val SelectedRadio: UnmountedIcon = Icon(Icon.props(name = "selected radio"))
-// val PlusSquareOutline: UnmountedIcon = Icon(Icon.props(name = "plus square outline"))
-// val ToggleOff: UnmountedIcon = Icon(Icon.props(name = "toggle off"))
-// val ToggleOn: UnmountedIcon = Icon(Icon.props(name = "toggle on"))
-// val Film: UnmountedIcon = Icon(Icon.props(name = "film"))
-// val Sound: UnmountedIcon = Icon(Icon.props(name = "sound"))
-// val Photo: UnmountedIcon = Icon(Icon.props(name = "photo"))
-// val BarChart: UnmountedIcon = Icon(Icon.props(name = "bar chart"))
-// val CameraRetro: UnmountedIcon = Icon(Icon.props(name = "camera retro"))
-// val Newspaper: UnmountedIcon = Icon(Icon.props(name = "newspaper"))
-// val AreaChart: UnmountedIcon = Icon(Icon.props(name = "area chart"))
-// val PieChart: UnmountedIcon = Icon(Icon.props(name = "pie chart"))
-// val LineChart: UnmountedIcon = Icon(Icon.props(name = "line chart"))
-// val ArrowCircleOutlineDown: UnmountedIcon = Icon(Icon.props(name = "arrow circle outline down"))
-// val ArrowCircleOutlineUp: UnmountedIcon = Icon(Icon.props(name = "arrow circle outline up"))
-// val ChevronLeft: UnmountedIcon = Icon(Icon.props(name = "chevron left"))
-// val ChevronRight: UnmountedIcon = Icon(Icon.props(name = "chevron right"))
-// val ArrowLeft: UnmountedIcon = Icon(Icon.props(name = "arrow left"))
-// val ArrowRight: UnmountedIcon = Icon(Icon.props(name = "arrow right"))
-// val ArrowUp: UnmountedIcon = Icon(Icon.props(name = "arrow up"))
-// val ArrowDown: UnmountedIcon = Icon(Icon.props(name = "arrow down"))
-// val ChevronUp: UnmountedIcon = Icon(Icon.props(name = "chevron up"))
-// val ChevronDown: UnmountedIcon = Icon(Icon.props(name = "chevron down"))
-// val PointingRight: UnmountedIcon = Icon(Icon.props(name = "pointing right"))
-// val PointingLeft: UnmountedIcon = Icon(Icon.props(name = "pointing left"))
-// val PointingUp: UnmountedIcon = Icon(Icon.props(name = "pointing up"))
-// val PointingDown: UnmountedIcon = Icon(Icon.props(name = "pointing down"))
-// val ArrowCircleLeft: UnmountedIcon = Icon(Icon.props(name = "arrow circle left"))
-// val ArrowCircleRight: UnmountedIcon = Icon(Icon.props(name = "arrow circle right"))
-// val ArrowCircleUp: UnmountedIcon = Icon(Icon.props(name = "arrow circle up"))
-// val ArrowCircleDown: UnmountedIcon = Icon(Icon.props(name = "arrow circle down"))
-// val CaretDown: UnmountedIcon = Icon(Icon.props(name = "caret down"))
-// val CaretUp: UnmountedIcon = Icon(Icon.props(name = "caret up"))
-// val CaretLeft: UnmountedIcon = Icon(Icon.props(name = "caret left"))
-// val CaretRight: UnmountedIcon = Icon(Icon.props(name = "caret right"))
-// val AngleDoubleLeft: UnmountedIcon = Icon(Icon.props(name = "angle double left"))
-// val AngleDoubleRight: UnmountedIcon = Icon(Icon.props(name = "angle double right"))
-// val AngleDoubleUp: UnmountedIcon = Icon(Icon.props(name = "angle double up"))
 }
-// 'angle double down' | 'angle left' | 'angle right' | 'angle up' | 'angle down' | 'chevron circle left' |
-// 'chevron circle right' | 'chevron circle up' | 'chevron circle down' | 'toggle down' | 'toggle up' |
-// 'toggle right' | 'long arrow down' | 'long arrow up' | 'long arrow left' | 'long arrow right' |
-// 'arrow circle outline right' | 'arrow circle outline left' | 'toggle left' | 'tablet' | 'mobile' | 'battery full' |
+
+trait SemanticIconsSelection {
+  val Checkmark: UnmountedIcon           = Icon(Icon.props(name = "checkmark"))
+  val Remove: UnmountedIcon              = Icon(Icon.props(name = "remove"))
+  val CheckmarkBox: UnmountedIcon        = Icon(Icon.props(name = "checkmark box"))
+  val Move: UnmountedIcon                = Icon(Icon.props(name = "move"))
+  val AddCircle: UnmountedIcon           = Icon(Icon.props(name = "add circle"))
+  val MinusCircle: UnmountedIcon         = Icon(Icon.props(name = "minus circle"))
+  val RemoveCircle: UnmountedIcon        = Icon(Icon.props(name = "remove circle"))
+  val CheckCircle: UnmountedIcon         = Icon(Icon.props(name = "check circle"))
+  val RemoveCircleOutline: UnmountedIcon = Icon(Icon.props(name = "remove circle outline"))
+  val CheckCircleOutline: UnmountedIcon  = Icon(Icon.props(name = "check circle outline"))
+  val Plus: UnmountedIcon                = Icon(Icon.props(name = "plus"))
+  val Minus: UnmountedIcon               = Icon(Icon.props(name = "minus"))
+  val AddSquare: UnmountedIcon           = Icon(Icon.props(name = "add square"))
+  val Radio: UnmountedIcon               = Icon(Icon.props(name = "radio"))
+  val MinusSquare: UnmountedIcon         = Icon(Icon.props(name = "minus square"))
+  val MinusSquareOutline: UnmountedIcon  = Icon(Icon.props(name = "minus square outline"))
+  val CheckSquare: UnmountedIcon         = Icon(Icon.props(name = "check square"))
+  val SelectedRadio: UnmountedIcon       = Icon(Icon.props(name = "selected radio"))
+  val PlusSquareOutline: UnmountedIcon   = Icon(Icon.props(name = "plus square outline"))
+  val ToggleOff: UnmountedIcon           = Icon(Icon.props(name = "toggle off"))
+  val ToggleOn: UnmountedIcon            = Icon(Icon.props(name = "toggle on"))
+
+}
+
+trait SemanticIconsMedia {
+  val Film: UnmountedIcon        = Icon(Icon.props(name = "film"))
+  val Sound: UnmountedIcon       = Icon(Icon.props(name = "sound"))
+  val Photo: UnmountedIcon       = Icon(Icon.props(name = "photo"))
+  val BarChart: UnmountedIcon    = Icon(Icon.props(name = "bar chart"))
+  val CameraRetro: UnmountedIcon = Icon(Icon.props(name = "camera retro"))
+  val Newspaper: UnmountedIcon   = Icon(Icon.props(name = "newspaper"))
+  val AreaChart: UnmountedIcon   = Icon(Icon.props(name = "area chart"))
+  val PieChart: UnmountedIcon    = Icon(Icon.props(name = "pie chart"))
+  val LineChart: UnmountedIcon   = Icon(Icon.props(name = "line chart"))
+}
+
+trait SemanticIconsPointers {
+  val ArrowCircleOutlineDown: UnmountedIcon  = Icon(Icon.props(name = "arrow circle outline down"))
+  val ArrowCircleOutlineUp: UnmountedIcon    = Icon(Icon.props(name = "arrow circle outline up"))
+  val ChevronLeft: UnmountedIcon             = Icon(Icon.props(name = "chevron left"))
+  val ChevronRight: UnmountedIcon            = Icon(Icon.props(name = "chevron right"))
+  val ArrowLeft: UnmountedIcon               = Icon(Icon.props(name = "arrow left"))
+  val ArrowRight: UnmountedIcon              = Icon(Icon.props(name = "arrow right"))
+  val ArrowUp: UnmountedIcon                 = Icon(Icon.props(name = "arrow up"))
+  val ArrowDown: UnmountedIcon               = Icon(Icon.props(name = "arrow down"))
+  val ChevronUp: UnmountedIcon               = Icon(Icon.props(name = "chevron up"))
+  val ChevronDown: UnmountedIcon             = Icon(Icon.props(name = "chevron down"))
+  val PointingRight: UnmountedIcon           = Icon(Icon.props(name = "pointing right"))
+  val PointingLeft: UnmountedIcon            = Icon(Icon.props(name = "pointing left"))
+  val PointingUp: UnmountedIcon              = Icon(Icon.props(name = "pointing up"))
+  val PointingDown: UnmountedIcon            = Icon(Icon.props(name = "pointing down"))
+  val ArrowCircleLeft: UnmountedIcon         = Icon(Icon.props(name = "arrow circle left"))
+  val ArrowCircleRight: UnmountedIcon        = Icon(Icon.props(name = "arrow circle right"))
+  val ArrowCircleUp: UnmountedIcon           = Icon(Icon.props(name = "arrow circle up"))
+  val ArrowCircleDown: UnmountedIcon         = Icon(Icon.props(name = "arrow circle down"))
+  val CaretDown: UnmountedIcon               = Icon(Icon.props(name = "caret down"))
+  val CaretUp: UnmountedIcon                 = Icon(Icon.props(name = "caret up"))
+  val CaretLeft: UnmountedIcon               = Icon(Icon.props(name = "caret left"))
+  val CaretRight: UnmountedIcon              = Icon(Icon.props(name = "caret right"))
+  val AngleDoubleLeft: UnmountedIcon         = Icon(Icon.props(name = "angle double left"))
+  val AngleDoubleRight: UnmountedIcon        = Icon(Icon.props(name = "angle double right"))
+  val AngleDoubleUp: UnmountedIcon           = Icon(Icon.props(name = "angle double up"))
+  val AngleDoubleDown: UnmountedIcon         = Icon(Icon.props(name = "angle double down"))
+  val AngleLeft: UnmountedIcon               = Icon(Icon.props(name = "angle left"))
+  val AngleRight: UnmountedIcon              = Icon(Icon.props(name = "angle right"))
+  val AngleUp: UnmountedIcon                 = Icon(Icon.props(name = "angle up"))
+  val AngleDown: UnmountedIcon               = Icon(Icon.props(name = "angle down"))
+  val ChevronCircleLeft: UnmountedIcon       = Icon(Icon.props(name = "chevron circle left"))
+  val ChevronCircleUp: UnmountedIcon         = Icon(Icon.props(name = "chevron circle up"))
+  val ChevronCircleDown: UnmountedIcon       = Icon(Icon.props(name = "chevron circle down"))
+  val ToggleDown: UnmountedIcon              = Icon(Icon.props(name = "toggle down"))
+  val ToggleUp: UnmountedIcon                = Icon(Icon.props(name = "toggle up"))
+  val ToggleRight: UnmountedIcon             = Icon(Icon.props(name = "toggle right"))
+  val LongArrowDown: UnmountedIcon           = Icon(Icon.props(name = "long arrow down"))
+  val LongArrowUp: UnmountedIcon             = Icon(Icon.props(name = "long arrow up"))
+  val LongArrowLeft: UnmountedIcon           = Icon(Icon.props(name = "long arrow left"))
+  val LongArrowRight: UnmountedIcon          = Icon(Icon.props(name = "long arrow right"))
+  val ArrowCircleOutlineRight: UnmountedIcon = Icon(Icon.props(name = "arrow circle outline right"))
+  val ArrowCircleOutlineLeft: UnmountedIcon  = Icon(Icon.props(name = "arrow circle outline left"))
+  val ToggleLeft: UnmountedIcon              = Icon(Icon.props(name = "toggle left"))
+}
+//| 'tablet' | 'mobile' | 'battery full' |
 // 'battery high' | 'battery medium' | 'battery low' | 'battery empty' | 'power' | 'trash outline' | 'disk outline' |
 // 'desktop' | 'laptop' | 'game' | 'keyboard' | 'plug' | 'trash' | 'file outline' | 'folder' | 'folder open' |
 // 'file text outline' | 'folder outline' | 'folder open outline' | 'level up' | 'level down' | 'file' |
