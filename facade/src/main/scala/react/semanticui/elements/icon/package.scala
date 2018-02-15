@@ -1,6 +1,7 @@
 package react.semanticui.elements
 
 import react.semanticui.sizes._
+import react.semanticui.colors._
 
 package object icon extends SemanticIcons {
   implicit class CopyIconOps(val i: UnmountedIcon) extends AnyVal {
@@ -39,6 +40,24 @@ package object icon extends SemanticIcons {
         name = i.props.name,
         rotated = i.props.rotated,
         size = if (s == Medium) "" else s.value))
+
+    def withColor(s: SemanticColor): UnmountedIcon =
+      Icon(Icon.rawprops(
+        as = i.props.as,
+        bordered = i.props.bordered,
+        circular = i.props.circular,
+        className = i.props.className,
+        color = s.value,
+        corner = i.props.corner,
+        disabled = i.props.disabled,
+        fitted = i.props.fitted,
+        flipped = i.props.flipped,
+        inverted = i.props.inverted,
+        link = i.props.link,
+        loading = i.props.loading,
+        name = i.props.name,
+        rotated = i.props.rotated,
+        size = i.props.size))
 
     def flipped(s: IconFlip): UnmountedIcon =
       Icon(Icon.rawprops(

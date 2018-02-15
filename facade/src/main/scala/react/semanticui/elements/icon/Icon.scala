@@ -4,6 +4,7 @@ import scala.scalajs.js
 import js.annotation._
 import react.semanticui._
 import react.semanticui.sizes._
+import react.semanticui.colors._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Js.{RawMounted, UnmountedMapped}
 import japgolly.scalajs.react.internal.Effect.Id
@@ -53,7 +54,7 @@ object Icon {
     bordered: js.UndefOr[Boolean] = js.undefined,
     circular: js.UndefOr[Boolean] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    color: js.UndefOr[SemanticCOLORS] = js.undefined,
+    color: js.UndefOr[SemanticColor] = js.undefined,
     corner: js.UndefOr[Boolean] = js.undefined,
     disabled: js.UndefOr[Boolean] = js.undefined,
     fitted: js.UndefOr[Boolean] = js.undefined,
@@ -70,7 +71,7 @@ object Icon {
     p.bordered = bordered
     p.circular = circular
     p.className = className
-    p.color = color
+    p.color = color.map(_.value)
     p.corner = corner
     p.disabled = disabled
     p.fitted = fitted

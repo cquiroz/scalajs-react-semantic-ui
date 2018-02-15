@@ -5,6 +5,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.elements.icon._
 import react.semanticui.sizes._
 import react.semanticui.sizes
+import react.semanticui.colors
 
 object IconsComponent {
   private val sampleIcons = Map("mail outline" -> MailOutline, "search" -> Search)
@@ -119,6 +120,37 @@ object IconsComponent {
                       <.div(
                         ^.cls := "column docs-icon-set-column",
                         CloudUpload.flipped(o),
+                        <.p(
+                          ^.cls := "name",
+                          o.value
+                        )
+                      ),
+                  }.toTagMod
+                )
+              )
+            )
+          ),
+          <.div(
+            ^.cls := "equal width row",
+            <.div(
+              ^.cls := "ui padded one column grid",
+              <.div(
+                ^.cls := "column",
+                <.h2(
+                  ^.cls := "ui header",
+                   "Colors"
+                ),
+                <.p("An icon can be flipped")
+              ),
+              <.div(
+                ^.cls := "center aligned column",
+                <.div(
+                  ^.cls := "ui doubling five column grid",
+                  colors.all.map {
+                    case o =>
+                      <.div(
+                        ^.cls := "column docs-icon-set-column",
+                        Edit.withColor(o),
                         <.p(
                           ^.cls := "name",
                           o.value

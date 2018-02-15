@@ -3,6 +3,7 @@ package react.semanticui.elements.icon
 import utest._
 import japgolly.scalajs.react.test._
 import react.semanticui.sizes._
+import react.semanticui.colors._
 
 object IconTests extends TestSuite {
   val tests = Tests {
@@ -34,6 +35,12 @@ object IconTests extends TestSuite {
       val icon = Icon(Icon.props(flipped = Horizontally, name = "edit"))
       ReactTestUtils.withRenderedIntoDocument(icon) { m =>
         assert(m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit horizontally flipped icon"></i>""")
+      }
+    }
+    'color - {
+      val icon = Icon(Icon.props(color = Blue, name = "edit"))
+      ReactTestUtils.withRenderedIntoDocument(icon) { m =>
+        assert(m.outerHtmlScrubbed() == """<i aria-hidden="true" class="blue edit icon"></i>""")
       }
     }
   }
