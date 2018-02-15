@@ -20,6 +20,16 @@ case object Vertically extends IconFlip {
   val value = "vertically"
 }
 
+sealed trait IconRotated {
+  val value: String
+}
+case object Clockwise extends IconRotated {
+  val value = "clockwise"
+}
+case object CounterClockwise extends IconRotated {
+  val value = "counterclockwise"
+}
+
 object Icon {
 
   @js.native
@@ -63,7 +73,7 @@ object Icon {
     link: js.UndefOr[Boolean] = js.undefined,
     loading: js.UndefOr[Boolean] = js.undefined,
     name: js.UndefOr[SemanticICONS] = js.undefined,
-    rotated: js.UndefOr[String] = js.undefined,
+    rotated: js.UndefOr[IconRotated] = js.undefined,
     size: js.UndefOr[SemanticSize] = js.undefined
   ): IconProps = {
     val p = (new js.Object).asInstanceOf[IconProps]
@@ -80,7 +90,7 @@ object Icon {
     p.link = link
     p.loading = loading
     p.name = name
-    p.rotated = rotated
+    p.rotated = rotated.map(_.value)
     p.size = size.map(_.value)
     p
   }

@@ -1,13 +1,6 @@
 package react.semanticui.elements.icon
 
 trait SemanticIcons {
-  type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[
-    japgolly.scalajs.react.internal.Effect.Id,
-    Icon.IconProps,
-    Null,
-    japgolly.scalajs.react.component.Js.RawMounted,
-    Icon.IconProps,
-    Null]
 
   val Search: UnmountedIcon      = Icon(Icon.props(name = "search"))
   val MailOutline: UnmountedIcon = Icon(Icon.props(name = "mail outline"))

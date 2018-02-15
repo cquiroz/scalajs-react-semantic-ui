@@ -104,6 +104,19 @@ object IconsComponent {
                   )
                 ),
             }.toTagMod
+          },
+          section("Rotated", "Icons can be rotated") {
+            List(Clockwise, CounterClockwise).map {
+              case o =>
+                <.div(
+                  ^.cls := "column docs-icon-set-column",
+                  Dashboard.rotated(o),
+                  <.p(
+                    ^.cls := "name",
+                    o.value
+                  )
+                ),
+            }.toTagMod
           }
         )
       }
