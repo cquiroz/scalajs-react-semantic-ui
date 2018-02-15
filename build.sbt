@@ -46,6 +46,7 @@ lazy val demo =
       webpackBundlingMode in fastOptJS       := BundlingMode.LibraryOnly(),
       webpackBundlingMode in fullOptJS       := BundlingMode.Application,
       test                                   := {},
+      emitSourceMaps                         := false,
       npmDevDependencies in Compile         ++= Seq(
         "compression-webpack-plugin" -> "1.0.0",
         "clean-webpack-plugin" -> "0.1.16",

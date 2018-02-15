@@ -41,7 +41,8 @@ const Web = Merge(Common.Web, {
   },
   devServer: {
     hot: true,
-    contentBase: [__dirname, Common.rootDir]
+    contentBase: [__dirname, Common.rootDir],
+    historyApiFallback: true
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
