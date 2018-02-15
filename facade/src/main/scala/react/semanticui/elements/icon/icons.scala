@@ -5,420 +5,159 @@ import react.semanticui.sizes._
 
 trait SemanticIcons {
   type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[japgolly.scalajs.react.internal.Effect.Id,Icon.IconProps,Null,japgolly.scalajs.react.component.Js.RawMounted,Icon.IconProps,Null]
-  sealed trait SemanticIcon {
-    val name: String
-  }
 
   val Search: UnmountedIcon = Icon(Icon.props(name = "search"))
-  val MailOutline = Icon(Icon.props(name = "mail outline"))
-  val Signal = Icon(Icon.props(name = "signal"))
-  val Setting = Icon(Icon.props(name = "setting"))
-  val Home = Icon(Icon.props(name = "home"))
-  val Inbox = Icon(Icon.props(name = "inbox"))
-  val Browser = Icon(Icon.props(name = "browser"))
+  val MailOutline: UnmountedIcon = Icon(Icon.props(name = "mail outline"))
+  val Signal: UnmountedIcon = Icon(Icon.props(name = "signal"))
+  val Setting: UnmountedIcon = Icon(Icon.props(name = "setting"))
+  val Home: UnmountedIcon = Icon(Icon.props(name = "home"))
+  val Inbox: UnmountedIcon = Icon(Icon.props(name = "inbox"))
+  val Browser: UnmountedIcon = Icon(Icon.props(name = "browser"))
 
-  case object Tag extends SemanticIcon {
-    val name = "tag"
-  }
-  case object Tags extends SemanticIcon {
-    val name = "tags"
-  }
-  case object Image extends SemanticIcon {
-    val name = "image"
-  }
-  case object Calendar extends SemanticIcon {
-    val name = "calendar"
-  }
-  case object Comment extends SemanticIcon {
-    val name = "comment"
-  }
-  case object Shop extends SemanticIcon {
-    val name = "shop"
-  }
-  case object Comments extends SemanticIcon {
-    val name = "comments"
-  }
-  case object External extends SemanticIcon {
-    val name = "external"
-  }
-  case object Privacy extends SemanticIcon {
-    val name = "privacy"
-  }
-  case object Settings extends SemanticIcon {
-    val name = "settings"
-  }
+  val Tag: UnmountedIcon = Icon(Icon.props(name = "tag"))
+  val Tags: UnmountedIcon = Icon(Icon.props(name = "tags"))
+  val Image: UnmountedIcon = Icon(Icon.props(name = "image"))
+  val Calendar: UnmountedIcon = Icon(Icon.props(name = "calendar"))
+  val Comment: UnmountedIcon = Icon(Icon.props(name = "comment"))
+  val Shop: UnmountedIcon = Icon(Icon.props(name = "shop"))
+  val Comments: UnmountedIcon = Icon(Icon.props(name = "comments"))
+  val External: UnmountedIcon = Icon(Icon.props(name = "external"))
+  val Privacy: UnmountedIcon = Icon(Icon.props(name = "privacy"))
+  val Settings: UnmountedIcon = Icon(Icon.props(name = "settings"))
 
-  case object Trophy extends SemanticIcon {
-    val name = "trophy"
-  }
-  case object Payment extends SemanticIcon {
-    val name = "payment"
-  }
-  case object Feed extends SemanticIcon {
-    val name = "feed"
-  }
-  case object AlarmOutline extends SemanticIcon {
-    val name = "alarm outline"
-  }
-  case object Tasks extends SemanticIcon {
-    val name = "tasks"
-  }
-  case object Cloud extends SemanticIcon {
-    val name = "cloud"
-  }
-  case object Lab extends SemanticIcon {
-    val name = "lab"
-  }
-  case object Mail extends SemanticIcon {
-    val name = "mail"
-  }
-  case object Dashboard extends SemanticIcon {
-    val name = "dashboard"
-  }
-  case object CommentOutline extends SemanticIcon {
-    val name = "comment outline"
-  }
+  val Trophy: UnmountedIcon = Icon(Icon.props(name = "trophy"))
+  val Payment: UnmountedIcon = Icon(Icon.props(name = "payment"))
+  val Feed: UnmountedIcon = Icon(Icon.props(name = "feed"))
+  val AlarmOutline: UnmountedIcon = Icon(Icon.props(name = "alarm outline"))
+  val Tasks: UnmountedIcon = Icon(Icon.props(name = "tasks"))
+  val Cloud: UnmountedIcon = Icon(Icon.props(name = "cloud"))
+  val Lab: UnmountedIcon = Icon(Icon.props(name = "lab"))
+  val Mail: UnmountedIcon = Icon(Icon.props(name = "mail"))
+  val Dashboard: UnmountedIcon = Icon(Icon.props(name = "dashboard"))
+  val CommentOutline: UnmountedIcon = Icon(Icon.props(name = "comment outline"))
 
-  case object CommentsOutline extends SemanticIcon {
-    val name = "comments outline"
-  }
-  case object Sitemap extends SemanticIcon {
-    val name = "sitemap"
-  }
-  case object Idea extends SemanticIcon {
-    val name = "idea"
-  }
-  case object Alarm extends SemanticIcon {
-    val name = "alarm"
-  }
-  case object Terminal extends SemanticIcon {
-    val name = "terminal"
-  }
-  case object Code extends SemanticIcon {
-    val name = "code"
-  }
-  case object Protect extends SemanticIcon {
-    val name = "protect"
-  }
-  case object CalendarOutline extends SemanticIcon {
-    val name = "calendar outline"
-  }
-  case object Ticket extends SemanticIcon {
-    val name = "ticket"
-  }
+  val CommentsOutline: UnmountedIcon = Icon(Icon.props(name = "comments outline"))
+  val Sitemap: UnmountedIcon = Icon(Icon.props(name = "sitemap"))
+  val Idea: UnmountedIcon = Icon(Icon.props(name = "idea"))
+  val Alarm: UnmountedIcon = Icon(Icon.props(name = "alarm"))
+  val Terminal: UnmountedIcon = Icon(Icon.props(name = "terminal"))
+  val Code: UnmountedIcon = Icon(Icon.props(name = "code"))
+  val Protect: UnmountedIcon = Icon(Icon.props(name = "protect"))
+  val CalendarOutline: UnmountedIcon = Icon(Icon.props(name = "calendar outline"))
+  val Ticket: UnmountedIcon = Icon(Icon.props(name = "ticket"))
 
-  case object ExternalSquare extends SemanticIcon {
-    val name = "external square"
-  }
-  case object Bug extends SemanticIcon {
-    val name = "bug"
-  }
-  case object MailSquare extends SemanticIcon {
-    val name = "mail square"
-  }
-  case object History extends SemanticIcon {
-    val name = "history"
-  }
-  case object Options extends SemanticIcon {
-    val name = "options"
-  }
-  case object TextTelephone extends SemanticIcon {
-    val name = "text telephone"
-  }
-  case object Find extends SemanticIcon {
-    val name = "find"
-  }
-  case object Wifi extends SemanticIcon {
-    val name = "wifi"
-  }
-  case object AlarmMute extends SemanticIcon {
-    val name = "alarm mute"
-  }
+  val ExternalSquare: UnmountedIcon = Icon(Icon.props(name = "external square"))
+  val Bug: UnmountedIcon = Icon(Icon.props(name = "bug"))
+  val MailSquare: UnmountedIcon = Icon(Icon.props(name = "mail square"))
+  val History: UnmountedIcon = Icon(Icon.props(name = "history"))
+  val Options: UnmountedIcon = Icon(Icon.props(name = "options"))
+  val TextTelephone: UnmountedIcon = Icon(Icon.props(name = "text telephone"))
+  val Find: UnmountedIcon = Icon(Icon.props(name = "find"))
+  val Wifi: UnmountedIcon = Icon(Icon.props(name = "wifi"))
+  val AlarmMute: UnmountedIcon = Icon(Icon.props(name = "alarm mute"))
 
-  case object AlarmMuteOutline extends SemanticIcon {
-    val name = "alarm mute outline"
-  }
-  case object Copyright extends SemanticIcon {
-    val name = "copyright"
-  }
-  case object At extends SemanticIcon {
-    val name = "at"
-  }
-  case object Eyedropper extends SemanticIcon {
-    val name = "eyedropper"
-  }
-  case object PaintBrush extends SemanticIcon {
-    val name = "paint brush"
-  }
-  case object Heartbeat extends SemanticIcon {
-    val name = "heartbeat"
-  }
-  case object MousePointer extends SemanticIcon {
-    val name = "mouse pointer"
-  }
+  val AlarmMuteOutline: UnmountedIcon = Icon(Icon.props(name = "alarm mute outline"))
+  val Copyright: UnmountedIcon = Icon(Icon.props(name = "copyright"))
+  val At: UnmountedIcon = Icon(Icon.props(name = "at"))
+  val Eyedropper: UnmountedIcon = Icon(Icon.props(name = "eyedropper"))
+  val PaintBrush: UnmountedIcon = Icon(Icon.props(name = "paint brush"))
+  val Heartbeat: UnmountedIcon = Icon(Icon.props(name = "heartbeat"))
+  val MousePointer: UnmountedIcon = Icon(Icon.props(name = "mouse pointer"))
 
-  case object HourglassEmpty extends SemanticIcon {
-    val name = "hourglass empty"
-  }
-  case object HourglassStart extends SemanticIcon {
-    val name = "hourglass start"
-  }
-  case object HourglassHalf extends SemanticIcon {
-    val name = "hourglass half"
-  }
-  case object HourglassEnd extends SemanticIcon {
-    val name = "hourglass end"
-  }
-  case object HourglassFull extends SemanticIcon {
-    val name = "hourglass full"
-  }
-  case object HandPointer extends SemanticIcon {
-    val name = "hand pointer"
-  }
+  val HourglassEmpty: UnmountedIcon = Icon(Icon.props(name = "hourglass empty"))
+  val HourglassStart: UnmountedIcon = Icon(Icon.props(name = "hourglass start"))
+  val HourglassHalf: UnmountedIcon = Icon(Icon.props(name = "hourglass half"))
+  val HourglassEnd: UnmountedIcon = Icon(Icon.props(name = "hourglass end"))
+  val HourglassFull: UnmountedIcon = Icon(Icon.props(name = "hourglass full"))
+  val HandPointer: UnmountedIcon = Icon(Icon.props(name = "hand pointer"))
 
-  case object Trademark extends SemanticIcon {
-    val name = "trademark"
-  }
-  case object Registered extends SemanticIcon {
-    val name = "registered"
-  }
-  case object CreativeCommons extends SemanticIcon {
-    val name = "creative commons"
-  }
-  case object AddToCalendar extends SemanticIcon {
-    val name = "add to calendar"
-  }
-  case object RemoveFromCalendar extends SemanticIcon {
-    val name = "remove from calendar"
-  }
-  case object DeleteCalendar extends SemanticIcon {
-    val name = "delete calendar"
-  }
+  val Trademark: UnmountedIcon = Icon(Icon.props(name = "trademark"))
+  val Registered: UnmountedIcon = Icon(Icon.props(name = "registered"))
+  val CreativeCommons: UnmountedIcon = Icon(Icon.props(name = "creative commons"))
+  val AddToCalendar: UnmountedIcon = Icon(Icon.props(name = "add to calendar"))
+  val RemoveFromCalendar: UnmountedIcon = Icon(Icon.props(name = "remove from calendar"))
+  val DeleteCalendar: UnmountedIcon = Icon(Icon.props(name = "delete calendar"))
 
-  case object CheckedCalendar extends SemanticIcon {
-    val name = "checked calendar"
-  }
-  case object Industry extends SemanticIcon {
-    val name = "industry"
-  }
-  case object ShoppingBag extends SemanticIcon {
-    val name = "shopping bag"
-  }
-  case object ShoppingBasket extends SemanticIcon {
-    val name = "shopping basket"
-  }
-  case object Hashtag extends SemanticIcon {
-    val name = "hashtag"
-  }
-  case object Percent extends SemanticIcon {
-    val name = "percent"
-  }
-  case object AddressBook extends SemanticIcon {
-    val name = "address book"
-  }
+  val CheckedCalendar: UnmountedIcon = Icon(Icon.props(name = "checked calendar"))
+  val Industry: UnmountedIcon = Icon(Icon.props(name = "industry"))
+  val ShoppingBag: UnmountedIcon = Icon(Icon.props(name = "shopping bag"))
+  val ShoppingBasket: UnmountedIcon = Icon(Icon.props(name = "shopping basket"))
+  val Hashtag: UnmountedIcon = Icon(Icon.props(name = "hashtag"))
+  val Percent: UnmountedIcon = Icon(Icon.props(name = "percent"))
+  val AddressBook: UnmountedIcon = Icon(Icon.props(name = "address book"))
 
-  case object AddressBookOutline extends SemanticIcon {
-    val name = "address book outline"
-  }
-  case object AddressCard extends SemanticIcon {
-    val name = "address card"
-  }
-  case object AddressCardOutline extends SemanticIcon {
-    val name = "address card outline"
-  }
-  case object IdBadge extends SemanticIcon {
-    val name = "id badge"
-  }
-  case object IdCard extends SemanticIcon {
-    val name = "id card"
-  }
-  case object IdCardOutline extends SemanticIcon {
-    val name = "id card outline"
-  }
+  val AddressBookOutline: UnmountedIcon = Icon(Icon.props(name = "address book outline"))
+  val AddressCard: UnmountedIcon = Icon(Icon.props(name = "address card"))
+  val AddressCardOutline: UnmountedIcon = Icon(Icon.props(name = "address card outline"))
+  val IdBadge: UnmountedIcon = Icon(Icon.props(name = "id badge"))
+  val IdCard: UnmountedIcon = Icon(Icon.props(name = "id card"))
+  val IdCardOutline: UnmountedIcon = Icon(Icon.props(name = "id card outline"))
 
-  case object Podcast extends SemanticIcon {
-    val name = "podcast"
-  }
-  case object WindowClose extends SemanticIcon {
-    val name = "window close"
-  }
-  case object WindowCloseOutline extends SemanticIcon {
-    val name = "window close outline"
-  }
-  case object WindowMaximize extends SemanticIcon {
-    val name = "window maximize"
-  }
-  case object WindowMinimize extends SemanticIcon {
-    val name = "window minimize"
-  }
-  case object WindowRestore extends SemanticIcon {
-    val name = "window restore"
-  }
+  val Podcast: UnmountedIcon = Icon(Icon.props(name = "podcast"))
+  val WindowClose: UnmountedIcon = Icon(Icon.props(name = "window close"))
+  val WindowCloseOutline: UnmountedIcon = Icon(Icon.props(name = "window close outline"))
+  val WindowMaximize: UnmountedIcon = Icon(Icon.props(name = "window maximize"))
+  val WindowMinimize: UnmountedIcon = Icon(Icon.props(name = "window minimize"))
+  val WindowRestore: UnmountedIcon = Icon(Icon.props(name = "window restore"))
 
-  case object Wait extends SemanticIcon {
-    val name = "wait"
-  }
-  case object Download extends SemanticIcon {
-    val name = "download"
-  }
-  case object Repeat extends SemanticIcon {
-    val name = "repeat"
-  }
-  case object Refresh extends SemanticIcon {
-    val name = "refresh"
-  }
-  case object Lock extends SemanticIcon {
-    val name = "lock"
-  }
-  case object Bookmark extends SemanticIcon {
-    val name = "bookmark"
-  }
-  case object Print extends SemanticIcon {
-    val name = "print"
-  }
-  case object Write extends SemanticIcon {
-    val name = "write"
-  }
-  case object Adjust extends SemanticIcon {
-    val name = "adjust"
-  }
-  case object Theme extends SemanticIcon {
-    val name = "theme"
-  }
-  case object Edit extends SemanticIcon {
-    val name = "edit"
-  }
+  val Wait: UnmountedIcon = Icon(Icon.props(name = "wait"))
+  val Download: UnmountedIcon = Icon(Icon.props(name = "download"))
+  val Repeat: UnmountedIcon = Icon(Icon.props(name = "repeat"))
+  val Refresh: UnmountedIcon = Icon(Icon.props(name = "refresh"))
+  val Lock: UnmountedIcon = Icon(Icon.props(name = "lock"))
+  val Bookmark: UnmountedIcon = Icon(Icon.props(name = "bookmark"))
+  val Print: UnmountedIcon = Icon(Icon.props(name = "print"))
+  val Write: UnmountedIcon = Icon(Icon.props(name = "write"))
+  val Adjust: UnmountedIcon = Icon(Icon.props(name = "adjust"))
+  val Theme: UnmountedIcon = Icon(Icon.props(name = "theme"))
+  val Edit: UnmountedIcon = Icon(Icon.props(name = "edit"))
 
-  case object ExternalShare extends SemanticIcon {
-    val name = "external share"
-  }
-  case object Ban extends SemanticIcon {
-    val name = "ban"
-  }
-  case object MailForward extends SemanticIcon {
-    val name = "mail forward"
-  }
-  case object Share extends SemanticIcon {
-    val name = "share"
-  }
-  case object Expand extends SemanticIcon {
-    val name = "expand"
-  }
-  case object Compress extends SemanticIcon {
-    val name = "compress"
-  }
-  case object Unhide extends SemanticIcon {
-    val name = "unhide"
-  }
-  case object Hide extends SemanticIcon {
-    val name = "hide"
-  }
-  case object Random extends SemanticIcon {
-    val name = "random"
-  }
-  case object Retweet extends SemanticIcon {
-    val name = "retweet"
-  }
+  val ExternalShare: UnmountedIcon = Icon(Icon.props(name = "external share"))
+  val Ban: UnmountedIcon = Icon(Icon.props(name = "ban"))
+  val MailForward: UnmountedIcon = Icon(Icon.props(name = "mail forward"))
+  val Share: UnmountedIcon = Icon(Icon.props(name = "share"))
+  val Expand: UnmountedIcon = Icon(Icon.props(name = "expand"))
+  val Compress: UnmountedIcon = Icon(Icon.props(name = "compress"))
+  val Unhide: UnmountedIcon = Icon(Icon.props(name = "unhide"))
+  val Hide: UnmountedIcon = Icon(Icon.props(name = "hide"))
+  val Random: UnmountedIcon = Icon(Icon.props(name = "random"))
+  val Retweet: UnmountedIcon = Icon(Icon.props(name = "retweet"))
 
-  case object SignOut extends SemanticIcon {
-    val name = "sign out"
-  }
-  case object Pin extends SemanticIcon {
-    val name = "pin"
-  }
-  case object SignIn extends SemanticIcon {
-    val name = "sign in"
-  }
-  case object Upload extends SemanticIcon {
-    val name = "upload"
-  }
-  case object Call extends SemanticIcon {
-    val name = "call"
-  }
-  case object RemoveBookmark extends SemanticIcon {
-    val name = "remove bookmark"
-  }
-  case object CallSquare extends SemanticIcon {
-    val name = "call square"
-  }
-  case object Unlock extends SemanticIcon {
-    val name = "unlock"
-  }
-  case object Configure extends SemanticIcon {
-    val name = "configure"
-  }
+  val SignOut: UnmountedIcon = Icon(Icon.props(name = "sign out"))
+  val Pin: UnmountedIcon = Icon(Icon.props(name = "pin"))
+  val SignIn: UnmountedIcon = Icon(Icon.props(name = "sign in"))
+  val Upload: UnmountedIcon = Icon(Icon.props(name = "upload"))
+  val Call: UnmountedIcon = Icon(Icon.props(name = "call"))
+  val RemoveBookmark: UnmountedIcon = Icon(Icon.props(name = "remove bookmark"))
+  val CallSquare: UnmountedIcon = Icon(Icon.props(name = "call square"))
+  val Unlock: UnmountedIcon = Icon(Icon.props(name = "unlock"))
+  val Configure: UnmountedIcon = Icon(Icon.props(name = "configure"))
 
-  case object Filter extends SemanticIcon {
-    val name = "filter"
-  }
-  case object Wizard extends SemanticIcon {
-    val name = "wizard"
-  }
-  case object Undo extends SemanticIcon {
-    val name = "undo"
-  }
-  case object Exchange extends SemanticIcon {
-    val name = "exchange"
-  }
-  case object CloudDownload extends SemanticIcon {
-    val name = "cloud download"
-  }
-  case object CloudUpload extends SemanticIcon {
-    val name = "cloud upload"
-  }
-  case object Reply extends SemanticIcon {
-    val name = "reply"
-  }
-  case object ReplyAll extends SemanticIcon {
-    val name = "reply all"
-  }
+  val Filter: UnmountedIcon = Icon(Icon.props(name = "filter"))
+  val Wizard: UnmountedIcon = Icon(Icon.props(name = "wizard"))
+  val Undo: UnmountedIcon = Icon(Icon.props(name = "undo"))
+  val Exchange: UnmountedIcon = Icon(Icon.props(name = "exchange"))
+  val CloudDownload: UnmountedIcon = Icon(Icon.props(name = "cloud download"))
+  val CloudUpload: UnmountedIcon = Icon(Icon.props(name = "cloud upload"))
+  val Reply: UnmountedIcon = Icon(Icon.props(name = "reply"))
+  val ReplyAll: UnmountedIcon = Icon(Icon.props(name = "reply all"))
 
-  case object Erase extends SemanticIcon {
-    val name = "erase"
-  }
-  case object UnlockAlternate extends SemanticIcon {
-    val name = "unlock alternate"
-  }
-  case object WriteSquare extends SemanticIcon {
-    val name = "write square"
-  }
-  case object ShareSquare extends SemanticIcon {
-    val name = "share square"
-  }
-  case object Archive extends SemanticIcon {
-    val name = "archive"
-  }
-  case object Translate extends SemanticIcon {
-    val name = "translate"
-  }
-  case object Recycle extends SemanticIcon {
-    val name = "recycle"
-  }
-  case object Send extends SemanticIcon {
-    val name = "send"
-  }
+  val Erase: UnmountedIcon = Icon(Icon.props(name = "erase"))
+  val UnlockAlternate: UnmountedIcon = Icon(Icon.props(name = "unlock alternate"))
+  val WriteSquare: UnmountedIcon = Icon(Icon.props(name = "write square"))
+  val ShareSquare: UnmountedIcon = Icon(Icon.props(name = "share square"))
+  val Archive: UnmountedIcon = Icon(Icon.props(name = "archive"))
+  val Translate: UnmountedIcon = Icon(Icon.props(name = "translate"))
+  val Recycle: UnmountedIcon = Icon(Icon.props(name = "recycle"))
+  val Send: UnmountedIcon = Icon(Icon.props(name = "send"))
 
-  case object SendOutline extends SemanticIcon {
-    val name = "send outline"
-  }
-  case object ShareAlternate extends SemanticIcon {
-    val name = "share alternate"
-  }
-  case object ShareAlternateSquare extends SemanticIcon {
-    val name = "share alternate square"
-  }
-  case object AddToCart extends SemanticIcon {
-    val name = "add to cart"
-  }
-  case object InCart extends SemanticIcon {
-    val name = "in cart"
-  }
-  case object AddUser extends SemanticIcon {
-    val name = "add user"
-  }
-  case object RemoveUser extends SemanticIcon {
-    val name = "remove user"
-  }
+  val SendOutline: UnmountedIcon = Icon(Icon.props(name = "send outline"))
+  val ShareAlternate: UnmountedIcon = Icon(Icon.props(name = "share alternate"))
+  val ShareAlternateSquare: UnmountedIcon = Icon(Icon.props(name = "share alternate square"))
+  val AddToCart: UnmountedIcon = Icon(Icon.props(name = "add to cart"))
+  val InCart: UnmountedIcon = Icon(Icon.props(name = "in cart"))
+  val AddUser: UnmountedIcon = Icon(Icon.props(name = "add user"))
+  val RemoveUser: UnmountedIcon = Icon(Icon.props(name = "remove user"))
 }
 
 package object icons extends SemanticIcons {
@@ -457,7 +196,7 @@ package object icons extends SemanticIcons {
         loading = i.props.loading,
         name = i.props.name,
         rotated = i.props.rotated,
-        size = s.name))
+        size = if (s == sizes.Medium) "" else s.name))
   }
 }
 // 'object group' | 'object ungroup' | 'clone' | 'talk' | 'talk outline' | 'help circle' | 'info circle' |
