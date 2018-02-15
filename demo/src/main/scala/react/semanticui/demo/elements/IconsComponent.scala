@@ -4,6 +4,7 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.icons._
 import react.semanticui.sizes._
+import react.semanticui.sizes
 
 object IconsComponent {
   private val sampleIcons = Map("mail outline" -> MailOutline, "search" -> Search)
@@ -59,6 +60,37 @@ object IconsComponent {
                         <.p(
                           ^.cls := "name",
                           name
+                        )
+                      ),
+                  }.toTagMod
+                )
+              )
+            )
+          ),
+          <.div(
+            ^.cls := "equal width row",
+            <.div(
+              ^.cls := "ui padded one column grid",
+              <.div(
+                ^.cls := "column",
+                <.h2(
+                  ^.cls := "ui header",
+                   "Sizes"
+                ),
+                <.p("An icon can vary in size")
+              ),
+              <.div(
+                ^.cls := "center aligned column",
+                <.div(
+                  ^.cls := "ui doubling five column grid",
+                  sizes.all.map {
+                    case s =>
+                      <.div(
+                        ^.cls := "column docs-icon-set-column",
+                        Feed.withSize(s),
+                        <.p(
+                          ^.cls := "name",
+                          s.name
                         )
                       ),
                   }.toTagMod

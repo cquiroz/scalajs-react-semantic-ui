@@ -1,8 +1,6 @@
 package react.semanticui
 
 trait SemanticSizes {
-  val all: List[SemanticSize] = List(Mini, Tiny, Small, Medium, Large, Big, Huge, Massive)
-
   sealed trait SemanticSize {
     val name: String
   }
@@ -32,4 +30,6 @@ trait SemanticSizes {
   }
 }
 
-package object sizes extends SemanticSizes
+package object sizes extends SemanticSizes {
+  val all: List[SemanticSize] = List(Mini, Tiny, Small, Medium, Large, Big, Huge, Massive)
+}
