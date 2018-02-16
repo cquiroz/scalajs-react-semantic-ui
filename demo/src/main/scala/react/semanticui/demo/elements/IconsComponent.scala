@@ -3,7 +3,7 @@ package react.semanticui.demo
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.elements.icon._
-import react.semanticui.elements.icons._
+import react.semanticui.elements.icons.{IconMailOutline, IconSearch, IconFeed, IconCloudUpload, IconEdit, IconDashboard, IconNewspaper, IconAreaChart}
 import react.semanticui.sizes._
 import react.semanticui.sizes
 import react.semanticui.colors
