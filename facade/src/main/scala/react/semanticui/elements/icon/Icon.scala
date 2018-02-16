@@ -3,10 +3,32 @@ package react.semanticui.elements.icon
 import scala.scalajs.js
 import js.annotation._
 import react.semanticui._
+import react.semanticui.sizes._
+import react.semanticui.colors._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Js.{RawMounted, UnmountedMapped}
 import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
+
+sealed trait IconFlip {
+  val value: String
+}
+case object Horizontally extends IconFlip {
+  val value = "horizontally"
+}
+case object Vertically extends IconFlip {
+  val value = "vertically"
+}
+
+sealed trait IconRotated {
+  val value: String
+}
+case object Clockwise extends IconRotated {
+  val value = "clockwise"
+}
+case object CounterClockwise extends IconRotated {
+  val value = "counterclockwise"
+}
 
 object Icon {
 
@@ -38,6 +60,42 @@ object Icon {
   }
 
   def props(
+    as: js.UndefOr[js.Any] = js.undefined,
+    bordered: js.UndefOr[Boolean] = js.undefined,
+    circular: js.UndefOr[Boolean] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    color: js.UndefOr[SemanticColor] = js.undefined,
+    corner: js.UndefOr[Boolean] = js.undefined,
+    disabled: js.UndefOr[Boolean] = js.undefined,
+    fitted: js.UndefOr[Boolean] = js.undefined,
+    flipped: js.UndefOr[IconFlip] = js.undefined,
+    inverted: js.UndefOr[Boolean] = js.undefined,
+    link: js.UndefOr[Boolean] = js.undefined,
+    loading: js.UndefOr[Boolean] = js.undefined,
+    name: js.UndefOr[SemanticICONS] = js.undefined,
+    rotated: js.UndefOr[IconRotated] = js.undefined,
+    size: js.UndefOr[SemanticSize] = js.undefined
+  ): IconProps = {
+    val p = (new js.Object).asInstanceOf[IconProps]
+    p.as = as
+    p.bordered = bordered
+    p.circular = circular
+    p.className = className
+    p.color = color.map(_.value)
+    p.corner = corner
+    p.disabled = disabled
+    p.fitted = fitted
+    p.flipped = flipped.map(_.value)
+    p.inverted = inverted
+    p.link = link
+    p.loading = loading
+    p.name = name
+    p.rotated = rotated.map(_.value)
+    p.size = size.map(_.value)
+    p
+  }
+
+  private[semanticui] def rawprops(
     as: js.UndefOr[js.Any] = js.undefined,
     bordered: js.UndefOr[Boolean] = js.undefined,
     circular: js.UndefOr[Boolean] = js.undefined,

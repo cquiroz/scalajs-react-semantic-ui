@@ -17,14 +17,6 @@ const ProdConfig = new Webpack.DefinePlugin({
 const Common = require("./webpack.common.js");
 const publicFolderName = "out/public";
 
-function extract() {
-  return new ExtractTextPlugin({
-    filename: "[name].css"
-  });
-}
-
-const extractSassApp = extract();
-
 function Web(extractSass) {
   return Merge(Common.Web, {
     output: {
@@ -75,23 +67,32 @@ function Web(extractSass) {
   });
 }
 
-const WebApp = Merge(Web(extractSassApp), {
+const WebApp = Merge(Common.Web, {
+  output: {
+    filename: "[name].js",
+    path: Common.rootDir,
+    publicPath: "/"
+  },
   entry: {
     app: Path.resolve(Common.resourcesDir, "./prod.js")
   },
   plugins: [
+    new Webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    }),
+    new Webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       chunks: ["app"],
       template: Path.resolve(Common.resourcesDir, "./prod.html"),
       favicon: Path.resolve(Common.resourcesDir, "./images/favicon.ico")
-    }),
-    new CleanWebpackPlugin([publicFolderName], { verbose: false })
+    })
+    // new CleanWebpackPlugin([publicFolderName], { verbose: false })
   ]
 });
 
-const ScalaJs = Merge(Common.ScalaJs, {
-  plugins: [ProdConfig]
-});
+console.log(WebApp);
 
-module.exports = [ScalaJs, WebApp];
+module.exports = WebApp;
