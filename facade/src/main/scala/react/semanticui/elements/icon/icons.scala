@@ -98,6 +98,8 @@ trait SemanticIconsWeb {
   val WindowRestore: UnmountedIcon      = Icon(Icon.props(name = "window restore"))
 }
 
+package object web extends SemanticIconsWeb
+
 trait SemanticIconsUser {
   val Wait: UnmountedIcon     = Icon(Icon.props(name = "wait"))
   val Download: UnmountedIcon = Icon(Icon.props(name = "download"))
@@ -164,6 +166,8 @@ trait SemanticIconsUser {
   val TalkOutline: UnmountedIcon          = Icon(Icon.props(name = "talk outline"))
 }
 
+package object user extends SemanticIconsUser
+
 trait SemanticIconsMessages {
   val HelpCircle: UnmountedIcon        = Icon(Icon.props(name = "help circle"))
   val InfoCircle: UnmountedIcon        = Icon(Icon.props(name = "info circle"))
@@ -176,6 +180,8 @@ trait SemanticIconsMessages {
   val Birthday: UnmountedIcon          = Icon(Icon.props(name = "birthday"))
   val HelpCircleOutline: UnmountedIcon = Icon(Icon.props(name = "help circle outline"))
 }
+
+package object messages extends SemanticIconsMessages
 
 trait SemanticIconsUsers {
   val User: UnmountedIcon  = Icon(Icon.props(name = "user"))
@@ -190,6 +196,8 @@ trait SemanticIconsUsers {
   val UserCircleOutline: UnmountedIcon = Icon(Icon.props(name = "user circle outline"))
   val UserOutline: UnmountedIcon       = Icon(Icon.props(name = "user outline"))
 }
+
+package object users extends SemanticIconsUsers
 
 trait SemanticIconsGender {
   val Female: UnmountedIcon                = Icon(Icon.props(name = "female"))
@@ -209,6 +217,8 @@ trait SemanticIconsGender {
   val Genderless: UnmountedIcon            = Icon(Icon.props(name = "genderless"))
 }
 
+package object gender extends SemanticIconsGender
+
 trait SemanticIconsAccessibility {
 
   val UniversalAccess: UnmountedIcon    = Icon(Icon.props(name = "universal access"))
@@ -218,12 +228,15 @@ trait SemanticIconsAccessibility {
   val VolumeControlPhone: UnmountedIcon = Icon(Icon.props(name = "volume control phone"))
   val Braille: UnmountedIcon            = Icon(Icon.props(name = "braille"))
   val Asl: UnmountedIcon                = Icon(Icon.props(name = "asl"))
+
   val AssistiveListeningSystems: UnmountedIcon = Icon(
     Icon.props(name = "assistive listening systems"))
   val Deafness: UnmountedIcon     = Icon(Icon.props(name = "deafness"))
   val SignLanguage: UnmountedIcon = Icon(Icon.props(name = "sign language"))
   val LowVision: UnmountedIcon    = Icon(Icon.props(name = "low vision"))
 }
+
+package object accessibility extends SemanticIconsAccessibility
 
 trait SemanticIconsView {
   val BlockLayout: UnmountedIcon      = Icon(Icon.props(name = "block layout"))
@@ -237,7 +250,9 @@ trait SemanticIconsView {
   val Crop: UnmountedIcon             = Icon(Icon.props(name = "crop"))
 }
 
-trait SemanticIconsLiteral {
+package object view extends SemanticIconsView
+
+trait SemanticIconsObjects {
   val Cocktail: UnmountedIcon           = Icon(Icon.props(name = "cocktail"))
   val Road: UnmountedIcon               = Icon(Icon.props(name = "road"))
   val Flag: UnmountedIcon               = Icon(Icon.props(name = "flag"))
@@ -287,11 +302,14 @@ trait SemanticIconsLiteral {
   val ThermometerFull: UnmountedIcon    = Icon(Icon.props(name = "thermometer full"))
   val ThermometerHalf: UnmountedIcon    = Icon(Icon.props(name = "thermometer half"))
   val ThermometerQuarter: UnmountedIcon = Icon(Icon.props(name = "thermometer quarter"))
+
   val ThermometerThreeQuarters: UnmountedIcon = Icon(
     Icon.props(name = "thermometer three quarters"))
   val Bath: UnmountedIcon             = Icon(Icon.props(name = "bath"))
   val SnowflakeOutline: UnmountedIcon = Icon(Icon.props(name = "snowflake outline"))
 }
+
+package object objects extends SemanticIconsObjects
 
 trait SemanticIconsShapes {
   val Crosshairs: UnmountedIcon         = Icon(Icon.props(name = "crosshairs"))
@@ -310,6 +328,8 @@ trait SemanticIconsShapes {
   val CircleNotched: UnmountedIcon      = Icon(Icon.props(name = "circle notched"))
   val CircleThin: UnmountedIcon         = Icon(Icon.props(name = "circle thin"))
 }
+
+package object shapes extends SemanticIconsShapes
 
 trait SemanticIconsSelection {
   val Checkmark: UnmountedIcon           = Icon(Icon.props(name = "checkmark"))
@@ -333,8 +353,9 @@ trait SemanticIconsSelection {
   val PlusSquareOutline: UnmountedIcon   = Icon(Icon.props(name = "plus square outline"))
   val ToggleOff: UnmountedIcon           = Icon(Icon.props(name = "toggle off"))
   val ToggleOn: UnmountedIcon            = Icon(Icon.props(name = "toggle on"))
-
 }
+
+package object selection extends SemanticIconsSelection
 
 trait SemanticIconsMedia {
   val Film: UnmountedIcon        = Icon(Icon.props(name = "film"))
@@ -347,6 +368,8 @@ trait SemanticIconsMedia {
   val PieChart: UnmountedIcon    = Icon(Icon.props(name = "pie chart"))
   val LineChart: UnmountedIcon   = Icon(Icon.props(name = "line chart"))
 }
+
+package object media extends SemanticIconsMedia
 
 trait SemanticIconsPointers {
   val ArrowCircleOutlineDown: UnmountedIcon  = Icon(Icon.props(name = "arrow circle outline down"))
@@ -393,78 +416,713 @@ trait SemanticIconsPointers {
   val ArrowCircleOutlineLeft: UnmountedIcon  = Icon(Icon.props(name = "arrow circle outline left"))
   val ToggleLeft: UnmountedIcon              = Icon(Icon.props(name = "toggle left"))
 }
-//| 'tablet' | 'mobile' | 'battery full' |
-// 'battery high' | 'battery medium' | 'battery low' | 'battery empty' | 'power' | 'trash outline' | 'disk outline' |
-// 'desktop' | 'laptop' | 'game' | 'keyboard' | 'plug' | 'trash' | 'file outline' | 'folder' | 'folder open' |
-// 'file text outline' | 'folder outline' | 'folder open outline' | 'level up' | 'level down' | 'file' |
-// 'file text' | 'file pdf outline' | 'file word outline' | 'file excel outline' | 'file powerpoint outline' |
-// 'file image outline' | 'file archive outline' | 'file audio outline' | 'file video outline' | 'file code outline' |
-// 'qrcode' | 'barcode' | 'rss' | 'fork' | 'html5' | 'css3' | 'rss square' | 'openid' | 'database' |
-// 'server' | 'usb' | 'bluetooth' | 'bluetooth alternative' | 'microchip' | 'heart' | 'star' | 'empty star' |
-// 'thumbs outline up' | 'thumbs outline down' | 'star half' | 'empty heart' | 'smile' | 'frown' | 'meh' |
-// 'star half empty' | 'thumbs up' | 'thumbs down' | 'music' | 'video play outline' | 'volume off' | 'volume down' |
-// 'volume up' | 'record' | 'step backward' | 'fast backward' | 'backward' | 'play' | 'pause' | 'stop' | 'forward' |
-// 'fast forward' | 'step forward' | 'eject' | 'unmute' | 'mute' | 'video play' | 'closed captioning' | 'pause circle' |
-// 'pause circle outline' | 'stop circle' | 'stop circle outline' | 'marker' | 'coffee' | 'food' | 'building outline' |
-// 'hospital' | 'emergency' | 'first aid' | 'military' | 'h' | 'location arrow' | 'compass' | 'space shuttle' |
-// 'university' | 'building' | 'paw' | 'spoon' | 'car' | 'taxi' | 'tree' | 'bicycle' | 'bus' | 'ship' | 'motorcycle' |
-// 'street view' | 'hotel' | 'train' | 'subway' | 'map pin' | 'map signs' | 'map outline' | 'map' | 'table' | 'columns' |
-// 'sort' | 'sort descending' | 'sort ascending' | 'sort alphabet ascending' | 'sort alphabet descending' |
-// 'sort content ascending' | 'sort content descending' | 'sort numeric ascending' | 'sort numeric descending' |
-// 'font' | 'bold' | 'italic' | 'text height' | 'text width' | 'align left' | 'align center' | 'align right' |
-// 'align justify' | 'list' | 'outdent' | 'indent' | 'linkify' | 'cut' | 'copy' | 'attach' | 'save' | 'content' |
-// 'unordered list' | 'ordered list' | 'strikethrough' | 'underline' | 'paste' | 'unlinkify' | 'superscript' |
-// 'subscript' | 'header' | 'paragraph' | 'text cursor' | 'euro' | 'pound' | 'dollar' | 'rupee' | 'yen' | 'ruble' |
-// 'won' | 'bitcoin' | 'lira' | 'shekel' | 'paypal' | 'google wallet' | 'visa' | 'mastercard' | 'discover' |
-// 'american express' | 'paypal card' | 'stripe' | 'japan credit bureau' | 'diners club' |
-// 'credit card alternative' | 'twitter square' | 'facebook square' | 'linkedin square' | 'github square' |
-// 'twitter' | 'facebook f' | 'github' | 'pinterest' | 'pinterest square' | 'google plus square' | 'google plus' |
-// 'linkedin' | 'github alternate' | 'maxcdn' | 'youtube square' | 'youtube' | 'xing' | 'xing square' | 'youtube play' |
-// 'dropbox' | 'stack overflow' | 'instagram' | 'flickr' | 'adn' | 'bitbucket' | 'bitbucket square' | 'tumblr' |
-// 'tumblr square' | 'apple' | 'windows' | 'android' | 'linux' | 'dribble' | 'skype' | 'foursquare' | 'trello' |
-// 'gittip' | 'vk' | 'weibo' | 'renren' | 'pagelines' | 'stack exchange' | 'vimeo square' | 'slack' | 'wordpress' |
-// 'yahoo' | 'google' | 'reddit' | 'reddit square' | 'stumbleupon circle' | 'stumbleupon' | 'delicious' |
-// 'digg' | 'pied piper' | 'pied piper alternate' | 'drupal' | 'joomla' | 'behance' | 'behance square' | 'steam' |
-// 'steam square' | 'spotify' | 'deviantart' | 'soundcloud' | 'vine' | 'codepen' | 'jsfiddle' | 'rebel' | 'empire' |
-// 'git square' | 'git' | 'hacker news' | 'tencent weibo' | 'qq' | 'wechat' | 'slideshare' | 'twitch' | 'yelp' |
-// 'lastfm' | 'lastfm square' | 'ioxhost' | 'angellist' | 'meanpath' | 'buysellads' | 'connectdevelop' | 'dashcube' |
-// 'forumbee' | 'leanpub' | 'sellsy' | 'shirtsinbulk' | 'simplybuilt' | 'skyatlas' | 'facebook' | 'whatsapp' | 'viacoin' |
-// 'medium' | 'y combinator' | 'optinmonster' | 'opencart' | 'expeditedssl' | 'gg' | 'gg circle' | 'tripadvisor' |
-// 'odnoklassniki' | 'odnoklassniki square' | 'pocket' | 'wikipedia' | 'safari' | 'chrome' | 'firefox' |
-// 'opera' | 'internet explorer' | 'contao' | '500px' | 'amazon' | 'houzz' | 'vimeo' | 'black tie' | 'fonticons' |
-// 'reddit alien' | 'microsoft edge' | 'codiepie' | 'modx' | 'fort awesome' | 'product hunt' | 'mixcloud' | 'scribd' |
-// 'gitlab' | 'wpbeginner' | 'wpforms' | 'envira gallery' | 'glide' | 'glide g' | 'viadeo' | 'viadeo square' |
-// 'snapchat' | 'snapchat ghost' | 'snapchat square' | 'pied piper hat' | 'first order' | 'yoast' | 'themeisle' |
-// 'google plus circle' | 'font awesome' | 'bandcamp' | 'eercast' | 'etsy' | 'free code camp' | 'grav' | 'imdb' |
-// 'linode' | 'meetup' | 'quora' | 'ravelry' | 'superpowers' | 'telegram' | 'wpexplorer' | 'like' | 'favorite' |
-// 'video' | 'check' | 'close' | 'cancel' | 'delete' | 'x' | 'zoom in' | 'magnify' | 'shutdown' | 'clock' | 'time' |
-// 'play circle outline' | 'headphone' | 'camera' | 'video camera' | 'picture' | 'pencil' | 'compose' | 'point' |
-// 'tint' | 'signup' | 'plus circle' | 'question circle' | 'dont' | 'minimize' | 'add' | 'exclamation circle' |
-// 'attention' | 'eye' | 'exclamation triangle' | 'shuffle' | 'chat' | 'cart' | 'shopping cart' | 'bar graph' |
-// 'key' | 'cogs' | 'discussions' | 'like outline' | 'dislike outline' | 'heart outline' | 'log out' | 'thumb tack' |
-// 'winner' | 'phone' | 'bookmark outline' | 'phone square' | 'credit card' | 'hdd outline' | 'bullhorn' |
-// 'bell outline' | 'hand outline right' | 'hand outline left' | 'hand outline up' | 'hand outline down' |
-// 'globe' | 'wrench' | 'briefcase' | 'group' | 'chain' | 'flask' | 'sidebar' | 'bars' | 'list ul' | 'list ol' |
-// 'numbered list' | 'magic' | 'truck' | 'currency' | 'triangle down' | 'dropdown' | 'triangle up' | 'triangle left' |
-// 'triangle right' | 'envelope' | 'conversation' | 'rain' | 'clipboard' | 'lightbulb' | 'bell' | 'ambulance' |
-// 'medkit' | 'fighter jet' | 'beer' | 'plus square' | 'computer' | 'circle outline' | 'gamepad' | 'star half full' |
-// 'broken chain' | 'question' | 'exclamation' | 'eraser' | 'microphone' | 'microphone slash' | 'shield' | 'target' |
-// 'play circle' | 'pencil square' | 'eur' | 'gbp' | 'usd' | 'inr' | 'cny' | 'rmb' | 'jpy' | 'rouble' | 'rub' |
-// 'krw' | 'btc' | 'gratipay' | 'zip' | 'dot circle outline' | 'try' | 'graduation' | 'sliders' | 'weixin' | 'tty' |
-// 'teletype' | 'binoculars' | 'power cord' | 'visa card' | 'mastercard card' | 'discover card' | 'amex' |
-// 'american express card' | 'stripe card' | 'bell slash' | 'bell slash outline' | 'area graph' | 'pie graph' |
-// 'line graph' | 'cc' | 'sheqel' | 'ils' | 'plus cart' | 'arrow down cart' | 'detective' | 'venus' | 'mars' |
-// 'mercury' | 'intersex' | 'venus double' | 'female homosexual' | 'mars double' | 'male homosexual' | 'venus mars' |
-// 'mars stroke' | 'mars alternate' | 'mars vertical' | 'mars stroke vertical' | 'mars horizontal' |
-// 'mars stroke horizontal' | 'asexual' | 'facebook official' | 'user plus' | 'user times' | 'user close' |
-// 'user cancel' | 'user delete' | 'user x' | 'bed' | 'yc' | 'ycombinator' | 'battery four' | 'battery three' |
-// 'battery three quarters' | 'battery two' | 'battery half' | 'battery one' | 'battery quarter' | 'battery zero' |
-// 'i cursor' | 'jcb' | 'japan credit bureau card' | 'diners club card' | 'balance' | 'hourglass outline' |
-// 'hourglass zero' | 'hourglass one' | 'hourglass two' | 'hourglass three' | 'hourglass four' | 'grab' |
-// 'hand victory' | 'tm' | 'r circle' | 'television' | 'five hundred pixels' | 'calendar plus' | 'calendar minus' |
-// 'calendar times' | 'calendar check' | 'factory' | 'commenting' | 'commenting outline' | 'edge' | 'ms edge' |
-// 'wordpress beginner' | 'wordpress forms' | 'envira' | 'question circle outline' | 'assistive listening devices' |
-// 'als' | 'ald' | 'asl interpreting' | 'deaf' | 'american sign language interpreting' | 'hard of hearing' |
-// 'signing' | 'new pied piper' | 'theme isle' | 'google plus official' | 'fa' | 'bathtub' | 'drivers license' |
-// 'drivers license outline' | 's15' | 'thermometer' | 'times rectangle' | 'times rectangle outline' | 'vcard' |
-// 'vcard outline' | 'left dropdown';
+
+package object pointers extends SemanticIconsPointers
+
+trait SemanticIconsMobile {
+  val Tablet: UnmountedIcon      = Icon(Icon.props(name = "tablet"))
+  val Mobile: UnmountedIcon      = Icon(Icon.props(name = "mobile"))
+  val BatteryFull: UnmountedIcon = Icon(Icon.props(name = "battery full"))
+
+  val BatteryHigh: UnmountedIcon   = Icon(Icon.props(name = "battery high"))
+  val BatteryMedium: UnmountedIcon = Icon(Icon.props(name = "battery medium"))
+  val BatteryLow: UnmountedIcon    = Icon(Icon.props(name = "battery low"))
+  val BatteryEmpty: UnmountedIcon  = Icon(Icon.props(name = "battery empty"))
+}
+
+package object mobile extends SemanticIconsMobile
+
+trait SemanticIconsComputer {
+  val Power: UnmountedIcon        = Icon(Icon.props(name = "power"))
+  val TrashOutline: UnmountedIcon = Icon(Icon.props(name = "trash outline"))
+  val DiskOutline: UnmountedIcon  = Icon(Icon.props(name = "disk outline"))
+
+  val Desktop: UnmountedIcon  = Icon(Icon.props(name = "desktop"))
+  val Laptop: UnmountedIcon   = Icon(Icon.props(name = "laptop"))
+  val Game: UnmountedIcon     = Icon(Icon.props(name = "game"))
+  val Keyboard: UnmountedIcon = Icon(Icon.props(name = "keyboard"))
+  val Plug: UnmountedIcon     = Icon(Icon.props(name = "plug"))
+}
+
+package object computer extends SemanticIconsComputer
+
+trait SemanticIconsFileSystem {
+
+  val Trash: UnmountedIcon       = Icon(Icon.props(name = "trash"))
+  val FileOutline: UnmountedIcon = Icon(Icon.props(name = "file outline"))
+  val Folder: UnmountedIcon      = Icon(Icon.props(name = "folder"))
+  val FolderOpen: UnmountedIcon  = Icon(Icon.props(name = "folder open"))
+
+  val FileTextOutline: UnmountedIcon   = Icon(Icon.props(name = "file text outline"))
+  val FolderOutline: UnmountedIcon     = Icon(Icon.props(name = "folder outline"))
+  val FolderOpenOutline: UnmountedIcon = Icon(Icon.props(name = "folder open outline"))
+  val LevelUp: UnmountedIcon           = Icon(Icon.props(name = "level up"))
+  val LevelDown: UnmountedIcon         = Icon(Icon.props(name = "level down"))
+  val File: UnmountedIcon              = Icon(Icon.props(name = "file"))
+
+  val FileText: UnmountedIcon              = Icon(Icon.props(name = "file text"))
+  val FilePdfOutline: UnmountedIcon        = Icon(Icon.props(name = "file pdf outline"))
+  val FileWordOutline: UnmountedIcon       = Icon(Icon.props(name = "file word outline"))
+  val FileExcelOutline: UnmountedIcon      = Icon(Icon.props(name = "file excel outline"))
+  val FilePowerpointOutline: UnmountedIcon = Icon(Icon.props(name = "file powerpoint outline"))
+
+  val FileImageOutline: UnmountedIcon   = Icon(Icon.props(name = "file image outline"))
+  val FileArchiveOutline: UnmountedIcon = Icon(Icon.props(name = "file archive outline"))
+  val FileAudioOutline: UnmountedIcon   = Icon(Icon.props(name = "file audio outline"))
+  val FileVideoOutline: UnmountedIcon   = Icon(Icon.props(name = "file video outline"))
+  val FileCodeOutline: UnmountedIcon    = Icon(Icon.props(name = "file code outline"))
+}
+
+package object fs extends SemanticIconsFileSystem
+
+trait SemanticIconsTechnologies {
+  val Qrcode: UnmountedIcon    = Icon(Icon.props(name = "qrcode"))
+  val Barcode: UnmountedIcon   = Icon(Icon.props(name = "barcode"))
+  val Rss: UnmountedIcon       = Icon(Icon.props(name = "rss"))
+  val Fork: UnmountedIcon      = Icon(Icon.props(name = "fork"))
+  val Html5: UnmountedIcon     = Icon(Icon.props(name = "html5"))
+  val Css3: UnmountedIcon      = Icon(Icon.props(name = "css3"))
+  val RssSquare: UnmountedIcon = Icon(Icon.props(name = "rss square"))
+  val Openid: UnmountedIcon    = Icon(Icon.props(name = "openid"))
+  val Database: UnmountedIcon  = Icon(Icon.props(name = "database"))
+
+  val Server: UnmountedIcon               = Icon(Icon.props(name = "server"))
+  val Usb: UnmountedIcon                  = Icon(Icon.props(name = "usb"))
+  val Bluetooth: UnmountedIcon            = Icon(Icon.props(name = "bluetooth"))
+  val BluetoothAlternative: UnmountedIcon = Icon(Icon.props(name = "bluetooth alternative"))
+  val Microchip: UnmountedIcon            = Icon(Icon.props(name = "microchip"))
+}
+
+package object technologies extends SemanticIconsTechnologies
+
+trait SemanticIconsRating {
+  val Heart: UnmountedIcon     = Icon(Icon.props(name = "heart"))
+  val Star: UnmountedIcon      = Icon(Icon.props(name = "star"))
+  val EmptyStar: UnmountedIcon = Icon(Icon.props(name = "empty star"))
+
+  val ThumbsOutlineUp: UnmountedIcon   = Icon(Icon.props(name = "thumbs outline up"))
+  val ThumbsOutlineDown: UnmountedIcon = Icon(Icon.props(name = "thumbs outline down"))
+  val StarHalf: UnmountedIcon          = Icon(Icon.props(name = "star half"))
+  val EmptyHeart: UnmountedIcon        = Icon(Icon.props(name = "empty heart"))
+  val Smile: UnmountedIcon             = Icon(Icon.props(name = "smile"))
+  val Frown: UnmountedIcon             = Icon(Icon.props(name = "frown"))
+  val Meh: UnmountedIcon               = Icon(Icon.props(name = "meh"))
+
+  val StarHalfEmpty: UnmountedIcon = Icon(Icon.props(name = "star half empty"))
+  val ThumbsUp: UnmountedIcon      = Icon(Icon.props(name = "thumbs up"))
+  val ThumbsDown: UnmountedIcon    = Icon(Icon.props(name = "thumbs down"))
+}
+
+package object rating extends SemanticIconsRating
+
+trait SemanticIconsAudio {
+  val Music: UnmountedIcon            = Icon(Icon.props(name = "music"))
+  val VideoPlayOutline: UnmountedIcon = Icon(Icon.props(name = "video play outline"))
+  val VolumeOff: UnmountedIcon        = Icon(Icon.props(name = "volume off"))
+  val VolumeDown: UnmountedIcon       = Icon(Icon.props(name = "volume down"))
+
+  val VolumeUp: UnmountedIcon     = Icon(Icon.props(name = "volume up"))
+  val Record: UnmountedIcon       = Icon(Icon.props(name = "record"))
+  val StepBackward: UnmountedIcon = Icon(Icon.props(name = "step backward"))
+  val FastBackward: UnmountedIcon = Icon(Icon.props(name = "fast backward"))
+  val Backward: UnmountedIcon     = Icon(Icon.props(name = "backward"))
+  val Play: UnmountedIcon         = Icon(Icon.props(name = "play"))
+  val Pause: UnmountedIcon        = Icon(Icon.props(name = "pause"))
+  val Stop: UnmountedIcon         = Icon(Icon.props(name = "stop"))
+  val Forward: UnmountedIcon      = Icon(Icon.props(name = "forward"))
+
+  val FastForward: UnmountedIcon      = Icon(Icon.props(name = "fast forward"))
+  val StepForward: UnmountedIcon      = Icon(Icon.props(name = "step forward"))
+  val Eject: UnmountedIcon            = Icon(Icon.props(name = "eject"))
+  val Unmute: UnmountedIcon           = Icon(Icon.props(name = "unmute"))
+  val Mute: UnmountedIcon             = Icon(Icon.props(name = "mute"))
+  val VideoPlay: UnmountedIcon        = Icon(Icon.props(name = "video play"))
+  val ClosedCaptioning: UnmountedIcon = Icon(Icon.props(name = "closed captioning"))
+  val PauseCircle: UnmountedIcon      = Icon(Icon.props(name = "pause circle"))
+
+  val PauseCircleOutline: UnmountedIcon = Icon(Icon.props(name = "pause circle outline"))
+  val StopCircle: UnmountedIcon         = Icon(Icon.props(name = "stop circle"))
+  val StopCircleOutline: UnmountedIcon  = Icon(Icon.props(name = "stop circle outline"))
+}
+
+package object audio extends SemanticIconsAudio
+
+trait SemanticIconsMap {
+  val Marker: UnmountedIcon          = Icon(Icon.props(name = "marker"))
+  val Coffee: UnmountedIcon          = Icon(Icon.props(name = "coffee"))
+  val Food: UnmountedIcon            = Icon(Icon.props(name = "food"))
+  val BuildingOutline: UnmountedIcon = Icon(Icon.props(name = "building outline"))
+
+  val Hospital: UnmountedIcon      = Icon(Icon.props(name = "hospital"))
+  val Emergency: UnmountedIcon     = Icon(Icon.props(name = "emergency"))
+  val FirstAid: UnmountedIcon      = Icon(Icon.props(name = "first aid"))
+  val Military: UnmountedIcon      = Icon(Icon.props(name = "military"))
+  val H: UnmountedIcon             = Icon(Icon.props(name = "h"))
+  val LocationArrow: UnmountedIcon = Icon(Icon.props(name = "location arrow"))
+  val Compass: UnmountedIcon       = Icon(Icon.props(name = "compass"))
+  val SpaceShuttle: UnmountedIcon  = Icon(Icon.props(name = "space shuttle"))
+
+  val University: UnmountedIcon = Icon(Icon.props(name = "university"))
+  val Building: UnmountedIcon   = Icon(Icon.props(name = "building"))
+  val Paw: UnmountedIcon        = Icon(Icon.props(name = "paw"))
+  val Spoon: UnmountedIcon      = Icon(Icon.props(name = "spoon"))
+  val Car: UnmountedIcon        = Icon(Icon.props(name = "car"))
+  val Taxi: UnmountedIcon       = Icon(Icon.props(name = "taxi"))
+  val Tree: UnmountedIcon       = Icon(Icon.props(name = "tree"))
+  val Bicycle: UnmountedIcon    = Icon(Icon.props(name = "bicycle"))
+  val Bus: UnmountedIcon        = Icon(Icon.props(name = "bus"))
+  val Ship: UnmountedIcon       = Icon(Icon.props(name = "ship"))
+  val Motorcycle: UnmountedIcon = Icon(Icon.props(name = "motorcycle"))
+
+  val StreetView: UnmountedIcon = Icon(Icon.props(name = "street view"))
+  val Hotel: UnmountedIcon      = Icon(Icon.props(name = "hotel"))
+  val Train: UnmountedIcon      = Icon(Icon.props(name = "train"))
+  val Subway: UnmountedIcon     = Icon(Icon.props(name = "subway"))
+  val MapPin: UnmountedIcon     = Icon(Icon.props(name = "map pin"))
+  val MapSigns: UnmountedIcon   = Icon(Icon.props(name = "map signs"))
+  val MapOutline: UnmountedIcon = Icon(Icon.props(name = "map outline"))
+  val Map: UnmountedIcon        = Icon(Icon.props(name = "map"))
+}
+
+package object map extends SemanticIconsMap
+
+trait SemanticIconsTables {
+
+  val Table: UnmountedIcon   = Icon(Icon.props(name = "table"))
+  val Columns: UnmountedIcon = Icon(Icon.props(name = "columns"))
+
+  val Sort: UnmountedIcon                   = Icon(Icon.props(name = "sort"))
+  val SortDescending: UnmountedIcon         = Icon(Icon.props(name = "sort descending"))
+  val SortAscending: UnmountedIcon          = Icon(Icon.props(name = "sort ascending"))
+  val SortAlphabetAscending: UnmountedIcon  = Icon(Icon.props(name = "sort alphabet ascending"))
+  val SortAlphabetDescending: UnmountedIcon = Icon(Icon.props(name = "sort alphabet descending"))
+
+  val SortContentAscending: UnmountedIcon  = Icon(Icon.props(name = "sort content ascending"))
+  val SortContentDescending: UnmountedIcon = Icon(Icon.props(name = "sort content descending"))
+  val SortNumericAscending: UnmountedIcon  = Icon(Icon.props(name = "sort numeric ascending"))
+  val SortNumericDescending: UnmountedIcon = Icon(Icon.props(name = "sort numeric descending"))
+}
+
+package object tables extends SemanticIconsTables
+
+trait SemanticIconsTextEditor {
+
+  val Font: UnmountedIcon        = Icon(Icon.props(name = "font"))
+  val Bold: UnmountedIcon        = Icon(Icon.props(name = "bold"))
+  val Italic: UnmountedIcon      = Icon(Icon.props(name = "italic"))
+  val TextHeight: UnmountedIcon  = Icon(Icon.props(name = "text height"))
+  val TextWidth: UnmountedIcon   = Icon(Icon.props(name = "text width"))
+  val AlignLeft: UnmountedIcon   = Icon(Icon.props(name = "align left"))
+  val AlignCenter: UnmountedIcon = Icon(Icon.props(name = "align center"))
+  val AlignRight: UnmountedIcon  = Icon(Icon.props(name = "align right"))
+
+  val AlignJustify: UnmountedIcon = Icon(Icon.props(name = "align justify"))
+  val List: UnmountedIcon         = Icon(Icon.props(name = "list"))
+  val Outdent: UnmountedIcon      = Icon(Icon.props(name = "outdent"))
+  val Indent: UnmountedIcon       = Icon(Icon.props(name = "indent"))
+  val Linkify: UnmountedIcon      = Icon(Icon.props(name = "linkify"))
+  val Cut: UnmountedIcon          = Icon(Icon.props(name = "cut"))
+  val Copy: UnmountedIcon         = Icon(Icon.props(name = "copy"))
+  val Attach: UnmountedIcon       = Icon(Icon.props(name = "attach"))
+  val Save: UnmountedIcon         = Icon(Icon.props(name = "save"))
+  val Content: UnmountedIcon      = Icon(Icon.props(name = "content"))
+
+  val UnorderedList: UnmountedIcon = Icon(Icon.props(name = "unordered list"))
+  val OrderedList: UnmountedIcon   = Icon(Icon.props(name = "ordered list"))
+  val Strikethrough: UnmountedIcon = Icon(Icon.props(name = "strikethrough"))
+  val Underline: UnmountedIcon     = Icon(Icon.props(name = "underline"))
+  val Paste: UnmountedIcon         = Icon(Icon.props(name = "paste"))
+  val Unlinkify: UnmountedIcon     = Icon(Icon.props(name = "unlinkify"))
+  val Superscript: UnmountedIcon   = Icon(Icon.props(name = "superscript"))
+
+  val Subscript: UnmountedIcon  = Icon(Icon.props(name = "subscript"))
+  val Header: UnmountedIcon     = Icon(Icon.props(name = "header"))
+  val Paragraph: UnmountedIcon  = Icon(Icon.props(name = "paragraph"))
+  val TextCursor: UnmountedIcon = Icon(Icon.props(name = "text cursor"))
+}
+
+package object texteditor extends SemanticIconsTextEditor
+
+trait SemanticIconsCurrency {
+
+  val Euro: UnmountedIcon   = Icon(Icon.props(name = "euro"))
+  val Pound: UnmountedIcon  = Icon(Icon.props(name = "pound"))
+  val Dollar: UnmountedIcon = Icon(Icon.props(name = "dollar"))
+  val Rupee: UnmountedIcon  = Icon(Icon.props(name = "rupee"))
+  val Yen: UnmountedIcon    = Icon(Icon.props(name = "yen"))
+  val Ruble: UnmountedIcon  = Icon(Icon.props(name = "ruble"))
+
+  val Won: UnmountedIcon     = Icon(Icon.props(name = "won"))
+  val Bitcoin: UnmountedIcon = Icon(Icon.props(name = "bitcoin"))
+  val Lira: UnmountedIcon    = Icon(Icon.props(name = "lira"))
+  val Shekel: UnmountedIcon  = Icon(Icon.props(name = "shekel"))
+}
+
+package object currency extends SemanticIconsCurrency
+
+trait SemanticIconsPayments {
+
+  val Paypal: UnmountedIcon       = Icon(Icon.props(name = "paypal"))
+  val GoogleWallet: UnmountedIcon = Icon(Icon.props(name = "google wallet"))
+  val Visa: UnmountedIcon         = Icon(Icon.props(name = "visa"))
+  val Mastercard: UnmountedIcon   = Icon(Icon.props(name = "mastercard"))
+  val Discover: UnmountedIcon     = Icon(Icon.props(name = "discover"))
+
+  val AmericanExpress: UnmountedIcon       = Icon(Icon.props(name = "american express"))
+  val PaypalCard: UnmountedIcon            = Icon(Icon.props(name = "paypal card"))
+  val Stripe: UnmountedIcon                = Icon(Icon.props(name = "stripe"))
+  val JapanCreditBureau: UnmountedIcon     = Icon(Icon.props(name = "japan credit bureau"))
+  val DinersClub: UnmountedIcon            = Icon(Icon.props(name = "diners club"))
+  val CreditCardAlternative: UnmountedIcon = Icon(Icon.props(name = "credit card alternative"))
+}
+
+package object payments extends SemanticIconsPayments
+
+trait SemanticIconsNetworks {
+
+  val TwitterSquare: UnmountedIcon  = Icon(Icon.props(name = "twitter square"))
+  val FacebookSquare: UnmountedIcon = Icon(Icon.props(name = "facebook square"))
+  val LinkedinSquare: UnmountedIcon = Icon(Icon.props(name = "linkedin square"))
+  val GithubSquare: UnmountedIcon   = Icon(Icon.props(name = "github square"))
+
+  val Twitter: UnmountedIcon          = Icon(Icon.props(name = "twitter"))
+  val FacebookF: UnmountedIcon        = Icon(Icon.props(name = "facebook f"))
+  val Github: UnmountedIcon           = Icon(Icon.props(name = "github"))
+  val Pinterest: UnmountedIcon        = Icon(Icon.props(name = "pinterest"))
+  val PinterestSquare: UnmountedIcon  = Icon(Icon.props(name = "pinterest square"))
+  val GooglePlusSquare: UnmountedIcon = Icon(Icon.props(name = "google plus square"))
+  val GooglePlus: UnmountedIcon       = Icon(Icon.props(name = "google plus"))
+
+  val Linkedin: UnmountedIcon        = Icon(Icon.props(name = "linkedin"))
+  val GithubAlternate: UnmountedIcon = Icon(Icon.props(name = "github alternate"))
+  val Maxcdn: UnmountedIcon          = Icon(Icon.props(name = "maxcdn"))
+  val YoutubeSquare: UnmountedIcon   = Icon(Icon.props(name = "youtube square"))
+  val Youtube: UnmountedIcon         = Icon(Icon.props(name = "youtube"))
+  val Xing: UnmountedIcon            = Icon(Icon.props(name = "xing"))
+  val XingSquare: UnmountedIcon      = Icon(Icon.props(name = "xing square"))
+  val YoutubePlay: UnmountedIcon     = Icon(Icon.props(name = "youtube play"))
+
+  val Dropbox: UnmountedIcon         = Icon(Icon.props(name = "dropbox"))
+  val StackOverflow: UnmountedIcon   = Icon(Icon.props(name = "stack overflow"))
+  val Instagram: UnmountedIcon       = Icon(Icon.props(name = "instagram"))
+  val Flickr: UnmountedIcon          = Icon(Icon.props(name = "flickr"))
+  val Adn: UnmountedIcon             = Icon(Icon.props(name = "adn"))
+  val Bitbucket: UnmountedIcon       = Icon(Icon.props(name = "bitbucket"))
+  val BitbucketSquare: UnmountedIcon = Icon(Icon.props(name = "bitbucket square"))
+  val Tumblr: UnmountedIcon          = Icon(Icon.props(name = "tumblr"))
+
+  val TumblrSquare: UnmountedIcon = Icon(Icon.props(name = "tumblr square"))
+  val Apple: UnmountedIcon        = Icon(Icon.props(name = "apple"))
+  val Windows: UnmountedIcon      = Icon(Icon.props(name = "windows"))
+  val Android: UnmountedIcon      = Icon(Icon.props(name = "android"))
+  val Linux: UnmountedIcon        = Icon(Icon.props(name = "linux"))
+  val Dribble: UnmountedIcon      = Icon(Icon.props(name = "dribble"))
+  val Skype: UnmountedIcon        = Icon(Icon.props(name = "skype"))
+  val Foursquare: UnmountedIcon   = Icon(Icon.props(name = "foursquare"))
+  val Trello: UnmountedIcon       = Icon(Icon.props(name = "trello"))
+
+  val Gittip: UnmountedIcon        = Icon(Icon.props(name = "gittip"))
+  val Vk: UnmountedIcon            = Icon(Icon.props(name = "vk"))
+  val Weibo: UnmountedIcon         = Icon(Icon.props(name = "weibo"))
+  val Renren: UnmountedIcon        = Icon(Icon.props(name = "renren"))
+  val Pagelines: UnmountedIcon     = Icon(Icon.props(name = "pagelines"))
+  val StackExchange: UnmountedIcon = Icon(Icon.props(name = "stack exchange"))
+  val VimeoSquare: UnmountedIcon   = Icon(Icon.props(name = "vimeo square"))
+  val Slack: UnmountedIcon         = Icon(Icon.props(name = "slack"))
+  val Wordpress: UnmountedIcon     = Icon(Icon.props(name = "wordpress"))
+
+  val Yahoo: UnmountedIcon             = Icon(Icon.props(name = "yahoo"))
+  val Google: UnmountedIcon            = Icon(Icon.props(name = "google"))
+  val Reddit: UnmountedIcon            = Icon(Icon.props(name = "reddit"))
+  val RedditSquare: UnmountedIcon      = Icon(Icon.props(name = "reddit square"))
+  val StumbleuponCircle: UnmountedIcon = Icon(Icon.props(name = "stumbleupon circle"))
+  val Stumbleupon: UnmountedIcon       = Icon(Icon.props(name = "stumbleupon"))
+  val Delicious: UnmountedIcon         = Icon(Icon.props(name = "delicious"))
+
+  val Digg: UnmountedIcon               = Icon(Icon.props(name = "digg"))
+  val PiedPiper: UnmountedIcon          = Icon(Icon.props(name = "pied piper"))
+  val PiedPiperAlternate: UnmountedIcon = Icon(Icon.props(name = "pied piper alternate"))
+  val Drupal: UnmountedIcon             = Icon(Icon.props(name = "drupal"))
+  val Joomla: UnmountedIcon             = Icon(Icon.props(name = "joomla"))
+  val Behance: UnmountedIcon            = Icon(Icon.props(name = "behance"))
+  val BehanceSquare: UnmountedIcon      = Icon(Icon.props(name = "behance square"))
+  val Steam: UnmountedIcon              = Icon(Icon.props(name = "steam"))
+
+  val SteamSquare: UnmountedIcon = Icon(Icon.props(name = "steam square"))
+  val Spotify: UnmountedIcon     = Icon(Icon.props(name = "spotify"))
+  val Deviantart: UnmountedIcon  = Icon(Icon.props(name = "deviantart"))
+  val Soundcloud: UnmountedIcon  = Icon(Icon.props(name = "soundcloud"))
+  val Vine: UnmountedIcon        = Icon(Icon.props(name = "vine"))
+  val Codepen: UnmountedIcon     = Icon(Icon.props(name = "codepen"))
+  val Jsfiddle: UnmountedIcon    = Icon(Icon.props(name = "jsfiddle"))
+  val Rebel: UnmountedIcon       = Icon(Icon.props(name = "rebel"))
+  val Empire: UnmountedIcon      = Icon(Icon.props(name = "empire"))
+
+  val GitSquare: UnmountedIcon    = Icon(Icon.props(name = "git square"))
+  val Git: UnmountedIcon          = Icon(Icon.props(name = "git"))
+  val HackerNews: UnmountedIcon   = Icon(Icon.props(name = "hacker news"))
+  val TencentWeibo: UnmountedIcon = Icon(Icon.props(name = "tencent weibo"))
+  val Qq: UnmountedIcon           = Icon(Icon.props(name = "qq"))
+  val Wechat: UnmountedIcon       = Icon(Icon.props(name = "wechat"))
+  val Slideshare: UnmountedIcon   = Icon(Icon.props(name = "slideshare"))
+  val Twitch: UnmountedIcon       = Icon(Icon.props(name = "twitch"))
+  val Yelp: UnmountedIcon         = Icon(Icon.props(name = "yelp"))
+
+  val Lastfm: UnmountedIcon         = Icon(Icon.props(name = "lastfm"))
+  val LastfmSquare: UnmountedIcon   = Icon(Icon.props(name = "lastfm square"))
+  val Ioxhost: UnmountedIcon        = Icon(Icon.props(name = "ioxhost"))
+  val Angellist: UnmountedIcon      = Icon(Icon.props(name = "angellist"))
+  val Meanpath: UnmountedIcon       = Icon(Icon.props(name = "meanpath"))
+  val Buysellads: UnmountedIcon     = Icon(Icon.props(name = "buysellads"))
+  val Connectdevelop: UnmountedIcon = Icon(Icon.props(name = "connectdevelop"))
+  val Dashcube: UnmountedIcon       = Icon(Icon.props(name = "dashcube"))
+
+  val Forumbee: UnmountedIcon     = Icon(Icon.props(name = "forumbee"))
+  val Leanpub: UnmountedIcon      = Icon(Icon.props(name = "leanpub"))
+  val Sellsy: UnmountedIcon       = Icon(Icon.props(name = "sellsy"))
+  val Shirtsinbulk: UnmountedIcon = Icon(Icon.props(name = "shirtsinbulk"))
+  val Simplybuilt: UnmountedIcon  = Icon(Icon.props(name = "simplybuilt"))
+  val Skyatlas: UnmountedIcon     = Icon(Icon.props(name = "skyatlas"))
+  val Facebook: UnmountedIcon     = Icon(Icon.props(name = "facebook"))
+  val Whatsapp: UnmountedIcon     = Icon(Icon.props(name = "whatsapp"))
+  val Viacoin: UnmountedIcon      = Icon(Icon.props(name = "viacoin"))
+
+  val Medium: UnmountedIcon       = Icon(Icon.props(name = "medium"))
+  val YCombinator: UnmountedIcon  = Icon(Icon.props(name = "y combinator"))
+  val Optinmonster: UnmountedIcon = Icon(Icon.props(name = "optinmonster"))
+  val Opencart: UnmountedIcon     = Icon(Icon.props(name = "opencart"))
+  val Expeditedssl: UnmountedIcon = Icon(Icon.props(name = "expeditedssl"))
+  val Gg: UnmountedIcon           = Icon(Icon.props(name = "gg"))
+  val GgCircle: UnmountedIcon     = Icon(Icon.props(name = "gg circle"))
+  val Tripadvisor: UnmountedIcon  = Icon(Icon.props(name = "tripadvisor"))
+
+  val Odnoklassniki: UnmountedIcon       = Icon(Icon.props(name = "odnoklassniki"))
+  val OdnoklassnikiSquare: UnmountedIcon = Icon(Icon.props(name = "odnoklassniki square"))
+  val Pocket: UnmountedIcon              = Icon(Icon.props(name = "pocket"))
+  val Wikipedia: UnmountedIcon           = Icon(Icon.props(name = "wikipedia"))
+  val Safari: UnmountedIcon              = Icon(Icon.props(name = "safari"))
+  val Chrome: UnmountedIcon              = Icon(Icon.props(name = "chrome"))
+  val Firefox: UnmountedIcon             = Icon(Icon.props(name = "firefox"))
+
+  val Opera: UnmountedIcon            = Icon(Icon.props(name = "opera"))
+  val InternetExplorer: UnmountedIcon = Icon(Icon.props(name = "internet explorer"))
+  val Contao: UnmountedIcon           = Icon(Icon.props(name = "contao"))
+  val FiveHundredPx: UnmountedIcon    = Icon(Icon.props(name = "500px"))
+  val Amazon: UnmountedIcon           = Icon(Icon.props(name = "amazon"))
+  val Houzz: UnmountedIcon            = Icon(Icon.props(name = "houzz"))
+  val Vimeo: UnmountedIcon            = Icon(Icon.props(name = "vimeo"))
+  val BlackTie: UnmountedIcon         = Icon(Icon.props(name = "black tie"))
+  val Fonticons: UnmountedIcon        = Icon(Icon.props(name = "fonticons"))
+
+  val RedditAlien: UnmountedIcon   = Icon(Icon.props(name = "reddit alien"))
+  val MicrosoftEdge: UnmountedIcon = Icon(Icon.props(name = "microsoft edge"))
+  val Codiepie: UnmountedIcon      = Icon(Icon.props(name = "codiepie"))
+  val Modx: UnmountedIcon          = Icon(Icon.props(name = "modx"))
+  val FortAwesome: UnmountedIcon   = Icon(Icon.props(name = "fort awesome"))
+  val ProductHunt: UnmountedIcon   = Icon(Icon.props(name = "product hunt"))
+  val Mixcloud: UnmountedIcon      = Icon(Icon.props(name = "mixcloud"))
+  val Scribd: UnmountedIcon        = Icon(Icon.props(name = "scribd"))
+
+  val Gitlab: UnmountedIcon        = Icon(Icon.props(name = "gitlab"))
+  val Wpbeginner: UnmountedIcon    = Icon(Icon.props(name = "wpbeginner"))
+  val Wpforms: UnmountedIcon       = Icon(Icon.props(name = "wpforms"))
+  val EnviraGallery: UnmountedIcon = Icon(Icon.props(name = "envira gallery"))
+  val Glide: UnmountedIcon         = Icon(Icon.props(name = "glide"))
+  val GlideG: UnmountedIcon        = Icon(Icon.props(name = "glide g"))
+  val Viadeo: UnmountedIcon        = Icon(Icon.props(name = "viadeo"))
+  val ViadeoSquare: UnmountedIcon  = Icon(Icon.props(name = "viadeo square"))
+
+  val Snapchat: UnmountedIcon       = Icon(Icon.props(name = "snapchat"))
+  val SnapchatGhost: UnmountedIcon  = Icon(Icon.props(name = "snapchat ghost"))
+  val SnapchatSquare: UnmountedIcon = Icon(Icon.props(name = "snapchat square"))
+  val PiedPiperHat: UnmountedIcon   = Icon(Icon.props(name = "pied piper hat"))
+  val FirstOrder: UnmountedIcon     = Icon(Icon.props(name = "first order"))
+  val Yoast: UnmountedIcon          = Icon(Icon.props(name = "yoast"))
+  val Themeisle: UnmountedIcon      = Icon(Icon.props(name = "themeisle"))
+
+  val GooglePlusCircle: UnmountedIcon = Icon(Icon.props(name = "google plus circle"))
+  val FontAwesome: UnmountedIcon      = Icon(Icon.props(name = "font awesome"))
+  val Bandcamp: UnmountedIcon         = Icon(Icon.props(name = "bandcamp"))
+  val Eercast: UnmountedIcon          = Icon(Icon.props(name = "eercast"))
+  val Etsy: UnmountedIcon             = Icon(Icon.props(name = "etsy"))
+  val FreeCodeCamp: UnmountedIcon     = Icon(Icon.props(name = "free code camp"))
+  val Grav: UnmountedIcon             = Icon(Icon.props(name = "grav"))
+  val Imdb: UnmountedIcon             = Icon(Icon.props(name = "imdb"))
+
+  val Linode: UnmountedIcon      = Icon(Icon.props(name = "linode"))
+  val Meetup: UnmountedIcon      = Icon(Icon.props(name = "meetup"))
+  val Quora: UnmountedIcon       = Icon(Icon.props(name = "quora"))
+  val Ravelry: UnmountedIcon     = Icon(Icon.props(name = "ravelry"))
+  val Superpowers: UnmountedIcon = Icon(Icon.props(name = "superpowers"))
+  val Telegram: UnmountedIcon    = Icon(Icon.props(name = "telegram"))
+  val Wpexplorer: UnmountedIcon  = Icon(Icon.props(name = "wpexplorer"))
+}
+
+package object networks extends SemanticIconsNetworks
+
+trait SemanticIconsAliases {
+
+  val Like: UnmountedIcon     = Icon(Icon.props(name = "like"))
+  val Favorite: UnmountedIcon = Icon(Icon.props(name = "favorite"))
+
+  val Video: UnmountedIcon    = Icon(Icon.props(name = "video"))
+  val Check: UnmountedIcon    = Icon(Icon.props(name = "check"))
+  val Close: UnmountedIcon    = Icon(Icon.props(name = "close"))
+  val Cancel: UnmountedIcon   = Icon(Icon.props(name = "cancel"))
+  val Delete: UnmountedIcon   = Icon(Icon.props(name = "delete"))
+  val X: UnmountedIcon        = Icon(Icon.props(name = "x"))
+  val ZoomIn: UnmountedIcon   = Icon(Icon.props(name = "zoom in"))
+  val Magnify: UnmountedIcon  = Icon(Icon.props(name = "magnify"))
+  val Shutdown: UnmountedIcon = Icon(Icon.props(name = "shutdown"))
+  val Clock: UnmountedIcon    = Icon(Icon.props(name = "clock"))
+  val Time: UnmountedIcon     = Icon(Icon.props(name = "time"))
+
+  val PlayCircleOutline: UnmountedIcon = Icon(Icon.props(name = "play circle outline"))
+  val Headphone: UnmountedIcon         = Icon(Icon.props(name = "headphone"))
+  val Camera: UnmountedIcon            = Icon(Icon.props(name = "camera"))
+  val VideoCamera: UnmountedIcon       = Icon(Icon.props(name = "video camera"))
+  val Picture: UnmountedIcon           = Icon(Icon.props(name = "picture"))
+  val Pencil: UnmountedIcon            = Icon(Icon.props(name = "pencil"))
+  val Compose: UnmountedIcon           = Icon(Icon.props(name = "compose"))
+  val Point: UnmountedIcon             = Icon(Icon.props(name = "point"))
+
+  val Tint: UnmountedIcon              = Icon(Icon.props(name = "tint"))
+  val Signup: UnmountedIcon            = Icon(Icon.props(name = "signup"))
+  val PlusCircle: UnmountedIcon        = Icon(Icon.props(name = "plus circle"))
+  val QuestionCircle: UnmountedIcon    = Icon(Icon.props(name = "question circle"))
+  val Dont: UnmountedIcon              = Icon(Icon.props(name = "dont"))
+  val Minimize: UnmountedIcon          = Icon(Icon.props(name = "minimize"))
+  val Add: UnmountedIcon               = Icon(Icon.props(name = "add"))
+  val ExclamationCircle: UnmountedIcon = Icon(Icon.props(name = "exclamation circle"))
+
+  val Attention: UnmountedIcon           = Icon(Icon.props(name = "attention"))
+  val Eye: UnmountedIcon                 = Icon(Icon.props(name = "eye"))
+  val ExclamationTriangle: UnmountedIcon = Icon(Icon.props(name = "exclamation triangle"))
+  val Shuffle: UnmountedIcon             = Icon(Icon.props(name = "shuffle"))
+  val Chat: UnmountedIcon                = Icon(Icon.props(name = "chat"))
+  val Cart: UnmountedIcon                = Icon(Icon.props(name = "cart"))
+  val ShoppingCart: UnmountedIcon        = Icon(Icon.props(name = "shopping cart"))
+  val BarGraph: UnmountedIcon            = Icon(Icon.props(name = "bar graph"))
+
+  val Key: UnmountedIcon            = Icon(Icon.props(name = "key"))
+  val Cogs: UnmountedIcon           = Icon(Icon.props(name = "cogs"))
+  val Discussions: UnmountedIcon    = Icon(Icon.props(name = "discussions"))
+  val LikeOutline: UnmountedIcon    = Icon(Icon.props(name = "like outline"))
+  val DislikeOutline: UnmountedIcon = Icon(Icon.props(name = "dislike outline"))
+  val HeartOutline: UnmountedIcon   = Icon(Icon.props(name = "heart outline"))
+  val LogOut: UnmountedIcon         = Icon(Icon.props(name = "log out"))
+  val ThumbTack: UnmountedIcon      = Icon(Icon.props(name = "thumb tack"))
+
+  val Winner: UnmountedIcon          = Icon(Icon.props(name = "winner"))
+  val Phone: UnmountedIcon           = Icon(Icon.props(name = "phone"))
+  val BookmarkOutline: UnmountedIcon = Icon(Icon.props(name = "bookmark outline"))
+  val PhoneSquare: UnmountedIcon     = Icon(Icon.props(name = "phone square"))
+  val CreditCard: UnmountedIcon      = Icon(Icon.props(name = "credit card"))
+  val HddOutline: UnmountedIcon      = Icon(Icon.props(name = "hdd outline"))
+  val Bullhorn: UnmountedIcon        = Icon(Icon.props(name = "bullhorn"))
+
+  val BellOutline: UnmountedIcon      = Icon(Icon.props(name = "bell outline"))
+  val HandOutlineRight: UnmountedIcon = Icon(Icon.props(name = "hand outline right"))
+  val HandOutlineLeft: UnmountedIcon  = Icon(Icon.props(name = "hand outline left"))
+  val HandOutlineUp: UnmountedIcon    = Icon(Icon.props(name = "hand outline up"))
+  val HandOutlineDown: UnmountedIcon  = Icon(Icon.props(name = "hand outline down"))
+
+  val Globe: UnmountedIcon     = Icon(Icon.props(name = "globe"))
+  val Wrench: UnmountedIcon    = Icon(Icon.props(name = "wrench"))
+  val Briefcase: UnmountedIcon = Icon(Icon.props(name = "briefcase"))
+  val Group: UnmountedIcon     = Icon(Icon.props(name = "group"))
+  val Chain: UnmountedIcon     = Icon(Icon.props(name = "chain"))
+  val Flask: UnmountedIcon     = Icon(Icon.props(name = "flask"))
+  val Sidebar: UnmountedIcon   = Icon(Icon.props(name = "sidebar"))
+  val Bars: UnmountedIcon      = Icon(Icon.props(name = "bars"))
+  val ListUl: UnmountedIcon    = Icon(Icon.props(name = "list ul"))
+  val ListOl: UnmountedIcon    = Icon(Icon.props(name = "list ol"))
+
+  val NumberedList: UnmountedIcon = Icon(Icon.props(name = "numbered list"))
+  val Magic: UnmountedIcon        = Icon(Icon.props(name = "magic"))
+  val Truck: UnmountedIcon        = Icon(Icon.props(name = "truck"))
+  val Currency: UnmountedIcon     = Icon(Icon.props(name = "currency"))
+  val TriangleDown: UnmountedIcon = Icon(Icon.props(name = "triangle down"))
+  val Dropdown: UnmountedIcon     = Icon(Icon.props(name = "dropdown"))
+  val TriangleUp: UnmountedIcon   = Icon(Icon.props(name = "triangle up"))
+  val TriangleLeft: UnmountedIcon = Icon(Icon.props(name = "triangle left"))
+
+  val TriangleRight: UnmountedIcon = Icon(Icon.props(name = "triangle right"))
+  val Envelope: UnmountedIcon      = Icon(Icon.props(name = "envelope"))
+  val Conversation: UnmountedIcon  = Icon(Icon.props(name = "conversation"))
+  val Rain: UnmountedIcon          = Icon(Icon.props(name = "rain"))
+  val Clipboard: UnmountedIcon     = Icon(Icon.props(name = "clipboard"))
+  val Lightbulb: UnmountedIcon     = Icon(Icon.props(name = "lightbulb"))
+  val Bell: UnmountedIcon          = Icon(Icon.props(name = "bell"))
+  val Ambulance: UnmountedIcon     = Icon(Icon.props(name = "ambulance"))
+
+  val Medkit: UnmountedIcon        = Icon(Icon.props(name = "medkit"))
+  val FighterJet: UnmountedIcon    = Icon(Icon.props(name = "fighter jet"))
+  val Beer: UnmountedIcon          = Icon(Icon.props(name = "beer"))
+  val PlusSquare: UnmountedIcon    = Icon(Icon.props(name = "plus square"))
+  val Computer: UnmountedIcon      = Icon(Icon.props(name = "computer"))
+  val CircleOutline: UnmountedIcon = Icon(Icon.props(name = "circle outline"))
+  val Gamepad: UnmountedIcon       = Icon(Icon.props(name = "gamepad"))
+  val StarHalfFull: UnmountedIcon  = Icon(Icon.props(name = "star half full"))
+
+  val BrokenChain: UnmountedIcon     = Icon(Icon.props(name = "broken chain"))
+  val Question: UnmountedIcon        = Icon(Icon.props(name = "question"))
+  val Exclamation: UnmountedIcon     = Icon(Icon.props(name = "exclamation"))
+  val Eraser: UnmountedIcon          = Icon(Icon.props(name = "eraser"))
+  val Microphone: UnmountedIcon      = Icon(Icon.props(name = "microphone"))
+  val MicrophoneSlash: UnmountedIcon = Icon(Icon.props(name = "microphone slash"))
+  val Shield: UnmountedIcon          = Icon(Icon.props(name = "shield"))
+  val Target: UnmountedIcon          = Icon(Icon.props(name = "target"))
+
+  val PlayCircle: UnmountedIcon   = Icon(Icon.props(name = "play circle"))
+  val PencilSquare: UnmountedIcon = Icon(Icon.props(name = "pencil square"))
+  val Eur: UnmountedIcon          = Icon(Icon.props(name = "eur"))
+  val Gbp: UnmountedIcon          = Icon(Icon.props(name = "gbp"))
+  val Usd: UnmountedIcon          = Icon(Icon.props(name = "usd"))
+  val Inr: UnmountedIcon          = Icon(Icon.props(name = "inr"))
+  val Cny: UnmountedIcon          = Icon(Icon.props(name = "cny"))
+  val Rmb: UnmountedIcon          = Icon(Icon.props(name = "rmb"))
+  val Jpy: UnmountedIcon          = Icon(Icon.props(name = "jpy"))
+  val Rouble: UnmountedIcon       = Icon(Icon.props(name = "rouble"))
+  val Rub: UnmountedIcon          = Icon(Icon.props(name = "rub"))
+
+  val Krw: UnmountedIcon              = Icon(Icon.props(name = "krw"))
+  val Btc: UnmountedIcon              = Icon(Icon.props(name = "btc"))
+  val Gratipay: UnmountedIcon         = Icon(Icon.props(name = "gratipay"))
+  val Zip: UnmountedIcon              = Icon(Icon.props(name = "zip"))
+  val DotCircleOutline: UnmountedIcon = Icon(Icon.props(name = "dot circle outline"))
+  val Try: UnmountedIcon              = Icon(Icon.props(name = "try"))
+  val Graduation: UnmountedIcon       = Icon(Icon.props(name = "graduation"))
+  val Sliders: UnmountedIcon          = Icon(Icon.props(name = "sliders"))
+  val Weixin: UnmountedIcon           = Icon(Icon.props(name = "weixin"))
+  val Tty: UnmountedIcon              = Icon(Icon.props(name = "tty"))
+
+  val Teletype: UnmountedIcon       = Icon(Icon.props(name = "teletype"))
+  val Binoculars: UnmountedIcon     = Icon(Icon.props(name = "binoculars"))
+  val PowerCord: UnmountedIcon      = Icon(Icon.props(name = "power cord"))
+  val VisaCard: UnmountedIcon       = Icon(Icon.props(name = "visa card"))
+  val MastercardCard: UnmountedIcon = Icon(Icon.props(name = "mastercard card"))
+  val DiscoverCard: UnmountedIcon   = Icon(Icon.props(name = "discover card"))
+  val Amex: UnmountedIcon           = Icon(Icon.props(name = "amex"))
+
+  val AmericanExpressCard: UnmountedIcon = Icon(Icon.props(name = "american express card"))
+  val StripeCard: UnmountedIcon          = Icon(Icon.props(name = "stripe card"))
+  val BellSlash: UnmountedIcon           = Icon(Icon.props(name = "bell slash"))
+  val BellSlashOutline: UnmountedIcon    = Icon(Icon.props(name = "bell slash outline"))
+  val AreaGraph: UnmountedIcon           = Icon(Icon.props(name = "area graph"))
+  val PieGraph: UnmountedIcon            = Icon(Icon.props(name = "pie graph"))
+
+  val LineGraph: UnmountedIcon     = Icon(Icon.props(name = "line graph"))
+  val Cc: UnmountedIcon            = Icon(Icon.props(name = "cc"))
+  val Sheqel: UnmountedIcon        = Icon(Icon.props(name = "sheqel"))
+  val Ils: UnmountedIcon           = Icon(Icon.props(name = "ils"))
+  val PlusCart: UnmountedIcon      = Icon(Icon.props(name = "plus cart"))
+  val ArrowDownCart: UnmountedIcon = Icon(Icon.props(name = "arrow down cart"))
+  val Detective: UnmountedIcon     = Icon(Icon.props(name = "detective"))
+  val Venus: UnmountedIcon         = Icon(Icon.props(name = "venus"))
+  val Mars: UnmountedIcon          = Icon(Icon.props(name = "mars"))
+
+  val Mercury: UnmountedIcon          = Icon(Icon.props(name = "mercury"))
+  val Intersex: UnmountedIcon         = Icon(Icon.props(name = "intersex"))
+  val VenusDouble: UnmountedIcon      = Icon(Icon.props(name = "venus double"))
+  val FemaleHomosexual: UnmountedIcon = Icon(Icon.props(name = "female homosexual"))
+  val MarsDouble: UnmountedIcon       = Icon(Icon.props(name = "mars double"))
+  val MaleHomosexual: UnmountedIcon   = Icon(Icon.props(name = "male homosexual"))
+  val VenusMars: UnmountedIcon        = Icon(Icon.props(name = "venus mars"))
+
+  val MarsStroke: UnmountedIcon         = Icon(Icon.props(name = "mars stroke"))
+  val MarsAlternate: UnmountedIcon      = Icon(Icon.props(name = "mars alternate"))
+  val MarsVertical: UnmountedIcon       = Icon(Icon.props(name = "mars vertical"))
+  val MarsStrokeVertical: UnmountedIcon = Icon(Icon.props(name = "mars stroke vertical"))
+  val MarsHorizontal: UnmountedIcon     = Icon(Icon.props(name = "mars horizontal"))
+
+  val MarsStrokeHorizontal: UnmountedIcon = Icon(Icon.props(name = "mars stroke horizontal"))
+  val Asexual: UnmountedIcon              = Icon(Icon.props(name = "asexual"))
+  val FacebookOfficial: UnmountedIcon     = Icon(Icon.props(name = "facebook official"))
+  val UserPlus: UnmountedIcon             = Icon(Icon.props(name = "user plus"))
+  val UserTimes: UnmountedIcon            = Icon(Icon.props(name = "user times"))
+  val UserClose: UnmountedIcon            = Icon(Icon.props(name = "user close"))
+
+  val UserCancel: UnmountedIcon   = Icon(Icon.props(name = "user cancel"))
+  val UserDelete: UnmountedIcon   = Icon(Icon.props(name = "user delete"))
+  val UserX: UnmountedIcon        = Icon(Icon.props(name = "user x"))
+  val Bed: UnmountedIcon          = Icon(Icon.props(name = "bed"))
+  val Yc: UnmountedIcon           = Icon(Icon.props(name = "yc"))
+  val Ycombinator: UnmountedIcon  = Icon(Icon.props(name = "ycombinator"))
+  val BatteryFour: UnmountedIcon  = Icon(Icon.props(name = "battery four"))
+  val BatteryThree: UnmountedIcon = Icon(Icon.props(name = "battery three"))
+
+  val BatteryThreeQuarters: UnmountedIcon = Icon(Icon.props(name = "battery three quarters"))
+  val BatteryTwo: UnmountedIcon           = Icon(Icon.props(name = "battery two"))
+  val BatteryHalf: UnmountedIcon          = Icon(Icon.props(name = "battery half"))
+  val BatteryOne: UnmountedIcon           = Icon(Icon.props(name = "battery one"))
+  val BatteryQuarter: UnmountedIcon       = Icon(Icon.props(name = "battery quarter"))
+  val BatteryZero: UnmountedIcon          = Icon(Icon.props(name = "battery zero"))
+
+  val ICursor: UnmountedIcon               = Icon(Icon.props(name = "i cursor"))
+  val Jcb: UnmountedIcon                   = Icon(Icon.props(name = "jcb"))
+  val JapanCreditBureauCard: UnmountedIcon = Icon(Icon.props(name = "japan credit bureau card"))
+  val DinersClubCard: UnmountedIcon        = Icon(Icon.props(name = "diners club card"))
+  val Balance: UnmountedIcon               = Icon(Icon.props(name = "balance"))
+  val HourglassOutline: UnmountedIcon      = Icon(Icon.props(name = "hourglass outline"))
+
+  val HourglassZero: UnmountedIcon  = Icon(Icon.props(name = "hourglass zero"))
+  val HourglassOne: UnmountedIcon   = Icon(Icon.props(name = "hourglass one"))
+  val HourglassTwo: UnmountedIcon   = Icon(Icon.props(name = "hourglass two"))
+  val HourglassThree: UnmountedIcon = Icon(Icon.props(name = "hourglass three"))
+  val HourglassFour: UnmountedIcon  = Icon(Icon.props(name = "hourglass four"))
+  val Grab: UnmountedIcon           = Icon(Icon.props(name = "grab"))
+
+  val HandVictory: UnmountedIcon       = Icon(Icon.props(name = "hand victory"))
+  val Tm: UnmountedIcon                = Icon(Icon.props(name = "tm"))
+  val RCircle: UnmountedIcon           = Icon(Icon.props(name = "r circle"))
+  val Television: UnmountedIcon        = Icon(Icon.props(name = "television"))
+  val FiveHundredPixels: UnmountedIcon = Icon(Icon.props(name = "five hundred pixels"))
+  val CalendarPlus: UnmountedIcon      = Icon(Icon.props(name = "calendar plus"))
+  val CalendarMinus: UnmountedIcon     = Icon(Icon.props(name = "calendar minus"))
+
+  val CalendarTimes: UnmountedIcon     = Icon(Icon.props(name = "calendar times"))
+  val CalendarCheck: UnmountedIcon     = Icon(Icon.props(name = "calendar check"))
+  val Factory: UnmountedIcon           = Icon(Icon.props(name = "factory"))
+  val Commenting: UnmountedIcon        = Icon(Icon.props(name = "commenting"))
+  val CommentingOutline: UnmountedIcon = Icon(Icon.props(name = "commenting outline"))
+  val Edge: UnmountedIcon              = Icon(Icon.props(name = "edge"))
+  val MsEdge: UnmountedIcon            = Icon(Icon.props(name = "ms edge"))
+
+  val WordpressBeginner: UnmountedIcon     = Icon(Icon.props(name = "wordpress beginner"))
+  val WordpressForms: UnmountedIcon        = Icon(Icon.props(name = "wordpress forms"))
+  val Envira: UnmountedIcon                = Icon(Icon.props(name = "envira"))
+  val QuestionCircleOutline: UnmountedIcon = Icon(Icon.props(name = "question circle outline"))
+
+  val AssistiveListeningDevices: UnmountedIcon = Icon(
+    Icon.props(name = "assistive listening devices"))
+
+  val Als: UnmountedIcon             = Icon(Icon.props(name = "als"))
+  val Ald: UnmountedIcon             = Icon(Icon.props(name = "ald"))
+  val AslInterpreting: UnmountedIcon = Icon(Icon.props(name = "asl interpreting"))
+  val Deaf: UnmountedIcon            = Icon(Icon.props(name = "deaf"))
+
+  val AmericanSignLanguageInterpreting: UnmountedIcon = Icon(
+    Icon.props(name = "american sign language interpreting"))
+  val HardOfHearing: UnmountedIcon = Icon(Icon.props(name = "hard of hearing"))
+
+  val Signing: UnmountedIcon            = Icon(Icon.props(name = "signing"))
+  val NewPiedPiper: UnmountedIcon       = Icon(Icon.props(name = "new pied piper"))
+  val ThemeIsle: UnmountedIcon          = Icon(Icon.props(name = "theme isle"))
+  val GooglePlusOfficial: UnmountedIcon = Icon(Icon.props(name = "google plus official"))
+  val Fa: UnmountedIcon                 = Icon(Icon.props(name = "fa"))
+  val Bathtub: UnmountedIcon            = Icon(Icon.props(name = "bathtub"))
+  val DriversLicense: UnmountedIcon     = Icon(Icon.props(name = "drivers license"))
+
+  val DriversLicenseOutline: UnmountedIcon = Icon(Icon.props(name = "drivers license outline"))
+  val S15: UnmountedIcon                   = Icon(Icon.props(name = "s15"))
+  val Thermometer: UnmountedIcon           = Icon(Icon.props(name = "thermometer"))
+  val TimesRectangle: UnmountedIcon        = Icon(Icon.props(name = "times rectangle"))
+  val TimesRectangleOutline: UnmountedIcon = Icon(Icon.props(name = "times rectangle outline"))
+  val Vcard: UnmountedIcon                 = Icon(Icon.props(name = "vcard"))
+
+  val VcardOutline: UnmountedIcon = Icon(Icon.props(name = "vcard outline"))
+  val LeftDropdown: UnmountedIcon = Icon(Icon.props(name = "left dropdown"))
+}
+
+package object aliases extends SemanticIconsAliases

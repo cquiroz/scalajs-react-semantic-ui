@@ -1,6 +1,7 @@
 package react.semanticui.elements
 
 import react.semanticui.sizes._
+import react.semanticui.sizes
 import react.semanticui.colors._
 
 package object icon
@@ -11,11 +12,24 @@ package object icon
     with SemanticIconsGender
     with SemanticIconsAccessibility
     with SemanticIconsView
-    with SemanticIconsLiteral
+    with SemanticIconsObjects
     with SemanticIconsShapes
     with SemanticIconsSelection
     with SemanticIconsMedia
-    with SemanticIconsPointers {
+    with SemanticIconsPointers
+    with SemanticIconsMobile
+    with SemanticIconsComputer
+    with SemanticIconsFileSystem
+    with SemanticIconsTechnologies
+    with SemanticIconsRating
+    with SemanticIconsAudio
+    with SemanticIconsMap
+    with SemanticIconsTables
+    with SemanticIconsTextEditor
+    with SemanticIconsCurrency
+    with SemanticIconsPayments
+    with SemanticIconsNetworks
+    with SemanticIconsAliases {
 
   type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[
     japgolly.scalajs.react.internal.Effect.Id,
@@ -65,7 +79,7 @@ package object icon
           name = i.props.name,
           rotated = i.props.rotated,
           size =
-            if (s == Medium) ""
+            if (s == sizes.Medium) ""
             else s.value
         ))
 
