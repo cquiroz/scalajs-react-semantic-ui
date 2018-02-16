@@ -58,7 +58,7 @@ object IconsComponent {
               case (name, icon) =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
-                  icon.withSize(Big),
+                  icon.size(Big),
                   <.p(
                     ^.cls := "name",
                     name
@@ -71,7 +71,7 @@ object IconsComponent {
               case s =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
-                  Feed.withSize(s),
+                  Feed.size(s),
                   <.p(
                     ^.cls := "name",
                     s.value
@@ -97,7 +97,7 @@ object IconsComponent {
               case o =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
-                  Edit.withColor(o),
+                  Edit.color(o),
                   <.p(
                     ^.cls := "name",
                     o.value
@@ -117,6 +117,26 @@ object IconsComponent {
                   )
                 ),
             }.toTagMod
+          },
+          section("Bordered", "Icons can have a border") {
+            <.div(
+              ^.cls := "column docs-icon-set-column",
+              Newspaper.bordered,
+              <.p(
+                ^.cls := "name",
+                "bordered"
+              )
+            )
+          },
+          section("Circular", "Icons can be circular") {
+            <.div(
+              ^.cls := "column docs-icon-set-column",
+              AreaChart.circular,
+              <.p(
+                ^.cls := "name",
+                "circular"
+              )
+            )
           }
         )
       }

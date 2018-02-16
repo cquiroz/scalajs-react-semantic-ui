@@ -16,6 +16,7 @@ package object icon
     with SemanticIconsSelection
     with SemanticIconsMedia
     with SemanticIconsPointers {
+
   type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[
     japgolly.scalajs.react.internal.Effect.Id,
     Icon.IconProps,
@@ -25,6 +26,7 @@ package object icon
     Null]
 
   implicit class CopyIconOps(val i: UnmountedIcon) extends AnyVal {
+
     def copy: UnmountedIcon =
       Icon(
         Icon.rawprops(
@@ -45,7 +47,7 @@ package object icon
           size = i.props.size
         ))
 
-    def withSize(s: SemanticSize): UnmountedIcon =
+    def size(s: SemanticSize): UnmountedIcon =
       Icon(
         Icon.rawprops(
           as = i.props.as,
@@ -67,7 +69,7 @@ package object icon
             else s.value
         ))
 
-    def withColor(s: SemanticColor): UnmountedIcon =
+    def color(s: SemanticColor): UnmountedIcon =
       Icon(
         Icon.rawprops(
           as = i.props.as,
@@ -126,5 +128,186 @@ package object icon
           rotated = s.value,
           size = i.props.size
         ))
+
+    def bordered: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = true,
+          circular = i.props.circular,
+          className = i.props.className,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = i.props.disabled,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = i.props.link,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def circular: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = true,
+          className = i.props.className,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = i.props.disabled,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = i.props.link,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def className(c: String): UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = i.props.circular,
+          className = c,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = i.props.disabled,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = i.props.link,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def corner: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = i.props.circular,
+          className = i.props.className,
+          color = i.props.color,
+          corner = true,
+          disabled = i.props.disabled,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = i.props.link,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def disabled: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = i.props.circular,
+          className = i.props.className,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = true,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = i.props.link,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def fitted: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = i.props.circular,
+          className = i.props.className,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = i.props.disabled,
+          fitted = true,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = i.props.link,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def inverted: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = i.props.circular,
+          className = i.props.className,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = i.props.disabled,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = true,
+          link = i.props.link,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def link: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = i.props.circular,
+          className = i.props.className,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = i.props.disabled,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = true,
+          loading = i.props.loading,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
+    def loading: UnmountedIcon =
+      Icon(
+        Icon.rawprops(
+          as = i.props.as,
+          bordered = i.props.bordered,
+          circular = i.props.circular,
+          className = i.props.className,
+          color = i.props.color,
+          corner = i.props.corner,
+          disabled = i.props.disabled,
+          fitted = i.props.fitted,
+          flipped = i.props.flipped,
+          inverted = i.props.inverted,
+          link = i.props.link,
+          loading = true,
+          name = i.props.name,
+          rotated = i.props.rotated,
+          size = i.props.size
+        ))
+
   }
 }
