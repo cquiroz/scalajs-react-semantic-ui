@@ -3,12 +3,13 @@ package react.semanticui.demo
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.elements.icon._
+import react.semanticui.elements.icons._
 import react.semanticui.sizes._
 import react.semanticui.sizes
 import react.semanticui.colors
 
 object IconsComponent {
-  private val sampleIcons = Map("mail outline" -> MailOutline, "search" -> Search)
+  private val sampleIcons = Map("mail outline" -> IconMailOutline, "search" -> IconSearch)
 
   def section(title: String, description: String)(icons: TagMod): TagMod =
     <.div(
@@ -71,7 +72,7 @@ object IconsComponent {
               case s =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
-                  Feed.size(s),
+                  IconFeed.size(s),
                   <.p(
                     ^.cls := "name",
                     s.value
@@ -84,12 +85,12 @@ object IconsComponent {
               case o =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
-                  CloudUpload.flipped(o),
+                  IconCloudUpload.flipped(o),
                   <.p(
                     ^.cls := "name",
                     o.value
                   )
-                ),
+                )
             }.toTagMod
           },
           section("Colors", "Icons support colors") {
@@ -97,7 +98,7 @@ object IconsComponent {
               case o =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
-                  Edit.color(o),
+                  IconEdit.color(o),
                   <.p(
                     ^.cls := "name",
                     o.value
@@ -110,7 +111,7 @@ object IconsComponent {
               case o =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
-                  Dashboard.rotated(o),
+                  IconDashboard.rotated(o),
                   <.p(
                     ^.cls := "name",
                     o.value
@@ -121,7 +122,7 @@ object IconsComponent {
           section("Bordered", "Icons can have a border") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              Newspaper.bordered,
+              IconNewspaper.bordered,
               <.p(
                 ^.cls := "name",
                 "bordered"
@@ -131,7 +132,7 @@ object IconsComponent {
           section("Circular", "Icons can be circular") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              AreaChart.circular,
+              IconAreaChart.circular,
               <.p(
                 ^.cls := "name",
                 "circular"

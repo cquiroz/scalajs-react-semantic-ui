@@ -4,32 +4,7 @@ import react.semanticui.sizes._
 import react.semanticui.sizes
 import react.semanticui.colors._
 
-package object icon
-    extends SemanticIconsWeb
-    with SemanticIconsUser
-    with SemanticIconsMessages
-    with SemanticIconsUsers
-    with SemanticIconsGender
-    with SemanticIconsAccessibility
-    with SemanticIconsView
-    with SemanticIconsObjects
-    with SemanticIconsShapes
-    with SemanticIconsSelection
-    with SemanticIconsMedia
-    with SemanticIconsPointers
-    with SemanticIconsMobile
-    with SemanticIconsComputer
-    with SemanticIconsFileSystem
-    with SemanticIconsTechnologies
-    with SemanticIconsRating
-    with SemanticIconsAudio
-    with SemanticIconsMap
-    with SemanticIconsTables
-    with SemanticIconsTextEditor
-    with SemanticIconsCurrency
-    with SemanticIconsPayments
-    with SemanticIconsNetworks
-    with SemanticIconsAliases {
+package object icon {
 
   type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[
     japgolly.scalajs.react.internal.Effect.Id,
@@ -325,3 +300,30 @@ package object icon
 
   }
 }
+
+package object icons
+    extends SemanticIconsWeb
+    with SemanticIconsUser
+    with SemanticIconsMessages
+    with SemanticIconsUsers
+    with SemanticIconsGender
+    with SemanticIconsAccessibility
+    with SemanticIconsView
+    with SemanticIconsObjects
+    with SemanticIconsShapes
+    with SemanticIconsSelection
+    with SemanticIconsMedia
+    with SemanticIconsPointers
+    with SemanticIconsMobile
+    with SemanticIconsComputer
+    with SemanticIconsFileSystem
+    with SemanticIconsTechnologies
+    with SemanticIconsRating
+    with SemanticIconsAudio
+    with SemanticIconsMap
+    with SemanticIconsTables
+    with SemanticIconsTextEditor
+    with SemanticIconsCurrency
+    with SemanticIconsPayments
+    with SemanticIconsNetworks
+    with SemanticIconsAliases
