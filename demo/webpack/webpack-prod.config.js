@@ -70,11 +70,22 @@ function Web(extractSass) {
 const WebApp = Merge(Common.Web, {
   output: {
     filename: "[name].js",
-    path: Common.rootDir,
-    publicPath: "/"
+    path: Path.resolve(__dirname, publicFolderName),
+    publicPath: "/",
+    libraryTarget: "window"
   },
   entry: {
     app: Path.resolve(Common.resourcesDir, "./prod.js")
+  },
+  module: {
+    rules: [
+      {
+        use: ExtractTextPlugin.extract({
+          use: ["css-loader", "less-loader"]
+        }),
+        test: /\.less$/
+      }
+    ]
   },
   plugins: [
     new Webpack.DefinePlugin({
