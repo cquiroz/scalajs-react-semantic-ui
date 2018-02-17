@@ -18,7 +18,6 @@ const ProdConfig = new Webpack.DefinePlugin({
 
 const Common = require("./webpack.common.js");
 const publicFolderName = "../docs";
-console.log(Common.rootDir);
 
 function Web(extractSass) {
   return Merge(Common.Web, {
@@ -73,7 +72,7 @@ const WebApp = Merge(Common.Web, {
   output: {
     filename: "[name].js",
     path: Path.resolve(Common.rootDir, publicFolderName),
-    // publicPath: "./",
+    publicPath: "/",
     libraryTarget: "umd"
   },
   entry: {
@@ -113,8 +112,8 @@ const WebApp = Merge(Common.Web, {
       chunks: ["demo"],
       template: Path.resolve(Common.resourcesDir, "./prod.html"),
       favicon: Path.resolve(Common.resourcesDir, "./images/favicon.ico")
-    })
-    // new CleanWebpackPlugin([publicFolderName], { verbose: false })
+    }),
+    new CleanWebpackPlugin([publicFolderName], { verbose: false })
   ]
 });
 
