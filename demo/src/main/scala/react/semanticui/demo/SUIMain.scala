@@ -12,7 +12,7 @@ object SUiMain {
     val container =
       dom.document.getElementById("app")
 
-    Router(BaseUrl.fromWindowOrigin_/, Routing.config)().renderIntoDOM(
+    Router(BaseUrl.fromWindowOrigin / "scalajs-react-semantic-ui", Routing.config)().renderIntoDOM(
       container
     )
 
