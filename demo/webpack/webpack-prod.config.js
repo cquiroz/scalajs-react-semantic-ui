@@ -17,14 +17,14 @@ const ProdConfig = new Webpack.DefinePlugin({
 });
 
 const Common = require("./webpack.common.js");
-const publicFolderName = "out/public";
+const publicFolderName = "../docs";
+console.log(Common.rootDir);
 
 function Web(extractSass) {
   return Merge(Common.Web, {
     output: {
       filename: "[name].js",
-      path: Path.resolve(__dirname, publicFolderName),
-      publicPath: "/public/",
+      path: Path.resolve(Common.rootDir, publicFolderName),
       libraryTarget: "window"
     },
     resolve: {
@@ -72,7 +72,7 @@ function Web(extractSass) {
 const WebApp = Merge(Common.Web, {
   output: {
     filename: "[name].js",
-    path: Path.resolve(__dirname, publicFolderName),
+    path: Path.resolve(Common.rootDir, publicFolderName),
     // publicPath: "./",
     libraryTarget: "umd"
   },
