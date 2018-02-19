@@ -3,6 +3,7 @@ package react.semanticui.elements
 import react.semanticui.sizes._
 import react.semanticui.sizes
 import react.semanticui.colors._
+import scala.scalajs.js
 
 package object icon {
 
@@ -54,7 +55,7 @@ package object icon {
           name = i.props.name,
           rotated = i.props.rotated,
           size =
-            if (s == sizes.Medium) ""
+            if (s == sizes.Medium) js.undefined
             else s.value
         ))
 
