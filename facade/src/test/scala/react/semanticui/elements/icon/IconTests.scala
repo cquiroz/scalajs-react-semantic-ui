@@ -49,5 +49,11 @@ object IconTests extends TestSuite {
         assert(m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit clockwise rotated icon"></i>""")
       }
     }
+    // 'group - {
+    //   val icon = Icon.Group(Icon.Group.props(), Icon(Icon.props(rotated = Clockwise, name = "edit")).vdomElement)
+    //   ReactTestUtils.withRenderedIntoDocument(icon) { m =>
+    //     assert(m.outerHtmlScrubbed() == "")
+    //   }
+    // }
   }
 }
