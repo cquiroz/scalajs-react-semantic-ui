@@ -23,7 +23,7 @@ const WebApp = Merge(Common.Web, {
   output: {
     filename: "[name].js",
     path: Path.resolve(Common.rootDir, publicFolderName),
-    publicPath: "/scalajs-react-semantic-ui",
+    publicPath: "/scalajs-react-semantic-ui/",
     libraryTarget: "umd"
   },
   entry: {
