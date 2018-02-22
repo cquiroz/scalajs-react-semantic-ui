@@ -19,60 +19,11 @@ const ProdConfig = new Webpack.DefinePlugin({
 const Common = require("./webpack.common.js");
 const publicFolderName = "../docs";
 
-function Web(extractSass) {
-  return Merge(Common.Web, {
-    output: {
-      filename: "[name].js",
-      path: Path.resolve(Common.rootDir, publicFolderName),
-      libraryTarget: "window"
-    },
-    resolve: {
-      alias: {
-        scalajs: Path.resolve(__dirname)
-      }
-    },
-    module: {
-      rules: [
-        {
-          test: /\.scss$/,
-          use: extractSass.extract({
-            use: [
-              { loader: "css-loader", options: { sourceMap: true } },
-              { loader: "resolve-url-loader", options: { sourceMap: true } },
-              { loader: "sass-loader", options: { sourceMap: true } }
-            ],
-            fallback: "style-loader"
-          })
-        },
-        {
-          test: /\.js$/,
-          use: ["source-map-loader"],
-          enforce: "pre"
-        }
-      ]
-    },
-    plugins: [
-      ProdConfig,
-      extractSass,
-      new UglifyJSPlugin({
-        sourceMap: true
-      }),
-      new CompressionPlugin({
-        asset: "[path].gz[query]",
-        algorithm: "gzip",
-        test: /\.js$|\.css$|\.html$/,
-        threshold: 10240,
-        minRatio: 0.8
-      })
-    ]
-  });
-}
-
 const WebApp = Merge(Common.Web, {
   output: {
     filename: "[name].js",
     path: Path.resolve(Common.rootDir, publicFolderName),
-    publicPath: "/",
+    publicPath: "/scalajs-react-semantic-ui",
     libraryTarget: "umd"
   },
   entry: {
