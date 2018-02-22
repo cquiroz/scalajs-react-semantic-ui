@@ -8,7 +8,7 @@ const rootDir = Path.resolve(__dirname, "../../../..");
 const resourcesDir = Path.resolve(rootDir, "src/main/resources");
 
 const Web = Merge(generatedConfig, {
-  devtool: "source-map",
+  devtool: "none",
   resolve: {
     alias: {
       resources: resourcesDir,

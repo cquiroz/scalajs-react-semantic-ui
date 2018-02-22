@@ -1,5 +1,8 @@
 const Path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 const Webpack = require("webpack");
 const Merge = require("webpack-merge");
 
@@ -44,9 +47,15 @@ const Web = Merge(Common.Web, {
     contentBase: [__dirname, Common.rootDir],
     historyApiFallback: true
   },
+  stats: "normal",
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
     new Webpack.NamedModulesPlugin(),
+    /*new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      generateStatsFile: true
+    }),*/
+    new DuplicatePackageCheckerPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       chunks: ["app"],

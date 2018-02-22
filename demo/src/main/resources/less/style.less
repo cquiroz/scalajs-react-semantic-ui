@@ -1,7 +1,6 @@
 html,
 body {
   box-sizing: border-box;
-  background-color: #ffeead;
   height: 100%;
   padding: 0px;
   margin: 0px;
@@ -17,13 +16,13 @@ body {
 
 .app {
   display: grid;
+  width: 100vw;
+  height: 100vh;
   background-color: white;
   grid-gap: 3px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 40px;
-  grid-template-areas:
-    "m m c c c c c c c c c c"
-    "f f f f f f f f f f f f";
+  grid-template-rows: 100% 40px;
+  grid-template-areas: "m m c c c c c c c c c c";
 }
 
 .appmenu {
@@ -43,11 +42,6 @@ body {
 .body {
   grid-area: c;
   align-self: start;
-}
-
-.footer {
-  grid-area: f;
-  background-color: #1b1c1d;
 }
 
 .docs-icon-set-column {

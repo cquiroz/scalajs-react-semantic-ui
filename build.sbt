@@ -5,6 +5,8 @@ val reactSUI = "0.78.2"
 
 parallelExecution in (ThisBuild, Test) := false
 
+cancelable in Global := true
+
 lazy val semanticdbScalacSettings = Seq(
   addCompilerPlugin("org.scalameta" % "semanticdb-scalac" % "2.1.2" cross CrossVersion.full),
   scalacOptions ++= Seq(
@@ -42,6 +44,8 @@ lazy val demo =
       webpackMonitoredDirectories            += (resourceDirectory in Compile).value,
       webpackResources                       := (baseDirectory.value / "webpack") * "*.js",
       includeFilter in webpackMonitoredFiles := "*",
+      webpackExtraArgs                       := Seq("--progress"),
+      // webpackExtraArgs                       := Seq("--progress", "--display", "verbose"),
       useYarn                                := true,
       webpackBundlingMode in fastOptJS       := BundlingMode.LibraryOnly(),
       webpackBundlingMode in fullOptJS       := BundlingMode.Application,
@@ -63,7 +67,9 @@ lazy val demo =
         "webpack-merge" -> "4.1.0",
         "webpack-dev-server-status-bar" -> "1.0.0",
         "cssnano" -> "3.10.0",
-        "optimize-css-assets-webpack-plugin" -> "3.2.0"
+        "optimize-css-assets-webpack-plugin" -> "3.2.0",
+        "webpack-bundle-analyzer" -> "2.10.0",
+        "duplicate-package-checker-webpack-plugin" -> "2.1.0"
       ),
       npmDependencies in Compile            ++= Seq(
         "react"           -> reactJS,

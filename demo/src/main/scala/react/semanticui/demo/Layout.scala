@@ -50,9 +50,6 @@ object Layout {
           <.div(
             ^.cls := "body",
             p.r.render()
-          ),
-          <.div(
-            ^.cls := "footer"
           )
         )
       }
