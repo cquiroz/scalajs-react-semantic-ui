@@ -190,8 +190,9 @@ object Icon {
 
     private val component = JsComponent[GroupProps, Children.Varargs, Null](RawComponent)
 
-    def apply(p: GroupProps, children: VdomNode*)
-      : UnmountedMapped[Id, GroupProps, Null, RawMounted, GroupProps, Null] =
+    def apply(
+        p: GroupProps,
+        children: VdomNode*): UnmountedMapped[Id, GroupProps, Null, RawMounted, GroupProps, Null] =
       component(p)(children: _*)
   }
 }
