@@ -2,7 +2,7 @@ package react.semanticui.elements.icon
 
 import scala.scalajs.js
 import js.annotation._
-import react.semanticui._
+import react.semanticui.raw._
 import react.semanticui.sizes._
 import react.semanticui.colors._
 import japgolly.scalajs.react._

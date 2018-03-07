@@ -7,7 +7,7 @@ import japgolly.scalajs.react.component.Js.{RawMounted, UnmountedMapped}
 import japgolly.scalajs.react.raw.ReactNode
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
-import react.semanticui._
+import react.semanticui.raw._
 
 object LabelDetail {
 
@@ -51,7 +51,7 @@ object LabelDetail {
     p.content = content
     p
   }
-  
+
   private val component = JsComponent[LabelDetailProps, Children.Varargs, Null](RawComponent)
 
   def apply(p: LabelDetailProps, children: VdomNode*)
