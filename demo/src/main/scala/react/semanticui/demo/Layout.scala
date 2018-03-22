@@ -44,6 +44,10 @@ object Layout {
               <.div(
                 ^.cls := "menu",
                 p.c.link(ElementPage(IconsElement))("Icons", ^.cls := "item")
+              ),
+              <.div(
+                ^.cls := "menu",
+                p.c.link(ElementPage(LabelsElement))("Labels", ^.cls := "item")
               )
             )
           ),
