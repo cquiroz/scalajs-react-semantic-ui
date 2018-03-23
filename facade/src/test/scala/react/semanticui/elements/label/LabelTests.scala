@@ -152,7 +152,6 @@ object LabelTests extends TestSuite {
     'size - {
       val label = Label(Label.props(size = Big))
       ReactTestUtils.withRenderedIntoDocument(label) { m =>
-        println(m.outerHtmlScrubbed)
         assert(m.outerHtmlScrubbed() == """<div class="ui big label"></div>""")
       }
     }
