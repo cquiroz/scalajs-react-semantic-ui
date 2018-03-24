@@ -1,7 +1,7 @@
 val reactJS = "15.6.1"
 val scalaJsReact = "1.1.1"
 val SUI = "2.2.14"
-val reactSUI = "0.78.2"
+val reactSUI = "0.78.3"
 
 parallelExecution in (ThisBuild, Test) := false
 

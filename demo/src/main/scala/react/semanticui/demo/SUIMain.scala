@@ -22,6 +22,7 @@ object SUiMain {
 
 sealed trait ElementItem
 case object IconsElement extends ElementItem
+case object LabelsElement extends ElementItem
 
 sealed trait Page
 case object HomePage extends Page
@@ -37,6 +38,8 @@ object Routing {
           render(HomeComponent.apply)
         | staticRoute("elements/icons", ElementPage(IconsElement)) ~>
           render(IconsComponent.apply)
+        | staticRoute("elements/labels", ElementPage(LabelsElement)) ~>
+          render(LabelsComponent.apply)
     ).notFound(redirectToPage(HomePage)(Redirect.Replace))
       .renderWith(layout)
       .logToConsole
