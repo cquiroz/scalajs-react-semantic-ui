@@ -1,8 +1,5 @@
 const Path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 const Webpack = require("webpack");
 const Merge = require("webpack-merge");
 
@@ -14,6 +11,7 @@ console.log(Common.rootDir);
 const isDevServer = process.argv.some(s => s.match(/webpack-dev-server\.js$/));
 
 const Web = Merge(Common.Web, {
+  mode: "development",
   output: {
     path: __dirname,
     publicPath: "/"
@@ -51,11 +49,6 @@ const Web = Merge(Common.Web, {
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
     new Webpack.NamedModulesPlugin(),
-    /*new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-      generateStatsFile: true
-    }),*/
-    new DuplicatePackageCheckerPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       chunks: ["app"],

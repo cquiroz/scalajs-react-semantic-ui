@@ -37,8 +37,8 @@ lazy val demo =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      version in webpack                     := "3.5.5",
-      version in startWebpackDevServer       := "2.7.1",
+      version in webpack                     := "4.6.0",
+      version in startWebpackDevServer       := "3.1.3",
       webpackConfigFile in fastOptJS         := Some(baseDirectory.value / "webpack" / "webpack-dev.config.js"),
       webpackConfigFile in fullOptJS         := Some(baseDirectory.value / "webpack" / "webpack-prod.config.js"),
       webpackMonitoredDirectories            += (resourceDirectory in Compile).value,
@@ -52,24 +52,16 @@ lazy val demo =
       test                                   := {},
       emitSourceMaps                         := false,
       npmDevDependencies in Compile         ++= Seq(
-        "compression-webpack-plugin" -> "1.0.0",
-        "clean-webpack-plugin" -> "0.1.16",
-        "css-loader" -> "0.28.9",
+        "css-loader" -> "0.28.11",
         "less" -> "2.3.1",
-        "less-loader" -> "4.0.5",
-        "extract-text-webpack-plugin" -> "3.0.2",
-        "file-loader" -> "0.11.2",
-        "html-webpack-plugin" -> "2.30.1",
-        "copy-webpack-plugin" -> "4.4.1",
-        "url-loader" -> "0.6.2",
-        "style-loader" -> "0.18.2",
-        "uglifyjs-webpack-plugin" -> "0.4.6",
+        "less-loader" -> "4.1.0",
+        "extract-text-webpack-plugin" -> "4.0.0-beta.0",
+        "file-loader" -> "1.1.11",
+        "html-webpack-plugin" -> "3.2.0",
+        "url-loader" -> "1.0.1",
+        "style-loader" -> "0.21.0",
         "webpack-merge" -> "4.1.0",
-        "webpack-dev-server-status-bar" -> "1.0.0",
-        "cssnano" -> "3.10.0",
-        "optimize-css-assets-webpack-plugin" -> "3.2.0",
-        "webpack-bundle-analyzer" -> "2.10.0",
-        "duplicate-package-checker-webpack-plugin" -> "2.1.0"
+        "webpack-dev-server-status-bar" -> "1.0.0"
       ),
       npmDependencies in Compile            ++= Seq(
         "react"           -> reactJS,
@@ -91,19 +83,19 @@ lazy val facade =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      name                            := "scalajs-react-semantic-ui",
-      version in webpack                     := "3.5.5",
-      version in startWebpackDevServer       := "2.7.1",
+      name                              := "scalajs-react-semantic-ui",
+      version in webpack                := "4.6.0",
+      version in startWebpackDevServer  := "3.1.3",
       // Requires the DOM for tests
-      requiresDOM in Test             := true,
+      requiresDOM in Test               := true,
       // Compile tests to JS using fast-optimisation
       // scalaJSStage in Test            := FastOptStage,
-      npmDependencies in Compile     ++= Seq(
+      npmDependencies in Compile       ++= Seq(
         "react"             -> reactJS,
         "react-dom"         -> reactJS,
         "semantic-ui-react" -> reactSUI
       ),
-      libraryDependencies            ++= Seq(
+      libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,

@@ -35,7 +35,7 @@ const Web = Merge(generatedConfig, {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: "[name].[contenthash].css"
+      filename: "[name].[hash].css"
     })
   ]
 });
