@@ -1,19 +1,11 @@
-val reactJS = "15.6.1"
-val scalaJsReact = "1.1.1"
+val reactJS = "16.5.1"
+val scalaJsReact = "1.3.1"
 val SUI = "2.2.14"
 val reactSUI = "0.78.3"
 
 parallelExecution in (ThisBuild, Test) := false
 
 cancelable in Global := true
-
-lazy val semanticdbScalacSettings = Seq(
-  addCompilerPlugin("org.scalameta" % "semanticdb-scalac" % "2.1.2" cross CrossVersion.full),
-  scalacOptions ++= Seq(
-    "-Yrangepos",
-    "-Xplugin-require:semanticdb"
-  )
-)
 
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer")
 
@@ -37,8 +29,8 @@ lazy val demo =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      version in webpack                     := "4.6.0",
-      version in startWebpackDevServer       := "3.1.3",
+      version in webpack                := "4.28.2",
+      version in startWebpackDevServer  := "3.1.14",
       webpackConfigFile in fastOptJS         := Some(baseDirectory.value / "webpack" / "webpack-dev.config.js"),
       webpackConfigFile in fullOptJS         := Some(baseDirectory.value / "webpack" / "webpack-prod.config.js"),
       webpackMonitoredDirectories            += (resourceDirectory in Compile).value,
@@ -84,10 +76,10 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name                              := "scalajs-react-semantic-ui",
-      version in webpack                := "4.6.0",
-      version in startWebpackDevServer  := "3.1.3",
+      version in webpack                := "4.28.2",
+      version in startWebpackDevServer  := "3.1.14",
       // Requires the DOM for tests
-      requiresDOM in Test               := true,
+      requireJsDomEnv in Test          := true,
       // Compile tests to JS using fast-optimisation
       // scalaJSStage in Test            := FastOptStage,
       npmDependencies in Compile       ++= Seq(
@@ -99,15 +91,15 @@ lazy val facade =
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
-        "com.lihaoyi"                       %%% "utest"      % "0.6.0" % Test,
-        "org.typelevel"                     %%% "cats-core"  % "1.0.1" % Test
+        "com.lihaoyi"                       %%% "utest"      % "0.6.6" % Test,
+        "org.typelevel"                     %%% "cats-core"  % "1.5.0" % Test
       ),
       webpackConfigFile in Test       := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks                  += new TestFramework("utest.runner.Framework")
     )
 
 lazy val commonSettings = Seq(
-  scalaVersion            := "2.12.4",
+  scalaVersion            := "2.12.8",
   organization            := "io.github.cquiroz",
   description             := "scala.js facade for react-semanticui",
   homepage                := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
@@ -169,6 +161,7 @@ lazy val commonSettings = Seq(
       "-Ywarn-unused:patvars",             // Warn if a variable bound in a pattern is unused.
       "-Ywarn-unused:privates",            // Warn if a private member is unused.
       "-Ywarn-value-discard",              // Warn when non-Unit expression results are unused.
+      "-Yrangepos",
       "-P:scalajs:sjsDefinedByDefault"
     ),
     // Settings to use git to define the version of the project
@@ -176,7 +169,7 @@ lazy val commonSettings = Seq(
     git.formattedShaVersion := git.gitHeadCommit.value map { sha => s"v$sha" },
     git.uncommittedSignifier in ThisBuild := Some("UNCOMMITTED"),
     useGpg := true
-  ) ++ semanticdbScalacSettings ++ scalafixSettings
+  )
 
 lazy val pomData =
   <developers>

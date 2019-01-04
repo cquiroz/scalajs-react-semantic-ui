@@ -5,8 +5,8 @@ const Merge = require("webpack-merge");
 
 const Common = require("./webpack.common.js");
 
-console.log(__dirname);
-console.log(Common.rootDir);
+// console.log(__dirname);
+// console.log(Common.rootDir);
 
 const isDevServer = process.argv.some(s => s.match(/webpack-dev-server\.js$/));
 
@@ -57,6 +57,7 @@ const Web = Merge(Common.Web, {
     })
   ]
 });
+console.log(Web);
 
 if (isDevServer) {
   Web.entry.app.push("webpack-dev-server-status-bar");
