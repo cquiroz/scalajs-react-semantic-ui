@@ -5,12 +5,16 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._, vdom.all._, extra.router._
 
-@JSExportTopLevel("react.semanticui.demo.SUIMain")
+@JSExportTopLevel("SUIMain")
 object SUiMain {
   @JSExport
   def main(): Unit = {
-    val container =
-      dom.document.getElementById("app")
+    val container = Option(dom.document.getElementById("root")).getOrElse {
+      val elem = dom.document.createElement("div")
+      elem.id = "root"
+      dom.document.body.appendChild(elem)
+      elem
+    }
 
     Router(BaseUrl.fromWindowOrigin / "scalajs-react-semantic-ui/", Routing.config)().renderIntoDOM(
       container

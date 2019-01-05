@@ -3,13 +3,23 @@ package react.semanticui.demo
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.elements.icon._
-import react.semanticui.elements.icons.{IconMailOutline, IconSearch, IconFeed, IconCloudUpload, IconEdit, IconDashboard, IconNewspaper, IconAreaChart}
-import react.semanticui.elements.icons.{IconTwitter, IconAdd, IconCircleThin, IconUser}
 import react.semanticui.sizes._
 import react.semanticui.sizes
 import react.semanticui.colors
 
 object IconsComponent {
+  val IconMailOutline     = Icon(Icon.props(name = "mail outline"))
+  val IconSearch          = Icon(Icon.props(name = "search"))
+  val IconFeed            = Icon(Icon.props(name = "feed"))
+  val IconCloudUpload     = Icon(Icon.props(name = "cloud upload"))
+  val IconEdit            = Icon(Icon.props(name = "edit"))
+  val IconDashboard       = Icon(Icon.props(name = "dashboard"))
+  val IconNewspaper       = Icon(Icon.props(name = "newspaper"))
+  val IconAreaChart       = Icon(Icon.props(name = "area chart"))
+  val IconTwitter         = Icon(Icon.props(name = "twitter"))
+  val IconAdd             = Icon(Icon.props(name = "add"))
+  val IconCircleThin      = Icon(Icon.props(name = "circle thin"))
+  val IconUser            = Icon(Icon.props(name = "user"))
   private val sampleIcons = Map("mail outline" -> IconMailOutline, "search" -> IconSearch)
 
   def section(title: String, description: String)(icons: TagMod): TagMod =
@@ -143,10 +153,7 @@ object IconsComponent {
           section("Icon Group", "Icons can be grouped") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              Icon.Group(Icon.Group.props(size = Huge),
-                IconCircleThin.size(Big),
-                IconUser
-              ),
+              Icon.Group(Icon.Group.props(size = Huge), IconCircleThin.size(Big), IconUser),
               <.p(
                 ^.cls := "name",
                 "icon group"
@@ -156,12 +163,12 @@ object IconsComponent {
           section("Corner Icon", "An icon can be in a corner") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              Icon.Group(Icon.Group.props(size = Large, children =
-                <.div(
-                  IconTwitter,
-                  IconAdd.corner
-                ): VdomNode
-              )),
+              Icon.Group(
+                Icon.Group.props(size = Large,
+                                 children = <.div(
+                                   IconTwitter,
+                                   IconAdd.corner
+                                 ): VdomNode)),
               <.p(
                 ^.cls := "name",
                 "icon group"
