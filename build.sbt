@@ -1,19 +1,11 @@
-val reactJS = "15.6.1"
-val scalaJsReact = "1.1.1"
+val reactJS = "16.5.1"
+val scalaJsReact = "1.3.1"
 val SUI = "2.2.14"
 val reactSUI = "0.78.3"
 
 parallelExecution in (ThisBuild, Test) := false
 
 cancelable in Global := true
-
-lazy val semanticdbScalacSettings = Seq(
-  addCompilerPlugin("org.scalameta" % "semanticdb-scalac" % "2.1.2" cross CrossVersion.full),
-  scalacOptions ++= Seq(
-    "-Yrangepos",
-    "-Xplugin-require:semanticdb"
-  )
-)
 
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer")
 
@@ -37,10 +29,10 @@ lazy val demo =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      version in webpack                     := "3.5.5",
-      version in startWebpackDevServer       := "2.7.1",
-      webpackConfigFile in fastOptJS         := Some(baseDirectory.value / "webpack" / "webpack-dev.config.js"),
-      webpackConfigFile in fullOptJS         := Some(baseDirectory.value / "webpack" / "webpack-prod.config.js"),
+      version in webpack                := "4.28.2",
+      version in startWebpackDevServer  := "3.1.14",
+      webpackConfigFile in fastOptJS         := Some(baseDirectory.value / "webpack" / "dev.webpack.config.js"),
+      webpackConfigFile in fullOptJS         := Some(baseDirectory.value / "webpack" / "prod.webpack.config.js"),
       webpackMonitoredDirectories            += (resourceDirectory in Compile).value,
       webpackResources                       := (baseDirectory.value / "webpack") * "*.js",
       includeFilter in webpackMonitoredFiles := "*",
@@ -51,26 +43,26 @@ lazy val demo =
       webpackBundlingMode in fullOptJS       := BundlingMode.Application,
       test                                   := {},
       emitSourceMaps                         := false,
-      npmDevDependencies in Compile         ++= Seq(
-        "compression-webpack-plugin" -> "1.0.0",
-        "clean-webpack-plugin" -> "0.1.16",
-        "css-loader" -> "0.28.9",
-        "less" -> "2.3.1",
-        "less-loader" -> "4.0.5",
-        "extract-text-webpack-plugin" -> "3.0.2",
-        "file-loader" -> "0.11.2",
-        "html-webpack-plugin" -> "2.30.1",
-        "copy-webpack-plugin" -> "4.4.1",
-        "url-loader" -> "0.6.2",
-        "style-loader" -> "0.18.2",
-        "uglifyjs-webpack-plugin" -> "0.4.6",
-        "webpack-merge" -> "4.1.0",
-        "webpack-dev-server-status-bar" -> "1.0.0",
-        "cssnano" -> "3.10.0",
-        "optimize-css-assets-webpack-plugin" -> "3.2.0",
-        "webpack-bundle-analyzer" -> "2.10.0",
-        "duplicate-package-checker-webpack-plugin" -> "2.1.0"
-      ),
+    // NPM libs for development, mostly to let webpack do its magic
+    npmDevDependencies in Compile ++= Seq(
+      "postcss-loader"                     -> "3.0.0",
+      "autoprefixer"                       -> "9.1.5",
+      "url-loader"                         -> "1.1.1",
+      "file-loader"                        -> "2.0.0",
+      "css-loader"                         -> "1.0.0",
+      "style-loader"                       -> "0.23.0",
+      "less"                               -> "2.7.2",
+      "less-loader"                        -> "4.1.0",
+      "webpack-merge"                      -> "4.1.4",
+      "mini-css-extract-plugin"            -> "0.4.3",
+      "webpack-dev-server-status-bar"      -> "1.1.0",
+      "cssnano"                            -> "4.1.3",
+      "uglifyjs-webpack-plugin"            -> "2.0.1",
+      "html-webpack-plugin"                -> "3.2.0",
+      "optimize-css-assets-webpack-plugin" -> "5.0.1",
+      "favicons-webpack-plugin"            -> "0.0.9",
+      "why-did-you-update"                 -> "0.1.1"
+    ),
       npmDependencies in Compile            ++= Seq(
         "react"           -> reactJS,
         "react-dom"       -> reactJS,
@@ -91,31 +83,31 @@ lazy val facade =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      name                            := "scalajs-react-semantic-ui",
-      version in webpack                     := "3.5.5",
-      version in startWebpackDevServer       := "2.7.1",
+      name                              := "scalajs-react-semantic-ui",
+      version in webpack                := "4.28.2",
+      version in startWebpackDevServer  := "3.1.14",
       // Requires the DOM for tests
-      requiresDOM in Test             := true,
+      requireJsDomEnv in Test          := true,
       // Compile tests to JS using fast-optimisation
       // scalaJSStage in Test            := FastOptStage,
-      npmDependencies in Compile     ++= Seq(
+      npmDependencies in Compile       ++= Seq(
         "react"             -> reactJS,
         "react-dom"         -> reactJS,
         "semantic-ui-react" -> reactSUI
       ),
-      libraryDependencies            ++= Seq(
+      libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
-        "com.lihaoyi"                       %%% "utest"      % "0.6.0" % Test,
-        "org.typelevel"                     %%% "cats-core"  % "1.0.1" % Test
+        "com.lihaoyi"                       %%% "utest"      % "0.6.6" % Test,
+        "org.typelevel"                     %%% "cats-core"  % "1.5.0" % Test
       ),
       webpackConfigFile in Test       := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks                  += new TestFramework("utest.runner.Framework")
     )
 
 lazy val commonSettings = Seq(
-  scalaVersion            := "2.12.4",
+  scalaVersion            := "2.12.8",
   organization            := "io.github.cquiroz",
   description             := "scala.js facade for react-semanticui",
   homepage                := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
@@ -177,6 +169,7 @@ lazy val commonSettings = Seq(
       "-Ywarn-unused:patvars",             // Warn if a variable bound in a pattern is unused.
       "-Ywarn-unused:privates",            // Warn if a private member is unused.
       "-Ywarn-value-discard",              // Warn when non-Unit expression results are unused.
+      "-Yrangepos",
       "-P:scalajs:sjsDefinedByDefault"
     ),
     // Settings to use git to define the version of the project
@@ -184,7 +177,7 @@ lazy val commonSettings = Seq(
     git.formattedShaVersion := git.gitHeadCommit.value map { sha => s"v$sha" },
     git.uncommittedSignifier in ThisBuild := Some("UNCOMMITTED"),
     useGpg := true
-  ) ++ semanticdbScalacSettings ++ scalafixSettings
+  )
 
 lazy val pomData =
   <developers>
