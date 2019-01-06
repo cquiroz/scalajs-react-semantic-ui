@@ -61,6 +61,7 @@ object Icon {
     var name: js.UndefOr[suiraw.SemanticICONS]   = js.native
     var rotated: js.UndefOr[String]              = js.native
     var size: js.UndefOr[suiraw.SemanticSIZES]   = js.native
+    var `aria-label`: js.UndefOr[String]         = js.native
   }
 
   def props(
@@ -78,60 +79,64 @@ object Icon {
     loading:   js.UndefOr[Boolean]              = js.undefined,
     name:      js.UndefOr[suiraw.SemanticICONS] = js.undefined,
     rotated:   js.UndefOr[IconRotated]          = js.undefined,
-    size:      js.UndefOr[SemanticSize]         = js.undefined
+    size:      js.UndefOr[SemanticSize]         = js.undefined,
+    ariaLabel: js.UndefOr[String]               = js.undefined
   ): IconProps = {
     val p = (new js.Object).asInstanceOf[IconProps]
-    p.as        = as
-    p.bordered  = bordered
-    p.circular  = circular
-    p.className = className
-    p.color     = color.map(_.value)
-    p.corner    = corner
-    p.disabled  = disabled
-    p.fitted    = fitted
-    p.flipped   = flipped.map(_.value)
-    p.inverted  = inverted
-    p.link      = link
-    p.loading   = loading
-    p.name      = name
-    p.rotated   = rotated.map(_.value)
-    p.size      = size.map(_.value)
+    p.as           = as
+    p.bordered     = bordered
+    p.circular     = circular
+    p.className    = className
+    p.color        = color.map(_.value)
+    p.corner       = corner
+    p.disabled     = disabled
+    p.fitted       = fitted
+    p.flipped      = flipped.map(_.value)
+    p.inverted     = inverted
+    p.link         = link
+    p.loading      = loading
+    p.name         = name
+    p.rotated      = rotated.map(_.value)
+    p.size         = size.map(_.value)
+    p.`aria-label` = ariaLabel
     p
   }
 
   private[semanticui] def rawprops(
-    as:        js.UndefOr[js.Any]                = js.undefined,
-    bordered:  js.UndefOr[Boolean]               = js.undefined,
-    circular:  js.UndefOr[Boolean]               = js.undefined,
-    className: js.UndefOr[String]                = js.undefined,
-    color:     js.UndefOr[suiraw.SemanticCOLORS] = js.undefined,
-    corner:    js.UndefOr[Boolean]               = js.undefined,
-    disabled:  js.UndefOr[Boolean]               = js.undefined,
-    fitted:    js.UndefOr[Boolean]               = js.undefined,
-    flipped:   js.UndefOr[String]                = js.undefined,
-    inverted:  js.UndefOr[Boolean]               = js.undefined,
-    link:      js.UndefOr[Boolean]               = js.undefined,
-    loading:   js.UndefOr[Boolean]               = js.undefined,
-    name:      js.UndefOr[suiraw.SemanticICONS]  = js.undefined,
-    rotated:   js.UndefOr[String]                = js.undefined,
-    size:      js.UndefOr[suiraw.SemanticSIZES]  = js.undefined
+    as:           js.UndefOr[js.Any]                = js.undefined,
+    bordered:     js.UndefOr[Boolean]               = js.undefined,
+    circular:     js.UndefOr[Boolean]               = js.undefined,
+    className:    js.UndefOr[String]                = js.undefined,
+    color:        js.UndefOr[suiraw.SemanticCOLORS] = js.undefined,
+    corner:       js.UndefOr[Boolean]               = js.undefined,
+    disabled:     js.UndefOr[Boolean]               = js.undefined,
+    fitted:       js.UndefOr[Boolean]               = js.undefined,
+    flipped:      js.UndefOr[String]                = js.undefined,
+    inverted:     js.UndefOr[Boolean]               = js.undefined,
+    link:         js.UndefOr[Boolean]               = js.undefined,
+    loading:      js.UndefOr[Boolean]               = js.undefined,
+    name:         js.UndefOr[suiraw.SemanticICONS]  = js.undefined,
+    rotated:      js.UndefOr[String]                = js.undefined,
+    size:         js.UndefOr[suiraw.SemanticSIZES]  = js.undefined,
+    `aria-label`: js.UndefOr[String]                = js.undefined
   ): IconProps = {
     val p = (new js.Object).asInstanceOf[IconProps]
-    p.as        = as
-    p.bordered  = bordered
-    p.circular  = circular
-    p.className = className
-    p.color     = color
-    p.corner    = corner
-    p.disabled  = disabled
-    p.fitted    = fitted
-    p.flipped   = flipped
-    p.inverted  = inverted
-    p.link      = link
-    p.loading   = loading
-    p.name      = name
-    p.rotated   = rotated
-    p.size      = size
+    p.as           = as
+    p.bordered     = bordered
+    p.circular     = circular
+    p.className    = className
+    p.color        = color
+    p.corner       = corner
+    p.disabled     = disabled
+    p.fitted       = fitted
+    p.flipped      = flipped
+    p.inverted     = inverted
+    p.link         = link
+    p.loading      = loading
+    p.name         = name
+    p.rotated      = rotated
+    p.size         = size
+    p.`aria-label` = `aria-label`
     p
   }
 
