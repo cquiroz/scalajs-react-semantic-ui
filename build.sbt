@@ -1,7 +1,7 @@
 val reactJS = "16.5.1"
 val scalaJsReact = "1.3.1"
-val SUI = "2.2.14"
-val reactSUI = "0.78.3"
+val SUI = "2.4.1"
+val reactSUI = "0.84.0"
 
 parallelExecution in (ThisBuild, Test) := false
 
@@ -46,22 +46,23 @@ lazy val demo =
     // NPM libs for development, mostly to let webpack do its magic
     npmDevDependencies in Compile ++= Seq(
       "postcss-loader"                     -> "3.0.0",
-      "autoprefixer"                       -> "9.1.5",
+      "autoprefixer"                       -> "9.4.4",
       "url-loader"                         -> "1.1.1",
-      "file-loader"                        -> "2.0.0",
-      "css-loader"                         -> "1.0.0",
-      "style-loader"                       -> "0.23.0",
-      "less"                               -> "2.7.2",
+      "file-loader"                        -> "3.0.1",
+      "css-loader"                         -> "2.1.0",
+      "style-loader"                       -> "0.23.1",
+      // "less"                               -> "2.7.2",
+      "less"                               -> "3.9.0",
       "less-loader"                        -> "4.1.0",
-      "webpack-merge"                      -> "4.1.4",
-      "mini-css-extract-plugin"            -> "0.4.3",
+      "webpack-merge"                      -> "4.2.1",
+      "mini-css-extract-plugin"            -> "0.5.0",
       "webpack-dev-server-status-bar"      -> "1.1.0",
-      "cssnano"                            -> "4.1.3",
-      "uglifyjs-webpack-plugin"            -> "2.0.1",
+      "cssnano"                            -> "4.1.8",
+      "uglifyjs-webpack-plugin"            -> "2.1.1",
       "html-webpack-plugin"                -> "3.2.0",
       "optimize-css-assets-webpack-plugin" -> "5.0.1",
       "favicons-webpack-plugin"            -> "0.0.9",
-      "why-did-you-update"                 -> "0.1.1"
+      "why-did-you-update"                 -> "1.0.6"
     ),
       npmDependencies in Compile            ++= Seq(
         "react"           -> reactJS,
