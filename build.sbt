@@ -1,7 +1,7 @@
 val reactJS = "16.5.1"
 val scalaJsReact = "1.3.1"
-val SUI = "2.2.14"
-val reactSUI = "0.78.3"
+val SUI = "2.4.1"
+val reactSUI = "0.84.0"
 
 parallelExecution in (ThisBuild, Test) := false
 
@@ -51,8 +51,8 @@ lazy val demo =
       "file-loader"                        -> "3.0.1",
       "css-loader"                         -> "2.1.0",
       "style-loader"                       -> "0.23.1",
-      "less"                               -> "2.7.2",
-      // "less"                               -> "3.9.0",
+      // "less"                               -> "2.7.2",
+      "less"                               -> "3.9.0",
       "less-loader"                        -> "4.1.0",
       "webpack-merge"                      -> "4.2.1",
       "mini-css-extract-plugin"            -> "0.5.0",
