@@ -33,7 +33,7 @@ const Web = Merge(
   {
     mode: "production",
     entry: {
-      seqexec: [path.resolve(parts.resourcesDir, "./prod.js")]
+      demo: [path.resolve(parts.resourcesDir, "./prod.js")]
     },
     output: {
       filename: ci ? "[name].js" : "[name].[chunkhash].js",
@@ -47,9 +47,9 @@ const Web = Merge(
         }
       }),
       new HtmlWebpackPlugin({
-        title: "Seqexec",
+        title: "Demo for Semantic UI",
         filename: "index.html",
-        chunks: ["seqexec"]
+        chunks: ["demo"]
       }),
       new FaviconsWebpackPlugin({
         logo: path.resolve(parts.resourcesDir, "images/launcher.png"),

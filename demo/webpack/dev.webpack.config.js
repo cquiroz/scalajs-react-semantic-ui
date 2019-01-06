@@ -4,7 +4,6 @@ const Merge = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const parts = require("./webpack.parts");
 const ScalaJSConfig = require("./scalajs.webpack.config");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const isDevServer = process.argv.some(s => s.match(/webpack-dev-server\.js$/));
 
@@ -22,7 +21,7 @@ const Web = Merge(
   {
     mode: "development",
     entry: {
-      seqexec: [path.resolve(parts.resourcesDir, "./dev.js")]
+      demo: [path.resolve(parts.resourcesDir, "./dev.js")]
     },
     output: {
       publicPath: "/" // Required to make the url navigation work
@@ -33,7 +32,7 @@ const Web = Merge(
         return content.endsWith("-fastopt");
       }
     },
-    // Custom dev server for the seqexec as we need a ws proxy
+    // Custom dev server for the demo as we need a ws proxy
     devServer: {
       host: "0.0.0.0",
       hot: true,
@@ -45,8 +44,8 @@ const Web = Merge(
       new Webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         filename: "index.html",
-        title: "Seqexec",
-        chunks: ["seqexec"]
+        title: "Demo for Semanti UI",
+        chunks: ["demo"]
       })
     ]
   }
@@ -54,7 +53,7 @@ const Web = Merge(
 
 // Enable status bar to display on the page when webpack is reloading
 if (isDevServer) {
-  Web.entry.seqexec.push("webpack-dev-server-status-bar");
+  Web.entry.demo.push("webpack-dev-server-status-bar");
 }
 
 module.exports = Web;
