@@ -32,9 +32,10 @@ object IconTests extends TestSuite {
       }
     }
     'flipped - {
-      val icon = Icon(Icon.props(flipped = Horizontally, name = "edit"))
+      val icon = Icon(Icon.props(flipped = IconFlip.Horizontally, name = "edit"))
       ReactTestUtils.withRenderedIntoDocument(icon) { m =>
-        assert(m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit horizontally flipped icon"></i>""")
+        assert(
+          m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit horizontally flipped icon"></i>""")
       }
     }
     'color - {
@@ -44,9 +45,10 @@ object IconTests extends TestSuite {
       }
     }
     'rotated - {
-      val icon = Icon(Icon.props(rotated = Clockwise, name = "edit"))
+      val icon = Icon(Icon.props(rotated = IconRotated.Clockwise, name = "edit"))
       ReactTestUtils.withRenderedIntoDocument(icon) { m =>
-        assert(m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit clockwise rotated icon"></i>""")
+        assert(
+          m.outerHtmlScrubbed() == """<i aria-hidden="true" class="edit clockwise rotated icon"></i>""")
       }
     }
     // 'group - {

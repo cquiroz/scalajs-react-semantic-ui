@@ -12,26 +12,6 @@ import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 
-sealed trait IconFlip {
-  val value: String
-}
-case object Horizontally extends IconFlip {
-  val value = "horizontally"
-}
-case object Vertically extends IconFlip {
-  val value = "vertically"
-}
-
-sealed trait IconRotated {
-  val value: String
-}
-case object Clockwise extends IconRotated {
-  val value = "clockwise"
-}
-case object CounterClockwise extends IconRotated {
-  val value = "counterclockwise"
-}
-
 object Icon {
 
   @js.native

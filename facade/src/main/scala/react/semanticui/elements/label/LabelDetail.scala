@@ -32,25 +32,16 @@ object LabelDetail {
   }
 
   def props(
-    children:  js.UndefOr[VdomNode] = js.undefined,
     as:        js.UndefOr[js.Any]   = js.undefined,
+    children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined,
-  ): LabelDetailProps =
-    rawprops(as, children.map(_.rawNode), className, content.map(_.rawNode))
-
-  private[semanticui] def rawprops(
-    as:        js.UndefOr[js.Any]     = js.undefined,
-    children:  js.UndefOr[React.Node] = js.undefined,
-    className: js.UndefOr[String]     = js.undefined,
-    content:   js.UndefOr[React.Node] = js.undefined,
+    content:   js.UndefOr[VdomNode] = js.undefined
   ): LabelDetailProps = {
     val p = (new js.Object).asInstanceOf[LabelDetailProps]
     p.as        = as
-    p.children  = children
-    p.content   = content
+    p.children  = children.map(_.rawNode)
     p.className = className
-    p.content   = content
+    p.content   = content.map(_.rawNode)
     p
   }
 
