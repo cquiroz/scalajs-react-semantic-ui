@@ -115,6 +115,18 @@ object LabelsComponent {
                       "Callback")
               )
             ).toTagMod
+          },
+          section("Icon", "A label can have an icon") {
+            List(
+              <.div(
+                ^.cls := "column docs-icon-set-column",
+                Label(Label.props(as = "a"), IconNewspaper, "Icon")
+              ),
+              <.div(
+                ^.cls := "column docs-icon-set-column",
+                Label(Label.props(as = "a"), "Icon2", IconDelete.color(Red))
+              )
+            ).toTagMod
           }
         )
       }

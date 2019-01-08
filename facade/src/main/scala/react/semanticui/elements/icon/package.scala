@@ -5,6 +5,33 @@ import react.semanticui.sizes
 import react.semanticui.colors._
 import scala.scalajs.js
 
+package icon {
+  sealed trait IconFlip {
+    val value: String
+  }
+  object IconFlip {
+    case object Horizontally extends IconFlip {
+      val value = "horizontally"
+    }
+    case object Vertically extends IconFlip {
+      val value = "vertically"
+    }
+  }
+
+  sealed trait IconRotated {
+    val value: String
+  }
+  object IconRotated {
+    case object Clockwise extends IconRotated {
+      val value = "clockwise"
+    }
+    case object CounterClockwise extends IconRotated {
+      val value = "counterclockwise"
+    }
+  }
+
+}
+
 package object icon {
 
   type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[
