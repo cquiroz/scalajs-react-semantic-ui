@@ -9,6 +9,7 @@ import japgolly.scalajs.react.vdom.VdomNode
 package object semanticui {
   type SemanticShortHandItem[T] = VdomNode | T
   type SemanticShortHandContent = VdomNode
+  type TabIndex                 = Double | String
 
   implicit class HandContent2Content(val c: SemanticShortHandContent) extends AnyVal {
     def toRaw: raw.SemanticShorthandContent = c.rawNode

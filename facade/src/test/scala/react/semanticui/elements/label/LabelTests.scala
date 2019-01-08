@@ -161,12 +161,5 @@ object LabelTests extends TestSuite {
         assert(m.outerHtmlScrubbed() == """<div class="ui big label"></div>""")
       }
     }
-    'attached2 - {
-      val label = Label(Label.props(attached = LabelAttached.Top))
-      ReactTestUtils.withRenderedIntoDocument(label) { m =>
-        println(m.outerHtmlScrubbed)
-        assert(m.outerHtmlScrubbed() == """<div class="ui top attached label"></div>""")
-      }
-    }
   }
 }

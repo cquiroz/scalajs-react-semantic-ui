@@ -78,4 +78,14 @@ package label {
   }
 }
 
-package object label
+package object label {
+
+  type UnmountedLabel = japgolly.scalajs.react.component.Js.UnmountedMapped[
+    japgolly.scalajs.react.internal.Effect.Id,
+    Label.LabelProps,
+    Null,
+    japgolly.scalajs.react.component.Js.RawMounted[Label.LabelProps, Null],
+    Label.LabelProps,
+    Null]
+
+}
