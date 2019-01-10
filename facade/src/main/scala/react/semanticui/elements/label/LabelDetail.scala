@@ -10,6 +10,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui.raw._
+import react.semanticui._
 
 object LabelDetail {
 
@@ -39,9 +40,9 @@ object LabelDetail {
   ): LabelDetailProps = {
     val p = (new js.Object).asInstanceOf[LabelDetailProps]
     p.as        = as
-    p.children  = children.map(_.rawNode)
+    p.children  = children.toJs
     p.className = className
-    p.content   = content.map(_.rawNode)
+    p.content   = content.toJs
     p
   }
 

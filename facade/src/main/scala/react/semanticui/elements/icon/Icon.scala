@@ -67,17 +67,17 @@ object Icon {
     p.bordered     = bordered
     p.circular     = circular
     p.className    = className
-    p.color        = color.map(_.value)
+    p.color        = color.toJs
     p.corner       = corner
     p.disabled     = disabled
     p.fitted       = fitted
-    p.flipped      = flipped.map(_.value)
+    p.flipped      = flipped.toJs
     p.inverted     = inverted
     p.link         = link
     p.loading      = loading
     p.name         = name
-    p.rotated      = rotated.map(_.value)
-    p.size         = size.map(_.value)
+    p.rotated      = rotated.toJs
+    p.size         = size.toJs
     p.`aria-label` = ariaLabel
     p
   }

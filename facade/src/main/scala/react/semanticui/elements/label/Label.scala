@@ -91,30 +91,26 @@ object Label {
     val p = (new js.Object).asInstanceOf[LabelProps]
     p.as         = as.map(_.asInstanceOf[js.Any])
     p.active     = active
-    p.attached   = attached.map(_.value)
+    p.attached   = attached.toJs
     p.basic      = basic
     p.children   = children
     p.circular   = circular
     p.className  = className
-    p.color      = color.map(_.value)
+    p.color      = color.toJs
     p.content    = content.toRaw
-    p.corner     = corner.map(_.value)
+    p.corner     = corner.toJs
     p.detail     = detail.toRaw
     p.empty      = empty.map(_.asInstanceOf[js.Any])
     p.floating   = floating
     p.horizontal = horizontal
     p.icon       = icon.map(_.props)
     p.image      = image.map(_.asInstanceOf[js.Any])
-    p.onClick = onClick.map { c => (e, p) =>
-      c(e, p).runNow()
-    }
-    p.onRemove = onRemove.map { c => (e, p) =>
-      c(e, p).runNow()
-    }
-    p.pointing   = pointing.map(_.value)
+    p.onClick = onClick.toJs
+    p.onRemove = onRemove.toJs
+    p.pointing   = pointing.toJs
     p.removeIcon = removeIcon.map(_.props)
-    p.ribbon     = ribbon.map(_.value)
-    p.size       = size.map(_.value)
+    p.ribbon     = ribbon.toJs
+    p.size       = size.toJs
     p.tag        = tag
     p
   }
