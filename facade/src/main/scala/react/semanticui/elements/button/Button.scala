@@ -98,17 +98,17 @@ object Button {
     val p = (new js.Object).asInstanceOf[ButtonProps]
     p.as            = as.map(_.asInstanceOf[js.Any])
     p.active        = active
-    p.animated      = animated.map(_.value)
-    p.attached      = attached.map(_.value)
+    p.animated      = animated.toJs
+    p.attached      = attached.toJs
     p.basic         = basic
-    p.children      = children.map(_.rawNode)
+    p.children      = children.toJs
     p.circular      = circular
     p.className     = className
-    p.color         = color.map(_.value)
+    p.color         = color.toJs
     p.compact       = compact
-    p.content       = content.map(_.rawNode)
+    p.content       = content.toJs
     p.disabled      = disabled
-    p.floated       = floated.map(_.value)
+    p.floated       = floated.toJs
     p.fluid         = fluid
     p.icon          = icon.map(_.props)
     p.inverted      = inverted
@@ -116,14 +116,12 @@ object Button {
     p.labelPosition = labelPosition
     p.loading       = loading
     p.negative      = negative
-    p.onClick = onClick.map { c => (e, p) =>
-      c(e, p).runNow()
-    }
+    p.onClick = onClick.toJs
     p.positive  = positive
     p.primary   = primary
     p.role      = role
     p.secondary = secondary
-    p.size      = size.map(_.value)
+    p.size      = size.toJs
     p.tabIndex  = tabIndex
     p.toggle    = toggle
     p
