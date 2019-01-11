@@ -44,7 +44,7 @@ object Sidebar {
   }
 
   def props(
-    as:        js.UndefOr[js.Any]           = js.undefined,
+    as:        js.UndefOr[String]           = js.undefined,
     animation: js.UndefOr[SidebarAnimation] = js.undefined,
     children:  js.UndefOr[VdomNode]         = js.undefined,
     className: js.UndefOr[String]           = js.undefined,
@@ -58,7 +58,7 @@ object Sidebar {
     width:     js.UndefOr[SidebarWidth]     = js.undefined
   ): SidebarProps = {
     val p = (new js.Object).asInstanceOf[SidebarProps]
-    p.as        = as
+    p.as        = as.map(_.asInstanceOf[js.Any])
     p.children  = children.toJs
     p.animation = animation.toJs
     p.className = className
@@ -100,13 +100,13 @@ object Sidebar {
     }
 
     def props(
-      as:        js.UndefOr[js.Any]   = js.undefined,
+      as:        js.UndefOr[String]   = js.undefined,
       children:  js.UndefOr[VdomNode] = js.undefined,
       className: js.UndefOr[String]   = js.undefined,
       content:   js.UndefOr[VdomNode] = js.undefined
     ): PushableProps = {
       val p = (new js.Object).asInstanceOf[PushableProps]
-      p.as        = as
+      p.as        = as.map(_.asInstanceOf[js.Any])
       p.children  = children.map(_.rawNode)
       p.className = className
       p.content   = content.map(_.rawNode)
@@ -144,13 +144,13 @@ object Sidebar {
     }
 
     def props(
-      as:        js.UndefOr[js.Any]   = js.undefined,
+      as:        js.UndefOr[String]   = js.undefined,
       children:  js.UndefOr[VdomNode] = js.undefined,
       className: js.UndefOr[String]   = js.undefined,
       content:   js.UndefOr[VdomNode] = js.undefined
     ): PusherProps = {
       val p = (new js.Object).asInstanceOf[PusherProps]
-      p.as        = as
+      p.as        = as.map(_.asInstanceOf[js.Any])
       p.children  = children.map(_.rawNode)
       p.className = className
       p.content   = content.map(_.rawNode)

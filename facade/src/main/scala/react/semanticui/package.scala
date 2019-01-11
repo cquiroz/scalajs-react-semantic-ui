@@ -72,6 +72,7 @@ package object semanticui {
     type SemanticSIZES            = String
     type IconSizeProp             = String
     type SemanticFLOATS           = String
+    type SemanticTEXTALIGNMENTS   = String
     type SemanticShorthandContent = React.Node
     type SemanticShorthandItem[T] = React.Node | T
 
