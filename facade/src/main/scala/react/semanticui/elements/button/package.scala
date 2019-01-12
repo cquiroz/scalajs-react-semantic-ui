@@ -1,44 +1,26 @@
 package react.semanticui.elements
 
-import scala.scalajs.js.|
+import react.common.EnumValueB
 
 package button {
-  sealed trait ButtonAnimated {
-    def value: Boolean | String
-  }
+  sealed trait ButtonAnimated
 
   object ButtonAnimated {
-    case object Animated extends ButtonAnimated {
-      val value = true
-    }
-    case object Fade extends ButtonAnimated {
-      val value = "fade"
-    }
-    case object Vertical extends ButtonAnimated {
-      val value = "vertical"
-    }
+    implicit val enum: EnumValueB[ButtonAnimated] = EnumValueB.toLowerCaseStringT(Animated)
+    case object Animated extends ButtonAnimated
+    case object Fade extends ButtonAnimated
+    case object Vertical extends ButtonAnimated
   }
 
-  sealed trait ButtonAttached {
-    def value: Boolean | String
-  }
+  sealed trait ButtonAttached
 
   object ButtonAttached {
-    case object Attached extends ButtonAttached {
-      val value = true
-    }
-    case object Top extends ButtonAttached {
-      val value = "top"
-    }
-    case object Bottom extends ButtonAttached {
-      val value = "bottom"
-    }
-    case object Right extends ButtonAttached {
-      val value = "right"
-    }
-    case object Left extends ButtonAttached {
-      val value = "left"
-    }
+    implicit val enum: EnumValueB[ButtonAttached] = EnumValueB.toLowerCaseStringT(Attached)
+    case object Attached extends ButtonAttached
+    case object Top extends ButtonAttached
+    case object Bottom extends ButtonAttached
+    case object Right extends ButtonAttached
+    case object Left extends ButtonAttached
   }
 
 }

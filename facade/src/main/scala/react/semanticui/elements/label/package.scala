@@ -1,7 +1,7 @@
 package react.semanticui.elements
 
 import react.common.EnumValue
-import scala.scalajs.js.|
+import react.common.EnumValueB
 
 package label {
   sealed trait LabelAttached
@@ -24,53 +24,30 @@ package label {
     case object BottomRight extends LabelAttached
   }
 
-  sealed trait LabelCorner {
-    def value: Boolean | String
-  }
+  sealed trait LabelCorner
   object LabelCorner {
-    case object Corner extends LabelCorner {
-      val value = true
-    }
-    case object Left extends LabelCorner {
-      val value = "left"
-    }
-    case object Right extends LabelCorner {
-      val value = "right"
-    }
+    implicit val enum: EnumValueB[LabelCorner] = EnumValueB.toLowerCaseStringT(Corner)
+    case object Corner extends LabelCorner
+    case object Left extends LabelCorner
+    case object Right extends LabelCorner
   }
 
-  sealed trait LabelPointing {
-    def value: Boolean | String
-  }
+  sealed trait LabelPointing
 
   object LabelPointing {
-    case object Default extends LabelPointing {
-      val value = true
-    }
-    case object Above extends LabelPointing {
-      val value = "above"
-    }
-    case object Below extends LabelPointing {
-      val value = "below"
-    }
-    case object Left extends LabelPointing {
-      val value = "left"
-    }
-    case object Right extends LabelPointing {
-      val value = "right"
-    }
+    implicit val enum: EnumValueB[LabelPointing] = EnumValueB.toLowerCaseStringT(Default)
+    case object Default extends LabelPointing
+    case object Above extends LabelPointing
+    case object Below extends LabelPointing
+    case object Left extends LabelPointing
+    case object Right extends LabelPointing
   }
 
-  sealed trait LabelRibbon {
-    def value: Boolean | String
-  }
+  sealed trait LabelRibbon
   object LabelRibbon {
-    case object Default extends LabelRibbon {
-      val value = true
-    }
-    case object Right extends LabelRibbon {
-      val value = "right"
-    }
+    implicit val enum: EnumValueB[LabelRibbon] = EnumValueB.toLowerCaseStringT(Default)
+    case object Default extends LabelRibbon
+    case object Right extends LabelRibbon
   }
 }
 

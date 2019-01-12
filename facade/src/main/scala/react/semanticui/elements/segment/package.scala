@@ -1,35 +1,23 @@
 package react.semanticui.elements
 
-import scala.scalajs.js.|
+import react.common.EnumValueB
 
 package segment {
-  sealed trait SegmentAttached {
-    def value: Boolean | String
-  }
+  sealed trait SegmentAttached
 
   object SegmentAttached {
-    case object Attached extends SegmentAttached {
-      val value = true
-    }
-    case object Top extends SegmentAttached {
-      val value = "top"
-    }
-    case object Bottom extends SegmentAttached {
-      val value = "bottom"
-    }
+    implicit val enum: EnumValueB[SegmentAttached] = EnumValueB.toLowerCaseStringT(Attached)
+    case object Attached extends SegmentAttached
+    case object Top extends SegmentAttached
+    case object Bottom extends SegmentAttached
   }
 
-  sealed trait SegmentPadded {
-    def value: Boolean | String
-  }
+  sealed trait SegmentPadded
 
   object SegmentPadded {
-    case object Padded extends SegmentPadded {
-      val value = true
-    }
-    case object Very extends SegmentPadded {
-      val value = "very"
-    }
+    implicit val enum: EnumValueB[SegmentPadded] = EnumValueB.toLowerCaseStringT(Padded)
+    case object Padded extends SegmentPadded
+    case object Very extends SegmentPadded
   }
 }
 
