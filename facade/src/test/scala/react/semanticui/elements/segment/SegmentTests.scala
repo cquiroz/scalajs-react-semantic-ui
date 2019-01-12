@@ -1,4 +1,4 @@
-package react.semanticui.modules.segment
+package react.semanticui.elements.segment
 
 import utest._
 import japgolly.scalajs.react.test._

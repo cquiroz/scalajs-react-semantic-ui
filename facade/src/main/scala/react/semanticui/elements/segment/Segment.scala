@@ -1,4 +1,4 @@
-package react.semanticui.modules.segment
+package react.semanticui.elements.segment
 
 import scala.scalajs.js
 import js.annotation._
@@ -8,6 +8,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui.{ raw => suiraw }
+import react.common.syntax._
 import react.semanticui.sizes._
 import react.semanticui.colors._
 import react.semanticui.floats._
@@ -22,6 +23,11 @@ object Segment {
   @JSImport("semantic-ui-react", "Segment")
   object RawComponent extends js.Object
 
+  @js.native
+  @JSImport("semantic-ui-react", "Segment")
+  object As extends js.Function1[js.Any, js.Any] {
+    def apply(i: js.Any): js.Any = js.native
+  }
   @js.native
   trait SegmentProps extends js.Object {
 

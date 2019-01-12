@@ -10,6 +10,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
+import react.common.syntax._
 import react.semanticui.raw._
 import react.semanticui._
 
@@ -100,10 +101,10 @@ object Sidebar {
     }
 
     def props(
-      as:        js.UndefOr[String]   = js.undefined,
-      children:  js.UndefOr[VdomNode] = js.undefined,
-      className: js.UndefOr[String]   = js.undefined,
-      content:   js.UndefOr[VdomNode] = js.undefined
+      as:        js.UndefOr[js.Function1[js.Any, js.Any]] = js.undefined,
+      children:  js.UndefOr[VdomNode]                     = js.undefined,
+      className: js.UndefOr[String]                       = js.undefined,
+      content:   js.UndefOr[VdomNode]                     = js.undefined
     ): PushableProps = {
       val p = (new js.Object).asInstanceOf[PushableProps]
       p.as        = as.map(_.asInstanceOf[js.Any])

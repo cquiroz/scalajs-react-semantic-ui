@@ -9,6 +9,7 @@ import japgolly.scalajs.react.component.Js.RawMounted
 import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
+import react.common.syntax._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
@@ -116,14 +117,14 @@ object Button {
     p.labelPosition = labelPosition
     p.loading       = loading
     p.negative      = negative
-    p.onClick = onClick.toJs
-    p.positive  = positive
-    p.primary   = primary
-    p.role      = role
-    p.secondary = secondary
-    p.size      = size.toJs
-    p.tabIndex  = tabIndex
-    p.toggle    = toggle
+    p.onClick       = onClick.toJs
+    p.positive      = positive
+    p.primary       = primary
+    p.role          = role
+    p.secondary     = secondary
+    p.size          = size.toJs
+    p.tabIndex      = tabIndex
+    p.toggle        = toggle
     p
   }
 

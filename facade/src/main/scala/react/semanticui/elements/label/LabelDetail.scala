@@ -10,7 +10,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui.raw._
-import react.semanticui._
+import react.common.syntax._
 
 object LabelDetail {
 

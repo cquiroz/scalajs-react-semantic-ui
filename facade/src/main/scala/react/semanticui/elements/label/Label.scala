@@ -9,6 +9,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
+import react.common.syntax._
 import react.semanticui._
 import react.semanticui.colors._
 import react.semanticui.{ raw => suiraw }
@@ -105,8 +106,8 @@ object Label {
     p.horizontal = horizontal
     p.icon       = icon.map(_.props)
     p.image      = image.map(_.asInstanceOf[js.Any])
-    p.onClick = onClick.toJs
-    p.onRemove = onRemove.toJs
+    p.onClick    = onClick.toJs
+    p.onRemove   = onRemove.toJs
     p.pointing   = pointing.toJs
     p.removeIcon = removeIcon.map(_.props)
     p.ribbon     = ribbon.toJs

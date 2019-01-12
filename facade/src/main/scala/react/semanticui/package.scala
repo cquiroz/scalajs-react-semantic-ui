@@ -26,22 +26,6 @@ package object semanticui {
     def toJs: js.UndefOr[Boolean | String] = c.map(_.value)
   }
 
-  implicit class VdomNodeOps(val c: js.UndefOr[VdomNode]) extends AnyVal {
-    def toJs: js.UndefOr[React.Node] = c.map(_.rawNode)
-  }
-
-  implicit class CallbackOps(val c: js.UndefOr[Callback]) extends AnyVal {
-    def toJs: js.UndefOr[js.Function0[Unit]] = c.map(x => () => x.runNow())
-  }
-
-  implicit class CallbackOps1[A](val c: js.UndefOr[A => Callback]) extends AnyVal {
-    def toJs: js.UndefOr[js.Function1[A, Unit]] = c.map(x => (a: A) => x(a).runNow())
-  }
-
-  implicit class CallbackOps2[A, B](val c: js.UndefOr[(A, B) => Callback]) extends AnyVal {
-    def toJs: js.UndefOr[js.Function2[A, B, Unit]] = c.map(x => (a: A, b: B) => x(a, b).runNow())
-  }
-
   implicit class HandContent2ContentUndef(val c: js.UndefOr[SemanticShortHandContent])
       extends AnyVal {
     def toRaw: js.UndefOr[raw.SemanticShorthandContent] = c.map(_.rawNode)
