@@ -34,7 +34,7 @@ object Label {
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
 
-    var as: js.UndefOr[js.Any]                               = js.native
+    var as: js.UndefOr[AsT]                                  = js.native
     var active: js.UndefOr[Boolean]                          = js.native
     var attached: js.UndefOr[String]                         = js.native
     var basic: js.UndefOr[Boolean]                           = js.native
@@ -65,7 +65,7 @@ object Label {
   }
 
   def props(
-    as:         js.UndefOr[String]                                              = js.undefined,
+    as:         js.UndefOr[AsC]                                                 = js.undefined,
     active:     js.UndefOr[Boolean]                                             = js.undefined,
     attached:   js.UndefOr[LabelAttached]                                       = js.undefined,
     basic:      js.UndefOr[Boolean]                                             = js.undefined,
@@ -90,7 +90,7 @@ object Label {
     tag:        js.UndefOr[Boolean]                                             = js.undefined
   ): LabelProps = {
     val p = (new js.Object).asInstanceOf[LabelProps]
-    p.as         = as.map(_.asInstanceOf[js.Any])
+    p.as         = as.toJs
     p.active     = active
     p.attached   = attached.toJs
     p.basic      = basic

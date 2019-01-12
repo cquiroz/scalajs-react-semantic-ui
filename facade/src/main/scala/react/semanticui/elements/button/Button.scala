@@ -35,7 +35,7 @@ object Button {
 
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[js.Any]                               = js.native
+    var as: js.UndefOr[AsT]                                  = js.native
     var active: js.UndefOr[Boolean]                          = js.native
     var animated: js.UndefOr[Boolean | String]               = js.native
     var attached: js.UndefOr[Boolean | String]               = js.native
@@ -67,7 +67,7 @@ object Button {
   }
 
   def props(
-    as:            js.UndefOr[String]         = js.undefined,
+    as:            js.UndefOr[AsC]            = js.undefined,
     active:        js.UndefOr[Boolean]        = js.undefined,
     animated:      js.UndefOr[ButtonAnimated] = js.undefined,
     attached:      js.UndefOr[ButtonAttached] = js.undefined,
@@ -97,7 +97,7 @@ object Button {
     toggle:        js.UndefOr[Boolean]        = js.undefined
   ): ButtonProps = {
     val p = (new js.Object).asInstanceOf[ButtonProps]
-    p.as            = as.map(_.asInstanceOf[js.Any])
+    p.as            = as.toJs
     p.active        = active
     p.animated      = animated.toJs
     p.attached      = attached.toJs

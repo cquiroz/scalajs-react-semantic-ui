@@ -3,7 +3,7 @@ package react.semanticui.modules.sidebar
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.semanticui.elements.segment.Segment
+import react.semanticui.As
 
 object SidebarTests extends TestSuite {
   val tests = Tests {
@@ -22,7 +22,7 @@ object SidebarTests extends TestSuite {
       }
     }
     'pushableAs - {
-      val pushable = Sidebar.Pushable(Sidebar.Pushable.props(as = Segment.As), "Abc")
+      val pushable = Sidebar.Pushable(Sidebar.Pushable.props(as = As.Segment), "Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pushable.renderIntoDOM(mountNode)
         println(mountNode.outerHTML)
