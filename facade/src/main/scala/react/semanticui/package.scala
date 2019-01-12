@@ -22,6 +22,7 @@ package semanticui {
       case SidebarPusher   => modules.sidebar.Sidebar.Pusher.RawComponent
     }
   }
+
 }
 
 package object semanticui {

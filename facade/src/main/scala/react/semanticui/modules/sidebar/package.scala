@@ -1,67 +1,51 @@
 package react.semanticui.modules
 
+import react.common.EnumValue
+
 package sidebar {
-  sealed trait SidebarAnimation {
-    def value: String
-  }
+  sealed trait SidebarAnimation
 
   object SidebarAnimation {
-    case object Overlay extends SidebarAnimation {
-      val value = "overlay"
+    implicit val enum: EnumValue[SidebarAnimation] = EnumValue.instance {
+      case Overlay    => "overlay"
+      case Push       => "push"
+      case ScaleDown  => "scale down"
+      case Uncover    => "uncover"
+      case SlideOut   => "slide out"
+      case SlideAlong => "slide along"
     }
-    case object Push extends SidebarAnimation {
-      val value = "push"
-    }
-    case object ScaleDown extends SidebarAnimation {
-      val value = "scale down"
-    }
-    case object Uncover extends SidebarAnimation {
-      val value = "uncover"
-    }
-    case object SlideOut extends SidebarAnimation {
-      val value = "slide out"
-    }
-    case object SlideAlong extends SidebarAnimation {
-      val value = "slide along"
-    }
+    case object Overlay extends SidebarAnimation
+    case object Push extends SidebarAnimation
+    case object ScaleDown extends SidebarAnimation
+    case object Uncover extends SidebarAnimation
+    case object SlideOut extends SidebarAnimation
+    case object SlideAlong extends SidebarAnimation
   }
 
-  sealed trait SidebarDirection {
-    def value: String
-  }
+  sealed trait SidebarDirection
 
   object SidebarDirection {
-    case object Top extends SidebarDirection {
-      val value = "top"
-    }
-    case object Right extends SidebarDirection {
-      val value = "right"
-    }
-    case object Bottom extends SidebarDirection {
-      val value = "bottom"
-    }
-    case object Left extends SidebarDirection {
-      val value = "left"
-    }
+    implicit val enum: EnumValue[SidebarDirection] = EnumValue.toLowerCaseString
+
+    case object Top extends SidebarDirection
+    case object Right extends SidebarDirection
+    case object Bottom extends SidebarDirection
+    case object Left extends SidebarDirection
   }
 
-  sealed trait SidebarWidth {
-    def value: String
-  }
+  sealed trait SidebarWidth
 
   object SidebarWidth {
-    case object VeryThin extends SidebarWidth {
-      val value = "very thin"
+    implicit val enum: EnumValue[SidebarWidth] = EnumValue.instance {
+      case VeryThin => "very thin"
+      case Thin     => "thin"
+      case Wide     => "wide"
+      case VeryWide => "very wide"
     }
-    case object Thin extends SidebarWidth {
-      val value = "thin"
-    }
-    case object Wide extends SidebarWidth {
-      val value = "wide"
-    }
-    case object VeryWide extends SidebarWidth {
-      val value = "very wide"
-    }
+    case object VeryThin extends SidebarWidth
+    case object Thin extends SidebarWidth
+    case object Wide extends SidebarWidth
+    case object VeryWide extends SidebarWidth
   }
 }
 

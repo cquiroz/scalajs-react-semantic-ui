@@ -99,7 +99,7 @@ lazy val facade =
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
-        "io.github.cquiroz" %%% "scalajs-react-common"       % "0.0.1" % "compile->compile;test->test",
+        "io.github.cquiroz" %%% "scalajs-react-common"       % "0.0.2" % "compile->compile;test->test",
         "com.lihaoyi"                       %%% "utest"      % "0.6.6" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.5.0" % Test
       ),

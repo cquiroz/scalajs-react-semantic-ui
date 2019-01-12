@@ -1,33 +1,26 @@
 package react.semanticui.elements
 
+import react.common._
+import react.common.syntax._
 import react.semanticui.sizes._
 import react.semanticui.sizes
 import react.semanticui.colors._
 import scala.scalajs.js
 
 package icon {
-  sealed trait IconFlip {
-    val value: String
-  }
+  sealed trait IconFlip
   object IconFlip {
-    case object Horizontally extends IconFlip {
-      val value = "horizontally"
-    }
-    case object Vertically extends IconFlip {
-      val value = "vertically"
-    }
+    implicit val enum: EnumValue[IconFlip] = EnumValue.toLowerCaseString
+
+    case object Horizontally extends IconFlip
+    case object Vertically extends IconFlip
   }
 
-  sealed trait IconRotated {
-    val value: String
-  }
+  sealed trait IconRotated
   object IconRotated {
-    case object Clockwise extends IconRotated {
-      val value = "clockwise"
-    }
-    case object CounterClockwise extends IconRotated {
-      val value = "counterclockwise"
-    }
+    implicit val enum: EnumValue[IconRotated] = EnumValue.toLowerCaseString
+    case object Clockwise extends IconRotated
+    case object CounterClockwise extends IconRotated
   }
 
 }
@@ -83,7 +76,7 @@ package object icon {
           rotated   = i.props.rotated,
           size =
             if (s == sizes.Medium) js.undefined
-            else s.value
+            else s.toJs
         ))
 
     def color(s: SemanticColor): UnmountedIcon =
@@ -93,7 +86,7 @@ package object icon {
           bordered  = i.props.bordered,
           circular  = i.props.circular,
           className = i.props.className,
-          color     = s.value,
+          color     = s.toJs,
           corner    = i.props.corner,
           disabled  = i.props.disabled,
           fitted    = i.props.fitted,
@@ -117,7 +110,7 @@ package object icon {
           corner    = i.props.corner,
           disabled  = i.props.disabled,
           fitted    = i.props.fitted,
-          flipped   = s.value,
+          flipped   = s.toJs,
           inverted  = i.props.inverted,
           link      = i.props.link,
           loading   = i.props.loading,
@@ -142,7 +135,7 @@ package object icon {
           link      = i.props.link,
           loading   = i.props.loading,
           name      = i.props.name,
-          rotated   = s.value,
+          rotated   = s.toJs,
           size      = i.props.size
         ))
 

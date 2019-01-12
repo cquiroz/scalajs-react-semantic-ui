@@ -1,31 +1,27 @@
 package react.semanticui.elements
 
+import react.common.EnumValue
 import scala.scalajs.js.|
 
 package label {
-  sealed trait LabelAttached {
-    def value: String
-  }
+  sealed trait LabelAttached
 
   object LabelAttached {
-    case object Top extends LabelAttached {
-      val value = "top"
+    implicit val enum: EnumValue[LabelAttached] = EnumValue.instance {
+      case Top         => "top"
+      case Bottom      => "bottom"
+      case TopRight    => "top right"
+      case TopLeft     => "top left"
+      case BottomLeft  => "bottom left"
+      case BottomRight => "bottom right"
     }
-    case object Bottom extends LabelAttached {
-      val value = "bottom"
-    }
-    case object TopRight extends LabelAttached {
-      val value = "top right"
-    }
-    case object TopLeft extends LabelAttached {
-      val value = "top left"
-    }
-    case object BottomLeft extends LabelAttached {
-      val value = "bottom left"
-    }
-    case object BottomRight extends LabelAttached {
-      val value = "bottom right"
-    }
+
+    case object Top extends LabelAttached
+    case object Bottom extends LabelAttached
+    case object TopRight extends LabelAttached
+    case object TopLeft extends LabelAttached
+    case object BottomLeft extends LabelAttached
+    case object BottomRight extends LabelAttached
   }
 
   sealed trait LabelCorner {

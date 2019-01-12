@@ -2,6 +2,7 @@ package react.semanticui.elements.icon
 
 import scala.scalajs.js
 import js.annotation._
+import react.common.syntax._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.sizes._
@@ -156,7 +157,7 @@ object Icon {
       content:   js.UndefOr[VdomNode]     = js.undefined,
       size:      js.UndefOr[SemanticSize] = js.undefined
     ): GroupProps =
-      rawprops(as, children.map(_.rawNode), className, content.map(_.rawNode), size.map(_.value))
+      rawprops(as, children.toJs, className, content.toJs, size.toJs)
 
     private[semanticui] def rawprops(
       as:        js.UndefOr[js.Any]               = js.undefined,
