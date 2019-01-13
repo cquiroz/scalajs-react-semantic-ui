@@ -1,24 +1,18 @@
 package react.semanticui
 
+import react.common.EnumValue
+
 package textalignment {
-  sealed trait SemanticTextAlignment {
-    val value: String
+  sealed trait SemanticTextAlignment extends Product with Serializable
+  object SemanticTextAlignment {
+    implicit val enum: EnumValue[SemanticTextAlignment] = EnumValue.toLowerCaseString
   }
-  object SemanticTextAlignment
 }
 
 package object textalignment {
 
-  case object Left extends SemanticTextAlignment {
-    val value = "left"
-  }
-  case object Center extends SemanticTextAlignment {
-    val value = "center"
-  }
-  case object Right extends SemanticTextAlignment {
-    val value = "right"
-  }
-  case object Justified extends SemanticTextAlignment {
-    val value = "justified"
-  }
+  case object Left extends SemanticTextAlignment
+  case object Center extends SemanticTextAlignment
+  case object Right extends SemanticTextAlignment
+  case object Justified extends SemanticTextAlignment
 }

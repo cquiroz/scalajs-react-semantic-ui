@@ -1,17 +1,15 @@
 package react.semanticui
 
+import react.common.EnumValue
+
 package floats {
-  sealed trait SemanticFloats {
-    val value: String
+  sealed trait SemanticFloats extends Product with Serializable
+  object SemanticFloats {
+    implicit val enum: EnumValue[SemanticFloats] = EnumValue.toLowerCaseString
   }
-  object SemanticFloats
 }
 
 package object floats {
-  case object Left extends SemanticFloats {
-    val value = "left"
-  }
-  case object Right extends SemanticFloats {
-    val value = "right"
-  }
+  case object Left extends SemanticFloats
+  case object Right extends SemanticFloats
 }

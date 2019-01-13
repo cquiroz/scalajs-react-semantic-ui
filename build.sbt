@@ -51,7 +51,6 @@ lazy val demo =
       "file-loader"                        -> "3.0.1",
       "css-loader"                         -> "2.1.0",
       "style-loader"                       -> "0.23.1",
-      // "less"                               -> "2.7.2",
       "less"                               -> "3.9.0",
       "less-loader"                        -> "4.1.0",
       "webpack-merge"                      -> "4.2.1",
@@ -99,6 +98,7 @@ lazy val facade =
       libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
+        "io.github.cquiroz" %%% "scalajs-react-common"       % "0.0.4",
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
         "com.lihaoyi"                       %%% "utest"      % "0.6.6" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.5.0" % Test

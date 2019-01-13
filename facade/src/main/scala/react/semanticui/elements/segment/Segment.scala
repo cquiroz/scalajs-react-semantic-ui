@@ -1,4 +1,4 @@
-package react.semanticui.modules.segment
+package react.semanticui.elements.segment
 
 import scala.scalajs.js
 import js.annotation._
@@ -8,6 +8,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui.{ raw => suiraw }
+import react.common.syntax._
 import react.semanticui.sizes._
 import react.semanticui.colors._
 import react.semanticui.floats._
@@ -20,7 +21,9 @@ object Segment {
 
   @js.native
   @JSImport("semantic-ui-react", "Segment")
-  object RawComponent extends js.Object
+  object RawComponent extends js.Function1[js.Any, js.Any] {
+    def apply(i: js.Any): js.Any = js.native
+  }
 
   @js.native
   trait SegmentProps extends js.Object {
@@ -30,7 +33,7 @@ object Segment {
 
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[js.Any]                               = js.native
+    var as: js.UndefOr[AsT]                                  = js.native
     var attached: js.UndefOr[String]                         = js.native
     var basic: js.UndefOr[Boolean]                           = js.native
     var children: js.UndefOr[React.Node]                     = js.native
@@ -57,7 +60,7 @@ object Segment {
   }
 
   def props(
-    as:          js.UndefOr[js.Any]                = js.undefined,
+    as:          js.UndefOr[AsC]                   = js.undefined,
     attached:    js.UndefOr[String]                = js.undefined,
     basic:       js.UndefOr[Boolean]               = js.undefined,
     children:    js.UndefOr[VdomNode]              = js.undefined,
@@ -83,7 +86,7 @@ object Segment {
     vertical:    js.UndefOr[Boolean]               = js.undefined
   ): SegmentProps = {
     val p = (new js.Object).asInstanceOf[SegmentProps]
-    p.as          = as.map(_.asInstanceOf[js.Any])
+    p.as          = as.toJs
     p.attached    = attached
     p.basic       = basic
     p.children    = children.toJs

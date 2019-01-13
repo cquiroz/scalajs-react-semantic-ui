@@ -9,8 +9,9 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
-import react.semanticui.raw._
 import react.semanticui._
+import react.semanticui.raw._
+import react.common.syntax._
 
 object LabelDetail {
 
@@ -26,20 +27,20 @@ object LabelDetail {
 
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[js.Any]                        = js.native
+    var as: js.UndefOr[AsT]                           = js.native
     var children: js.UndefOr[React.Node]              = js.native
     var className: js.UndefOr[String]                 = js.native
     var content: js.UndefOr[SemanticShorthandContent] = js.native
   }
 
   def props(
-    as:        js.UndefOr[js.Any]   = js.undefined,
+    as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): LabelDetailProps = {
     val p = (new js.Object).asInstanceOf[LabelDetailProps]
-    p.as        = as
+    p.as        = as.toJs
     p.children  = children.toJs
     p.className = className
     p.content   = content.toJs

@@ -2,6 +2,8 @@ package react.semanticui.elements.icon
 
 import scala.scalajs.js
 import js.annotation._
+import react.common.syntax._
+import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.sizes._
 import react.semanticui.colors._
@@ -26,7 +28,7 @@ object Icon {
 
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[js.Any]                   = js.native
+    var as: js.UndefOr[AsT]                      = js.native
     var bordered: js.UndefOr[Boolean]            = js.native
     var circular: js.UndefOr[Boolean]            = js.native
     var className: js.UndefOr[String]            = js.native
@@ -45,7 +47,7 @@ object Icon {
   }
 
   def props(
-    as:        js.UndefOr[js.Any]               = js.undefined,
+    as:        js.UndefOr[AsC]                  = js.undefined,
     bordered:  js.UndefOr[Boolean]              = js.undefined,
     circular:  js.UndefOr[Boolean]              = js.undefined,
     className: js.UndefOr[String]               = js.undefined,
@@ -63,7 +65,7 @@ object Icon {
     ariaLabel: js.UndefOr[String]               = js.undefined
   ): IconProps = {
     val p = (new js.Object).asInstanceOf[IconProps]
-    p.as           = as
+    p.as           = as.toJs
     p.bordered     = bordered
     p.circular     = circular
     p.className    = className
@@ -83,7 +85,7 @@ object Icon {
   }
 
   private[semanticui] def rawprops(
-    as:           js.UndefOr[js.Any]                = js.undefined,
+    as:           js.UndefOr[AsT]                   = js.undefined,
     bordered:     js.UndefOr[Boolean]               = js.undefined,
     circular:     js.UndefOr[Boolean]               = js.undefined,
     className:    js.UndefOr[String]                = js.undefined,
@@ -155,7 +157,7 @@ object Icon {
       content:   js.UndefOr[VdomNode]     = js.undefined,
       size:      js.UndefOr[SemanticSize] = js.undefined
     ): GroupProps =
-      rawprops(as, children.map(_.rawNode), className, content.map(_.rawNode), size.map(_.value))
+      rawprops(as, children.toJs, className, content.toJs, size.toJs)
 
     private[semanticui] def rawprops(
       as:        js.UndefOr[js.Any]               = js.undefined,

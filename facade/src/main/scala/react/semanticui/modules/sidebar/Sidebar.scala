@@ -10,6 +10,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
+import react.common.syntax._
 import react.semanticui.raw._
 import react.semanticui._
 
@@ -28,7 +29,7 @@ object Sidebar {
 
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[js.Any]                             = js.native
+    var as: js.UndefOr[AsT]                                = js.native
     var animation: js.UndefOr[String]                      = js.native
     var children: js.UndefOr[React.Node]                   = js.native
     var className: js.UndefOr[String]                      = js.native
@@ -44,7 +45,7 @@ object Sidebar {
   }
 
   def props(
-    as:        js.UndefOr[String]           = js.undefined,
+    as:        js.UndefOr[AsC]              = js.undefined,
     animation: js.UndefOr[SidebarAnimation] = js.undefined,
     children:  js.UndefOr[VdomNode]         = js.undefined,
     className: js.UndefOr[String]           = js.undefined,
@@ -58,7 +59,7 @@ object Sidebar {
     width:     js.UndefOr[SidebarWidth]     = js.undefined
   ): SidebarProps = {
     val p = (new js.Object).asInstanceOf[SidebarProps]
-    p.as        = as.map(_.asInstanceOf[js.Any])
+    p.as        = as.toJs
     p.children  = children.toJs
     p.animation = animation.toJs
     p.className = className
@@ -83,7 +84,9 @@ object Sidebar {
   object Pushable {
     @js.native
     @JSImport("semantic-ui-react", "SidebarPushable")
-    object RawComponent extends js.Object
+    object RawComponent extends js.Function1[js.Any, js.Any] {
+      def apply(i: js.Any): js.Any = js.native
+    }
 
     @js.native
     trait PushableProps extends js.Object {
@@ -93,20 +96,20 @@ object Sidebar {
 
       @JSBracketAccess
       def update(key: String, v: js.Any): Unit = js.native
-      var as: js.UndefOr[js.Any]                        = js.native
+      var as: js.UndefOr[AsT]                           = js.native
       var children: js.UndefOr[React.Node]              = js.native
       var className: js.UndefOr[String]                 = js.native
       var content: js.UndefOr[SemanticShorthandContent] = js.native
     }
 
     def props(
-      as:        js.UndefOr[String]   = js.undefined,
+      as:        js.UndefOr[AsC]      = js.undefined,
       children:  js.UndefOr[VdomNode] = js.undefined,
       className: js.UndefOr[String]   = js.undefined,
       content:   js.UndefOr[VdomNode] = js.undefined
     ): PushableProps = {
       val p = (new js.Object).asInstanceOf[PushableProps]
-      p.as        = as.map(_.asInstanceOf[js.Any])
+      p.as        = as.toJs
       p.children  = children.map(_.rawNode)
       p.className = className
       p.content   = content.map(_.rawNode)
@@ -127,7 +130,9 @@ object Sidebar {
   object Pusher {
     @js.native
     @JSImport("semantic-ui-react", "SidebarPusher")
-    object RawComponent extends js.Object
+    object RawComponent extends js.Function1[js.Any, js.Any] {
+      def apply(i: js.Any): js.Any = js.native
+    }
 
     @js.native
     trait PusherProps extends js.Object {
@@ -137,20 +142,20 @@ object Sidebar {
 
       @JSBracketAccess
       def update(key: String, v: js.Any): Unit = js.native
-      var as: js.UndefOr[js.Any]                        = js.native
+      var as: js.UndefOr[AsT]                           = js.native
       var children: js.UndefOr[React.Node]              = js.native
       var className: js.UndefOr[String]                 = js.native
       var content: js.UndefOr[SemanticShorthandContent] = js.native
     }
 
     def props(
-      as:        js.UndefOr[String]   = js.undefined,
+      as:        js.UndefOr[AsC]      = js.undefined,
       children:  js.UndefOr[VdomNode] = js.undefined,
       className: js.UndefOr[String]   = js.undefined,
       content:   js.UndefOr[VdomNode] = js.undefined
     ): PusherProps = {
       val p = (new js.Object).asInstanceOf[PusherProps]
-      p.as        = as.map(_.asInstanceOf[js.Any])
+      p.as        = as.toJs
       p.children  = children.map(_.rawNode)
       p.className = className
       p.content   = content.map(_.rawNode)

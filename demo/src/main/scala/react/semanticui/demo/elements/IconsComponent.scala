@@ -2,26 +2,29 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
+import react.common.syntax._
 import react.semanticui.elements.icon.IconFlip._
 import react.semanticui.elements.icon.IconRotated._
 import react.semanticui.elements.icon._
 import react.semanticui.sizes._
-import react.semanticui.sizes
-import react.semanticui.colors
+import react.semanticui.colors._
 
 object IconsComponent {
-  val IconMailOutline     = Icon(Icon.props(name = "mail outline"))
-  val IconSearch          = Icon(Icon.props(name = "search"))
-  val IconFeed            = Icon(Icon.props(name = "feed"))
-  val IconCloudUpload     = Icon(Icon.props(name = "cloud upload"))
-  val IconEdit            = Icon(Icon.props(name = "edit"))
-  val IconDashboard       = Icon(Icon.props(name = "dashboard"))
-  val IconNewspaper       = Icon(Icon.props(name = "newspaper"))
-  val IconAreaChart       = Icon(Icon.props(name = "area chart"))
-  val IconTwitter         = Icon(Icon.props(name = "twitter"))
-  val IconAdd             = Icon(Icon.props(name = "add"))
-  val IconCircleThin      = Icon(Icon.props(name = "circle thin"))
-  val IconUser            = Icon(Icon.props(name = "user"))
+  val IconMailOutline              = Icon(Icon.props(name = "mail outline"))
+  val IconSearch                   = Icon(Icon.props(name = "search"))
+  val IconFeed                     = Icon(Icon.props(name = "feed"))
+  val IconCloudUpload              = Icon(Icon.props(name = "cloud upload"))
+  val IconEdit                     = Icon(Icon.props(name = "edit"))
+  val IconDashboard                = Icon(Icon.props(name = "dashboard"))
+  val IconNewspaper                = Icon(Icon.props(name = "newspaper"))
+  val IconAreaChart                = Icon(Icon.props(name = "area chart"))
+  val IconTwitter                  = Icon(Icon.props(name = "twitter"))
+  val IconAdd                      = Icon(Icon.props(name = "add"))
+  val IconCircleThin               = Icon(Icon.props(name = "circle thin"))
+  val IconUser                     = Icon(Icon.props(name = "user"))
+  val AllSizes: List[SemanticSize] = List(Mini, Tiny, Small, Medium, Large, Big, Huge, Massive)
+  val AllColors: List[SemanticColor] =
+    List(Red, Orange, Yellow, Olive, Green, Teal, Blue, Violet, Purple, Pink, Brown, Grey, Black)
   private val sampleIcons = Map("mail outline" -> IconMailOutline, "search" -> IconSearch)
 
   def section(title: String, description: String)(icons: TagMod): TagMod =
@@ -81,14 +84,14 @@ object IconsComponent {
             }.toTagMod
           },
           section("Sizes", "An icon can vary in size") {
-            sizes.all.map {
+            AllSizes.map {
               case s =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
                   IconFeed.size(s),
                   <.p(
                     ^.cls := "name",
-                    s.value
+                    s.toJs
                   )
                 ),
             }.toTagMod
@@ -101,20 +104,20 @@ object IconsComponent {
                   IconCloudUpload.flipped(o),
                   <.p(
                     ^.cls := "name",
-                    o.value
+                    o.toJs
                   )
                 )
             }.toTagMod
           },
           section("Colors", "Icons support colors") {
-            colors.all.map {
+            AllColors.map {
               case o =>
                 <.div(
                   ^.cls := "column docs-icon-set-column",
                   IconEdit.color(o),
                   <.p(
                     ^.cls := "name",
-                    o.value
+                    o.toJs
                   )
                 ),
             }.toTagMod
@@ -127,7 +130,7 @@ object IconsComponent {
                   IconDashboard.rotated(o),
                   <.p(
                     ^.cls := "name",
-                    o.value
+                    o.toJs
                   )
                 ),
             }.toTagMod
