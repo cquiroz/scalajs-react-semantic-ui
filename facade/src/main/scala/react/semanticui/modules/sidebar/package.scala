@@ -3,8 +3,7 @@ package react.semanticui.modules
 import react.common.EnumValue
 
 package sidebar {
-  sealed trait SidebarAnimation
-
+  sealed trait SidebarAnimation extends Product with Serializable
   object SidebarAnimation {
     implicit val enum: EnumValue[SidebarAnimation] = EnumValue.instance {
       case Overlay    => "overlay"
@@ -22,8 +21,7 @@ package sidebar {
     case object SlideAlong extends SidebarAnimation
   }
 
-  sealed trait SidebarDirection
-
+  sealed trait SidebarDirection extends Product with Serializable
   object SidebarDirection {
     implicit val enum: EnumValue[SidebarDirection] = EnumValue.toLowerCaseString
 
@@ -33,8 +31,7 @@ package sidebar {
     case object Left extends SidebarDirection
   }
 
-  sealed trait SidebarWidth
-
+  sealed trait SidebarWidth extends Product with Serializable
   object SidebarWidth {
     implicit val enum: EnumValue[SidebarWidth] = EnumValue.instance {
       case VeryThin => "very thin"

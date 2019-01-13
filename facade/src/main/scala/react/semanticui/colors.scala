@@ -3,7 +3,7 @@ package react.semanticui
 import react.common.EnumValue
 
 package colors {
-  sealed trait SemanticColor
+  sealed trait SemanticColor extends Product with Serializable
   object SemanticColor {
     implicit val enum: EnumValue[SemanticColor] = EnumValue.toLowerCaseString
   }
@@ -23,5 +23,4 @@ package object colors {
   case object Brown extends SemanticColor
   case object Grey extends SemanticColor
   case object Black extends SemanticColor
-
 }

@@ -3,7 +3,7 @@ package react.semanticui
 import react.common.EnumValue
 
 package floats {
-  sealed trait SemanticFloats
+  sealed trait SemanticFloats extends Product with Serializable
   object SemanticFloats {
     implicit val enum: EnumValue[SemanticFloats] = EnumValue.toLowerCaseString
   }

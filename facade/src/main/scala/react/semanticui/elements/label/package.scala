@@ -4,8 +4,7 @@ import react.common.EnumValue
 import react.common.EnumValueB
 
 package label {
-  sealed trait LabelAttached
-
+  sealed trait LabelAttached extends Product with Serializable
   object LabelAttached {
     implicit val enum: EnumValue[LabelAttached] = EnumValue.instance {
       case Top         => "top"
@@ -24,7 +23,7 @@ package label {
     case object BottomRight extends LabelAttached
   }
 
-  sealed trait LabelCorner
+  sealed trait LabelCorner extends Product with Serializable
   object LabelCorner {
     implicit val enum: EnumValueB[LabelCorner] = EnumValueB.toLowerCaseStringT(Corner)
     case object Corner extends LabelCorner
@@ -32,8 +31,7 @@ package label {
     case object Right extends LabelCorner
   }
 
-  sealed trait LabelPointing
-
+  sealed trait LabelPointing extends Product with Serializable
   object LabelPointing {
     implicit val enum: EnumValueB[LabelPointing] = EnumValueB.toLowerCaseStringT(Default)
     case object Default extends LabelPointing
@@ -43,7 +41,7 @@ package label {
     case object Right extends LabelPointing
   }
 
-  sealed trait LabelRibbon
+  sealed trait LabelRibbon extends Product with Serializable
   object LabelRibbon {
     implicit val enum: EnumValueB[LabelRibbon] = EnumValueB.toLowerCaseStringT(Default)
     case object Default extends LabelRibbon

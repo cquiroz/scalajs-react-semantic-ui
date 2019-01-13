@@ -8,7 +8,7 @@ import react.semanticui.colors._
 import scala.scalajs.js
 
 package icon {
-  sealed trait IconFlip
+  sealed trait IconFlip extends Product with Serializable
   object IconFlip {
     implicit val enum: EnumValue[IconFlip] = EnumValue.toLowerCaseString
 
@@ -16,7 +16,7 @@ package icon {
     case object Vertically extends IconFlip
   }
 
-  sealed trait IconRotated
+  sealed trait IconRotated extends Product with Serializable
   object IconRotated {
     implicit val enum: EnumValue[IconRotated] = EnumValue.toLowerCaseString
     case object Clockwise extends IconRotated

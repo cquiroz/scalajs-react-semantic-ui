@@ -3,8 +3,7 @@ package react.semanticui.elements
 import react.common.EnumValueB
 
 package segment {
-  sealed trait SegmentAttached
-
+  sealed trait SegmentAttached extends Product with Serializable
   object SegmentAttached {
     implicit val enum: EnumValueB[SegmentAttached] = EnumValueB.toLowerCaseStringT(Attached)
     case object Attached extends SegmentAttached
@@ -12,7 +11,7 @@ package segment {
     case object Bottom extends SegmentAttached
   }
 
-  sealed trait SegmentPadded
+  sealed trait SegmentPadded extends Product with Serializable
 
   object SegmentPadded {
     implicit val enum: EnumValueB[SegmentPadded] = EnumValueB.toLowerCaseStringT(Padded)

@@ -3,7 +3,7 @@ package react.semanticui
 import react.common.EnumValue
 
 package sizes {
-  sealed trait SemanticSize
+  sealed trait SemanticSize extends Product with Serializable
   object SemanticSize {
     implicit val enum: EnumValue[SemanticSize] = EnumValue.toLowerCaseString
   }
