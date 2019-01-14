@@ -1,5 +1,10 @@
 # Changes
 
+## 0.0.4
+
+* Use react.common
+* Add MenuItem, MenuHeader and Menu components
+
 ## 0.0.3
 
 * Add segment component

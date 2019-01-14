@@ -2,7 +2,6 @@ package react.semanticui.collections.menu
 
 import utest._
 import japgolly.scalajs.react.test._
-// import japgolly.scalajs.react.vdom.html_<^._
 
 object MenuItemTests extends TestSuite {
   val tests = Tests {
@@ -15,7 +14,6 @@ object MenuItemTests extends TestSuite {
     'renderAs - {
       val button = MenuItem(MenuItem.props(as = "a"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
-        println(m.outerHtmlScrubbed())
         assert(m.outerHtmlScrubbed() == """<a class="item"></a>""")
       }
     }
