@@ -25,7 +25,6 @@ object SidebarTests extends TestSuite {
       val pushable = Sidebar.Pushable(Sidebar.Pushable.props(as = As.Segment), "Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pushable.renderIntoDOM(mountNode)
-        println(mountNode.outerHTML)
         assert(mountNode.outerHTML == """<div><div class="ui segment pushable">Abc</div></div>""")
       }
     }
