@@ -1,5 +1,9 @@
 # Changes
 
+## 0.0.6
+
+* Add Header
+
 ## 0.0.5
 
 * Add MenuItem, MenuHeader, MenuMenu and Menu components

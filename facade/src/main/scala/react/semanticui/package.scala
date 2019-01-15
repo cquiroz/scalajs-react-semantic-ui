@@ -14,11 +14,13 @@ package semanticui {
     case object Segment extends As
     case object SidebarPushable extends As
     case object SidebarPusher extends As
+    case object Header extends As
 
     def asFn(a: As): AsT = a match {
       case Segment         => elements.segment.Segment.RawComponent
       case SidebarPushable => modules.sidebar.Sidebar.Pushable.RawComponent
       case SidebarPusher   => modules.sidebar.Sidebar.Pusher.RawComponent
+      case Header          => elements.header.Header.RawComponent
     }
   }
 
