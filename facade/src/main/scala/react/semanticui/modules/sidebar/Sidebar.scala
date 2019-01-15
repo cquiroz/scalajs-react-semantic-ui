@@ -146,19 +146,22 @@ object Sidebar {
       var children: js.UndefOr[React.Node]              = js.native
       var className: js.UndefOr[String]                 = js.native
       var content: js.UndefOr[SemanticShorthandContent] = js.native
+      var dimmed: js.UndefOr[Boolean]                   = js.native
     }
 
     def props(
       as:        js.UndefOr[AsC]      = js.undefined,
       children:  js.UndefOr[VdomNode] = js.undefined,
       className: js.UndefOr[String]   = js.undefined,
-      content:   js.UndefOr[VdomNode] = js.undefined
+      content:   js.UndefOr[VdomNode] = js.undefined,
+      dimmed:    js.UndefOr[Boolean]  = js.undefined
     ): PusherProps = {
       val p = (new js.Object).asInstanceOf[PusherProps]
       p.as        = as.toJs
       p.children  = children.map(_.rawNode)
       p.className = className
       p.content   = content.map(_.rawNode)
+      p.dimmed    = dimmed
       p
     }
 
