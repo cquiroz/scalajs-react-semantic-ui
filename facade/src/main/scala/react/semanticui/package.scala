@@ -6,7 +6,6 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import scala.language.reflectiveCalls
 
 package semanticui {
   sealed trait As
@@ -32,15 +31,6 @@ package object semanticui {
 
   implicit class HandContent2Content(val c: SemanticShortHandContent) extends AnyVal {
     def toRaw: raw.SemanticShorthandContent = c.rawNode
-  }
-
-  implicit class ValueOps[A <: { def value: String }](val c: js.UndefOr[A]) extends AnyVal {
-    def toJs: js.UndefOr[String] = c.map(_.value)
-  }
-
-  implicit class ValueOpsB[A <: { def value: Boolean | String }](val c: js.UndefOr[A])
-      extends AnyVal {
-    def toJs: js.UndefOr[Boolean | String] = c.map(_.value)
   }
 
   implicit class HandContent2ContentUndef(val c: js.UndefOr[SemanticShortHandContent])
@@ -86,6 +76,7 @@ package object semanticui {
     type SemanticCOLORS           = String
     type SemanticICONS            = String
     type SemanticSIZES            = String
+    type SemanticWIDTHS           = String
     type IconSizeProp             = String
     type SemanticFLOATS           = String
     type SemanticTEXTALIGNMENTS   = String

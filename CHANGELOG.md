@@ -3,7 +3,7 @@
 ## 0.0.4
 
 * Use react.common
-* Add MenuItem, MenuHeader and Menu components
+* Add MenuItem, MenuHeader, MenuMenu and Menu components
 
 ## 0.0.3
 
