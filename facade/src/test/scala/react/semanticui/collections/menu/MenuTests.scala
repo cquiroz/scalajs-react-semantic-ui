@@ -3,18 +3,18 @@ package react.semanticui.collections.menu
 import utest._
 import japgolly.scalajs.react.test._
 
-object MenuItemTests extends TestSuite {
+object MenuTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = Menu.Item(Menu.Item.props())
+      val menuItem = Menu(Menu.props())
       ReactTestUtils.withRenderedIntoDocument(menuItem) { m =>
-        assert(m.outerHtmlScrubbed() == """<div class="item"></div>""")
+        assert(m.outerHtmlScrubbed() == """<div class="ui menu"></div>""")
       }
     }
     'renderAs - {
-      val button = Menu.Item(Menu.Item.props(as = "a"))
+      val button = Menu(Menu.props(as = "a"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
-        assert(m.outerHtmlScrubbed() == """<a class="item"></a>""")
+        assert(m.outerHtmlScrubbed() == """<a class="ui menu"></a>""")
       }
     }
   }
