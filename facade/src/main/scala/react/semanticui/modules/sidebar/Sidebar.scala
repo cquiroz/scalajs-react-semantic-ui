@@ -51,7 +51,8 @@ object Sidebar {
     className: js.UndefOr[String]           = js.undefined,
     content:   js.UndefOr[VdomNode]         = js.undefined,
     direction: js.UndefOr[SidebarDirection] = js.undefined,
-    onHide:    js.UndefOr[OnHide]           = js.undefined,
+    onHideE:   js.UndefOr[OnHide]           = js.undefined,
+    onHide:    js.UndefOr[Callback]         = js.undefined,
     onHidden:  js.UndefOr[Callback]         = js.undefined,
     onShow:    js.UndefOr[Callback]         = js.undefined,
     onVisible: js.UndefOr[Callback]         = js.undefined,
@@ -65,7 +66,7 @@ object Sidebar {
     p.className = className
     p.content   = content.toJs
     p.direction = direction.toJs
-    p.onHide    = onHide.toJs
+    p.onHide    = (onHideE, onHide).toJs
     p.onHidden  = onHidden.toJs
     p.onShow    = onShow.toJs
     p.onVisible = onVisible.toJs

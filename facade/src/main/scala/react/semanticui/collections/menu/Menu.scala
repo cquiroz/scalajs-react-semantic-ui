@@ -134,7 +134,8 @@ object Menu {
     fluid:              js.UndefOr[Boolean]       = js.undefined,
     icon:               js.UndefOr[MenuIcon]      = js.undefined,
     inverted:           js.UndefOr[Boolean]       = js.undefined,
-    onItemClick:        js.UndefOr[OnItemClick]   = js.undefined,
+    onItemClickE:       js.UndefOr[OnItemClick]   = js.undefined,
+    onItemClick:        js.UndefOr[Callback]      = js.undefined,
     pagination:         js.UndefOr[Boolean]       = js.undefined,
     pointing:           js.UndefOr[Boolean]       = js.undefined,
     secondary:          js.UndefOr[Boolean]       = js.undefined,
@@ -159,7 +160,7 @@ object Menu {
     p.fluid              = fluid
     p.icon               = icon.toJs
     p.inverted           = inverted
-    p.onItemClick        = onItemClick.toJs
+    p.onItemClick        = (onItemClickE, onItemClick).toJs
     p.pagination         = pagination
     p.pointing           = pointing
     p.secondary          = secondary
@@ -180,7 +181,6 @@ object Menu {
     component(p)(children: _*)
 
   object Header {
-    type OnClick = ReactEvent => Callback
 
     @js.native
     @JSImport("semantic-ui-react", "MenuHeader")
@@ -336,7 +336,7 @@ object Menu {
       p.index     = index
       p.link      = link
       p.name      = name
-      p.onClick   = onClickE.toJs.orElse(onClick.toJsE)
+      p.onClick   = (onClickE, onClick).toJs
       p.position  = position
       p
     }
@@ -351,8 +351,6 @@ object Menu {
   }
 
   object Menu {
-    type OnClick = ReactEvent => Callback
-
     @js.native
     @JSImport("semantic-ui-react", "MenuMenu")
     object RawComponent extends js.Object

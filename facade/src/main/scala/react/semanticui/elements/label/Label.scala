@@ -81,7 +81,8 @@ object Label {
     horizontal: js.UndefOr[Boolean]                                             = js.undefined,
     icon:       js.UndefOr[UnmountedIcon]                                       = js.undefined,
     image:      js.UndefOr[Boolean]                                             = js.undefined,
-    onClick:    js.UndefOr[OnClick]                                             = js.undefined,
+    onClickE:   js.UndefOr[OnClick]                                             = js.undefined,
+    onClick:    js.UndefOr[Callback]                                            = js.undefined,
     onRemove:   js.UndefOr[OnClick]                                             = js.undefined,
     pointing:   js.UndefOr[LabelPointing]                                       = js.undefined,
     removeIcon: js.UndefOr[UnmountedIcon]                                       = js.undefined,
@@ -106,7 +107,7 @@ object Label {
     p.horizontal = horizontal
     p.icon       = icon.map(_.props)
     p.image      = image.map(_.asInstanceOf[js.Any])
-    p.onClick    = onClick.toJs
+    p.onClick    = (onClickE, onClick).toJs
     p.onRemove   = onRemove.toJs
     p.pointing   = pointing.toJs
     p.removeIcon = removeIcon.map(_.props)

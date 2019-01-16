@@ -87,7 +87,8 @@ object Button {
     labelPosition: js.UndefOr[String]         = js.undefined,
     loading:       js.UndefOr[Boolean]        = js.undefined,
     negative:      js.UndefOr[Boolean]        = js.undefined,
-    onClick:       js.UndefOr[OnClick]        = js.undefined,
+    onClickE:      js.UndefOr[OnClick]        = js.undefined,
+    onClick:       js.UndefOr[Callback]       = js.undefined,
     positive:      js.UndefOr[Boolean]        = js.undefined,
     primary:       js.UndefOr[Boolean]        = js.undefined,
     role:          js.UndefOr[Boolean]        = js.undefined,
@@ -117,7 +118,7 @@ object Button {
     p.labelPosition = labelPosition
     p.loading       = loading
     p.negative      = negative
-    p.onClick       = onClick.toJs
+    p.onClick       = (onClickE, onClick).toJs
     p.positive      = positive
     p.primary       = primary
     p.role          = role

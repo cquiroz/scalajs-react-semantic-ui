@@ -16,8 +16,6 @@ import react.semanticui.floats._
 import react.semanticui.textalignment._
 
 object Header {
-  type OnClick = (ReactMouseEvent, HeaderProps) => Callback
-
   @js.native
   @JSImport("semantic-ui-react", "Header")
   object RawComponent extends js.Function1[js.Any, js.Any] {
