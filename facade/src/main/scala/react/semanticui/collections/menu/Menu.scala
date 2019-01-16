@@ -315,7 +315,8 @@ object Menu {
       index:     js.UndefOr[Int]            = js.undefined,
       link:      js.UndefOr[Boolean]        = js.undefined,
       name:      js.UndefOr[String]         = js.undefined,
-      onClick:   js.UndefOr[OnClick]        = js.undefined,
+      onClickE:  js.UndefOr[OnClick]        = js.undefined,
+      onClick:   js.UndefOr[Callback]       = js.undefined,
       position:  js.UndefOr[String]         = js.undefined
     ): ItemProps = {
       val p = (new js.Object).asInstanceOf[ItemProps]
@@ -333,7 +334,7 @@ object Menu {
       p.index     = index
       p.link      = link
       p.name      = name
-      p.onClick   = onClick.toJs
+      p.onClick   = onClickE.toJs.orElse(onClick.toJsE)
       p.position  = position
       p
     }
