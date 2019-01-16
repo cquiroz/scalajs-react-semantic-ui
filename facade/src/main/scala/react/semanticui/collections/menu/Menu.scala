@@ -24,7 +24,9 @@ object Menu {
 
   @js.native
   @JSImport("semantic-ui-react", "Menu")
-  object RawComponent extends js.Object
+  object RawComponent extends js.Function1[js.Any, js.Any] {
+    def apply(i: js.Any): js.Any = js.native
+  }
 
   @js.native
   trait MenuProps extends js.Object {

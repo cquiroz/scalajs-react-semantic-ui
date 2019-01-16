@@ -58,7 +58,7 @@ object Sidebar {
     visible:   js.UndefOr[Boolean]          = js.undefined,
     width:     js.UndefOr[SidebarWidth]     = js.undefined
   ): SidebarProps = {
-    val p = (new js.Object).asInstanceOf[SidebarProps]
+    val p = as.toJsObject[SidebarProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.animation = animation.toJs

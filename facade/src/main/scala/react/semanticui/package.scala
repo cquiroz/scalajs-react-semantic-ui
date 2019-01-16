@@ -8,19 +8,38 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 
 package semanticui {
-  sealed trait As
+  sealed trait As {
+    type P <: js.Object // props
+    val props: P
+  }
 
   object As {
-    case object Segment extends As
-    case object SidebarPushable extends As
-    case object SidebarPusher extends As
-    case object Header extends As
+    import elements.segment.{ Segment => SUISegment }
+    import collections.menu.{ Menu => SUIMenu }
+
+    final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
+      override type P = SUISegment.SegmentProps
+    }
+    final case class SidebarPushable(props: modules.sidebar.Sidebar.Pushable.PushableProps)
+        extends As {
+      override type P = modules.sidebar.Sidebar.Pushable.PushableProps
+    }
+    final case class SidebarPusher(props: modules.sidebar.Sidebar.Pusher.PusherProps) extends As {
+      override type P = modules.sidebar.Sidebar.Pusher.PusherProps
+    }
+    final case class Header(props: elements.header.Header.HeaderProps) extends As {
+      override type P = elements.header.Header.HeaderProps
+    }
+    final case class Menu(props: SUIMenu.MenuProps = SUIMenu.props()) extends As {
+      override type P = SUIMenu.MenuProps
+    }
 
     def asFn(a: As): AsT = a match {
-      case Segment         => elements.segment.Segment.RawComponent
-      case SidebarPushable => modules.sidebar.Sidebar.Pushable.RawComponent
-      case SidebarPusher   => modules.sidebar.Sidebar.Pusher.RawComponent
-      case Header          => elements.header.Header.RawComponent
+      case Segment(_)         => elements.segment.Segment.RawComponent
+      case SidebarPushable(_) => modules.sidebar.Sidebar.Pushable.RawComponent
+      case SidebarPusher(_)   => modules.sidebar.Sidebar.Pusher.RawComponent
+      case Header(_)          => elements.header.Header.RawComponent
+      case Menu(_)            => collections.menu.Menu.RawComponent
     }
   }
 
@@ -72,6 +91,16 @@ package object semanticui {
           case f: String => f
         }
       }
+
+    def toJsObject[A <: js.Object]: A =
+      c.map { d =>
+          (d: Any) match {
+            case o: As =>
+              o.props.asInstanceOf[A]
+            case _: String => (new js.Object).asInstanceOf[A]
+          }
+        }
+        .getOrElse((new js.Object).asInstanceOf[A])
   }
 
   private[semanticui] object raw {
