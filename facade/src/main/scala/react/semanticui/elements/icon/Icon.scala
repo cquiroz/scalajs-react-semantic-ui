@@ -64,7 +64,7 @@ object Icon {
     size:      js.UndefOr[SemanticSize]         = js.undefined,
     ariaLabel: js.UndefOr[String]               = js.undefined
   ): IconProps = {
-    val p = (new js.Object).asInstanceOf[IconProps]
+    val p = as.toJsObject[IconProps]
     p.as           = as.toJs
     p.bordered     = bordered
     p.circular     = circular
@@ -143,7 +143,7 @@ object Icon {
 
       @JSBracketAccess
       def update(key: String, v: js.Any): Unit = js.native
-      var as: js.UndefOr[js.Any]                 = js.native
+      var as: js.UndefOr[AsT]                    = js.native
       var children: js.UndefOr[React.Node]       = js.native
       var className: js.UndefOr[String]          = js.native
       var content: js.UndefOr[React.Node]        = js.native
@@ -151,28 +151,19 @@ object Icon {
     }
 
     def props(
+      as:        js.UndefOr[AsC]          = js.undefined,
       children:  js.UndefOr[VdomNode]     = js.undefined,
-      as:        js.UndefOr[js.Any]       = js.undefined,
       className: js.UndefOr[String]       = js.undefined,
       content:   js.UndefOr[VdomNode]     = js.undefined,
       size:      js.UndefOr[SemanticSize] = js.undefined
-    ): GroupProps =
-      rawprops(as, children.toJs, className, content.toJs, size.toJs)
-
-    private[semanticui] def rawprops(
-      as:        js.UndefOr[js.Any]               = js.undefined,
-      children:  js.UndefOr[React.Node]           = js.undefined,
-      className: js.UndefOr[String]               = js.undefined,
-      content:   js.UndefOr[React.Node]           = js.undefined,
-      size:      js.UndefOr[suiraw.SemanticSIZES] = js.undefined
     ): GroupProps = {
-      val p = (new js.Object).asInstanceOf[GroupProps]
-      p.as        = as
-      p.children  = children
-      p.content   = content
+      val p = as.toJsObject[GroupProps]
+      p.as        = as.toJs
+      p.children  = children.toJs
+      p.content   = content.toJs
       p.className = className
-      p.content   = content
-      p.size      = size
+      p.content   = content.toJs
+      p.size      = size.toJs
       p
     }
 

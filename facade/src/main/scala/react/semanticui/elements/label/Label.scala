@@ -89,7 +89,7 @@ object Label {
     size:       js.UndefOr[SemanticSize]                                        = js.undefined,
     tag:        js.UndefOr[Boolean]                                             = js.undefined
   ): LabelProps = {
-    val p = (new js.Object).asInstanceOf[LabelProps]
+    val p = as.toJsObject[LabelProps]
     p.as         = as.toJs
     p.active     = active
     p.attached   = attached.toJs

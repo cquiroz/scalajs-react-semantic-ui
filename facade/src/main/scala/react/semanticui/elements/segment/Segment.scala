@@ -86,7 +86,7 @@ object Segment {
     textAlign:   js.UndefOr[SemanticTextAlignment] = js.undefined,
     vertical:    js.UndefOr[Boolean]               = js.undefined
   ): SegmentProps = {
-    val p = (new js.Object).asInstanceOf[SegmentProps]
+    val p = as.toJsObject[SegmentProps]
     p.as          = as.toJs
     p.attached    = attached.toJs
     p.basic       = basic

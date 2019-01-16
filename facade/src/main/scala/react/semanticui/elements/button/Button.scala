@@ -96,7 +96,7 @@ object Button {
     tabIndex:      js.UndefOr[TabIndex]       = js.undefined,
     toggle:        js.UndefOr[Boolean]        = js.undefined
   ): ButtonProps = {
-    val p = (new js.Object).asInstanceOf[ButtonProps]
+    val p = as.toJsObject[ButtonProps]
     p.as            = as.toJs
     p.active        = active
     p.animated      = animated.toJs

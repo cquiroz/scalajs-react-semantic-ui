@@ -108,7 +108,7 @@ object Sidebar {
       className: js.UndefOr[String]   = js.undefined,
       content:   js.UndefOr[VdomNode] = js.undefined
     ): PushableProps = {
-      val p = (new js.Object).asInstanceOf[PushableProps]
+      val p = as.toJsObject[PushableProps]
       p.as        = as.toJs
       p.children  = children.map(_.rawNode)
       p.className = className
@@ -156,7 +156,7 @@ object Sidebar {
       content:   js.UndefOr[VdomNode] = js.undefined,
       dimmed:    js.UndefOr[Boolean]  = js.undefined
     ): PusherProps = {
-      val p = (new js.Object).asInstanceOf[PusherProps]
+      val p = as.toJsObject[PusherProps]
       p.as        = as.toJs
       p.children  = children.map(_.rawNode)
       p.className = className

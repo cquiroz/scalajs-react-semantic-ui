@@ -16,30 +16,32 @@ package semanticui {
   object As {
     import elements.segment.{ Segment => SUISegment }
     import collections.menu.{ Menu => SUIMenu }
+    import modules.sidebar.Sidebar.{ Pushable => SUIPushable }
+    import modules.sidebar.Sidebar.{ Pusher => SUIPusher }
+    import elements.header.{ Header => SUIHeader }
 
     final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
       override type P = SUISegment.SegmentProps
     }
-    final case class SidebarPushable(props: modules.sidebar.Sidebar.Pushable.PushableProps)
-        extends As {
-      override type P = modules.sidebar.Sidebar.Pushable.PushableProps
+    final case class SidebarPushable(props: SUIPushable.PushableProps) extends As {
+      override type P = SUIPushable.PushableProps
     }
-    final case class SidebarPusher(props: modules.sidebar.Sidebar.Pusher.PusherProps) extends As {
-      override type P = modules.sidebar.Sidebar.Pusher.PusherProps
+    final case class SidebarPusher(props: SUIPusher.PusherProps) extends As {
+      override type P = SUIPusher.PusherProps
     }
-    final case class Header(props: elements.header.Header.HeaderProps) extends As {
-      override type P = elements.header.Header.HeaderProps
+    final case class Header(props: SUIHeader.HeaderProps) extends As {
+      override type P = SUIHeader.HeaderProps
     }
     final case class Menu(props: SUIMenu.MenuProps = SUIMenu.props()) extends As {
       override type P = SUIMenu.MenuProps
     }
 
     def asFn(a: As): AsT = a match {
-      case Segment(_)         => elements.segment.Segment.RawComponent
-      case SidebarPushable(_) => modules.sidebar.Sidebar.Pushable.RawComponent
-      case SidebarPusher(_)   => modules.sidebar.Sidebar.Pusher.RawComponent
-      case Header(_)          => elements.header.Header.RawComponent
-      case Menu(_)            => collections.menu.Menu.RawComponent
+      case Segment(_)         => SUISegment.RawComponent
+      case SidebarPushable(_) => SUIPushable.RawComponent
+      case SidebarPusher(_)   => SUIPusher.RawComponent
+      case Header(_)          => SUIHeader.RawComponent
+      case Menu(_)            => SUIMenu.RawComponent
     }
   }
 

@@ -105,7 +105,7 @@ object Header {
     subheader: js.UndefOr[Boolean]               = js.undefined,
     textAlign: js.UndefOr[SemanticTextAlignment] = js.undefined
   ): HeaderProps = {
-    val p = (new js.Object).asInstanceOf[HeaderProps]
+    val p = as.toJsObject[HeaderProps]
     p.as        = as.toJs
     p.attached  = attached.toJs
     p.block     = block
@@ -129,7 +129,7 @@ object Header {
   private val component =
     JsFnComponent[HeaderProps, Children.Varargs](RawComponent)
 
-  def apply(p: HeaderProps, children: VdomNode*)
-    : UnmountedWithRoot[HeaderProps, Unit, HeaderProps] =
+  def apply(p:        HeaderProps,
+            children: VdomNode*): UnmountedWithRoot[HeaderProps, Unit, HeaderProps] =
     component(p)(children: _*)
 }

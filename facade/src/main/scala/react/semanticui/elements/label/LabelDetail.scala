@@ -39,7 +39,7 @@ object LabelDetail {
     className: js.UndefOr[String]   = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): LabelDetailProps = {
-    val p = (new js.Object).asInstanceOf[LabelDetailProps]
+    val p = as.toJsObject[LabelDetailProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = className

@@ -38,7 +38,6 @@ object SidebarTests extends TestSuite {
     'sidebarAs - {
       val sidebar = Sidebar(Sidebar.props(as = As.Menu(Menu.props(inverted = true))), "Abc")
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
-        println(m.outerHtmlScrubbed)
         assert(m.outerHtmlScrubbed == """<div class="ui inverted ui left sidebar menu">Abc</div>""")
       }
     }
