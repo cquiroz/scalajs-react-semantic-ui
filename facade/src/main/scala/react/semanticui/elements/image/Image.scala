@@ -144,7 +144,7 @@ object Image {
     p.rounded       = rounded
     p.size          = size.toJs
     p.spaced        = spaced.toJs
-    p.src           = src.toJs
+    p.src           = src
     p.ui            = ui
     p.verticalAlign = verticalAlign.toJs
     p.wrapped       = wrapped
