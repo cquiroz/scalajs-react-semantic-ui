@@ -1,6 +1,7 @@
 package react.semanticui.elements.segment
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.JsFnComponent
@@ -34,7 +35,7 @@ object Segment {
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
     var as: js.UndefOr[AsT]                                  = js.native
-    var attached: js.UndefOr[String]                         = js.native
+    var attached: js.UndefOr[Boolean | String]               = js.native
     var basic: js.UndefOr[Boolean]                           = js.native
     var children: js.UndefOr[React.Node]                     = js.native
     var circular: js.UndefOr[Boolean]                        = js.native
@@ -61,7 +62,7 @@ object Segment {
 
   def props(
     as:          js.UndefOr[AsC]                   = js.undefined,
-    attached:    js.UndefOr[String]                = js.undefined,
+    attached:    js.UndefOr[SegmentAttached]       = js.undefined,
     basic:       js.UndefOr[Boolean]               = js.undefined,
     children:    js.UndefOr[VdomNode]              = js.undefined,
     circular:    js.UndefOr[Boolean]               = js.undefined,
@@ -85,9 +86,9 @@ object Segment {
     textAlign:   js.UndefOr[SemanticTextAlignment] = js.undefined,
     vertical:    js.UndefOr[Boolean]               = js.undefined
   ): SegmentProps = {
-    val p = (new js.Object).asInstanceOf[SegmentProps]
+    val p = as.toJsObject[SegmentProps]
     p.as          = as.toJs
-    p.attached    = attached
+    p.attached    = attached.toJs
     p.basic       = basic
     p.children    = children.toJs
     p.circular    = circular

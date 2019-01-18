@@ -51,21 +51,22 @@ object Sidebar {
     className: js.UndefOr[String]           = js.undefined,
     content:   js.UndefOr[VdomNode]         = js.undefined,
     direction: js.UndefOr[SidebarDirection] = js.undefined,
-    onHide:    js.UndefOr[OnHide]           = js.undefined,
+    onHideE:   js.UndefOr[OnHide]           = js.undefined,
+    onHide:    js.UndefOr[Callback]         = js.undefined,
     onHidden:  js.UndefOr[Callback]         = js.undefined,
     onShow:    js.UndefOr[Callback]         = js.undefined,
     onVisible: js.UndefOr[Callback]         = js.undefined,
     visible:   js.UndefOr[Boolean]          = js.undefined,
     width:     js.UndefOr[SidebarWidth]     = js.undefined
   ): SidebarProps = {
-    val p = (new js.Object).asInstanceOf[SidebarProps]
+    val p = as.toJsObject[SidebarProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.animation = animation.toJs
     p.className = className
     p.content   = content.toJs
     p.direction = direction.toJs
-    p.onHide    = onHide.toJs
+    p.onHide    = (onHideE, onHide).toJs
     p.onHidden  = onHidden.toJs
     p.onShow    = onShow.toJs
     p.onVisible = onVisible.toJs
@@ -108,7 +109,7 @@ object Sidebar {
       className: js.UndefOr[String]   = js.undefined,
       content:   js.UndefOr[VdomNode] = js.undefined
     ): PushableProps = {
-      val p = (new js.Object).asInstanceOf[PushableProps]
+      val p = as.toJsObject[PushableProps]
       p.as        = as.toJs
       p.children  = children.map(_.rawNode)
       p.className = className
@@ -146,19 +147,22 @@ object Sidebar {
       var children: js.UndefOr[React.Node]              = js.native
       var className: js.UndefOr[String]                 = js.native
       var content: js.UndefOr[SemanticShorthandContent] = js.native
+      var dimmed: js.UndefOr[Boolean]                   = js.native
     }
 
     def props(
       as:        js.UndefOr[AsC]      = js.undefined,
       children:  js.UndefOr[VdomNode] = js.undefined,
       className: js.UndefOr[String]   = js.undefined,
-      content:   js.UndefOr[VdomNode] = js.undefined
+      content:   js.UndefOr[VdomNode] = js.undefined,
+      dimmed:    js.UndefOr[Boolean]  = js.undefined
     ): PusherProps = {
-      val p = (new js.Object).asInstanceOf[PusherProps]
+      val p = as.toJsObject[PusherProps]
       p.as        = as.toJs
       p.children  = children.map(_.rawNode)
       p.className = className
       p.content   = content.map(_.rawNode)
+      p.dimmed    = dimmed
       p
     }
 

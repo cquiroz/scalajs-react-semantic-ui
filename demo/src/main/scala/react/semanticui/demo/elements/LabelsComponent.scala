@@ -110,7 +110,7 @@ object LabelsComponent {
               <.div(
                 ^.cls := "column docs-icon-set-column",
                 Label(Label.props(as = "a",
-                                  onClick = (e: ReactMouseEvent, p: Label.LabelProps) =>
+                                  onClickE = (e: ReactMouseEvent, p: Label.LabelProps) =>
                                     Callback.log(s"${e.screenX} $p")),
                       "Callback")
               )

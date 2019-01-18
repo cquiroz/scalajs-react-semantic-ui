@@ -3,6 +3,7 @@ package react.semanticui.modules.sidebar
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
+import react.semanticui.collections.menu.Menu
 import react.semanticui.As
 
 object SidebarTests extends TestSuite {
@@ -22,7 +23,7 @@ object SidebarTests extends TestSuite {
       }
     }
     'pushableAs - {
-      val pushable = Sidebar.Pushable(Sidebar.Pushable.props(as = As.Segment), "Abc")
+      val pushable = Sidebar.Pushable(Sidebar.Pushable.props(as = As.Segment()), "Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pushable.renderIntoDOM(mountNode)
         assert(mountNode.outerHTML == """<div><div class="ui segment pushable">Abc</div></div>""")
@@ -32,6 +33,12 @@ object SidebarTests extends TestSuite {
       val sidebar = Sidebar(Sidebar.props(), "Abc")
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
         assert(m.outerHtmlScrubbed == """<div class="ui left sidebar">Abc</div>""")
+      }
+    }
+    'sidebarAs - {
+      val sidebar = Sidebar(Sidebar.props(as = As.Menu(Menu.props(inverted = true))), "Abc")
+      ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
+        assert(m.outerHtmlScrubbed == """<div class="ui inverted ui left sidebar menu">Abc</div>""")
       }
     }
   }

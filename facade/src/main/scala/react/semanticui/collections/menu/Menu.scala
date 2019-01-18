@@ -24,7 +24,9 @@ object Menu {
 
   @js.native
   @JSImport("semantic-ui-react", "Menu")
-  object RawComponent extends js.Object
+  object RawComponent extends js.Function1[js.Any, js.Any] {
+    def apply(i: js.Any): js.Any = js.native
+  }
 
   @js.native
   trait MenuProps extends js.Object {
@@ -132,7 +134,8 @@ object Menu {
     fluid:              js.UndefOr[Boolean]       = js.undefined,
     icon:               js.UndefOr[MenuIcon]      = js.undefined,
     inverted:           js.UndefOr[Boolean]       = js.undefined,
-    onItemClick:        js.UndefOr[OnItemClick]   = js.undefined,
+    onItemClickE:       js.UndefOr[OnItemClick]   = js.undefined,
+    onItemClick:        js.UndefOr[Callback]      = js.undefined,
     pagination:         js.UndefOr[Boolean]       = js.undefined,
     pointing:           js.UndefOr[Boolean]       = js.undefined,
     secondary:          js.UndefOr[Boolean]       = js.undefined,
@@ -157,7 +160,7 @@ object Menu {
     p.fluid              = fluid
     p.icon               = icon.toJs
     p.inverted           = inverted
-    p.onItemClick        = onItemClick.toJs
+    p.onItemClick        = (onItemClickE, onItemClick).toJs
     p.pagination         = pagination
     p.pointing           = pointing
     p.secondary          = secondary
@@ -178,7 +181,6 @@ object Menu {
     component(p)(children: _*)
 
   object Header {
-    type OnClick = ReactEvent => Callback
 
     @js.native
     @JSImport("semantic-ui-react", "MenuHeader")
@@ -315,7 +317,8 @@ object Menu {
       index:     js.UndefOr[Int]            = js.undefined,
       link:      js.UndefOr[Boolean]        = js.undefined,
       name:      js.UndefOr[String]         = js.undefined,
-      onClick:   js.UndefOr[OnClick]        = js.undefined,
+      onClickE:  js.UndefOr[OnClick]        = js.undefined,
+      onClick:   js.UndefOr[Callback]       = js.undefined,
       position:  js.UndefOr[String]         = js.undefined
     ): ItemProps = {
       val p = (new js.Object).asInstanceOf[ItemProps]
@@ -333,7 +336,7 @@ object Menu {
       p.index     = index
       p.link      = link
       p.name      = name
-      p.onClick   = onClick.toJs
+      p.onClick   = (onClickE, onClick).toJs
       p.position  = position
       p
     }
@@ -348,8 +351,6 @@ object Menu {
   }
 
   object Menu {
-    type OnClick = ReactEvent => Callback
-
     @js.native
     @JSImport("semantic-ui-react", "MenuMenu")
     object RawComponent extends js.Object

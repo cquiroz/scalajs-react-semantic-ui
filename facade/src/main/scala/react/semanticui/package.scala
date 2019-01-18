@@ -8,17 +8,45 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 
 package semanticui {
-  sealed trait As
+  sealed trait As {
+    type P <: js.Object // props
+    val props: P
+  }
 
   object As {
-    case object Segment extends As
-    case object SidebarPushable extends As
-    case object SidebarPusher extends As
+    import elements.segment.{ Segment => SUISegment }
+    import collections.menu.{ Menu => SUIMenu }
+    import modules.sidebar.Sidebar.{ Pushable => SUIPushable }
+    import modules.sidebar.Sidebar.{ Pusher => SUIPusher }
+    import elements.header.{ Header => SUIHeader }
+    import elements.image.{ Image => SUIImage }
+
+    final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
+      override type P = SUISegment.SegmentProps
+    }
+    final case class SidebarPushable(props: SUIPushable.PushableProps) extends As {
+      override type P = SUIPushable.PushableProps
+    }
+    final case class SidebarPusher(props: SUIPusher.PusherProps) extends As {
+      override type P = SUIPusher.PusherProps
+    }
+    final case class Header(props: SUIHeader.HeaderProps) extends As {
+      override type P = SUIHeader.HeaderProps
+    }
+    final case class Menu(props: SUIMenu.MenuProps = SUIMenu.props()) extends As {
+      override type P = SUIMenu.MenuProps
+    }
+    final case class Image(props: SUIImage.ImageProps = SUIImage.props()) extends As {
+      override type P = SUIImage.ImageProps
+    }
 
     def asFn(a: As): AsT = a match {
-      case Segment         => elements.segment.Segment.RawComponent
-      case SidebarPushable => modules.sidebar.Sidebar.Pushable.RawComponent
-      case SidebarPusher   => modules.sidebar.Sidebar.Pusher.RawComponent
+      case Segment(_)         => SUISegment.RawComponent
+      case SidebarPushable(_) => SUIPushable.RawComponent
+      case SidebarPusher(_)   => SUIPusher.RawComponent
+      case Header(_)          => SUIHeader.RawComponent
+      case Menu(_)            => SUIMenu.RawComponent
+      case Image(_)           => SUIImage.RawComponent
     }
   }
 
@@ -70,18 +98,29 @@ package object semanticui {
           case f: String => f
         }
       }
+
+    def toJsObject[A <: js.Object]: A =
+      c.map { d =>
+          (d: Any) match {
+            case o: As =>
+              o.props.asInstanceOf[A]
+            case _: String => (new js.Object).asInstanceOf[A]
+          }
+        }
+        .getOrElse((new js.Object).asInstanceOf[A])
   }
 
   private[semanticui] object raw {
-    type SemanticCOLORS           = String
-    type SemanticICONS            = String
-    type SemanticSIZES            = String
-    type SemanticWIDTHS           = String
-    type IconSizeProp             = String
-    type SemanticFLOATS           = String
-    type SemanticTEXTALIGNMENTS   = String
-    type SemanticShorthandContent = React.Node
-    type SemanticShorthandItem[T] = React.Node | T
+    type SemanticCOLORS             = String
+    type SemanticICONS              = String
+    type SemanticSIZES              = String
+    type SemanticWIDTHS             = String
+    type IconSizeProp               = String
+    type SemanticFLOATS             = String
+    type SemanticTEXTALIGNMENTS     = String
+    type SemanticVERTICALALIGNMENTS = String
+    type SemanticShorthandContent   = React.Node
+    type SemanticShorthandItem[T]   = React.Node | T
 
     @js.native
     @JSImport("semantic-ui-react", "SemanticCOLORS")
