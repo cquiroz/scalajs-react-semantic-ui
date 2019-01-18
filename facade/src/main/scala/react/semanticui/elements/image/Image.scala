@@ -87,6 +87,8 @@ object Image {
     /** An image can specify that it needs an additional spacing to separate it from nearby content. */
     var spaced: js.UndefOr[Boolean | String] = js.native
 
+    var src: js.UndefOr[String] = js.native
+
     /** Whether or not to add the ui className. */
     var ui: js.UndefOr[Boolean] = js.native
 
@@ -117,6 +119,7 @@ object Image {
     rounded:       js.UndefOr[Boolean]                   = js.undefined,
     size:          js.UndefOr[SemanticSize]              = js.undefined,
     spaced:        js.UndefOr[ImageSpaced]               = js.undefined,
+    src:           js.UndefOr[String]                    = js.undefined,
     ui:            js.UndefOr[Boolean]                   = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined,
     wrapped:       js.UndefOr[Boolean]                   = js.undefined,
@@ -141,6 +144,7 @@ object Image {
     p.rounded       = rounded
     p.size          = size.toJs
     p.spaced        = spaced.toJs
+    p.src           = src.toJs
     p.ui            = ui
     p.verticalAlign = verticalAlign.toJs
     p.wrapped       = wrapped
