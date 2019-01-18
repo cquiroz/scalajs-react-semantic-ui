@@ -9,7 +9,20 @@ cancelable in Global := true
 
 resolvers in Global += Resolver.sonatypeRepo("releases")
 
-addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer")
+addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer; ~demo/fastOptJS")
+
+// sbt-release-early
+inThisBuild(List(
+    homepage                := Some(url("https://github.com/cquiroz/scalajs-react-virtualized")),
+    licenses                := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
+    developers := List(Developer("cquiroz", "Carlos Quiroz", "carlos.m.quiroz@gmail.com", url("https://github.com/cquiroz"))),
+    scmInfo := Some(ScmInfo(url("https://github.com/cquiroz/scalajs-react-semantic-ui"), "scm:git:git@github.com:cquiroz/scalajs-react-semantic-ui.git")),
+
+    // These are the sbt-release-early settings to configure
+    pgpPublicRing := file("./travis/local.pubring.asc"),
+    pgpSecretRing := file("./travis/local.secring.asc"),
+    releaseEarlyWith := SonatypePublisher
+))
 
 val root =
   project.in(file("."))
@@ -26,8 +39,6 @@ val root =
 
 lazy val demo =
   project.in(file("demo"))
-    .enablePlugins(GitVersioning)
-    .enablePlugins(GitBranchPrompt)
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
@@ -80,8 +91,6 @@ lazy val demo =
 
 lazy val facade =
   project.in(file("facade"))
-    .enablePlugins(GitVersioning)
-    .enablePlugins(GitBranchPrompt)
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
@@ -115,18 +124,8 @@ lazy val commonSettings = Seq(
   description             := "scala.js facade for react-semanticui",
   homepage                := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
   licenses                := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
-  useGpg                  := true,
   publishArtifact in Test := false,
   publishMavenStyle       := true,
-  publishTo               := {
-    val nexus = "https://oss.sonatype.org/"
-    if (isSnapshot.value)
-      Some("snapshots" at nexus + "content/repositories/snapshots")
-    else
-      Some("releases"  at nexus + "service/local/staging/deploy/maven2")
-    },
-  pomExtra                := pomData,
-  pomIncludeRepository    := { _ => false },
   scalacOptions           := Seq(
       "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
       "-encoding", "utf-8",                // Specify character encoding used by source files.
@@ -175,21 +174,4 @@ lazy val commonSettings = Seq(
       "-Yrangepos",
       "-P:scalajs:sjsDefinedByDefault"
     ),
-    // Settings to use git to define the version of the project
-    git.useGitDescribe := true,
-    git.formattedShaVersion := git.gitHeadCommit.value map { sha => s"v$sha" },
-    git.uncommittedSignifier in ThisBuild := Some("UNCOMMITTED"),
-    useGpg := true
   )
-
-lazy val pomData =
-  <developers>
-    <developer>
-      <id>cquiroz</id>
-      <name>Carlos Quiroz</name>
-      <url>https://github.com/cquiroz</url>
-      <roles>
-        <role>Project Lead</role>
-      </roles>
-    </developer>
-  </developers>
