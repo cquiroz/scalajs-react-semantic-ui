@@ -19,3 +19,6 @@ project/plugins/project/
 .bloop/
 .metals/
 local.*
+node_modules/
+package-lock.json
+yarn.lock
