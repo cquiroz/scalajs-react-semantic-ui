@@ -7,7 +7,7 @@ parallelExecution in (ThisBuild, Test) := false
 
 cancelable in Global := true
 
-resolvers += Resolver.sonatypeRepo("releases")
+resolvers in Global += Resolver.sonatypeRepo("releases")
 
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer")
 
@@ -100,7 +100,7 @@ lazy val facade =
       libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
-        "io.github.cquiroz" %%% "scalajs-react-common"       % "0.0.5",
+        "io.github.cquiroz" %%% "scalajs-react-common"       % "0.0.5+20190117-2357",
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
         "com.lihaoyi"                       %%% "utest"      % "0.6.6" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.5.0" % Test

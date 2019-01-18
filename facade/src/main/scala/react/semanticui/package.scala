@@ -19,6 +19,7 @@ package semanticui {
     import modules.sidebar.Sidebar.{ Pushable => SUIPushable }
     import modules.sidebar.Sidebar.{ Pusher => SUIPusher }
     import elements.header.{ Header => SUIHeader }
+    import elements.image.{ Image => SUIImage }
 
     final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
       override type P = SUISegment.SegmentProps
@@ -35,6 +36,9 @@ package semanticui {
     final case class Menu(props: SUIMenu.MenuProps = SUIMenu.props()) extends As {
       override type P = SUIMenu.MenuProps
     }
+    final case class Image(props: SUIImage.ImageProps = SUIImage.props()) extends As {
+      override type P = SUIImage.ImageProps
+    }
 
     def asFn(a: As): AsT = a match {
       case Segment(_)         => SUISegment.RawComponent
@@ -42,6 +46,7 @@ package semanticui {
       case SidebarPusher(_)   => SUIPusher.RawComponent
       case Header(_)          => SUIHeader.RawComponent
       case Menu(_)            => SUIMenu.RawComponent
+      case Image(_)           => SUIImage.RawComponent
     }
   }
 
@@ -106,15 +111,16 @@ package object semanticui {
   }
 
   private[semanticui] object raw {
-    type SemanticCOLORS           = String
-    type SemanticICONS            = String
-    type SemanticSIZES            = String
-    type SemanticWIDTHS           = String
-    type IconSizeProp             = String
-    type SemanticFLOATS           = String
-    type SemanticTEXTALIGNMENTS   = String
-    type SemanticShorthandContent = React.Node
-    type SemanticShorthandItem[T] = React.Node | T
+    type SemanticCOLORS             = String
+    type SemanticICONS              = String
+    type SemanticSIZES              = String
+    type SemanticWIDTHS             = String
+    type IconSizeProp               = String
+    type SemanticFLOATS             = String
+    type SemanticTEXTALIGNMENTS     = String
+    type SemanticVERTICALALIGNMENTS = String
+    type SemanticShorthandContent   = React.Node
+    type SemanticShorthandItem[T]   = React.Node | T
 
     @js.native
     @JSImport("semantic-ui-react", "SemanticCOLORS")

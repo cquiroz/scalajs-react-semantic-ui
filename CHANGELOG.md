@@ -2,6 +2,7 @@
 
 ## 0.0.6
 
+* Add Image
 * Add Header
 
 ## 0.0.5
