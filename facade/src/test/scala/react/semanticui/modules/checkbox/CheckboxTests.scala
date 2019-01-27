@@ -10,7 +10,6 @@ object CheckboxTests extends TestSuite {
       val pusher = Checkbox(Checkbox.props(), "Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)
-        println(mountNode.outerHTML)
         assert(
           mountNode.outerHTML == """<div><div class="ui fitted checkbox"><input class="hidden" readonly="" tabindex="0" type="checkbox" value=""><label></label></div></div>""")
       }
