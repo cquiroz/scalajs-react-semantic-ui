@@ -20,6 +20,7 @@ package semanticui {
     import modules.sidebar.Sidebar.{ Pusher => SUIPusher }
     import elements.header.{ Header => SUIHeader }
     import elements.image.{ Image => SUIImage }
+    import elements.divider.{ Divider => SUIDivider }
 
     final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
       override type P = SUISegment.SegmentProps
@@ -39,6 +40,9 @@ package semanticui {
     final case class Image(props: SUIImage.ImageProps = SUIImage.props()) extends As {
       override type P = SUIImage.ImageProps
     }
+    final case class Divider(props: SUIDivider.DividerProps = SUIDivider.props()) extends As {
+      override type P = SUIDivider.DividerProps
+    }
 
     def asFn(a: As): AsT = a match {
       case Segment(_)         => SUISegment.RawComponent
@@ -47,6 +51,7 @@ package semanticui {
       case Header(_)          => SUIHeader.RawComponent
       case Menu(_)            => SUIMenu.RawComponent
       case Image(_)           => SUIImage.RawComponent
+      case Divider(_)         => SUIDivider.RawComponent
     }
   }
 

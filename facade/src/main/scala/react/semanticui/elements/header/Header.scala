@@ -18,7 +18,7 @@ import react.semanticui.textalignment._
 object Header {
   @js.native
   @JSImport("semantic-ui-react", "Header")
-  object RawComponent extends js.Function1[js.Any, js.Any] {
+  private[semanticui] object RawComponent extends js.Function1[js.Any, js.Any] {
     def apply(i: js.Any): js.Any = js.native
   }
 
