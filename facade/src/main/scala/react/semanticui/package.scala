@@ -18,6 +18,7 @@ package semanticui {
     import collections.menu.{ Menu => SUIMenu }
     import modules.sidebar.Sidebar.{ Pushable => SUIPushable }
     import modules.sidebar.Sidebar.{ Pusher => SUIPusher }
+    import modules.checkbox.{ Checkbox => SUICheckbox }
     import elements.header.{ Header => SUIHeader }
     import elements.image.{ Image => SUIImage }
     import elements.divider.{ Divider => SUIDivider }
@@ -43,6 +44,9 @@ package semanticui {
     final case class Divider(props: SUIDivider.DividerProps = SUIDivider.props()) extends As {
       override type P = SUIDivider.DividerProps
     }
+    final case class Checkbox(props: SUICheckbox.CheckboxProps = SUICheckbox.props()) extends As {
+      override type P = SUICheckbox.CheckboxProps
+    }
 
     def asFn(a: As): AsT = a match {
       case Segment(_)         => SUISegment.RawComponent
@@ -52,6 +56,7 @@ package semanticui {
       case Menu(_)            => SUIMenu.RawComponent
       case Image(_)           => SUIImage.RawComponent
       case Divider(_)         => SUIDivider.RawComponent
+      case Checkbox(_)        => SUICheckbox.RawComponent
     }
   }
 

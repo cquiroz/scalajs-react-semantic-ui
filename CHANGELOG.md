@@ -1,5 +1,10 @@
 # Changes
 
+## 0.0.7-SNAPSHOT
+
+* Add Divider
+* Add Checkbox
+
 ## 0.0.6
 
 * Add Image
