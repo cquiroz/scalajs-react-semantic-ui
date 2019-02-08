@@ -13,7 +13,7 @@ addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fast
 
 // sbt-release-early
 inThisBuild(List(
-    homepage                := Some(url("https://github.com/cquiroz/scalajs-react-virtualized")),
+    homepage                := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
     licenses                := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
     developers := List(Developer("cquiroz", "Carlos Quiroz", "carlos.m.quiroz@gmail.com", url("https://github.com/cquiroz"))),
     scmInfo := Some(ScmInfo(url("https://github.com/cquiroz/scalajs-react-semantic-ui"), "scm:git:git@github.com:cquiroz/scalajs-react-semantic-ui.git")),
@@ -94,7 +94,7 @@ lazy val facade =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      name                              := "scalajs-react-semantic-ui",
+      name                              := "react-semantic-ui",
       version in webpack                := "4.28.2",
       version in startWebpackDevServer  := "3.1.14",
       // Requires the DOM for tests
@@ -109,10 +109,10 @@ lazy val facade =
       libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
-        "io.github.cquiroz" %%% "scalajs-react-common"       % "0.0.6",
+        "io.github.cquiroz.react"           %%% "common"     % "0.1.0",
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
         "com.lihaoyi"                       %%% "utest"      % "0.6.6" % Test,
-        "org.typelevel"                     %%% "cats-core"  % "1.5.0" % Test
+        "org.typelevel"                     %%% "cats-core"  % "1.6.0" % Test
       ),
       webpackConfigFile in Test       := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks                  += new TestFramework("utest.runner.Framework")
@@ -120,10 +120,9 @@ lazy val facade =
 
 lazy val commonSettings = Seq(
   scalaVersion            := "2.12.8",
-  organization            := "io.github.cquiroz",
+  organization            := "io.github.cquiroz.react",
+  sonatypeProfileName     := "io.github.cquiroz",
   description             := "scala.js facade for react-semanticui",
-  homepage                := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
-  licenses                := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
   publishArtifact in Test := false,
   publishMavenStyle       := true,
   scalacOptions           := Seq(
