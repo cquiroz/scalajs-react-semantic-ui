@@ -1,9 +1,10 @@
 # Changes
 
-## 0.0.7-SNAPSHOT
+## 0.0.7
 
 * Add Divider
 * Add Checkbox
+* Change organizationid and name
 
 ## 0.0.6
 
