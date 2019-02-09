@@ -1,18 +1,19 @@
 package react.semanticui.elements.icon
 
-import scala.scalajs.js
-import js.annotation._
-import react.common.syntax._
-import react.semanticui._
-import react.semanticui.{ raw => suiraw }
-import react.semanticui.sizes._
-import react.semanticui.colors._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Js.RawMounted
 import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
+import react.common.syntax._
+import react.semanticui._
+import react.semanticui.{ raw => suiraw }
+import react.semanticui.sizes._
+import react.semanticui.colors._
+import scala.scalajs.js
+import scala.scalajs.js.|
+import js.annotation._
 
 object Icon {
 
@@ -33,7 +34,7 @@ object Icon {
     var circular: js.UndefOr[Boolean]            = js.native
     var className: js.UndefOr[String]            = js.native
     var color: js.UndefOr[suiraw.SemanticCOLORS] = js.native
-    var corner: js.UndefOr[Boolean]              = js.native
+    var corner: js.UndefOr[Boolean | String]     = js.native
     var disabled: js.UndefOr[Boolean]            = js.native
     var fitted: js.UndefOr[Boolean]              = js.native
     var flipped: js.UndefOr[String]              = js.native
@@ -52,7 +53,7 @@ object Icon {
     circular:  js.UndefOr[Boolean]              = js.undefined,
     className: js.UndefOr[String]               = js.undefined,
     color:     js.UndefOr[SemanticColor]        = js.undefined,
-    corner:    js.UndefOr[Boolean]              = js.undefined,
+    corner:    js.UndefOr[IconCorner]           = js.undefined,
     disabled:  js.UndefOr[Boolean]              = js.undefined,
     fitted:    js.UndefOr[Boolean]              = js.undefined,
     flipped:   js.UndefOr[IconFlip]             = js.undefined,
@@ -70,7 +71,7 @@ object Icon {
     p.circular     = circular
     p.className    = className
     p.color        = color.toJs
-    p.corner       = corner
+    p.corner       = corner.toJs
     p.disabled     = disabled
     p.fitted       = fitted
     p.flipped      = flipped.toJs
@@ -90,7 +91,7 @@ object Icon {
     circular:     js.UndefOr[Boolean]               = js.undefined,
     className:    js.UndefOr[String]                = js.undefined,
     color:        js.UndefOr[suiraw.SemanticCOLORS] = js.undefined,
-    corner:       js.UndefOr[Boolean]               = js.undefined,
+    corner:       js.UndefOr[Boolean | String]      = js.undefined,
     disabled:     js.UndefOr[Boolean]               = js.undefined,
     fitted:       js.UndefOr[Boolean]               = js.undefined,
     flipped:      js.UndefOr[String]                = js.undefined,

@@ -1,5 +1,9 @@
 # Changes
 
+## 0.0.8
+
+* Upgrade to react-semantic-ui 0.85.0
+
 ## 0.0.7
 
 * Add Divider

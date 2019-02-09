@@ -23,6 +23,21 @@ package icon {
     case object CounterClockwise extends IconRotated
   }
 
+  sealed trait IconCorner extends Product with Serializable
+  object IconCorner {
+    implicit val enum: EnumValueB[IconCorner] = EnumValueB.instance {
+      case BottomRight => "bottom right"
+      case TopRight    => "top right"
+      case TopLeft     => "top left"
+      case BottomLeft  => "bottom left"
+    }
+
+    case object BottomRight extends IconCorner
+    case object TopRight extends IconCorner
+    case object TopLeft extends IconCorner
+    case object BottomLeft extends IconCorner
+  }
+
 }
 
 package object icon {
