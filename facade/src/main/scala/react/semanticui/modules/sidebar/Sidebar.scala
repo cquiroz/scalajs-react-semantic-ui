@@ -1,6 +1,7 @@
 package react.semanticui.modules.sidebar
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Js.RawMounted
@@ -8,6 +9,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.JsFnComponent
 import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.raw.React.Ref
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
@@ -39,9 +41,9 @@ object Sidebar {
     var onHidden: js.UndefOr[js.Function0[Unit]]           = js.native
     var onShow: js.UndefOr[js.Function0[Unit]]             = js.native
     var onVisible: js.UndefOr[js.Function0[Unit]]          = js.native
-    // var target: js.UndefOr[js.Object] = js.native
-    var visible: js.UndefOr[Boolean] = js.native
-    var width: js.UndefOr[String]    = js.native
+    var target: js.UndefOr[js.Object | Ref]                = js.native
+    var visible: js.UndefOr[Boolean]                       = js.native
+    var width: js.UndefOr[String]                          = js.native
   }
 
   def props(
@@ -56,6 +58,7 @@ object Sidebar {
     onHidden:  js.UndefOr[Callback]         = js.undefined,
     onShow:    js.UndefOr[Callback]         = js.undefined,
     onVisible: js.UndefOr[Callback]         = js.undefined,
+    target:    js.UndefOr[Ref]              = js.undefined,
     visible:   js.UndefOr[Boolean]          = js.undefined,
     width:     js.UndefOr[SidebarWidth]     = js.undefined
   ): SidebarProps = {
@@ -70,6 +73,7 @@ object Sidebar {
     p.onHidden  = onHidden.toJs
     p.onShow    = onShow.toJs
     p.onVisible = onVisible.toJs
+    p.target    = target
     p.visible   = visible
     p.width     = width.toJs
     p

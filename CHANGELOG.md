@@ -1,5 +1,9 @@
 # Changes
 
+## 0.0.9
+
+* Upgrade to react-semantic-ui 0.86.0
+
 ## 0.0.8
 
 * Upgrade to react-semantic-ui 0.85.0

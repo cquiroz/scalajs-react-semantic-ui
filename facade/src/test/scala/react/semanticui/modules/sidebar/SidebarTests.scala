@@ -3,10 +3,16 @@ package react.semanticui.modules.sidebar
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
+import japgolly.scalajs.react.ScalaComponent
+import japgolly.scalajs.react._
 import react.semanticui.collections.menu.Menu
 import react.semanticui.As
 
 object SidebarTests extends TestSuite {
+  val DoubleComp = ScalaComponent.builder[Int]("Doubler")
+  .render_P(i => <.p(s"$i + $i = ${i << 1}"))
+  .build
+
   val tests = Tests {
     'pusher - {
       val pusher = Sidebar.Pusher(Sidebar.Pusher.props(), "Abc")
