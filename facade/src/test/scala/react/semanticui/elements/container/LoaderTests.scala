@@ -16,7 +16,6 @@ object ContainerTest extends TestSuite {
       val loader = Container(Container.props(as = "a", fluid = true))
       ReactTestUtils.withNewBodyElement { mountNode =>
         loader.renderIntoDOM(mountNode)
-        println(mountNode.outerHTML)
         assert(mountNode.outerHTML == """<div><div class="ui fluid container"></div></div>""")
       }
     }

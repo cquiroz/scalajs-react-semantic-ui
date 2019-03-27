@@ -9,9 +9,10 @@ import react.semanticui.collections.menu.Menu
 import react.semanticui.As
 
 object SidebarTests extends TestSuite {
-  val DoubleComp = ScalaComponent.builder[Int]("Doubler")
-  .render_P(i => <.p(s"$i + $i = ${i << 1}"))
-  .build
+  val DoubleComp = ScalaComponent
+    .builder[Int]("Doubler")
+    .render_P(i => <.p(s"$i + $i = ${i << 1}"))
+    .build
 
   val tests = Tests {
     'pusher - {

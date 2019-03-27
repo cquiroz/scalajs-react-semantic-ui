@@ -9,7 +9,6 @@ object DividerTests extends TestSuite {
       val menuItem = Divider(Divider.props())
       ReactTestUtils.withNewBodyElement { mountNode =>
         menuItem.renderIntoDOM(mountNode)
-        println(mountNode.outerHTML)
         assert(mountNode.outerHTML == """<div><div class="ui divider"></div></div>""")
       }
     }
