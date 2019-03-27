@@ -2,6 +2,7 @@
 
 ## 0.0.9
 
+* Add Loader
 * Upgrade to react-semantic-ui 0.86.0
 
 ## 0.0.8

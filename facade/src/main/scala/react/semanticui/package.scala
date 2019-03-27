@@ -22,6 +22,7 @@ package semanticui {
     import elements.header.{ Header => SUIHeader }
     import elements.image.{ Image => SUIImage }
     import elements.divider.{ Divider => SUIDivider }
+    import elements.loader.{ Loader => SUILoader }
 
     final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
       override type P = SUISegment.SegmentProps
@@ -47,6 +48,9 @@ package semanticui {
     final case class Checkbox(props: SUICheckbox.CheckboxProps = SUICheckbox.props()) extends As {
       override type P = SUICheckbox.CheckboxProps
     }
+    final case class Loader(props: SUILoader.LoaderProps = SUILoader.props()) extends As {
+      override type P = SUILoader.LoaderProps
+    }
 
     def asFn(a: As): AsT = a match {
       case Segment(_)         => SUISegment.RawComponent
@@ -57,6 +61,7 @@ package semanticui {
       case Image(_)           => SUIImage.RawComponent
       case Divider(_)         => SUIDivider.RawComponent
       case Checkbox(_)        => SUICheckbox.RawComponent
+      case Loader(_)          => SUILoader.RawComponent
     }
   }
 
