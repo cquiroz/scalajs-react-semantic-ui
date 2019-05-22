@@ -1,5 +1,10 @@
 # Changes
 
+## 0.1.0
+
+* Upgrade to scalajs-react 1.4.2
+* Upgrade to react-semantic-ui 0.87.1
+
 ## 0.0.9
 
 * Add Input

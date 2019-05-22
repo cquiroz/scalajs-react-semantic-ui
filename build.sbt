@@ -1,7 +1,7 @@
-val reactJS = "16.5.1"
-val scalaJsReact = "1.3.1"
+val reactJS = "16.7.0"
+val scalaJsReact = "1.4.2"
 val SUI = "2.4.1"
-val reactSUI = "0.86.0"
+val reactSUI = "0.87.1"
 
 parallelExecution in (ThisBuild, Test) := false
 
@@ -42,8 +42,8 @@ lazy val demo =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      version in webpack                := "4.28.2",
-      version in startWebpackDevServer  := "3.1.14",
+      version in webpack                := "4.32.0",
+      version in startWebpackDevServer  := "3.3.1",
       webpackConfigFile in fastOptJS         := Some(baseDirectory.value / "webpack" / "dev.webpack.config.js"),
       webpackConfigFile in fullOptJS         := Some(baseDirectory.value / "webpack" / "prod.webpack.config.js"),
       webpackMonitoredDirectories            += (resourceDirectory in Compile).value,
@@ -95,8 +95,8 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name                              := "react-semantic-ui",
-      version in webpack                := "4.28.2",
-      version in startWebpackDevServer  := "3.1.14",
+      version in webpack                := "4.32.0",
+      version in startWebpackDevServer  := "3.3.1",
       // Requires the DOM for tests
       requireJsDomEnv in Test          := true,
       // Compile tests to JS using fast-optimisation
@@ -109,9 +109,9 @@ lazy val facade =
       libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"      % scalaJsReact,
-        "io.github.cquiroz.react"           %%% "common"     % "0.1.0",
+        "io.github.cquiroz.react"           %%% "common"     % "0.2.0",
         "com.github.japgolly.scalajs-react" %%% "test"       % scalaJsReact % Test,
-        "com.lihaoyi"                       %%% "utest"      % "0.6.6" % Test,
+        "com.lihaoyi"                       %%% "utest"      % "0.6.7" % Test,
         "org.typelevel"                     %%% "cats-core"  % "1.6.0" % Test
       ),
       webpackConfigFile in Test       := Some(baseDirectory.value / "test.webpack.config.js"),
