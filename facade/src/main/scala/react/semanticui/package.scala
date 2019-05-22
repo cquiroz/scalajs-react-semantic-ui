@@ -95,6 +95,21 @@ package object semanticui {
       }
   }
 
+  implicit class HandItem2ItemB[T](val c: Boolean | SemanticShortHandItem[T]) extends AnyVal {
+    def toRaw: Boolean | raw.SemanticShorthandItem[T] =
+      (c: Any) match {
+        case o: Boolean  => o
+        case o: VdomNode => o.rawNode.asInstanceOf[raw.SemanticShorthandItem[T]]
+        case f           => f.asInstanceOf[Boolean | raw.SemanticShorthandItem[T]]
+      }
+  }
+
+  implicit class HandItem2ItemBUndef[T](val c: js.UndefOr[Boolean | SemanticShortHandItem[T]])
+      extends AnyVal {
+    def toRaw: js.UndefOr[Boolean | raw.SemanticShorthandItem[T]] =
+      c.map(_.toRaw)
+  }
+
   implicit class HandItem2ItemUndef[T](val c: js.UndefOr[SemanticShortHandItem[T]]) extends AnyVal {
     def toRaw: js.UndefOr[raw.SemanticShorthandItem[T]] =
       c.map { d =>

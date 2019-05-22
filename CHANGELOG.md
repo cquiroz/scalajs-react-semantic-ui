@@ -2,6 +2,7 @@
 
 ## 0.0.9
 
+* Add Input
 * Add Flag
 * Add Container
 * Add Loader
