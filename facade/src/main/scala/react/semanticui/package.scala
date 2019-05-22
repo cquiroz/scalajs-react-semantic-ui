@@ -23,6 +23,7 @@ package semanticui {
     import elements.image.{ Image => SUIImage }
     import elements.divider.{ Divider => SUIDivider }
     import elements.loader.{ Loader => SUILoader }
+    import elements.container.{ Container => SUIContainer }
 
     final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
       override type P = SUISegment.SegmentProps
@@ -51,6 +52,10 @@ package semanticui {
     final case class Loader(props: SUILoader.LoaderProps = SUILoader.props()) extends As {
       override type P = SUILoader.LoaderProps
     }
+    final case class Container(props: SUIContainer.ContainerProps = SUIContainer.props())
+        extends As {
+      override type P = SUIContainer.ContainerProps
+    }
 
     def asFn(a: As): AsT = a match {
       case Segment(_)         => SUISegment.RawComponent
@@ -62,6 +67,7 @@ package semanticui {
       case Divider(_)         => SUIDivider.RawComponent
       case Checkbox(_)        => SUICheckbox.RawComponent
       case Loader(_)          => SUILoader.RawComponent
+      case Container(_)       => SUIContainer.RawComponent
     }
   }
 
@@ -87,6 +93,21 @@ package object semanticui {
         case o: VdomNode => o.rawNode.asInstanceOf[raw.SemanticShorthandItem[T]]
         case f           => f.asInstanceOf[T]
       }
+  }
+
+  implicit class HandItem2ItemB[T](val c: Boolean | SemanticShortHandItem[T]) extends AnyVal {
+    def toRaw: Boolean | raw.SemanticShorthandItem[T] =
+      (c: Any) match {
+        case o: Boolean  => o
+        case o: VdomNode => o.rawNode.asInstanceOf[raw.SemanticShorthandItem[T]]
+        case f           => f.asInstanceOf[Boolean | raw.SemanticShorthandItem[T]]
+      }
+  }
+
+  implicit class HandItem2ItemBUndef[T](val c: js.UndefOr[Boolean | SemanticShortHandItem[T]])
+      extends AnyVal {
+    def toRaw: js.UndefOr[Boolean | raw.SemanticShorthandItem[T]] =
+      c.map(_.toRaw)
   }
 
   implicit class HandItem2ItemUndef[T](val c: js.UndefOr[SemanticShortHandItem[T]]) extends AnyVal {

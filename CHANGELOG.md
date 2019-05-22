@@ -2,6 +2,9 @@
 
 ## 0.0.9
 
+* Add Input
+* Add Flag
+* Add Container
 * Add Loader
 * Upgrade to react-semantic-ui 0.86.0
 

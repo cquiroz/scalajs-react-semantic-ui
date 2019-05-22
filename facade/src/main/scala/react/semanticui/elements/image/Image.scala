@@ -122,7 +122,7 @@ object Image {
     src:           js.UndefOr[String]                    = js.undefined,
     ui:            js.UndefOr[Boolean]                   = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-    wrapped:       js.UndefOr[Boolean]                   = js.undefined,
+    wrapped:       js.UndefOr[Boolean]                   = js.undefined
   ): ImageProps = {
     val p = as.toJsObject[ImageProps]
     p.as            = as.toJs
