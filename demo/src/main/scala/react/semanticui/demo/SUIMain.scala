@@ -3,7 +3,7 @@ package react.semanticui.demo
 import org.scalajs.dom
 import scala.scalajs.js
 import js.annotation._
-import japgolly.scalajs.react._, vdom.all._, extra.router._
+import japgolly.scalajs.react._, extra.router._
 
 @JSExportTopLevel("SUIMain")
 object SUiMain {

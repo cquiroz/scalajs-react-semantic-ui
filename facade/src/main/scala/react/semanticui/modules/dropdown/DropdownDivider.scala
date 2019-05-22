@@ -25,7 +25,11 @@ object DropdownDivider {
 
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[AsT]           = js.native
+
+    /** An element type to render as (string or function). */
+    var as: js.UndefOr[AsT] = js.native
+
+    /** Additional classes. */
     var className: js.UndefOr[String] = js.native
   }
 

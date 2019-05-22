@@ -104,7 +104,8 @@ lazy val facade =
       npmDependencies in Compile       ++= Seq(
         "react"             -> reactJS,
         "react-dom"         -> reactJS,
-        "semantic-ui-react" -> reactSUI
+        "semantic-ui-react" -> reactSUI,
+        "create-react-context" -> "0.2.2"
       ),
       libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,

@@ -2,16 +2,15 @@ package react.semanticui.modules.dropdown
 
 import utest._
 import japgolly.scalajs.react.test._
-import japgolly.scalajs.react.vdom.html_<^._
 
-object DropdownDividerTests extends TestSuite {
+object DropdownSearchInputTests extends TestSuite {
   val tests = Tests {
     'pusher - {
-      val pusher = DropdownDivider(DropdownDivider.props(), "Abc")
+      val pusher = DropdownSearchInput(DropdownSearchInput.props())
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="divider">Abc</div></div>"""
+          mountNode.outerHTML == """<div><input aria-autocomplete="list" autocomplete="off" class="search" type="text" value=""></div>"""
         )
       }
     }
