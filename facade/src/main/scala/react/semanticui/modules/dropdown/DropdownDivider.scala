@@ -9,8 +9,6 @@ import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 
 object DropdownDivider {
-  type OnHide = ReactEvent => Callback
-
   @js.native
   @JSImport("semantic-ui-react", "DropdownDivider")
   object RawComponent extends js.Function1[js.Any, js.Any] {

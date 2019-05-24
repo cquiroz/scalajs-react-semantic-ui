@@ -11,8 +11,6 @@ import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui._
 
 object DropdownSearchInput {
-  type OnHide = ReactEvent => Callback
-
   @js.native
   @JSImport("semantic-ui-react", "DropdownSearchInput")
   object RawComponent extends js.Object

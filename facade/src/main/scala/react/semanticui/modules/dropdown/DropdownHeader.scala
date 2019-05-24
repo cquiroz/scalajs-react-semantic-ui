@@ -16,8 +16,6 @@ import react.semanticui.elements.icon.UnmountedIcon
 import react.semanticui._
 
 object DropdownHeader {
-  type OnHide = ReactEvent => Callback
-
   @js.native
   @JSImport("semantic-ui-react", "DropdownHeader")
   object RawComponent extends js.Object
@@ -64,16 +62,17 @@ object DropdownHeader {
   }
 
   private val component =
-    JsComponent[DropdownHeaderProps, Children.None, Null](RawComponent)
+    JsComponent[DropdownHeaderProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p: DropdownHeaderProps
+    p:        DropdownHeaderProps,
+    children: VdomNode*
   ): UnmountedMapped[Id,
                      DropdownHeaderProps,
                      Null,
                      RawMounted[DropdownHeaderProps, Null],
                      DropdownHeaderProps,
                      Null] =
-    component(p)
+    component(p)(children: _*)
 
 }

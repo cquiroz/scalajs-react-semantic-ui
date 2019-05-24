@@ -13,8 +13,6 @@ import react.semanticui.raw._
 import react.semanticui._
 
 object DropdownMenu {
-  type OnHide = ReactEvent => Callback
-
   @js.native
   @JSImport("semantic-ui-react", "DropdownMenu")
   object RawComponent extends js.Object
@@ -41,7 +39,6 @@ object DropdownMenu {
     var content: js.UndefOr[SemanticShorthandContent] = js.native
 
     /** A dropdown menu can open to the left or to the right. */
-    // direction?: 'left' | 'right'
     var direction: js.UndefOr[String] = js.native
 
     /** Whether or not the dropdown menu is displayed. */
@@ -52,36 +49,37 @@ object DropdownMenu {
   }
 
   def props(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined,
-    direction: js.UndefOr[String]   = js.undefined,
-    open:      js.UndefOr[Boolean]  = js.undefined,
-    scrolling: js.UndefOr[Boolean]  = js.undefined,
+    as:        js.UndefOr[AsC]           = js.undefined,
+    children:  js.UndefOr[VdomNode]      = js.undefined,
+    className: js.UndefOr[String]        = js.undefined,
+    content:   js.UndefOr[VdomNode]      = js.undefined,
+    direction: js.UndefOr[MenuDirection] = js.undefined,
+    open:      js.UndefOr[Boolean]       = js.undefined,
+    scrolling: js.UndefOr[Boolean]       = js.undefined,
   ): DropdownMenuProps = {
     val p = as.toJsObject[DropdownMenuProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = className
     p.content   = content.toJs
-    p.direction = direction
+    p.direction = direction.toJs
     p.open      = open
     p.scrolling = scrolling
     p
   }
 
   private val component =
-    JsComponent[DropdownMenuProps, Children.None, Null](RawComponent)
+    JsComponent[DropdownMenuProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p: DropdownMenuProps
+    p:        DropdownMenuProps,
+    children: VdomNode*
   ): UnmountedMapped[Id,
                      DropdownMenuProps,
                      Null,
                      RawMounted[DropdownMenuProps, Null],
                      DropdownMenuProps,
                      Null] =
-    component(p)
+    component(p)(children: _*)
 
 }
