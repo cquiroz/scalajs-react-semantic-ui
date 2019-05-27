@@ -16,7 +16,6 @@ object FlagTests extends TestSuite {
       val menuItem = Flag(Flag.props(as = "a", name = "cl"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         menuItem.renderIntoDOM(mountNode)
-        println(mountNode.outerHTML)
         assert(mountNode.outerHTML == """<div><a class="cl flag"></a></div>""")
       }
     }
