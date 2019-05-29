@@ -18,7 +18,9 @@ import react.semanticui._
 object DropdownHeader {
   @js.native
   @JSImport("semantic-ui-react", "DropdownHeader")
-  object RawComponent extends js.Object
+  object RawComponent extends js.Function1[js.Any, js.Any] {
+    def apply(i: js.Any): js.Any = js.native
+  }
 
   @js.native
   trait DropdownHeaderProps extends js.Object {
