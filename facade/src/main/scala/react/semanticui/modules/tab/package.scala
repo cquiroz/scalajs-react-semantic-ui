@@ -1,8 +1,15 @@
 package react.semanticui.modules
 
-// import react.common.EnumValue
-// import react.common.EnumValueB
-//
-package tab {}
+import react.common.EnumValue
+
+package tab {
+  sealed trait TabMenuPosition extends Product with Serializable
+  object TabMenuPosition {
+    implicit val enum: EnumValue[TabMenuPosition] = EnumValue.toLowerCaseString
+    case object Left extends TabMenuPosition
+    case object Right extends TabMenuPosition
+  }
+
+}
 
 package object tab
