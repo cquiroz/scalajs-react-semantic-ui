@@ -2,6 +2,8 @@
 
 ## 0.1.1
 
+* Support ButtonOr
+* Unify how sub components are presented
 * Add Progress
 
 ## 0.1.0
