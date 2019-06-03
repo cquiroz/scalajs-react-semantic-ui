@@ -281,8 +281,8 @@ object Dropdown {
       *
       * @param {object} item - A currently active dropdown item.
       * @param {number} index - The current index.
-      * @param {object} defaultLabelProps - The default props for an active item Label.
-      * @returns {*} Shorthand for a Label.
+      * @param {props} defaultLabelProps - The default props for an active item Label.
+      * @return {*} Shorthand for a Label.
       */
     var renderLabel: js.UndefOr[RawRenderLabel] = js.native
 

@@ -15,7 +15,9 @@ import react.semanticui._
 object DropdownMenu {
   @js.native
   @JSImport("semantic-ui-react", "DropdownMenu")
-  object RawComponent extends js.Object
+  object RawComponent extends js.Function1[js.Any, js.Any] {
+    def apply(i: js.Any): js.Any = js.native
+  }
 
   @js.native
   trait DropdownMenuProps extends js.Object {
