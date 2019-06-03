@@ -52,9 +52,9 @@ object Tab {
       * Called on tab change.
       *
       * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - The proposed new Tab.Pane.
-      * @param {object} data.activeIndex - The new proposed activeIndex.
-      * @param {object} data.panes - Props of the new proposed active pane.
+      * @param {data} data - The proposed new Tab.Pane.
+      * @param {activeIndex} data.activeIndex - The new proposed activeIndex.
+      * @param {panes} data.panes - Props of the new proposed active pane.
       */
     var onTabChange: js.UndefOr[RawOnTabChange]
 
