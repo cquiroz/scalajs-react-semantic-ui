@@ -2,6 +2,7 @@
 
 ## 0.1.2
 
+* Support ButtonGroup
 * Support ButtonContent
 * Support ButtonOr
 * Unify how sub components are presented
