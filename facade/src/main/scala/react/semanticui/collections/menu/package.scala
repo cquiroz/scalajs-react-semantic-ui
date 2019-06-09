@@ -48,6 +48,14 @@ package menu {
     case object Top extends MenuFixed
   }
 
+  sealed trait MenuItemPosition extends Product with Serializable
+  object MenuItemPosition {
+    implicit val enum: EnumValue[MenuItemPosition] = EnumValue.toLowerCaseString
+
+    case object Left extends MenuItemPosition
+    case object Right extends MenuItemPosition
+  }
+
   sealed trait MenuIcon extends Product with Serializable
   object MenuIcon {
     implicit val enum: EnumValueB[MenuIcon] = EnumValueB.toLowerCaseStringT(Icon)

@@ -1,5 +1,12 @@
 # Changes
 
+## 0.1.2
+
+* Support ButtonGroup
+* Support ButtonContent
+* Support ButtonOr
+* Unify how sub components are presented
+
 ## 0.1.1
 
 * Add Progress
