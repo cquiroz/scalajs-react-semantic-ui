@@ -1,6 +1,7 @@
 package react.semanticui.collections
 
 import react.common.EnumValue
+import react.common.EnumValueB
 
 package grid {
   sealed trait GridOnly extends Product with Serializable
@@ -45,6 +46,43 @@ package grid {
     case object MobileVertically extends GridReversed
     case object Tablet extends GridReversed
     case object TabletVertically extends GridReversed
+  }
+
+  sealed trait GridPadded extends Product with Serializable
+  object GridPadded {
+    implicit val enum: EnumValueB[GridPadded] = EnumValueB.toLowerCaseStringTF(Padded, NotPadded)
+
+    case object Padded extends GridPadded
+    case object NotPadded extends GridPadded
+    case object Horizontally extends GridPadded
+    case object Vertically extends GridPadded
+  }
+
+  sealed trait GridRelaxed extends Product with Serializable
+  object GridRelaxed {
+    implicit val enum: EnumValueB[GridRelaxed] = EnumValueB.toLowerCaseStringTF(Relaxed, NotRelaxed)
+
+    case object Relaxed extends GridRelaxed
+    case object NotRelaxed extends GridRelaxed
+    case object Very extends GridRelaxed
+  }
+
+  sealed trait GridCelled extends Product with Serializable
+  object GridCelled {
+    implicit val enum: EnumValueB[GridCelled] = EnumValueB.toLowerCaseStringTF(Celled, NotCelled)
+
+    case object Celled extends GridCelled
+    case object NotCelled extends GridCelled
+    case object Internally extends GridCelled
+  }
+
+  sealed trait GridDivided extends Product with Serializable
+  object GridDivided {
+    implicit val enum: EnumValueB[GridDivided] = EnumValueB.toLowerCaseStringTF(Divided, NotDivided)
+
+    case object Divided extends GridDivided
+    case object NotDivided extends GridDivided
+    case object Vertically extends GridDivided
   }
 
 }
