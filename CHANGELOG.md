@@ -1,5 +1,9 @@
 # Changes
 
+## 0.1.3
+
+* Support GridRow
+
 ## 0.1.2
 
 * Support ButtonGroup
