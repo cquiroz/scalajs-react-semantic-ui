@@ -1,5 +1,9 @@
 # Changes
 
+## 0.1.4
+
+* Update scalajs-react-common
+
 ## 0.1.3
 
 * Support Popup, PopupContent, PopupHeader
