@@ -9,6 +9,8 @@ import japgolly.scalajs.react.component.Js.RawMounted
 import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui._
+import react.common.style._
+import react.common.syntax._
 
 object DropdownSearchInput {
   @js.native
@@ -47,6 +49,7 @@ object DropdownSearchInput {
     as:           js.UndefOr[AsC]               = js.undefined,
     autoComplete: js.UndefOr[String]            = js.undefined,
     className:    js.UndefOr[String]            = js.undefined,
+    clazz:        js.UndefOr[Css]               = js.undefined,
     tabIndex:     js.UndefOr[String | JsNumber] = js.undefined,
     `type`:       js.UndefOr[String]            = js.undefined,
     value:        js.UndefOr[JsNumber | String] = js.undefined,
@@ -54,7 +57,7 @@ object DropdownSearchInput {
     val p = as.toJsObject[DropdownSearchInputProps]
     p.as           = as.toJs
     p.autoComplete = autoComplete
-    p.className    = className
+    p.className    = (className, clazz).toJs
     p.tabIndex     = tabIndex
     p.`type`       = `type`
     p.value        = value

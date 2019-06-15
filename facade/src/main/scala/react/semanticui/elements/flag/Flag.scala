@@ -8,6 +8,8 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui._
+import react.common.style._
+import react.common.syntax._
 
 object Flag {
 
@@ -38,11 +40,12 @@ object Flag {
   def props(
     as:        js.UndefOr[AsC] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     name:      js.UndefOr[String]
   ): FlagProps = {
     val p = as.toJsObject[FlagProps]
     p.as        = as.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.name      = name
     p
   }

@@ -10,6 +10,8 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui._
+import react.common.style._
+import react.common.syntax._
 
 object ButtonOr {
   @js.native
@@ -39,11 +41,12 @@ object ButtonOr {
   def props(
     as:        js.UndefOr[AsC]               = js.undefined,
     className: js.UndefOr[String]            = js.undefined,
+    clazz:     js.UndefOr[Css]               = js.undefined,
     text:      js.UndefOr[JsNumber | String] = js.undefined
   ): ButtonOrProps = {
     val p = as.toJsObject[ButtonOrProps]
     p.as        = as.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.text      = text
     p
   }

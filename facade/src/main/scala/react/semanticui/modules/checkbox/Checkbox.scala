@@ -10,6 +10,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 
 object Checkbox {
@@ -122,6 +123,7 @@ object Checkbox {
     as:                   js.UndefOr[AsC]               = js.undefined,
     checked:              js.UndefOr[Boolean]           = js.undefined,
     className:            js.UndefOr[String]            = js.undefined,
+    clazz:                js.UndefOr[Css]               = js.undefined,
     defaultChecked:       js.UndefOr[Boolean]           = js.undefined,
     defaultIndeterminate: js.UndefOr[Boolean]           = js.undefined,
     disabled:             js.UndefOr[Boolean]           = js.undefined,
@@ -149,7 +151,7 @@ object Checkbox {
     val p = as.toJsObject[CheckboxProps]
     p.as                   = as.toJs
     p.checked              = checked
-    p.className            = className
+    p.className            = (className, clazz).toJs
     p.defaultChecked       = defaultChecked
     p.defaultIndeterminate = defaultIndeterminate
     p.disabled             = disabled

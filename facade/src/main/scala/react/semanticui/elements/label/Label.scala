@@ -10,6 +10,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.colors._
 import react.semanticui.{ raw => suiraw }
@@ -72,6 +73,7 @@ object Label {
     children:   js.UndefOr[React.Node]                                          = js.undefined,
     circular:   js.UndefOr[Boolean]                                             = js.undefined,
     className:  js.UndefOr[String]                                              = js.undefined,
+    clazz:      js.UndefOr[Css]                                                 = js.undefined,
     color:      js.UndefOr[SemanticColor]                                       = js.undefined,
     content:    js.UndefOr[SemanticShortHandContent]                            = js.undefined,
     corner:     js.UndefOr[LabelCorner]                                         = js.undefined,
@@ -97,7 +99,7 @@ object Label {
     p.basic      = basic
     p.children   = children
     p.circular   = circular
-    p.className  = className
+    p.className  = (className, clazz).toJs
     p.color      = color.toJs
     p.content    = content.toRaw
     p.corner     = corner.toJs

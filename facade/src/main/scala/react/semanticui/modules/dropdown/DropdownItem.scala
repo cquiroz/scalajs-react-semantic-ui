@@ -14,6 +14,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
@@ -102,6 +103,7 @@ object DropdownItem {
     active:      js.UndefOr[Boolean]                     = js.undefined,
     children:    js.UndefOr[VdomNode]                    = js.undefined,
     className:   js.UndefOr[String]                      = js.undefined,
+    clazz:       js.UndefOr[Css]                         = js.undefined,
     content:     js.UndefOr[VdomNode]                    = js.undefined,
     description: js.UndefOr[String]                      = js.undefined,
     disable:     js.UndefOr[Boolean]                     = js.undefined,
@@ -119,7 +121,7 @@ object DropdownItem {
     p.as          = as.toJs
     p.active      = active
     p.children    = children.toJs
-    p.className   = className
+    p.className   = (className, clazz).toJs
     p.content     = content.toJs
     p.description = description
     p.disable     = disable

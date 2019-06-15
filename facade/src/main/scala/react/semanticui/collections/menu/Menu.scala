@@ -10,6 +10,7 @@ import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.colors._
@@ -123,6 +124,7 @@ object Menu {
     borderless:         js.UndefOr[Boolean]       = js.undefined,
     children:           js.UndefOr[VdomNode]      = js.undefined,
     className:          js.UndefOr[String]        = js.undefined,
+    clazz:              js.UndefOr[Css]           = js.undefined,
     color:              js.UndefOr[SemanticColor] = js.undefined,
     compact:            js.UndefOr[Boolean]       = js.undefined,
     defaultActiveIndex: js.UndefOr[Int | String]  = js.undefined,
@@ -149,7 +151,7 @@ object Menu {
     p.attached           = attached.toJs
     p.borderless         = borderless
     p.children           = children.toJs
-    p.className          = className
+    p.className          = (className, clazz).toJs
     p.compact            = compact
     p.defaultActiveIndex = defaultActiveIndex
     p.fixed              = fixed.toJs

@@ -2,6 +2,7 @@
 
 ## 0.1.3
 
+* Add an alternative way to add classes
 * Support GridRow, GridColumn and Grid
 
 ## 0.1.2

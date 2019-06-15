@@ -12,6 +12,7 @@ import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui._
 import react.semanticui.raw._
 import react.common.syntax._
+import react.common.style._
 
 object LabelDetail {
 
@@ -37,12 +38,13 @@ object LabelDetail {
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
+    clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): LabelDetailProps = {
     val p = as.toJsObject[LabelDetailProps]
     p.as        = as.toJs
     p.children  = children.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.content   = content.toJs
     p
   }

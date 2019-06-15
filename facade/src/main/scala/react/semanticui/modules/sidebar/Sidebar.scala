@@ -13,6 +13,7 @@ import japgolly.scalajs.react.raw.React.Ref
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.raw._
 import react.semanticui._
 
@@ -51,6 +52,7 @@ object Sidebar {
     animation: js.UndefOr[SidebarAnimation] = js.undefined,
     children:  js.UndefOr[VdomNode]         = js.undefined,
     className: js.UndefOr[String]           = js.undefined,
+    clazz:     js.UndefOr[Css]              = js.undefined,
     content:   js.UndefOr[VdomNode]         = js.undefined,
     direction: js.UndefOr[SidebarDirection] = js.undefined,
     onHideE:   js.UndefOr[OnHide]           = js.undefined,
@@ -66,7 +68,7 @@ object Sidebar {
     p.as        = as.toJs
     p.children  = children.toJs
     p.animation = animation.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.direction = direction.toJs
     p.onHide    = (onHideE, onHide).toJs

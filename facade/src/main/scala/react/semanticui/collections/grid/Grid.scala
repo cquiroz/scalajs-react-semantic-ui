@@ -8,6 +8,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.widths._
@@ -90,6 +91,7 @@ object Grid {
     centered:      js.UndefOr[Boolean]                   = js.undefined,
     children:      js.UndefOr[VdomNode]                  = js.undefined,
     className:     js.UndefOr[String]                    = js.undefined,
+    clazz:         js.UndefOr[Css]                       = js.undefined,
     columns:       js.UndefOr[SemanticWidth]             = js.undefined,
     container:     js.UndefOr[Boolean]                   = js.undefined,
     divided:       js.UndefOr[GridDivided]               = js.undefined,
@@ -108,7 +110,7 @@ object Grid {
     p.celled        = celled.toJs
     p.centered      = centered
     p.children      = children.toJs
-    p.className     = className
+    p.className     = (className, clazz).toJs
     p.columns       = columns.toJs
     p.container     = container
     p.divided       = divided.toJs

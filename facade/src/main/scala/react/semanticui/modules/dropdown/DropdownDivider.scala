@@ -7,6 +7,8 @@ import japgolly.scalajs.react.JsFnComponent
 import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
+import react.common.style._
+import react.common.syntax._
 
 object DropdownDivider {
   @js.native
@@ -34,10 +36,11 @@ object DropdownDivider {
   def props(
     as:        js.UndefOr[AsC]    = js.undefined,
     className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css]    = js.undefined,
   ): DropdownDividerProps = {
     val p = as.toJsObject[DropdownDividerProps]
     p.as        = as.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p
   }
 

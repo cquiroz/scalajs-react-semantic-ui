@@ -10,6 +10,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui.{ raw => suiraw }
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.sizes._
 import react.semanticui.colors._
 import react.semanticui.floats._
@@ -67,6 +68,7 @@ object Segment {
     children:    js.UndefOr[VdomNode]              = js.undefined,
     circular:    js.UndefOr[Boolean]               = js.undefined,
     className:   js.UndefOr[String]                = js.undefined,
+    clazz:       js.UndefOr[Css]                   = js.undefined,
     clearing:    js.UndefOr[Boolean]               = js.undefined,
     color:       js.UndefOr[SemanticColor]         = js.undefined,
     compact:     js.UndefOr[Boolean]               = js.undefined,
@@ -92,7 +94,7 @@ object Segment {
     p.basic       = basic
     p.children    = children.toJs
     p.circular    = circular
-    p.className   = className
+    p.className   = (className, clazz).toJs
     p.clearing    = clearing
     p.color       = color.toJs
     p.compact     = compact

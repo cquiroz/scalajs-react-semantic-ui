@@ -8,6 +8,7 @@ import japgolly.scalajs.react.JsFnComponent
 import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.raw._
 
@@ -51,6 +52,7 @@ object TabPane {
     active:    js.UndefOr[Boolean]  = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
+    clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
     loading:   js.UndefOr[Boolean]  = js.undefined,
   ): TabPaneProps = {
@@ -58,7 +60,7 @@ object TabPane {
     p.as        = as.toJs
     p.active    = active
     p.children  = children.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.loading   = loading
     p
