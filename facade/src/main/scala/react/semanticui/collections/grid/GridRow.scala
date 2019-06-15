@@ -7,6 +7,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.colors._
@@ -73,6 +74,7 @@ object GridRow {
     centered:      js.UndefOr[Boolean]                   = js.undefined,
     children:      js.UndefOr[VdomNode]                  = js.undefined,
     className:     js.UndefOr[String]                    = js.undefined,
+    clazz:         js.UndefOr[Css]                       = js.undefined,
     color:         js.UndefOr[SemanticColor]             = js.undefined,
     divided:       js.UndefOr[Boolean]                   = js.undefined,
     only:          js.UndefOr[GridOnly]                  = js.undefined,
@@ -85,7 +87,7 @@ object GridRow {
     p.as            = as.toJs
     p.centered      = centered
     p.children      = children.toJs
-    p.className     = className
+    p.className     = (className, clazz).toJs
     p.color         = color.toJs
     p.divided       = divided
     p.only          = only.toJs

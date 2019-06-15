@@ -7,6 +7,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
@@ -44,12 +45,13 @@ object MenuHeader {
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
+    clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
   ): MenuHeaderProps = {
     val p = (new js.Object).asInstanceOf[MenuHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.content   = content.toJs
     p
   }

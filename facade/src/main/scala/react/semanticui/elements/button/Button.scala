@@ -10,6 +10,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
@@ -75,6 +76,7 @@ object Button {
     children:      js.UndefOr[VdomNode]       = js.undefined,
     circular:      js.UndefOr[Boolean]        = js.undefined,
     className:     js.UndefOr[String]         = js.undefined,
+    clazz:         js.UndefOr[Css]            = js.undefined,
     color:         js.UndefOr[SemanticColor]  = js.undefined,
     compact:       js.UndefOr[Boolean]        = js.undefined,
     content:       js.UndefOr[VdomNode]       = js.undefined,
@@ -105,7 +107,7 @@ object Button {
     p.basic         = basic
     p.children      = children.toJs
     p.circular      = circular
-    p.className     = className
+    p.className     = (className, clazz).toJs
     p.color         = color.toJs
     p.compact       = compact
     p.content       = content.toJs

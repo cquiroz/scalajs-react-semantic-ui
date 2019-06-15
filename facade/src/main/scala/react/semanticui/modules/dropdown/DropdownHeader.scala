@@ -9,6 +9,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
@@ -51,13 +52,14 @@ object DropdownHeader {
     as:        js.UndefOr[AsC]           = js.undefined,
     children:  js.UndefOr[VdomNode]      = js.undefined,
     className: js.UndefOr[String]        = js.undefined,
+    clazz:     js.UndefOr[Css]           = js.undefined,
     content:   js.UndefOr[VdomNode]      = js.undefined,
     icon:      js.UndefOr[UnmountedIcon] = js.undefined,
   ): DropdownHeaderProps = {
     val p = as.toJsObject[DropdownHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.icon      = icon.map(_.props)
     p

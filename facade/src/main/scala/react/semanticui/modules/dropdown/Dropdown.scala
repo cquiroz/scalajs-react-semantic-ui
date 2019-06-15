@@ -12,6 +12,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
@@ -348,6 +349,7 @@ object Dropdown {
     button:               js.UndefOr[Boolean]                              = js.undefined,
     children:             js.UndefOr[VdomNode]                             = js.undefined,
     className:            js.UndefOr[String]                               = js.undefined,
+    clazz:                js.UndefOr[Css]                                  = js.undefined,
     clearable:            js.UndefOr[Boolean]                              = js.undefined,
     closeOnBlur:          js.UndefOr[Boolean]                              = js.undefined,
     closeOnChange:        js.UndefOr[Boolean]                              = js.undefined,
@@ -432,7 +434,7 @@ object Dropdown {
     p.basic                = basic
     p.button               = button
     p.children             = children.toJs
-    p.className            = className
+    p.className            = (className, clazz).toJs
     p.clearable            = clearable
     p.closeOnBlur          = closeOnBlur
     p.closeOnChange        = closeOnChange

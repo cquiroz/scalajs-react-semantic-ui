@@ -9,6 +9,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
@@ -50,6 +51,7 @@ object ButtonContent {
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
+    clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
     hidden:    js.UndefOr[Boolean]  = js.undefined,
     visible:   js.UndefOr[Boolean]  = js.undefined,
@@ -57,7 +59,7 @@ object ButtonContent {
     val p = as.toJsObject[ButtonContentProps]
     p.as        = as.toJs
     p.children  = children.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.hidden    = hidden
     p.visible   = visible

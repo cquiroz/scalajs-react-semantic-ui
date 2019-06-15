@@ -8,6 +8,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
@@ -65,6 +66,7 @@ object Loader {
     active:        js.UndefOr[Boolean]      = js.undefined,
     children:      js.UndefOr[VdomNode]     = js.undefined,
     className:     js.UndefOr[String]       = js.undefined,
+    clazz:         js.UndefOr[Css]          = js.undefined,
     content:       js.UndefOr[VdomNode]     = js.undefined,
     disabled:      js.UndefOr[Boolean]      = js.undefined,
     indeterminate: js.UndefOr[Boolean]      = js.undefined,
@@ -76,7 +78,7 @@ object Loader {
     p.as            = as.toJs
     p.active        = active
     p.children      = children.toJs
-    p.className     = className
+    p.className     = (className, clazz).toJs
     p.content       = content.toJs
     p.disabled      = disabled
     p.indeterminate = indeterminate

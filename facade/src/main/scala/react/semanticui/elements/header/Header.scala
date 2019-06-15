@@ -8,6 +8,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
@@ -90,6 +91,7 @@ object Header {
     block:     js.UndefOr[Boolean]               = js.undefined,
     children:  js.UndefOr[VdomNode]              = js.undefined,
     className: js.UndefOr[String]                = js.undefined,
+    clazz:     js.UndefOr[Css]                   = js.undefined,
     color:     js.UndefOr[SemanticColor]         = js.undefined,
     content:   js.UndefOr[VdomNode]              = js.undefined,
     disabled:  js.UndefOr[Boolean]               = js.undefined,
@@ -108,7 +110,7 @@ object Header {
     p.attached  = attached.toJs
     p.block     = block
     p.children  = children.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.color     = color.toJs
     p.content   = content.toJs
     p.disabled  = disabled

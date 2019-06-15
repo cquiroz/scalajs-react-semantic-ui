@@ -7,6 +7,7 @@ import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
+import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.floats._
@@ -83,6 +84,7 @@ object GridColumn {
     as:            js.UndefOr[AsC]                       = js.undefined,
     children:      js.UndefOr[VdomNode]                  = js.undefined,
     className:     js.UndefOr[String]                    = js.undefined,
+    clazz:         js.UndefOr[Css]                       = js.undefined,
     color:         js.UndefOr[SemanticColor]             = js.undefined,
     computer:      js.UndefOr[SemanticWidth]             = js.undefined,
     floated:       js.UndefOr[SemanticFloats]            = js.undefined,
@@ -99,7 +101,7 @@ object GridColumn {
     val p = (new js.Object).asInstanceOf[GridColumnProps]
     p.as            = as.toJs
     p.children      = children.toJs
-    p.className     = className
+    p.className     = (className, clazz).toJs
     p.color         = color.toJs
     p.computer      = computer.toJs
     p.floated       = floated.toJs

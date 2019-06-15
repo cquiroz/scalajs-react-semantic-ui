@@ -11,6 +11,7 @@ import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.elements.icon.Icon.IconProps
@@ -109,6 +110,7 @@ object Input {
     actionPosition: js.UndefOr[ActionPosition]                          = js.undefined,
     children:       js.UndefOr[VdomNode]                                = js.undefined,
     className:      js.UndefOr[String]                                  = js.undefined,
+    clazz:          js.UndefOr[Css]                                     = js.undefined,
     disabled:       js.UndefOr[Boolean]                                 = js.undefined,
     error:          js.UndefOr[Boolean]                                 = js.undefined,
     fluid:          js.UndefOr[Boolean]                                 = js.undefined,
@@ -132,7 +134,7 @@ object Input {
     p.action         = action.toRaw
     p.actionPosition = actionPosition.toJs
     p.children       = children.toJs
-    p.className      = className
+    p.className      = (className, clazz).toJs
     p.disabled       = disabled
     p.error          = error
     p.fluid          = fluid

@@ -158,7 +158,7 @@ object IconsComponent {
           section("Icon Group", "Icons can be grouped") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              Icon.Group(Icon.Group.props(size = Huge), IconCircleThin.size(Big), IconUser),
+              IconGroup(IconGroup.props(size = Huge), IconCircleThin.size(Big), IconUser),
               <.p(
                 ^.cls := "name",
                 "icon group"
@@ -168,8 +168,8 @@ object IconsComponent {
           section("Corner Icon", "An icon can be in a corner") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              Icon.Group(
-                Icon.Group.props(size = Large,
+              IconGroup(
+                IconGroup.props(size = Large,
                                  children = <.div(
                                    IconTwitter,
                                    IconAdd.corner

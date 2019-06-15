@@ -7,6 +7,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
+import react.common.style._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.textalignment._
@@ -53,6 +54,7 @@ object Container {
     as:        js.UndefOr[AsC]                   = js.undefined,
     children:  js.UndefOr[VdomNode]              = js.undefined,
     className: js.UndefOr[String]                = js.undefined,
+    clazz:     js.UndefOr[Css]                   = js.undefined,
     content:   js.UndefOr[VdomNode]              = js.undefined,
     fluid:     js.UndefOr[Boolean]               = js.undefined,
     text:      js.UndefOr[Boolean]               = js.undefined,
@@ -60,7 +62,7 @@ object Container {
   ): ContainerProps = {
     val p = as.toJsObject[ContainerProps]
     p.children  = children.toJs
-    p.className = className
+    p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.fluid     = fluid
     p.text      = text
