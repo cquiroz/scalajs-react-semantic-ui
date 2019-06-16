@@ -11,6 +11,10 @@ resolvers in Global += Resolver.sonatypeRepo("releases")
 
 addCommandAlias("restartWDS", "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer; ~demo/fastOptJS")
 
+ThisBuild / turbo := true
+
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
 // sbt-release-early
 inThisBuild(List(
     homepage                := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
