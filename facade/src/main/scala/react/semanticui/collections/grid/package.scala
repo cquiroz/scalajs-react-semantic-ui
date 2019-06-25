@@ -14,7 +14,6 @@ package grid {
       case TabletMobile => "tablet mobile"
       case Tablet       => "tablet"
       case WideScreen   => "widescreen"
-
     }
 
     final case class Value(str: String) extends GridOnly
