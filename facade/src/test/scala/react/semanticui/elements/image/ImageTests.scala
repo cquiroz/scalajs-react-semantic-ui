@@ -16,7 +16,6 @@ object ImageTests extends TestSuite {
       val menuItem = Image(Image.props(as = "a", href = "abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         menuItem.renderIntoDOM(mountNode)
-        println(mountNode.outerHTML)
         assert(mountNode.outerHTML == """<div><a class="ui image" href="abc"><img></a></div>""")
       }
     }

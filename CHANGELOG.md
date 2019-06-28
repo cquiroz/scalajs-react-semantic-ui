@@ -1,5 +1,9 @@
 # Changes
 
+## 0.1.5
+
+* Support ModalHeader, ModalDescription, ModalContent, ModalActions and Modal
+
 ## 0.1.4
 
 * Update scalajs-react-common
