@@ -2,6 +2,7 @@
 
 ## 0.1.5
 
+* Add missing Tab properites menu and grid
 * Support ModalHeader, ModalDescription, ModalContent, ModalActions and Modal
 
 ## 0.1.4
