@@ -117,8 +117,17 @@ object Popup {
       */
     // onUnmount?: (nothing: null, data: PopupProps) => void
 
+    /** Disables automatic repositioning of the component, it will always be placed according to the position value. */
+    var pinned: js.UndefOr[Boolean] = js.native
+
     /** Position for the popover. */
     var position: js.UndefOr[String] = js.native
+
+    /** An object containing custom settings for the Popper.js modifiers. */
+    var popperModifiers: js.UndefOr[js.Object] = js.native
+
+    /** A popup can have dependencies which update will schedule a position update. */
+    //popperDependencies?: any[]
 
     /** Popup size. */
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
@@ -135,29 +144,31 @@ object Popup {
   }
 
   def props(
-    as:           js.UndefOr[AsC]                            = js.undefined,
-    basic:        js.UndefOr[Boolean]                        = js.undefined,
-    children:     js.UndefOr[VdomNode]                       = js.undefined,
-    className:    js.UndefOr[String]                         = js.undefined,
-    clazz:        js.UndefOr[Css]                            = js.undefined,
-    content:      js.UndefOr[PopupContent.PopupContentProps] = js.undefined,
-    disabled:     js.UndefOr[Boolean]                        = js.undefined,
-    flowing:      js.UndefOr[Boolean]                        = js.undefined,
-    header:       js.UndefOr[PopupHeader.PopupHeaderProps]   = js.undefined,
-    hideOnScroll: js.UndefOr[Boolean]                        = js.undefined,
-    hoverable:    js.UndefOr[Boolean]                        = js.undefined,
-    inverted:     js.UndefOr[Boolean]                        = js.undefined,
-    offset:       js.UndefOr[JsNumber | String]              = js.undefined,
-    on:           js.UndefOr[PopupOn | List[PopupOn]]        = js.undefined,
-    onCloseE:     js.UndefOr[OnClose]                        = js.undefined,
-    onClose:      js.UndefOr[Callback]                       = js.undefined,
-    onOpenE:      js.UndefOr[OnOpen]                         = js.undefined,
-    onOpen:       js.UndefOr[Callback]                       = js.undefined,
-    position:     js.UndefOr[PopupPosition]                  = js.undefined,
-    size:         js.UndefOr[SemanticSize]                   = js.undefined,
-    style:        js.UndefOr[Style]                          = js.undefined,
-    trigger:      js.UndefOr[VdomNode]                       = js.undefined,
-    wide:         js.UndefOr[PopupWide]                      = js.undefined,
+    as:              js.UndefOr[AsC]                            = js.undefined,
+    basic:           js.UndefOr[Boolean]                        = js.undefined,
+    children:        js.UndefOr[VdomNode]                       = js.undefined,
+    className:       js.UndefOr[String]                         = js.undefined,
+    clazz:           js.UndefOr[Css]                            = js.undefined,
+    content:         js.UndefOr[PopupContent.PopupContentProps] = js.undefined,
+    disabled:        js.UndefOr[Boolean]                        = js.undefined,
+    flowing:         js.UndefOr[Boolean]                        = js.undefined,
+    header:          js.UndefOr[PopupHeader.PopupHeaderProps]   = js.undefined,
+    hideOnScroll:    js.UndefOr[Boolean]                        = js.undefined,
+    hoverable:       js.UndefOr[Boolean]                        = js.undefined,
+    inverted:        js.UndefOr[Boolean]                        = js.undefined,
+    offset:          js.UndefOr[JsNumber | String]              = js.undefined,
+    on:              js.UndefOr[PopupOn | List[PopupOn]]        = js.undefined,
+    onCloseE:        js.UndefOr[OnClose]                        = js.undefined,
+    onClose:         js.UndefOr[Callback]                       = js.undefined,
+    onOpenE:         js.UndefOr[OnOpen]                         = js.undefined,
+    onOpen:          js.UndefOr[Callback]                       = js.undefined,
+    pinned:          js.UndefOr[Boolean]                        = js.undefined,
+    position:        js.UndefOr[PopupPosition]                  = js.undefined,
+    popperModifiers: js.UndefOr[js.Object]                      = js.undefined,
+    size:            js.UndefOr[SemanticSize]                   = js.undefined,
+    style:           js.UndefOr[Style]                          = js.undefined,
+    trigger:         js.UndefOr[VdomNode]                       = js.undefined,
+    wide:            js.UndefOr[PopupWide]                      = js.undefined
   ): PopupProps = {
     val p = as.toJsObject[PopupProps]
     p.as           = as.toJs
@@ -178,13 +189,15 @@ object Popup {
         case p          => p.asInstanceOf[List[PopupOn]].map(_.toJs).toJSArray
       }
     }
-    p.onClose  = (onCloseE, onClose).toJs
-    p.onOpen   = (onOpenE, onOpen).toJs
-    p.position = position.toJs
-    p.size     = size.toJs
-    p.style    = style.map(_.toJsObject)
-    p.trigger  = trigger.toJs
-    p.wide     = wide.toJs
+    p.onClose         = (onCloseE, onClose).toJs
+    p.onOpen          = (onOpenE, onOpen).toJs
+    p.pinned          = pinned
+    p.position        = position.toJs
+    p.popperModifiers = popperModifiers
+    p.size            = size.toJs
+    p.style           = style.map(_.toJsObject)
+    p.trigger         = trigger.toJs
+    p.wide            = wide.toJs
     p
   }
 

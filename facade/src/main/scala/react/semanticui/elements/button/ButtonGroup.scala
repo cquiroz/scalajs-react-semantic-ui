@@ -20,8 +20,6 @@ import react.semanticui.floats._
 import react.semanticui.widths._
 
 object ButtonGroup {
-  type OnClick = (ReactMouseEvent, ButtonGroupProps) => Callback
-
   @js.native
   @JSImport("semantic-ui-react", "ButtonGroup")
   object RawComponent extends js.Object
@@ -125,7 +123,7 @@ object ButtonGroup {
     size:      js.UndefOr[SemanticSize]             = js.undefined,
     toggle:    js.UndefOr[Boolean]                  = js.undefined,
     vertical:  js.UndefOr[Boolean]                  = js.undefined,
-    widths:    js.UndefOr[SemanticWidth]            = js.undefined,
+    widths:    js.UndefOr[SemanticWidth]            = js.undefined
   ): ButtonGroupProps = {
     val p = as.toJsObject[ButtonGroupProps]
     p.as       = as.toJs
@@ -134,7 +132,8 @@ object ButtonGroup {
     p.buttons = buttons.map(
       x =>
         x.map((y: Button.ButtonProps) => y: suiraw.SemanticShorthandItem[Button.ButtonProps])
-          .toJSArray)
+          .toJSArray
+    )
     p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.color     = color.toJs
@@ -158,12 +157,9 @@ object ButtonGroup {
   private val component =
     JsComponent[ButtonGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p:        ButtonGroupProps,
-            children: VdomNode*): UnmountedMapped[Id,
-                                                  ButtonGroupProps,
-                                                  Null,
-                                                  RawMounted[ButtonGroupProps, Null],
-                                                  ButtonGroupProps,
-                                                  Null] =
+  def apply(p: ButtonGroupProps, children: VdomNode*): UnmountedMapped[Id, ButtonGroupProps, Null, RawMounted[
+    ButtonGroupProps,
+    Null
+  ], ButtonGroupProps, Null] =
     component(p)(children: _*)
 }

@@ -27,7 +27,8 @@ object ButtonTests extends TestSuite {
       val button = Button(Button.props(attached = ButtonAttached.Top))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<div class="ui top attached button" role="button" tabindex="0"></div>""")
+          m.outerHtmlScrubbed() == """<div class="ui top attached button" role="button" tabindex="0"></div>"""
+        )
       }
     }
     'color - {
@@ -46,30 +47,32 @@ object ButtonTests extends TestSuite {
       val button = Button(Button.props(icon = Icon(Icon.props(name = "comment"))))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<button class="ui icon button"><i aria-hidden="true" class="comment icon"></i></button>""")
+          m.outerHtmlScrubbed() == """<button class="ui icon button"><i aria-hidden="true" class="comment icon"></i></button>"""
+        )
       }
     }
     'label - {
       val button = Button(Button.props(label = Label(Label.props(), "Label")))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
-        println(m.outerHtmlScrubbed())
-
         assert(
-          m.outerHtmlScrubbed() == """<div class="ui labeled button"><button class="ui button" tabindex="0"> </button><div class="ui label">Label</div></div>""")
+          m.outerHtmlScrubbed() == """<div class="ui labeled button"><button class="ui button" tabindex="0"> </button><div class="ui label">Label</div></div>"""
+        )
       }
     }
     'iconAndText - {
       val button = Button(Button.props(), Icon(Icon.props(name = "comment")), "23")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<button class="ui button"><i aria-hidden="true" class="comment icon"></i>23</button>""")
+          m.outerHtmlScrubbed() == """<button class="ui button"><i aria-hidden="true" class="comment icon"></i>23</button>"""
+        )
       }
     }
     'toggle - {
       val button = Button(Button.props(toggle = true))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<button class="ui toggle button" aria-pressed="false"></button>""")
+          m.outerHtmlScrubbed() == """<button class="ui toggle button" aria-pressed="false"></button>"""
+        )
       }
     }
     'tabIndex - {
@@ -94,7 +97,8 @@ object ButtonTests extends TestSuite {
       val button = Button(Button.props(secondary = true, circular = true))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<button class="ui circular secondary button"></button>""")
+          m.outerHtmlScrubbed() == """<button class="ui circular secondary button"></button>"""
+        )
       }
     }
     'basic - {

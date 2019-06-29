@@ -25,11 +25,14 @@ object Dropdown {
     String | JsNumber | Boolean | js.Array[JsNumber] | js.Array[String] | js.Array[Boolean]
   private type RawAdditionLabel = JsNumber | String | SemanticShorthandContent
   type AdditionLabel            = JsNumber | String | VdomNode
-  private type RawSearchFunction = js.Function2[js.Array[DropdownItem.DropdownItemProps],
-                                                String,
-                                                js.Array[DropdownItem.DropdownItemProps]]
-  type SearchFunction = (List[DropdownItem.DropdownItemProps],
-                         String) => CallbackTo[List[DropdownItem.DropdownItemProps]]
+  private type RawSearchFunction =
+    js.Function2[js.Array[DropdownItem.DropdownItemProps], String, js.Array[
+      DropdownItem.DropdownItemProps
+    ]]
+  type SearchFunction = (
+    List[DropdownItem.DropdownItemProps],
+    String
+  ) => CallbackTo[List[DropdownItem.DropdownItemProps]]
   private type RawRenderLabel =
     js.Function3[DropdownItem.DropdownItemProps, Int, Label.LabelProps, Label.LabelProps]
   type RenderLabel =
@@ -107,6 +110,9 @@ object Dropdown {
 
     /** Whether or not the menu should close when the dropdown is blurred. */
     var closeOnBlur: js.UndefOr[Boolean] = js.native
+
+    /** Whether or not the dropdown should close when the escape key is pressed. */
+    var closeOnEscape: js.UndefOr[Boolean] = js.native
 
     /**
       * Whether or not the menu should close when a value is selected from the dropdown.
@@ -352,6 +358,7 @@ object Dropdown {
     clazz:                js.UndefOr[Css]                                  = js.undefined,
     clearable:            js.UndefOr[Boolean]                              = js.undefined,
     closeOnBlur:          js.UndefOr[Boolean]                              = js.undefined,
+    closeOnEscape:        js.UndefOr[Boolean]                              = js.undefined,
     closeOnChange:        js.UndefOr[Boolean]                              = js.undefined,
     compact:              js.UndefOr[Boolean]                              = js.undefined,
     deburr:               js.UndefOr[Boolean]                              = js.undefined,
@@ -437,6 +444,7 @@ object Dropdown {
     p.className            = (className, clazz).toJs
     p.clearable            = clearable
     p.closeOnBlur          = closeOnBlur
+    p.closeOnEscape        = closeOnEscape
     p.closeOnChange        = closeOnChange
     p.compact              = compact
     p.deburr               = deburr
@@ -469,8 +477,9 @@ object Dropdown {
     p.onLabelClick         = (onLabelClickE, onLabelClick).toJs
     p.onMouseDown          = (onMouseDownE, onMouseDown).toJs
     p.onOpen               = (onOpenE, onOpen).toJs
-    p.onSearchChange = onSearchChangeE.toJs.orElse(onSearchChange.map(t =>
-      (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow))
+    p.onSearchChange = onSearchChangeE.toJs.orElse(
+      onSearchChange.map(t => (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow)
+    )
     p.onAddItem   = onAddItem.toJs
     p.open        = open
     p.openOnFocus = openOnFocus
@@ -513,12 +522,7 @@ object Dropdown {
 
   def apply(
     p: DropdownProps
-  ): UnmountedMapped[Id,
-                     DropdownProps,
-                     Null,
-                     RawMounted[DropdownProps, Null],
-                     DropdownProps,
-                     Null] =
+  ): UnmountedMapped[Id, DropdownProps, Null, RawMounted[DropdownProps, Null], DropdownProps, Null] =
     component(p)
 
 }

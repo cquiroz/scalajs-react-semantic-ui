@@ -11,7 +11,7 @@ object DropdownTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         dropdown.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div role="listbox" aria-expanded="false" class="ui dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite"></div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"></div></div></div>"""
+          mountNode.outerHTML == """<div><div role="listbox" aria-expanded="false" class="ui dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite" aria-atomic="true"></div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"></div></div></div>"""
         )
       }
     }
@@ -22,7 +22,7 @@ object DropdownTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         dropdown.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div role="listbox" aria-expanded="false" class="ui dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite"></div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"><div style="pointer-events: all;" role="option" class="item"><span class="text">abc</span></div><div style="pointer-events: all;" role="option" aria-selected="true" class="selected item"><span class="text">def</span></div></div></div></div>"""
+          mountNode.outerHTML == """<div><div role="listbox" aria-expanded="false" class="ui dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite" aria-atomic="true"></div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"><div style="pointer-events: all;" role="option" class="item"><span class="text">abc</span></div><div style="pointer-events: all;" role="option" aria-selected="true" class="selected item"><span class="text">def</span></div></div></div></div>"""
         )
       }
     }
@@ -40,7 +40,7 @@ object DropdownTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         dropdown.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div role="combobox" aria-expanded="true" class="ui active visible search dropdown"><input aria-autocomplete="list" autocomplete="off" class="search" tabindex="0" type="text" value=""><div class="text" role="alert" aria-live="polite">abc</div><i aria-hidden="true" class="dropdown icon"></i><div role="listbox" class="visible menu transition"><div style="pointer-events: all;" role="option" class="item"><span class="text">abc</span></div><div style="pointer-events: all;" role="option" aria-selected="true" class="selected item"><span class="text">def</span></div></div></div></div>"""
+          mountNode.outerHTML == """<div><div role="combobox" aria-expanded="true" class="ui active visible search dropdown"><input aria-autocomplete="list" autocomplete="off" class="search" tabindex="0" type="text" value=""><div class="text" role="alert" aria-live="polite" aria-atomic="true">abc</div><i aria-hidden="true" class="dropdown icon"></i><div role="listbox" class="visible menu transition"><div style="pointer-events: all;" role="option" class="item"><span class="text">abc</span></div><div style="pointer-events: all;" role="option" aria-selected="true" class="selected item"><span class="text">def</span></div></div></div></div>"""
         )
       }
     }
@@ -49,7 +49,7 @@ object DropdownTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         dropdown.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div role="listbox" aria-expanded="false" class="ui basic dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite"></div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"></div></div></div>"""
+          mountNode.outerHTML == """<div><div role="listbox" aria-expanded="false" class="ui basic dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite" aria-atomic="true"></div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"></div></div></div>"""
         )
       }
     }
