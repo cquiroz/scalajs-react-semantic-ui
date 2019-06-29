@@ -66,4 +66,11 @@ object ItemHeader {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ItemHeaderProps,
+    Unit,
+    ItemHeaderProps
+  ] =
+    component(props())(children: _*)
+
 }

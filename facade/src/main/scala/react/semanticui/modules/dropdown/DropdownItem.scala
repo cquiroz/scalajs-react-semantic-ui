@@ -142,12 +142,12 @@ object DropdownItem {
   def apply(
     p:        DropdownItemProps,
     children: VdomNode*
-  ): UnmountedMapped[Id,
-                     DropdownItemProps,
-                     Null,
-                     RawMounted[DropdownItemProps, Null],
-                     DropdownItemProps,
-                     Null] =
+  ): UnmountedMapped[Id, DropdownItemProps, Null, RawMounted[DropdownItemProps, Null], DropdownItemProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, DropdownItemProps, Null, RawMounted[DropdownItemProps, Null], DropdownItemProps, Null] =
+    component(props())(children: _*)
 
 }

@@ -67,4 +67,11 @@ object ModalHeader {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ModalHeaderProps,
+    Unit,
+    ModalHeaderProps
+  ] =
+    component(props())(children: _*)
+
 }

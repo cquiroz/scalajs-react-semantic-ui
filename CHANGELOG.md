@@ -1,5 +1,9 @@
 # Changes
 
+## 0.1.6
+
+* Add empty constructors for all components
+
 ## 0.1.5
 
 * Upgrade to react-semantic-ui 0.87.2

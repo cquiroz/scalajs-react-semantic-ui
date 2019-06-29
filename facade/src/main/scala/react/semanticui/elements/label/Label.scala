@@ -122,7 +122,14 @@ object Label {
   private val component =
     JsComponent[LabelProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: LabelProps, children: VdomNode*)
-    : UnmountedMapped[Id, LabelProps, Null, RawMounted[LabelProps, Null], LabelProps, Null] =
+  def apply(
+    p:        LabelProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, LabelProps, Null, RawMounted[LabelProps, Null], LabelProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, LabelProps, Null, RawMounted[LabelProps, Null], LabelProps, Null] =
+    component(props())(children: _*)
 }

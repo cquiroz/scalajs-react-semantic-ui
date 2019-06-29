@@ -129,7 +129,12 @@ object Header {
   private val component =
     JsFnComponent[HeaderProps, Children.Varargs](RawComponent)
 
-  def apply(p:        HeaderProps,
-            children: VdomNode*): UnmountedWithRoot[HeaderProps, Unit, HeaderProps] =
+  def apply(
+    p:        HeaderProps,
+    children: VdomNode*
+  ): UnmountedWithRoot[HeaderProps, Unit, HeaderProps] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[HeaderProps, Unit, HeaderProps] =
+    component(props())(children: _*)
 }

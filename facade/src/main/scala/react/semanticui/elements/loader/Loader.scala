@@ -72,7 +72,7 @@ object Loader {
     indeterminate: js.UndefOr[Boolean]      = js.undefined,
     inline:        js.UndefOr[LoaderInline] = js.undefined,
     inverted:      js.UndefOr[Boolean]      = js.undefined,
-    size:          js.UndefOr[SemanticSize] = js.undefined,
+    size:          js.UndefOr[SemanticSize] = js.undefined
   ): LoaderProps = {
     val p = as.toJsObject[LoaderProps]
     p.as            = as.toJs
@@ -91,7 +91,12 @@ object Loader {
   private val component =
     JsFnComponent[LoaderProps, Children.Varargs](RawComponent)
 
-  def apply(p:        LoaderProps,
-            children: VdomNode*): UnmountedWithRoot[LoaderProps, Unit, LoaderProps] =
+  def apply(
+    p:        LoaderProps,
+    children: VdomNode*
+  ): UnmountedWithRoot[LoaderProps, Unit, LoaderProps] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[LoaderProps, Unit, LoaderProps] =
+    component(props())(children: _*)
 }

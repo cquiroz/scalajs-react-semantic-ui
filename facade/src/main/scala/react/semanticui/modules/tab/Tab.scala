@@ -113,4 +113,7 @@ object Tab {
   ): UnmountedMapped[Id, TabProps, Null, RawMounted[TabProps, Null], TabProps, Null] =
     component(p)
 
+  def apply: UnmountedMapped[Id, TabProps, Null, RawMounted[TabProps, Null], TabProps, Null] =
+    component(props())
+
 }

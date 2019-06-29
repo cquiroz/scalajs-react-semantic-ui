@@ -84,8 +84,10 @@ object Sidebar {
   private val component =
     JsComponent[SidebarProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: SidebarProps, children: VdomNode*)
-    : UnmountedMapped[Id, SidebarProps, Null, RawMounted[SidebarProps, Null], SidebarProps, Null] =
+  def apply(
+    p:        SidebarProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, SidebarProps, Null, RawMounted[SidebarProps, Null], SidebarProps, Null] =
     component(p)(children: _*)
 
   object Pushable {
@@ -129,7 +131,7 @@ object Sidebar {
     def apply(p: PushableProps, children: VdomNode*): UnmountedWithRoot[
       PushableProps,
       Unit,
-      PushableProps,
+      PushableProps
     ] =
       component(p)(children: _*)
   }
@@ -178,9 +180,16 @@ object Sidebar {
     def apply(p: PusherProps, children: VdomNode*): UnmountedWithRoot[
       PusherProps,
       Unit,
-      PusherProps,
+      PusherProps
     ] =
       component(p)(children: _*)
+
+    def apply(children: VdomNode*): UnmountedWithRoot[
+      PusherProps,
+      Unit,
+      PusherProps
+    ] =
+      component(props())(children: _*)
   }
 
 }

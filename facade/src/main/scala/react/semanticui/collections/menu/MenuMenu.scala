@@ -49,7 +49,7 @@ object MenuMenu {
     className: js.UndefOr[String]           = js.undefined,
     clazz:     js.UndefOr[Css]              = js.undefined,
     content:   js.UndefOr[VdomNode]         = js.undefined,
-    position:  js.UndefOr[MenuMenuPosition] = js.undefined,
+    position:  js.UndefOr[MenuMenuPosition] = js.undefined
   ): MenuMenuProps = {
     val p = (new js.Object).asInstanceOf[MenuMenuProps]
     p.as        = as.toJs
@@ -69,5 +69,12 @@ object MenuMenu {
     MenuMenuProps
   ] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    MenuMenuProps,
+    Unit,
+    MenuMenuProps
+  ] =
+    component(props())(children: _*)
 
 }

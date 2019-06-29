@@ -122,7 +122,7 @@ object Progress {
     success:     js.UndefOr[Boolean]           = js.undefined,
     total:       js.UndefOr[JsNumber | String] = js.undefined,
     value:       js.UndefOr[JsNumber | String] = js.undefined,
-    warning:     js.UndefOr[Boolean]           = js.undefined,
+    warning:     js.UndefOr[Boolean]           = js.undefined
   ): ProgressProps = {
     val p = as.toJsObject[ProgressProps]
     p.as          = as.toJs
@@ -151,11 +151,15 @@ object Progress {
   private val component =
     JsComponent[ProgressProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: ProgressProps, children: VdomNode*): UnmountedMapped[Id,
-                                                                    ProgressProps,
-                                                                    Null,
-                                                                    RawMounted[ProgressProps, Null],
-                                                                    ProgressProps,
-                                                                    Null] =
+  def apply(
+    p:        ProgressProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, ProgressProps, Null, RawMounted[ProgressProps, Null], ProgressProps, Null] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedMapped[Id, ProgressProps, Null, RawMounted[
+    ProgressProps,
+    Null
+  ], ProgressProps, Null] =
+    component(props())(children: _*)
 }

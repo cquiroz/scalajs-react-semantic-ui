@@ -46,7 +46,7 @@ object PopupHeader {
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined,
+    content:   js.UndefOr[VdomNode] = js.undefined
   ): PopupHeaderProps = {
     val p = (new js.Object).asInstanceOf[PopupHeaderProps]
     p.as        = as.toJs
@@ -66,5 +66,12 @@ object PopupHeader {
     PopupHeaderProps
   ] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    PopupHeaderProps,
+    Unit,
+    PopupHeaderProps
+  ] =
+    component(props())(children: _*)
 
 }

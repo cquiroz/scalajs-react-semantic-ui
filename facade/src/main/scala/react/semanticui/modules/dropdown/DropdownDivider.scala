@@ -36,7 +36,7 @@ object DropdownDivider {
   def props(
     as:        js.UndefOr[AsC]    = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    clazz:     js.UndefOr[Css]    = js.undefined,
+    clazz:     js.UndefOr[Css]    = js.undefined
   ): DropdownDividerProps = {
     val p = as.toJsObject[DropdownDividerProps]
     p.as        = as.toJs
@@ -49,7 +49,13 @@ object DropdownDivider {
 
   def apply(
     p:        DropdownDividerProps,
-    children: VdomNode*): UnmountedWithRoot[DropdownDividerProps, Unit, DropdownDividerProps] =
+    children: VdomNode*
+  ): UnmountedWithRoot[DropdownDividerProps, Unit, DropdownDividerProps] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedWithRoot[DropdownDividerProps, Unit, DropdownDividerProps] =
+    component(props())(children: _*)
 
 }

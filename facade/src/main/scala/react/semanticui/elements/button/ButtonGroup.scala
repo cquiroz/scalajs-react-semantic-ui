@@ -157,9 +157,18 @@ object ButtonGroup {
   private val component =
     JsComponent[ButtonGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: ButtonGroupProps, children: VdomNode*): UnmountedMapped[Id, ButtonGroupProps, Null, RawMounted[
+  def apply(
+    p:        ButtonGroupProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, ButtonGroupProps, Null, RawMounted[
     ButtonGroupProps,
     Null
   ], ButtonGroupProps, Null] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedMapped[Id, ButtonGroupProps, Null, RawMounted[
+    ButtonGroupProps,
+    Null
+  ], ButtonGroupProps, Null] =
+    component(props())(children: _*)
 }

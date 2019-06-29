@@ -525,4 +525,8 @@ object Dropdown {
   ): UnmountedMapped[Id, DropdownProps, Null, RawMounted[DropdownProps, Null], DropdownProps, Null] =
     component(p)
 
+  def apply
+    : UnmountedMapped[Id, DropdownProps, Null, RawMounted[DropdownProps, Null], DropdownProps, Null] =
+    component(props())
+
 }

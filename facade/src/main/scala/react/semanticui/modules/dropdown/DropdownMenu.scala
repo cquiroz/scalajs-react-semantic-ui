@@ -59,7 +59,7 @@ object DropdownMenu {
     content:   js.UndefOr[VdomNode]      = js.undefined,
     direction: js.UndefOr[MenuDirection] = js.undefined,
     open:      js.UndefOr[Boolean]       = js.undefined,
-    scrolling: js.UndefOr[Boolean]       = js.undefined,
+    scrolling: js.UndefOr[Boolean]       = js.undefined
   ): DropdownMenuProps = {
     val p = as.toJsObject[DropdownMenuProps]
     p.as        = as.toJs
@@ -78,12 +78,12 @@ object DropdownMenu {
   def apply(
     p:        DropdownMenuProps,
     children: VdomNode*
-  ): UnmountedMapped[Id,
-                     DropdownMenuProps,
-                     Null,
-                     RawMounted[DropdownMenuProps, Null],
-                     DropdownMenuProps,
-                     Null] =
+  ): UnmountedMapped[Id, DropdownMenuProps, Null, RawMounted[DropdownMenuProps, Null], DropdownMenuProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, DropdownMenuProps, Null, RawMounted[DropdownMenuProps, Null], DropdownMenuProps, Null] =
+    component(props())(children: _*)
 
 }

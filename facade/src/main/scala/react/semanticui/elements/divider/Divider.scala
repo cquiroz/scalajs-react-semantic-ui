@@ -95,7 +95,14 @@ object Divider {
   private val component =
     JsComponent[DividerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: DividerProps, children: VdomNode*)
-    : UnmountedMapped[Id, DividerProps, Null, RawMounted[DividerProps, Null], DividerProps, Null] =
+  def apply(
+    p:        DividerProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, DividerProps, Null, RawMounted[DividerProps, Null], DividerProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, DividerProps, Null, RawMounted[DividerProps, Null], DividerProps, Null] =
+    component(props())(children: _*)
 }

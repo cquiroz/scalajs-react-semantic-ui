@@ -54,7 +54,7 @@ object ButtonContent {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
     hidden:    js.UndefOr[Boolean]  = js.undefined,
-    visible:   js.UndefOr[Boolean]  = js.undefined,
+    visible:   js.UndefOr[Boolean]  = js.undefined
   ): ButtonContentProps = {
     val p = as.toJsObject[ButtonContentProps]
     p.as        = as.toJs
@@ -69,12 +69,15 @@ object ButtonContent {
   private val component =
     JsComponent[ButtonContentProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p:        ButtonContentProps,
-            children: VdomNode*): UnmountedMapped[Id,
-                                                  ButtonContentProps,
-                                                  Null,
-                                                  RawMounted[ButtonContentProps, Null],
-                                                  ButtonContentProps,
-                                                  Null] =
+  def apply(p: ButtonContentProps, children: VdomNode*): UnmountedMapped[Id, ButtonContentProps, Null, RawMounted[
+    ButtonContentProps,
+    Null
+  ], ButtonContentProps, Null] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedMapped[Id, ButtonContentProps, Null, RawMounted[
+    ButtonContentProps,
+    Null
+  ], ButtonContentProps, Null] =
+    component(props())(children: _*)
 }

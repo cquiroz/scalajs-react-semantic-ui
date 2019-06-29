@@ -108,4 +108,11 @@ object GridRow {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    GridRowProps,
+    Unit,
+    GridRowProps
+  ] =
+    component(props())(children: _*)
+
 }

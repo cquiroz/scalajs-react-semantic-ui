@@ -57,12 +57,18 @@ object IconGroup {
   private val component =
     JsComponent[IconGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p:        IconGroupProps,
-            children: VdomNode*): UnmountedMapped[Id,
-                                                  IconGroupProps,
-                                                  Null,
-                                                  RawMounted[IconGroupProps, Null],
-                                                  IconGroupProps,
-                                                  Null] =
+  def apply(
+    p:        IconGroupProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, IconGroupProps, Null, RawMounted[
+    IconGroupProps,
+    Null
+  ], IconGroupProps, Null] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedMapped[Id, IconGroupProps, Null, RawMounted[
+    IconGroupProps,
+    Null
+  ], IconGroupProps, Null] =
+    component(props())(children: _*)
 }

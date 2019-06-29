@@ -136,4 +136,11 @@ object Grid {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    GridProps,
+    Unit,
+    GridProps
+  ] =
+    component(props())(children: _*)
+
 }

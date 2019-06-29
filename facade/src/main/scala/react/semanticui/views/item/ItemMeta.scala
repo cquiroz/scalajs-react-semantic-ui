@@ -66,4 +66,11 @@ object ItemMeta {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ItemMetaProps,
+    Unit,
+    ItemMetaProps
+  ] =
+    component(props())(children: _*)
+
 }

@@ -175,8 +175,15 @@ object Menu {
   private val component =
     JsComponent[MenuProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: MenuProps, children: VdomNode*)
-    : UnmountedMapped[Id, MenuProps, Null, RawMounted[MenuProps, Null], MenuProps, Null] =
+  def apply(
+    p:        MenuProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, MenuProps, Null, RawMounted[MenuProps, Null], MenuProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, MenuProps, Null, RawMounted[MenuProps, Null], MenuProps, Null] =
+    component(props())(children: _*)
 
 }

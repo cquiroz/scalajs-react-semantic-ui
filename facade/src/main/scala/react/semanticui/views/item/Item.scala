@@ -92,4 +92,11 @@ object Item {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ItemProps,
+    Unit,
+    ItemProps
+  ] =
+    component(props())(children: _*)
+
 }
