@@ -3,11 +3,11 @@ package react.semanticui.modules
 import react.common.EnumValue
 
 package dimmer {
-  sealed trait CheckboxType extends Product with Serializable
-  object CheckboxType {
-    implicit val enum: EnumValue[CheckboxType] = EnumValue.toLowerCaseString
-    case object Checkbox extends CheckboxType
-    case object Radio extends CheckboxType
+  sealed trait DimmerVerticalAlign extends Product with Serializable
+  object DimmerVerticalAlign {
+    implicit val enum: EnumValue[DimmerVerticalAlign] = EnumValue.toLowerCaseString
+    case object Bottom extends DimmerVerticalAlign
+    case object Top extends DimmerVerticalAlign
   }
 
 }
