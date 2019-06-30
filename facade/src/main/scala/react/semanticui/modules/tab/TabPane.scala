@@ -54,7 +54,7 @@ object TabPane {
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
-    loading:   js.UndefOr[Boolean]  = js.undefined,
+    loading:   js.UndefOr[Boolean]  = js.undefined
   ): TabPaneProps = {
     val p = as.toJsObject[TabPaneProps]
     p.as        = as.toJs
@@ -69,8 +69,13 @@ object TabPane {
   private val component =
     JsFnComponent[TabPaneProps, Children.Varargs](RawComponent)
 
-  def apply(p:        TabPaneProps,
-            children: VdomNode*): UnmountedWithRoot[TabPaneProps, Unit, TabPaneProps] =
+  def apply(
+    p:        TabPaneProps,
+    children: VdomNode*
+  ): UnmountedWithRoot[TabPaneProps, Unit, TabPaneProps] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[TabPaneProps, Unit, TabPaneProps] =
+    component(props())(children: _*)
 
 }

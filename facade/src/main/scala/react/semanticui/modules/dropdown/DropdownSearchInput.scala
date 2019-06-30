@@ -52,7 +52,7 @@ object DropdownSearchInput {
     clazz:        js.UndefOr[Css]               = js.undefined,
     tabIndex:     js.UndefOr[String | JsNumber] = js.undefined,
     `type`:       js.UndefOr[String]            = js.undefined,
-    value:        js.UndefOr[JsNumber | String] = js.undefined,
+    value:        js.UndefOr[JsNumber | String] = js.undefined
   ): DropdownSearchInputProps = {
     val p = as.toJsObject[DropdownSearchInputProps]
     p.as           = as.toJs
@@ -69,12 +69,17 @@ object DropdownSearchInput {
 
   def apply(
     p: DropdownSearchInputProps
-  ): UnmountedMapped[Id,
-                     DropdownSearchInputProps,
-                     Null,
-                     RawMounted[DropdownSearchInputProps, Null],
-                     DropdownSearchInputProps,
-                     Null] =
+  )
+    : UnmountedMapped[Id, DropdownSearchInputProps, Null, RawMounted[
+      DropdownSearchInputProps,
+      Null
+    ], DropdownSearchInputProps, Null] =
     component(p)
+
+  def apply: UnmountedMapped[Id, DropdownSearchInputProps, Null, RawMounted[
+    DropdownSearchInputProps,
+    Null
+  ], DropdownSearchInputProps, Null] =
+    component(props())
 
 }

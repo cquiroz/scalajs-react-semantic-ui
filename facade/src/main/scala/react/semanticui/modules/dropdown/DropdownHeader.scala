@@ -54,7 +54,7 @@ object DropdownHeader {
     className: js.UndefOr[String]        = js.undefined,
     clazz:     js.UndefOr[Css]           = js.undefined,
     content:   js.UndefOr[VdomNode]      = js.undefined,
-    icon:      js.UndefOr[UnmountedIcon] = js.undefined,
+    icon:      js.UndefOr[UnmountedIcon] = js.undefined
   ): DropdownHeaderProps = {
     val p = as.toJsObject[DropdownHeaderProps]
     p.as        = as.toJs
@@ -71,12 +71,12 @@ object DropdownHeader {
   def apply(
     p:        DropdownHeaderProps,
     children: VdomNode*
-  ): UnmountedMapped[Id,
-                     DropdownHeaderProps,
-                     Null,
-                     RawMounted[DropdownHeaderProps, Null],
-                     DropdownHeaderProps,
-                     Null] =
+  ): UnmountedMapped[Id, DropdownHeaderProps, Null, RawMounted[DropdownHeaderProps, Null], DropdownHeaderProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, DropdownHeaderProps, Null, RawMounted[DropdownHeaderProps, Null], DropdownHeaderProps, Null] =
+    component(props())(children: _*)
 
 }

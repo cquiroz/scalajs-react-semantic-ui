@@ -127,7 +127,7 @@ object Input {
     size:           js.UndefOr[SemanticSize]                            = js.undefined,
     tabIndex:       js.UndefOr[String | JsNumber]                       = js.undefined,
     transparent:    js.UndefOr[Boolean]                                 = js.undefined,
-    `type`:         js.UndefOr[String]                                  = js.undefined,
+    `type`:         js.UndefOr[String]                                  = js.undefined
   ): InputProps = {
     val p = as.toJsObject[InputProps]
     p.as             = as.toJs
@@ -162,7 +162,14 @@ object Input {
   private val component =
     JsComponent[InputProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: InputProps, children: VdomNode*)
-    : UnmountedMapped[Id, InputProps, Null, RawMounted[InputProps, Null], InputProps, Null] =
+  def apply(
+    p:        InputProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, InputProps, Null, RawMounted[InputProps, Null], InputProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, InputProps, Null, RawMounted[InputProps, Null], InputProps, Null] =
+    component(props())(children: _*)
 }

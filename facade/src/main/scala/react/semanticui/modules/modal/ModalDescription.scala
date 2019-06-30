@@ -52,8 +52,7 @@ object ModalDescription {
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs
-
-    p.content = content.toJs
+    p.content   = content.toJs
     p
   }
 
@@ -66,5 +65,12 @@ object ModalDescription {
     ModalDescriptionProps
   ] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ModalDescriptionProps,
+    Unit,
+    ModalDescriptionProps
+  ] =
+    component(props())(children: _*)
 
 }

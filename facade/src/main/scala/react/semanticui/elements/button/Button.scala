@@ -134,7 +134,14 @@ object Button {
   private val component =
     JsComponent[ButtonProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: ButtonProps, children: VdomNode*)
-    : UnmountedMapped[Id, ButtonProps, Null, RawMounted[ButtonProps, Null], ButtonProps, Null] =
+  def apply(
+    p:        ButtonProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, ButtonProps, Null, RawMounted[ButtonProps, Null], ButtonProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, ButtonProps, Null, RawMounted[ButtonProps, Null], ButtonProps, Null] =
+    component(props())(children: _*)
 }

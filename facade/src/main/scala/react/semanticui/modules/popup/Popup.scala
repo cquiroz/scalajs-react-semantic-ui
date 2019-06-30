@@ -210,4 +210,9 @@ object Popup {
   ): UnmountedMapped[Id, PopupProps, Null, RawMounted[PopupProps, Null], PopupProps, Null] =
     component(p)(children: _*)
 
+  def apply(
+    children: VdomNode*
+  ): UnmountedMapped[Id, PopupProps, Null, RawMounted[PopupProps, Null], PopupProps, Null] =
+    component(props())(children: _*)
+
 }

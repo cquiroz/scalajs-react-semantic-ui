@@ -53,7 +53,15 @@ object Flag {
   private val component =
     JsComponent[FlagProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: FlagProps, children: VdomNode*)
-    : UnmountedMapped[Id, FlagProps, Null, RawMounted[FlagProps, Null], FlagProps, Null] =
+  def apply(
+    p:        FlagProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, FlagProps, Null, RawMounted[FlagProps, Null], FlagProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    name:     String,
+    children: VdomNode*
+  ): UnmountedMapped[Id, FlagProps, Null, RawMounted[FlagProps, Null], FlagProps, Null] =
+    component(props(name = name))(children: _*)
 }

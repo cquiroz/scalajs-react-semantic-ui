@@ -1,5 +1,12 @@
 # Changes
 
+## 0.1.6
+
+* Support Confirm
+* Support Dimmer, DimmerInner and DimmerDimmable
+* Support HeaderContent and HeaderSubheader
+* Add empty constructors for all components
+
 ## 0.1.5
 
 * Upgrade to react-semantic-ui 0.87.2

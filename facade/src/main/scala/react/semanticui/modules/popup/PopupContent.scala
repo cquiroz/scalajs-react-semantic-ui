@@ -46,7 +46,7 @@ object PopupContent {
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined,
+    content:   js.UndefOr[VdomNode] = js.undefined
   ): PopupContentProps = {
     val p = (new js.Object).asInstanceOf[PopupContentProps]
     p.as        = as.toJs
@@ -66,5 +66,12 @@ object PopupContent {
     PopupContentProps
   ] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    PopupContentProps,
+    Unit,
+    PopupContentProps
+  ] =
+    component(props())(children: _*)
 
 }

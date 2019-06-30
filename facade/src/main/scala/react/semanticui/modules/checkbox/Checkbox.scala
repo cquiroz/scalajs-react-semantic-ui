@@ -177,11 +177,15 @@ object Checkbox {
   private val component =
     JsComponent[CheckboxProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: CheckboxProps, children: VdomNode*): UnmountedMapped[Id,
-                                                                    CheckboxProps,
-                                                                    Null,
-                                                                    RawMounted[CheckboxProps, Null],
-                                                                    CheckboxProps,
-                                                                    Null] =
+  def apply(
+    p:        CheckboxProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, CheckboxProps, Null, RawMounted[CheckboxProps, Null], CheckboxProps, Null] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedMapped[Id, CheckboxProps, Null, RawMounted[
+    CheckboxProps,
+    Null
+  ], CheckboxProps, Null] =
+    component(props())(children: _*)
 }

@@ -90,4 +90,11 @@ object ItemGroup {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ItemGroupProps,
+    Unit,
+    ItemGroupProps
+  ] =
+    component(props())(children: _*)
+
 }

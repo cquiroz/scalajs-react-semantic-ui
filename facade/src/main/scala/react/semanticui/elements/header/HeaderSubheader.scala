@@ -1,4 +1,4 @@
-package react.semanticui.modules.popup
+package react.semanticui.elements.header
 
 import scala.scalajs.js
 import js.annotation._
@@ -11,16 +11,16 @@ import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
-object PopupHeader {
+object HeaderSubheader {
 
   @js.native
-  @JSImport("semantic-ui-react", "PopupHeader")
+  @JSImport("semantic-ui-react", "HeaderSubheader")
   object RawComponent extends js.Function1[js.Any, js.Any] {
     def apply(i: js.Any): js.Any = js.native
   }
 
   @js.native
-  trait PopupHeaderProps extends js.Object {
+  trait HeaderSubheaderProps extends js.Object {
 
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
@@ -47,30 +47,29 @@ object PopupHeader {
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
-  ): PopupHeaderProps = {
-    val p = (new js.Object).asInstanceOf[PopupHeaderProps]
+  ): HeaderSubheaderProps = {
+    val p = (new js.Object).asInstanceOf[HeaderSubheaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs
-
-    p.content = content.toJs
+    p.content   = content.toJs
     p
   }
 
   private val component =
-    JsFnComponent[PopupHeaderProps, Children.Varargs](RawComponent)
+    JsFnComponent[HeaderSubheaderProps, Children.Varargs](RawComponent)
 
-  def apply(p: PopupHeaderProps, children: VdomNode*): UnmountedWithRoot[
-    PopupHeaderProps,
+  def apply(p: HeaderSubheaderProps, children: VdomNode*): UnmountedWithRoot[
+    HeaderSubheaderProps,
     Unit,
-    PopupHeaderProps
+    HeaderSubheaderProps
   ] =
     component(p)(children: _*)
 
   def apply(children: VdomNode*): UnmountedWithRoot[
-    PopupHeaderProps,
+    HeaderSubheaderProps,
     Unit,
-    PopupHeaderProps
+    HeaderSubheaderProps
   ] =
     component(props())(children: _*)
 

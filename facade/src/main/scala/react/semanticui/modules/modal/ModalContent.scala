@@ -76,4 +76,11 @@ object ModalContent {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ModalContentProps,
+    Unit,
+    ModalContentProps
+  ] =
+    component(props())(children: _*)
+
 }

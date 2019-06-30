@@ -119,8 +119,13 @@ object Segment {
   private val component =
     JsFnComponent[SegmentProps, Children.Varargs](RawComponent)
 
-  def apply(p:        SegmentProps,
-            children: VdomNode*): UnmountedWithRoot[SegmentProps, Unit, SegmentProps] =
+  def apply(
+    p:        SegmentProps,
+    children: VdomNode*
+  ): UnmountedWithRoot[SegmentProps, Unit, SegmentProps] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[SegmentProps, Unit, SegmentProps] =
+    component(props())(children: _*)
 
 }

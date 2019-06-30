@@ -129,8 +129,16 @@ object Icon {
   private val component =
     JsComponent[IconProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: IconProps, children: VdomNode*)
-    : UnmountedMapped[Id, IconProps, Null, RawMounted[IconProps, Null], IconProps, Null] =
+  def apply(
+    p:        IconProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, IconProps, Null, RawMounted[IconProps, Null], IconProps, Null] =
     component(p)(children: _*)
+
+  def apply(
+    name:     String,
+    children: VdomNode*
+  ): UnmountedMapped[Id, IconProps, Null, RawMounted[IconProps, Null], IconProps, Null] =
+    component(props(name = name))(children: _*)
 
 }

@@ -93,4 +93,14 @@ object ModalActions {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedMapped[
+    Id,
+    ModalActionsProps,
+    Null,
+    RawMounted[ModalActionsProps, Null],
+    ModalActionsProps,
+    Null
+  ] =
+    component(props())(children: _*)
+
 }

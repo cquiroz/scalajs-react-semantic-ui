@@ -66,4 +66,11 @@ object ItemExtra {
   ] =
     component(p)(children: _*)
 
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    ItemExtraProps,
+    Unit,
+    ItemExtraProps
+  ] =
+    component(props())(children: _*)
+
 }

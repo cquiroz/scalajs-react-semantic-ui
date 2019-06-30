@@ -73,7 +73,12 @@ object Container {
   private val component =
     JsFnComponent[ContainerProps, Children.Varargs](RawComponent)
 
-  def apply(p:        ContainerProps,
-            children: VdomNode*): UnmountedWithRoot[ContainerProps, Unit, ContainerProps] =
+  def apply(
+    p:        ContainerProps,
+    children: VdomNode*
+  ): UnmountedWithRoot[ContainerProps, Unit, ContainerProps] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[ContainerProps, Unit, ContainerProps] =
+    component(props())(children: _*)
 }

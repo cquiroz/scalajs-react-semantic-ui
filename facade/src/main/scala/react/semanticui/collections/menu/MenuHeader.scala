@@ -46,7 +46,7 @@ object MenuHeader {
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined,
+    content:   js.UndefOr[VdomNode] = js.undefined
   ): MenuHeaderProps = {
     val p = (new js.Object).asInstanceOf[MenuHeaderProps]
     p.as        = as.toJs
@@ -65,5 +65,12 @@ object MenuHeader {
     MenuHeaderProps
   ] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[
+    MenuHeaderProps,
+    Unit,
+    MenuHeaderProps
+  ] =
+    component(props())(children: _*)
 
 }

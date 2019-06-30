@@ -158,4 +158,7 @@ object Image {
 
   def apply(p: ImageProps, children: VdomNode*): UnmountedWithRoot[ImageProps, Unit, ImageProps] =
     component(p)(children: _*)
+
+  def apply(children: VdomNode*): UnmountedWithRoot[ImageProps, Unit, ImageProps] =
+    component(props())(children: _*)
 }
