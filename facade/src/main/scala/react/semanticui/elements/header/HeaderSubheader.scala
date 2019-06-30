@@ -1,4 +1,4 @@
-package react.semanticui.modules.modal
+package react.semanticui.elements.header
 
 import scala.scalajs.js
 import js.annotation._
@@ -11,16 +11,16 @@ import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
-object ModalDescription {
+object HeaderSubheader {
 
   @js.native
-  @JSImport("semantic-ui-react", "ModalDescription")
+  @JSImport("semantic-ui-react", "HeaderSubheader")
   object RawComponent extends js.Function1[js.Any, js.Any] {
     def apply(i: js.Any): js.Any = js.native
   }
 
   @js.native
-  trait ModalDescriptionProps extends js.Object {
+  trait HeaderSubheaderProps extends js.Object {
 
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
@@ -47,8 +47,8 @@ object ModalDescription {
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
-  ): ModalDescriptionProps = {
-    val p = (new js.Object).asInstanceOf[ModalDescriptionProps]
+  ): HeaderSubheaderProps = {
+    val p = (new js.Object).asInstanceOf[HeaderSubheaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs
@@ -57,19 +57,19 @@ object ModalDescription {
   }
 
   private val component =
-    JsFnComponent[ModalDescriptionProps, Children.Varargs](RawComponent)
+    JsFnComponent[HeaderSubheaderProps, Children.Varargs](RawComponent)
 
-  def apply(p: ModalDescriptionProps, children: VdomNode*): UnmountedWithRoot[
-    ModalDescriptionProps,
+  def apply(p: HeaderSubheaderProps, children: VdomNode*): UnmountedWithRoot[
+    HeaderSubheaderProps,
     Unit,
-    ModalDescriptionProps
+    HeaderSubheaderProps
   ] =
     component(p)(children: _*)
 
   def apply(children: VdomNode*): UnmountedWithRoot[
-    ModalDescriptionProps,
+    HeaderSubheaderProps,
     Unit,
-    ModalDescriptionProps
+    HeaderSubheaderProps
   ] =
     component(props())(children: _*)
 

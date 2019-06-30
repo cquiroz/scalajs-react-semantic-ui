@@ -1,0 +1,15 @@
+package react.semanticui.modules
+
+import react.common.EnumValue
+
+package dimmer {
+  sealed trait CheckboxType extends Product with Serializable
+  object CheckboxType {
+    implicit val enum: EnumValue[CheckboxType] = EnumValue.toLowerCaseString
+    case object Checkbox extends CheckboxType
+    case object Radio extends CheckboxType
+  }
+
+}
+
+package object dimmer

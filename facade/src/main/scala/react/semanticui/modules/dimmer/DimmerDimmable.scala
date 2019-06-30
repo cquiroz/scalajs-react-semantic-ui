@@ -1,4 +1,4 @@
-package react.semanticui.modules.modal
+package react.semanticui.modules.dimmer
 
 import scala.scalajs.js
 import js.annotation._
@@ -11,16 +11,16 @@ import react.common.style._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
-object ModalDescription {
+object DimmerDimmable {
 
   @js.native
-  @JSImport("semantic-ui-react", "ModalDescription")
+  @JSImport("semantic-ui-react", "DimmerDimmable")
   object RawComponent extends js.Function1[js.Any, js.Any] {
     def apply(i: js.Any): js.Any = js.native
   }
 
   @js.native
-  trait ModalDescriptionProps extends js.Object {
+  trait DimmerDimmableProps extends js.Object {
 
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
@@ -31,6 +31,9 @@ object ModalDescription {
     /** An element type to render as (string or function). */
     var as: js.UndefOr[AsT] = js.native
 
+    /** A dimmable element can blur its contents. */
+    var blurring: js.UndefOr[Boolean] = js.native
+
     /** Primary content. */
     var children: js.UndefOr[React.Node] = js.native
 
@@ -39,37 +42,44 @@ object ModalDescription {
 
     /** Shorthand for primary content. */
     var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
+
+    /** Controls whether or not the dim is displayed. */
+    var dimmed: js.UndefOr[Boolean] = js.native
   }
 
   def props(
     as:        js.UndefOr[AsC]      = js.undefined,
+    blurring:  js.UndefOr[Boolean]  = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined
-  ): ModalDescriptionProps = {
-    val p = (new js.Object).asInstanceOf[ModalDescriptionProps]
+    content:   js.UndefOr[VdomNode] = js.undefined,
+    dimmed:    js.UndefOr[Boolean]  = js.undefined
+  ): DimmerDimmableProps = {
+    val p = (new js.Object).asInstanceOf[DimmerDimmableProps]
     p.as        = as.toJs
+    p.blurring  = blurring
     p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
+    p.dimmed    = dimmed
     p
   }
 
   private val component =
-    JsFnComponent[ModalDescriptionProps, Children.Varargs](RawComponent)
+    JsFnComponent[DimmerDimmableProps, Children.Varargs](RawComponent)
 
-  def apply(p: ModalDescriptionProps, children: VdomNode*): UnmountedWithRoot[
-    ModalDescriptionProps,
+  def apply(p: DimmerDimmableProps, children: VdomNode*): UnmountedWithRoot[
+    DimmerDimmableProps,
     Unit,
-    ModalDescriptionProps
+    DimmerDimmableProps
   ] =
     component(p)(children: _*)
 
   def apply(children: VdomNode*): UnmountedWithRoot[
-    ModalDescriptionProps,
+    DimmerDimmableProps,
     Unit,
-    ModalDescriptionProps
+    DimmerDimmableProps
   ] =
     component(props())(children: _*)
 

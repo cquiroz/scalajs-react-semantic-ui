@@ -2,6 +2,7 @@
 
 ## 0.1.6
 
+* Support HeaderContent and HeaderSubheader
 * Add empty constructors for all components
 
 ## 0.1.5

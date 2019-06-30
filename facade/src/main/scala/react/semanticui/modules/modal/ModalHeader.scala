@@ -52,8 +52,7 @@ object ModalHeader {
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs
-
-    p.content = content.toJs
+    p.content   = content.toJs
     p
   }
 

@@ -78,7 +78,8 @@ object Header {
     var sub: js.UndefOr[Boolean] = js.native
 
     /** Shorthand for Header.Subheader. */
-    var subheader: js.UndefOr[Boolean] = js.native
+    var subheader: js.UndefOr[suiraw.SemanticShorthandItem[HeaderSubheader.HeaderSubheaderProps]] =
+      js.native
 
     /** Align header content. */
     var textAlign: js.UndefOr[suiraw.SemanticTEXTALIGNMENTS] = js.native
@@ -86,24 +87,24 @@ object Header {
   }
 
   def props(
-    as:        js.UndefOr[AsC]                   = js.undefined,
-    attached:  js.UndefOr[HeaderAttached]        = js.undefined,
-    block:     js.UndefOr[Boolean]               = js.undefined,
-    children:  js.UndefOr[VdomNode]              = js.undefined,
-    className: js.UndefOr[String]                = js.undefined,
-    clazz:     js.UndefOr[Css]                   = js.undefined,
-    color:     js.UndefOr[SemanticColor]         = js.undefined,
-    content:   js.UndefOr[VdomNode]              = js.undefined,
-    disabled:  js.UndefOr[Boolean]               = js.undefined,
-    dividing:  js.UndefOr[Boolean]               = js.undefined,
-    floated:   js.UndefOr[SemanticFloats]        = js.undefined,
-    icon:      js.UndefOr[Boolean]               = js.undefined,
-    image:     js.UndefOr[Boolean]               = js.undefined,
-    inverted:  js.UndefOr[Boolean]               = js.undefined,
-    size:      js.UndefOr[SemanticSize]          = js.undefined,
-    sub:       js.UndefOr[Boolean]               = js.undefined,
-    subheader: js.UndefOr[Boolean]               = js.undefined,
-    textAlign: js.UndefOr[SemanticTextAlignment] = js.undefined
+    as:        js.UndefOr[AsC]                                  = js.undefined,
+    attached:  js.UndefOr[HeaderAttached]                       = js.undefined,
+    block:     js.UndefOr[Boolean]                              = js.undefined,
+    children:  js.UndefOr[VdomNode]                             = js.undefined,
+    className: js.UndefOr[String]                               = js.undefined,
+    clazz:     js.UndefOr[Css]                                  = js.undefined,
+    color:     js.UndefOr[SemanticColor]                        = js.undefined,
+    content:   js.UndefOr[VdomNode]                             = js.undefined,
+    disabled:  js.UndefOr[Boolean]                              = js.undefined,
+    dividing:  js.UndefOr[Boolean]                              = js.undefined,
+    floated:   js.UndefOr[SemanticFloats]                       = js.undefined,
+    icon:      js.UndefOr[Boolean]                              = js.undefined,
+    image:     js.UndefOr[Boolean]                              = js.undefined,
+    inverted:  js.UndefOr[Boolean]                              = js.undefined,
+    size:      js.UndefOr[SemanticSize]                         = js.undefined,
+    sub:       js.UndefOr[Boolean]                              = js.undefined,
+    subheader: js.UndefOr[HeaderSubheader.HeaderSubheaderProps] = js.undefined,
+    textAlign: js.UndefOr[SemanticTextAlignment]                = js.undefined
   ): HeaderProps = {
     val p = as.toJsObject[HeaderProps]
     p.as        = as.toJs
