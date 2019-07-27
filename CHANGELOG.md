@@ -1,5 +1,9 @@
 # Changes
 
+## 0.1.7
+
+* Update scalajs-react-common
+
 ## 0.1.6
 
 * Support Confirm
