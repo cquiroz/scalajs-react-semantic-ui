@@ -17,15 +17,10 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 // sbt-release-early
 inThisBuild(List(
-    homepage                := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
-    licenses                := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
+    homepage   := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
+    licenses   := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
     developers := List(Developer("cquiroz", "Carlos Quiroz", "carlos.m.quiroz@gmail.com", url("https://github.com/cquiroz"))),
-    scmInfo := Some(ScmInfo(url("https://github.com/cquiroz/scalajs-react-semantic-ui"), "scm:git:git@github.com:cquiroz/scalajs-react-semantic-ui.git")),
-
-    // These are the sbt-release-early settings to configure
-    pgpPublicRing := file("./travis/local.pubring.asc"),
-    pgpSecretRing := file("./travis/local.secring.asc"),
-    releaseEarlyWith := SonatypePublisher
+    scmInfo    := Some(ScmInfo(url("https://github.com/cquiroz/scalajs-react-semantic-ui"), "scm:git:git@github.com:cquiroz/scalajs-react-semantic-ui.git"))
 ))
 
 val root =
@@ -60,26 +55,26 @@ lazy val demo =
       webpackBundlingMode in fullOptJS       := BundlingMode.Application,
       test                                   := {},
       emitSourceMaps                         := false,
-    // NPM libs for development, mostly to let webpack do its magic
-    npmDevDependencies in Compile ++= Seq(
-      "postcss-loader"                     -> "3.0.0",
-      "autoprefixer"                       -> "9.4.4",
-      "url-loader"                         -> "1.1.1",
-      "file-loader"                        -> "3.0.1",
-      "css-loader"                         -> "2.1.0",
-      "style-loader"                       -> "0.23.1",
-      "less"                               -> "3.9.0",
-      "less-loader"                        -> "4.1.0",
-      "webpack-merge"                      -> "4.2.1",
-      "mini-css-extract-plugin"            -> "0.5.0",
-      "webpack-dev-server-status-bar"      -> "1.1.0",
-      "cssnano"                            -> "4.1.8",
-      "uglifyjs-webpack-plugin"            -> "2.1.1",
-      "html-webpack-plugin"                -> "3.2.0",
-      "optimize-css-assets-webpack-plugin" -> "5.0.1",
-      "favicons-webpack-plugin"            -> "0.0.9",
-      "why-did-you-update"                 -> "1.0.6"
-    ),
+      // NPM libs for development, mostly to let webpack do its magic
+      npmDevDependencies in Compile ++= Seq(
+        "postcss-loader"                     -> "3.0.0",
+        "autoprefixer"                       -> "9.4.4",
+        "url-loader"                         -> "1.1.1",
+        "file-loader"                        -> "3.0.1",
+        "css-loader"                         -> "2.1.0",
+        "style-loader"                       -> "0.23.1",
+        "less"                               -> "3.9.0",
+        "less-loader"                        -> "4.1.0",
+        "webpack-merge"                      -> "4.2.1",
+        "mini-css-extract-plugin"            -> "0.5.0",
+        "webpack-dev-server-status-bar"      -> "1.1.0",
+        "cssnano"                            -> "4.1.8",
+        "uglifyjs-webpack-plugin"            -> "2.1.1",
+        "html-webpack-plugin"                -> "3.2.0",
+        "optimize-css-assets-webpack-plugin" -> "5.0.1",
+        "favicons-webpack-plugin"            -> "0.0.9",
+        "why-did-you-update"                 -> "1.0.6"
+      ),
       npmDependencies in Compile            ++= Seq(
         "react"           -> reactJS,
         "react-dom"       -> reactJS,
@@ -124,12 +119,11 @@ lazy val facade =
     )
 
 lazy val commonSettings = Seq(
-  scalaVersion            := "2.12.8",
+  scalaVersion            := "2.12.10",
   organization            := "io.github.cquiroz.react",
   sonatypeProfileName     := "io.github.cquiroz",
   description             := "scala.js facade for react-semanticui",
   publishArtifact in Test := false,
-  publishMavenStyle       := true,
   scalacOptions           := Seq(
       "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
       "-encoding", "utf-8",                // Specify character encoding used by source files.
