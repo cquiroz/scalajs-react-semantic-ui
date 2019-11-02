@@ -23,8 +23,9 @@ jobs:
   include:
     # stage="test" if no stage is specified
     - name: compile
-      script: sbt facade/test facade/fastOptJS facade/fullOptJS demo/fastOptJS::webpack
+      script: sbt facade/test facade/fastOptJS facade/fullOptJS demo/fastOptJS::webpack demo/fullOptJS::webpack
     - stage: release
       script: sbt ci-release
 before_install:
   - git fetch --tags
+  - yarn --version

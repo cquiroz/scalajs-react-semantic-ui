@@ -52,7 +52,7 @@ const Web = Merge(
         chunks: ["demo"]
       }),
       new FaviconsWebpackPlugin({
-        logo: path.resolve(parts.resourcesDir, "images/launcher.png"),
+        logo: path.resolve(parts.resourcesDir, "images/logo.png"),
         persistentCache: false
       })
     ]

@@ -41,14 +41,14 @@ lazy val demo =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      version in webpack                := "4.32.0",
-      version in startWebpackDevServer  := "3.3.1",
+      version in webpack                := "4.41.2",
+      version in startWebpackDevServer  := "3.9.0",
       webpackConfigFile in fastOptJS         := Some(baseDirectory.value / "webpack" / "dev.webpack.config.js"),
       webpackConfigFile in fullOptJS         := Some(baseDirectory.value / "webpack" / "prod.webpack.config.js"),
       webpackMonitoredDirectories            += (resourceDirectory in Compile).value,
       webpackResources                       := (baseDirectory.value / "webpack") * "*.js",
       includeFilter in webpackMonitoredFiles := "*",
-      webpackExtraArgs                       := Seq("--progress"),
+      // webpackExtraArgs                       := Seq("--progress"),
       // webpackExtraArgs                       := Seq("--progress", "--display", "verbose"),
       useYarn                                := true,
       webpackBundlingMode in fastOptJS       := BundlingMode.LibraryOnly(),
@@ -58,20 +58,20 @@ lazy val demo =
       // NPM libs for development, mostly to let webpack do its magic
       npmDevDependencies in Compile ++= Seq(
         "postcss-loader"                     -> "3.0.0",
-        "autoprefixer"                       -> "9.4.4",
-        "url-loader"                         -> "1.1.1",
-        "file-loader"                        -> "3.0.1",
-        "css-loader"                         -> "2.1.0",
-        "style-loader"                       -> "0.23.1",
+        "autoprefixer"                       -> "9.7.1",
+        "url-loader"                         -> "2.2.0",
+        "file-loader"                        -> "4.2.0",
+        "css-loader"                         -> "3.2.0",
+        "style-loader"                       -> "1.0.0",
         "less"                               -> "3.9.0",
         "less-loader"                        -> "4.1.0",
-        "webpack-merge"                      -> "4.2.1",
-        "mini-css-extract-plugin"            -> "0.5.0",
-        "webpack-dev-server-status-bar"      -> "1.1.0",
-        "cssnano"                            -> "4.1.8",
-        "uglifyjs-webpack-plugin"            -> "2.1.1",
+        "webpack-merge"                      -> "4.2.2",
+        "mini-css-extract-plugin"            -> "0.8.0",
+        "webpack-dev-server-status-bar"      -> "1.1.1",
+        "cssnano"                            -> "4.1.10",
+        "uglifyjs-webpack-plugin"            -> "2.2.0",
         "html-webpack-plugin"                -> "3.2.0",
-        "optimize-css-assets-webpack-plugin" -> "5.0.1",
+        "optimize-css-assets-webpack-plugin" -> "5.0.2",
         "favicons-webpack-plugin"            -> "0.0.9",
         "why-did-you-update"                 -> "1.0.6"
       ),
@@ -104,7 +104,8 @@ lazy val facade =
         "react"             -> reactJS,
         "react-dom"         -> reactJS,
         "semantic-ui-react" -> reactSUI,
-        "create-react-context" -> "0.2.2"
+        "prop-types" -> "15.5.7",
+        "create-react-context" -> "0.3.0"
       ),
       libraryDependencies              ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"       % scalaJsReact,
