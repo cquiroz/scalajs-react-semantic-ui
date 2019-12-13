@@ -5,18 +5,52 @@ import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.JsFnComponent
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.semanticui.{ raw => suiraw }
 import react.common.syntax._
 import react.common.style._
+import react.common._
+import react.semanticui.{ raw => suiraw }
 import react.semanticui.sizes._
 import react.semanticui.colors._
 import react.semanticui.floats._
 import react.semanticui.textalignment._
 import react.semanticui.raw._
 import react.semanticui._
+
+final case class Segment(
+  as:                    js.UndefOr[AsC]                   = js.undefined,
+  attached:              js.UndefOr[SegmentAttached]       = js.undefined,
+  basic:                 js.UndefOr[Boolean]               = js.undefined,
+  child:                 js.UndefOr[VdomNode]              = js.undefined,
+  circular:              js.UndefOr[Boolean]               = js.undefined,
+  className:             js.UndefOr[String]                = js.undefined,
+  clazz:                 js.UndefOr[Css]                   = js.undefined,
+  clearing:              js.UndefOr[Boolean]               = js.undefined,
+  color:                 js.UndefOr[SemanticColor]         = js.undefined,
+  compact:               js.UndefOr[Boolean]               = js.undefined,
+  content:               js.UndefOr[VdomNode]              = js.undefined,
+  disabled:              js.UndefOr[Boolean]               = js.undefined,
+  floated:               js.UndefOr[SemanticFloats]        = js.undefined,
+  inverted:              js.UndefOr[Boolean]               = js.undefined,
+  loading:               js.UndefOr[Boolean]               = js.undefined,
+  padded:                js.UndefOr[String]                = js.undefined,
+  placeholder:           js.UndefOr[Boolean]               = js.undefined,
+  piled:                 js.UndefOr[Boolean]               = js.undefined,
+  raised:                js.UndefOr[Boolean]               = js.undefined,
+  secondary:             js.UndefOr[Boolean]               = js.undefined,
+  size:                  js.UndefOr[SemanticSize]          = js.undefined,
+  stacked:               js.UndefOr[Boolean]               = js.undefined,
+  tertiary:              js.UndefOr[Boolean]               = js.undefined,
+  textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
+  vertical:              js.UndefOr[Boolean]               = js.undefined,
+  override val children: CtorType.ChildrenArgs             = Seq.empty
+) extends GenericFnComponentPC[Segment.SegmentProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    Segment.component(Segment.props(this))
+}
 
 object Segment {
   type OnHide = ReactEvent => Callback
@@ -61,69 +95,45 @@ object Segment {
   }
 
   def props(
-    as:          js.UndefOr[AsC]                   = js.undefined,
-    attached:    js.UndefOr[SegmentAttached]       = js.undefined,
-    basic:       js.UndefOr[Boolean]               = js.undefined,
-    children:    js.UndefOr[VdomNode]              = js.undefined,
-    circular:    js.UndefOr[Boolean]               = js.undefined,
-    className:   js.UndefOr[String]                = js.undefined,
-    clazz:       js.UndefOr[Css]                   = js.undefined,
-    clearing:    js.UndefOr[Boolean]               = js.undefined,
-    color:       js.UndefOr[SemanticColor]         = js.undefined,
-    compact:     js.UndefOr[Boolean]               = js.undefined,
-    content:     js.UndefOr[VdomNode]              = js.undefined,
-    disabled:    js.UndefOr[Boolean]               = js.undefined,
-    floated:     js.UndefOr[SemanticFloats]        = js.undefined,
-    inverted:    js.UndefOr[Boolean]               = js.undefined,
-    loading:     js.UndefOr[Boolean]               = js.undefined,
-    padded:      js.UndefOr[String]                = js.undefined,
-    placeholder: js.UndefOr[Boolean]               = js.undefined,
-    piled:       js.UndefOr[Boolean]               = js.undefined,
-    raised:      js.UndefOr[Boolean]               = js.undefined,
-    secondary:   js.UndefOr[Boolean]               = js.undefined,
-    size:        js.UndefOr[SemanticSize]          = js.undefined,
-    stacked:     js.UndefOr[Boolean]               = js.undefined,
-    tertiary:    js.UndefOr[Boolean]               = js.undefined,
-    textAlign:   js.UndefOr[SemanticTextAlignment] = js.undefined,
-    vertical:    js.UndefOr[Boolean]               = js.undefined
+    q: Segment
   ): SegmentProps = {
-    val p = as.toJsObject[SegmentProps]
-    p.as          = as.toJs
-    p.attached    = attached.toJs
-    p.basic       = basic
-    p.children    = children.toJs
-    p.circular    = circular
-    p.className   = (className, clazz).toJs
-    p.clearing    = clearing
-    p.color       = color.toJs
-    p.compact     = compact
-    p.content     = content.toJs
-    p.disabled    = disabled
-    p.floated     = floated.toJs
-    p.inverted    = inverted
-    p.loading     = loading
-    p.padded      = padded
-    p.placeholder = placeholder
-    p.piled       = piled
-    p.raised      = raised
-    p.secondary   = secondary
-    p.size        = size.toJs
-    p.stacked     = stacked
-    p.tertiary    = tertiary
-    p.textAlign   = textAlign.toJs
-    p.vertical    = vertical
+    val p = q.as.toJsObject[SegmentProps]
+    p.as          = q.as.toJs
+    p.attached    = q.attached.toJs
+    p.basic       = q.basic
+    p.children    = q.child.toJs
+    p.circular    = q.circular
+    p.className   = (q.className, q.clazz).toJs
+    p.clearing    = q.clearing
+    p.color       = q.color.toJs
+    p.compact     = q.compact
+    p.content     = q.content.toJs
+    p.disabled    = q.disabled
+    p.floated     = q.floated.toJs
+    p.inverted    = q.inverted
+    p.loading     = q.loading
+    p.padded      = q.padded
+    p.placeholder = q.placeholder
+    p.piled       = q.piled
+    p.raised      = q.raised
+    p.secondary   = q.secondary
+    p.size        = q.size.toJs
+    p.stacked     = q.stacked
+    p.tertiary    = q.tertiary
+    p.textAlign   = q.textAlign.toJs
+    p.vertical    = q.vertical
     p
   }
 
   private val component =
     JsFnComponent[SegmentProps, Children.Varargs](RawComponent)
 
-  def apply(
-    p:        SegmentProps,
-    children: VdomNode*
-  ): UnmountedWithRoot[SegmentProps, Unit, SegmentProps] =
-    component(p)(children: _*)
+  val Default: Segment = Segment()
 
-  def apply(children: VdomNode*): UnmountedWithRoot[SegmentProps, Unit, SegmentProps] =
-    component(props())(children: _*)
+  val defaultProps: SegmentProps = props(Default)
+
+  def apply(
+    content: VdomNode*
+  ): Segment =
+    new Segment(children = content)
 }

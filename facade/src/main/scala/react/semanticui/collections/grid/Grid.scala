@@ -4,16 +4,43 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.widths._
 import react.semanticui.textalignment._
 import react.semanticui.verticalalignment._
+
+final case class Grid(
+  as:                    js.UndefOr[AsC]                       = js.undefined,
+  celled:                js.UndefOr[GridCelled]                = js.undefined,
+  centered:              js.UndefOr[Boolean]                   = js.undefined,
+  child:                 js.UndefOr[VdomNode]                  = js.undefined,
+  className:             js.UndefOr[String]                    = js.undefined,
+  clazz:                 js.UndefOr[Css]                       = js.undefined,
+  columns:               js.UndefOr[SemanticWidth]             = js.undefined,
+  container:             js.UndefOr[Boolean]                   = js.undefined,
+  divided:               js.UndefOr[GridDivided]               = js.undefined,
+  doubling:              js.UndefOr[Boolean]                   = js.undefined,
+  inverted:              js.UndefOr[Boolean]                   = js.undefined,
+  padded:                js.UndefOr[GridPadded]                = js.undefined,
+  relaxed:               js.UndefOr[GridRelaxed]               = js.undefined,
+  reversed:              js.UndefOr[GridReversed]              = js.undefined,
+  stackable:             js.UndefOr[Boolean]                   = js.undefined,
+  stretched:             js.UndefOr[Boolean]                   = js.undefined,
+  textAlign:             js.UndefOr[SemanticTextAlignment]     = js.undefined,
+  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val children: CtorType.ChildrenArgs                 = Seq.empty
+) extends GenericFnComponentPC[Grid.GridProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    Grid.component(Grid.props(this))
+}
 
 object Grid {
   @js.native
@@ -82,7 +109,29 @@ object Grid {
     var verticalAlign: js.UndefOr[suiraw.SemanticVERTICALALIGNMENTS] = js.native
   }
 
-  def props(
+  def props(q: Grid): GridProps =
+    rawprops(
+      q.as,
+      q.celled,
+      q.centered,
+      q.child,
+      q.className,
+      q.clazz,
+      q.columns,
+      q.container,
+      q.divided,
+      q.doubling,
+      q.inverted,
+      q.padded,
+      q.relaxed,
+      q.reversed,
+      q.stackable,
+      q.stretched,
+      q.textAlign,
+      q.verticalAlign
+    )
+
+  def rawprops(
     as:            js.UndefOr[AsC]                       = js.undefined,
     celled:        js.UndefOr[GridCelled]                = js.undefined,
     centered:      js.UndefOr[Boolean]                   = js.undefined,
@@ -126,17 +175,6 @@ object Grid {
   private val component =
     JsFnComponent[GridProps, Children.Varargs](RawComponent)
 
-  def apply(p: GridProps, children: VdomNode*): UnmountedWithRoot[
-    GridProps,
-    Unit,
-    GridProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    GridProps,
-    Unit,
-    GridProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): Grid =
+    new Grid(children = content)
 }

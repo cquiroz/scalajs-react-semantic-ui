@@ -7,10 +7,17 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ItemMetaTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val pusher = ItemMeta(ItemMeta.props(), "Abc")
+      val itemMeta = ItemMeta("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        pusher.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="meta">Abc</div></div>""")
+        itemMeta.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="meta">Abc</div>""")
+      }
+    }
+    'renderMany - {
+      val itemMeta = ItemMeta("Abc", <.div("abc"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        itemMeta.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="meta">Abc<div>abc</div></div>""")
       }
     }
   }

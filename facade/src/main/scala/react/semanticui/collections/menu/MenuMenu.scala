@@ -3,13 +3,28 @@ package react.semanticui.collections.menu
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class MenuMenu(
+  as:                    js.UndefOr[AsC]              = js.undefined,
+  child:                 js.UndefOr[VdomNode]         = js.undefined,
+  className:             js.UndefOr[String]           = js.undefined,
+  clazz:                 js.UndefOr[Css]              = js.undefined,
+  content:               js.UndefOr[VdomNode]         = js.undefined,
+  position:              js.UndefOr[MenuMenuPosition] = js.undefined,
+  override val children: CtorType.ChildrenArgs        = Seq.empty
+) extends GenericFnComponentPC[MenuMenu.MenuMenuProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    MenuMenu.component(MenuMenu.props(this))
+}
 
 object MenuMenu {
   @js.native
@@ -42,7 +57,10 @@ object MenuMenu {
     var position: js.UndefOr[String] = js.native
   }
 
-  def props(
+  def props(q: MenuMenu): MenuMenuProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content, q.position)
+
+  def rawprops(
     as:        js.UndefOr[AsC]              = js.undefined,
     children:  js.UndefOr[VdomNode]         = js.undefined,
     className: js.UndefOr[String]           = js.undefined,
@@ -62,17 +80,6 @@ object MenuMenu {
   private val component =
     JsFnComponent[MenuMenuProps, Children.Varargs](RawComponent)
 
-  def apply(p: MenuMenuProps, children: VdomNode*): UnmountedWithRoot[
-    MenuMenuProps,
-    Unit,
-    MenuMenuProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    MenuMenuProps,
-    Unit,
-    MenuMenuProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): MenuMenu =
+    new MenuMenu(children = content)
 }

@@ -6,17 +6,17 @@ import japgolly.scalajs.react.test._
 object MenuMenuTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = MenuMenu(MenuMenu.props())
+      val menumenu = MenuMenu()
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="menu"></div></div>""")
+        menumenu.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="menu"></div>""")
       }
     }
     'renderAs - {
-      val menuItem = MenuMenu(MenuMenu.props(as = "a"))
+      val menumenu = MenuMenu(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><a class="menu"></a></div>""")
+        menumenu.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<a class="menu"></a>""")
       }
     }
   }

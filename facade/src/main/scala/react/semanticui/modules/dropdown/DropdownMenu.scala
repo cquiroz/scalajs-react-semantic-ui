@@ -4,14 +4,28 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.raw._
 import react.semanticui._
+
+final case class DropdownMenu(
+  as:                    js.UndefOr[AsC]           = js.undefined,
+  child:                 js.UndefOr[VdomNode]      = js.undefined,
+  className:             js.UndefOr[String]        = js.undefined,
+  clazz:                 js.UndefOr[Css]           = js.undefined,
+  content:               js.UndefOr[VdomNode]      = js.undefined,
+  direction:             js.UndefOr[MenuDirection] = js.undefined,
+  open:                  js.UndefOr[Boolean]       = js.undefined,
+  scrolling:             js.UndefOr[Boolean]       = js.undefined,
+  override val children: CtorType.ChildrenArgs     = Seq.empty
+) extends GenericComponentPC[DropdownMenu.DropdownMenuProps] {
+  @inline def renderWith = DropdownMenu.component(DropdownMenu.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object DropdownMenu {
   @js.native
@@ -50,7 +64,10 @@ object DropdownMenu {
     var scrolling: js.UndefOr[Boolean] = js.native
   }
 
-  def props(
+  def props(q: DropdownMenu): DropdownMenuProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content, q.direction, q.open, q.scrolling)
+
+  def rawprops(
     as:        js.UndefOr[AsC]           = js.undefined,
     children:  js.UndefOr[VdomNode]      = js.undefined,
     className: js.UndefOr[String]        = js.undefined,
@@ -75,13 +92,7 @@ object DropdownMenu {
     JsComponent[DropdownMenuProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        DropdownMenuProps,
     children: VdomNode*
-  ): UnmountedMapped[Id, DropdownMenuProps, Null, RawMounted[DropdownMenuProps, Null], DropdownMenuProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, DropdownMenuProps, Null, RawMounted[DropdownMenuProps, Null], DropdownMenuProps, Null] =
-    component(props())(children: _*)
+  ): DropdownMenu =
+    DropdownMenu(children = children)
 }

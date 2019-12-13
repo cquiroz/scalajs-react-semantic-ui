@@ -4,16 +4,30 @@ import scala.scalajs.js
 import js.annotation._
 import js.JSConverters._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.elements.button.Button
 import react.semanticui.{ raw => suiraw }
+
+final case class ModalActions(
+  as:                    js.UndefOr[AsC]                        = js.undefined,
+  actions:               js.UndefOr[List[Button.ButtonProps]]   = js.undefined,
+  child:                 js.UndefOr[VdomNode]                   = js.undefined,
+  className:             js.UndefOr[String]                     = js.undefined,
+  clazz:                 js.UndefOr[Css]                        = js.undefined,
+  content:               js.UndefOr[VdomNode]                   = js.undefined,
+  onActionClickE:        js.UndefOr[ModalActions.OnActionClick] = js.undefined,
+  onActionClick:         js.UndefOr[Callback]                   = js.undefined,
+  override val children: CtorType.ChildrenArgs                  = Seq.empty
+) extends GenericComponentPC[ModalActions.ModalActionsProps] {
+  @inline def renderWith = ModalActions.component(ModalActions.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object ModalActions {
   type RawOnActionClick = js.Function2[ReactMouseEvent, Button.ButtonProps, Unit]
@@ -55,7 +69,17 @@ object ModalActions {
     var onActionClick: js.UndefOr[RawOnActionClick] = js.native
   }
 
-  def props(
+  def props(q: ModalActions): ModalActionsProps =
+    rawprops(q.as,
+             q.actions,
+             q.child,
+             q.className,
+             q.clazz,
+             q.content,
+             q.onActionClickE,
+             q.onActionClick)
+
+  def rawprops(
     as:             js.UndefOr[AsC]                      = js.undefined,
     actions:        js.UndefOr[List[Button.ButtonProps]] = js.undefined,
     children:       js.UndefOr[VdomNode]                 = js.undefined,
@@ -67,10 +91,9 @@ object ModalActions {
   ): ModalActionsProps = {
     val p = (new js.Object).asInstanceOf[ModalActionsProps]
     p.as = as.toJs
-    p.actions = actions.map(
-      x =>
-        x.map((y: Button.ButtonProps) => y: suiraw.SemanticShorthandItem[Button.ButtonProps])
-          .toJSArray
+    p.actions = actions.map(x =>
+      x.map((y: Button.ButtonProps) => y: suiraw.SemanticShorthandItem[Button.ButtonProps])
+        .toJSArray
     )
     p.children      = children.toJs
     p.className     = (className, clazz).toJs
@@ -82,23 +105,6 @@ object ModalActions {
   private val component =
     JsComponent[ModalActionsProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: ModalActionsProps, children: VdomNode*): UnmountedMapped[
-    Id,
-    ModalActionsProps,
-    Null,
-    RawMounted[ModalActionsProps, Null],
-    ModalActionsProps,
-    Null
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[
-    Id,
-    ModalActionsProps,
-    Null,
-    RawMounted[ModalActionsProps, Null],
-    ModalActionsProps,
-    Null
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): ModalActions =
+    new ModalActions(children = content)
 }

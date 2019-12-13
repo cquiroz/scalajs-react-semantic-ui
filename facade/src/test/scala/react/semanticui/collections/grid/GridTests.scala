@@ -6,10 +6,10 @@ import japgolly.scalajs.react.test._
 object GridTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = Grid(Grid.props())
+      val grid = Grid()
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="ui grid"></div></div>""")
+        grid.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="ui grid"></div>""")
       }
     }
   }

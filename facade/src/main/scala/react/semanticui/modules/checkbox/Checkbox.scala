@@ -5,13 +5,46 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
+
+final case class Checkbox(
+  as:                    js.UndefOr[AsC]               = js.undefined,
+  checked:               js.UndefOr[Boolean]           = js.undefined,
+  className:             js.UndefOr[String]            = js.undefined,
+  clazz:                 js.UndefOr[Css]               = js.undefined,
+  defaultChecked:        js.UndefOr[Boolean]           = js.undefined,
+  defaultIndeterminate:  js.UndefOr[Boolean]           = js.undefined,
+  disabled:              js.UndefOr[Boolean]           = js.undefined,
+  fitted:                js.UndefOr[Boolean]           = js.undefined,
+  id:                    js.UndefOr[JsNumber | String] = js.undefined,
+  indeterminate:         js.UndefOr[Boolean]           = js.undefined,
+  label:                 js.UndefOr[VdomNode]          = js.undefined,
+  name:                  js.UndefOr[String]            = js.undefined,
+  onChangeE:             js.UndefOr[Checkbox.Event]    = js.undefined,
+  onChange:              js.UndefOr[Callback]          = js.undefined,
+  onClickE:              js.UndefOr[Checkbox.Event]    = js.undefined,
+  onClick:               js.UndefOr[Callback]          = js.undefined,
+  onMouseDownE:          js.UndefOr[Checkbox.Event]    = js.undefined,
+  onMouseDown:           js.UndefOr[Callback]          = js.undefined,
+  onMouseUpE:            js.UndefOr[Checkbox.Event]    = js.undefined,
+  onMouseUp:             js.UndefOr[Callback]          = js.undefined,
+  radio:                 js.UndefOr[Boolean]           = js.undefined,
+  readOnly:              js.UndefOr[Boolean]           = js.undefined,
+  slider:                js.UndefOr[Boolean]           = js.undefined,
+  tabIndex:              js.UndefOr[JsNumber | String] = js.undefined,
+  toggle:                js.UndefOr[Boolean]           = js.undefined,
+  `type`:                js.UndefOr[CheckboxType]      = js.undefined,
+  value:                 js.UndefOr[String | JsNumber] = js.undefined,
+  override val children: CtorType.ChildrenArgs         = Seq.empty
+) extends GenericComponentPC[Checkbox.CheckboxProps] {
+  @inline def renderWith = Checkbox.component(Checkbox.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Checkbox {
   type Event            = (ReactMouseEvent, js.Object) => Callback
@@ -118,7 +151,38 @@ object Checkbox {
     var value: js.UndefOr[String | JsNumber] = js.native
   }
 
-  def props(
+  def props(q: Checkbox): CheckboxProps =
+    rawprops(
+      q.as,
+      q.checked,
+      q.className,
+      q.clazz,
+      q.defaultChecked,
+      q.defaultIndeterminate,
+      q.disabled,
+      q.fitted,
+      q.id,
+      q.indeterminate,
+      q.label,
+      q.name,
+      q.onChangeE,
+      q.onChange,
+      q.onClickE,
+      q.onClick,
+      q.onMouseDownE,
+      q.onMouseDown,
+      q.onMouseUpE,
+      q.onMouseUp,
+      q.radio,
+      q.readOnly,
+      q.slider,
+      q.tabIndex,
+      q.toggle,
+      q.`type`,
+      q.value
+    )
+
+  def rawprops(
     as:                   js.UndefOr[AsC]               = js.undefined,
     checked:              js.UndefOr[Boolean]           = js.undefined,
     className:            js.UndefOr[String]            = js.undefined,
@@ -176,15 +240,10 @@ object Checkbox {
   private val component =
     JsComponent[CheckboxProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        CheckboxProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, CheckboxProps, Null, RawMounted[CheckboxProps, Null], CheckboxProps, Null] =
-    component(p)(children: _*)
+  val Default: Checkbox = Checkbox()
 
-  def apply(children: VdomNode*): UnmountedMapped[Id, CheckboxProps, Null, RawMounted[
-    CheckboxProps,
-    Null
-  ], CheckboxProps, Null] =
-    component(props())(children: _*)
+  val defaultProps: CheckboxProps = props(Default)
+
+  def apply(content: VdomNode*): Checkbox =
+    Checkbox(children = content)
 }

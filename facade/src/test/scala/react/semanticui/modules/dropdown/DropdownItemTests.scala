@@ -3,33 +3,82 @@ package react.semanticui.modules.dropdown
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
+import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.flag.Flag
+import react.semanticui.elements.image.Image
+import react.semanticui.elements.label.Label
 
 object DropdownItemTests extends TestSuite {
   val tests = Tests {
     'item - {
-      val item = DropdownItem(DropdownItem.props(), "Option 1")
+      val item = DropdownItem("Option 1")
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div role="option" class="item">Option 1</div></div>"""
+          mountNode.innerHTML == """<div role="option" class="item">Option 1</div>"""
         )
       }
     }
     'itemDescriptionString - {
-      val item = DropdownItem(DropdownItem.props(description = "some description"))
+      val item = DropdownItem(description = "some description")
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div role="option" class="item"><span class="description">some description</span></div></div>"""
+          mountNode.innerHTML == """<div role="option" class="item"><span class="description">some description</span></div>"""
         )
       }
     }
     'itemValue - {
-      val item = DropdownItem(DropdownItem.props(value = 1))
+      val item = DropdownItem(1)
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div role="option" class="item"></div></div>"""
+          mountNode.innerHTML == """<div role="option" class="item">1</div>"""
+        )
+      }
+    }
+    'itemValueChild - {
+      val item = DropdownItem(1)(<.div("abc"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div role="option" class="item"><div>abc</div></div>"""
+        )
+      }
+    }
+    'icon - {
+      val item = DropdownItem(value = 1, icon = Icon("edit"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div role="option" class="item"><i aria-hidden="true" class="edit icon"></i></div>"""
+        )
+      }
+    }
+    'flag - {
+      val item = DropdownItem(value = 1, flag = Flag("cl"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div role="option" class="item"><i class="cl flag"></i></div>"""
+        )
+      }
+    }
+    'image - {
+      val item = DropdownItem(value = 1, image = Image(href = "image"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div role="option" class="item"><a class="ui image" href="image"><img></a></div>"""
+        )
+      }
+    }
+    'label - {
+      val item = DropdownItem(value = 1, label = Label("image"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div role="option" class="item"><div class="ui label">image</div></div>"""
         )
       }
     }

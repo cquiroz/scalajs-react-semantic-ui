@@ -10,13 +10,13 @@ import react.semanticui.elements.icon.Icon
 object InputTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val input = Input(Input.props())
+      val input = Input()
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui input"><input type="text"></div>""")
       }
     }
     'actionBool - {
-      val input = Input(Input.props(action = true))
+      val input = Input(action = true)
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui action input"><input type="text"></div>"""
@@ -24,7 +24,7 @@ object InputTests extends TestSuite {
       }
     }
     'actionItem - {
-      val input = Input(Input.props(action = Icon(Icon.props(name = "comment")).vdomElement))
+      val input = Input(action = Icon(name = "comment").vdomElement)
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui action input"><input type="text"><i aria-hidden="true" class="comment icon"></i></div>"""
@@ -32,7 +32,7 @@ object InputTests extends TestSuite {
       }
     }
     'icon - {
-      val input = Input(Input.props(icon = Icon(Icon.props(name = "comment"))))
+      val input = Input(icon = Icon(name = "comment"))
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui icon input"><input type="text"><i aria-hidden="true" class="comment icon"></i></div>"""
@@ -40,7 +40,7 @@ object InputTests extends TestSuite {
       }
     }
     'iconAndText - {
-      val input = Input(Input.props(), Icon(Icon.props(name = "comment")), "23")
+      val input = Input()(Icon(name = "comment"), "23")
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui input"><i aria-hidden="true" class="comment icon"></i>23</div>"""
@@ -48,7 +48,7 @@ object InputTests extends TestSuite {
       }
     }
     'input - {
-      val input = Input(Input.props(input = Icon(Icon.props(name = "comment")).vdomElement))
+      val input = Input(input = Icon(name = "comment").vdomElement)
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui input"><i type="text" aria-hidden="true" class="comment icon"></i></div>"""
@@ -56,13 +56,13 @@ object InputTests extends TestSuite {
       }
     }
     'typePassword - {
-      val input = Input(Input.props(`type` = "password"))
+      val input = Input(`type` = "password")
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui input"><input type="password"></div>""")
       }
     }
     'onChange - {
-      val input = Input(Input.props(onChange = Callback.log("abc")))
+      val input = Input(onChange = Callback.log("abc"))
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui input"><input type="text"></div>""")
       }

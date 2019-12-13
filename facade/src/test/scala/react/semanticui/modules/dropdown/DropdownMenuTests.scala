@@ -7,20 +7,20 @@ import japgolly.scalajs.react.vdom.html_<^._
 object DropdownMenuTests extends TestSuite {
   val tests = Tests {
     'menu - {
-      val menu = DropdownMenu(DropdownMenu.props())
+      val menu = DropdownMenu()
       ReactTestUtils.withNewBodyElement { mountNode =>
         menu.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="menu transition"></div></div>"""
+          mountNode.innerHTML == """<div class="menu transition"></div>"""
         )
       }
     }
     'menuContent - {
-      val menu = DropdownMenu(DropdownMenu.props(), "content")
+      val menu = DropdownMenu("content")
       ReactTestUtils.withNewBodyElement { mountNode =>
         menu.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="menu transition">content</div></div>"""
+          mountNode.innerHTML == """<div class="menu transition">content</div>"""
         )
       }
     }

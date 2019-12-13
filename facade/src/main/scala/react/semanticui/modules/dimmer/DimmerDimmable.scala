@@ -3,13 +3,29 @@ package react.semanticui.modules.dimmer
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class DimmerDimmable(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  blurring:              js.UndefOr[Boolean]   = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  dimmed:                js.UndefOr[Boolean]   = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericFnComponentPC[DimmerDimmable.DimmerDimmableProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    DimmerDimmable.component(DimmerDimmable.props(this))
+}
 
 object DimmerDimmable {
   @js.native
@@ -45,7 +61,10 @@ object DimmerDimmable {
     var dimmed: js.UndefOr[Boolean] = js.native
   }
 
-  def props(
+  def props(q: DimmerDimmable): DimmerDimmableProps =
+    rawprops(q.as, q.blurring, q.child, q.className, q.clazz, q.content, q.dimmed)
+
+  def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
     blurring:  js.UndefOr[Boolean]  = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
@@ -67,17 +86,6 @@ object DimmerDimmable {
   private val component =
     JsFnComponent[DimmerDimmableProps, Children.Varargs](RawComponent)
 
-  def apply(p: DimmerDimmableProps, children: VdomNode*): UnmountedWithRoot[
-    DimmerDimmableProps,
-    Unit,
-    DimmerDimmableProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    DimmerDimmableProps,
-    Unit,
-    DimmerDimmableProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): DimmerDimmable =
+    new DimmerDimmable(children = content)
 }

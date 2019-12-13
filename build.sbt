@@ -117,6 +117,7 @@ lazy val facade =
       name := "react-semantic-ui",
       version in webpack := "4.32.0",
       version in startWebpackDevServer := "3.3.1",
+      version in installJsdom := "15.2.1",
       // Requires the DOM for tests
       requireJsDomEnv in Test := true,
       // Compile tests to JS using fast-optimisation

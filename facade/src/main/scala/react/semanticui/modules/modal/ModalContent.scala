@@ -3,13 +3,28 @@ package react.semanticui.modules.modal
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class ModalContent(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  image:                 js.UndefOr[Boolean]   = js.undefined,
+  scrolling:             js.UndefOr[Boolean]   = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericFnComponentPC[ModalContent.ModalContentProps] {
+  @inline def renderWith = ModalContent.component(ModalContent.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object ModalContent {
   @js.native
@@ -45,7 +60,10 @@ object ModalContent {
     var scrolling: js.UndefOr[Boolean] = js.native
   }
 
-  def props(
+  def props(q: ModalContent): ModalContentProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content, q.image, q.scrolling)
+
+  def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
@@ -67,17 +85,6 @@ object ModalContent {
   private val component =
     JsFnComponent[ModalContentProps, Children.Varargs](RawComponent)
 
-  def apply(p: ModalContentProps, children: VdomNode*): UnmountedWithRoot[
-    ModalContentProps,
-    Unit,
-    ModalContentProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    ModalContentProps,
-    Unit,
-    ModalContentProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): ModalContent =
+    new ModalContent(children = content)
 }

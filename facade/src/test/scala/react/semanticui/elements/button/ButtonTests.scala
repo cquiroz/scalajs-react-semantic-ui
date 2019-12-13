@@ -8,23 +8,24 @@ import react.semanticui.elements.label.Label
 import react.semanticui.colors._
 import react.semanticui.floats
 import react.semanticui.sizes._
+import react.semanticui._
 
 object ButtonTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val button = Button(Button.props())
+      val button = Button()
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui button"></button>""")
       }
     }
     'renderAs - {
-      val button = Button(Button.props(as = "a"))
+      val button = Button(as = "a")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<a class="ui button" role="button"></a>""")
       }
     }
     'attached - {
-      val button = Button(Button.props(attached = ButtonAttached.Top))
+      val button = Button(attached = ButtonAttached.Top)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui top attached button" role="button" tabindex="0"></div>"""
@@ -32,19 +33,19 @@ object ButtonTests extends TestSuite {
       }
     }
     'color - {
-      val button = Button(Button.props(color = Blue))
+      val button = Button(color = Blue)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui blue button"></button>""")
       }
     }
     'active - {
-      val button = Button(Button.props(active = true))
+      val button = Button(active = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui active button"></button>""")
       }
     }
     'icon - {
-      val button = Button(Button.props(icon = Icon(Icon.props(name = "comment"))))
+      val button = Button(icon = Icon(name = "comment"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<button class="ui icon button"><i aria-hidden="true" class="comment icon"></i></button>"""
@@ -52,7 +53,7 @@ object ButtonTests extends TestSuite {
       }
     }
     'label - {
-      val button = Button(Button.props(label = Label(Label.props(), "Label")))
+      val button = Button(label = Label("Label"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui labeled button"><button class="ui button" tabindex="0"> </button><div class="ui label">Label</div></div>"""
@@ -60,7 +61,7 @@ object ButtonTests extends TestSuite {
       }
     }
     'iconAndText - {
-      val button = Button(Button.props(), Icon(Icon.props(name = "comment")), "23")
+      val button = Button()(Icon(name = "comment"), "23")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<button class="ui button"><i aria-hidden="true" class="comment icon"></i>23</button>"""
@@ -68,7 +69,7 @@ object ButtonTests extends TestSuite {
       }
     }
     'toggle - {
-      val button = Button(Button.props(toggle = true))
+      val button = Button(toggle = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<button class="ui toggle button" aria-pressed="false"></button>"""
@@ -76,25 +77,25 @@ object ButtonTests extends TestSuite {
       }
     }
     'tabIndex - {
-      val button = Button(Button.props(tabIndex = 2))
+      val button = Button(tabIndex = 2)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui button" tabindex="2"></button>""")
       }
     }
     'floated - {
-      val button = Button(Button.props(floated = floats.Right))
+      val button = Button(floated = floats.Right)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui right floated button"></button>""")
       }
     }
     'circular - {
-      val button = Button(Button.props(circular = true))
+      val button = Button(circular = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui circular button"></button>""")
       }
     }
     'secondary - {
-      val button = Button(Button.props(secondary = true, circular = true))
+      val button = Button(secondary = true, circular = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<button class="ui circular secondary button"></button>"""
@@ -102,19 +103,19 @@ object ButtonTests extends TestSuite {
       }
     }
     'basic - {
-      val button = Button(Button.props(basic = true))
+      val button = Button(basic = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui basic button"></button>""")
       }
     }
     'className - {
-      val button = Button(Button.props(className = "extra"))
+      val button = Button(className = "extra")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui button extra"></button>""")
       }
     }
     'size - {
-      val button = Button(Button.props(size = Big))
+      val button = Button(size = Big)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui big button"></button>""")
       }

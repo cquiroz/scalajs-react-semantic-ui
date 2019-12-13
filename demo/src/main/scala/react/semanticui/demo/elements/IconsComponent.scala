@@ -3,25 +3,27 @@ package react.semanticui.demo
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import react.common.syntax._
+import react.common._
 import react.semanticui.elements.icon.IconFlip._
 import react.semanticui.elements.icon.IconRotated._
+import react.semanticui.elements.icon.IconCorner
 import react.semanticui.elements.icon._
 import react.semanticui.sizes._
 import react.semanticui.colors._
 
 object IconsComponent {
-  val IconMailOutline              = Icon(Icon.props(name = "mail outline"))
-  val IconSearch                   = Icon(Icon.props(name = "search"))
-  val IconFeed                     = Icon(Icon.props(name = "feed"))
-  val IconCloudUpload              = Icon(Icon.props(name = "cloud upload"))
-  val IconEdit                     = Icon(Icon.props(name = "edit"))
-  val IconDashboard                = Icon(Icon.props(name = "dashboard"))
-  val IconNewspaper                = Icon(Icon.props(name = "newspaper"))
-  val IconAreaChart                = Icon(Icon.props(name = "area chart"))
-  val IconTwitter                  = Icon(Icon.props(name = "twitter"))
-  val IconAdd                      = Icon(Icon.props(name = "add"))
-  val IconCircleThin               = Icon(Icon.props(name = "circle thin"))
-  val IconUser                     = Icon(Icon.props(name = "user"))
+  val IconMailOutline              = Icon(name = "mail outline")
+  val IconSearch                   = Icon(name = "search")
+  val IconFeed                     = Icon(name = "feed")
+  val IconCloudUpload              = Icon(name = "cloud upload")
+  val IconEdit                     = Icon(name = "edit")
+  val IconDashboard                = Icon(name = "dashboard")
+  val IconNewspaper                = Icon(name = "newspaper")
+  val IconAreaChart                = Icon(name = "area chart")
+  val IconTwitter                  = Icon(name = "twitter")
+  val IconAdd                      = Icon(name = "add")
+  val IconCircleThin               = Icon(name = "circle thin")
+  val IconUser                     = Icon(name = "user")
   val AllSizes: List[SemanticSize] = List(Mini, Tiny, Small, Medium, Large, Big, Huge, Massive)
   val AllColors: List[SemanticColor] =
     List(Red, Orange, Yellow, Olive, Green, Teal, Blue, Violet, Purple, Pink, Brown, Grey, Black)
@@ -138,7 +140,7 @@ object IconsComponent {
           section("Bordered", "Icons can have a border") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              IconNewspaper.bordered,
+              IconNewspaper.bordered(),
               <.p(
                 ^.cls := "name",
                 "bordered"
@@ -148,7 +150,7 @@ object IconsComponent {
           section("Circular", "Icons can be circular") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              IconAreaChart.circular,
+              IconAreaChart.circular(),
               <.p(
                 ^.cls := "name",
                 "circular"
@@ -158,7 +160,7 @@ object IconsComponent {
           section("Icon Group", "Icons can be grouped") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              IconGroup(IconGroup.props(size = Huge), IconCircleThin.size(Big), IconUser),
+              IconGroup(size = Huge)(IconCircleThin.size(Big), IconUser),
               <.p(
                 ^.cls := "name",
                 "icon group"
@@ -168,13 +170,7 @@ object IconsComponent {
           section("Corner Icon", "An icon can be in a corner") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              IconGroup(
-                IconGroup.props(size = Large,
-                                children = <.div(
-                                  IconTwitter,
-                                  IconAdd.corner
-                                ): VdomNode)
-              ),
+              IconGroup(size = Large)(IconTwitter, IconAdd.corner(IconCorner.BottomRight)),
               <.p(
                 ^.cls := "name",
                 "icon group"

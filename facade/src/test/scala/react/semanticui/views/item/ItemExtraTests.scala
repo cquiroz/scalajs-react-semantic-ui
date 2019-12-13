@@ -7,10 +7,10 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ItemExtraTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val pusher = ItemExtra(ItemExtra.props(), "Abc")
+      val ie = ItemExtra("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        pusher.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="extra">Abc</div></div>""")
+        ie.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="extra">Abc</div>""")
       }
     }
   }

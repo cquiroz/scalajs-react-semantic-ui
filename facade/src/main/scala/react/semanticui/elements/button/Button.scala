@@ -5,21 +5,58 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
 import react.semanticui.colors._
 import react.semanticui.floats._
 import react.semanticui.elements.label.Label.LabelProps
-import react.semanticui.elements.label.UnmountedLabel
+import react.semanticui.elements.label.Label
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.UnmountedIcon
+import react.semanticui.elements.icon.Icon
+
+final case class Button(
+  as:                    js.UndefOr[AsC]            = js.undefined,
+  active:                js.UndefOr[Boolean]        = js.undefined,
+  animated:              js.UndefOr[ButtonAnimated] = js.undefined,
+  attached:              js.UndefOr[ButtonAttached] = js.undefined,
+  basic:                 js.UndefOr[Boolean]        = js.undefined,
+  child:                 js.UndefOr[VdomNode]       = js.undefined,
+  circular:              js.UndefOr[Boolean]        = js.undefined,
+  className:             js.UndefOr[String]         = js.undefined,
+  clazz:                 js.UndefOr[Css]            = js.undefined,
+  color:                 js.UndefOr[SemanticColor]  = js.undefined,
+  compact:               js.UndefOr[Boolean]        = js.undefined,
+  content:               js.UndefOr[VdomNode]       = js.undefined,
+  disabled:              js.UndefOr[Boolean]        = js.undefined,
+  floated:               js.UndefOr[SemanticFloats] = js.undefined,
+  fluid:                 js.UndefOr[Boolean]        = js.undefined,
+  icon:                  js.UndefOr[Icon]           = js.undefined,
+  inverted:              js.UndefOr[Boolean]        = js.undefined,
+  label:                 js.UndefOr[Label]          = js.undefined,
+  labelPosition:         js.UndefOr[String]         = js.undefined,
+  loading:               js.UndefOr[Boolean]        = js.undefined,
+  negative:              js.UndefOr[Boolean]        = js.undefined,
+  onClickE:              js.UndefOr[Button.OnClick] = js.undefined,
+  onClick:               js.UndefOr[Callback]       = js.undefined,
+  positive:              js.UndefOr[Boolean]        = js.undefined,
+  primary:               js.UndefOr[Boolean]        = js.undefined,
+  role:                  js.UndefOr[Boolean]        = js.undefined,
+  secondary:             js.UndefOr[Boolean]        = js.undefined,
+  size:                  js.UndefOr[SemanticSize]   = js.undefined,
+  tabIndex:              js.UndefOr[TabIndex]       = js.undefined,
+  toggle:                js.UndefOr[Boolean]        = js.undefined,
+  override val children: CtorType.ChildrenArgs      = Seq.empty
+) extends GenericComponentPC[Button.ButtonProps] {
+  @inline def renderWith =
+    Button.component(Button.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Button {
   type OnClick = (ReactMouseEvent, ButtonProps) => Callback
@@ -66,7 +103,41 @@ object Button {
     var toggle: js.UndefOr[Boolean]                                           = js.native
   }
 
-  def props(
+  def props(q: Button): ButtonProps =
+    rawprops(
+      q.as,
+      q.active,
+      q.animated,
+      q.attached,
+      q.basic,
+      q.child,
+      q.circular,
+      q.className,
+      q.clazz,
+      q.color,
+      q.compact,
+      q.content,
+      q.disabled,
+      q.floated,
+      q.fluid,
+      q.icon,
+      q.inverted,
+      q.label,
+      q.labelPosition,
+      q.loading,
+      q.negative,
+      q.onClickE,
+      q.onClick,
+      q.positive,
+      q.primary,
+      q.role,
+      q.secondary,
+      q.size,
+      q.tabIndex,
+      q.toggle
+    )
+
+  def rawprops(
     as:            js.UndefOr[AsC]            = js.undefined,
     active:        js.UndefOr[Boolean]        = js.undefined,
     animated:      js.UndefOr[ButtonAnimated] = js.undefined,
@@ -82,9 +153,9 @@ object Button {
     disabled:      js.UndefOr[Boolean]        = js.undefined,
     floated:       js.UndefOr[SemanticFloats] = js.undefined,
     fluid:         js.UndefOr[Boolean]        = js.undefined,
-    icon:          js.UndefOr[UnmountedIcon]  = js.undefined,
+    icon:          js.UndefOr[Icon]           = js.undefined,
     inverted:      js.UndefOr[Boolean]        = js.undefined,
-    label:         js.UndefOr[UnmountedLabel] = js.undefined,
+    label:         js.UndefOr[Label]          = js.undefined,
     labelPosition: js.UndefOr[String]         = js.undefined,
     loading:       js.UndefOr[Boolean]        = js.undefined,
     negative:      js.UndefOr[Boolean]        = js.undefined,
@@ -133,14 +204,6 @@ object Button {
   private val component =
     JsComponent[ButtonProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        ButtonProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, ButtonProps, Null, RawMounted[ButtonProps, Null], ButtonProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, ButtonProps, Null, RawMounted[ButtonProps, Null], ButtonProps, Null] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): Button =
+    new Button(children = content)
 }

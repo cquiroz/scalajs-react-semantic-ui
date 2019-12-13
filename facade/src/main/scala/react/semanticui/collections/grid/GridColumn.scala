@@ -3,11 +3,11 @@ package react.semanticui.collections.grid
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.floats._
@@ -15,6 +15,31 @@ import react.semanticui.widths._
 import react.semanticui.colors._
 import react.semanticui.textalignment._
 import react.semanticui.verticalalignment._
+
+final case class GridColumn(
+  as:                    js.UndefOr[AsC]                       = js.undefined,
+  child:                 js.UndefOr[VdomNode]                  = js.undefined,
+  className:             js.UndefOr[String]                    = js.undefined,
+  clazz:                 js.UndefOr[Css]                       = js.undefined,
+  color:                 js.UndefOr[SemanticColor]             = js.undefined,
+  computer:              js.UndefOr[SemanticWidth]             = js.undefined,
+  floated:               js.UndefOr[SemanticFloats]            = js.undefined,
+  largeScreen:           js.UndefOr[SemanticWidth]             = js.undefined,
+  mobile:                js.UndefOr[SemanticWidth]             = js.undefined,
+  only:                  js.UndefOr[GridOnly]                  = js.undefined,
+  stretched:             js.UndefOr[Boolean]                   = js.undefined,
+  tablet:                js.UndefOr[SemanticWidth]             = js.undefined,
+  textAlign:             js.UndefOr[SemanticTextAlignment]     = js.undefined,
+  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  widescreen:            js.UndefOr[SemanticWidth]             = js.undefined,
+  width:                 js.UndefOr[SemanticWidth]             = js.undefined,
+  override val children: CtorType.ChildrenArgs                 = Seq.empty
+) extends GenericFnComponentPC[GridColumn.GridColumnProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    GridColumn.component(GridColumn.props(this))
+}
 
 object GridColumn {
   @js.native
@@ -77,7 +102,27 @@ object GridColumn {
     var width: js.UndefOr[suiraw.SemanticWIDTHS] = js.native // | 'equal'
   }
 
-  def props(
+  def props(q: GridColumn): GridColumnProps =
+    rawprops(
+      q.as,
+      q.child,
+      q.className,
+      q.clazz,
+      q.color,
+      q.computer,
+      q.floated,
+      q.largeScreen,
+      q.mobile,
+      q.only,
+      q.stretched,
+      q.tablet,
+      q.textAlign,
+      q.verticalAlign,
+      q.widescreen,
+      q.width
+    )
+
+  def rawprops(
     as:            js.UndefOr[AsC]                       = js.undefined,
     children:      js.UndefOr[VdomNode]                  = js.undefined,
     className:     js.UndefOr[String]                    = js.undefined,
@@ -117,17 +162,6 @@ object GridColumn {
   private val component =
     JsFnComponent[GridColumnProps, Children.Varargs](RawComponent)
 
-  def apply(p: GridColumnProps, children: VdomNode*): UnmountedWithRoot[
-    GridColumnProps,
-    Unit,
-    GridColumnProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    GridColumnProps,
-    Unit,
-    GridColumnProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): GridColumn =
+    new GridColumn(children = content)
 }

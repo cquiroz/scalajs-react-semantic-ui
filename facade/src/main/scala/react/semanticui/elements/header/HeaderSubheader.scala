@@ -3,13 +3,27 @@ package react.semanticui.elements.header
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class HeaderSubheader(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericFnComponentPC[HeaderSubheader.HeaderSubheaderProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    HeaderSubheader.component(HeaderSubheader.props(this))
+}
 
 object HeaderSubheader {
   @js.native
@@ -40,34 +54,18 @@ object HeaderSubheader {
   }
 
   def props(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined
+    q: HeaderSubheader
   ): HeaderSubheaderProps = {
     val p = (new js.Object).asInstanceOf[HeaderSubheaderProps]
-    p.as        = as.toJs
-    p.children  = children.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
+    p.as        = q.as.toJs
+    p.children  = q.child.toJs
+    p.className = (q.className, q.clazz).toJs
+    p.content   = q.content.toJs
     p
   }
 
   private val component =
     JsFnComponent[HeaderSubheaderProps, Children.Varargs](RawComponent)
 
-  def apply(p: HeaderSubheaderProps, children: VdomNode*): UnmountedWithRoot[
-    HeaderSubheaderProps,
-    Unit,
-    HeaderSubheaderProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    HeaderSubheaderProps,
-    Unit,
-    HeaderSubheaderProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): HeaderSubheader = new HeaderSubheader(children = content)
 }

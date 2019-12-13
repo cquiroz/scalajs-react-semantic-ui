@@ -4,14 +4,33 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.verticalalignment._
+
+final case class ItemContent(
+  as:                    js.UndefOr[AsC] = js.undefined,
+  child:                 js.UndefOr[VdomNode] = js.undefined,
+  className:             js.UndefOr[String] = js.undefined,
+  clazz:                 js.UndefOr[Css] = js.undefined,
+  content:               js.UndefOr[VdomNode] = js.undefined,
+  description:           js.UndefOr[VdomNode | ItemDescription.ItemDescriptionProps] = js.undefined,
+  extra:                 js.UndefOr[VdomNode | ItemExtra.ItemExtraProps] = js.undefined,
+  header:                js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps] = js.undefined,
+  meta:                  js.UndefOr[VdomNode | ItemMeta.ItemMetaProps] = js.undefined,
+  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val children: CtorType.ChildrenArgs
+) extends GenericFnComponentPC[ItemContent.ItemContentProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    ItemContent.component(ItemContent.props(this))
+}
 
 object ItemContent {
   @js.native
@@ -57,7 +76,19 @@ object ItemContent {
     var verticalAlign: js.UndefOr[suiraw.SemanticVERTICALALIGNMENTS] = js.native
   }
 
-  def props(
+  def props(q: ItemContent): ItemContentProps =
+    rawprops(q.as,
+             q.child,
+             q.className,
+             q.clazz,
+             q.content,
+             q.description,
+             q.extra,
+             q.header,
+             q.meta,
+             q.verticalAlign)
+
+  def rawprops(
     as:            js.UndefOr[AsC]                                             = js.undefined,
     children:      js.UndefOr[VdomNode]                                        = js.undefined,
     className:     js.UndefOr[String]                                          = js.undefined,
@@ -85,17 +116,6 @@ object ItemContent {
   private val component =
     JsFnComponent[ItemContentProps, Children.Varargs](RawComponent)
 
-  def apply(p: ItemContentProps, children: VdomNode*): UnmountedWithRoot[
-    ItemContentProps,
-    Unit,
-    ItemContentProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    ItemContentProps,
-    Unit,
-    ItemContentProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): ItemContent =
+    new ItemContent(children = content)
 }

@@ -7,26 +7,26 @@ import japgolly.scalajs.react.vdom.html_<^._
 object HeaderTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = Header(Header.props())
+      val header = Header()
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="ui header"></div></div>""")
+        header.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="ui header"></div>""")
       }
     }
     'renderAs - {
-      val menuItem = Header(Header.props(as = "a"))
+      val header = Header(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><a class="ui header"></a></div>""")
+        header.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<a class="ui header"></a>""")
       }
     }
     'subheader - {
-      val menuItem =
-        Header(Header.props(subheader = HeaderSubheader.props(content = "abc": VdomNode)))
+      val header =
+        Header(subheader = HeaderSubheader("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
+        header.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="ui header"><div class="sub header">abc</div></div></div>"""
+          mountNode.innerHTML == """<div class="ui header"><div class="sub header">abc</div></div>"""
         )
       }
     }

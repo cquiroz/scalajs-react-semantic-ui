@@ -4,11 +4,22 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.JsFnComponent
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.common.style._
 import react.common.syntax._
+import react.common._
+
+final case class DropdownDivider(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericFnComponentPC[DropdownDivider.DropdownDividerProps] {
+  @inline def renderWith = DropdownDivider.component(DropdownDivider.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object DropdownDivider {
   @js.native
@@ -32,7 +43,10 @@ object DropdownDivider {
     var className: js.UndefOr[String] = js.native
   }
 
-  def props(
+  def props(q: DropdownDivider): DropdownDividerProps =
+    rawprops(q.as, q.className, q.clazz)
+
+  def rawprops(
     as:        js.UndefOr[AsC]    = js.undefined,
     className: js.UndefOr[String] = js.undefined,
     clazz:     js.UndefOr[Css]    = js.undefined
@@ -47,13 +61,7 @@ object DropdownDivider {
     JsFnComponent[DropdownDividerProps, Children.Varargs](RawComponent)
 
   def apply(
-    p:        DropdownDividerProps,
     children: VdomNode*
-  ): UnmountedWithRoot[DropdownDividerProps, Unit, DropdownDividerProps] =
-    component(p)(children: _*)
-
-  def apply(
-    children: VdomNode*
-  ): UnmountedWithRoot[DropdownDividerProps, Unit, DropdownDividerProps] =
-    component(props())(children: _*)
+  ): DropdownDivider =
+    new DropdownDivider(children = children)
 }

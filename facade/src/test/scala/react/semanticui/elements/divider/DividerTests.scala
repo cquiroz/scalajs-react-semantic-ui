@@ -2,22 +2,35 @@ package react.semanticui.elements.divider
 
 import utest._
 import japgolly.scalajs.react.test._
+import japgolly.scalajs.react.vdom.html_<^._
+// import react.semanticui.elements.image.Image
+// import react.semanticui._
+import react.common._
 
 object DividerTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = Divider(Divider.props())
+      val divider = Divider()
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="ui divider"></div></div>""")
+        divider.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="ui divider"></div>""")
       }
     }
     'renderAs - {
-      val menuItem = Divider(Divider.props(as = "a"))
+      val divider = Divider(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><a class="ui divider"></a></div>""")
+        divider.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<a class="ui divider"></a>""")
       }
     }
+    //   'children - {
+    //     val divider = Divider(vertical = true)(<.div("abc"), Image(href = "cde"))
+    //     ReactTestUtils.withNewBodyElement { mountNode =>
+    //       divider.renderIntoDOM(mountNode)
+    //       assert(
+    //         mountNode.innerHTML == """<div class="ui vertical divider"><div>abc</div><a class="ui image" href="cde"><img></a></div>"""
+    //       )
+    //     }
+    //   }
   }
 }

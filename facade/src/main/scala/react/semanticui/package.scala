@@ -16,8 +16,8 @@ package semanticui {
   object As {
     import elements.segment.{ Segment => SUISegment }
     import collections.menu.{ Menu => SUIMenu }
-    import modules.sidebar.Sidebar.{ Pushable => SUIPushable }
-    import modules.sidebar.Sidebar.{ Pusher => SUIPusher }
+    import modules.sidebar.{ SidebarPushable => SUISidebarPushable }
+    import modules.sidebar.{ SidebarPusher => SUISidebarPusher }
     import modules.checkbox.{ Checkbox => SUICheckbox }
     import elements.header.{ Header => SUIHeader }
     import elements.image.{ Image => SUIImage }
@@ -25,42 +25,53 @@ package semanticui {
     import elements.loader.{ Loader => SUILoader }
     import elements.container.{ Container => SUIContainer }
 
-    final case class Segment(props: SUISegment.SegmentProps = SUISegment.props()) extends As {
+    final case class Segment(segment: SUISegment = SUISegment.Default) extends As {
       override type P = SUISegment.SegmentProps
+      override val props = SUISegment.props(segment)
     }
-    final case class SidebarPushable(props: SUIPushable.PushableProps) extends As {
-      override type P = SUIPushable.PushableProps
+    final case class SidebarPushable(pushable: SUISidebarPushable = SUISidebarPushable.Default)
+        extends As {
+      override type P = SUISidebarPushable.SidebarPushableProps
+      override val props = SUISidebarPushable.props(pushable)
     }
-    final case class SidebarPusher(props: SUIPusher.PusherProps) extends As {
-      override type P = SUIPusher.PusherProps
+    final case class SidebarPusher(pusher: SUISidebarPusher) extends As {
+      override type P = SUISidebarPusher.SidebarPusherProps
+      override val props = SUISidebarPusher.props(pusher)
     }
     final case class Header(props: SUIHeader.HeaderProps) extends As {
       override type P = SUIHeader.HeaderProps
     }
-    final case class Menu(props: SUIMenu.MenuProps = SUIMenu.props()) extends As {
+    final case class Menu(menu: SUIMenu = SUIMenu.Default) extends As {
       override type P = SUIMenu.MenuProps
+      override val props = SUIMenu.props(menu)
     }
-    final case class Image(props: SUIImage.ImageProps = SUIImage.props()) extends As {
+    final case class Image(image: SUIImage = SUIImage.Default) extends As {
       override type P = SUIImage.ImageProps
+      override val props = SUIImage.props(image)
     }
-    final case class Divider(props: SUIDivider.DividerProps = SUIDivider.props()) extends As {
+    final case class Divider(divider: SUIDivider = SUIDivider.Default) extends As {
       override type P = SUIDivider.DividerProps
+      override val props = SUIDivider.props(divider)
     }
-    final case class Checkbox(props: SUICheckbox.CheckboxProps = SUICheckbox.props()) extends As {
+    final case class Checkbox(check: SUICheckbox = SUICheckbox.Default) extends As {
       override type P = SUICheckbox.CheckboxProps
+      override val props = SUICheckbox.props(check)
     }
-    final case class Loader(props: SUILoader.LoaderProps = SUILoader.props()) extends As {
+    final case class Loader(loader: SUILoader = SUILoader.Default) extends As {
       override type P = SUILoader.LoaderProps
+      override val props = SUILoader.props(loader)
     }
-    final case class Container(props: SUIContainer.ContainerProps = SUIContainer.props())
-        extends As {
+    final case class Container(
+      container: SUIContainer = SUIContainer.Default
+    ) extends As {
       override type P = SUIContainer.ContainerProps
+      override val props = SUIContainer.props(container)
     }
 
     def asFn(a: As): AsT = a match {
       case Segment(_)         => SUISegment.RawComponent
-      case SidebarPushable(_) => SUIPushable.RawComponent
-      case SidebarPusher(_)   => SUIPusher.RawComponent
+      case SidebarPushable(_) => SUISidebarPushable.RawComponent
+      case SidebarPusher(_)   => SUISidebarPusher.RawComponent
       case Header(_)          => SUIHeader.RawComponent
       case Menu(_)            => SUIMenu.RawComponent
       case Image(_)           => SUIImage.RawComponent

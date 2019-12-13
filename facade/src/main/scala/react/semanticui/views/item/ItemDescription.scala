@@ -3,13 +3,27 @@ package react.semanticui.views.item
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class ItemDescription(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericFnComponentPC[ItemDescription.ItemDescriptionProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    ItemDescription.component(ItemDescription.props(this))
+}
 
 object ItemDescription {
   @js.native
@@ -39,7 +53,10 @@ object ItemDescription {
     var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
   }
 
-  def props(
+  def props(q: ItemDescription): ItemDescriptionProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content)
+
+  def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
@@ -57,17 +74,6 @@ object ItemDescription {
   private val component =
     JsFnComponent[ItemDescriptionProps, Children.Varargs](RawComponent)
 
-  def apply(p: ItemDescriptionProps, children: VdomNode*): UnmountedWithRoot[
-    ItemDescriptionProps,
-    Unit,
-    ItemDescriptionProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    ItemDescriptionProps,
-    Unit,
-    ItemDescriptionProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): ItemDescription =
+    new ItemDescription(children = content)
 }

@@ -7,9 +7,9 @@ import japgolly.scalajs.react.vdom.html_<^._
 object PopupTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val pusher = Popup(Popup.props(), "Abc")
+      val popup = Popup("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        pusher.renderIntoDOM(mountNode)
+        popup.renderIntoDOM(mountNode)
         assert(mountNode.outerHTML == """<div></div>""")
       }
     }
