@@ -29,7 +29,6 @@ object Popup {
 
   @js.native
   trait PopupProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -140,7 +139,6 @@ object Popup {
 
     /** Popup width. */
     var wide: js.UndefOr[Boolean | String] = js.native
-
   }
 
   def props(
@@ -214,5 +212,4 @@ object Popup {
     children: VdomNode*
   ): UnmountedMapped[Id, PopupProps, Null, RawMounted[PopupProps, Null], PopupProps, Null] =
     component(props())(children: _*)
-
 }

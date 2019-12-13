@@ -22,7 +22,6 @@ object DropdownMenu {
 
   @js.native
   trait DropdownMenuProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -85,5 +84,4 @@ object DropdownMenu {
     children: VdomNode*
   ): UnmountedMapped[Id, DropdownMenuProps, Null, RawMounted[DropdownMenuProps, Null], DropdownMenuProps, Null] =
     component(props())(children: _*)
-
 }

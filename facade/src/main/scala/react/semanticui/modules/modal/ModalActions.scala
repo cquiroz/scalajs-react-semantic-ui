@@ -25,7 +25,6 @@ object ModalActions {
 
   @js.native
   trait ModalActionsProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -102,5 +101,4 @@ object ModalActions {
     Null
   ] =
     component(props())(children: _*)
-
 }

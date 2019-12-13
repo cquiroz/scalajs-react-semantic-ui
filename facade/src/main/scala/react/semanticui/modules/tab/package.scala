@@ -9,7 +9,6 @@ package tab {
     case object Left extends TabMenuPosition
     case object Right extends TabMenuPosition
   }
-
 }
 
 package object tab

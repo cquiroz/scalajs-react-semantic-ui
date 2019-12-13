@@ -11,7 +11,8 @@ object ProgressTest extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         basic.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="ui progress" data-percent="0"><div class="bar" style="width: 0%;"></div><div class="label">Abc</div></div></div>""")
+          mountNode.outerHTML == """<div><div class="ui progress" data-percent="0"><div class="bar" style="width: 0%;"></div><div class="label">Abc</div></div></div>"""
+        )
       }
     }
   }

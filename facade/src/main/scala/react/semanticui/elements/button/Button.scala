@@ -30,7 +30,6 @@ object Button {
 
   @js.native
   trait ButtonProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

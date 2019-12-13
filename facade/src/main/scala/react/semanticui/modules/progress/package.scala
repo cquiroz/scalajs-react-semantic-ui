@@ -19,7 +19,6 @@ package progress {
     case object Ratio extends ProgressText
     case object Value extends ProgressText
   }
-
 }
 
 package object progress

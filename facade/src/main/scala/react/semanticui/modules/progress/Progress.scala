@@ -29,7 +29,6 @@ object Progress {
 
   @js.native
   trait ProgressProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -98,7 +97,6 @@ object Progress {
 
     /** A progress bar can show a warning state. */
     var warning: js.UndefOr[Boolean] = js.native
-
   }
 
   def props(

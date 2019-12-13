@@ -10,7 +10,6 @@ package header {
     case object Top extends HeaderAttached
     case object Bottom extends HeaderAttached
   }
-
 }
 
 package object header

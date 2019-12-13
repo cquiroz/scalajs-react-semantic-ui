@@ -11,7 +11,8 @@ object TabPaneTest extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         basic.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="ui bottom attached segment active tab">Abc</div></div>""")
+          mountNode.outerHTML == """<div><div class="ui bottom attached segment active tab">Abc</div></div>"""
+        )
       }
     }
   }

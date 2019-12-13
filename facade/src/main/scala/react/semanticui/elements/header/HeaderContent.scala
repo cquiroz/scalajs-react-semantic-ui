@@ -12,7 +12,6 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 object HeaderContent {
-
   @js.native
   @JSImport("semantic-ui-react", "HeaderContent")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -21,7 +20,6 @@ object HeaderContent {
 
   @js.native
   trait HeaderContentProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -72,5 +70,4 @@ object HeaderContent {
     HeaderContentProps
   ] =
     component(props())(children: _*)
-
 }

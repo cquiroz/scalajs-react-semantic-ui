@@ -12,7 +12,6 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 object ModalContent {
-
   @js.native
   @JSImport("semantic-ui-react", "ModalContent")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -21,7 +20,6 @@ object ModalContent {
 
   @js.native
   trait ModalContentProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -82,5 +80,4 @@ object ModalContent {
     ModalContentProps
   ] =
     component(props())(children: _*)
-
 }

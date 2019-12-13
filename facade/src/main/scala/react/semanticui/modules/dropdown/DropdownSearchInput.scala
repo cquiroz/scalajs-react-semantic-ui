@@ -19,7 +19,6 @@ object DropdownSearchInput {
 
   @js.native
   trait DropdownSearchInputProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -69,11 +68,10 @@ object DropdownSearchInput {
 
   def apply(
     p: DropdownSearchInputProps
-  )
-    : UnmountedMapped[Id, DropdownSearchInputProps, Null, RawMounted[
-      DropdownSearchInputProps,
-      Null
-    ], DropdownSearchInputProps, Null] =
+  ): UnmountedMapped[Id, DropdownSearchInputProps, Null, RawMounted[
+    DropdownSearchInputProps,
+    Null
+  ], DropdownSearchInputProps, Null] =
     component(p)
 
   def apply: UnmountedMapped[Id, DropdownSearchInputProps, Null, RawMounted[
@@ -81,5 +79,4 @@ object DropdownSearchInput {
     Null
   ], DropdownSearchInputProps, Null] =
     component(props())
-
 }

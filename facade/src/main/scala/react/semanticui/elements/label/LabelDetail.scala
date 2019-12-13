@@ -15,14 +15,12 @@ import react.common.syntax._
 import react.common.style._
 
 object LabelDetail {
-
   @js.native
   @JSImport("semantic-ui-react", "LabelDetail")
   object RawComponent extends js.Object
 
   @js.native
   trait LabelDetailProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -66,5 +64,4 @@ object LabelDetail {
     Null
   ], LabelDetailProps, Null] =
     component(props())(children: _*)
-
 }

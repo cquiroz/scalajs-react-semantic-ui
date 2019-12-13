@@ -29,7 +29,6 @@ object Segment {
 
   @js.native
   trait SegmentProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -127,5 +126,4 @@ object Segment {
 
   def apply(children: VdomNode*): UnmountedWithRoot[SegmentProps, Unit, SegmentProps] =
     component(props())(children: _*)
-
 }

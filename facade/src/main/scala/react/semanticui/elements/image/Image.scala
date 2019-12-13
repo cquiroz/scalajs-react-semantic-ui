@@ -24,7 +24,6 @@ object Image {
 
   @js.native
   trait ImageProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

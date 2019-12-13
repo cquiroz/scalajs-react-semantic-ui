@@ -19,7 +19,6 @@ import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.UnmountedIcon
 
 object Label {
-
   type OnClick = (ReactMouseEvent, LabelProps) => Callback
 
   @js.native
@@ -28,7 +27,6 @@ object Label {
 
   @js.native
   trait LabelProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

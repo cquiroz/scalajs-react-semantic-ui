@@ -9,7 +9,6 @@ package item {
     case object Relaxed extends ItemRelaxed
     case object Very extends ItemRelaxed
   }
-
 }
 
 package object item

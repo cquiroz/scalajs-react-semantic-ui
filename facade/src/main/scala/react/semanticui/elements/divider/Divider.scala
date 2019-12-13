@@ -14,7 +14,6 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 
 object Divider {
-
   @js.native
   @JSImport("semantic-ui-react", "Divider")
   private[semanticui] object RawComponent extends js.Function1[js.Any, js.Any] {
