@@ -21,7 +21,6 @@ object ButtonContent {
   }
   @js.native
   trait ButtonContentProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -69,7 +68,10 @@ object ButtonContent {
   private val component =
     JsComponent[ButtonContentProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: ButtonContentProps, children: VdomNode*): UnmountedMapped[Id, ButtonContentProps, Null, RawMounted[
+  def apply(
+    p:        ButtonContentProps,
+    children: VdomNode*
+  ): UnmountedMapped[Id, ButtonContentProps, Null, RawMounted[
     ButtonContentProps,
     Null
   ], ButtonContentProps, Null] =

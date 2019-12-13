@@ -28,7 +28,6 @@ object Menu {
 
   @js.native
   trait MenuProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -185,5 +184,4 @@ object Menu {
     children: VdomNode*
   ): UnmountedMapped[Id, MenuProps, Null, RawMounted[MenuProps, Null], MenuProps, Null] =
     component(props())(children: _*)
-
 }

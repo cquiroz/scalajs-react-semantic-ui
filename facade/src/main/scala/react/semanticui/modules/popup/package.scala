@@ -7,14 +7,14 @@ package popup {
   sealed trait PopupPosition extends Product with Serializable
   object PopupPosition {
     implicit val enum: EnumValue[PopupPosition] = EnumValue.instance {
-      case TopLeft    => "top left"
-      case TopRight       => "top right"
+      case TopLeft      => "top left"
+      case TopRight     => "top right"
       case BottomRight  => "bottom right"
-      case BottomLeft    => "bottom left"
-      case RightCenter   => "right center"
+      case BottomLeft   => "bottom left"
+      case RightCenter  => "right center"
       case LeftCenter   => "left center"
-      case TopCenter   => "top center"
-      case BottomCenter   => "bottom center"
+      case TopCenter    => "top center"
+      case BottomCenter => "bottom center"
     }
     case object TopLeft extends PopupPosition
     case object TopRight extends PopupPosition

@@ -71,7 +71,6 @@ object Dropdown {
 
   @js.native
   trait DropdownProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -343,7 +342,6 @@ object Dropdown {
       * or go to the first when ArrowDown is pressed on the last( aka infinite selection )
       */
     var wrapSelection: js.UndefOr[Boolean] = js.native
-
   }
 
   def props(
@@ -528,5 +526,4 @@ object Dropdown {
   def apply
     : UnmountedMapped[Id, DropdownProps, Null, RawMounted[DropdownProps, Null], DropdownProps, Null] =
     component(props())
-
 }

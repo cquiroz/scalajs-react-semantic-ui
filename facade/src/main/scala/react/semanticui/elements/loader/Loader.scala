@@ -22,7 +22,6 @@ object Loader {
 
   @js.native
   trait LoaderProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -58,7 +57,6 @@ object Loader {
 
     /** Loaders can have different sizes. */
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
-
   }
 
   def props(

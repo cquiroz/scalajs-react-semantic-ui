@@ -36,7 +36,6 @@ object DropdownItem {
 
   @js.native
   trait DropdownItemProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -95,7 +94,6 @@ object DropdownItem {
 
     /** Stored value. */
     var value: js.UndefOr[Boolean | JsNumber | String] = js.native
-
   }
 
   def props(
@@ -149,5 +147,4 @@ object DropdownItem {
     children: VdomNode*
   ): UnmountedMapped[Id, DropdownItemProps, Null, RawMounted[DropdownItemProps, Null], DropdownItemProps, Null] =
     component(props())(children: _*)
-
 }

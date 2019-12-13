@@ -20,7 +20,6 @@ object MenuMenu {
 
   @js.native
   trait MenuMenuProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -76,5 +75,4 @@ object MenuMenu {
     MenuMenuProps
   ] =
     component(props())(children: _*)
-
 }

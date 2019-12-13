@@ -13,7 +13,6 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 object Item {
-
   @js.native
   @JSImport("semantic-ui-react", "Item")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -22,7 +21,6 @@ object Item {
 
   @js.native
   trait ItemProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -56,7 +54,6 @@ object Item {
 
     /** Shorthand for ItemMeta component. */
     var meta: js.UndefOr[suiraw.SemanticShorthandItem[ItemMeta.ItemMetaProps]] = js.native
-
   }
 
   def props(
@@ -98,5 +95,4 @@ object Item {
     ItemProps
   ] =
     component(props())(children: _*)
-
 }

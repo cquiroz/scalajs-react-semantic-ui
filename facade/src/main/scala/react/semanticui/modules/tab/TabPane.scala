@@ -21,7 +21,6 @@ object TabPane {
 
   @js.native
   trait TabPaneProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -77,5 +76,4 @@ object TabPane {
 
   def apply(children: VdomNode*): UnmountedWithRoot[TabPaneProps, Unit, TabPaneProps] =
     component(props())(children: _*)
-
 }

@@ -71,7 +71,6 @@ package menu {
     case object Tabular extends MenuTabular
     case object Right extends MenuTabular
   }
-
 }
 
 package object menu

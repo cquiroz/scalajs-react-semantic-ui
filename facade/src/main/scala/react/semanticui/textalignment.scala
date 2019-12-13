@@ -10,7 +10,6 @@ package textalignment {
 }
 
 package object textalignment {
-
   case object Left extends SemanticTextAlignment
   case object Center extends SemanticTextAlignment
   case object Right extends SemanticTextAlignment

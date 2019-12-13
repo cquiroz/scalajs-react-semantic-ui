@@ -26,7 +26,6 @@ object Sidebar {
 
   @js.native
   trait SidebarProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -99,7 +98,6 @@ object Sidebar {
 
     @js.native
     trait PushableProps extends js.Object {
-
       @JSBracketAccess
       def apply(key: String): js.Any = js.native
 
@@ -145,7 +143,6 @@ object Sidebar {
 
     @js.native
     trait PusherProps extends js.Object {
-
       @JSBracketAccess
       def apply(key: String): js.Any = js.native
 
@@ -191,5 +188,4 @@ object Sidebar {
     ] =
       component(props())(children: _*)
   }
-
 }

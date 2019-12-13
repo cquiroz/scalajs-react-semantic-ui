@@ -26,7 +26,6 @@ object Confirm {
 
   @js.native
   trait ModalProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -68,7 +67,6 @@ object Confirm {
     /** A modal can vary in size. */
     //size?: 'mini' | 'tiny' | 'small' | 'large' | 'fullscreen'
     var size: js.UndefOr[String] = js.native
-
   }
 
   def props(
@@ -117,5 +115,4 @@ object Confirm {
     Null
   ] =
     component(props())(children: _*)
-
 }

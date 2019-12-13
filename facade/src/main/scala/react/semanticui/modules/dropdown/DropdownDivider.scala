@@ -19,7 +19,6 @@ object DropdownDivider {
 
   @js.native
   trait DropdownDividerProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -57,5 +56,4 @@ object DropdownDivider {
     children: VdomNode*
   ): UnmountedWithRoot[DropdownDividerProps, Unit, DropdownDividerProps] =
     component(props())(children: _*)
-
 }

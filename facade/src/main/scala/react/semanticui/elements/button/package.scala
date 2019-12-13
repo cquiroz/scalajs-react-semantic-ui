@@ -20,7 +20,6 @@ package button {
     case object Right extends ButtonAttached
     case object Left extends ButtonAttached
   }
-
 }
 
 package object button

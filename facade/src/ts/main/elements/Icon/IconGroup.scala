@@ -3,7 +3,6 @@ import js.annotation._
 import js.|
 
 package importedjs {
-
   @js.native
   trait IconGroupProps extends js.Object {
     @JSBracketAccess
@@ -22,5 +21,4 @@ package importedjs {
   object Importedjs extends js.Object {
     val IconGroup: React.StatelessComponent[IconGroupProps] = js.native
   }
-
 }

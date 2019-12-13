@@ -25,7 +25,6 @@ object Header {
 
   @js.native
   trait HeaderProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -83,7 +82,6 @@ object Header {
 
     /** Align header content. */
     var textAlign: js.UndefOr[suiraw.SemanticTEXTALIGNMENTS] = js.native
-
   }
 
   def props(

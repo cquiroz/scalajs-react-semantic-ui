@@ -35,7 +35,6 @@ package grid {
       case MobileVertically   => "mobile vertically"
       case Tablet             => "tablet"
       case TabletVertically   => "tablet vertically"
-
     }
 
     final case class Value(str: String) extends GridReversed
@@ -83,7 +82,6 @@ package grid {
     case object NotDivided extends GridDivided
     case object Vertically extends GridDivided
   }
-
 }
 
 package object grid

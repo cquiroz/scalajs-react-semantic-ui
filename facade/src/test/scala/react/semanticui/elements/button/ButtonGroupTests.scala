@@ -19,7 +19,8 @@ object ButtonGroupTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         buttonGroup.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="ui buttons"><button class="ui button">1</button><button class="ui button">2</button></div></div>""")
+          mountNode.outerHTML == """<div><div class="ui buttons"><button class="ui button">1</button><button class="ui button">2</button></div></div>"""
+        )
       }
     }
   }

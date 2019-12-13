@@ -36,7 +36,8 @@ object DropdownTests extends TestSuite {
                        defaultOpen      = true,
                        additionPosition = AdditionPosition.Top,
                        allowAdditions   = true,
-                       additionLabel    = "add"))
+                       additionLabel    = "add")
+      )
       ReactTestUtils.withNewBodyElement { mountNode =>
         dropdown.renderIntoDOM(mountNode)
         assert(

@@ -12,7 +12,6 @@ import react.common.style._
 import react.common.syntax._
 
 object Flag {
-
   @js.native
   @JSImport("semantic-ui-react", "Flag")
   private[semanticui] object RawComponent extends js.Function1[js.Any, js.Any] {

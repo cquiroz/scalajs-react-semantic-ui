@@ -12,7 +12,6 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 object ItemDescription {
-
   @js.native
   @JSImport("semantic-ui-react", "ItemDescription")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -21,7 +20,6 @@ object ItemDescription {
 
   @js.native
   trait ItemDescriptionProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -72,5 +70,4 @@ object ItemDescription {
     ItemDescriptionProps
   ] =
     component(props())(children: _*)
-
 }

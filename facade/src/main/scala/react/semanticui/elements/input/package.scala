@@ -30,7 +30,6 @@ package input {
     case object LeftCorner extends LabelPosition
     case object RightCorner extends LabelPosition
   }
-
 }
 
 package object input

@@ -27,7 +27,6 @@ object Input {
 
   @js.native
   trait InputProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -101,7 +100,6 @@ object Input {
 
     /** The HTML input type. */
     var `type`: js.UndefOr[String] = js.native
-
   }
 
   def props(

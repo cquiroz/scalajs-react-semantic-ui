@@ -12,7 +12,6 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 object PopupHeader {
-
   @js.native
   @JSImport("semantic-ui-react", "PopupHeader")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -21,7 +20,6 @@ object PopupHeader {
 
   @js.native
   trait PopupHeaderProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -73,5 +71,4 @@ object PopupHeader {
     PopupHeaderProps
   ] =
     component(props())(children: _*)
-
 }

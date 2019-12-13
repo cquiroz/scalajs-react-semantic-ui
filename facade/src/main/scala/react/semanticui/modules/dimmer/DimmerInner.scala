@@ -25,7 +25,6 @@ object DimmerInner {
 
   @js.native
   trait DimmerInnerProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -78,7 +77,6 @@ object DimmerInner {
 
     /** A dimmer can have its content top or bottom aligned. */
     var verticalAlign: js.UndefOr[String] = js.native
-
   }
 
   def props(
@@ -135,5 +133,4 @@ object DimmerInner {
     Null
   ] =
     component(props())(children: _*)
-
 }

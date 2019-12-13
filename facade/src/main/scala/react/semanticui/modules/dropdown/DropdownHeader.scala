@@ -25,7 +25,6 @@ object DropdownHeader {
 
   @js.native
   trait DropdownHeaderProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -78,5 +77,4 @@ object DropdownHeader {
     children: VdomNode*
   ): UnmountedMapped[Id, DropdownHeaderProps, Null, RawMounted[DropdownHeaderProps, Null], DropdownHeaderProps, Null] =
     component(props())(children: _*)
-
 }
