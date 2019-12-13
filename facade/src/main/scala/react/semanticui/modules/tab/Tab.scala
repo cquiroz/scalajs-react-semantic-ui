@@ -23,7 +23,6 @@ object Tab {
 
   @js.native
   trait TabProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -78,7 +77,6 @@ object Tab {
 
     /** A Tab can render only active pane. */
     var renderActiveOnly: js.UndefOr[Boolean]
-
   }
 
   def props(
@@ -115,5 +113,4 @@ object Tab {
 
   def apply: UnmountedMapped[Id, TabProps, Null, RawMounted[TabProps, Null], TabProps, Null] =
     component(props())
-
 }

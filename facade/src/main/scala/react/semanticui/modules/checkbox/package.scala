@@ -9,7 +9,6 @@ package checkbox {
     case object Checkbox extends CheckboxType
     case object Radio extends CheckboxType
   }
-
 }
 
 package object checkbox

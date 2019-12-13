@@ -11,7 +11,8 @@ object CheckboxTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="ui fitted checkbox"><input class="hidden" readonly="" tabindex="0" type="checkbox" value=""><label></label></div></div>""")
+          mountNode.outerHTML == """<div><div class="ui fitted checkbox"><input class="hidden" readonly="" tabindex="0" type="checkbox" value=""><label></label></div></div>"""
+        )
       }
     }
   }

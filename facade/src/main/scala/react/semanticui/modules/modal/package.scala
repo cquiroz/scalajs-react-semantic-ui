@@ -23,7 +23,6 @@ package modal {
     case object Large extends ModalSize
     case object Fullscreen extends ModalSize
   }
-
 }
 
 package object menu

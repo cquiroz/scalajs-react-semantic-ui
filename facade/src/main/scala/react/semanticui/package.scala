@@ -70,7 +70,6 @@ package semanticui {
       case Container(_)       => SUIContainer.RawComponent
     }
   }
-
 }
 
 package object semanticui {

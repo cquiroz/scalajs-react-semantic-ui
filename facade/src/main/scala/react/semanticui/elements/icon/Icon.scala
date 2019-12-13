@@ -16,14 +16,12 @@ import scala.scalajs.js.|
 import js.annotation._
 
 object Icon {
-
   @js.native
   @JSImport("semantic-ui-react", "Icon")
   object RawComponent extends js.Object
 
   @js.native
   trait IconProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -140,5 +138,4 @@ object Icon {
     children: VdomNode*
   ): UnmountedMapped[Id, IconProps, Null, RawMounted[IconProps, Null], IconProps, Null] =
     component(props(name = name))(children: _*)
-
 }

@@ -9,14 +9,12 @@ import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.internal.Effect.Id
 
 object Dimmer {
-
   @js.native
   @JSImport("semantic-ui-react", "Dimmer")
   object RawComponent extends js.Object
 
   @js.native
   trait DimmerProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -28,7 +26,6 @@ object Dimmer {
 
     /** A dimmer can be formatted to be fixed to the page. */
     var page: js.UndefOr[Boolean] = js.native
-
   }
 
   def props(
@@ -63,5 +60,4 @@ object Dimmer {
     Null
   ] =
     component(props())(children: _*)
-
 }

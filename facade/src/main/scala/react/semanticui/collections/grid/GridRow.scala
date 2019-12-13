@@ -15,7 +15,6 @@ import react.semanticui.textalignment._
 import react.semanticui.verticalalignment._
 
 object GridRow {
-
   @js.native
   @JSImport("semantic-ui-react", "GridRow")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -24,7 +23,6 @@ object GridRow {
 
   @js.native
   trait GridRowProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -66,7 +64,6 @@ object GridRow {
 
     /** A row can specify its vertical alignment to have all its columns vertically centered. */
     var verticalAlign: js.UndefOr[suiraw.SemanticVERTICALALIGNMENTS] = js.native
-
   }
 
   def props(
@@ -114,5 +111,4 @@ object GridRow {
     GridRowProps
   ] =
     component(props())(children: _*)
-
 }

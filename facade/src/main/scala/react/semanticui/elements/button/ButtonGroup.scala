@@ -26,7 +26,6 @@ object ButtonGroup {
 
   @js.native
   trait ButtonGroupProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

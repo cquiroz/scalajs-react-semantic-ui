@@ -170,10 +170,11 @@ object IconsComponent {
               ^.cls := "column docs-icon-set-column",
               IconGroup(
                 IconGroup.props(size = Large,
-                                 children = <.div(
-                                   IconTwitter,
-                                   IconAdd.corner
-                                 ): VdomNode)),
+                                children = <.div(
+                                  IconTwitter,
+                                  IconAdd.corner
+                                ): VdomNode)
+              ),
               <.p(
                 ^.cls := "name",
                 "icon group"

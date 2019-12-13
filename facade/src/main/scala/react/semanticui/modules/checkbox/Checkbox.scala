@@ -25,7 +25,6 @@ object Checkbox {
 
   @js.native
   trait CheckboxProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

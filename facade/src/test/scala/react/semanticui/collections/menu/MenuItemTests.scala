@@ -22,7 +22,8 @@ object MenuItemTests extends TestSuite {
       val button = MenuItem(MenuItem.props(as = "a", icon = Icon(Icon.props(name = "comment"))))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<a class="icon item"><i aria-hidden="true" class="comment icon"></i></a>""")
+          m.outerHtmlScrubbed() == """<a class="icon item"><i aria-hidden="true" class="comment icon"></i></a>"""
+        )
       }
     }
   }

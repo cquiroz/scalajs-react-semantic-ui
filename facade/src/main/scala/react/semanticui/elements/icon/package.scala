@@ -37,21 +37,19 @@ package icon {
     case object TopLeft extends IconCorner
     case object BottomLeft extends IconCorner
   }
-
 }
 
 package object icon {
-
   type UnmountedIcon = japgolly.scalajs.react.component.Js.UnmountedMapped[
     japgolly.scalajs.react.internal.Effect.Id,
     Icon.IconProps,
     Null,
     japgolly.scalajs.react.component.Js.RawMounted[Icon.IconProps, Null],
     Icon.IconProps,
-    Null]
+    Null
+  ]
 
   implicit class CopyIconOps(val i: UnmountedIcon) extends AnyVal {
-
     def copy: UnmountedIcon =
       Icon(
         Icon.rawprops(
@@ -70,7 +68,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def size(s: SemanticSize): UnmountedIcon =
       Icon(
@@ -92,7 +91,8 @@ package object icon {
           size =
             if (s == sizes.Medium) js.undefined
             else s.toJs
-        ))
+        )
+      )
 
     def color(s: SemanticColor): UnmountedIcon =
       Icon(
@@ -112,7 +112,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def flipped(s: IconFlip): UnmountedIcon =
       Icon(
@@ -132,7 +133,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def rotated(s: IconRotated): UnmountedIcon =
       Icon(
@@ -152,7 +154,8 @@ package object icon {
           name      = i.props.name,
           rotated   = s.toJs,
           size      = i.props.size
-        ))
+        )
+      )
 
     def bordered: UnmountedIcon =
       Icon(
@@ -172,7 +175,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def circular: UnmountedIcon =
       Icon(
@@ -192,7 +196,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def className(c: String): UnmountedIcon =
       Icon(
@@ -212,7 +217,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def corner: UnmountedIcon =
       Icon(
@@ -232,7 +238,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def disabled: UnmountedIcon =
       Icon(
@@ -252,7 +259,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def fitted: UnmountedIcon =
       Icon(
@@ -272,7 +280,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def inverted: UnmountedIcon =
       Icon(
@@ -292,7 +301,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def link: UnmountedIcon =
       Icon(
@@ -312,7 +322,8 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
+        )
+      )
 
     def loading: UnmountedIcon =
       Icon(
@@ -332,7 +343,7 @@ package object icon {
           name      = i.props.name,
           rotated   = i.props.rotated,
           size      = i.props.size
-        ))
-
+        )
+      )
   }
 }

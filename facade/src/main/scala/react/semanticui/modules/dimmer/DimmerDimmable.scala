@@ -12,7 +12,6 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 object DimmerDimmable {
-
   @js.native
   @JSImport("semantic-ui-react", "DimmerDimmable")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -21,7 +20,6 @@ object DimmerDimmable {
 
   @js.native
   trait DimmerDimmableProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -82,5 +80,4 @@ object DimmerDimmable {
     DimmerDimmableProps
   ] =
     component(props())(children: _*)
-
 }

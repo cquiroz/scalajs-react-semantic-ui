@@ -15,14 +15,12 @@ import scala.scalajs.js
 import js.annotation._
 
 object IconGroup {
-
   @js.native
   @JSImport("semantic-ui-react", "Icon.Group")
   object RawComponent extends js.Object
 
   @js.native
   trait IconGroupProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

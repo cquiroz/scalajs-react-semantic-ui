@@ -9,6 +9,6 @@ package object flag {
     Null,
     japgolly.scalajs.react.component.Js.RawMounted[Flag.FlagProps, Null],
     Flag.FlagProps,
-    Null]
-
+    Null
+  ]
 }

@@ -9,7 +9,6 @@ package dimmer {
     case object Bottom extends DimmerVerticalAlign
     case object Top extends DimmerVerticalAlign
   }
-
 }
 
 package object dimmer

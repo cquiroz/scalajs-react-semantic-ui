@@ -21,7 +21,6 @@ object Container {
 
   @js.native
   trait ContainerProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

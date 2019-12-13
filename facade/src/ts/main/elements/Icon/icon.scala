@@ -3,7 +3,6 @@ import js.annotation._
 import js.|
 
 package importedjs {
-
   @js.native
   trait IconProps extends js.Object {
     @JSBracketAccess
@@ -36,5 +35,4 @@ package importedjs {
   object Icon extends js.Object {
     var Group: IconGroup.type = js.native
   }
-
 }

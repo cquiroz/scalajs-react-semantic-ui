@@ -26,7 +26,6 @@ object MenuItem {
 
   @js.native
   trait MenuItemProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -138,5 +137,4 @@ object MenuItem {
     Null
   ], MenuItemProps, Null] =
     component(props())(children: _*)
-
 }

@@ -21,7 +21,6 @@ object ButtonOr {
   }
   @js.native
   trait ButtonOrProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

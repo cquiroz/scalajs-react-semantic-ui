@@ -17,7 +17,6 @@ import react.semanticui.textalignment._
 import react.semanticui.verticalalignment._
 
 object GridColumn {
-
   @js.native
   @JSImport("semantic-ui-react", "GridColumn")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -26,7 +25,6 @@ object GridColumn {
 
   @js.native
   trait GridColumnProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -77,7 +75,6 @@ object GridColumn {
 
     /** Represents width of column. */
     var width: js.UndefOr[suiraw.SemanticWIDTHS] = js.native // | 'equal'
-
   }
 
   def props(
@@ -133,5 +130,4 @@ object GridColumn {
     GridColumnProps
   ] =
     component(props())(children: _*)
-
 }

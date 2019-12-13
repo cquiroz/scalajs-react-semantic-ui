@@ -43,8 +43,9 @@ object LabelTests extends TestSuite {
       val labelDetail = LabelDetail(LabelDetail.props(), "Detail")
       val label       = Label(Label.props(detail = labelDetail.vdomElement))
       ReactTestUtils.withRenderedIntoDocument(label) { m =>
-        assert(m
-          .outerHtmlScrubbed() == """<div class="ui label"><div class="detail">Detail</div></div>""")
+        assert(
+          m.outerHtmlScrubbed() == """<div class="ui label"><div class="detail">Detail</div></div>"""
+        )
       }
     }
     'detailProps - {
@@ -53,7 +54,8 @@ object LabelTests extends TestSuite {
       val label = Label(Label.props(detail = labelDetail))
       ReactTestUtils.withRenderedIntoDocument(label) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<div class="ui label"><div class="detail test"><div>Detail</div></div></div>""")
+          m.outerHtmlScrubbed() == """<div class="ui label"><div class="detail test"><div>Detail</div></div></div>"""
+        )
       }
     }
     'active - {
@@ -66,21 +68,24 @@ object LabelTests extends TestSuite {
       val label = Label(Label.props(icon = Icon(Icon.props(name = "comment"))))
       ReactTestUtils.withRenderedIntoDocument(label) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i></div>""")
+          m.outerHtmlScrubbed() == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i></div>"""
+        )
       }
     }
     'iconAndText - {
       val label = Label(Label.props(), Icon(Icon.props(name = "comment")), "23")
       ReactTestUtils.withRenderedIntoDocument(label) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i>23</div>""")
+          m.outerHtmlScrubbed() == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i>23</div>"""
+        )
       }
     }
     'imageAndDetail - {
       val label = Label(Label.props(as = "a", image = true), <.img(^.src := "image.jpg"), "img")
       ReactTestUtils.withRenderedIntoDocument(label) { m =>
         assert(
-          m.outerHtmlScrubbed() == """<a class="ui image label"><img src="image.jpg">img</a>""")
+          m.outerHtmlScrubbed() == """<a class="ui image label"><img src="image.jpg">img</a>"""
+        )
       }
     }
     'tag - {

@@ -14,7 +14,6 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui.verticalalignment._
 
 object ItemContent {
-
   @js.native
   @JSImport("semantic-ui-react", "ItemContent")
   object RawComponent extends js.Function1[js.Any, js.Any] {
@@ -23,7 +22,6 @@ object ItemContent {
 
   @js.native
   trait ItemContentProps extends js.Object {
-
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -57,7 +55,6 @@ object ItemContent {
 
     /** Content can specify its vertical alignment. */
     var verticalAlign: js.UndefOr[suiraw.SemanticVERTICALALIGNMENTS] = js.native
-
   }
 
   def props(
@@ -101,5 +98,4 @@ object ItemContent {
     ItemContentProps
   ] =
     component(props())(children: _*)
-
 }

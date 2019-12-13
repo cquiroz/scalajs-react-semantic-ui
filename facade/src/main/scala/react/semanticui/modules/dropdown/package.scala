@@ -36,7 +36,6 @@ package dropdown {
       case Bottom      => "bottom"
       case BottomLeft  => "bottom left"
       case BottomRight => "bottom right"
-
     }
     case object Left extends Pointing
     case object Right extends Pointing
@@ -47,7 +46,6 @@ package dropdown {
     case object BottomLeft extends Pointing
     case object BottomRight extends Pointing
   }
-
 }
 
 package object dropdown

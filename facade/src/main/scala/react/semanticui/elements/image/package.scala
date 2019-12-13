@@ -10,16 +10,15 @@ package image {
     case object Left extends ImageSpaced
     case object Right extends ImageSpaced
   }
-
 }
 
 package object image {
-
   type UnmountedImage = japgolly.scalajs.react.component.Js.UnmountedMapped[
     japgolly.scalajs.react.internal.Effect.Id,
     Image.ImageProps,
     Null,
     japgolly.scalajs.react.component.Js.RawMounted[Image.ImageProps, Null],
     Image.ImageProps,
-    Null]
+    Null
+  ]
 }

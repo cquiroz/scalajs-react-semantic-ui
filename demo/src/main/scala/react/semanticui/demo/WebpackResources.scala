@@ -4,7 +4,6 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
 object WebpackResources {
-
   // marker trait
   trait WebpackResource extends js.Object
 
@@ -15,5 +14,4 @@ object WebpackResources {
   @JSImport("images/avatar/small/ade.jpg", JSImport.Default)
   @js.native
   object AdaAvatar extends WebpackResource
-
 }
