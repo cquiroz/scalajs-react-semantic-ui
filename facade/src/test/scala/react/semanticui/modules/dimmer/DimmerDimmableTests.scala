@@ -6,11 +6,11 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object DimmerDimmableTests extends TestSuite {
   val tests = Tests {
-    'pusher - {
-      val pusher = DimmerDimmable(DimmerDimmable.props(), "Abc")
+    'dimmer - {
+      val dimmer = DimmerDimmable("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        pusher.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="dimmable">Abc</div></div>""")
+        dimmer.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="dimmable">Abc</div>""")
       }
     }
   }

@@ -5,17 +5,30 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common._
 import react.semanticui.collections.menu.Menu
 import react.semanticui.collections.grid.Grid
 import react.semanticui._
 
+final case class Tab(
+  as:                 js.UndefOr[AsC]                      = js.undefined,
+  defaultActiveIndex: js.UndefOr[JsNumber | String]        = js.undefined,
+  activeIndex:        js.UndefOr[JsNumber | String]        = js.undefined,
+  menu:               js.UndefOr[Menu.MenuProps]           = js.undefined,
+  menuPosition:       js.UndefOr[TabMenuPosition]          = js.undefined,
+  grid:               js.UndefOr[Grid.GridProps]           = js.undefined,
+  onTabChangeE:       js.UndefOr[Tab.OnTabChange]          = js.undefined,
+  onTabChange:        js.UndefOr[Tab.TabProps => Callback] = js.undefined,
+  renderActiveOnly:   js.UndefOr[Boolean]                  = js.undefined
+) extends GenericFnComponentP[Tab.TabProps] {
+  @inline def render =
+    Tab.component(Tab.props(this))
+}
+
 object Tab {
-  private type RawOnTabChange = js.Function2[ReactMouseEvent, TabProps, Unit]
-  type OnTabChange            = (ReactMouseEvent, TabProps) => Callback
+  type RawOnTabChange = js.Function2[ReactMouseEvent, TabProps, Unit]
+  type OnTabChange    = (ReactMouseEvent, TabProps) => Callback
 
   @js.native
   @JSImport("semantic-ui-react", "Tab")
@@ -80,37 +93,21 @@ object Tab {
   }
 
   def props(
-    as:                 js.UndefOr[AsC]                  = js.undefined,
-    defaultActiveIndex: js.UndefOr[JsNumber | String]    = js.undefined,
-    activeIndex:        js.UndefOr[JsNumber | String]    = js.undefined,
-    menu:               js.UndefOr[Menu.MenuProps]       = js.undefined,
-    menuPosition:       js.UndefOr[TabMenuPosition]      = js.undefined,
-    grid:               js.UndefOr[Grid.GridProps]       = js.undefined,
-    onTabChangeE:       js.UndefOr[OnTabChange]          = js.undefined,
-    onTabChange:        js.UndefOr[TabProps => Callback] = js.undefined,
-    renderActiveOnly:   js.UndefOr[Boolean]              = js.undefined
+    q: Tab
   ): TabProps = {
-    val p = as.toJsObject[TabProps]
-    p.as                 = as.toJs
-    p.defaultActiveIndex = defaultActiveIndex
-    p.activeIndex        = activeIndex
-    p.menu               = menu
-    p.menuPosition       = menuPosition.toJs
-    p.grid               = grid
-    p.onTabChange =
-      onTabChangeE.toJs.orElse(onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow))
-    p.renderActiveOnly = renderActiveOnly
+    val p = q.as.toJsObject[TabProps]
+    p.as                 = q.as.toJs
+    p.defaultActiveIndex = q.defaultActiveIndex
+    p.activeIndex        = q.activeIndex
+    p.menu               = q.menu
+    p.menuPosition       = q.menuPosition.toJs
+    p.grid               = q.grid
+    p.onTabChange = q.onTabChangeE.toJs
+      .orElse(q.onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow))
+    p.renderActiveOnly = q.renderActiveOnly
     p
   }
 
   private val component =
     JsComponent[TabProps, Children.None, Null](RawComponent)
-
-  def apply(
-    p: TabProps
-  ): UnmountedMapped[Id, TabProps, Null, RawMounted[TabProps, Null], TabProps, Null] =
-    component(p)
-
-  def apply: UnmountedMapped[Id, TabProps, Null, RawMounted[TabProps, Null], TabProps, Null] =
-    component(props())
 }

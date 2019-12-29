@@ -7,11 +7,11 @@ import japgolly.scalajs.react.vdom.html_<^._
 object DropdownDividerTests extends TestSuite {
   val tests = Tests {
     'pusher - {
-      val pusher = DropdownDivider(DropdownDivider.props(), "Abc")
+      val pusher = DropdownDivider("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="divider">Abc</div></div>"""
+          mountNode.innerHTML == """<div class="divider">Abc</div>"""
         )
       }
     }

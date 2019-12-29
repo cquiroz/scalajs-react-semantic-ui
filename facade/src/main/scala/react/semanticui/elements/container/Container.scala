@@ -4,13 +4,30 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.textalignment._
+
+final case class Container(
+  as:                    js.UndefOr[AsC]                   = js.undefined,
+  child:                 js.UndefOr[VdomNode]              = js.undefined,
+  className:             js.UndefOr[String]                = js.undefined,
+  clazz:                 js.UndefOr[Css]                   = js.undefined,
+  content:               js.UndefOr[VdomNode]              = js.undefined,
+  fluid:                 js.UndefOr[Boolean]               = js.undefined,
+  text:                  js.UndefOr[Boolean]               = js.undefined,
+  textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
+  override val children: CtorType.ChildrenArgs             = Seq.empty
+) extends GenericFnComponentPC[Container.ContainerProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    Container.component(Container.props(this))
+}
 
 object Container {
   @js.native
@@ -50,34 +67,25 @@ object Container {
   }
 
   def props(
-    as:        js.UndefOr[AsC]                   = js.undefined,
-    children:  js.UndefOr[VdomNode]              = js.undefined,
-    className: js.UndefOr[String]                = js.undefined,
-    clazz:     js.UndefOr[Css]                   = js.undefined,
-    content:   js.UndefOr[VdomNode]              = js.undefined,
-    fluid:     js.UndefOr[Boolean]               = js.undefined,
-    text:      js.UndefOr[Boolean]               = js.undefined,
-    textAlign: js.UndefOr[SemanticTextAlignment] = js.undefined
+    q: Container
   ): ContainerProps = {
-    val p = as.toJsObject[ContainerProps]
-    p.children  = children.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
-    p.fluid     = fluid
-    p.text      = text
-    p.textAlign = textAlign.toJs
+    val p = q.as.toJsObject[ContainerProps]
+    p.children  = q.child.toJs
+    p.className = (q.className, q.clazz).toJs
+    p.content   = q.content.toJs
+    p.fluid     = q.fluid
+    p.text      = q.text
+    p.textAlign = q.textAlign.toJs
     p
   }
 
   private val component =
     JsFnComponent[ContainerProps, Children.Varargs](RawComponent)
 
-  def apply(
-    p:        ContainerProps,
-    children: VdomNode*
-  ): UnmountedWithRoot[ContainerProps, Unit, ContainerProps] =
-    component(p)(children: _*)
+  def apply(content: VdomNode*): Container =
+    new Container(children = content)
 
-  def apply(children: VdomNode*): UnmountedWithRoot[ContainerProps, Unit, ContainerProps] =
-    component(props())(children: _*)
+  val Default: Container = Container()
+
+  val defaultProps: ContainerProps = props(Default)
 }

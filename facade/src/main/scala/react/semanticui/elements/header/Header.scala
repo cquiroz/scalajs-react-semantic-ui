@@ -5,16 +5,43 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
 import react.semanticui.colors._
 import react.semanticui.floats._
 import react.semanticui.textalignment._
+
+final case class Header(
+  as:                    js.UndefOr[AsC]                   = js.undefined,
+  attached:              js.UndefOr[HeaderAttached]        = js.undefined,
+  block:                 js.UndefOr[Boolean]               = js.undefined,
+  child:                 js.UndefOr[VdomNode]              = js.undefined,
+  className:             js.UndefOr[String]                = js.undefined,
+  clazz:                 js.UndefOr[Css]                   = js.undefined,
+  color:                 js.UndefOr[SemanticColor]         = js.undefined,
+  content:               js.UndefOr[VdomNode]              = js.undefined,
+  disabled:              js.UndefOr[Boolean]               = js.undefined,
+  dividing:              js.UndefOr[Boolean]               = js.undefined,
+  floated:               js.UndefOr[SemanticFloats]        = js.undefined,
+  icon:                  js.UndefOr[Boolean]               = js.undefined,
+  image:                 js.UndefOr[Boolean]               = js.undefined,
+  inverted:              js.UndefOr[Boolean]               = js.undefined,
+  size:                  js.UndefOr[SemanticSize]          = js.undefined,
+  sub:                   js.UndefOr[Boolean]               = js.undefined,
+  subheader:             js.UndefOr[HeaderSubheader]       = js.undefined,
+  textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
+  override val children: CtorType.ChildrenArgs             = Seq.empty
+) extends GenericFnComponentPC[Header.HeaderProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    Header.component(Header.props(this))
+}
 
 object Header {
   @js.native
@@ -84,25 +111,47 @@ object Header {
     var textAlign: js.UndefOr[suiraw.SemanticTEXTALIGNMENTS] = js.native
   }
 
-  def props(
-    as:        js.UndefOr[AsC]                                  = js.undefined,
-    attached:  js.UndefOr[HeaderAttached]                       = js.undefined,
-    block:     js.UndefOr[Boolean]                              = js.undefined,
-    children:  js.UndefOr[VdomNode]                             = js.undefined,
-    className: js.UndefOr[String]                               = js.undefined,
-    clazz:     js.UndefOr[Css]                                  = js.undefined,
-    color:     js.UndefOr[SemanticColor]                        = js.undefined,
-    content:   js.UndefOr[VdomNode]                             = js.undefined,
-    disabled:  js.UndefOr[Boolean]                              = js.undefined,
-    dividing:  js.UndefOr[Boolean]                              = js.undefined,
-    floated:   js.UndefOr[SemanticFloats]                       = js.undefined,
-    icon:      js.UndefOr[Boolean]                              = js.undefined,
-    image:     js.UndefOr[Boolean]                              = js.undefined,
-    inverted:  js.UndefOr[Boolean]                              = js.undefined,
-    size:      js.UndefOr[SemanticSize]                         = js.undefined,
-    sub:       js.UndefOr[Boolean]                              = js.undefined,
-    subheader: js.UndefOr[HeaderSubheader.HeaderSubheaderProps] = js.undefined,
-    textAlign: js.UndefOr[SemanticTextAlignment]                = js.undefined
+  def props(q: Header): HeaderProps =
+    rawprops(
+      as        = q.as,
+      attached  = q.attached,
+      block     = q.block,
+      children  = q.child,
+      className = q.className,
+      clazz     = q.clazz,
+      color     = q.color,
+      content   = q.content,
+      disabled  = q.disabled,
+      dividing  = q.dividing,
+      floated   = q.floated,
+      icon      = q.icon,
+      image     = q.image,
+      inverted  = q.inverted,
+      size      = q.size,
+      sub       = q.sub,
+      subheader = q.subheader,
+      textAlign = q.textAlign
+    )
+
+  def rawprops(
+    as:        js.UndefOr[AsC]                   = js.undefined,
+    attached:  js.UndefOr[HeaderAttached]        = js.undefined,
+    block:     js.UndefOr[Boolean]               = js.undefined,
+    children:  js.UndefOr[VdomNode]              = js.undefined,
+    className: js.UndefOr[String]                = js.undefined,
+    clazz:     js.UndefOr[Css]                   = js.undefined,
+    color:     js.UndefOr[SemanticColor]         = js.undefined,
+    content:   js.UndefOr[VdomNode]              = js.undefined,
+    disabled:  js.UndefOr[Boolean]               = js.undefined,
+    dividing:  js.UndefOr[Boolean]               = js.undefined,
+    floated:   js.UndefOr[SemanticFloats]        = js.undefined,
+    icon:      js.UndefOr[Boolean]               = js.undefined,
+    image:     js.UndefOr[Boolean]               = js.undefined,
+    inverted:  js.UndefOr[Boolean]               = js.undefined,
+    size:      js.UndefOr[SemanticSize]          = js.undefined,
+    sub:       js.UndefOr[Boolean]               = js.undefined,
+    subheader: js.UndefOr[HeaderSubheader]       = js.undefined,
+    textAlign: js.UndefOr[SemanticTextAlignment] = js.undefined
   ): HeaderProps = {
     val p = as.toJsObject[HeaderProps]
     p.as        = as.toJs
@@ -120,7 +169,7 @@ object Header {
     p.inverted  = inverted
     p.size      = size.toJs
     p.sub       = sub
-    p.subheader = subheader
+    p.subheader = subheader.map(_.props)
     p.textAlign = textAlign.toJs
     p
   }
@@ -129,11 +178,7 @@ object Header {
     JsFnComponent[HeaderProps, Children.Varargs](RawComponent)
 
   def apply(
-    p:        HeaderProps,
-    children: VdomNode*
-  ): UnmountedWithRoot[HeaderProps, Unit, HeaderProps] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[HeaderProps, Unit, HeaderProps] =
-    component(props())(children: _*)
+    content: VdomNode*
+  ): Header =
+    new Header(children = content)
 }

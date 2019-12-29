@@ -2,17 +2,28 @@ package react.semanticui.elements.label
 
 import scala.scalajs.js
 import js.annotation._
-import japgolly.scalajs.react.Children
-import japgolly.scalajs.react.JsComponent
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
+import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.semanticui._
 import react.semanticui.raw._
 import react.common.syntax._
 import react.common.style._
+import react.common._
+
+final case class LabelDetail(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericComponentPC[LabelDetail.LabelDetailProps] {
+  @inline def renderWith =
+    LabelDetail.component(LabelDetail.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object LabelDetail {
   @js.native
@@ -33,17 +44,13 @@ object LabelDetail {
   }
 
   def props(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined
+    q: LabelDetail
   ): LabelDetailProps = {
-    val p = as.toJsObject[LabelDetailProps]
-    p.as        = as.toJs
-    p.children  = children.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
+    val p = q.as.toJsObject[LabelDetailProps]
+    p.as        = q.as.toJs
+    p.children  = q.child.toJs
+    p.className = (q.className, q.clazz).toJs
+    p.content   = q.content.toJs
     p
   }
 
@@ -51,17 +58,7 @@ object LabelDetail {
     JsComponent[LabelDetailProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        LabelDetailProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, LabelDetailProps, Null, RawMounted[
-    LabelDetailProps,
-    Null
-  ], LabelDetailProps, Null] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[Id, LabelDetailProps, Null, RawMounted[
-    LabelDetailProps,
-    Null
-  ], LabelDetailProps, Null] =
-    component(props())(children: _*)
+    content: VdomNode*
+  ): LabelDetail =
+    new LabelDetail(children = content)
 }

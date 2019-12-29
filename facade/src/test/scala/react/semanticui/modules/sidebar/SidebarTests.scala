@@ -16,34 +16,34 @@ object SidebarTests extends TestSuite {
 
   val tests = Tests {
     'pusher - {
-      val pusher = Sidebar.Pusher(Sidebar.Pusher.props(), "Abc")
+      val pusher = SidebarPusher("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="pusher">Abc</div></div>""")
+        assert(mountNode.innerHTML == """<div class="pusher">Abc</div>""")
       }
     }
     'pushable - {
-      val pushable = Sidebar.Pushable(Sidebar.Pushable.props(), "Abc")
+      val pushable = SidebarPushable("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pushable.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="pushable">Abc</div></div>""")
+        assert(mountNode.innerHTML == """<div class="pushable">Abc</div>""")
       }
     }
     'pushableAs - {
-      val pushable = Sidebar.Pushable(Sidebar.Pushable.props(as = As.Segment()), "Abc")
+      val pushable = SidebarPushable(as = As.Segment())("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pushable.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="ui segment pushable">Abc</div></div>""")
+        assert(mountNode.innerHTML == """<div class="ui segment pushable">Abc</div>""")
       }
     }
     'sidebar - {
-      val sidebar = Sidebar(Sidebar.props(), "Abc")
+      val sidebar = Sidebar(DoubleComp(1))
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
-        assert(m.outerHtmlScrubbed == """<div class="ui left sidebar">Abc</div>""")
+        assert(m.outerHtmlScrubbed == """<div class="ui left sidebar"><p>1 + 1 = 2</p></div>""")
       }
     }
     'sidebarAs - {
-      val sidebar = Sidebar(Sidebar.props(as = As.Menu(Menu.props(inverted = true))), "Abc")
+      val sidebar = Sidebar(as = As.Menu(Menu(inverted = true)))("Abc")
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
         assert(m.outerHtmlScrubbed == """<div class="ui inverted ui left sidebar menu">Abc</div>""")
       }

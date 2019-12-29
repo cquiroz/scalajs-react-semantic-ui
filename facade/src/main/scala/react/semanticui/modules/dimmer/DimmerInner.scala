@@ -3,15 +3,36 @@ package react.semanticui.modules.dimmer
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class DimmerInner(
+  as:                    js.UndefOr[AsC]                        = js.undefined,
+  active:                js.UndefOr[Boolean]                    = js.undefined,
+  child:                 js.UndefOr[VdomNode]                   = js.undefined,
+  className:             js.UndefOr[String]                     = js.undefined,
+  clazz:                 js.UndefOr[Css]                        = js.undefined,
+  content:               js.UndefOr[VdomNode]                   = js.undefined,
+  disabled:              js.UndefOr[Boolean]                    = js.undefined,
+  onClickE:              js.UndefOr[DimmerInner.OnClick]        = js.undefined,
+  onClick:               js.UndefOr[Callback]                   = js.undefined,
+  onClickOutsideE:       js.UndefOr[DimmerInner.OnClickOutside] = js.undefined,
+  onClickOutside:        js.UndefOr[Callback]                   = js.undefined,
+  inverted:              js.UndefOr[Boolean]                    = js.undefined,
+  page:                  js.UndefOr[Boolean]                    = js.undefined,
+  simple:                js.UndefOr[Boolean]                    = js.undefined,
+  verticalAlign:         js.UndefOr[DimmerVerticalAlign]        = js.undefined,
+  override val children: CtorType.ChildrenArgs                  = Seq.empty
+) extends GenericComponentPC[DimmerInner.DimmerInnerProps] {
+  @inline def renderWith = DimmerInner.component(DimmerInner.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object DimmerInner {
   type RawOnClick        = js.Function2[ReactMouseEvent, DimmerInner.DimmerInnerProps, Unit]
@@ -79,7 +100,26 @@ object DimmerInner {
     var verticalAlign: js.UndefOr[String] = js.native
   }
 
-  def props(
+  def props(q: DimmerInner): DimmerInnerProps =
+    rawprops(
+      q.as,
+      q.active,
+      q.child,
+      q.className,
+      q.clazz,
+      q.content,
+      q.disabled,
+      q.onClickE,
+      q.onClick,
+      q.onClickOutsideE,
+      q.onClickOutside,
+      q.inverted,
+      q.page,
+      q.simple,
+      q.verticalAlign
+    )
+
+  def rawprops(
     as:              js.UndefOr[AsC]                 = js.undefined,
     active:          js.UndefOr[Boolean]             = js.undefined,
     children:        js.UndefOr[VdomNode]            = js.undefined,
@@ -114,23 +154,6 @@ object DimmerInner {
   private val component =
     JsComponent[DimmerInnerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: DimmerInnerProps, children: VdomNode*): UnmountedMapped[
-    Id,
-    DimmerInnerProps,
-    Null,
-    RawMounted[DimmerInnerProps, Null],
-    DimmerInnerProps,
-    Null
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[
-    Id,
-    DimmerInnerProps,
-    Null,
-    RawMounted[DimmerInnerProps, Null],
-    DimmerInnerProps,
-    Null
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): DimmerInner =
+    new DimmerInner(children = content)
 }

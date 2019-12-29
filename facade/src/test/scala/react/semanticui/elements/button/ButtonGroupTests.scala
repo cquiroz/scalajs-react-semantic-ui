@@ -7,19 +7,19 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ButtonGroupTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val buttonGroup = ButtonGroup(ButtonGroup.props(), "abc")
+      val buttonGroup = ButtonGroup("abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         buttonGroup.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="ui buttons">abc</div></div>""")
+        assert(mountNode.innerHTML == """<div class="ui buttons">abc</div>""")
       }
     }
     'buttons - {
       val buttonGroup =
-        ButtonGroup(ButtonGroup.props(), Button(Button.props(), "1"), Button(Button.props(), "2"))
+        ButtonGroup()(Button("1"), Button("2"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         buttonGroup.renderIntoDOM(mountNode)
         assert(
-          mountNode.outerHTML == """<div><div class="ui buttons"><button class="ui button">1</button><button class="ui button">2</button></div></div>"""
+          mountNode.innerHTML == """<div class="ui buttons"><button class="ui button">1</button><button class="ui button">2</button></div>"""
         )
       }
     }

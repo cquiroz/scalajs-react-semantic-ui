@@ -4,14 +4,33 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
+
+final case class Divider(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  clearing:              js.UndefOr[Boolean]   = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  fitted:                js.UndefOr[Boolean]   = js.undefined,
+  hidden:                js.UndefOr[Boolean]   = js.undefined,
+  horizontal:            js.UndefOr[Boolean]   = js.undefined,
+  inverted:              js.UndefOr[Boolean]   = js.undefined,
+  section:               js.UndefOr[Boolean]   = js.undefined,
+  vertical:              js.UndefOr[Boolean]   = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericComponentPC[Divider.DividerProps] {
+  @inline def renderWith =
+    Divider.component(Divider.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Divider {
   @js.native
@@ -63,45 +82,30 @@ object Divider {
   }
 
   def props(
-    as:         js.UndefOr[AsC]      = js.undefined,
-    children:   js.UndefOr[VdomNode] = js.undefined,
-    className:  js.UndefOr[String]   = js.undefined,
-    clazz:      js.UndefOr[Css]      = js.undefined,
-    clearing:   js.UndefOr[Boolean]  = js.undefined,
-    content:    js.UndefOr[VdomNode] = js.undefined,
-    fitted:     js.UndefOr[Boolean]  = js.undefined,
-    hidden:     js.UndefOr[Boolean]  = js.undefined,
-    horizontal: js.UndefOr[Boolean]  = js.undefined,
-    inverted:   js.UndefOr[Boolean]  = js.undefined,
-    section:    js.UndefOr[Boolean]  = js.undefined,
-    vertical:   js.UndefOr[Boolean]  = js.undefined
+    q: Divider
   ): DividerProps = {
-    val p = as.toJsObject[DividerProps]
-    p.as         = as.toJs
-    p.children   = children.toJs
-    p.className  = (className, clazz).toJs
-    p.clearing   = clearing
-    p.content    = content.toJs
-    p.fitted     = fitted
-    p.hidden     = hidden
-    p.horizontal = horizontal
-    p.inverted   = inverted
-    p.section    = section
-    p.vertical   = vertical
+    val p = q.as.toJsObject[DividerProps]
+    p.as         = q.as.toJs
+    p.children   = q.child.toJs
+    p.className  = (q.className, q.clazz).toJs
+    p.clearing   = q.clearing
+    p.content    = q.content.toJs
+    p.fitted     = q.fitted
+    p.hidden     = q.hidden
+    p.horizontal = q.horizontal
+    p.inverted   = q.inverted
+    p.section    = q.section
+    p.vertical   = q.vertical
     p
   }
 
   private val component =
     JsComponent[DividerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        DividerProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, DividerProps, Null, RawMounted[DividerProps, Null], DividerProps, Null] =
-    component(p)(children: _*)
+  val Default: Divider = Divider()
 
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, DividerProps, Null, RawMounted[DividerProps, Null], DividerProps, Null] =
-    component(props())(children: _*)
+  val defaultProps: DividerProps = props(Default)
+
+  def apply(content: VdomNode*): Divider =
+    new Divider(children = content)
 }

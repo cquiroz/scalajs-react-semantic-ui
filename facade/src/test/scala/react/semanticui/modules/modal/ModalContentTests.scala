@@ -7,10 +7,10 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ModalContentTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val pusher = ModalContent(ModalContent.props(), "Abc")
+      val modal = ModalContent("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        pusher.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="content">Abc</div></div>""")
+        modal.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="content">Abc</div>""")
       }
     }
   }

@@ -4,19 +4,49 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.colors._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.sizes._
 import react.semanticui.elements.icon.Icon
-import react.semanticui.elements.icon.UnmountedIcon
+
+final case class Label(
+  as:                    js.UndefOr[AsC]                      = js.undefined,
+  active:                js.UndefOr[Boolean]                  = js.undefined,
+  attached:              js.UndefOr[LabelAttached]            = js.undefined,
+  basic:                 js.UndefOr[Boolean]                  = js.undefined,
+  child:                 js.UndefOr[React.Node]               = js.undefined,
+  circular:              js.UndefOr[Boolean]                  = js.undefined,
+  className:             js.UndefOr[String]                   = js.undefined,
+  clazz:                 js.UndefOr[Css]                      = js.undefined,
+  color:                 js.UndefOr[SemanticColor]            = js.undefined,
+  content:               js.UndefOr[SemanticShortHandContent] = js.undefined,
+  corner:                js.UndefOr[LabelCorner]              = js.undefined,
+  detail:                js.UndefOr[LabelDetail]              = js.undefined,
+  empty:                 js.UndefOr[Boolean]                  = js.undefined,
+  floating:              js.UndefOr[Boolean]                  = js.undefined,
+  horizontal:            js.UndefOr[Boolean]                  = js.undefined,
+  icon:                  js.UndefOr[Icon]                     = js.undefined,
+  image:                 js.UndefOr[Boolean]                  = js.undefined,
+  onClickE:              js.UndefOr[Label.OnClick]            = js.undefined,
+  onClick:               js.UndefOr[Callback]                 = js.undefined,
+  onRemove:              js.UndefOr[Label.OnClick]            = js.undefined,
+  pointing:              js.UndefOr[LabelPointing]            = js.undefined,
+  removeIcon:            js.UndefOr[Icon]                     = js.undefined,
+  ribbon:                js.UndefOr[LabelRibbon]              = js.undefined,
+  size:                  js.UndefOr[SemanticSize]             = js.undefined,
+  tag:                   js.UndefOr[Boolean]                  = js.undefined,
+  override val children: CtorType.ChildrenArgs                = Seq.empty
+) extends GenericComponentPC[Label.LabelProps] {
+  @inline def renderWith = Label.component(Label.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Label {
   type OnClick = (ReactMouseEvent, LabelProps) => Callback
@@ -64,56 +94,32 @@ object Label {
   }
 
   def props(
-    as:         js.UndefOr[AsC]                                                 = js.undefined,
-    active:     js.UndefOr[Boolean]                                             = js.undefined,
-    attached:   js.UndefOr[LabelAttached]                                       = js.undefined,
-    basic:      js.UndefOr[Boolean]                                             = js.undefined,
-    children:   js.UndefOr[React.Node]                                          = js.undefined,
-    circular:   js.UndefOr[Boolean]                                             = js.undefined,
-    className:  js.UndefOr[String]                                              = js.undefined,
-    clazz:      js.UndefOr[Css]                                                 = js.undefined,
-    color:      js.UndefOr[SemanticColor]                                       = js.undefined,
-    content:    js.UndefOr[SemanticShortHandContent]                            = js.undefined,
-    corner:     js.UndefOr[LabelCorner]                                         = js.undefined,
-    detail:     js.UndefOr[SemanticShortHandItem[LabelDetail.LabelDetailProps]] = js.undefined,
-    empty:      js.UndefOr[Boolean]                                             = js.undefined,
-    floating:   js.UndefOr[Boolean]                                             = js.undefined,
-    horizontal: js.UndefOr[Boolean]                                             = js.undefined,
-    icon:       js.UndefOr[UnmountedIcon]                                       = js.undefined,
-    image:      js.UndefOr[Boolean]                                             = js.undefined,
-    onClickE:   js.UndefOr[OnClick]                                             = js.undefined,
-    onClick:    js.UndefOr[Callback]                                            = js.undefined,
-    onRemove:   js.UndefOr[OnClick]                                             = js.undefined,
-    pointing:   js.UndefOr[LabelPointing]                                       = js.undefined,
-    removeIcon: js.UndefOr[UnmountedIcon]                                       = js.undefined,
-    ribbon:     js.UndefOr[LabelRibbon]                                         = js.undefined,
-    size:       js.UndefOr[SemanticSize]                                        = js.undefined,
-    tag:        js.UndefOr[Boolean]                                             = js.undefined
+    q: Label
   ): LabelProps = {
-    val p = as.toJsObject[LabelProps]
-    p.as         = as.toJs
-    p.active     = active
-    p.attached   = attached.toJs
-    p.basic      = basic
-    p.children   = children
-    p.circular   = circular
-    p.className  = (className, clazz).toJs
-    p.color      = color.toJs
-    p.content    = content.toRaw
-    p.corner     = corner.toJs
-    p.detail     = detail.toRaw
-    p.empty      = empty.map(_.asInstanceOf[js.Any])
-    p.floating   = floating
-    p.horizontal = horizontal
-    p.icon       = icon.map(_.props)
-    p.image      = image.map(_.asInstanceOf[js.Any])
-    p.onClick    = (onClickE, onClick).toJs
-    p.onRemove   = onRemove.toJs
-    p.pointing   = pointing.toJs
-    p.removeIcon = removeIcon.map(_.props)
-    p.ribbon     = ribbon.toJs
-    p.size       = size.toJs
-    p.tag        = tag
+    val p = q.as.toJsObject[LabelProps]
+    p.as         = q.as.toJs
+    p.active     = q.active
+    p.attached   = q.attached.toJs
+    p.basic      = q.basic
+    p.children   = q.child
+    p.circular   = q.circular
+    p.className  = (q.className, q.clazz).toJs
+    p.color      = q.color.toJs
+    p.content    = q.content.toRaw
+    p.corner     = q.corner.toJs
+    p.detail     = q.detail.map(_.props)
+    p.empty      = q.empty.map(_.asInstanceOf[js.Any])
+    p.floating   = q.floating
+    p.horizontal = q.horizontal
+    p.icon       = q.icon.map(_.props)
+    p.image      = q.image.map(_.asInstanceOf[js.Any])
+    p.onClick    = (q.onClickE, q.onClick).toJs
+    p.onRemove   = q.onRemove.toJs
+    p.pointing   = q.pointing.toJs
+    p.removeIcon = q.removeIcon.map(_.props)
+    p.ribbon     = q.ribbon.toJs
+    p.size       = q.size.toJs
+    p.tag        = q.tag
     p
   }
 
@@ -121,13 +127,7 @@ object Label {
     JsComponent[LabelProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        LabelProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, LabelProps, Null, RawMounted[LabelProps, Null], LabelProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, LabelProps, Null, RawMounted[LabelProps, Null], LabelProps, Null] =
-    component(props())(children: _*)
+    content: VdomNode*
+  ): Label =
+    new Label(children = content)
 }

@@ -7,10 +7,10 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ButtonOrTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = ButtonOr(ButtonOr.props(), "abc")
+      val buttonOr = ButtonOr()("abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="or">abc</div></div>""")
+        buttonOr.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="or">abc</div>""")
       }
     }
   }

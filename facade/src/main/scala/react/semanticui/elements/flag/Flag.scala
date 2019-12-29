@@ -3,13 +3,22 @@ package react.semanticui.elements.flag
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
+import react.common._
 import react.semanticui._
 import react.common.style._
 import react.common.syntax._
+
+final case class Flag(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  name:                  js.UndefOr[String]    = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericComponentPC[Flag.FlagProps] {
+  @inline def renderWith = Flag.component(Flag.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Flag {
   @js.native
@@ -37,15 +46,12 @@ object Flag {
   }
 
   def props(
-    as:        js.UndefOr[AsC] = js.undefined,
-    className: js.UndefOr[String] = js.undefined,
-    clazz:     js.UndefOr[Css] = js.undefined,
-    name:      js.UndefOr[String]
+    q: Flag
   ): FlagProps = {
-    val p = as.toJsObject[FlagProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.name      = name
+    val p = q.as.toJsObject[FlagProps]
+    p.as        = q.as.toJs
+    p.className = (q.className, q.clazz).toJs
+    p.name      = q.name
     p
   }
 
@@ -53,14 +59,7 @@ object Flag {
     JsComponent[FlagProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        FlagProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, FlagProps, Null, RawMounted[FlagProps, Null], FlagProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    name:     String,
-    children: VdomNode*
-  ): UnmountedMapped[Id, FlagProps, Null, RawMounted[FlagProps, Null], FlagProps, Null] =
-    component(props(name = name))(children: _*)
+    name: String
+  ): Flag =
+    new Flag(name = name)
 }

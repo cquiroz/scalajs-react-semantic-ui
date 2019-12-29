@@ -3,29 +3,50 @@ package react.semanticui.modules.dropdown
 import scala.scalajs.js
 import js.annotation._
 import js.|
-import japgolly.scalajs.react.Callback
-import japgolly.scalajs.react.ReactMouseEvent
-import japgolly.scalajs.react.Children
-import japgolly.scalajs.react.JsComponent
+import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
+import japgolly.scalajs.react.vdom.html_<^._
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.UnmountedIcon
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.flag.Flag.FlagProps
-import react.semanticui.elements.flag.UnmountedFlag
+import react.semanticui.elements.flag.Flag
 import react.semanticui.elements.label.Label.LabelProps
-import react.semanticui.elements.label.UnmountedLabel
+import react.semanticui.elements.label.Label
 import react.semanticui.elements.image.Image.ImageProps
-import react.semanticui.elements.image.UnmountedImage
+import react.semanticui.elements.image.Image
 import react.semanticui._
+
+final case class DropdownItem(
+  as:                    js.UndefOr[AsC]                          = js.undefined,
+  active:                js.UndefOr[Boolean]                      = js.undefined,
+  child:                 js.UndefOr[VdomNode]                     = js.undefined,
+  className:             js.UndefOr[String]                       = js.undefined,
+  clazz:                 js.UndefOr[Css]                          = js.undefined,
+  content:               js.UndefOr[VdomNode]                     = js.undefined,
+  description:           js.UndefOr[String]                       = js.undefined,
+  disable:               js.UndefOr[Boolean]                      = js.undefined,
+  flag:                  js.UndefOr[Render[FlagProps] | Flag]     = js.undefined,
+  icon:                  js.UndefOr[Icon]                         = js.undefined,
+  image:                 js.UndefOr[RenderFn[ImageProps] | Image] = js.undefined,
+  label:                 js.UndefOr[Label]                        = js.undefined,
+  onClickE:              js.UndefOr[DropdownItem.OnClick]         = js.undefined,
+  onClick:               js.UndefOr[Callback]                     = js.undefined,
+  selected:              js.UndefOr[Boolean]                      = js.undefined,
+  text:                  js.UndefOr[VdomNode]                     = js.undefined,
+  value:                 js.UndefOr[Boolean | JsNumber | String]  = js.undefined,
+  override val children: CtorType.ChildrenArgs                    = Seq.empty
+) extends GenericComponentPC[DropdownItem.DropdownItemProps] {
+  @inline def renderWith = DropdownItem.component(DropdownItem.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object DropdownItem {
   type OnClick = (ReactMouseEvent, DropdownItemProps) => Callback
@@ -97,40 +118,30 @@ object DropdownItem {
   }
 
   def props(
-    as:          js.UndefOr[AsC]                         = js.undefined,
-    active:      js.UndefOr[Boolean]                     = js.undefined,
-    children:    js.UndefOr[VdomNode]                    = js.undefined,
-    className:   js.UndefOr[String]                      = js.undefined,
-    clazz:       js.UndefOr[Css]                         = js.undefined,
-    content:     js.UndefOr[VdomNode]                    = js.undefined,
-    description: js.UndefOr[String]                      = js.undefined,
-    disable:     js.UndefOr[Boolean]                     = js.undefined,
-    flag:        js.UndefOr[UnmountedFlag]               = js.undefined,
-    icon:        js.UndefOr[UnmountedIcon]               = js.undefined,
-    image:       js.UndefOr[UnmountedImage]              = js.undefined,
-    label:       js.UndefOr[UnmountedLabel]              = js.undefined,
-    onClickE:    js.UndefOr[OnClick]                     = js.undefined,
-    onClick:     js.UndefOr[Callback]                    = js.undefined,
-    selected:    js.UndefOr[Boolean]                     = js.undefined,
-    text:        js.UndefOr[VdomNode]                    = js.undefined,
-    value:       js.UndefOr[Boolean | JsNumber | String] = js.undefined
+    q: DropdownItem
   ): DropdownItemProps = {
-    val p = as.toJsObject[DropdownItemProps]
-    p.as          = as.toJs
-    p.active      = active
-    p.children    = children.toJs
-    p.className   = (className, clazz).toJs
-    p.content     = content.toJs
-    p.description = description
-    p.disable     = disable
-    p.flag        = flag.map(_.props)
-    p.icon        = icon.map(_.props)
-    p.image       = image.map(_.props)
-    p.label       = label.map(_.props)
-    p.onClick     = (onClickE, onClick).toJs
-    p.selected    = selected
-    p.text        = text.toJs
-    p.value       = value
+    val p = q.as.toJsObject[DropdownItemProps]
+    p.as          = q.as.toJs
+    p.active      = q.active
+    p.children    = q.child.toJs
+    p.className   = (q.className, q.clazz).toJs
+    p.content     = q.content.toJs
+    p.description = q.description
+    p.disable     = q.disable
+    p.flag = q.flag.map((_: Any) match {
+      case f: Flag => f.props
+      case f       => f.asInstanceOf[Render[FlagProps]].props
+    })
+    p.icon = q.icon.map(_.props)
+    p.image = q.image.map((_: Any) match {
+      case f: Image => f.props
+      case f        => f.asInstanceOf[Render[ImageProps]].props
+    })
+    p.label    = q.label.map(_.props)
+    p.onClick  = (q.onClickE, q.onClick).toJs
+    p.selected = q.selected
+    p.text     = q.text.toJs
+    p.value    = q.value
     p
   }
 
@@ -138,13 +149,8 @@ object DropdownItem {
     JsComponent[DropdownItemProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        DropdownItemProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, DropdownItemProps, Null, RawMounted[DropdownItemProps, Null], DropdownItemProps, Null] =
-    component(p)(children: _*)
+    value: Boolean | JsNumber | String
+  ): DropdownItem =
+    DropdownItem(value = value, children = Seq(value.toString))
 
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, DropdownItemProps, Null, RawMounted[DropdownItemProps, Null], DropdownItemProps, Null] =
-    component(props())(children: _*)
 }

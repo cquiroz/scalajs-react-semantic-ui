@@ -4,17 +4,29 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.UnmountedIcon
+import react.semanticui.elements.icon.Icon
 import react.semanticui._
+
+final case class DropdownHeader(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  icon:                  js.UndefOr[Icon]      = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericComponentPC[DropdownHeader.DropdownHeaderProps] {
+  @inline def renderWith = DropdownHeader.component(DropdownHeader.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object DropdownHeader {
   @js.native
@@ -47,13 +59,16 @@ object DropdownHeader {
     var icon: js.UndefOr[suiraw.SemanticShorthandItem[IconProps]] = js.native
   }
 
-  def props(
-    as:        js.UndefOr[AsC]           = js.undefined,
-    children:  js.UndefOr[VdomNode]      = js.undefined,
-    className: js.UndefOr[String]        = js.undefined,
-    clazz:     js.UndefOr[Css]           = js.undefined,
-    content:   js.UndefOr[VdomNode]      = js.undefined,
-    icon:      js.UndefOr[UnmountedIcon] = js.undefined
+  def props(q: DropdownHeader): DropdownHeaderProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content, q.icon)
+
+  def rawprops(
+    as:        js.UndefOr[AsC]      = js.undefined,
+    children:  js.UndefOr[VdomNode] = js.undefined,
+    className: js.UndefOr[String]   = js.undefined,
+    clazz:     js.UndefOr[Css]      = js.undefined,
+    content:   js.UndefOr[VdomNode] = js.undefined,
+    icon:      js.UndefOr[Icon]     = js.undefined
   ): DropdownHeaderProps = {
     val p = as.toJsObject[DropdownHeaderProps]
     p.as        = as.toJs
@@ -68,13 +83,13 @@ object DropdownHeader {
     JsComponent[DropdownHeaderProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        DropdownHeaderProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, DropdownHeaderProps, Null, RawMounted[DropdownHeaderProps, Null], DropdownHeaderProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, DropdownHeaderProps, Null, RawMounted[DropdownHeaderProps, Null], DropdownHeaderProps, Null] =
-    component(props())(children: _*)
+    content: VdomNode*
+  ): DropdownHeader =
+    new DropdownHeader(as        = js.undefined,
+                       child     = js.undefined,
+                       className = js.undefined,
+                       clazz     = js.undefined,
+                       content   = js.undefined,
+                       icon      = js.undefined,
+                       children  = content)
 }

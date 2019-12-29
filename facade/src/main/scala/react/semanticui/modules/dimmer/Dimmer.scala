@@ -3,10 +3,18 @@ package react.semanticui.modules.dimmer
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
+import react.common._
+
+final case class Dimmer(
+  active:                js.UndefOr[Boolean]   = js.undefined,
+  page:                  js.UndefOr[Boolean]   = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericComponentPC[Dimmer.DimmerProps] {
+  @inline def renderWith = Dimmer.component(Dimmer.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Dimmer {
   @js.native
@@ -28,7 +36,10 @@ object Dimmer {
     var page: js.UndefOr[Boolean] = js.native
   }
 
-  def props(
+  def props(q: Dimmer): DimmerProps =
+    rawprops(q.active, q.page)
+
+  def rawprops(
     active: js.UndefOr[Boolean] = js.undefined,
     page:   js.UndefOr[Boolean] = js.undefined
   ): DimmerProps = {
@@ -41,23 +52,6 @@ object Dimmer {
   private val component =
     JsComponent[DimmerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: DimmerProps, children: VdomNode*): UnmountedMapped[
-    Id,
-    DimmerProps,
-    Null,
-    RawMounted[DimmerProps, Null],
-    DimmerProps,
-    Null
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[
-    Id,
-    DimmerProps,
-    Null,
-    RawMounted[DimmerProps, Null],
-    DimmerProps,
-    Null
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): Dimmer =
+    new Dimmer(children = content)
 }

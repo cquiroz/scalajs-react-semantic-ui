@@ -4,13 +4,31 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class ItemGroup(
+  as:                    js.UndefOr[AsC]         = js.undefined,
+  child:                 js.UndefOr[VdomNode]    = js.undefined,
+  className:             js.UndefOr[String]      = js.undefined,
+  clazz:                 js.UndefOr[Css]         = js.undefined,
+  content:               js.UndefOr[VdomNode]    = js.undefined,
+  divided:               js.UndefOr[Boolean]     = js.undefined,
+  link:                  js.UndefOr[Boolean]     = js.undefined,
+  relaxed:               js.UndefOr[ItemRelaxed] = js.undefined,
+  unstackable:           js.UndefOr[Boolean]     = js.undefined,
+  override val children: CtorType.ChildrenArgs   = Seq.empty
+) extends GenericFnComponentPC[ItemGroup.ItemGroupProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    ItemGroup.component(ItemGroup.props(this))
+}
 
 object ItemGroup {
   @js.native
@@ -55,7 +73,18 @@ object ItemGroup {
     var unstackable: js.UndefOr[Boolean] = js.native
   }
 
-  def props(
+  def props(q: ItemGroup): ItemGroupProps =
+    rawprops(q.as,
+             q.child,
+             q.className,
+             q.clazz,
+             q.content,
+             q.divided,
+             q.link,
+             q.relaxed,
+             q.unstackable)
+
+  def rawprops(
     as:          js.UndefOr[AsC]         = js.undefined,
     children:    js.UndefOr[VdomNode]    = js.undefined,
     className:   js.UndefOr[String]      = js.undefined,
@@ -81,17 +110,6 @@ object ItemGroup {
   private val component =
     JsFnComponent[ItemGroupProps, Children.Varargs](RawComponent)
 
-  def apply(p: ItemGroupProps, children: VdomNode*): UnmountedWithRoot[
-    ItemGroupProps,
-    Unit,
-    ItemGroupProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    ItemGroupProps,
-    Unit,
-    ItemGroupProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): ItemGroup =
+    new ItemGroup(children = content)
 }

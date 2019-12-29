@@ -7,10 +7,10 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ModalHeaderTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val pusher = ModalHeader(ModalHeader.props(), "Abc")
+      val header = ModalHeader("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        pusher.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="header">Abc</div></div>""")
+        header.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="header">Abc</div>""")
       }
     }
   }

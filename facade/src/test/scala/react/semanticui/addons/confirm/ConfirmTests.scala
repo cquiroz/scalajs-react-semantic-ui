@@ -7,8 +7,8 @@ import utest._
 object ConfirmTests extends TestSuite {
   val tests = Tests {
     'render - {
-      // Modal cannot be tested without anmiationFrame
-      // val pusher = Confirm(Confirm.props(), "Abc")
+      //Modal cannot be tested without anmiationFrame
+      // val pusher = Confirm(content = "Abc")
       // ReactTestUtils.withNewBodyElement { mountNode =>
       //   pusher.renderIntoDOM(mountNode)
       //   assert(mountNode.outerHTML == """<div><div class="header">Abc</div></div>""")

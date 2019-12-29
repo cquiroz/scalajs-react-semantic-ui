@@ -4,19 +4,36 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
+import react.common._
 import react.semanticui._
 import react.semanticui.elements.button.Button
 import react.semanticui.modules.modal._
 import react.semanticui.{ raw => suiraw }
 
+final case class Confirm(
+  cancelButton:          js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
+  confirmButton:         js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
+  content:               js.UndefOr[VdomNode | ModalContent.ModalContentProps] = js.undefined,
+  header:                js.UndefOr[VdomNode | ModalHeader.ModalHeaderProps]   = js.undefined,
+  onCancelE:             js.UndefOr[Confirm.OnCancel]                          = js.undefined,
+  onCancel:              js.UndefOr[Callback]                                  = js.undefined,
+  onConfirmE:            js.UndefOr[Confirm.OnConfirm]                         = js.undefined,
+  onConfirm:             js.UndefOr[Callback]                                  = js.undefined,
+  open:                  js.UndefOr[Boolean]                                   = js.undefined,
+  size:                  js.UndefOr[ModalSize]                                 = js.undefined,
+  override val children: CtorType.ChildrenArgs                                 = Seq.empty
+) extends GenericComponentPC[Confirm.ConfirmProps] {
+  @inline def renderWith =
+    Confirm.component(Confirm.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
+
 object Confirm {
-  type RawOnCancel  = js.Function2[ReactMouseEvent, Confirm.ModalProps, Unit]
-  type OnCancel     = (ReactMouseEvent, Confirm.ModalProps) => Callback
+  type RawOnCancel  = js.Function2[ReactMouseEvent, Confirm.ConfirmProps, Unit]
+  type OnCancel     = (ReactMouseEvent, Confirm.ConfirmProps) => Callback
   type RawOnConfirm = RawOnCancel
   type OnConfirm    = OnCancel
 
@@ -25,7 +42,7 @@ object Confirm {
   object RawComponent extends js.Object
 
   @js.native
-  trait ModalProps extends js.Object {
+  trait ConfirmProps extends js.Object {
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -69,7 +86,19 @@ object Confirm {
     var size: js.UndefOr[String] = js.native
   }
 
-  def props(
+  def props(q: Confirm): ConfirmProps =
+    rawprops(q.cancelButton,
+             q.confirmButton,
+             q.content,
+             q.header,
+             q.onCancelE,
+             q.onCancel,
+             q.onConfirmE,
+             q.onConfirm,
+             q.open,
+             q.size)
+
+  def rawprops(
     cancelButton:  js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
     confirmButton: js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
     content:       js.UndefOr[VdomNode | ModalContent.ModalContentProps] = js.undefined,
@@ -80,8 +109,8 @@ object Confirm {
     onConfirm:     js.UndefOr[Callback]                                  = js.undefined,
     open:          js.UndefOr[Boolean]                                   = js.undefined,
     size:          js.UndefOr[ModalSize]                                 = js.undefined
-  ): ModalProps = {
-    val p = (new js.Object).asInstanceOf[ModalProps]
+  ): ConfirmProps = {
+    val p = (new js.Object).asInstanceOf[ConfirmProps]
     p.cancelButton  = cancelButton.toRaw
     p.confirmButton = confirmButton.toRaw
     p.content       = content.toRaw
@@ -94,25 +123,10 @@ object Confirm {
   }
 
   private val component =
-    JsComponent[ModalProps, Children.Varargs, Null](RawComponent)
+    JsComponent[ConfirmProps, Children.Varargs, Null](RawComponent)
 
-  def apply(p: ModalProps, children: VdomNode*): UnmountedMapped[
-    Id,
-    ModalProps,
-    Null,
-    RawMounted[ModalProps, Null],
-    ModalProps,
-    Null
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[
-    Id,
-    ModalProps,
-    Null,
-    RawMounted[ModalProps, Null],
-    ModalProps,
-    Null
-  ] =
-    component(props())(children: _*)
+  def apply(
+    content: VdomNode*
+  ): Confirm =
+    new Confirm(children = content)
 }

@@ -4,18 +4,51 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.colors._
 import react.semanticui.sizes._
 import react.semanticui.widths._
+
+final case class Menu(
+  as:                    js.UndefOr[AsC]              = js.undefined,
+  activeIndex:           js.UndefOr[Int | String]     = js.undefined,
+  attached:              js.UndefOr[MenuAttached]     = js.undefined,
+  borderless:            js.UndefOr[Boolean]          = js.undefined,
+  child:                 js.UndefOr[VdomNode]         = js.undefined,
+  className:             js.UndefOr[String]           = js.undefined,
+  clazz:                 js.UndefOr[Css]              = js.undefined,
+  color:                 js.UndefOr[SemanticColor]    = js.undefined,
+  compact:               js.UndefOr[Boolean]          = js.undefined,
+  defaultActiveIndex:    js.UndefOr[Int | String]     = js.undefined,
+  fixed:                 js.UndefOr[MenuFixed]        = js.undefined,
+  floated:               js.UndefOr[MenuFloated]      = js.undefined,
+  fluid:                 js.UndefOr[Boolean]          = js.undefined,
+  icon:                  js.UndefOr[MenuIcon]         = js.undefined,
+  inverted:              js.UndefOr[Boolean]          = js.undefined,
+  onItemClickE:          js.UndefOr[Menu.OnItemClick] = js.undefined,
+  onItemClick:           js.UndefOr[Callback]         = js.undefined,
+  pagination:            js.UndefOr[Boolean]          = js.undefined,
+  pointing:              js.UndefOr[Boolean]          = js.undefined,
+  secondary:             js.UndefOr[Boolean]          = js.undefined,
+  size:                  js.UndefOr[SemanticSize]     = js.undefined,
+  stackable:             js.UndefOr[Boolean]          = js.undefined,
+  tabular:               js.UndefOr[MenuTabular]      = js.undefined,
+  text:                  js.UndefOr[Boolean]          = js.undefined,
+  vertical:              js.UndefOr[Boolean]          = js.undefined,
+  widths:                js.UndefOr[SemanticWidth]    = js.undefined,
+  override val children: CtorType.ChildrenArgs        = Seq.empty
+) extends GenericComponentPC[Menu.MenuProps] {
+  @inline def renderWith =
+    Menu.component(Menu.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Menu {
   type OnItemClick = ReactEvent => Callback
@@ -116,7 +149,41 @@ object Menu {
     var widths: js.UndefOr[suiraw.SemanticWIDTHS] = js.native
   }
 
-  def props(
+  val Default: Menu = Menu()
+
+  val defaultProps: MenuProps = props(Default)
+
+  def props(q: Menu): MenuProps =
+    rawprops(
+      q.as,
+      q.activeIndex,
+      q.attached,
+      q.borderless,
+      q.child,
+      q.className,
+      q.clazz,
+      q.color,
+      q.compact,
+      q.defaultActiveIndex,
+      q.fixed,
+      q.floated,
+      q.fluid,
+      q.icon,
+      q.inverted,
+      q.onItemClickE,
+      q.onItemClick,
+      q.pagination,
+      q.pointing,
+      q.secondary,
+      q.size,
+      q.stackable,
+      q.tabular,
+      q.text,
+      q.vertical,
+      q.widths
+    )
+
+  def rawprops(
     as:                 js.UndefOr[AsC]           = js.undefined,
     activeIndex:        js.UndefOr[Int | String]  = js.undefined,
     attached:           js.UndefOr[MenuAttached]  = js.undefined,
@@ -174,14 +241,7 @@ object Menu {
   private val component =
     JsComponent[MenuProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        MenuProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, MenuProps, Null, RawMounted[MenuProps, Null], MenuProps, Null] =
-    component(p)(children: _*)
+  def apply(content: VdomNode*): Menu =
+    new Menu(children = content)
 
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, MenuProps, Null, RawMounted[MenuProps, Null], MenuProps, Null] =
-    component(props())(children: _*)
 }

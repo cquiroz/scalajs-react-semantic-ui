@@ -4,18 +4,42 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.colors._
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.UnmountedIcon
+
+final case class MenuItem(
+  as:                    js.UndefOr[AsC]              = js.undefined,
+  active:                js.UndefOr[Boolean]          = js.undefined,
+  child:                 js.UndefOr[VdomNode]         = js.undefined,
+  className:             js.UndefOr[String]           = js.undefined,
+  clazz:                 js.UndefOr[Css]              = js.undefined,
+  color:                 js.UndefOr[SemanticColor]    = js.undefined,
+  content:               js.UndefOr[VdomNode]         = js.undefined,
+  disabled:              js.UndefOr[Boolean]          = js.undefined,
+  fitted:                js.UndefOr[MenuItemFitted]   = js.undefined,
+  header:                js.UndefOr[Boolean]          = js.undefined,
+  icon:                  js.UndefOr[Icon]             = js.undefined,
+  index:                 js.UndefOr[Int]              = js.undefined,
+  link:                  js.UndefOr[Boolean]          = js.undefined,
+  name:                  js.UndefOr[String]           = js.undefined,
+  onClickE:              js.UndefOr[MenuItem.OnClick] = js.undefined,
+  onClick:               js.UndefOr[Callback]         = js.undefined,
+  position:              js.UndefOr[MenuItemPosition] = js.undefined,
+  override val children: CtorType.ChildrenArgs        = Seq.empty
+) extends GenericComponentPC[MenuItem.MenuItemProps] {
+  @inline def renderWith =
+    MenuItem.component(MenuItem.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object MenuItem {
   type OnClick = ReactEvent => Callback
@@ -86,6 +110,27 @@ object MenuItem {
   }
 
   def props(
+    q: MenuItem
+  ): MenuItemProps =
+    rawprops(q.as,
+             q.active,
+             q.child,
+             q.className,
+             q.clazz,
+             q.color,
+             q.content,
+             q.disabled,
+             q.fitted,
+             q.header,
+             q.icon,
+             q.index,
+             q.link,
+             q.name,
+             q.onClickE,
+             q.onClick,
+             q.position)
+
+  def rawprops(
     as:        js.UndefOr[AsC]              = js.undefined,
     active:    js.UndefOr[Boolean]          = js.undefined,
     children:  js.UndefOr[VdomNode]         = js.undefined,
@@ -96,7 +141,7 @@ object MenuItem {
     disabled:  js.UndefOr[Boolean]          = js.undefined,
     fitted:    js.UndefOr[MenuItemFitted]   = js.undefined,
     header:    js.UndefOr[Boolean]          = js.undefined,
-    icon:      js.UndefOr[UnmountedIcon]    = js.undefined,
+    icon:      js.UndefOr[Icon]             = js.undefined,
     index:     js.UndefOr[Int]              = js.undefined,
     link:      js.UndefOr[Boolean]          = js.undefined,
     name:      js.UndefOr[String]           = js.undefined,
@@ -126,15 +171,6 @@ object MenuItem {
   private val component =
     JsComponent[MenuItemProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        MenuItemProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, MenuItemProps, Null, RawMounted[MenuItemProps, Null], MenuItemProps, Null] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[Id, MenuItemProps, Null, RawMounted[
-    MenuItemProps,
-    Null
-  ], MenuItemProps, Null] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): MenuItem =
+    new MenuItem(children = content)
 }

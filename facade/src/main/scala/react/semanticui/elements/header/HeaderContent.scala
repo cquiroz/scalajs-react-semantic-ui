@@ -3,13 +3,27 @@ package react.semanticui.elements.header
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class HeaderContent(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericFnComponentPC[HeaderContent.HeaderContentProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    HeaderContent.component(HeaderContent.props(this))
+}
 
 object HeaderContent {
   @js.native
@@ -40,6 +54,11 @@ object HeaderContent {
   }
 
   def props(
+    q: HeaderContent
+  ): HeaderContentProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content)
+
+  def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
@@ -57,17 +76,5 @@ object HeaderContent {
   private val component =
     JsFnComponent[HeaderContentProps, Children.Varargs](RawComponent)
 
-  def apply(p: HeaderContentProps, children: VdomNode*): UnmountedWithRoot[
-    HeaderContentProps,
-    Unit,
-    HeaderContentProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    HeaderContentProps,
-    Unit,
-    HeaderContentProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): HeaderContent = new HeaderContent(children = content)
 }

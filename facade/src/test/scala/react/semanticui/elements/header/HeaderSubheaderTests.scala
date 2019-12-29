@@ -6,17 +6,17 @@ import japgolly.scalajs.react.test._
 object HeaderSubheaderTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = HeaderSubheader(HeaderSubheader.props())
+      val header = HeaderSubheader()
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="sub header"></div></div>""")
+        header.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="sub header"></div>""")
       }
     }
     'renderAs - {
-      val menuItem = HeaderSubheader(HeaderSubheader.props(as = "a"))
+      val header = HeaderSubheader(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><a class="sub header"></a></div>""")
+        header.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<a class="sub header"></a>""")
       }
     }
   }

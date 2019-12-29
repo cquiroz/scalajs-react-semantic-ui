@@ -6,17 +6,47 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.UnmountedIcon
 import react.semanticui.sizes._
+
+final case class Input(
+  as:                    js.UndefOr[AsC]                                     = js.undefined,
+  action:                js.UndefOr[Boolean | SemanticShortHandItem[js.Any]] = js.undefined,
+  actionPosition:        js.UndefOr[ActionPosition]                          = js.undefined,
+  child:                 js.UndefOr[VdomNode]                                = js.undefined,
+  className:             js.UndefOr[String]                                  = js.undefined,
+  clazz:                 js.UndefOr[Css]                                     = js.undefined,
+  disabled:              js.UndefOr[Boolean]                                 = js.undefined,
+  error:                 js.UndefOr[Boolean]                                 = js.undefined,
+  fluid:                 js.UndefOr[Boolean]                                 = js.undefined,
+  focus:                 js.UndefOr[Boolean]                                 = js.undefined,
+  icon:                  js.UndefOr[Boolean | Icon]                          = js.undefined,
+  iconPosition:          js.UndefOr[IconPosition]                            = js.undefined,
+  input:                 js.UndefOr[VdomNode]                                = js.undefined,
+  inverted:              js.UndefOr[Boolean]                                 = js.undefined,
+  label:                 js.UndefOr[VdomNode]                                = js.undefined,
+  labelPosition:         js.UndefOr[LabelPosition]                           = js.undefined,
+  loading:               js.UndefOr[Boolean]                                 = js.undefined,
+  onChangeE:             js.UndefOr[Input.OnChange]                          = js.undefined,
+  onChange:              js.UndefOr[Callback]                                = js.undefined,
+  size:                  js.UndefOr[SemanticSize]                            = js.undefined,
+  tabIndex:              js.UndefOr[String | JsNumber]                       = js.undefined,
+  transparent:           js.UndefOr[Boolean]                                 = js.undefined,
+  `type`:                js.UndefOr[String]                                  = js.undefined,
+  override val children: CtorType.ChildrenArgs                               = Seq.empty
+) extends GenericComponentPC[Input.InputProps] {
+  @inline def renderWith =
+    Input.component(Input.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Input {
   type OnChange = ReactEventFromInput => Callback
@@ -103,57 +133,35 @@ object Input {
   }
 
   def props(
-    as:             js.UndefOr[AsC]                                     = js.undefined,
-    action:         js.UndefOr[Boolean | SemanticShortHandItem[js.Any]] = js.undefined,
-    actionPosition: js.UndefOr[ActionPosition]                          = js.undefined,
-    children:       js.UndefOr[VdomNode]                                = js.undefined,
-    className:      js.UndefOr[String]                                  = js.undefined,
-    clazz:          js.UndefOr[Css]                                     = js.undefined,
-    disabled:       js.UndefOr[Boolean]                                 = js.undefined,
-    error:          js.UndefOr[Boolean]                                 = js.undefined,
-    fluid:          js.UndefOr[Boolean]                                 = js.undefined,
-    focus:          js.UndefOr[Boolean]                                 = js.undefined,
-    icon:           js.UndefOr[Boolean | UnmountedIcon]                 = js.undefined,
-    iconPosition:   js.UndefOr[IconPosition]                            = js.undefined,
-    input:          js.UndefOr[VdomNode]                                = js.undefined,
-    inverted:       js.UndefOr[Boolean]                                 = js.undefined,
-    label:          js.UndefOr[VdomNode]                                = js.undefined,
-    labelPosition:  js.UndefOr[LabelPosition]                           = js.undefined,
-    loading:        js.UndefOr[Boolean]                                 = js.undefined,
-    onChangeE:      js.UndefOr[OnChange]                                = js.undefined,
-    onChange:       js.UndefOr[Callback]                                = js.undefined,
-    size:           js.UndefOr[SemanticSize]                            = js.undefined,
-    tabIndex:       js.UndefOr[String | JsNumber]                       = js.undefined,
-    transparent:    js.UndefOr[Boolean]                                 = js.undefined,
-    `type`:         js.UndefOr[String]                                  = js.undefined
+    q: Input
   ): InputProps = {
-    val p = as.toJsObject[InputProps]
-    p.as             = as.toJs
-    p.action         = action.toRaw
-    p.actionPosition = actionPosition.toJs
-    p.children       = children.toJs
-    p.className      = (className, clazz).toJs
-    p.disabled       = disabled
-    p.error          = error
-    p.fluid          = fluid
-    p.focus          = focus
-    p.icon = icon.map {
+    val p = q.as.toJsObject[InputProps]
+    p.as             = q.as.toJs
+    p.action         = q.action.toRaw
+    p.actionPosition = q.actionPosition.toJs
+    p.children       = q.child.toJs
+    p.className      = (q.className, q.clazz).toJs
+    p.disabled       = q.disabled
+    p.error          = q.error
+    p.fluid          = q.fluid
+    p.focus          = q.focus
+    p.icon = q.icon.map {
       (_: Any) match {
         case b: Boolean => b
-        case c          => c.asInstanceOf[UnmountedIcon].props
+        case c: Icon    => c.props
       }
     }
-    p.iconPosition  = iconPosition.toJs
-    p.input         = input.toJs
-    p.inverted      = inverted
-    p.label         = label.toJs
-    p.labelPosition = labelPosition.toJs
-    p.loading       = loading
-    p.onChange      = (onChangeE, onChange).toJs
-    p.size          = size.toJs
-    p.tabIndex      = tabIndex
-    p.transparent   = transparent
-    p.`type`        = `type`
+    p.iconPosition  = q.iconPosition.toJs
+    p.input         = q.input.toJs
+    p.inverted      = q.inverted
+    p.label         = q.label.toJs
+    p.labelPosition = q.labelPosition.toJs
+    p.loading       = q.loading
+    p.onChange      = (q.onChangeE, q.onChange).toJs
+    p.size          = q.size.toJs
+    p.tabIndex      = q.tabIndex
+    p.transparent   = q.transparent
+    p.`type`        = q.`type`
     p
   }
 
@@ -161,13 +169,7 @@ object Input {
     JsComponent[InputProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        InputProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, InputProps, Null, RawMounted[InputProps, Null], InputProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, InputProps, Null, RawMounted[InputProps, Null], InputProps, Null] =
-    component(props())(children: _*)
+    content: VdomNode*
+  ): Input =
+    new Input(children = content)
 }

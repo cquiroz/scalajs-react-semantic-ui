@@ -7,15 +7,46 @@ import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.sizes._
 import react.semanticui.{ raw => suiraw }
+
+final case class Popup(
+  as:                    js.UndefOr[AsC]                            = js.undefined,
+  basic:                 js.UndefOr[Boolean]                        = js.undefined,
+  child:                 js.UndefOr[VdomNode]                       = js.undefined,
+  className:             js.UndefOr[String]                         = js.undefined,
+  clazz:                 js.UndefOr[Css]                            = js.undefined,
+  content:               js.UndefOr[PopupContent.PopupContentProps] = js.undefined,
+  disabled:              js.UndefOr[Boolean]                        = js.undefined,
+  flowing:               js.UndefOr[Boolean]                        = js.undefined,
+  header:                js.UndefOr[PopupHeader.PopupHeaderProps]   = js.undefined,
+  hideOnScroll:          js.UndefOr[Boolean]                        = js.undefined,
+  hoverable:             js.UndefOr[Boolean]                        = js.undefined,
+  inverted:              js.UndefOr[Boolean]                        = js.undefined,
+  offset:                js.UndefOr[JsNumber | String]              = js.undefined,
+  on:                    js.UndefOr[PopupOn | List[PopupOn]]        = js.undefined,
+  onCloseE:              js.UndefOr[Popup.OnClose]                  = js.undefined,
+  onClose:               js.UndefOr[Callback]                       = js.undefined,
+  onOpenE:               js.UndefOr[Popup.OnOpen]                   = js.undefined,
+  onOpen:                js.UndefOr[Callback]                       = js.undefined,
+  pinned:                js.UndefOr[Boolean]                        = js.undefined,
+  position:              js.UndefOr[PopupPosition]                  = js.undefined,
+  popperModifiers:       js.UndefOr[js.Object]                      = js.undefined,
+  size:                  js.UndefOr[SemanticSize]                   = js.undefined,
+  style:                 js.UndefOr[Style]                          = js.undefined,
+  trigger:               js.UndefOr[VdomNode]                       = js.undefined,
+  wide:                  js.UndefOr[PopupWide]                      = js.undefined,
+  override val children: CtorType.ChildrenArgs                      = Seq.empty
+) extends GenericComponentPC[Popup.PopupProps] {
+  @inline def renderWith = Popup.component(Popup.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Popup {
   private type RawOnClose = js.Function2[ReactMouseEvent, PopupProps, Unit]
@@ -141,7 +172,36 @@ object Popup {
     var wide: js.UndefOr[Boolean | String] = js.native
   }
 
-  def props(
+  def props(q: Popup): PopupProps =
+    rawprops(
+      q.as,
+      q.basic,
+      q.child,
+      q.className,
+      q.clazz,
+      q.content,
+      q.disabled,
+      q.flowing,
+      q.header,
+      q.hideOnScroll,
+      q.hoverable,
+      q.inverted,
+      q.offset,
+      q.on,
+      q.onCloseE,
+      q.onClose,
+      q.onOpenE,
+      q.onOpen,
+      q.pinned,
+      q.position,
+      q.popperModifiers,
+      q.size,
+      q.style,
+      q.trigger,
+      q.wide
+    )
+
+  def rawprops(
     as:              js.UndefOr[AsC]                            = js.undefined,
     basic:           js.UndefOr[Boolean]                        = js.undefined,
     children:        js.UndefOr[VdomNode]                       = js.undefined,
@@ -203,13 +263,7 @@ object Popup {
     JsComponent[PopupProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        PopupProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, PopupProps, Null, RawMounted[PopupProps, Null], PopupProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    children: VdomNode*
-  ): UnmountedMapped[Id, PopupProps, Null, RawMounted[PopupProps, Null], PopupProps, Null] =
-    component(props())(children: _*)
+    content: VdomNode*
+  ): Popup =
+    new Popup(children = content)
 }

@@ -7,10 +7,10 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ItemGroupTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val pusher = ItemGroup(ItemGroup.props(), "Abc")
+      val itemGroup = ItemGroup("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
-        pusher.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><div class="ui items">Abc</div></div>""")
+        itemGroup.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="ui items">Abc</div>""")
       }
     }
   }

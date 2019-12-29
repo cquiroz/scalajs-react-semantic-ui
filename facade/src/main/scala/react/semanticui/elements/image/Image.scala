@@ -5,15 +5,48 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
 import react.semanticui.floats._
 import react.semanticui.verticalalignment._
+
+final case class Image(
+  as:                    js.UndefOr[AsC]                       = js.undefined,
+  avatar:                js.UndefOr[Boolean]                   = js.undefined,
+  bordered:              js.UndefOr[Boolean]                   = js.undefined,
+  centered:              js.UndefOr[Boolean]                   = js.undefined,
+  child:                 js.UndefOr[VdomNode]                  = js.undefined,
+  circular:              js.UndefOr[Boolean]                   = js.undefined,
+  className:             js.UndefOr[String]                    = js.undefined,
+  clazz:                 js.UndefOr[Css]                       = js.undefined,
+  content:               js.UndefOr[VdomNode]                  = js.undefined,
+  disabled:              js.UndefOr[Boolean]                   = js.undefined,
+  dimmer:                js.UndefOr[VdomNode]                  = js.undefined,
+  floated:               js.UndefOr[SemanticFloats]            = js.undefined,
+  fluid:                 js.UndefOr[Boolean | String]          = js.undefined,
+  hidden:                js.UndefOr[Boolean]                   = js.undefined,
+  href:                  js.UndefOr[String]                    = js.undefined,
+  inline:                js.UndefOr[Boolean]                   = js.undefined,
+  label:                 js.UndefOr[VdomNode]                  = js.undefined,
+  rounded:               js.UndefOr[Boolean]                   = js.undefined,
+  size:                  js.UndefOr[SemanticSize]              = js.undefined,
+  spaced:                js.UndefOr[ImageSpaced]               = js.undefined,
+  src:                   js.UndefOr[String]                    = js.undefined,
+  ui:                    js.UndefOr[Boolean]                   = js.undefined,
+  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  wrapped:               js.UndefOr[Boolean]                   = js.undefined,
+  override val children: CtorType.ChildrenArgs                 = Seq.empty
+) extends GenericFnComponentPC[Image.ImageProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    Image.component(Image.props(this))
+}
 
 object Image {
   @js.native
@@ -100,64 +133,41 @@ object Image {
   }
 
   def props(
-    as:            js.UndefOr[AsC]                       = js.undefined,
-    avatar:        js.UndefOr[Boolean]                   = js.undefined,
-    bordered:      js.UndefOr[Boolean]                   = js.undefined,
-    centered:      js.UndefOr[Boolean]                   = js.undefined,
-    children:      js.UndefOr[VdomNode]                  = js.undefined,
-    circular:      js.UndefOr[Boolean]                   = js.undefined,
-    className:     js.UndefOr[String]                    = js.undefined,
-    clazz:         js.UndefOr[Css]                       = js.undefined,
-    content:       js.UndefOr[VdomNode]                  = js.undefined,
-    disabled:      js.UndefOr[Boolean]                   = js.undefined,
-    dimmer:        js.UndefOr[VdomNode]                  = js.undefined,
-    floated:       js.UndefOr[SemanticFloats]            = js.undefined,
-    fluid:         js.UndefOr[Boolean | String]          = js.undefined,
-    hidden:        js.UndefOr[Boolean]                   = js.undefined,
-    href:          js.UndefOr[String]                    = js.undefined,
-    inline:        js.UndefOr[Boolean]                   = js.undefined,
-    label:         js.UndefOr[VdomNode]                  = js.undefined,
-    rounded:       js.UndefOr[Boolean]                   = js.undefined,
-    size:          js.UndefOr[SemanticSize]              = js.undefined,
-    spaced:        js.UndefOr[ImageSpaced]               = js.undefined,
-    src:           js.UndefOr[String]                    = js.undefined,
-    ui:            js.UndefOr[Boolean]                   = js.undefined,
-    verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-    wrapped:       js.UndefOr[Boolean]                   = js.undefined
+    q: Image
   ): ImageProps = {
-    val p = as.toJsObject[ImageProps]
-    p.as            = as.toJs
-    p.avatar        = avatar
-    p.bordered      = bordered
-    p.centered      = centered
-    p.children      = children.toJs
-    p.circular      = circular
-    p.className     = (className, clazz).toJs
-    p.content       = content.toJs
-    p.disabled      = disabled
-    p.dimmer        = dimmer.toJs
-    p.floated       = floated.toJs
-    p.fluid         = fluid
-    p.hidden        = hidden
-    p.href          = href
-    p.inline        = inline
-    p.label         = label.toJs
-    p.rounded       = rounded
-    p.size          = size.toJs
-    p.spaced        = spaced.toJs
-    p.src           = src
-    p.ui            = ui
-    p.verticalAlign = verticalAlign.toJs
-    p.wrapped       = wrapped
+    val p = q.as.toJsObject[ImageProps]
+    p.as            = q.as.toJs
+    p.avatar        = q.avatar
+    p.bordered      = q.bordered
+    p.centered      = q.centered
+    p.children      = q.child.toJs
+    p.circular      = q.circular
+    p.className     = (q.className, q.clazz).toJs
+    p.content       = q.content.toJs
+    p.disabled      = q.disabled
+    p.dimmer        = q.dimmer.toJs
+    p.floated       = q.floated.toJs
+    p.fluid         = q.fluid
+    p.hidden        = q.hidden
+    p.href          = q.href
+    p.inline        = q.inline
+    p.label         = q.label.toJs
+    p.rounded       = q.rounded
+    p.size          = q.size.toJs
+    p.spaced        = q.spaced.toJs
+    p.src           = q.src
+    p.ui            = q.ui
+    p.verticalAlign = q.verticalAlign.toJs
+    p.wrapped       = q.wrapped
     p
   }
 
   private val component =
     JsFnComponent[ImageProps, Children.Varargs](RawComponent)
 
-  def apply(p: ImageProps, children: VdomNode*): UnmountedWithRoot[ImageProps, Unit, ImageProps] =
-    component(p)(children: _*)
+  def apply(content: VdomNode*): Image = new Image(children = content)
 
-  def apply(children: VdomNode*): UnmountedWithRoot[ImageProps, Unit, ImageProps] =
-    component(props())(children: _*)
+  val Default: Image = Image()
+
+  val defaultProps: ImageProps = props(Default)
 }

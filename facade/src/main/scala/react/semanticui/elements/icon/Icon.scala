@@ -1,12 +1,9 @@
 package react.semanticui.elements.icon
 
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.sizes._
@@ -14,6 +11,31 @@ import react.semanticui.colors._
 import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._
+
+final case class Icon(
+  as:                    js.UndefOr[AsC]                  = js.undefined,
+  bordered:              js.UndefOr[Boolean]              = js.undefined,
+  circular:              js.UndefOr[Boolean]              = js.undefined,
+  className:             js.UndefOr[String]               = js.undefined,
+  clazz:                 js.UndefOr[Css]                  = js.undefined,
+  color:                 js.UndefOr[SemanticColor]        = js.undefined,
+  corner:                js.UndefOr[IconCorner]           = js.undefined,
+  disabled:              js.UndefOr[Boolean]              = js.undefined,
+  fitted:                js.UndefOr[Boolean]              = js.undefined,
+  flipped:               js.UndefOr[IconFlip]             = js.undefined,
+  inverted:              js.UndefOr[Boolean]              = js.undefined,
+  link:                  js.UndefOr[Boolean]              = js.undefined,
+  loading:               js.UndefOr[Boolean]              = js.undefined,
+  name:                  js.UndefOr[suiraw.SemanticICONS] = js.undefined,
+  rotated:               js.UndefOr[IconRotated]          = js.undefined,
+  size:                  js.UndefOr[SemanticSize]         = js.undefined,
+  ariaLabel:             js.UndefOr[String]               = js.undefined,
+  override val children: CtorType.ChildrenArgs            = Seq.empty
+) extends GenericComponentPC[Icon.IconProps] {
+  @inline def renderWith = Icon.component(Icon.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Icon {
   @js.native
@@ -46,96 +68,48 @@ object Icon {
   }
 
   def props(
-    as:        js.UndefOr[AsC]                  = js.undefined,
-    bordered:  js.UndefOr[Boolean]              = js.undefined,
-    circular:  js.UndefOr[Boolean]              = js.undefined,
-    className: js.UndefOr[String]               = js.undefined,
-    clazz:     js.UndefOr[Css]                  = js.undefined,
-    color:     js.UndefOr[SemanticColor]        = js.undefined,
-    corner:    js.UndefOr[IconCorner]           = js.undefined,
-    disabled:  js.UndefOr[Boolean]              = js.undefined,
-    fitted:    js.UndefOr[Boolean]              = js.undefined,
-    flipped:   js.UndefOr[IconFlip]             = js.undefined,
-    inverted:  js.UndefOr[Boolean]              = js.undefined,
-    link:      js.UndefOr[Boolean]              = js.undefined,
-    loading:   js.UndefOr[Boolean]              = js.undefined,
-    name:      js.UndefOr[suiraw.SemanticICONS] = js.undefined,
-    rotated:   js.UndefOr[IconRotated]          = js.undefined,
-    size:      js.UndefOr[SemanticSize]         = js.undefined,
-    ariaLabel: js.UndefOr[String]               = js.undefined
+    q: Icon
   ): IconProps = {
-    val p = as.toJsObject[IconProps]
-    p.as           = as.toJs
-    p.bordered     = bordered
-    p.circular     = circular
-    p.className    = (className, clazz).toJs
-    p.color        = color.toJs
-    p.corner       = corner.toJs
-    p.disabled     = disabled
-    p.fitted       = fitted
-    p.flipped      = flipped.toJs
-    p.inverted     = inverted
-    p.link         = link
-    p.loading      = loading
-    p.name         = name
-    p.rotated      = rotated.toJs
-    p.size         = size.toJs
-    p.`aria-label` = ariaLabel
-    p
-  }
-
-  private[semanticui] def rawprops(
-    as:           js.UndefOr[AsT]                   = js.undefined,
-    bordered:     js.UndefOr[Boolean]               = js.undefined,
-    circular:     js.UndefOr[Boolean]               = js.undefined,
-    className:    js.UndefOr[String]                = js.undefined,
-    clazz:        js.UndefOr[Css]                   = js.undefined,
-    color:        js.UndefOr[suiraw.SemanticCOLORS] = js.undefined,
-    corner:       js.UndefOr[Boolean | String]      = js.undefined,
-    disabled:     js.UndefOr[Boolean]               = js.undefined,
-    fitted:       js.UndefOr[Boolean]               = js.undefined,
-    flipped:      js.UndefOr[String]                = js.undefined,
-    inverted:     js.UndefOr[Boolean]               = js.undefined,
-    link:         js.UndefOr[Boolean]               = js.undefined,
-    loading:      js.UndefOr[Boolean]               = js.undefined,
-    name:         js.UndefOr[suiraw.SemanticICONS]  = js.undefined,
-    rotated:      js.UndefOr[String]                = js.undefined,
-    size:         js.UndefOr[suiraw.SemanticSIZES]  = js.undefined,
-    `aria-label`: js.UndefOr[String]                = js.undefined
-  ): IconProps = {
-    val p = (new js.Object).asInstanceOf[IconProps]
-    p.as        = as
-    p.bordered  = bordered
-    p.circular  = circular
-    p.className = (className, clazz).toJs
-
-    p.color        = color
-    p.corner       = corner
-    p.disabled     = disabled
-    p.fitted       = fitted
-    p.flipped      = flipped
-    p.inverted     = inverted
-    p.link         = link
-    p.loading      = loading
-    p.name         = name
-    p.rotated      = rotated
-    p.size         = size
-    p.`aria-label` = `aria-label`
+    val p = q.as.toJsObject[IconProps]
+    p.as           = q.as.toJs
+    p.bordered     = q.bordered
+    p.circular     = q.circular
+    p.className    = (q.className, q.clazz).toJs
+    p.color        = q.color.toJs
+    p.corner       = q.corner.toJs
+    p.disabled     = q.disabled
+    p.fitted       = q.fitted
+    p.flipped      = q.flipped.toJs
+    p.inverted     = q.inverted
+    p.link         = q.link
+    p.loading      = q.loading
+    p.name         = q.name
+    p.rotated      = q.rotated.toJs
+    p.size         = q.size.toJs
+    p.`aria-label` = q.ariaLabel
     p
   }
 
   private val component =
     JsComponent[IconProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        IconProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, IconProps, Null, RawMounted[IconProps, Null], IconProps, Null] =
-    component(p)(children: _*)
-
-  def apply(
-    name:     String,
-    children: VdomNode*
-  ): UnmountedMapped[Id, IconProps, Null, RawMounted[IconProps, Null], IconProps, Null] =
-    component(props(name = name))(children: _*)
+  def apply(name: String): Icon =
+    new Icon(as        = js.undefined,
+             bordered  = js.undefined,
+             circular  = js.undefined,
+             className = js.undefined,
+             clazz     = js.undefined,
+             color     = js.undefined,
+             corner    = js.undefined,
+             disabled  = js.undefined,
+             fitted    = js.undefined,
+             flipped   = js.undefined,
+             inverted  = js.undefined,
+             link      = js.undefined,
+             loading   = js.undefined,
+             name      = name,
+             rotated   = js.undefined,
+             size      = js.undefined,
+             ariaLabel = js.undefined,
+             children  = Seq.empty)
 }

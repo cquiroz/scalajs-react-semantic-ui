@@ -3,13 +3,26 @@ package react.semanticui.modules.modal
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class ModalHeader(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericFnComponentPC[ModalHeader.ModalHeaderProps] {
+  @inline def renderWith = ModalHeader.component(ModalHeader.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object ModalHeader {
   @js.native
@@ -39,7 +52,10 @@ object ModalHeader {
     var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
   }
 
-  def props(
+  def props(q: ModalHeader): ModalHeaderProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content)
+
+  def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
@@ -57,17 +73,6 @@ object ModalHeader {
   private val component =
     JsFnComponent[ModalHeaderProps, Children.Varargs](RawComponent)
 
-  def apply(p: ModalHeaderProps, children: VdomNode*): UnmountedWithRoot[
-    ModalHeaderProps,
-    Unit,
-    ModalHeaderProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    ModalHeaderProps,
-    Unit,
-    ModalHeaderProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): ModalHeader =
+    new ModalHeader(children = content)
 }

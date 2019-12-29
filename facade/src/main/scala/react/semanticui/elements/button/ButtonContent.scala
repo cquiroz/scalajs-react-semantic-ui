@@ -4,14 +4,28 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class ButtonContent(
+  as:                    js.UndefOr[AsC]       = js.undefined,
+  child:                 js.UndefOr[VdomNode]  = js.undefined,
+  className:             js.UndefOr[String]    = js.undefined,
+  clazz:                 js.UndefOr[Css]       = js.undefined,
+  content:               js.UndefOr[VdomNode]  = js.undefined,
+  hidden:                js.UndefOr[Boolean]   = js.undefined,
+  visible:               js.UndefOr[Boolean]   = js.undefined,
+  override val children: CtorType.ChildrenArgs = Seq.empty
+) extends GenericComponentPC[ButtonContent.ButtonContentProps] {
+  @inline def renderWith =
+    ButtonContent.component(ButtonContent.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object ButtonContent {
   @js.native
@@ -47,6 +61,10 @@ object ButtonContent {
   }
 
   def props(
+    q: ButtonContent
+  ): ButtonContentProps =
+    rawprops(q.as, q.child, q.className, q.clazz, q.content, q.hidden, q.visible)
+  def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
     children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
@@ -69,17 +87,7 @@ object ButtonContent {
     JsComponent[ButtonContentProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    p:        ButtonContentProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, ButtonContentProps, Null, RawMounted[
-    ButtonContentProps,
-    Null
-  ], ButtonContentProps, Null] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[Id, ButtonContentProps, Null, RawMounted[
-    ButtonContentProps,
-    Null
-  ], ButtonContentProps, Null] =
-    component(props())(children: _*)
+    content: VdomNode*
+  ): ButtonContent =
+    new ButtonContent(children = content)
 }

@@ -1,18 +1,31 @@
 package react.semanticui.elements.icon
 
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
-import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.sizes._
 import scala.scalajs.js
 import js.annotation._
+
+final case class IconGroup(
+  as:                    js.UndefOr[AsC]          = js.undefined,
+  child:                 js.UndefOr[VdomNode]     = js.undefined,
+  className:             js.UndefOr[String]       = js.undefined,
+  clazz:                 js.UndefOr[Css]          = js.undefined,
+  content:               js.UndefOr[VdomNode]     = js.undefined,
+  size:                  js.UndefOr[SemanticSize] = js.undefined,
+  override val children: CtorType.ChildrenArgs    = Seq.empty
+) extends GenericComponentPC[IconGroup.IconGroupProps] {
+  @inline def renderWith =
+    IconGroup.component(IconGroup.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object IconGroup {
   @js.native
@@ -34,39 +47,21 @@ object IconGroup {
   }
 
   def props(
-    as:        js.UndefOr[AsC]          = js.undefined,
-    children:  js.UndefOr[VdomNode]     = js.undefined,
-    className: js.UndefOr[String]       = js.undefined,
-    clazz:     js.UndefOr[Css]          = js.undefined,
-    content:   js.UndefOr[VdomNode]     = js.undefined,
-    size:      js.UndefOr[SemanticSize] = js.undefined
+    q: IconGroup
   ): IconGroupProps = {
-    val p = as.toJsObject[IconGroupProps]
-    p.as        = as.toJs
-    p.children  = children.toJs
-    p.content   = content.toJs
-    p.className = (className, clazz).toJs
-
-    p.content = content.toJs
-    p.size    = size.toJs
+    val p = q.as.toJsObject[IconGroupProps]
+    p.as        = q.as.toJs
+    p.children  = q.child.toJs
+    p.content   = q.content.toJs
+    p.className = (q.className, q.clazz).toJs
+    p.content   = q.content.toJs
+    p.size      = q.size.toJs
     p
   }
 
   private val component =
     JsComponent[IconGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        IconGroupProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, IconGroupProps, Null, RawMounted[
-    IconGroupProps,
-    Null
-  ], IconGroupProps, Null] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[Id, IconGroupProps, Null, RawMounted[
-    IconGroupProps,
-    Null
-  ], IconGroupProps, Null] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): IconGroup =
+    new IconGroup(children = content)
 }

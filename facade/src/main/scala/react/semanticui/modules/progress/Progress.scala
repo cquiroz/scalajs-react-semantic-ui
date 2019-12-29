@@ -6,17 +6,44 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.component.Js.RawMounted
-import japgolly.scalajs.react.component.Js.UnmountedMapped
 import japgolly.scalajs.react.vdom.VdomNode
-import japgolly.scalajs.react.internal.Effect.Id
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.colors._
 import react.semanticui.sizes._
 import react.semanticui.elements.label.Label.LabelProps
+
+final case class Progress(
+  as:                    js.UndefOr[AsC]               = js.undefined,
+  active:                js.UndefOr[Boolean]           = js.undefined,
+  attached:              js.UndefOr[String]            = js.undefined,
+  autoSuccess:           js.UndefOr[Boolean]           = js.undefined,
+  child:                 js.UndefOr[VdomNode]          = js.undefined,
+  className:             js.UndefOr[String]            = js.undefined,
+  clazz:                 js.UndefOr[Css]               = js.undefined,
+  color:                 js.UndefOr[SemanticColor]     = js.undefined,
+  content:               js.UndefOr[VdomNode]          = js.undefined,
+  error:                 js.UndefOr[Boolean]           = js.undefined,
+  indicating:            js.UndefOr[Boolean]           = js.undefined,
+  inverted:              js.UndefOr[Boolean]           = js.undefined,
+  label:                 js.UndefOr[LabelProps]        = js.undefined,
+  percent:               js.UndefOr[JsNumber | String] = js.undefined,
+  precision:             js.UndefOr[JsNumber]          = js.undefined,
+  progress:              js.UndefOr[Boolean | String]  = js.undefined,
+  size:                  js.UndefOr[SemanticSize]      = js.undefined,
+  success:               js.UndefOr[Boolean]           = js.undefined,
+  total:                 js.UndefOr[JsNumber | String] = js.undefined,
+  value:                 js.UndefOr[JsNumber | String] = js.undefined,
+  warning:               js.UndefOr[Boolean]           = js.undefined,
+  override val children: CtorType.ChildrenArgs         = Seq.empty
+) extends GenericComponentPC[Progress.ProgressProps] {
+  @inline def renderWith = Progress.component(Progress.props(this))
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+}
 
 object Progress {
   type Event = (ReactMouseEvent, js.Object) => Callback
@@ -99,7 +126,32 @@ object Progress {
     var warning: js.UndefOr[Boolean] = js.native
   }
 
-  def props(
+  def props(q: Progress): ProgressProps =
+    rawprops(
+      q.as,
+      q.active,
+      q.attached,
+      q.autoSuccess,
+      q.child,
+      q.className,
+      q.clazz,
+      q.color,
+      q.content,
+      q.error,
+      q.indicating,
+      q.inverted,
+      q.label,
+      q.percent,
+      q.precision,
+      q.progress,
+      q.size,
+      q.success,
+      q.total,
+      q.value,
+      q.warning
+    )
+
+  def rawprops(
     as:          js.UndefOr[AsC]               = js.undefined,
     active:      js.UndefOr[Boolean]           = js.undefined,
     attached:    js.UndefOr[String]            = js.undefined,
@@ -149,15 +201,6 @@ object Progress {
   private val component =
     JsComponent[ProgressProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    p:        ProgressProps,
-    children: VdomNode*
-  ): UnmountedMapped[Id, ProgressProps, Null, RawMounted[ProgressProps, Null], ProgressProps, Null] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedMapped[Id, ProgressProps, Null, RawMounted[
-    ProgressProps,
-    Null
-  ], ProgressProps, Null] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): Progress =
+    Progress(children = content)
 }

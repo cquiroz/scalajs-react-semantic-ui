@@ -6,17 +6,17 @@ import japgolly.scalajs.react.test._
 object FlagTests extends TestSuite {
   val tests = Tests {
     'render - {
-      val menuItem = Flag(Flag.props(name = "cl"))
+      val menuItem = Flag(name = "cl")
       ReactTestUtils.withNewBodyElement { mountNode =>
         menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><i class="cl flag"></i></div>""")
+        assert(mountNode.innerHTML == """<i class="cl flag"></i>""")
       }
     }
     'renderAs - {
-      val menuItem = Flag(Flag.props(as = "a", name = "cl"))
+      val menuItem = Flag(as = "a", name = "cl")
       ReactTestUtils.withNewBodyElement { mountNode =>
         menuItem.renderIntoDOM(mountNode)
-        assert(mountNode.outerHTML == """<div><a class="cl flag"></a></div>""")
+        assert(mountNode.innerHTML == """<a class="cl flag"></a>""")
       }
     }
   }

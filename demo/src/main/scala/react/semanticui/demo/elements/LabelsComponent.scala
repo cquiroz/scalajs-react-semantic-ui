@@ -8,8 +8,8 @@ import react.semanticui.elements.label.LabelDetail
 import react.semanticui.colors._
 
 object LabelsComponent {
-  private val IconNewspaper = Icon(Icon.props(name = "newspaper"))
-  private val IconDelete    = Icon(Icon.props(name = "delete"))
+  private val IconNewspaper = Icon(name = "newspaper")
+  private val IconDelete    = Icon(name = "delete")
   def section(title: String, description: String)(items: TagMod): TagMod =
     <.div(
       ^.cls := "equal width row",
@@ -56,36 +56,35 @@ object LabelsComponent {
           section("Samples", "A label") {
             <.div(
               ^.cls := "column docs-icon-set-column",
-              Label(Label.props(), IconNewspaper, "23")
+              Label()(IconNewspaper, "23")
             )
           },
           section("Image", "As a link and an image") {
             List(
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(as = "a", image = true),
-                      <.img(
-                        ^.src := WebpackResources.AdaAvatar.resource
-                      ),
-                      "Ade")
+                Label(as = "a", image = true)(<.img(
+                                                ^.src := WebpackResources.AdaAvatar.resource
+                                              ),
+                                              "Ade")
               ),
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(as = "a", image = true, color = Blue),
-                      <.img(
-                        ^.src := WebpackResources.AdaAvatar.resource
-                      ),
-                      "Ade",
-                      LabelDetail(LabelDetail.props(), "Friend"))
+                Label(as = "a", image = true, color = Blue)(
+                  <.img(
+                    ^.src := WebpackResources.AdaAvatar.resource
+                  ),
+                  "Ade",
+                  LabelDetail("Friend")
+                )
               ),
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(as = "a", image = true),
-                      <.img(
-                        ^.src := WebpackResources.AdaAvatar.resource
-                      ),
-                      "Ade",
-                      IconDelete)
+                Label(as = "a", image = true)(<.img(
+                                                ^.src := WebpackResources.AdaAvatar.resource
+                                              ),
+                                              "Ade",
+                                              IconDelete)
               )
             ).toTagMod
           },
@@ -93,15 +92,15 @@ object LabelsComponent {
             List(
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(as = "a", tag = true), "New")
+                Label(as = "a", tag = true)("New")
               ),
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(color = Red, as = "a", tag = true), "Upcoming")
+                Label(color = Red, as = "a", tag = true)("Upcoming")
               ),
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(color = Teal, as = "a", tag = true), "Featured")
+                Label(color = Teal, as = "a", tag = true)("Featured")
               )
             ).toTagMod
           },
@@ -109,10 +108,9 @@ object LabelsComponent {
             List(
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(as = "a",
-                                  onClickE = (e: ReactMouseEvent, p: Label.LabelProps) =>
-                                    Callback.log(s"${e.screenX} $p")),
-                      "Callback")
+                Label(as = "a",
+                      onClickE = (e: ReactMouseEvent, p: Label.LabelProps) =>
+                        Callback.log(s"${e.screenX} $p"))("Callback")
               )
             ).toTagMod
           },
@@ -120,11 +118,11 @@ object LabelsComponent {
             List(
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(as = "a"), IconNewspaper, "Icon")
+                Label(as = "a")(IconNewspaper, "Icon")
               ),
               <.div(
                 ^.cls := "column docs-icon-set-column",
-                Label(Label.props(as = "a"), "Icon2", IconDelete.color(Red))
+                Label(as = "a")("Icon2", IconDelete.color(Red))
               )
             ).toTagMod
           }

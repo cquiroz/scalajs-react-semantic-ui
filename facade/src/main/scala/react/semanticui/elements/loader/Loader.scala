@@ -5,13 +5,33 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
+
+final case class Loader(
+  as:                    js.UndefOr[AsC]          = js.undefined,
+  active:                js.UndefOr[Boolean]      = js.undefined,
+  child:                 js.UndefOr[VdomNode]     = js.undefined,
+  className:             js.UndefOr[String]       = js.undefined,
+  clazz:                 js.UndefOr[Css]          = js.undefined,
+  content:               js.UndefOr[VdomNode]     = js.undefined,
+  disabled:              js.UndefOr[Boolean]      = js.undefined,
+  indeterminate:         js.UndefOr[Boolean]      = js.undefined,
+  inline:                js.UndefOr[LoaderInline] = js.undefined,
+  inverted:              js.UndefOr[Boolean]      = js.undefined,
+  size:                  js.UndefOr[SemanticSize] = js.undefined,
+  override val children: CtorType.ChildrenArgs    = Seq.empty
+) extends GenericFnComponentPC[Loader.LoaderProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    Loader.component(Loader.props(this))
+}
 
 object Loader {
   @js.native
@@ -60,41 +80,31 @@ object Loader {
   }
 
   def props(
-    as:            js.UndefOr[AsC]          = js.undefined,
-    active:        js.UndefOr[Boolean]      = js.undefined,
-    children:      js.UndefOr[VdomNode]     = js.undefined,
-    className:     js.UndefOr[String]       = js.undefined,
-    clazz:         js.UndefOr[Css]          = js.undefined,
-    content:       js.UndefOr[VdomNode]     = js.undefined,
-    disabled:      js.UndefOr[Boolean]      = js.undefined,
-    indeterminate: js.UndefOr[Boolean]      = js.undefined,
-    inline:        js.UndefOr[LoaderInline] = js.undefined,
-    inverted:      js.UndefOr[Boolean]      = js.undefined,
-    size:          js.UndefOr[SemanticSize] = js.undefined
+    q: Loader
   ): LoaderProps = {
-    val p = as.toJsObject[LoaderProps]
-    p.as            = as.toJs
-    p.active        = active
-    p.children      = children.toJs
-    p.className     = (className, clazz).toJs
-    p.content       = content.toJs
-    p.disabled      = disabled
-    p.indeterminate = indeterminate
-    p.inline        = inline.toJs
-    p.inverted      = inverted
-    p.size          = size.toJs
+    val p = q.as.toJsObject[LoaderProps]
+    p.as            = q.as.toJs
+    p.active        = q.active
+    p.children      = q.child.toJs
+    p.className     = (q.className, q.clazz).toJs
+    p.content       = q.content.toJs
+    p.disabled      = q.disabled
+    p.indeterminate = q.indeterminate
+    p.inline        = q.inline.toJs
+    p.inverted      = q.inverted
+    p.size          = q.size.toJs
     p
   }
 
   private val component =
     JsFnComponent[LoaderProps, Children.Varargs](RawComponent)
 
-  def apply(
-    p:        LoaderProps,
-    children: VdomNode*
-  ): UnmountedWithRoot[LoaderProps, Unit, LoaderProps] =
-    component(p)(children: _*)
+  val Default: Loader = Loader()
 
-  def apply(children: VdomNode*): UnmountedWithRoot[LoaderProps, Unit, LoaderProps] =
-    component(props())(children: _*)
+  val defaultProps: LoaderProps = props(Default)
+
+  def apply(
+    content: VdomNode*
+  ): Loader =
+    new Loader(children = content)
 }

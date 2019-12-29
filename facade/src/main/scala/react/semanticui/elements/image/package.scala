@@ -12,13 +12,4 @@ package image {
   }
 }
 
-package object image {
-  type UnmountedImage = japgolly.scalajs.react.component.Js.UnmountedMapped[
-    japgolly.scalajs.react.internal.Effect.Id,
-    Image.ImageProps,
-    Null,
-    japgolly.scalajs.react.component.Js.RawMounted[Image.ImageProps, Null],
-    Image.ImageProps,
-    Null
-  ]
-}
+package object image {}

@@ -4,13 +4,31 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.JsFnComponent.UnmountedWithRoot
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.syntax._
 import react.common.style._
+import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+
+final case class Item(
+  as:                    js.UndefOr[AsC]                                             = js.undefined,
+  child:                 js.UndefOr[VdomNode]                                        = js.undefined,
+  className:             js.UndefOr[String]                                          = js.undefined,
+  clazz:                 js.UndefOr[Css]                                             = js.undefined,
+  content:               js.UndefOr[VdomNode]                                        = js.undefined,
+  description:           js.UndefOr[VdomNode | ItemDescription.ItemDescriptionProps] = js.undefined,
+  extra:                 js.UndefOr[VdomNode | ItemExtra.ItemExtraProps]             = js.undefined,
+  header:                js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps]           = js.undefined,
+  meta:                  js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined,
+  override val children: CtorType.ChildrenArgs                                       = Seq.empty
+) extends GenericFnComponentPC[Item.ItemProps] {
+  override def withChildren(children: CtorType.ChildrenArgs) =
+    copy(children = children)
+  @inline def renderWith =
+    Item.component(Item.props(this))
+}
 
 object Item {
   @js.native
@@ -36,7 +54,7 @@ object Item {
     /** Additional classes. */
     var className: js.UndefOr[String] = js.native
 
-    /** Shorthand for ItemContent component. */
+    /** Shorthand for Item component. */
     var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
 
     /** Shorthand for ItemDescription component. */
@@ -56,7 +74,18 @@ object Item {
     var meta: js.UndefOr[suiraw.SemanticShorthandItem[ItemMeta.ItemMetaProps]] = js.native
   }
 
-  def props(
+  def props(q: Item): ItemProps =
+    rawprops(q.as,
+             q.child,
+             q.className,
+             q.clazz,
+             q.content,
+             q.description,
+             q.extra,
+             q.header,
+             q.meta)
+
+  def rawprops(
     as:          js.UndefOr[AsC]                                             = js.undefined,
     children:    js.UndefOr[VdomNode]                                        = js.undefined,
     className:   js.UndefOr[String]                                          = js.undefined,
@@ -82,17 +111,6 @@ object Item {
   private val component =
     JsFnComponent[ItemProps, Children.Varargs](RawComponent)
 
-  def apply(p: ItemProps, children: VdomNode*): UnmountedWithRoot[
-    ItemProps,
-    Unit,
-    ItemProps
-  ] =
-    component(p)(children: _*)
-
-  def apply(children: VdomNode*): UnmountedWithRoot[
-    ItemProps,
-    Unit,
-    ItemProps
-  ] =
-    component(props())(children: _*)
+  def apply(content: VdomNode*): Item =
+    Item(children = content)
 }
