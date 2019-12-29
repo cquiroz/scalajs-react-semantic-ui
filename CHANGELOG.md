@@ -1,5 +1,9 @@
 # Changes
 
+## 0.2.0
+
+* Change the API to use simpler constructs
+
 ## 0.1.7
 
 * Update scalajs-react-common
