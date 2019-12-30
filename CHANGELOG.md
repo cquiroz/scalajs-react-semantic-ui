@@ -1,5 +1,10 @@
 # Changes
 
+## 0.2.1
+
+* Upgrade to react-semantic-ui 0.87.3
+* Added Rail component
+
 ## 0.2.0
 
 * Change the API to use simpler constructs
