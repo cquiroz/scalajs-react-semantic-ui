@@ -37,6 +37,7 @@ final case class Label(
   onClick:               js.UndefOr[Callback]                 = js.undefined,
   onRemove:              js.UndefOr[Label.OnClick]            = js.undefined,
   pointing:              js.UndefOr[LabelPointing]            = js.undefined,
+  prompt:                js.UndefOr[Boolean]                  = js.undefined,
   removeIcon:            js.UndefOr[Icon]                     = js.undefined,
   ribbon:                js.UndefOr[LabelRibbon]              = js.undefined,
   size:                  js.UndefOr[SemanticSize]             = js.undefined,
@@ -86,6 +87,9 @@ object Label {
     var onRemove: js.UndefOr[js.Function2[ReactMouseEvent, LabelProps, Unit]] =
       js.native
     var pointing: js.UndefOr[Boolean | String] = js.native
+
+    /** A label can prompt for an error in your forms. */
+    var prompt: js.UndefOr[Boolean]
     var removeIcon: js.UndefOr[suiraw.SemanticShorthandItem[Icon.IconProps]] =
       js.native
     var ribbon: js.UndefOr[Boolean | String]   = js.native
@@ -116,6 +120,7 @@ object Label {
     p.onClick    = (q.onClickE, q.onClick).toJs
     p.onRemove   = q.onRemove.toJs
     p.pointing   = q.pointing.toJs
+    p.prompt     = q.prompt
     p.removeIcon = q.removeIcon.map(_.props)
     p.ribbon     = q.ribbon.toJs
     p.size       = q.size.toJs

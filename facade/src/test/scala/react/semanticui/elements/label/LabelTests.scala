@@ -43,6 +43,13 @@ object LabelTests extends TestSuite {
         assert(m.innerHTML == """<div class="ui left corner label"></div>""")
       }
     }
+    'prompt - {
+      val label = Label(prompt = true)
+      ReactTestUtils.withNewBodyElement { m =>
+        label.renderIntoDOM(m)
+        assert(m.innerHTML == """<div class="ui prompt label"></div>""")
+      }
+    }
     'detailVdom - {
       val labelDetail = LabelDetail("Detail")
       val label       = Label(detail = labelDetail)

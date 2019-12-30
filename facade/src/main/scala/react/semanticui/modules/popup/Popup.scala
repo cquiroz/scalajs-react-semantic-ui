@@ -94,7 +94,7 @@ object Popup {
     /** Header displayed above the content in bold. */
     var header: js.UndefOr[suiraw.SemanticShorthandItem[PopupHeader.PopupHeaderProps]] = js.native
 
-    /** The node where the popup should mount. */
+    /** Hide the Popup when scrolling the window. */
     var hideOnScroll: js.UndefOr[Boolean] = js.native
 
     /** Whether the popup should not close on hover. */
