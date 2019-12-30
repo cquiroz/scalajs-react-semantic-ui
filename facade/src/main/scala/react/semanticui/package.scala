@@ -5,7 +5,7 @@ import js.annotation.JSImport
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.VdomNode
+import japgolly.scalajs.react.vdom._
 
 package semanticui {
   sealed trait As {
