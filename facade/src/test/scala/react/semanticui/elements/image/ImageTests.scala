@@ -2,6 +2,7 @@ package react.semanticui.elements.image
 
 import utest._
 import japgolly.scalajs.react.test._
+import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.elements.icon.Icon
 
 object ImageTests extends TestSuite {
@@ -11,6 +12,15 @@ object ImageTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         image.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<img class="ui image">""")
+      }
+    }
+    'renderInside - {
+      val image = <.div(Image(src = "http://fig1.jpg", className = "draggable"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        image.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div><img src="http://fig1.jpg" class="ui image draggable"></div>"""
+        )
       }
     }
     'renderAs - {
