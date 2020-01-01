@@ -3,6 +3,7 @@
 ## 0.2.1
 
 * Upgrade to react-semantic-ui 0.87.3
+* Support react-semantic-toasts
 * Added Rail component
 
 ## 0.2.0

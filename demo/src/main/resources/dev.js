@@ -1,5 +1,6 @@
 import "./theme/semantic.less";
 import "./less/style.less";
+import "react-semantic-toasts/styles/react-semantic-alert.css";
 
 import App from "sjs/demo-fastopt.js";
 import React from "react";

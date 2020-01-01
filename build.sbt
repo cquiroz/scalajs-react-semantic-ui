@@ -2,6 +2,7 @@ val reactJS      = "16.7.0"
 val scalaJsReact = "1.4.2"
 val SUI          = "2.4.1"
 val reactSUI     = "0.87.3"
+val Toasts       = "0.6.5"
 
 parallelExecution in (ThisBuild, Test) := false
 
@@ -98,7 +99,8 @@ lazy val demo =
       npmDependencies in Compile ++= Seq(
         "react" -> reactJS,
         "react-dom" -> reactJS,
-        "semantic-ui-less" -> SUI
+        "semantic-ui-less" -> SUI,
+        "react-semantic-toasts" -> Toasts
       ),
       // don't publish the demo
       publish := {},
@@ -126,6 +128,7 @@ lazy val facade =
         "react" -> reactJS,
         "react-dom" -> reactJS,
         "semantic-ui-react" -> reactSUI,
+        "react-semantic-toasts" -> Toasts,
         "create-react-context" -> "0.2.2"
       ),
       libraryDependencies ++= Seq(
