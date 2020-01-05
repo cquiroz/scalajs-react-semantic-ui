@@ -6,7 +6,6 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui._
@@ -41,6 +40,7 @@ final case class Checkbox(
   value:                 js.UndefOr[String | JsNumber] = js.undefined,
   override val children: CtorType.ChildrenArgs         = Seq.empty
 ) extends GenericComponentPC[Checkbox.CheckboxProps] {
+  override def cprops    = Checkbox.props(this)
   @inline def renderWith = Checkbox.component(Checkbox.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

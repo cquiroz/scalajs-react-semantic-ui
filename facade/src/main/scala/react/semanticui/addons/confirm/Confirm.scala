@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.button.Button
@@ -25,6 +24,7 @@ final case class Confirm(
   size:                  js.UndefOr[ModalSize]                                 = js.undefined,
   override val children: CtorType.ChildrenArgs                                 = Seq.empty
 ) extends GenericComponentPC[Confirm.ConfirmProps] {
+  override def cprops = Confirm.props(this)
   @inline def renderWith =
     Confirm.component(Confirm.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

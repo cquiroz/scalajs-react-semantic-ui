@@ -8,7 +8,6 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.vdom.html_<^._
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -24,25 +23,26 @@ import react.semanticui.elements.image.Image
 import react.semanticui._
 
 final case class DropdownItem(
-  as:                    js.UndefOr[AsC]                          = js.undefined,
-  active:                js.UndefOr[Boolean]                      = js.undefined,
-  child:                 js.UndefOr[VdomNode]                     = js.undefined,
-  className:             js.UndefOr[String]                       = js.undefined,
-  clazz:                 js.UndefOr[Css]                          = js.undefined,
-  content:               js.UndefOr[VdomNode]                     = js.undefined,
-  description:           js.UndefOr[String]                       = js.undefined,
-  disable:               js.UndefOr[Boolean]                      = js.undefined,
-  flag:                  js.UndefOr[Render[FlagProps] | Flag]     = js.undefined,
-  icon:                  js.UndefOr[Icon]                         = js.undefined,
-  image:                 js.UndefOr[RenderFn[ImageProps] | Image] = js.undefined,
-  label:                 js.UndefOr[Label]                        = js.undefined,
-  onClickE:              js.UndefOr[DropdownItem.OnClick]         = js.undefined,
-  onClick:               js.UndefOr[Callback]                     = js.undefined,
-  selected:              js.UndefOr[Boolean]                      = js.undefined,
-  text:                  js.UndefOr[VdomNode]                     = js.undefined,
-  value:                 js.UndefOr[Boolean | JsNumber | String]  = js.undefined,
-  override val children: CtorType.ChildrenArgs                    = Seq.empty
+  as:                    js.UndefOr[AsC]                         = js.undefined,
+  active:                js.UndefOr[Boolean]                     = js.undefined,
+  child:                 js.UndefOr[VdomNode]                    = js.undefined,
+  className:             js.UndefOr[String]                      = js.undefined,
+  clazz:                 js.UndefOr[Css]                         = js.undefined,
+  content:               js.UndefOr[VdomNode]                    = js.undefined,
+  description:           js.UndefOr[String]                      = js.undefined,
+  disable:               js.UndefOr[Boolean]                     = js.undefined,
+  flag:                  js.UndefOr[VdomNode | Flag]             = js.undefined,
+  icon:                  js.UndefOr[VdomNode | Icon]             = js.undefined,
+  image:                 js.UndefOr[VdomNode | Image]            = js.undefined,
+  label:                 js.UndefOr[VdomNode | Label]            = js.undefined,
+  onClickE:              js.UndefOr[DropdownItem.OnClick]        = js.undefined,
+  onClick:               js.UndefOr[Callback]                    = js.undefined,
+  selected:              js.UndefOr[Boolean]                     = js.undefined,
+  text:                  js.UndefOr[VdomNode]                    = js.undefined,
+  value:                 js.UndefOr[Boolean | JsNumber | String] = js.undefined,
+  override val children: CtorType.ChildrenArgs                   = Seq.empty
 ) extends GenericComponentPC[DropdownItem.DropdownItemProps] {
+  override def cprops    = DropdownItem.props(this)
   @inline def renderWith = DropdownItem.component(DropdownItem.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
@@ -128,20 +128,14 @@ object DropdownItem {
     p.content     = q.content.toJs
     p.description = q.description
     p.disable     = q.disable
-    p.flag = q.flag.map((_: Any) match {
-      case f: Flag => f.props
-      case f       => f.asInstanceOf[Render[FlagProps]].props
-    })
-    p.icon = q.icon.map(_.props)
-    p.image = q.image.map((_: Any) match {
-      case f: Image => f.props
-      case f        => f.asInstanceOf[Render[ImageProps]].props
-    })
-    p.label    = q.label.map(_.props)
-    p.onClick  = (q.onClickE, q.onClick).toJs
-    p.selected = q.selected
-    p.text     = q.text.toJs
-    p.value    = q.value
+    p.flag        = toRawOrProps(q.flag)
+    p.icon        = toRawOrProps(q.icon)
+    p.image       = fnToRawOrProps(q.image)
+    p.label       = toRawOrProps(q.label)
+    p.onClick     = (q.onClickE, q.onClick).toJs
+    p.selected    = q.selected
+    p.text        = q.text.toJs
+    p.value       = q.value
     p
   }
 

@@ -7,7 +7,6 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -42,6 +41,7 @@ final case class Input(
   `type`:                js.UndefOr[String]                                  = js.undefined,
   override val children: CtorType.ChildrenArgs                               = Seq.empty
 ) extends GenericComponentPC[Input.InputProps] {
+  override def cprops = Input.props(this)
   @inline def renderWith =
     Input.component(Input.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

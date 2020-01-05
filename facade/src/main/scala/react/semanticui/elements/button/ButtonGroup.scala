@@ -7,7 +7,6 @@ import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -43,6 +42,7 @@ final case class ButtonGroup(
   widths:                js.UndefOr[SemanticWidth]            = js.undefined,
   override val children: CtorType.ChildrenArgs                = Seq.empty
 ) extends GenericComponentPC[ButtonGroup.ButtonGroupProps] {
+  override def cprops = ButtonGroup.props(this)
   @inline def renderWith =
     ButtonGroup.component(ButtonGroup.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

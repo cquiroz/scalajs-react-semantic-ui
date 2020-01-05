@@ -11,6 +11,7 @@ final case class Dimmer(
   page:                  js.UndefOr[Boolean]   = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericComponentPC[Dimmer.DimmerProps] {
+  override def cprops    = Dimmer.props(this)
   @inline def renderWith = Dimmer.component(Dimmer.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

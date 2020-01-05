@@ -3,6 +3,9 @@
 ## 0.2.2
 
 * Upgrade to react-semantic-ui 0.87.3
+* Better types for toast
+* List component
+
 ## 0.2.1
 
 * Upgrade to react-semantic-ui 0.87.3
