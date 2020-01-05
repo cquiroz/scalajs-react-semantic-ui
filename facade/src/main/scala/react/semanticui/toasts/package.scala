@@ -2,8 +2,6 @@ package react.semanticui
 
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.Callback
-import scala.scalajs.js
-import scala.scalajs.js.annotation._
 import react.common.EnumValue
 import react.common.syntax._
 import react.semanticui.{ raw => suiraw }
@@ -11,6 +9,9 @@ import react.semanticui.elements.icon.Icon.IconProps
 import react.semanticui.elements.icon.Icon
 import react.semanticui.sizes._
 import react.semanticui.colors._
+import scala.scalajs.js
+import scala.scalajs.js.annotation._
+import scala.concurrent.duration._
 
 package toasts {
   sealed trait ContainerPosition extends Product with Serializable
@@ -116,6 +117,12 @@ package toasts {
     case object Glow extends SemanticAnimation
   }
 
+  sealed trait Dismissal extends Product with Serializable
+  object Dismissal {
+    case object User extends Dismissal
+    final case class On(on: FiniteDuration) extends Dismissal
+  }
+
   @js.native
   trait ToastOptions extends js.Object {
     var title: String
@@ -134,7 +141,7 @@ package toasts {
       description: js.UndefOr[String] = js.undefined,
       `type`:      js.UndefOr[ToastType] = js.undefined,
       icon:        js.UndefOr[Icon] = js.undefined,
-      time:        js.UndefOr[JsNumber] = js.undefined,
+      time:        js.UndefOr[Dismissal] = js.undefined,
       animation:   js.UndefOr[SemanticAnimation] = js.undefined,
       size:        js.UndefOr[SemanticSize] = js.undefined,
       color:       js.UndefOr[SemanticColor] = js.undefined
@@ -145,7 +152,10 @@ package toasts {
       p.description = description
       p.`type`      = `type`.toJs
       p.icon        = icon.map(_.props)
-      p.time        = time
+      p.time        = time.map(_ match {
+        case Dismissal.User  => 0
+        case Dismissal.On(t) => t.toMillis.toDouble
+      })
       p.animation   = animation.toJs
       p.size        = size.toJs
       p.color       = color.toJs
