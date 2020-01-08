@@ -2,7 +2,6 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.common.syntax._
 import react.common._
 import react.semanticui.elements.icon.IconFlip._
 import react.semanticui.elements.icon.IconRotated._

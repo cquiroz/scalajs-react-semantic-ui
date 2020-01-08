@@ -7,7 +7,6 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.semanticui.raw._
-import react.common.syntax._
 import react.common.style._
 import react.common._
 
@@ -19,6 +18,7 @@ final case class LabelDetail(
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericComponentPC[LabelDetail.LabelDetailProps] {
+  override def cprops = LabelDetail.props(this)
   @inline def renderWith =
     LabelDetail.component(LabelDetail.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

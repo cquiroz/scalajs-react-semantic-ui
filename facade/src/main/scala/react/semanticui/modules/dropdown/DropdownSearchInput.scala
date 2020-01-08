@@ -8,7 +8,6 @@ import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.common.style._
-import react.common.syntax._
 import react.common._
 
 final case class DropdownSearchInput(
@@ -21,6 +20,7 @@ final case class DropdownSearchInput(
   value:                 js.UndefOr[JsNumber | String] = js.undefined,
   override val children: CtorType.ChildrenArgs         = Seq.empty
 ) extends GenericComponentPC[DropdownSearchInput.DropdownSearchInputProps] {
+  override def cprops    = DropdownSearchInput.props(this)
   @inline def renderWith = DropdownSearchInput.component(DropdownSearchInput.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

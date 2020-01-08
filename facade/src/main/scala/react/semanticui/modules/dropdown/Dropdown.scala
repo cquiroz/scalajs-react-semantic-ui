@@ -8,7 +8,6 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -95,6 +94,7 @@ final case class Dropdown(
   wrapSelection:         js.UndefOr[Boolean]                              = js.undefined,
   override val children: CtorType.ChildrenArgs                            = Seq.empty
 ) extends GenericComponentPC[Dropdown.DropdownProps] {
+  override def cprops    = Dropdown.props(this)
   @inline def renderWith = Dropdown.component(Dropdown.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

@@ -6,7 +6,6 @@ import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui._
@@ -24,6 +23,7 @@ final case class ModalActions(
   onActionClick:         js.UndefOr[Callback]                   = js.undefined,
   override val children: CtorType.ChildrenArgs                  = Seq.empty
 ) extends GenericComponentPC[ModalActions.ModalActionsProps] {
+  override def cprops    = ModalActions.props(this)
   @inline def renderWith = ModalActions.component(ModalActions.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

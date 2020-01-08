@@ -17,6 +17,7 @@ final case class SidebarPushable(
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericFnComponentPC[SidebarPushable.SidebarPushableProps] {
+  override def cprops    = SidebarPushable.props(this)
   @inline def renderWith = SidebarPushable.component(SidebarPushable.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

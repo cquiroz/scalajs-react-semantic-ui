@@ -9,7 +9,6 @@ import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.common._
 import react.common.style._
-import react.common.syntax._
 
 final case class ButtonOr(
   as:                    js.UndefOr[AsC]               = js.undefined,
@@ -18,6 +17,7 @@ final case class ButtonOr(
   text:                  js.UndefOr[JsNumber | String] = js.undefined,
   override val children: CtorType.ChildrenArgs         = Seq.empty
 ) extends GenericComponentPC[ButtonOr.ButtonOrProps] {
+  override def cprops = ButtonOr.props(this)
   @inline def renderWith =
     ButtonOr.component(ButtonOr.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

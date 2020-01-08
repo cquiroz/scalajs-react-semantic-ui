@@ -5,7 +5,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui._
@@ -20,6 +19,7 @@ final case class MenuMenu(
   position:              js.UndefOr[MenuMenuPosition] = js.undefined,
   override val children: CtorType.ChildrenArgs        = Seq.empty
 ) extends GenericFnComponentPC[MenuMenu.MenuMenuProps] {
+  override def cprops = MenuMenu.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

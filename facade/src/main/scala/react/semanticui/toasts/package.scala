@@ -2,8 +2,7 @@ package react.semanticui
 
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.Callback
-import react.common.EnumValue
-import react.common.syntax._
+import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.icon.Icon.IconProps
 import react.semanticui.elements.icon.Icon
@@ -152,13 +151,13 @@ package toasts {
       p.description = description
       p.`type`      = `type`.toJs
       p.icon        = icon.map(_.props)
-      p.time        = time.map(_ match {
+      p.time = time.map(_ match {
         case Dismissal.User  => 0
         case Dismissal.On(t) => t.toMillis.toDouble
       })
-      p.animation   = animation.toJs
-      p.size        = size.toJs
-      p.color       = color.toJs
+      p.animation = animation.toJs
+      p.size      = size.toJs
+      p.color     = color.toJs
       p
     }
   }

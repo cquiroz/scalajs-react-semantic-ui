@@ -18,6 +18,7 @@ final case class SidebarPusher(
   dimmed:                js.UndefOr[Boolean]   = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericFnComponentPC[SidebarPusher.SidebarPusherProps] {
+  override def cprops    = SidebarPusher.props(this)
   @inline def renderWith = SidebarPusher.component(SidebarPusher.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

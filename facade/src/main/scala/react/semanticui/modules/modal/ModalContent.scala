@@ -5,7 +5,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui._
@@ -21,6 +20,7 @@ final case class ModalContent(
   scrolling:             js.UndefOr[Boolean]   = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericFnComponentPC[ModalContent.ModalContentProps] {
+  override def cprops    = ModalContent.props(this)
   @inline def renderWith = ModalContent.component(ModalContent.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

@@ -2,10 +2,10 @@ package react.semanticui.modules.dropdown
 
 import scala.scalajs.js
 import js.annotation._
+import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -15,14 +15,15 @@ import react.semanticui.elements.icon.Icon
 import react.semanticui._
 
 final case class DropdownHeader(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  icon:                  js.UndefOr[Icon]      = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
+  as:                    js.UndefOr[AsC]             = js.undefined,
+  child:                 js.UndefOr[VdomNode]        = js.undefined,
+  className:             js.UndefOr[String]          = js.undefined,
+  clazz:                 js.UndefOr[Css]             = js.undefined,
+  content:               js.UndefOr[VdomNode]        = js.undefined,
+  icon:                  js.UndefOr[VdomNode | Icon] = js.undefined,
+  override val children: CtorType.ChildrenArgs       = Seq.empty
 ) extends GenericComponentPC[DropdownHeader.DropdownHeaderProps] {
+  override def cprops    = DropdownHeader.props(this)
   @inline def renderWith = DropdownHeader.component(DropdownHeader.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
@@ -63,19 +64,19 @@ object DropdownHeader {
     rawprops(q.as, q.child, q.className, q.clazz, q.content, q.icon)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined,
-    icon:      js.UndefOr[Icon]     = js.undefined
+    as:        js.UndefOr[AsC]             = js.undefined,
+    children:  js.UndefOr[VdomNode]        = js.undefined,
+    className: js.UndefOr[String]          = js.undefined,
+    clazz:     js.UndefOr[Css]             = js.undefined,
+    content:   js.UndefOr[VdomNode]        = js.undefined,
+    icon:      js.UndefOr[VdomNode | Icon] = js.undefined
   ): DropdownHeaderProps = {
     val p = as.toJsObject[DropdownHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
-    p.icon      = icon.map(_.props)
+    p.icon      = toRawOrProps(icon)
     p
   }
 

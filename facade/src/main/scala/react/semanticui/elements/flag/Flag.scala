@@ -6,7 +6,6 @@ import japgolly.scalajs.react._
 import react.common._
 import react.semanticui._
 import react.common.style._
-import react.common.syntax._
 
 final case class Flag(
   as:                    js.UndefOr[AsC]       = js.undefined,
@@ -15,6 +14,7 @@ final case class Flag(
   name:                  js.UndefOr[String]    = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericComponentPC[Flag.FlagProps] {
+  override def cprops    = Flag.props(this)
   @inline def renderWith = Flag.component(Flag.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

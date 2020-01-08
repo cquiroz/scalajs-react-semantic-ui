@@ -6,6 +6,8 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
+import react.common.GenericFnComponentPC
+import react.common.GenericComponentPC
 
 package semanticui {
   sealed trait As {
@@ -109,7 +111,7 @@ package object semanticui {
     def toRaw: Boolean | raw.SemanticShorthandItem[T] =
       (c: Any) match {
         case o: Boolean  => o
-        case o: VdomNode => o.rawNode.asInstanceOf[raw.SemanticShorthandItem[T]]
+        case o: VdomNode => o.rawNode.asInstanceOf[Boolean | raw.SemanticShorthandItem[T]]
         case f           => f.asInstanceOf[Boolean | raw.SemanticShorthandItem[T]]
       }
   }
@@ -130,6 +132,28 @@ package object semanticui {
         }
       }
   }
+
+  def fnToRawOrProps[P <: js.Object](
+    c: js.UndefOr[VdomNode | GenericFnComponentPC[P]]
+  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
+    c.map { d =>
+      (d: Any) match {
+        case o: VdomNode =>
+          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
+        case f => f.asInstanceOf[GenericFnComponentPC[P]].props
+      }
+    }
+
+  def toRawOrProps[P <: js.Object](
+    c: js.UndefOr[VdomNode | GenericComponentPC[P]]
+  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
+    c.map { d =>
+      (d: Any) match {
+        case o: VdomNode =>
+          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
+        case f => f.asInstanceOf[GenericComponentPC[P]].props
+      }
+    }
 
   type AsFn = js.Function1[js.Any, js.Any]
   type AsT  = String | AsFn

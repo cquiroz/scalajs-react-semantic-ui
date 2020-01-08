@@ -6,7 +6,6 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -37,6 +36,7 @@ final case class Header(
   textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs             = Seq.empty
 ) extends GenericFnComponentPC[Header.HeaderProps] {
+  override def cprops = Header.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

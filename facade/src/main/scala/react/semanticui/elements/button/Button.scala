@@ -6,7 +6,6 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -52,6 +51,7 @@ final case class Button(
   toggle:                js.UndefOr[Boolean]        = js.undefined,
   override val children: CtorType.ChildrenArgs      = Seq.empty
 ) extends GenericComponentPC[Button.ButtonProps] {
+  override def cprops = Button.props(this)
   @inline def renderWith =
     Button.component(Button.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

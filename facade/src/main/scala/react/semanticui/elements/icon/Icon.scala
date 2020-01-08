@@ -1,7 +1,6 @@
 package react.semanticui.elements.icon
 
 import japgolly.scalajs.react._
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui._
@@ -32,6 +31,7 @@ final case class Icon(
   ariaLabel:             js.UndefOr[String]               = js.undefined,
   override val children: CtorType.ChildrenArgs            = Seq.empty
 ) extends GenericComponentPC[Icon.IconProps] {
+  override def cprops    = Icon.props(this)
   @inline def renderWith = Icon.component(Icon.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

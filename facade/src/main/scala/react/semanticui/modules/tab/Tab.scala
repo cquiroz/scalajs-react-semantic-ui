@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import react.common.syntax._
 import react.common._
 import react.semanticui.collections.menu.Menu
 import react.semanticui.collections.grid.Grid
@@ -22,6 +21,7 @@ final case class Tab(
   onTabChange:        js.UndefOr[Tab.TabProps => Callback] = js.undefined,
   renderActiveOnly:   js.UndefOr[Boolean]                  = js.undefined
 ) extends GenericFnComponentP[Tab.TabProps] {
+  override def cprops = Tab.props(this)
   @inline def render =
     Tab.component(Tab.props(this))
 }

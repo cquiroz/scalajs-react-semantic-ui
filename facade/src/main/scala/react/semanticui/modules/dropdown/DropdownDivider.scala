@@ -7,7 +7,6 @@ import japgolly.scalajs.react.JsFnComponent
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.common.style._
-import react.common.syntax._
 import react.common._
 
 final case class DropdownDivider(
@@ -16,6 +15,7 @@ final case class DropdownDivider(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericFnComponentPC[DropdownDivider.DropdownDividerProps] {
+  override def cprops    = DropdownDivider.props(this)
   @inline def renderWith = DropdownDivider.component(DropdownDivider.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)

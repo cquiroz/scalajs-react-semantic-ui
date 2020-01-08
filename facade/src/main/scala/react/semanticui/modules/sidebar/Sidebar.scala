@@ -7,7 +7,6 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.React.Ref
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.syntax._
 import react.common.style._
 import react.common._
 import react.semanticui.raw._
@@ -31,6 +30,7 @@ final case class Sidebar(
   width:                 js.UndefOr[SidebarWidth]     = js.undefined,
   override val children: CtorType.ChildrenArgs        = Seq.empty
 ) extends GenericComponentPC[Sidebar.SidebarProps] {
+  override def cprops    = Sidebar.props(this)
   @inline def renderWith = Sidebar.component(Sidebar.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
