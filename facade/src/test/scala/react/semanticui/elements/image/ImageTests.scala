@@ -7,14 +7,14 @@ import react.semanticui.elements.icon.Icon
 
 object ImageTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val image = Image()
       ReactTestUtils.withNewBodyElement { mountNode =>
         image.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<img class="ui image">""")
       }
     }
-    'renderInside - {
+    test("renderInside") {
       val image = <.div(Image(src = "http://fig1.jpg", className = "draggable"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         image.renderIntoDOM(mountNode)
@@ -23,14 +23,14 @@ object ImageTests extends TestSuite {
         )
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val image = Image(as = "a", href = "abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         image.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a class="ui image" href="abc"><img></a>""")
       }
     }
-    'renderChild - {
+    test("renderChild") {
       val image = Image(as = "a", circular = true)(Icon(name = "help"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         image.renderIntoDOM(mountNode)

@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ButtonOrTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val buttonOr = ButtonOr()("abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         buttonOr.renderIntoDOM(mountNode)

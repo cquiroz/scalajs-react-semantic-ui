@@ -10,7 +10,7 @@ import react.semanticui.elements.label.Label
 
 object DropdownItemTests extends TestSuite {
   val tests = Tests {
-    'item - {
+    test("item") {
       val item = DropdownItem("Option 1")
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -19,7 +19,7 @@ object DropdownItemTests extends TestSuite {
         )
       }
     }
-    'itemDescriptionString - {
+    test("itemDescriptionString") {
       val item = DropdownItem(description = "some description")
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -28,7 +28,7 @@ object DropdownItemTests extends TestSuite {
         )
       }
     }
-    'itemValue - {
+    test("itemValue") {
       val item = DropdownItem(1)
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -37,7 +37,7 @@ object DropdownItemTests extends TestSuite {
         )
       }
     }
-    'itemValueChild - {
+    test("itemValueChild") {
       val item = DropdownItem(1)(<.div("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -46,7 +46,7 @@ object DropdownItemTests extends TestSuite {
         )
       }
     }
-    'icon - {
+    test("icon") {
       val item = DropdownItem(value = 1, icon = Icon("edit"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -55,7 +55,7 @@ object DropdownItemTests extends TestSuite {
         )
       }
     }
-    'flag - {
+    test("flag") {
       val item = DropdownItem(value = 1, flag = Flag("cl"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -64,7 +64,7 @@ object DropdownItemTests extends TestSuite {
         )
       }
     }
-    'image - {
+    test("image") {
       val item = DropdownItem(value = 1, image = Image(href = "image"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -73,7 +73,7 @@ object DropdownItemTests extends TestSuite {
         )
       }
     }
-    'label - {
+    test("label") {
       val item = DropdownItem(value = 1, label = Label("image"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)

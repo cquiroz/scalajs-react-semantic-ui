@@ -6,7 +6,7 @@ import japgolly.scalajs.react.test._
 
 object DropdownTests extends TestSuite {
   val tests = Tests {
-    'dropdown - {
+    test("dropdown") {
       val dropdown = Dropdown()
       ReactTestUtils.withNewBodyElement { mountNode =>
         dropdown.renderIntoDOM(mountNode)
@@ -15,7 +15,7 @@ object DropdownTests extends TestSuite {
         )
       }
     }
-    // 'options - {
+    // test("options") {
     //   val options = List(DropdownItem.props(text = "abc": VdomNode, value = "abc"),
     //                      DropdownItem.props(text = "def": VdomNode, value = 2, selected = true))
     //   val dropdown = Dropdown(Dropdown.props(options = options))
@@ -26,7 +26,7 @@ object DropdownTests extends TestSuite {
     //     )
     //   }
     // }
-    // 'additionLabel - {
+    // test("additionLabel") {
     //   val options = List(DropdownItem.props(text = "abc": VdomNode, value = "abc"),
     //                      DropdownItem.props(text = "def": VdomNode, value = 2, selected = true))
     //   val dropdown = Dropdown(
@@ -45,7 +45,7 @@ object DropdownTests extends TestSuite {
     //     )
     //   }
     // }
-    // 'basic - {
+    // test("basic") {
     //   val dropdown = Dropdown(Dropdown.props(basic = true))
     //   ReactTestUtils.withNewBodyElement { mountNode =>
     //     dropdown.renderIntoDOM(mountNode)

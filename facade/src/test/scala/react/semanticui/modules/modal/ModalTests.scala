@@ -6,7 +6,7 @@ import utest._
 
 object ModalTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       // Modal cannot be tested without anmiationFrame
       // val pusher = Modal(Modal.props(), "Abc")
       // ReactTestUtils.withNewBodyElement { mountNode =>

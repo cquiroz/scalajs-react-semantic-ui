@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object DropdownHeaderTests extends TestSuite {
   val tests = Tests {
-    'header - {
+    test("header") {
       val header = DropdownHeader()
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
@@ -15,7 +15,7 @@ object DropdownHeaderTests extends TestSuite {
         )
       }
     }
-    'headerContent - {
+    test("headerContent") {
       val header = DropdownHeader("content")
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)

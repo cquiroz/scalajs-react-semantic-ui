@@ -5,13 +5,13 @@ import japgolly.scalajs.react.test._
 
 object MenuTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val menu = Menu()
       ReactTestUtils.withRenderedIntoDocument(menu) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui menu"></div>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val menu = Menu(as = "a")
       ReactTestUtils.withRenderedIntoDocument(menu) { m =>
         assert(m.outerHtmlScrubbed() == """<a class="ui menu"></a>""")

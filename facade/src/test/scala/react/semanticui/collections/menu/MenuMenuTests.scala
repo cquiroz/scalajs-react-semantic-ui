@@ -5,14 +5,14 @@ import japgolly.scalajs.react.test._
 
 object MenuMenuTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val menumenu = MenuMenu()
       ReactTestUtils.withNewBodyElement { mountNode =>
         menumenu.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="menu"></div>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val menumenu = MenuMenu(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
         menumenu.renderIntoDOM(mountNode)

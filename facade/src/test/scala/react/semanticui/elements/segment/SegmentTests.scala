@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object SegmentTests extends TestSuite {
   val tests = Tests {
-    'segment - {
+    test("segment") {
       val segment = Segment("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         segment.renderIntoDOM(mountNode)

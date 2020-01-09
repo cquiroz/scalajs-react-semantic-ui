@@ -5,14 +5,14 @@ import japgolly.scalajs.react.test._
 
 object HeaderSubheaderTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val header = HeaderSubheader()
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="sub header"></div>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val header = HeaderSubheader(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)

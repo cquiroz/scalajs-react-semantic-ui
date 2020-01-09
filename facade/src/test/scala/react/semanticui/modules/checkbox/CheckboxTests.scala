@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object CheckboxTests extends TestSuite {
   val tests = Tests {
-    'pusher - {
+    test("pusher") {
       val check = Checkbox("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         check.renderIntoDOM(mountNode)

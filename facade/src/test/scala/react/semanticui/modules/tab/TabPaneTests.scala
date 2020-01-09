@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object TabPaneTest extends TestSuite {
   val tests = Tests {
-    'basic - {
+    test("basic") {
       val basic = TabPane("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         basic.renderIntoDOM(mountNode)
@@ -15,7 +15,7 @@ object TabPaneTest extends TestSuite {
         )
       }
     }
-    'active - {
+    test("active") {
       val basic = TabPane(active = true)("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         basic.renderIntoDOM(mountNode)

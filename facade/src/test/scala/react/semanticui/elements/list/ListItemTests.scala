@@ -6,21 +6,21 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ListItemTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val item = ListItem()
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div role="listitem" class="item"></div>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val item = ListItem(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a role="listitem" class="item"></a>""")
       }
     }
-    'icon - {
+    test("icon") {
       val item = ListItem(icon = ListIcon("home"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -29,7 +29,7 @@ object ListItemTests extends TestSuite {
         )
       }
     }
-    'icon2 - {
+    test("icon2") {
       val item = ListItem(icon = <.div("valid"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
@@ -38,7 +38,7 @@ object ListItemTests extends TestSuite {
         )
       }
     }
-    'header - {
+    test("header") {
       val item = ListItem(header = ListHeader("value"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)

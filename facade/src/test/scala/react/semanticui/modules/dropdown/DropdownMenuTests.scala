@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object DropdownMenuTests extends TestSuite {
   val tests = Tests {
-    'menu - {
+    test("menu") {
       val menu = DropdownMenu()
       ReactTestUtils.withNewBodyElement { mountNode =>
         menu.renderIntoDOM(mountNode)
@@ -15,7 +15,7 @@ object DropdownMenuTests extends TestSuite {
         )
       }
     }
-    'menuContent - {
+    test("menuContent") {
       val menu = DropdownMenu("content")
       ReactTestUtils.withNewBodyElement { mountNode =>
         menu.renderIntoDOM(mountNode)

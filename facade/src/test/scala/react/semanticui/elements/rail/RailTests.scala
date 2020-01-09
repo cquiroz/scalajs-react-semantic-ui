@@ -7,7 +7,7 @@ import react.semanticui.floats._
 
 object RailTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val rail = Rail(position = Left)("abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         rail.renderIntoDOM(mountNode)

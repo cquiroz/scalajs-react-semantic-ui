@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ButtonContentTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val buttonContent = ButtonContent("abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         buttonContent.renderIntoDOM(mountNode)

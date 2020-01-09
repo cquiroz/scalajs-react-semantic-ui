@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ItemDescriptionTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val id = ItemDescription("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         id.renderIntoDOM(mountNode)

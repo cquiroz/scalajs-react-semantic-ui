@@ -6,14 +6,14 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object GridRowTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val gridRow = GridRow()
       ReactTestUtils.withNewBodyElement { mountNode =>
         gridRow.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="row"></div>""")
       }
     }
-    'renderChild - {
+    test("renderChild") {
       val gridRow = GridRow(<.div("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         gridRow.renderIntoDOM(mountNode)

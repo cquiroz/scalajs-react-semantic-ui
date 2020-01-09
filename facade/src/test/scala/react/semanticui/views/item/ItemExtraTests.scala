@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ItemExtraTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val ie = ItemExtra("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         ie.renderIntoDOM(mountNode)

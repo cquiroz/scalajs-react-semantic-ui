@@ -6,19 +6,19 @@ import react.semanticui.elements.icon._
 
 object MenuItemTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val menuItem = MenuItem()
       ReactTestUtils.withRenderedIntoDocument(menuItem) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="item"></div>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val button = MenuItem(as = "a")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<a class="item"></a>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val button = MenuItem(as = "a", icon = Icon(name = "comment"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(

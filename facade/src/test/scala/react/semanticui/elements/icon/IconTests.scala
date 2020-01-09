@@ -9,14 +9,14 @@ import react.semanticui.colors._
 
 object IconTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val icon = Icon(name = "edit")
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<i aria-hidden="true" class="edit icon"></i>""")
       }
     }
-    'renderFitted - {
+    test("renderFitted") {
       val icon = Icon(fitted = true, name = "edit")
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
@@ -25,7 +25,7 @@ object IconTests extends TestSuite {
         )
       }
     }
-    'renderClassName - {
+    test("renderClassName") {
       val icon = Icon(className = "another", name = "edit")
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
@@ -34,7 +34,7 @@ object IconTests extends TestSuite {
         )
       }
     }
-    'size - {
+    test("size") {
       val icon = Icon(size = Big, name = "edit")
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
@@ -43,7 +43,7 @@ object IconTests extends TestSuite {
         )
       }
     }
-    'flipped - {
+    test("flipped") {
       val icon = Icon(flipped = IconFlip.Horizontally, name = "edit")
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
@@ -52,7 +52,7 @@ object IconTests extends TestSuite {
         )
       }
     }
-    'color - {
+    test("color") {
       val icon = Icon(color = Blue, name = "edit")
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
@@ -61,7 +61,7 @@ object IconTests extends TestSuite {
         )
       }
     }
-    'colorCopy - {
+    test("colorCopy") {
       val icon = Icon(color = Blue, name = "edit").color(Red)
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
@@ -70,7 +70,7 @@ object IconTests extends TestSuite {
         )
       }
     }
-    'rotated - {
+    test("rotated") {
       val icon = Icon(rotated = IconRotated.Clockwise, name = "edit")
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
@@ -79,7 +79,7 @@ object IconTests extends TestSuite {
         )
       }
     }
-    'group - {
+    test("group") {
       val icon = IconGroup(Icon(rotated = Clockwise, name = "edit"), Icon(name = "copy"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         icon.renderIntoDOM(mountNode)
