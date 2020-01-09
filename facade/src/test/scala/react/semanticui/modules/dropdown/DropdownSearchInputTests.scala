@@ -5,7 +5,7 @@ import japgolly.scalajs.react.test._
 
 object DropdownSearchInputTests extends TestSuite {
   val tests = Tests {
-    'pusher - {
+    test("pusher") {
       val pusher = DropdownSearchInput()
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)

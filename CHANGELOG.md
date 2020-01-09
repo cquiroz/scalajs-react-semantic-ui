@@ -1,7 +1,9 @@
 # Changes
 
-## 0.2.2
+## 0.3.0
 
+* Upgrade to scala 2.13
+* Upgrade to scalajs-react 1.5.0
 * Upgrade to react-semantic-ui 0.87.3
 * Better types for toast
 * List component

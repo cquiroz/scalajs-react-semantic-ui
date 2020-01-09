@@ -4,7 +4,6 @@ import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
 import japgolly.scalajs.react.ScalaComponent
-import japgolly.scalajs.react._
 import react.semanticui.collections.menu._
 import react.semanticui.elements.icon._
 import react.semanticui.As
@@ -17,40 +16,40 @@ object SidebarTests extends TestSuite {
     .build
 
   val tests = Tests {
-    'pusher - {
+    test("pusher") {
       val pusher = SidebarPusher("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="pusher">Abc</div>""")
       }
     }
-    'pushable - {
+    test("pushable") {
       val pushable = SidebarPushable("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pushable.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="pushable">Abc</div>""")
       }
     }
-    'pushableAs - {
+    test("pushableAs") {
       val pushable = SidebarPushable(as = As.Segment())("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pushable.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui segment pushable">Abc</div>""")
       }
     }
-    'sidebar - {
+    test("sidebar") {
       val sidebar = Sidebar(DoubleComp(1))
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
         assert(m.outerHtmlScrubbed == """<div class="ui left sidebar"><p>1 + 1 = 2</p></div>""")
       }
     }
-    'sidebarAs - {
+    test("sidebarAs") {
       val sidebar = Sidebar(as = As.Menu(Menu(inverted = true)))("Abc")
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
         assert(m.outerHtmlScrubbed == """<div class="ui inverted ui left sidebar menu">Abc</div>""")
       }
     }
-    'example - {
+    test("example") {
       val sidebar =
         <.div(
           Menu(

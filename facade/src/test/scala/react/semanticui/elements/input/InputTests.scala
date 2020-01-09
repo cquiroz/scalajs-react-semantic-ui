@@ -9,13 +9,13 @@ import react.semanticui.elements.icon.Icon
 
 object InputTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val input = Input()
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui input"><input type="text"></div>""")
       }
     }
-    'actionBool - {
+    test("actionBool") {
       val input = Input(action = true)
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
@@ -23,7 +23,7 @@ object InputTests extends TestSuite {
         )
       }
     }
-    'actionItem - {
+    test("actionItem") {
       val input = Input(action = Icon(name = "comment").vdomElement)
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
@@ -31,7 +31,7 @@ object InputTests extends TestSuite {
         )
       }
     }
-    'icon - {
+    test("icon") {
       val input = Input(icon = Icon(name = "comment"))
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
@@ -39,7 +39,7 @@ object InputTests extends TestSuite {
         )
       }
     }
-    'iconAndText - {
+    test("iconAndText") {
       val input = Input()(Icon(name = "comment"), "23")
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
@@ -47,7 +47,7 @@ object InputTests extends TestSuite {
         )
       }
     }
-    'input - {
+    test("input") {
       val input = Input(input = Icon(name = "comment").vdomElement)
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(
@@ -55,13 +55,13 @@ object InputTests extends TestSuite {
         )
       }
     }
-    'typePassword - {
+    test("typePassword") {
       val input = Input(`type` = "password")
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui input"><input type="password"></div>""")
       }
     }
-    'onChange - {
+    test("onChange") {
       val input = Input(onChange = Callback.log("abc"))
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui input"><input type="text"></div>""")

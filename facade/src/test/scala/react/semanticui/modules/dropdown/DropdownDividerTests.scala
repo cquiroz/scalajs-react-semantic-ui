@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object DropdownDividerTests extends TestSuite {
   val tests = Tests {
-    'pusher - {
+    test("pusher") {
       val pusher = DropdownDivider("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         pusher.renderIntoDOM(mountNode)

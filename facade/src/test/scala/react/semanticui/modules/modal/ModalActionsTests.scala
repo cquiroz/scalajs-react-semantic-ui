@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ModalActionsTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val modal = ModalActions("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         modal.renderIntoDOM(mountNode)

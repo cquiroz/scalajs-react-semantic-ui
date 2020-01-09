@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ProgressTest extends TestSuite {
   val tests = Tests {
-    'progress - {
+    test("progress") {
       val progress = Progress("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         progress.renderIntoDOM(mountNode)

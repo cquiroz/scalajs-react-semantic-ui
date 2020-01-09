@@ -5,14 +5,14 @@ import japgolly.scalajs.react.test._
 
 object ListDescriptionTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val header = ListDescription()
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="description"></div>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val header = ListDescription(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)

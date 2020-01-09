@@ -6,21 +6,21 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object HeaderTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val header = Header()
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui header"></div>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val header = Header(as = "a")
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a class="ui header"></a>""")
       }
     }
-    'subheader - {
+    test("subheader") {
       val header =
         Header(subheader = HeaderSubheader("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>

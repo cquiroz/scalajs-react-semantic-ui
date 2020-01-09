@@ -6,21 +6,21 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ContainerTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val container = Container()
       ReactTestUtils.withNewBodyElement { mountNode =>
         container.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui container"></div>""")
       }
     }
-    'renderWithChildren - {
+    test("renderWithChildren") {
       val container = Container("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         container.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui container">Abc</div>""")
       }
     }
-    'renderWithPropsAndChildren - {
+    test("renderWithPropsAndChildren") {
       val container = Container(fluid = true)("Abc", <.div("test"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         container.renderIntoDOM(mountNode)
@@ -29,7 +29,7 @@ object ContainerTests extends TestSuite {
         )
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val container = Container(as = "a", fluid = true)("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         container.renderIntoDOM(mountNode)

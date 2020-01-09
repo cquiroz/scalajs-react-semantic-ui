@@ -6,14 +6,14 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ButtonGroupTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val buttonGroup = ButtonGroup("abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         buttonGroup.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui buttons">abc</div>""")
       }
     }
-    'buttons - {
+    test("buttons") {
       val buttonGroup =
         ButtonGroup()(Button("1"), Button("2"))
       ReactTestUtils.withNewBodyElement { mountNode =>

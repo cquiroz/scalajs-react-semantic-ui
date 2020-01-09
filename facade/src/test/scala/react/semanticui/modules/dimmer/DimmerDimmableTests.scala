@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object DimmerDimmableTests extends TestSuite {
   val tests = Tests {
-    'dimmer - {
+    test("dimmer") {
       val dimmer = DimmerDimmable("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         dimmer.renderIntoDOM(mountNode)

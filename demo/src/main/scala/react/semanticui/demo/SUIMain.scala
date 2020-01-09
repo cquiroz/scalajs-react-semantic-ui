@@ -45,7 +45,7 @@ object Routing {
           render(IconsComponent.apply)
         | staticRoute("elements/labels", ElementPage(LabelsElement)) ~>
           render(LabelsComponent.apply)
-    ).notFound(redirectToPage(HomePage)(Redirect.Replace))
+    ).notFound(redirectToPage(HomePage)(SetRouteVia.HistoryReplace))
       .renderWith(layout)
       .logToConsole
   }

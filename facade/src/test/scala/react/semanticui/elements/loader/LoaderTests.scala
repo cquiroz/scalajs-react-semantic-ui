@@ -7,21 +7,21 @@ import react.semanticui.elements.label.Label
 
 object LoaderTest extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val loader = Loader()
       ReactTestUtils.withNewBodyElement { mountNode =>
         loader.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui loader"></div>""")
       }
     }
-    'renderChild - {
+    test("renderChild") {
       val loader = Loader(<.div("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         loader.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui text loader"><div>abc</div></div>""")
       }
     }
-    'renderChild2 - {
+    test("renderChild2") {
       val loader = Loader()(Label("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         loader.renderIntoDOM(mountNode)
@@ -30,7 +30,7 @@ object LoaderTest extends TestSuite {
         )
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val loader = Loader(as = "a", inverted = true)
       ReactTestUtils.withNewBodyElement { mountNode =>
         loader.renderIntoDOM(mountNode)

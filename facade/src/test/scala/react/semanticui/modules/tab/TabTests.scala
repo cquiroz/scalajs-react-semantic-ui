@@ -5,7 +5,7 @@ import japgolly.scalajs.react.test._
 
 object TabTest extends TestSuite {
   val tests = Tests {
-    'basic - {
+    test("basic") {
       val tab = Tab()
       ReactTestUtils.withNewBodyElement { mountNode =>
         tab.renderIntoDOM(mountNode)

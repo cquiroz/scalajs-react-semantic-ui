@@ -5,7 +5,7 @@ import japgolly.scalajs.react.test._
 
 object GridTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val grid = Grid()
       ReactTestUtils.withNewBodyElement { mountNode =>
         grid.renderIntoDOM(mountNode)

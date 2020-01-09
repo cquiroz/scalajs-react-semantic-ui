@@ -6,14 +6,14 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object ItemMetaTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val itemMeta = ItemMeta("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         itemMeta.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="meta">Abc</div>""")
       }
     }
-    'renderMany - {
+    test("renderMany") {
       val itemMeta = ItemMeta("Abc", <.div("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         itemMeta.renderIntoDOM(mountNode)

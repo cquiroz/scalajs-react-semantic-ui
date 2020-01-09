@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object PopupTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val popup = Popup("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         popup.renderIntoDOM(mountNode)

@@ -12,19 +12,19 @@ import react.semanticui._
 
 object ButtonTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val button = Button()
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui button"></button>""")
       }
     }
-    'renderAs - {
+    test("renderAs") {
       val button = Button(as = "a")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<a class="ui button" role="button"></a>""")
       }
     }
-    'attached - {
+    test("attached") {
       val button = Button(attached = ButtonAttached.Top)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
@@ -32,19 +32,19 @@ object ButtonTests extends TestSuite {
         )
       }
     }
-    'color - {
+    test("color") {
       val button = Button(color = Blue)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui blue button"></button>""")
       }
     }
-    'active - {
+    test("active") {
       val button = Button(active = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui active button"></button>""")
       }
     }
-    'icon - {
+    test("icon") {
       val button = Button(icon = Icon(name = "comment"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
@@ -52,7 +52,7 @@ object ButtonTests extends TestSuite {
         )
       }
     }
-    'label - {
+    test("label") {
       val button = Button(label = Label("Label"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
@@ -60,7 +60,7 @@ object ButtonTests extends TestSuite {
         )
       }
     }
-    'iconAndText - {
+    test("iconAndText") {
       val button = Button()(Icon(name = "comment"), "23")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
@@ -68,7 +68,7 @@ object ButtonTests extends TestSuite {
         )
       }
     }
-    'toggle - {
+    test("toggle") {
       val button = Button(toggle = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
@@ -76,25 +76,25 @@ object ButtonTests extends TestSuite {
         )
       }
     }
-    'tabIndex - {
+    test("tabIndex") {
       val button = Button(tabIndex = 2)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui button" tabindex="2"></button>""")
       }
     }
-    'floated - {
+    test("floated") {
       val button = Button(floated = floats.Right)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui right floated button"></button>""")
       }
     }
-    'circular - {
+    test("circular") {
       val button = Button(circular = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui circular button"></button>""")
       }
     }
-    'secondary - {
+    test("secondary") {
       val button = Button(secondary = true, circular = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
@@ -102,19 +102,19 @@ object ButtonTests extends TestSuite {
         )
       }
     }
-    'basic - {
+    test("basic") {
       val button = Button(basic = true)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui basic button"></button>""")
       }
     }
-    'className - {
+    test("className") {
       val button = Button(className = "extra")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui button extra"></button>""")
       }
     }
-    'size - {
+    test("size") {
       val button = Button(size = Big)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui big button"></button>""")

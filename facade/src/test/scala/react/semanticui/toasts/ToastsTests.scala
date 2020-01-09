@@ -5,14 +5,14 @@ import japgolly.scalajs.react.test._
 
 object SemanticToastContainerTests extends TestSuite {
   val tests = Tests {
-    'render - {
+    test("render") {
       val toasts = SemanticToastContainer()
       ReactTestUtils.withNewBodyElement { mountNode =>
         toasts.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == "")
       }
     }
-    'toast - {
+    test("toast") {
       toast(ToastOptions("test"))
     }
   }
