@@ -12,29 +12,26 @@ import scala.scalajs.js.|
 import js.annotation._
 
 final case class Icon(
-  as:                    js.UndefOr[AsC]                  = js.undefined,
-  bordered:              js.UndefOr[Boolean]              = js.undefined,
-  circular:              js.UndefOr[Boolean]              = js.undefined,
-  className:             js.UndefOr[String]               = js.undefined,
-  clazz:                 js.UndefOr[Css]                  = js.undefined,
-  color:                 js.UndefOr[SemanticColor]        = js.undefined,
-  corner:                js.UndefOr[IconCorner]           = js.undefined,
-  disabled:              js.UndefOr[Boolean]              = js.undefined,
-  fitted:                js.UndefOr[Boolean]              = js.undefined,
-  flipped:               js.UndefOr[IconFlip]             = js.undefined,
-  inverted:              js.UndefOr[Boolean]              = js.undefined,
-  link:                  js.UndefOr[Boolean]              = js.undefined,
-  loading:               js.UndefOr[Boolean]              = js.undefined,
-  name:                  js.UndefOr[suiraw.SemanticICONS] = js.undefined,
-  rotated:               js.UndefOr[IconRotated]          = js.undefined,
-  size:                  js.UndefOr[SemanticSize]         = js.undefined,
-  ariaLabel:             js.UndefOr[String]               = js.undefined,
-  override val children: CtorType.ChildrenArgs            = Seq.empty
-) extends GenericComponentPC[Icon.IconProps] {
-  override def cprops    = Icon.props(this)
-  @inline def renderWith = Icon.component(Icon.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:        js.UndefOr[AsC]                  = js.undefined,
+  bordered:  js.UndefOr[Boolean]              = js.undefined,
+  circular:  js.UndefOr[Boolean]              = js.undefined,
+  className: js.UndefOr[String]               = js.undefined,
+  clazz:     js.UndefOr[Css]                  = js.undefined,
+  color:     js.UndefOr[SemanticColor]        = js.undefined,
+  corner:    js.UndefOr[IconCorner]           = js.undefined,
+  disabled:  js.UndefOr[Boolean]              = js.undefined,
+  fitted:    js.UndefOr[Boolean]              = js.undefined,
+  flipped:   js.UndefOr[IconFlip]             = js.undefined,
+  inverted:  js.UndefOr[Boolean]              = js.undefined,
+  link:      js.UndefOr[Boolean]              = js.undefined,
+  loading:   js.UndefOr[Boolean]              = js.undefined,
+  name:      js.UndefOr[suiraw.SemanticICONS] = js.undefined,
+  rotated:   js.UndefOr[IconRotated]          = js.undefined,
+  size:      js.UndefOr[SemanticSize]         = js.undefined,
+  ariaLabel: js.UndefOr[String]               = js.undefined
+) extends GenericComponentP[Icon.IconProps] {
+  override def cprops = Icon.props(this)
+  @inline def render  = Icon.component(Icon.props(this))
 }
 
 object Icon {
@@ -91,7 +88,7 @@ object Icon {
   }
 
   private val component =
-    JsComponent[IconProps, Children.Varargs, Null](RawComponent)
+    JsComponent[IconProps, Children.None, Null](RawComponent)
 
   def apply(name: String): Icon =
     new Icon(as        = js.undefined,
@@ -110,6 +107,5 @@ object Icon {
              name      = name,
              rotated   = js.undefined,
              size      = js.undefined,
-             ariaLabel = js.undefined,
-             children  = Seq.empty)
+             ariaLabel = js.undefined)
 }

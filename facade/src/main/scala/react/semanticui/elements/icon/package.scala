@@ -56,8 +56,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = s,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def color(s: SemanticColor): Icon =
       new Icon(as        = i.as,
@@ -76,8 +75,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def flipped(s: IconFlip): Icon =
       new Icon(as        = i.as,
@@ -96,8 +94,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def rotated(s: IconRotated): Icon =
       new Icon(as        = i.as,
@@ -116,8 +113,7 @@ package object icon {
                name      = i.name,
                rotated   = s,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def bordered(): Icon =
       new Icon(as        = i.as,
@@ -136,8 +132,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def circular(): Icon =
       new Icon(as        = i.as,
@@ -156,8 +151,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def className(c: String): Icon =
       new Icon(as        = i.as,
@@ -176,8 +170,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def corner(c: IconCorner): Icon =
       new Icon(as        = i.as,
@@ -196,8 +189,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def disabled: Icon =
       new Icon(as        = i.as,
@@ -216,8 +208,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def fitted: Icon =
       new Icon(as        = i.as,
@@ -236,8 +227,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def inverted: Icon =
       new Icon(as        = i.as,
@@ -256,8 +246,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def link: Icon =
       new Icon(as        = i.as,
@@ -276,8 +265,7 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
 
     def loading: Icon =
       new Icon(as        = i.as,
@@ -296,7 +284,6 @@ package object icon {
                name      = i.name,
                rotated   = i.rotated,
                size      = i.size,
-               ariaLabel = i.ariaLabel,
-               children  = i.children)
+               ariaLabel = i.ariaLabel)
   }
 }

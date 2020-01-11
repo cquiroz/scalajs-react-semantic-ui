@@ -5,23 +5,19 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.common._
 import react.common.style._
 
 final case class ButtonOr(
-  as:                    js.UndefOr[AsC]               = js.undefined,
-  className:             js.UndefOr[String]            = js.undefined,
-  clazz:                 js.UndefOr[Css]               = js.undefined,
-  text:                  js.UndefOr[JsNumber | String] = js.undefined,
-  override val children: CtorType.ChildrenArgs         = Seq.empty
-) extends GenericComponentPC[ButtonOr.ButtonOrProps] {
+  as:        js.UndefOr[AsC]               = js.undefined,
+  className: js.UndefOr[String]            = js.undefined,
+  clazz:     js.UndefOr[Css]               = js.undefined,
+  text:      js.UndefOr[JsNumber | String] = js.undefined
+) extends GenericComponentP[ButtonOr.ButtonOrProps] {
   override def cprops = ButtonOr.props(this)
-  @inline def renderWith =
+  @inline def render =
     ButtonOr.component(ButtonOr.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
 }
 
 object ButtonOr {
@@ -67,10 +63,6 @@ object ButtonOr {
   }
 
   private val component =
-    JsComponent[ButtonOrProps, Children.Varargs, Null](RawComponent)
+    JsComponent[ButtonOrProps, Children.None, Null](RawComponent)
 
-  def apply(
-    content: VdomNode*
-  ): ButtonOr =
-    new ButtonOr(children = content)
 }

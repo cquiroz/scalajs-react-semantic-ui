@@ -5,25 +5,21 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.common.style._
 import react.common._
 
 final case class DropdownSearchInput(
-  as:                    js.UndefOr[AsC]               = js.undefined,
-  autoComplete:          js.UndefOr[String]            = js.undefined,
-  className:             js.UndefOr[String]            = js.undefined,
-  clazz:                 js.UndefOr[Css]               = js.undefined,
-  tabIndex:              js.UndefOr[String | JsNumber] = js.undefined,
-  `type`:                js.UndefOr[String]            = js.undefined,
-  value:                 js.UndefOr[JsNumber | String] = js.undefined,
-  override val children: CtorType.ChildrenArgs         = Seq.empty
-) extends GenericComponentPC[DropdownSearchInput.DropdownSearchInputProps] {
-  override def cprops    = DropdownSearchInput.props(this)
-  @inline def renderWith = DropdownSearchInput.component(DropdownSearchInput.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:           js.UndefOr[AsC]               = js.undefined,
+  autoComplete: js.UndefOr[String]            = js.undefined,
+  className:    js.UndefOr[String]            = js.undefined,
+  clazz:        js.UndefOr[Css]               = js.undefined,
+  tabIndex:     js.UndefOr[String | JsNumber] = js.undefined,
+  `type`:       js.UndefOr[String]            = js.undefined,
+  value:        js.UndefOr[JsNumber | String] = js.undefined
+) extends GenericComponentP[DropdownSearchInput.DropdownSearchInputProps] {
+  override def cprops = DropdownSearchInput.props(this)
+  @inline def render  = DropdownSearchInput.component(DropdownSearchInput.props(this))
 }
 
 object DropdownSearchInput {
@@ -81,8 +77,6 @@ object DropdownSearchInput {
   }
 
   private val component =
-    JsComponent[DropdownSearchInputProps, Children.Varargs, Null](RawComponent)
+    JsComponent[DropdownSearchInputProps, Children.None, Null](RawComponent)
 
-  def apply(content: VdomNode*): DropdownSearchInput =
-    DropdownSearchInput(children = content)
 }

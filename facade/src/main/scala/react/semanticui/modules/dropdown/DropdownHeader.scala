@@ -76,7 +76,7 @@ object DropdownHeader {
     p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
-    p.icon      = toRawOrProps(icon)
+    p.icon      = toRawOrPropsP(icon)
     p
   }
 

@@ -142,7 +142,7 @@ object ListItem {
     p.description = fnToRawOrProps(description)
     p.disabled    = disabled
     p.header      = fnToRawOrProps(header)
-    p.icon        = toRawOrProps(icon)
+    p.icon        = toRawOrPropsP(icon)
     p.image       = fnToRawOrProps(image)
     p.key         = key
     p.onClick     = (onClickE, onClick).toJs

@@ -12,23 +12,20 @@ import react.semanticui.modules.modal._
 import react.semanticui.{ raw => suiraw }
 
 final case class Confirm(
-  cancelButton:          js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
-  confirmButton:         js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
-  content:               js.UndefOr[VdomNode | ModalContent.ModalContentProps] = js.undefined,
-  header:                js.UndefOr[VdomNode | ModalHeader.ModalHeaderProps]   = js.undefined,
-  onCancelE:             js.UndefOr[Confirm.OnCancel]                          = js.undefined,
-  onCancel:              js.UndefOr[Callback]                                  = js.undefined,
-  onConfirmE:            js.UndefOr[Confirm.OnConfirm]                         = js.undefined,
-  onConfirm:             js.UndefOr[Callback]                                  = js.undefined,
-  open:                  js.UndefOr[Boolean]                                   = js.undefined,
-  size:                  js.UndefOr[ModalSize]                                 = js.undefined,
-  override val children: CtorType.ChildrenArgs                                 = Seq.empty
-) extends GenericComponentPC[Confirm.ConfirmProps] {
+  cancelButton:  js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
+  confirmButton: js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
+  content:       js.UndefOr[VdomNode | ModalContent.ModalContentProps] = js.undefined,
+  header:        js.UndefOr[VdomNode | ModalHeader.ModalHeaderProps]   = js.undefined,
+  onCancelE:     js.UndefOr[Confirm.OnCancel]                          = js.undefined,
+  onCancel:      js.UndefOr[Callback]                                  = js.undefined,
+  onConfirmE:    js.UndefOr[Confirm.OnConfirm]                         = js.undefined,
+  onConfirm:     js.UndefOr[Callback]                                  = js.undefined,
+  open:          js.UndefOr[Boolean]                                   = js.undefined,
+  size:          js.UndefOr[ModalSize]                                 = js.undefined
+) extends GenericComponentP[Confirm.ConfirmProps] {
   override def cprops = Confirm.props(this)
-  @inline def renderWith =
+  @inline def render =
     Confirm.component(Confirm.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
 }
 
 object Confirm {
@@ -123,10 +120,6 @@ object Confirm {
   }
 
   private val component =
-    JsComponent[ConfirmProps, Children.Varargs, Null](RawComponent)
+    JsComponent[ConfirmProps, Children.None, Null](RawComponent)
 
-  def apply(
-    content: VdomNode*
-  ): Confirm =
-    new Confirm(children = content)
 }

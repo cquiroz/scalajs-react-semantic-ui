@@ -11,39 +11,36 @@ import react.common._
 import react.semanticui._
 
 final case class Checkbox(
-  as:                    js.UndefOr[AsC]               = js.undefined,
-  checked:               js.UndefOr[Boolean]           = js.undefined,
-  className:             js.UndefOr[String]            = js.undefined,
-  clazz:                 js.UndefOr[Css]               = js.undefined,
-  defaultChecked:        js.UndefOr[Boolean]           = js.undefined,
-  defaultIndeterminate:  js.UndefOr[Boolean]           = js.undefined,
-  disabled:              js.UndefOr[Boolean]           = js.undefined,
-  fitted:                js.UndefOr[Boolean]           = js.undefined,
-  id:                    js.UndefOr[JsNumber | String] = js.undefined,
-  indeterminate:         js.UndefOr[Boolean]           = js.undefined,
-  label:                 js.UndefOr[VdomNode]          = js.undefined,
-  name:                  js.UndefOr[String]            = js.undefined,
-  onChangeE:             js.UndefOr[Checkbox.Event]    = js.undefined,
-  onChange:              js.UndefOr[Callback]          = js.undefined,
-  onClickE:              js.UndefOr[Checkbox.Event]    = js.undefined,
-  onClick:               js.UndefOr[Callback]          = js.undefined,
-  onMouseDownE:          js.UndefOr[Checkbox.Event]    = js.undefined,
-  onMouseDown:           js.UndefOr[Callback]          = js.undefined,
-  onMouseUpE:            js.UndefOr[Checkbox.Event]    = js.undefined,
-  onMouseUp:             js.UndefOr[Callback]          = js.undefined,
-  radio:                 js.UndefOr[Boolean]           = js.undefined,
-  readOnly:              js.UndefOr[Boolean]           = js.undefined,
-  slider:                js.UndefOr[Boolean]           = js.undefined,
-  tabIndex:              js.UndefOr[JsNumber | String] = js.undefined,
-  toggle:                js.UndefOr[Boolean]           = js.undefined,
-  `type`:                js.UndefOr[CheckboxType]      = js.undefined,
-  value:                 js.UndefOr[String | JsNumber] = js.undefined,
-  override val children: CtorType.ChildrenArgs         = Seq.empty
-) extends GenericComponentPC[Checkbox.CheckboxProps] {
-  override def cprops    = Checkbox.props(this)
-  @inline def renderWith = Checkbox.component(Checkbox.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                   js.UndefOr[AsC]               = js.undefined,
+  checked:              js.UndefOr[Boolean]           = js.undefined,
+  className:            js.UndefOr[String]            = js.undefined,
+  clazz:                js.UndefOr[Css]               = js.undefined,
+  defaultChecked:       js.UndefOr[Boolean]           = js.undefined,
+  defaultIndeterminate: js.UndefOr[Boolean]           = js.undefined,
+  disabled:             js.UndefOr[Boolean]           = js.undefined,
+  fitted:               js.UndefOr[Boolean]           = js.undefined,
+  id:                   js.UndefOr[JsNumber | String] = js.undefined,
+  indeterminate:        js.UndefOr[Boolean]           = js.undefined,
+  label:                js.UndefOr[VdomNode]          = js.undefined,
+  name:                 js.UndefOr[String]            = js.undefined,
+  onChangeE:            js.UndefOr[Checkbox.Event]    = js.undefined,
+  onChange:             js.UndefOr[Callback]          = js.undefined,
+  onClickE:             js.UndefOr[Checkbox.Event]    = js.undefined,
+  onClick:              js.UndefOr[Callback]          = js.undefined,
+  onMouseDownE:         js.UndefOr[Checkbox.Event]    = js.undefined,
+  onMouseDown:          js.UndefOr[Callback]          = js.undefined,
+  onMouseUpE:           js.UndefOr[Checkbox.Event]    = js.undefined,
+  onMouseUp:            js.UndefOr[Callback]          = js.undefined,
+  radio:                js.UndefOr[Boolean]           = js.undefined,
+  readOnly:             js.UndefOr[Boolean]           = js.undefined,
+  slider:               js.UndefOr[Boolean]           = js.undefined,
+  tabIndex:             js.UndefOr[JsNumber | String] = js.undefined,
+  toggle:               js.UndefOr[Boolean]           = js.undefined,
+  `type`:               js.UndefOr[CheckboxType]      = js.undefined,
+  value:                js.UndefOr[String | JsNumber] = js.undefined
+) extends GenericComponentP[Checkbox.CheckboxProps] {
+  override def cprops = Checkbox.props(this)
+  @inline def render  = Checkbox.component(Checkbox.props(this))
 }
 
 object Checkbox {
@@ -238,12 +235,10 @@ object Checkbox {
   }
 
   private val component =
-    JsComponent[CheckboxProps, Children.Varargs, Null](RawComponent)
+    JsComponent[CheckboxProps, Children.None, Null](RawComponent)
 
   val Default: Checkbox = Checkbox()
 
   val defaultProps: CheckboxProps = props(Default)
 
-  def apply(content: VdomNode*): Checkbox =
-    Checkbox(children = content)
 }

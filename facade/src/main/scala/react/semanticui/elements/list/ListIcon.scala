@@ -13,30 +13,27 @@ import scala.scalajs.js
 import js.annotation._
 
 final case class ListIcon(
-  as:                    js.UndefOr[AsC]                       = js.undefined,
-  bordered:              js.UndefOr[Boolean]                   = js.undefined,
-  circular:              js.UndefOr[Boolean]                   = js.undefined,
-  className:             js.UndefOr[String]                    = js.undefined,
-  clazz:                 js.UndefOr[Css]                       = js.undefined,
-  color:                 js.UndefOr[SemanticColor]             = js.undefined,
-  corner:                js.UndefOr[IconCorner]                = js.undefined,
-  disabled:              js.UndefOr[Boolean]                   = js.undefined,
-  fitted:                js.UndefOr[Boolean]                   = js.undefined,
-  flipped:               js.UndefOr[IconFlip]                  = js.undefined,
-  inverted:              js.UndefOr[Boolean]                   = js.undefined,
-  link:                  js.UndefOr[Boolean]                   = js.undefined,
-  loading:               js.UndefOr[Boolean]                   = js.undefined,
-  name:                  js.UndefOr[suiraw.SemanticICONS]      = js.undefined,
-  rotated:               js.UndefOr[IconRotated]               = js.undefined,
-  size:                  js.UndefOr[SemanticSize]              = js.undefined,
-  ariaLabel:             js.UndefOr[String]                    = js.undefined,
-  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericComponentPC[ListIcon.ListIconProps] {
-  override def cprops    = ListIcon.props(this)
-  @inline def renderWith = ListIcon.component(ListIcon.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:            js.UndefOr[AsC]                       = js.undefined,
+  bordered:      js.UndefOr[Boolean]                   = js.undefined,
+  circular:      js.UndefOr[Boolean]                   = js.undefined,
+  className:     js.UndefOr[String]                    = js.undefined,
+  clazz:         js.UndefOr[Css]                       = js.undefined,
+  color:         js.UndefOr[SemanticColor]             = js.undefined,
+  corner:        js.UndefOr[IconCorner]                = js.undefined,
+  disabled:      js.UndefOr[Boolean]                   = js.undefined,
+  fitted:        js.UndefOr[Boolean]                   = js.undefined,
+  flipped:       js.UndefOr[IconFlip]                  = js.undefined,
+  inverted:      js.UndefOr[Boolean]                   = js.undefined,
+  link:          js.UndefOr[Boolean]                   = js.undefined,
+  loading:       js.UndefOr[Boolean]                   = js.undefined,
+  name:          js.UndefOr[suiraw.SemanticICONS]      = js.undefined,
+  rotated:       js.UndefOr[IconRotated]               = js.undefined,
+  size:          js.UndefOr[SemanticSize]              = js.undefined,
+  ariaLabel:     js.UndefOr[String]                    = js.undefined,
+  verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
+) extends GenericComponentP[ListIcon.ListIconProps] {
+  override def cprops = ListIcon.props(this)
+  @inline def render  = ListIcon.component(ListIcon.props(this))
 }
 
 object ListIcon {
@@ -76,7 +73,7 @@ object ListIcon {
   }
 
   private val component =
-    JsComponent[ListIconProps, Children.Varargs, Null](RawComponent)
+    JsComponent[ListIconProps, Children.None, Null](RawComponent)
 
   def apply(name: String): ListIcon =
     new ListIcon(as            = js.undefined,
@@ -96,6 +93,5 @@ object ListIcon {
                  rotated       = js.undefined,
                  size          = js.undefined,
                  ariaLabel     = js.undefined,
-                 verticalAlign = js.undefined,
-                 children      = Seq.empty)
+                 verticalAlign = js.undefined)
 }

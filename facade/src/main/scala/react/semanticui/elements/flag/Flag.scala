@@ -8,16 +8,13 @@ import react.semanticui._
 import react.common.style._
 
 final case class Flag(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  name:                  js.UndefOr[String]    = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericComponentPC[Flag.FlagProps] {
-  override def cprops    = Flag.props(this)
-  @inline def renderWith = Flag.component(Flag.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:        js.UndefOr[AsC]    = js.undefined,
+  className: js.UndefOr[String] = js.undefined,
+  clazz:     js.UndefOr[Css]    = js.undefined,
+  name:      js.UndefOr[String] = js.undefined
+) extends GenericComponentP[Flag.FlagProps] {
+  override def cprops = Flag.props(this)
+  @inline def render  = Flag.component(Flag.props(this))
 }
 
 object Flag {
@@ -56,10 +53,7 @@ object Flag {
   }
 
   private val component =
-    JsComponent[FlagProps, Children.Varargs, Null](RawComponent)
+    JsComponent[FlagProps, Children.None, Null](RawComponent)
 
-  def apply(
-    name: String
-  ): Flag =
-    new Flag(name = name)
+  def apply(name: String): Flag = new Flag(name = name)
 }

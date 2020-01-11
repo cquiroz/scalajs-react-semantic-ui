@@ -8,6 +8,7 @@ import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
 import react.common.GenericFnComponentPC
 import react.common.GenericComponentPC
+import react.common.GenericComponentP
 
 package semanticui {
   sealed trait As {
@@ -152,6 +153,17 @@ package object semanticui {
         case o: VdomNode =>
           o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
         case f => f.asInstanceOf[GenericComponentPC[P]].props
+      }
+    }
+
+  def toRawOrPropsP[P <: js.Object](
+    c: js.UndefOr[VdomNode | GenericComponentP[P]]
+  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
+    c.map { d =>
+      (d: Any) match {
+        case o: VdomNode =>
+          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
+        case f => f.asInstanceOf[GenericComponentP[P]].props
       }
     }
 

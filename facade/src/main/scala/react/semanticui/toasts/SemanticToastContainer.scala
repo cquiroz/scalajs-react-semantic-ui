@@ -3,21 +3,17 @@ package react.semanticui.toasts
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 
 final case class SemanticToastContainer(
-  position:              js.UndefOr[ContainerPosition] = js.undefined,
-  animation:             js.UndefOr[SemanticAnimation] = js.undefined,
-  className:             js.UndefOr[String]            = js.undefined,
-  clazz:                 js.UndefOr[Css]               = js.undefined,
-  override val children: CtorType.ChildrenArgs         = Seq.empty
-) extends GenericComponentPC[SemanticToastContainer.SemanticToastContainerProps] {
-  override def cprops    = SemanticToastContainer.props(this)
-  @inline def renderWith = SemanticToastContainer.component(SemanticToastContainer.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  position:  js.UndefOr[ContainerPosition] = js.undefined,
+  animation: js.UndefOr[SemanticAnimation] = js.undefined,
+  className: js.UndefOr[String]            = js.undefined,
+  clazz:     js.UndefOr[Css]               = js.undefined
+) extends GenericComponentP[SemanticToastContainer.SemanticToastContainerProps] {
+  override def cprops = SemanticToastContainer.props(this)
+  @inline def render  = SemanticToastContainer.component(SemanticToastContainer.props(this))
 }
 
 object SemanticToastContainer {
@@ -65,8 +61,6 @@ object SemanticToastContainer {
   }
 
   private val component =
-    JsComponent[SemanticToastContainerProps, Children.Varargs, Null](RawComponent)
+    JsComponent[SemanticToastContainerProps, Children.None, Null](RawComponent)
 
-  def apply(content: VdomNode*): SemanticToastContainer =
-    SemanticToastContainer(children = content)
 }

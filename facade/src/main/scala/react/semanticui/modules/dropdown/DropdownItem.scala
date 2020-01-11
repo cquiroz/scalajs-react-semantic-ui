@@ -128,8 +128,8 @@ object DropdownItem {
     p.content     = q.content.toJs
     p.description = q.description
     p.disable     = q.disable
-    p.flag        = toRawOrProps(q.flag)
-    p.icon        = toRawOrProps(q.icon)
+    p.flag        = toRawOrPropsP(q.flag)
+    p.icon        = toRawOrPropsP(q.icon)
     p.image       = fnToRawOrProps(q.image)
     p.label       = toRawOrProps(q.label)
     p.onClick     = (q.onClickE, q.onClick).toJs
