@@ -163,9 +163,6 @@ object List {
   private val component =
     JsComponent[ListProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    items: SList[ListItem]
-  ): List =
-    new List(items = items)
+  def apply(items: SList[ListItem]): List = new List(items = items)
 
 }

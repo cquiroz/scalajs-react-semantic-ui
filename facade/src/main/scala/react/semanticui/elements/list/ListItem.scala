@@ -24,7 +24,6 @@ final case class ListItem(
   header:                js.UndefOr[VdomNode | ListHeader]      = js.undefined,
   icon:                  js.UndefOr[VdomNode | ListIcon]        = js.undefined,
   image:                 js.UndefOr[VdomNode | Image]           = js.undefined,
-  key:                   js.UndefOr[Key]                        = js.undefined,
   onClickE:              js.UndefOr[ListItem.OnClick]           = js.undefined,
   onClick:               js.UndefOr[Callback]                   = js.undefined,
   value:                 js.UndefOr[String]                     = js.undefined,
@@ -85,8 +84,6 @@ object ListItem {
     /** Shorthand for Image. */
     var image: js.UndefOr[suiraw.SemanticShorthandItem[Image.ImageProps]] = js.native
 
-    var key: js.UndefOr[Key] = js.native
-
     /**
       * Called on click.
       *
@@ -111,7 +108,6 @@ object ListItem {
              q.header,
              q.icon,
              q.image,
-             q.key,
              q.onClickE,
              q.onClick,
              q.value)
@@ -128,7 +124,6 @@ object ListItem {
     header:      js.UndefOr[VdomNode | ListHeader]      = js.undefined,
     icon:        js.UndefOr[VdomNode | ListIcon]        = js.undefined,
     image:       js.UndefOr[VdomNode | Image]           = js.undefined,
-    key:         js.UndefOr[Key]                        = js.undefined,
     onClickE:    js.UndefOr[ListItem.OnClick]           = js.undefined,
     onClick:     js.UndefOr[Callback]                   = js.undefined,
     value:       js.UndefOr[String]                     = js.undefined
@@ -144,7 +139,6 @@ object ListItem {
     p.header      = fnToRawOrProps(header)
     p.icon        = toRawOrPropsP(icon)
     p.image       = fnToRawOrProps(image)
-    p.key         = key
     p.onClick     = (onClickE, onClick).toJs
     p.value       = value
     p
