@@ -1,5 +1,10 @@
 # Changes
 
+## 0.3.1
+
+* Upgrades to scalajs react common
+* Mark childless components as such
+
 ## 0.3.0
 
 * Upgrade to scala 2.13
