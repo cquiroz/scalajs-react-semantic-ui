@@ -244,7 +244,6 @@ object Modal {
     p.closeIcon            = closeIcon.map(_.props)
     p.closeOnDimmerClick   = closeOnDimmerClick
     p.closeOnDocumentClick = closeOnDocumentClick
-    p.centered             = centered
     p.content              = content.toRaw
     p.defaultOpen          = defaultOpen
     p.dimmer               = dimmer.toJs
