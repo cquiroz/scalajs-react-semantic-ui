@@ -1,5 +1,10 @@
 # Changes
 
+## 0.3.2
+
+* Adjust inheritance of props
+* Add ItemImage component
+
 ## 0.3.1
 
 * Upgrades to scalajs react common
