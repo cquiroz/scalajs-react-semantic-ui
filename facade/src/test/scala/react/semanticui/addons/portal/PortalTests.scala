@@ -10,7 +10,6 @@ object PortalTests extends TestSuite {
       val portal = Portal(open = true)(<.div("Abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         portal.renderIntoDOM(mountNode)
-        println(mountNode.outerHTML)
         assert(mountNode.outerHTML == """<div></div>""")
       }
     }

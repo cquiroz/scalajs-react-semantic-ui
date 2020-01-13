@@ -5,6 +5,7 @@
 * Adjust inheritance of props
 * Add ItemImage component
 * Add Portal, PortalInner component
+* Add Radio component
 
 ## 0.3.1
 

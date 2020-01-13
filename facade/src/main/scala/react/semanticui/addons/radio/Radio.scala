@@ -1,4 +1,4 @@
-package react.semanticui.modules.checkbox
+package react.semanticui.addons.radio
 
 import scala.scalajs.js
 import js.annotation._
@@ -9,8 +9,9 @@ import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui._
+import react.semanticui.modules.checkbox._
 
-final case class Checkbox(
+final case class Radio(
   as:                   js.UndefOr[AsC]               = js.undefined,
   checked:              js.UndefOr[Boolean]           = js.undefined,
   className:            js.UndefOr[String]            = js.undefined,
@@ -36,25 +37,25 @@ final case class Checkbox(
   slider:               js.UndefOr[Boolean]           = js.undefined,
   tabIndex:             js.UndefOr[JsNumber | String] = js.undefined,
   toggle:               js.UndefOr[Boolean]           = js.undefined,
-  `type`:               js.UndefOr[CheckboxType]      = CheckboxType.Checkbox,
+  `type`:               js.UndefOr[CheckboxType]      = CheckboxType.Radio,
   value:                js.UndefOr[String | JsNumber] = js.undefined
-) extends GenericComponentP[Checkbox.CheckboxProps] {
-  override def cprops = Checkbox.props(this)
-  @inline def render  = Checkbox.component(Checkbox.props(this))
+) extends GenericComponentP[Radio.RadioProps] {
+  override def cprops = Radio.props(this)
+  @inline def render  = Radio.component(Radio.props(this))
 }
 
-object Checkbox {
+object Radio {
   type Event            = (ReactMouseEvent, js.Object) => Callback
   private type RawEvent = js.Function2[ReactMouseEvent, js.Object, Unit]
 
   @js.native
-  @JSImport("semantic-ui-react", "Checkbox")
+  @JSImport("semantic-ui-react", "Radio")
   object RawComponent extends js.Function1[js.Any, js.Any] {
     def apply(i: js.Any): js.Any = js.native
   }
 
   @js.native
-  trait CheckboxProps extends js.Object {
+  trait RadioProps extends js.Object {
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -148,7 +149,7 @@ object Checkbox {
     var value: js.UndefOr[String | JsNumber] = js.native
   }
 
-  def props(q: Checkbox): CheckboxProps =
+  def props(q: Radio): RadioProps =
     rawprops(
       q.as,
       q.checked,
@@ -207,8 +208,8 @@ object Checkbox {
     toggle:               js.UndefOr[Boolean]           = js.undefined,
     `type`:               js.UndefOr[CheckboxType]      = js.undefined,
     value:                js.UndefOr[String | JsNumber] = js.undefined
-  ): CheckboxProps = {
-    val p = as.toJsObject[CheckboxProps]
+  ): RadioProps = {
+    val p = as.toJsObject[RadioProps]
     p.as                   = as.toJs
     p.checked              = checked
     p.className            = (className, clazz).toJs
@@ -235,10 +236,10 @@ object Checkbox {
   }
 
   private val component =
-    JsComponent[CheckboxProps, Children.None, Null](RawComponent)
+    JsComponent[RadioProps, Children.None, Null](RawComponent)
 
-  val Default: Checkbox = Checkbox()
+  val Default: Radio = Radio()
 
-  val defaultProps: CheckboxProps = props(Default)
+  val defaultProps: RadioProps = props(Default)
 
 }
