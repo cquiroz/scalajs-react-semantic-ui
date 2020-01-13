@@ -4,7 +4,7 @@
 
 * Adjust inheritance of props
 * Add ItemImage component
-* Add PortalInner component
+* Add Portal, PortalInner component
 
 ## 0.3.1
 
