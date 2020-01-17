@@ -7,6 +7,7 @@
 * Add Portal, PortalInner component
 * Add Radio component
 * Improvements to the organization of semantic constants
+* Transitions constants
 
 ## 0.3.1
 
