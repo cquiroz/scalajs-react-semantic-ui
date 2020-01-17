@@ -10,8 +10,6 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.sizes._
-import react.semanticui.floats._
 
 final case class Rail(
   as:                    js.UndefOr[AsC] = js.undefined,
@@ -23,7 +21,7 @@ final case class Rail(
   content:               js.UndefOr[VdomNode] = js.undefined,
   dividing:              js.UndefOr[Boolean] = js.undefined,
   internal:              js.UndefOr[Boolean] = js.undefined,
-  position:              js.UndefOr[SemanticFloats],
+  position:              js.UndefOr[SemanticFloat],
   size:                  js.UndefOr[SemanticSize] = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
 ) extends GenericFnComponentPC[Rail.RailProps] {
@@ -98,17 +96,17 @@ object Rail {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]            = js.undefined,
-    attached:  js.UndefOr[Boolean]        = js.undefined,
-    child:     js.UndefOr[VdomNode]       = js.undefined,
-    className: js.UndefOr[String]         = js.undefined,
-    clazz:     js.UndefOr[Css]            = js.undefined,
-    close:     js.UndefOr[RailClose]      = js.undefined,
-    content:   js.UndefOr[VdomNode]       = js.undefined,
-    dividing:  js.UndefOr[Boolean]        = js.undefined,
-    internal:  js.UndefOr[Boolean]        = js.undefined,
-    position:  js.UndefOr[SemanticFloats] = js.undefined,
-    size:      js.UndefOr[SemanticSize]   = js.undefined
+    as:        js.UndefOr[AsC]           = js.undefined,
+    attached:  js.UndefOr[Boolean]       = js.undefined,
+    child:     js.UndefOr[VdomNode]      = js.undefined,
+    className: js.UndefOr[String]        = js.undefined,
+    clazz:     js.UndefOr[Css]           = js.undefined,
+    close:     js.UndefOr[RailClose]     = js.undefined,
+    content:   js.UndefOr[VdomNode]      = js.undefined,
+    dividing:  js.UndefOr[Boolean]       = js.undefined,
+    internal:  js.UndefOr[Boolean]       = js.undefined,
+    position:  js.UndefOr[SemanticFloat] = js.undefined,
+    size:      js.UndefOr[SemanticSize]  = js.undefined
   ): RailProps = {
     val p = as.toJsObject[RailProps]
     p.attached  = attached
@@ -126,7 +124,7 @@ object Rail {
   private val component =
     JsFnComponent[RailProps, Children.Varargs](RawComponent)
 
-  def apply(position: SemanticFloats, content: VdomNode*): Rail =
+  def apply(position: SemanticFloat, content: VdomNode*): Rail =
     new Rail(position = position, children = content)
 
 }

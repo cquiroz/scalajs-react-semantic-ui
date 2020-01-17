@@ -5,8 +5,6 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.sizes._
-import react.semanticui.colors._
 import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._

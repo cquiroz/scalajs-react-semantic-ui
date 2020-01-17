@@ -10,9 +10,6 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.colors._
-import react.semanticui.sizes._
-import react.semanticui.widths._
 
 final case class Menu(
   as:                    js.UndefOr[AsC]              = js.undefined,

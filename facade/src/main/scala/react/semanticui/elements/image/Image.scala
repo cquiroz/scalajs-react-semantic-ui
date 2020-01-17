@@ -11,7 +11,6 @@ import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.sizes._
-import react.semanticui.floats._
 import react.semanticui.verticalalignment._
 
 final case class Image(
@@ -26,7 +25,7 @@ final case class Image(
   content:               js.UndefOr[VdomNode]                  = js.undefined,
   disabled:              js.UndefOr[Boolean]                   = js.undefined,
   dimmer:                js.UndefOr[VdomNode]                  = js.undefined,
-  floated:               js.UndefOr[SemanticFloats]            = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]             = js.undefined,
   fluid:                 js.UndefOr[Boolean | String]          = js.undefined,
   hidden:                js.UndefOr[Boolean]                   = js.undefined,
   href:                  js.UndefOr[String]                    = js.undefined,

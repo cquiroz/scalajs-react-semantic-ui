@@ -10,7 +10,6 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.verticalalignment._
 
 final case class ItemContent(
   as:                    js.UndefOr[AsC] = js.undefined,

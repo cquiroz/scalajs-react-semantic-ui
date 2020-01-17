@@ -9,9 +9,7 @@ import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui._
-import react.semanticui.colors._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.sizes._
 import react.semanticui.elements.icon.Icon
 
 final case class Label(

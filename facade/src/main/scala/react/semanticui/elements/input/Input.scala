@@ -13,7 +13,6 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.sizes._
 
 final case class Input(
   as:                    js.UndefOr[AsC]                                     = js.undefined,

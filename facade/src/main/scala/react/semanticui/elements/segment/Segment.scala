@@ -10,10 +10,6 @@ import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.sizes._
-import react.semanticui.colors._
-import react.semanticui.floats._
-import react.semanticui.textalignment._
 import react.semanticui.raw._
 import react.semanticui._
 
@@ -30,7 +26,7 @@ final case class Segment(
   compact:               js.UndefOr[Boolean]               = js.undefined,
   content:               js.UndefOr[VdomNode]              = js.undefined,
   disabled:              js.UndefOr[Boolean]               = js.undefined,
-  floated:               js.UndefOr[SemanticFloats]        = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]         = js.undefined,
   inverted:              js.UndefOr[Boolean]               = js.undefined,
   loading:               js.UndefOr[Boolean]               = js.undefined,
   padded:                js.UndefOr[String]                = js.undefined,

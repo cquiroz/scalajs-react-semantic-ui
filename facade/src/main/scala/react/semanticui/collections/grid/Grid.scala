@@ -10,9 +10,6 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.widths._
-import react.semanticui.textalignment._
-import react.semanticui.verticalalignment._
 
 final case class Grid(
   as:                    js.UndefOr[AsC]                       = js.undefined,

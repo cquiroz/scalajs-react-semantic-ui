@@ -13,9 +13,6 @@ import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui._
-import react.semanticui.floats._
-import react.semanticui.sizes._
-import react.semanticui.verticalalignment._
 import scala.collection.immutable.{ List => SList }
 
 final case class List(
@@ -28,7 +25,7 @@ final case class List(
   clazz:                 js.UndefOr[Css]                       = js.undefined,
   content:               js.UndefOr[VdomNode]                  = js.undefined,
   divided:               js.UndefOr[Boolean]                   = js.undefined,
-  floated:               js.UndefOr[SemanticFloats]            = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]             = js.undefined,
   horizontal:            js.UndefOr[Boolean]                   = js.undefined,
   inverted:              js.UndefOr[Boolean]                   = js.undefined,
   items:                 js.UndefOr[SList[ListItem]]           = js.undefined,

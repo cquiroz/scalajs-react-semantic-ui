@@ -9,11 +9,6 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.floats._
-import react.semanticui.widths._
-import react.semanticui.colors._
-import react.semanticui.textalignment._
-import react.semanticui.verticalalignment._
 
 final case class GridColumn(
   as:                    js.UndefOr[AsC]                       = js.undefined,
@@ -22,7 +17,7 @@ final case class GridColumn(
   clazz:                 js.UndefOr[Css]                       = js.undefined,
   color:                 js.UndefOr[SemanticColor]             = js.undefined,
   computer:              js.UndefOr[SemanticWidth]             = js.undefined,
-  floated:               js.UndefOr[SemanticFloats]            = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]             = js.undefined,
   largeScreen:           js.UndefOr[SemanticWidth]             = js.undefined,
   mobile:                js.UndefOr[SemanticWidth]             = js.undefined,
   only:                  js.UndefOr[GridOnly]                  = js.undefined,
@@ -129,7 +124,7 @@ object GridColumn {
     clazz:         js.UndefOr[Css]                       = js.undefined,
     color:         js.UndefOr[SemanticColor]             = js.undefined,
     computer:      js.UndefOr[SemanticWidth]             = js.undefined,
-    floated:       js.UndefOr[SemanticFloats]            = js.undefined,
+    floated:       js.UndefOr[SemanticFloat]             = js.undefined,
     largeScreen:   js.UndefOr[SemanticWidth]             = js.undefined,
     mobile:        js.UndefOr[SemanticWidth]             = js.undefined,
     only:          js.UndefOr[GridOnly]                  = js.undefined,

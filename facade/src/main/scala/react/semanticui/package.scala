@@ -86,10 +86,23 @@ package semanticui {
   }
 }
 
-package object semanticui {
+package object semanticui
+    extends Floats
+    with Widths
+    with Colors
+    with Sizes
+    with TextAlignment
+    with VerticalAlignment {
   type SemanticShortHandItem[T] = VdomNode | T
   type SemanticShortHandContent = VdomNode
   type TabIndex                 = Double | String
+
+  val floats            = SemanticFloat
+  val widths            = SemanticWidth
+  val colors            = SemanticColor
+  val sizes             = SemanticSize
+  val textalignment     = SemanticTextAlignment
+  val verticalalignment = SemanticVerticalAlignment
 
   implicit class HandContent2Content(val c: SemanticShortHandContent) extends AnyVal {
     def toRaw: raw.SemanticShorthandContent = c.rawNode

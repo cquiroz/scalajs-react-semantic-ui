@@ -8,8 +8,6 @@ import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
-import react.semanticui.floats._
-import react.semanticui.verticalalignment._
 import react.semanticui.{ raw => suiraw }
 
 final case class ListContent(
@@ -19,7 +17,7 @@ final case class ListContent(
   clazz:                 js.UndefOr[Css]                       = js.undefined,
   description:           js.UndefOr[ListDescription]           = js.undefined,
   content:               js.UndefOr[VdomNode]                  = js.undefined,
-  floated:               js.UndefOr[SemanticFloats]            = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]             = js.undefined,
   header:                js.UndefOr[ListHeader]                = js.undefined,
   verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs                 = Seq.empty
@@ -93,7 +91,7 @@ object ListContent {
     clazz:         js.UndefOr[Css]                       = js.undefined,
     content:       js.UndefOr[VdomNode]                  = js.undefined,
     description:   js.UndefOr[ListDescription]           = js.undefined,
-    floated:       js.UndefOr[SemanticFloats]            = js.undefined,
+    floated:       js.UndefOr[SemanticFloat]             = js.undefined,
     header:        js.UndefOr[ListHeader]                = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
   ): ListContentProps = {

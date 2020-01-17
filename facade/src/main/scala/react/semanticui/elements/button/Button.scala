@@ -10,9 +10,6 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.sizes._
-import react.semanticui.colors._
-import react.semanticui.floats._
 import react.semanticui.elements.label.Label.LabelProps
 import react.semanticui.elements.label.Label
 import react.semanticui.elements.icon.Icon.IconProps
@@ -32,7 +29,7 @@ final case class Button(
   compact:               js.UndefOr[Boolean]        = js.undefined,
   content:               js.UndefOr[VdomNode]       = js.undefined,
   disabled:              js.UndefOr[Boolean]        = js.undefined,
-  floated:               js.UndefOr[SemanticFloats] = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]  = js.undefined,
   fluid:                 js.UndefOr[Boolean]        = js.undefined,
   icon:                  js.UndefOr[Icon]           = js.undefined,
   inverted:              js.UndefOr[Boolean]        = js.undefined,
@@ -151,7 +148,7 @@ object Button {
     compact:       js.UndefOr[Boolean]        = js.undefined,
     content:       js.UndefOr[VdomNode]       = js.undefined,
     disabled:      js.UndefOr[Boolean]        = js.undefined,
-    floated:       js.UndefOr[SemanticFloats] = js.undefined,
+    floated:       js.UndefOr[SemanticFloat]  = js.undefined,
     fluid:         js.UndefOr[Boolean]        = js.undefined,
     icon:          js.UndefOr[Icon]           = js.undefined,
     inverted:      js.UndefOr[Boolean]        = js.undefined,

@@ -10,7 +10,6 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.sizes._
 
 final case class Loader(
   as:                    js.UndefOr[AsC]          = js.undefined,

@@ -10,10 +10,6 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.sizes._
-import react.semanticui.colors._
-import react.semanticui.floats._
-import react.semanticui.textalignment._
 
 final case class Header(
   as:                    js.UndefOr[AsC]                   = js.undefined,
@@ -26,7 +22,7 @@ final case class Header(
   content:               js.UndefOr[VdomNode]              = js.undefined,
   disabled:              js.UndefOr[Boolean]               = js.undefined,
   dividing:              js.UndefOr[Boolean]               = js.undefined,
-  floated:               js.UndefOr[SemanticFloats]        = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]         = js.undefined,
   icon:                  js.UndefOr[Boolean]               = js.undefined,
   image:                 js.UndefOr[Boolean]               = js.undefined,
   inverted:              js.UndefOr[Boolean]               = js.undefined,
@@ -144,7 +140,7 @@ object Header {
     content:   js.UndefOr[VdomNode]              = js.undefined,
     disabled:  js.UndefOr[Boolean]               = js.undefined,
     dividing:  js.UndefOr[Boolean]               = js.undefined,
-    floated:   js.UndefOr[SemanticFloats]        = js.undefined,
+    floated:   js.UndefOr[SemanticFloat]         = js.undefined,
     icon:      js.UndefOr[Boolean]               = js.undefined,
     image:     js.UndefOr[Boolean]               = js.undefined,
     inverted:  js.UndefOr[Boolean]               = js.undefined,

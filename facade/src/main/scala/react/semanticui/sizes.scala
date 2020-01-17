@@ -2,20 +2,19 @@ package react.semanticui
 
 import react.common.EnumValue
 
-package sizes {
+trait Sizes {
   sealed trait SemanticSize extends Product with Serializable
   object SemanticSize {
     implicit val enum: EnumValue[SemanticSize] = EnumValue.toLowerCaseString
+    case object Mini extends SemanticSize
+    case object Tiny extends SemanticSize
+    case object Small extends SemanticSize
+    case object Medium extends SemanticSize
+    case object Large extends SemanticSize
+    case object Big extends SemanticSize
+    case object Huge extends SemanticSize
+    case object Massive extends SemanticSize
   }
 }
 
-package object sizes {
-  case object Mini extends SemanticSize
-  case object Tiny extends SemanticSize
-  case object Small extends SemanticSize
-  case object Medium extends SemanticSize
-  case object Large extends SemanticSize
-  case object Big extends SemanticSize
-  case object Huge extends SemanticSize
-  case object Massive extends SemanticSize
-}
+object Sizes extends Sizes

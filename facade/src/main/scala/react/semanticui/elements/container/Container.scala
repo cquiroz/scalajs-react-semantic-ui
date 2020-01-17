@@ -9,7 +9,6 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.textalignment._
 
 final case class Container(
   as:                    js.UndefOr[AsC]                   = js.undefined,

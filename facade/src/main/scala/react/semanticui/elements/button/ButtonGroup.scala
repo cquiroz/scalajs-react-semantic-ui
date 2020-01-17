@@ -11,10 +11,6 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.sizes._
-import react.semanticui.colors._
-import react.semanticui.floats._
-import react.semanticui.widths._
 
 final case class ButtonGroup(
   as:                    js.UndefOr[AsC]                      = js.undefined,
@@ -27,7 +23,7 @@ final case class ButtonGroup(
   color:                 js.UndefOr[SemanticColor]            = js.undefined,
   compact:               js.UndefOr[Boolean]                  = js.undefined,
   content:               js.UndefOr[VdomNode]                 = js.undefined,
-  floated:               js.UndefOr[SemanticFloats]           = js.undefined,
+  floated:               js.UndefOr[SemanticFloat]            = js.undefined,
   fluid:                 js.UndefOr[Boolean]                  = js.undefined,
   icon:                  js.UndefOr[Boolean]                  = js.undefined,
   inverted:              js.UndefOr[Boolean]                  = js.undefined,
@@ -167,7 +163,7 @@ object ButtonGroup {
     color:     js.UndefOr[SemanticColor]            = js.undefined,
     compact:   js.UndefOr[Boolean]                  = js.undefined,
     content:   js.UndefOr[VdomNode]                 = js.undefined,
-    floated:   js.UndefOr[SemanticFloats]           = js.undefined,
+    floated:   js.UndefOr[SemanticFloat]            = js.undefined,
     fluid:     js.UndefOr[Boolean]                  = js.undefined,
     icon:      js.UndefOr[Boolean]                  = js.undefined,
     inverted:  js.UndefOr[Boolean]                  = js.undefined,

@@ -6,7 +6,6 @@ import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.label.Label
 import react.semanticui.colors._
-import react.semanticui.floats
 import react.semanticui.sizes._
 import react.semanticui._
 
@@ -83,7 +82,7 @@ object ButtonTests extends TestSuite {
       }
     }
     test("floated") {
-      val button = Button(floated = floats.Right)
+      val button = Button(floated = SemanticFloat.Right)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui right floated button"></button>""")
       }
