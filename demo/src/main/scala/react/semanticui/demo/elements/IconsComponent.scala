@@ -9,6 +9,7 @@ import react.semanticui.elements.icon.IconCorner
 import react.semanticui.elements.icon._
 import react.semanticui.sizes._
 import react.semanticui.colors._
+import react.semanticui._
 
 object IconsComponent {
   val IconMailOutline              = Icon(name = "mail outline")
