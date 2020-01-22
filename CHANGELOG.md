@@ -1,5 +1,10 @@
 # Changes
 
+## 0.4.0
+
+* Update scalajs-react to 1.6.0
+* Better properties for Tab
+
 ## 0.3.2
 
 * Adjust inheritance of props
