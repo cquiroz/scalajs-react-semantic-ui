@@ -3,23 +3,42 @@ package react.semanticui.modules.tab
 import scala.scalajs.js
 import js.annotation._
 import js.|
+import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
+import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
 import react.semanticui.collections.menu.Menu
+import react.semanticui.collections.menu.MenuItem
 import react.semanticui.collections.grid.Grid
 import react.semanticui._
+
+final case class Pane private (
+  pane:     js.UndefOr[TabPane],
+  menuItem: js.UndefOr[String | MenuItem],
+  render:   js.UndefOr[Tab.PaneRender]
+)
+
+object Pane {
+  def apply(menuItem: js.UndefOr[String | MenuItem], render: => VdomNode): Pane =
+    new Pane(pane = js.undefined, menuItem = menuItem, render = () => render.rawNode)
+  def apply(menuItem: js.UndefOr[String | MenuItem], pane: TabPane): Pane =
+    new Pane(pane = pane, menuItem = menuItem, render = js.undefined)
+}
 
 final case class Tab(
   as:                 js.UndefOr[AsC]                      = js.undefined,
   defaultActiveIndex: js.UndefOr[JsNumber | String]        = js.undefined,
   activeIndex:        js.UndefOr[JsNumber | String]        = js.undefined,
-  menu:               js.UndefOr[Menu.MenuProps]           = js.undefined,
+  menu:               js.UndefOr[Menu]                     = js.undefined,
   menuPosition:       js.UndefOr[TabMenuPosition]          = js.undefined,
-  grid:               js.UndefOr[Grid.GridProps]           = js.undefined,
+  grid:               js.UndefOr[Grid]                     = js.undefined,
   onTabChangeE:       js.UndefOr[Tab.OnTabChange]          = js.undefined,
   onTabChange:        js.UndefOr[Tab.TabProps => Callback] = js.undefined,
-  renderActiveOnly:   js.UndefOr[Boolean]                  = js.undefined
+  panes:              List[Pane]                           = Nil,
+  renderActiveOnly:   js.UndefOr[Boolean]                  = js.undefined,
+  vertical:           js.UndefOr[Boolean]                  = js.undefined
 ) extends GenericFnComponentP[Tab.TabProps] {
   override def cprops = Tab.props(this)
   @inline def render =
@@ -29,6 +48,33 @@ final case class Tab(
 object Tab {
   type RawOnTabChange = js.Function2[ReactMouseEvent, TabProps, Unit]
   type OnTabChange    = (ReactMouseEvent, TabProps) => Callback
+  type RawPaneRender  = js.Function0[React.Node]
+  type PaneRender     = () => React.Node
+
+  trait RawPane extends js.Object {
+    var pane: js.UndefOr[TabPane.TabPaneProps]
+    var menuItem: js.UndefOr[String | MenuItem.MenuItemProps]
+    var render: js.UndefOr[RawPaneRender]
+  }
+
+  object RawPane {
+    def fromPane(q: Pane): RawPane = {
+      val p = (new js.Object()).asInstanceOf[RawPane]
+      p.pane = q.pane.map(_.props)
+      p.menuItem = q.menuItem.map(d =>
+        (d: Any) match {
+          case s: String   => s
+          case m: MenuItem => m.props
+        }
+      )
+      p.render = q.render.map { f =>
+        val r: js.Function0[React.Node] = f
+        r
+      }
+      p
+
+    }
+  }
 
   @js.native
   @JSImport("semantic-ui-react", "Tab")
@@ -82,14 +128,12 @@ object Tab {
       *   pane: 'Welcome',
       * }
       */
-    //  var panes: js.UndefOr[{]
-    //   pane?: SemanticShorthandItem<TabPaneProps>;
-    //   menuItem?: any;
-    //   render?: () => React.ReactNode;
-    // }[]
+    var panes: js.UndefOr[js.Array[RawPane]] = js.native
 
     /** A Tab can render only active pane. */
     var renderActiveOnly: js.UndefOr[Boolean]
+
+    var vertical: js.UndefOr[Boolean]
   }
 
   def props(
@@ -99,12 +143,14 @@ object Tab {
     p.as                 = q.as.toJs
     p.defaultActiveIndex = q.defaultActiveIndex
     p.activeIndex        = q.activeIndex
-    p.menu               = q.menu
+    p.menu               = q.menu.map(_.props)
     p.menuPosition       = q.menuPosition.toJs
-    p.grid               = q.grid
+    p.grid               = q.grid.map(_.props)
     p.onTabChange = q.onTabChangeE.toJs
       .orElse(q.onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow))
+    p.panes            = q.panes.map(RawPane.fromPane(_)).toJSArray
     p.renderActiveOnly = q.renderActiveOnly
+    p.vertical         = q.vertical
     p
   }
 
