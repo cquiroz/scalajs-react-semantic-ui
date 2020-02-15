@@ -251,13 +251,11 @@ object Modal {
     p.header               = header.toRaw
     p.onActionClick        = (onActionClickE, onActionClick).toJs
     p.onClose              = (onCloseE, onClose).toJs
-    p.onMount = (onMountE, onMount).toJs.map { f => (_, p: Modal.ModalProps) =>
-      f(p)
-    }
-    p.open    = open
-    p.size    = size.toJs
-    p.style   = style.map(_.toJsObject)
-    p.trigger = trigger.toJs
+    p.onMount              = (onMountE, onMount).toJs.map(f => (_, p: Modal.ModalProps) => f(p))
+    p.open                 = open
+    p.size                 = size.toJs
+    p.style                = style.map(_.toJsObject)
+    p.trigger              = trigger.toJs
     p
   }
 

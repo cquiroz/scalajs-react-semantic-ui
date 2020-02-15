@@ -184,13 +184,11 @@ object Confirm {
     p.onCancel             = (onCancelE, onCancel).toJs
     p.onClose              = (onCloseE, onClose).toJs
     p.onConfirm            = (onConfirmE, onConfirm).toJs
-    p.onMount = (onMountE, onMount).toJs.map { f => (_, p: Modal.ModalProps) =>
-      f(p)
-    }
-    p.open    = open
-    p.size    = size.toJs
-    p.style   = style.map(_.toJsObject)
-    p.trigger = trigger.toJs
+    p.onMount              = (onMountE, onMount).toJs.map(f => (_, p: Modal.ModalProps) => f(p))
+    p.open                 = open
+    p.size                 = size.toJs
+    p.style                = style.map(_.toJsObject)
+    p.trigger              = trigger.toJs
     p
   }
 
