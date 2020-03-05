@@ -144,7 +144,8 @@ package object semanticui
       c.map(_.toRaw)
   }
 
-  implicit class HandItemSeq2ArrayUndef[T](val c: js.UndefOr[Seq[SemanticShortHandItem[T]]]) extends AnyVal {
+  implicit class HandItemSeq2ArrayUndef[T](val c: js.UndefOr[Seq[SemanticShortHandItem[T]]])
+      extends AnyVal {
     def toRaw: js.UndefOr[js.Array[raw.SemanticShorthandItem[T]]] =
       c.map(_.map(_.toRaw).toJSArray)
   }
@@ -152,11 +153,14 @@ package object semanticui
   implicit class HandSeq2OrArrayUndef[T](val c: js.UndefOr[Seq[VdomNode] | T]) extends AnyVal {
     def toRaw: js.UndefOr[raw.SemanticShorthandOrArray[T]] =
       (c: Any) match {
-        case s: Seq[_] => s.map(_.asInstanceOf[VdomNode].rawNode).toJSArray.asInstanceOf[raw.SemanticShorthandOrArray[T]]
-        case f         => f.asInstanceOf[T]
+        case s: Seq[_] =>
+          s.map(_.asInstanceOf[VdomNode].rawNode)
+            .toJSArray
+            .asInstanceOf[raw.SemanticShorthandOrArray[T]]
+        case f => f.asInstanceOf[T]
       }
   }
-  
+
   def fnToRawOrProps[P <: js.Object](
     c: js.UndefOr[VdomNode | GenericFnComponentPC[P]]
   ): js.UndefOr[raw.SemanticShorthandItem[P]] =
@@ -216,18 +220,18 @@ package object semanticui
   }
 
   private[semanticui] object raw {
-    type SemanticCOLORS               = String
-    type SemanticICONS                = String
-    type SemanticSIZES                = String
-    type SemanticWIDTHS               = String
-    type IconSizeProp                 = String
-    type SemanticFLOATS               = String
-    type SemanticTEXTALIGNMENTS       = String
-    type SemanticVERTICALALIGNMENTS   = String
-    type SemanticShorthandContent     = React.Node
-    type SemanticShorthandItem[T]     = React.Node | T
-    type SemanticShorthandArray[T]    = js.Array[SemanticShorthandItem[T]]
-    type SemanticShorthandOrArray[T]  = js.Array[React.Node] | T
+    type SemanticCOLORS              = String
+    type SemanticICONS               = String
+    type SemanticSIZES               = String
+    type SemanticWIDTHS              = String
+    type IconSizeProp                = String
+    type SemanticFLOATS              = String
+    type SemanticTEXTALIGNMENTS      = String
+    type SemanticVERTICALALIGNMENTS  = String
+    type SemanticShorthandContent    = React.Node
+    type SemanticShorthandItem[T]    = React.Node | T
+    type SemanticShorthandArray[T]   = js.Array[SemanticShorthandItem[T]]
+    type SemanticShorthandOrArray[T] = js.Array[React.Node] | T
 
     @js.native
     @JSImport("semantic-ui-react", "SemanticCOLORS")

@@ -11,12 +11,12 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 final case class MessageItem(
-  as:        js.UndefOr[AsC]                                     = js.undefined,
-  child:     js.UndefOr[VdomNode]                                = js.undefined,
-  className: js.UndefOr[String]                                  = js.undefined,
-  clazz:     js.UndefOr[Css]                                     = js.undefined,
-  content:   js.UndefOr[VdomNode | MessageItem.MessageItemProps] = js.undefined,
-  override val children: CtorType.ChildrenArgs                   = Seq.empty
+  as:                    js.UndefOr[AsC]                                     = js.undefined,
+  child:                 js.UndefOr[VdomNode]                                = js.undefined,
+  className:             js.UndefOr[String]                                  = js.undefined,
+  clazz:                 js.UndefOr[Css]                                     = js.undefined,
+  content:               js.UndefOr[VdomNode | MessageItem.MessageItemProps] = js.undefined,
+  override val children: CtorType.ChildrenArgs                               = Seq.empty
 ) extends GenericComponentPC[MessageItem.MessageItemProps] {
   override def cprops = MessageItem.props(this)
   @inline def renderWith =
@@ -50,7 +50,8 @@ object MessageItem {
     var className: js.UndefOr[String] = js.undefined
 
     /** Shorthand for primary content. */
-    var content: js.UndefOr[suiraw.SemanticShorthandItem[MessageItem.MessageItemProps]] = js.undefined
+    var content: js.UndefOr[suiraw.SemanticShorthandItem[MessageItem.MessageItemProps]] =
+      js.undefined
   }
 
   def props(q: MessageItem): MessageItemProps =

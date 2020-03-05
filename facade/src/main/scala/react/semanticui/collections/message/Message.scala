@@ -13,7 +13,6 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.icon.Icon.IconProps
 import react.semanticui.elements.icon.Icon
 
-
 final case class Message(
   as:                    js.UndefOr[AsC]                                           = js.undefined,
   attached:              js.UndefOr[MessageAttached]                               = js.undefined,
@@ -81,7 +80,8 @@ object Message {
     var compact: js.UndefOr[Boolean] = js.undefined
 
     /** Shorthand for primary content. */
-    var content: js.UndefOr[suiraw.SemanticShorthandItem[MessageContent.MessageContentProps]] = js.undefined
+    var content: js.UndefOr[suiraw.SemanticShorthandItem[MessageContent.MessageContentProps]] =
+      js.undefined
 
     /** A message may be formatted to display a negative message. Same as `negative`. */
     var error: js.UndefOr[Boolean] = js.undefined
@@ -90,7 +90,8 @@ object Message {
     var floating: js.UndefOr[Boolean] = js.undefined
 
     /** Shorthand for MessageHeader. */
-    var header: js.UndefOr[suiraw.SemanticShorthandItem[MessageHeader.MessageHeaderProps]] = js.undefined
+    var header: js.UndefOr[suiraw.SemanticShorthandItem[MessageHeader.MessageHeaderProps]] =
+      js.undefined
 
     /** A message can be hidden. */
     var hidden: js.UndefOr[Boolean] = js.undefined
@@ -102,18 +103,19 @@ object Message {
     var info: js.UndefOr[Boolean] = js.undefined
 
     /** Array shorthand items for the MessageList. Mutually exclusive with children. */
-    var list: js.UndefOr[suiraw.SemanticShorthandOrArray[MessageList.MessageListProps]] = js.undefined
+    var list: js.UndefOr[suiraw.SemanticShorthandOrArray[MessageList.MessageListProps]] =
+      js.undefined
 
     /** A message may be formatted to display a negative message. Same as `error`. */
     var negative: js.UndefOr[Boolean] = js.undefined
 
     /**
-     * A message that the user can choose to hide.
-     * Called when the user clicks the "x" icon. This also adds the "x" icon.
-     *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
-     */
+      * A message that the user can choose to hide.
+      * Called when the user clicks the "x" icon. This also adds the "x" icon.
+      *
+      * @param {SyntheticEvent} event - React's original SyntheticEvent.
+      * @param {object} data - All props.
+      */
     var onDismiss: js.UndefOr[js.Function2[ReactEvent, MessageProps, Unit]] = js.undefined
 
     /** A message may be formatted to display a positive message.  Same as `success`. */

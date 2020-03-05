@@ -33,7 +33,9 @@ object MessageTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)
         val html = mountNode.innerHTML
-        assert(html == """<div class="ui message"><div class="content"><div class="header"></div></div></div>""")
+        assert(
+          html == """<div class="ui message"><div class="content"><div class="header"></div></div></div>"""
+        )
       }
     }
 
@@ -69,7 +71,9 @@ object MessageTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)
         val html = mountNode.innerHTML
-        assert(html == """<div class="ui message"><ul class="list"><li class="content"></li><li class="content"></li></ul></div>""")
+        assert(
+          html == """<div class="ui message"><ul class="list"><li class="content"></li><li class="content"></li></ul></div>"""
+        )
       }
     }
 
@@ -80,8 +84,10 @@ object MessageTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)
         val html = mountNode.innerHTML
-        assert(html == """<div class="ui message"><div class="content"><ul class="list"><li class="content"></li><li class="content"></li></ul></div></div>""")
+        assert(
+          html == """<div class="ui message"><div class="content"><ul class="list"><li class="content"></li><li class="content"></li></ul></div></div>"""
+        )
       }
     }
-  } 
+  }
 }
