@@ -24,13 +24,13 @@ final case class Radio(
   indeterminate:        js.UndefOr[Boolean]           = js.undefined,
   label:                js.UndefOr[VdomNode]          = js.undefined,
   name:                 js.UndefOr[String]            = js.undefined,
-  onChangeE:            js.UndefOr[Checkbox.Event]    = js.undefined,
+  onChangeE:            js.UndefOr[Radio.Event]       = js.undefined,
   onChange:             js.UndefOr[Callback]          = js.undefined,
-  onClickE:             js.UndefOr[Checkbox.Event]    = js.undefined,
+  onClickE:             js.UndefOr[Radio.Event]       = js.undefined,
   onClick:              js.UndefOr[Callback]          = js.undefined,
-  onMouseDownE:         js.UndefOr[Checkbox.Event]    = js.undefined,
+  onMouseDownE:         js.UndefOr[Radio.Event]       = js.undefined,
   onMouseDown:          js.UndefOr[Callback]          = js.undefined,
-  onMouseUpE:           js.UndefOr[Checkbox.Event]    = js.undefined,
+  onMouseUpE:           js.UndefOr[Radio.Event]       = js.undefined,
   onMouseUp:            js.UndefOr[Callback]          = js.undefined,
   radio:                js.UndefOr[Boolean]           = js.undefined,
   readOnly:             js.UndefOr[Boolean]           = js.undefined,
@@ -45,8 +45,8 @@ final case class Radio(
 }
 
 object Radio {
-  type Event            = (ReactMouseEvent, js.Object) => Callback
-  private type RawEvent = js.Function2[ReactMouseEvent, js.Object, Unit]
+  type Event            = (ReactMouseEvent, RadioProps) => Callback
+  private type RawEvent = js.Function2[ReactMouseEvent, RadioProps, Unit]
 
   @js.native
   @JSImport("semantic-ui-react", "Radio")
