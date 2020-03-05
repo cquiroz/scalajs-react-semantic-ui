@@ -1,4 +1,4 @@
-package react.semanticui.modules.checkbox
+package react.semanticui.modules.progress
 
 import utest._
 import japgolly.scalajs.react.test._

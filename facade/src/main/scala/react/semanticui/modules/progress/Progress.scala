@@ -1,4 +1,4 @@
-package react.semanticui.modules.checkbox
+package react.semanticui.modules.progress
 
 import scala.scalajs.js
 import js.annotation._

@@ -44,8 +44,8 @@ final case class Checkbox(
 }
 
 object Checkbox {
-  type Event            = (ReactMouseEvent, js.Object) => Callback
-  private type RawEvent = js.Function2[ReactMouseEvent, js.Object, Unit]
+  type Event            = (ReactMouseEvent, CheckboxProps) => Callback
+  private type RawEvent = js.Function2[ReactMouseEvent, CheckboxProps, Unit]
 
   @js.native
   @JSImport("semantic-ui-react", "Checkbox")
