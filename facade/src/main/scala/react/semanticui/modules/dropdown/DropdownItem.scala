@@ -13,7 +13,7 @@ import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon.IconShorthand
 import react.semanticui.elements.flag.Flag.FlagProps
 import react.semanticui.elements.flag.Flag
 import react.semanticui.elements.label.Label.LabelProps
@@ -32,7 +32,7 @@ final case class DropdownItem(
   description:           js.UndefOr[String]                      = js.undefined,
   disable:               js.UndefOr[Boolean]                     = js.undefined,
   flag:                  js.UndefOr[VdomNode | Flag]             = js.undefined,
-  icon:                  js.UndefOr[VdomNode | Icon]             = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]               = js.undefined,
   image:                 js.UndefOr[VdomNode | Image]            = js.undefined,
   label:                 js.UndefOr[VdomNode | Label]            = js.undefined,
   onClickE:              js.UndefOr[DropdownItem.OnClick]        = js.undefined,
@@ -88,7 +88,7 @@ object DropdownItem {
     var flag: js.UndefOr[suiraw.SemanticShorthandItem[FlagProps]] = js.native
 
     /** Shorthand for Icon. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItem[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
 
     /** Shorthand for Image. */
     var image: js.UndefOr[suiraw.SemanticShorthandItem[ImageProps]] = js.native
@@ -129,7 +129,7 @@ object DropdownItem {
     p.description = q.description
     p.disable     = q.disable
     p.flag        = toRawOrPropsP(q.flag)
-    p.icon        = toRawOrPropsP(q.icon)
+    p.icon        = q.icon.toJs
     p.image       = fnToRawOrProps(q.image)
     p.label       = toRawOrProps(q.label)
     p.onClick     = (q.onClickE, q.onClick).toJs

@@ -11,7 +11,7 @@ import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon.IconShorthand
 
 final case class Message(
   as:                    js.UndefOr[AsC]                                           = js.undefined,
@@ -26,7 +26,7 @@ final case class Message(
   floating:              js.UndefOr[Boolean]                                       = js.undefined,
   header:                js.UndefOr[VdomNode | MessageHeader.MessageHeaderProps]   = js.undefined,
   hidden:                js.UndefOr[Boolean]                                       = js.undefined,
-  icon:                  js.UndefOr[Icon]                                          = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]                                 = js.undefined,
   info:                  js.UndefOr[Boolean]                                       = js.undefined,
   list:                  js.UndefOr[Seq[VdomNode] | MessageList.MessageListProps]  = js.undefined,
   negative:              js.UndefOr[Boolean]                                       = js.undefined,
@@ -97,7 +97,7 @@ object Message {
     var hidden: js.UndefOr[Boolean] = js.undefined
 
     /** Add an icon by icon name or pass an <Icon /.> */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItem[IconProps]] = js.undefined
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.undefined
 
     /** A message may be formatted to display information. */
     var info: js.UndefOr[Boolean] = js.undefined
@@ -174,7 +174,7 @@ object Message {
     floating:   js.UndefOr[Boolean]                                       = js.undefined,
     header:     js.UndefOr[VdomNode | MessageHeader.MessageHeaderProps]   = js.undefined,
     hidden:     js.UndefOr[Boolean]                                       = js.undefined,
-    icon:       js.UndefOr[Icon]                                          = js.undefined,
+    icon:       js.UndefOr[IconShorthand]                                 = js.undefined,
     info:       js.UndefOr[Boolean]                                       = js.undefined,
     list:       js.UndefOr[Seq[VdomNode] | MessageList.MessageListProps]  = js.undefined,
     negative:   js.UndefOr[Boolean]                                       = js.undefined,
@@ -198,7 +198,7 @@ object Message {
     p.floating  = floating
     p.header    = header.toRaw
     p.hidden    = hidden
-    p.icon      = icon.map(_.props)
+    p.icon      = icon.toJs
     p.info      = info
     p.list      = list.toRaw
     p.negative  = negative

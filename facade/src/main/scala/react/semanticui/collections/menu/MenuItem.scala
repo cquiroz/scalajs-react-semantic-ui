@@ -10,7 +10,7 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon.IconShorthand
 import react.semanticui.elements.icon.Icon.IconProps
 
 final case class MenuItem(
@@ -24,7 +24,7 @@ final case class MenuItem(
   disabled:              js.UndefOr[Boolean]          = js.undefined,
   fitted:                js.UndefOr[MenuItemFitted]   = js.undefined,
   header:                js.UndefOr[Boolean]          = js.undefined,
-  icon:                  js.UndefOr[Icon]             = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]    = js.undefined,
   index:                 js.UndefOr[Int]              = js.undefined,
   link:                  js.UndefOr[Boolean]          = js.undefined,
   name:                  js.UndefOr[String]           = js.undefined,
@@ -83,7 +83,7 @@ object MenuItem {
     var header: js.UndefOr[Boolean] = js.native
 
     /** Item can be only icon. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItem[IconProps]] =
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] =
       js.native
 
     /** Item index inside Menu. */
@@ -140,7 +140,7 @@ object MenuItem {
     disabled:  js.UndefOr[Boolean]          = js.undefined,
     fitted:    js.UndefOr[MenuItemFitted]   = js.undefined,
     header:    js.UndefOr[Boolean]          = js.undefined,
-    icon:      js.UndefOr[Icon]             = js.undefined,
+    icon:      js.UndefOr[IconShorthand]    = js.undefined,
     index:     js.UndefOr[Int]              = js.undefined,
     link:      js.UndefOr[Boolean]          = js.undefined,
     name:      js.UndefOr[String]           = js.undefined,
@@ -158,7 +158,7 @@ object MenuItem {
     p.disabled  = disabled
     p.fitted    = fitted.toJs
     p.header    = header
-    p.icon      = icon.map(_.props)
+    p.icon      = icon.toJs
     p.index     = index
     p.link      = link
     p.name      = name

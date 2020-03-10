@@ -13,7 +13,7 @@ import react.semanticui._
 import react.semanticui.elements.label.Label.LabelProps
 import react.semanticui.elements.label.Label
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon.IconShorthand
 
 final case class Button(
   as:                    js.UndefOr[AsC]            = js.undefined,
@@ -31,7 +31,7 @@ final case class Button(
   disabled:              js.UndefOr[Boolean]        = js.undefined,
   floated:               js.UndefOr[SemanticFloat]  = js.undefined,
   fluid:                 js.UndefOr[Boolean]        = js.undefined,
-  icon:                  js.UndefOr[Icon]           = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]  = js.undefined,
   inverted:              js.UndefOr[Boolean]        = js.undefined,
   label:                 js.UndefOr[Label]          = js.undefined,
   labelPosition:         js.UndefOr[String]         = js.undefined,
@@ -69,22 +69,21 @@ object Button {
 
     @JSBracketAccess
     def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[AsT]                                  = js.native
-    var active: js.UndefOr[Boolean]                          = js.native
-    var animated: js.UndefOr[Boolean | String]               = js.native
-    var attached: js.UndefOr[Boolean | String]               = js.native
-    var basic: js.UndefOr[Boolean]                           = js.native
-    var children: js.UndefOr[React.Node]                     = js.native
-    var circular: js.UndefOr[Boolean]                        = js.native
-    var className: js.UndefOr[String]                        = js.native
-    var color: js.UndefOr[String]                            = js.native
-    var compact: js.UndefOr[Boolean]                         = js.native
-    var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
-    var disabled: js.UndefOr[Boolean]                        = js.native
-    var floated: js.UndefOr[suiraw.SemanticFLOATS]           = js.native
-    var fluid: js.UndefOr[Boolean]                           = js.native
-    var icon: js.UndefOr[suiraw.SemanticShorthandItem[IconProps]] =
-      js.native
+    var as: js.UndefOr[AsT]                                                   = js.native
+    var active: js.UndefOr[Boolean]                                           = js.native
+    var animated: js.UndefOr[Boolean | String]                                = js.native
+    var attached: js.UndefOr[Boolean | String]                                = js.native
+    var basic: js.UndefOr[Boolean]                                            = js.native
+    var children: js.UndefOr[React.Node]                                      = js.native
+    var circular: js.UndefOr[Boolean]                                         = js.native
+    var className: js.UndefOr[String]                                         = js.native
+    var color: js.UndefOr[String]                                             = js.native
+    var compact: js.UndefOr[Boolean]                                          = js.native
+    var content: js.UndefOr[suiraw.SemanticShorthandContent]                  = js.native
+    var disabled: js.UndefOr[Boolean]                                         = js.native
+    var floated: js.UndefOr[suiraw.SemanticFLOATS]                            = js.native
+    var fluid: js.UndefOr[Boolean]                                            = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]]           = js.native
     var inverted: js.UndefOr[Boolean]                                         = js.native
     var label: js.UndefOr[suiraw.SemanticShorthandItem[LabelProps]]           = js.native
     var labelPosition: js.UndefOr[String]                                     = js.native
@@ -150,7 +149,7 @@ object Button {
     disabled:      js.UndefOr[Boolean]        = js.undefined,
     floated:       js.UndefOr[SemanticFloat]  = js.undefined,
     fluid:         js.UndefOr[Boolean]        = js.undefined,
-    icon:          js.UndefOr[Icon]           = js.undefined,
+    icon:          js.UndefOr[IconShorthand]  = js.undefined,
     inverted:      js.UndefOr[Boolean]        = js.undefined,
     label:         js.UndefOr[Label]          = js.undefined,
     labelPosition: js.UndefOr[String]         = js.undefined,
@@ -181,7 +180,7 @@ object Button {
     p.disabled      = disabled
     p.floated       = floated.toJs
     p.fluid         = fluid
-    p.icon          = icon.map(_.props)
+    p.icon          = icon.toJs
     p.inverted      = inverted
     p.label         = label.map(_.props)
     p.labelPosition = labelPosition

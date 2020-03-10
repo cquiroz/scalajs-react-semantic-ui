@@ -10,7 +10,8 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon.IconShorthand
+import react.semanticui.elements.icon.Icon.IconProps
 
 final case class Label(
   as:                    js.UndefOr[AsC]                      = js.undefined,
@@ -28,14 +29,14 @@ final case class Label(
   empty:                 js.UndefOr[Boolean]                  = js.undefined,
   floating:              js.UndefOr[Boolean]                  = js.undefined,
   horizontal:            js.UndefOr[Boolean]                  = js.undefined,
-  icon:                  js.UndefOr[Icon]                     = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]            = js.undefined,
   image:                 js.UndefOr[Boolean]                  = js.undefined,
   onClickE:              js.UndefOr[Label.OnClick]            = js.undefined,
   onClick:               js.UndefOr[Callback]                 = js.undefined,
   onRemove:              js.UndefOr[Label.OnClick]            = js.undefined,
   pointing:              js.UndefOr[LabelPointing]            = js.undefined,
   prompt:                js.UndefOr[Boolean]                  = js.undefined,
-  removeIcon:            js.UndefOr[Icon]                     = js.undefined,
+  removeIcon:            js.UndefOr[IconShorthand]            = js.undefined,
   ribbon:                js.UndefOr[LabelRibbon]              = js.undefined,
   size:                  js.UndefOr[SemanticSize]             = js.undefined,
   tag:                   js.UndefOr[Boolean]                  = js.undefined,
@@ -77,7 +78,7 @@ object Label {
     var empty: js.UndefOr[js.Any]       = js.native
     var floating: js.UndefOr[Boolean]   = js.native
     var horizontal: js.UndefOr[Boolean] = js.native
-    var icon: js.UndefOr[suiraw.SemanticShorthandItem[Icon.IconProps]] =
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] =
       js.native
     var image: js.UndefOr[js.Any] = js.native
     var onClick: js.UndefOr[js.Function2[ReactMouseEvent, LabelProps, Unit]] =
@@ -88,7 +89,7 @@ object Label {
 
     /** A label can prompt for an error in your forms. */
     var prompt: js.UndefOr[Boolean]
-    var removeIcon: js.UndefOr[suiraw.SemanticShorthandItem[Icon.IconProps]] =
+    var removeIcon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] =
       js.native
     var ribbon: js.UndefOr[Boolean | String]   = js.native
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
@@ -113,13 +114,13 @@ object Label {
     p.empty      = q.empty.map(_.asInstanceOf[js.Any])
     p.floating   = q.floating
     p.horizontal = q.horizontal
-    p.icon       = q.icon.map(_.props)
+    p.icon       = q.icon.toJs
     p.image      = q.image.map(_.asInstanceOf[js.Any])
     p.onClick    = (q.onClickE, q.onClick).toJs
     p.onRemove   = q.onRemove.toJs
     p.pointing   = q.pointing.toJs
     p.prompt     = q.prompt
-    p.removeIcon = q.removeIcon.map(_.props)
+    p.removeIcon = q.removeIcon.toJs
     p.ribbon     = q.ribbon.toJs
     p.size       = q.size.toJs
     p.tag        = q.tag
