@@ -11,7 +11,7 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon.IconShorthand
 import react.semanticui.elements.icon.Icon.IconProps
 
 final case class Input(
@@ -25,7 +25,7 @@ final case class Input(
   error:                 js.UndefOr[Boolean]                                 = js.undefined,
   fluid:                 js.UndefOr[Boolean]                                 = js.undefined,
   focus:                 js.UndefOr[Boolean]                                 = js.undefined,
-  icon:                  js.UndefOr[Boolean | Icon]                          = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]                           = js.undefined,
   iconPosition:          js.UndefOr[IconPosition]                            = js.undefined,
   input:                 js.UndefOr[VdomNode]                                = js.undefined,
   inverted:              js.UndefOr[Boolean]                                 = js.undefined,
@@ -90,7 +90,7 @@ object Input {
     var focus: js.UndefOr[Boolean] = js.native
 
     /** Optional Icon to display inside the Input. */
-    var icon: js.UndefOr[Boolean | suiraw.SemanticShorthandItem[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
 
     /** An Icon can appear inside an Input on the left or right. */
     var iconPosition: js.UndefOr[String]
@@ -144,23 +144,18 @@ object Input {
     p.error          = q.error
     p.fluid          = q.fluid
     p.focus          = q.focus
-    p.icon = q.icon.map {
-      (_: Any) match {
-        case b: Boolean => b
-        case c: Icon    => c.props
-      }
-    }
-    p.iconPosition  = q.iconPosition.toJs
-    p.input         = q.input.toJs
-    p.inverted      = q.inverted
-    p.label         = q.label.toJs
-    p.labelPosition = q.labelPosition.toJs
-    p.loading       = q.loading
-    p.onChange      = (q.onChangeE, q.onChange).toJs
-    p.size          = q.size.toJs
-    p.tabIndex      = q.tabIndex
-    p.transparent   = q.transparent
-    p.`type`        = q.`type`
+    p.icon           = q.icon.toJs
+    p.iconPosition   = q.iconPosition.toJs
+    p.input          = q.input.toJs
+    p.inverted       = q.inverted
+    p.label          = q.label.toJs
+    p.labelPosition  = q.labelPosition.toJs
+    p.loading        = q.loading
+    p.onChange       = (q.onChangeE, q.onChange).toJs
+    p.size           = q.size.toJs
+    p.tabIndex       = q.tabIndex
+    p.transparent    = q.transparent
+    p.`type`         = q.`type`
     p
   }
 

@@ -10,6 +10,8 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
+import react.semanticui.elements.icon.IconShorthand
+import react.semanticui.elements.icon.Icon.IconProps
 
 final case class Header(
   as:                    js.UndefOr[AsC]                   = js.undefined,
@@ -23,7 +25,7 @@ final case class Header(
   disabled:              js.UndefOr[Boolean]               = js.undefined,
   dividing:              js.UndefOr[Boolean]               = js.undefined,
   floated:               js.UndefOr[SemanticFloat]         = js.undefined,
-  icon:                  js.UndefOr[Boolean]               = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]         = js.undefined,
   image:                 js.UndefOr[Boolean]               = js.undefined,
   inverted:              js.UndefOr[Boolean]               = js.undefined,
   size:                  js.UndefOr[SemanticSize]          = js.undefined,
@@ -85,7 +87,7 @@ object Header {
     var floated: js.UndefOr[suiraw.SemanticFLOATS] = js.native
 
     /** Add an icon by icon name or pass an Icon. */
-    var icon: js.UndefOr[Boolean] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
 
     /** Add an image by img src or pass an Image. */
     var image: js.UndefOr[Boolean] = js.native
@@ -141,7 +143,7 @@ object Header {
     disabled:  js.UndefOr[Boolean]               = js.undefined,
     dividing:  js.UndefOr[Boolean]               = js.undefined,
     floated:   js.UndefOr[SemanticFloat]         = js.undefined,
-    icon:      js.UndefOr[Boolean]               = js.undefined,
+    icon:      js.UndefOr[IconShorthand]         = js.undefined,
     image:     js.UndefOr[Boolean]               = js.undefined,
     inverted:  js.UndefOr[Boolean]               = js.undefined,
     size:      js.UndefOr[SemanticSize]          = js.undefined,
@@ -160,7 +162,7 @@ object Header {
     p.disabled  = disabled
     p.dividing  = dividing
     p.floated   = floated.toJs
-    p.icon      = icon
+    p.icon      = icon.toJs
     p.image     = image
     p.inverted  = inverted
     p.size      = size.toJs

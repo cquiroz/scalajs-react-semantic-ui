@@ -13,7 +13,7 @@ import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon.IconShorthand
 import react.semanticui.elements.label.Label
 import react.semanticui._
 
@@ -44,7 +44,7 @@ final case class Dropdown(
   floating:              js.UndefOr[Boolean]                              = js.undefined,
   fluid:                 js.UndefOr[Boolean]                              = js.undefined,
   header:                js.UndefOr[VdomNode]                             = js.undefined,
-  icon:                  js.UndefOr[Icon]                                 = js.undefined,
+  icon:                  js.UndefOr[IconShorthand]                        = js.undefined,
   inline:                js.UndefOr[Boolean]                              = js.undefined,
   item:                  js.UndefOr[Boolean]                              = js.undefined,
   labeled:               js.UndefOr[Boolean]                              = js.undefined,
@@ -240,7 +240,7 @@ object Dropdown {
     var header: js.UndefOr[React.Node] = js.native
 
     /** Shorthand for Icon. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItem[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
 
     /** A dropdown can be formatted to appear inline in other content. */
     var inline: js.UndefOr[Boolean] = js.native
@@ -529,7 +529,7 @@ object Dropdown {
     floating:             js.UndefOr[Boolean]                              = js.undefined,
     fluid:                js.UndefOr[Boolean]                              = js.undefined,
     header:               js.UndefOr[VdomNode]                             = js.undefined,
-    icon:                 js.UndefOr[Icon]                                 = js.undefined,
+    icon:                 js.UndefOr[IconShorthand]                        = js.undefined,
     inline:               js.UndefOr[Boolean]                              = js.undefined,
     item:                 js.UndefOr[Boolean]                              = js.undefined,
     labeled:              js.UndefOr[Boolean]                              = js.undefined,
@@ -615,7 +615,7 @@ object Dropdown {
     p.floating             = floating
     p.fluid                = fluid
     p.header               = header.toJs
-    p.icon                 = icon.map(_.props)
+    p.icon                 = icon.toJs
     p.inline               = inline
     p.item                 = item
     p.labeled              = labeled

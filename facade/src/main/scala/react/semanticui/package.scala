@@ -230,6 +230,7 @@ package object semanticui
     type SemanticVERTICALALIGNMENTS  = String
     type SemanticShorthandContent    = React.Node
     type SemanticShorthandItem[T]    = React.Node | T
+    type SemanticShorthandItemSB[T]  = String | Boolean | SemanticShortHandItem[T]
     type SemanticShorthandArray[T]   = js.Array[SemanticShorthandItem[T]]
     type SemanticShorthandOrArray[T] = js.Array[React.Node] | T
 
