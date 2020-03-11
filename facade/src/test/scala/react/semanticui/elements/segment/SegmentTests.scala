@@ -13,5 +13,12 @@ object SegmentTests extends TestSuite {
         assert(mountNode.innerHTML == """<div class="ui segment">Abc</div>""")
       }
     }
+    test("segment with content") {
+      val segment = Segment(secondary = true)(<.div("abc"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        segment.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="ui secondary segment"><div>abc</div></div>""")
+      }
+    }
   }
 }

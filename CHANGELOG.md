@@ -1,6 +1,10 @@
 # Changes
 
-## 0.4.0
+## 0.3.5
+
+* Support Form component
+
+## 0.3.3
 
 * Update scalajs-react to 1.6.0
 * Better properties for Tab
