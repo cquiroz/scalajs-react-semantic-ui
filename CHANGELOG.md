@@ -2,7 +2,7 @@
 
 ## 0.3.5
 
-* Support Form component
+* Support Form, FormField, FormGroup component
 
 ## 0.3.3
 
