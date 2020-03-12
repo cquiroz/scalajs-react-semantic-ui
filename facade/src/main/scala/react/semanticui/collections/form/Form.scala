@@ -153,6 +153,10 @@ object Form {
     p
   }
 
+  val Default: Form = Form()
+
+  val defaultProps: FormProps = props(Default)
+
   private val component =
     JsComponent[FormProps, Children.Varargs, Null](RawComponent)
 

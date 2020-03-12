@@ -5,6 +5,7 @@ import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.label.Label
+import react.semanticui.collections.form.Form
 import react.semanticui.colors._
 import react.semanticui.sizes._
 import react.semanticui._
@@ -21,6 +22,14 @@ object ButtonTests extends TestSuite {
       val button = Button(as = "a")
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<a class="ui button" role="button"></a>""")
+      }
+    }
+    test("renderAsForm") {
+      val button = Button(as = As.Form(Form(error = true)))
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        assert(
+          m.outerHtmlScrubbed() == """<form role="button" class="ui error form ui button"></form>"""
+        )
       }
     }
     test("attached") {

@@ -12,7 +12,7 @@ import react.common.GenericComponentPC
 import react.common.GenericComponentP
 
 package semanticui {
-  sealed trait As {
+  sealed trait As extends Product with Serializable {
     type P <: js.Object // props
     val props: P
   }
@@ -20,6 +20,8 @@ package semanticui {
   object As {
     import elements.segment.{ Segment => SUISegment }
     import collections.menu.{ Menu => SUIMenu }
+    import collections.grid.{ Grid => SUIGrid }
+    import collections.form.{ Form => SUIForm }
     import modules.sidebar.{ SidebarPushable => SUISidebarPushable }
     import modules.sidebar.{ SidebarPusher => SUISidebarPusher }
     import modules.checkbox.{ Checkbox => SUICheckbox }
@@ -48,6 +50,14 @@ package semanticui {
     final case class Menu(menu: SUIMenu = SUIMenu.Default) extends As {
       override type P = SUIMenu.MenuProps
       override val props = SUIMenu.props(menu)
+    }
+    final case class Grid(grid: SUIGrid = SUIGrid.Default) extends As {
+      override type P = SUIGrid.GridProps
+      override val props = SUIGrid.props(grid)
+    }
+    final case class Form(form: SUIForm = SUIForm.Default) extends As {
+      override type P = SUIForm.FormProps
+      override val props = SUIForm.props(form)
     }
     final case class Image(image: SUIImage = SUIImage.Default) extends As {
       override type P = SUIImage.ImageProps
@@ -78,6 +88,8 @@ package semanticui {
       case SidebarPusher(_)   => SUISidebarPusher.RawComponent
       case Header(_)          => SUIHeader.RawComponent
       case Menu(_)            => SUIMenu.RawComponent
+      case Grid(_)            => SUIGrid.RawComponent
+      case Form(_)            => SUIForm.RawComponent
       case Image(_)           => SUIImage.RawComponent
       case Divider(_)         => SUIDivider.RawComponent
       case Checkbox(_)        => SUICheckbox.RawComponent
@@ -194,9 +206,10 @@ package object semanticui
       }
     }
 
-  type AsFn = js.Function1[js.Any, js.Any]
-  type AsT  = String | AsFn
-  type AsC  = String | As
+  type AsFn  = js.Function1[js.Any, js.Any]
+  type AsObj = js.Object
+  type AsT   = String | AsFn | AsObj
+  type AsC   = String | As
 
   implicit class AsCUndef[T](val c: js.UndefOr[AsC]) extends AnyVal {
     def toJs: js.UndefOr[AsT] =
