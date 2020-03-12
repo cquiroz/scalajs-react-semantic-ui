@@ -106,6 +106,10 @@ object Grid {
     var verticalAlign: js.UndefOr[suiraw.SemanticVERTICALALIGNMENTS] = js.native
   }
 
+  val Default: Grid = Grid()
+
+  val defaultProps: GridProps = props(Default)
+
   def props(q: Grid): GridProps =
     rawprops(
       q.as,
