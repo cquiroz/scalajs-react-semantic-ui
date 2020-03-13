@@ -43,7 +43,7 @@ val root =
     .settings(commonSettings: _*)
     .aggregate(facade, demo)
     .settings(
-      name := "root",
+      name := "scalajs-react-semantic-ui",
       // No, SBT, we don't want any artifacts for root.
       // No, not even an empty jar.
       publish := {},
@@ -135,7 +135,7 @@ lazy val facade =
         "com.github.japgolly.scalajs-react" %%% "core" % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra" % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test" % scalaJsReact % Test,
-        "io.github.cquiroz.react" %%% "common" % "0.5.1",
+        "io.github.cquiroz.react" %%% "common" % "0.6.0",
         "com.lihaoyi" %%% "utest" % "0.7.4" % Test,
         "org.typelevel" %%% "cats-core" % "2.1.1" % Test
       ),

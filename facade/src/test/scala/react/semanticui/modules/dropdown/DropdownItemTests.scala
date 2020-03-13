@@ -77,8 +77,9 @@ object DropdownItemTests extends TestSuite {
       val item = DropdownItem(value = 1, label = Label("image"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
+        val html = mountNode.innerHTML
         assert(
-          mountNode.innerHTML == """<div role="option" class="item"><div class="ui label">image</div></div>"""
+          html == """<div role="option" class="item"><div class="ui label">image</div></div>"""
         )
       }
     }

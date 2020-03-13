@@ -11,29 +11,28 @@ import react.common._
 import react.semanticui._
 import react.semanticui.elements.image._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ListItem(
-  as:                    js.UndefOr[AsC]                        = js.undefined,
-  active:                js.UndefOr[Boolean]                    = js.undefined,
-  child:                 js.UndefOr[VdomNode]                   = js.undefined,
-  className:             js.UndefOr[String]                     = js.undefined,
-  clazz:                 js.UndefOr[Css]                        = js.undefined,
-  content:               js.UndefOr[VdomNode]                   = js.undefined,
-  description:           js.UndefOr[VdomNode | ListDescription] = js.undefined,
-  disabled:              js.UndefOr[Boolean]                    = js.undefined,
-  header:                js.UndefOr[VdomNode | ListHeader]      = js.undefined,
-  icon:                  js.UndefOr[VdomNode | ListIcon]        = js.undefined,
-  image:                 js.UndefOr[VdomNode | Image]           = js.undefined,
-  onClickE:              js.UndefOr[ListItem.OnClick]           = js.undefined,
-  onClick:               js.UndefOr[Callback]                   = js.undefined,
-  value:                 js.UndefOr[String]                     = js.undefined,
-  override val children: CtorType.ChildrenArgs                  = Seq.empty
-) extends GenericComponentPC[ListItem.ListItemProps] {
-  override def cprops = ListItem.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    ListItem.component(ListItem.props(this))
+  as:                     js.UndefOr[AsC]                        = js.undefined,
+  active:                 js.UndefOr[Boolean]                    = js.undefined,
+  child:                  js.UndefOr[VdomNode]                   = js.undefined,
+  className:              js.UndefOr[String]                     = js.undefined,
+  clazz:                  js.UndefOr[Css]                        = js.undefined,
+  content:                js.UndefOr[VdomNode]                   = js.undefined,
+  description:            js.UndefOr[VdomNode | ListDescription] = js.undefined,
+  disabled:               js.UndefOr[Boolean]                    = js.undefined,
+  header:                 js.UndefOr[VdomNode | ListHeader]      = js.undefined,
+  icon:                   js.UndefOr[VdomNode | ListIcon]        = js.undefined,
+  image:                  js.UndefOr[VdomNode | Image]           = js.undefined,
+  onClickE:               js.UndefOr[ListItem.OnClick]           = js.undefined,
+  onClick:                js.UndefOr[Callback]                   = js.undefined,
+  value:                  js.UndefOr[String]                     = js.undefined,
+  override val modifiers: Seq[TagMod]                            = Seq.empty
+) extends GenericComponentPAC[ListItem.ListItemProps] {
+  override protected def cprops    = ListItem.props(this)
+  override protected val component = ListItem.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ListItem {
@@ -134,11 +133,11 @@ object ListItem {
     p.children    = children.toJs
     p.className   = (className, clazz).toJs
     p.content     = content.toJs
-    p.description = fnToRawOrProps(description)
+    p.description = fnToRawOrPropsPC(description)
     p.disabled    = disabled
-    p.header      = fnToRawOrProps(header)
+    p.header      = fnToRawOrPropsPAC(header)
     p.icon        = toRawOrPropsP(icon)
-    p.image       = fnToRawOrProps(image)
+    p.image       = fnToRawOrPropsPC(image)
     p.onClick     = (onClickE, onClick).toJs
     p.value       = value
     p
@@ -148,5 +147,5 @@ object ListItem {
     JsComponent[ListItemProps, Children.Varargs, Null](RawComponent)
 
   def apply(content: VdomNode*): ListItem =
-    ListItem(children = content)
+    ListItem(modifiers = content)
 }

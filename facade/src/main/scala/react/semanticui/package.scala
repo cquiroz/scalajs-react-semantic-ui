@@ -8,8 +8,9 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
 import react.common.GenericFnComponentPC
-import react.common.GenericComponentPC
+import react.common.GenericFnComponentPAC
 import react.common.GenericComponentP
+import react.common.GenericComponentPC
 
 package semanticui {
   sealed trait As extends Product with Serializable {
@@ -173,7 +174,7 @@ package object semanticui
       }
   }
 
-  def fnToRawOrProps[P <: js.Object](
+  def fnToRawOrPropsPC[P <: js.Object](
     c: js.UndefOr[VdomNode | GenericFnComponentPC[P]]
   ): js.UndefOr[raw.SemanticShorthandItem[P]] =
     c.map { d =>
@@ -184,14 +185,14 @@ package object semanticui
       }
     }
 
-  def toRawOrProps[P <: js.Object](
-    c: js.UndefOr[VdomNode | GenericComponentPC[P]]
+  def fnToRawOrPropsPAC[P <: js.Object](
+    c: js.UndefOr[VdomNode | GenericFnComponentPAC[P]]
   ): js.UndefOr[raw.SemanticShorthandItem[P]] =
     c.map { d =>
       (d: Any) match {
         case o: VdomNode =>
           o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[GenericComponentPC[P]].props
+        case f => f.asInstanceOf[GenericFnComponentPAC[P]].props
       }
     }
 
@@ -203,6 +204,17 @@ package object semanticui
         case o: VdomNode =>
           o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
         case f => f.asInstanceOf[GenericComponentP[P]].props
+      }
+    }
+
+  def toRawOrPropsPC[P <: js.Object](
+    c: js.UndefOr[VdomNode | GenericComponentPC[P]]
+  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
+    c.map { d =>
+      (d: Any) match {
+        case o: VdomNode =>
+          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
+        case f => f.asInstanceOf[GenericComponentPC[P]].props
       }
     }
 
