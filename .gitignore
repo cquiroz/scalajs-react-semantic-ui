@@ -18,6 +18,7 @@ project/metals.sbt
 .worksheet
 .idea/
 .bloop/
+metals.sbt
 .metals/
 local.*
 node_modules/

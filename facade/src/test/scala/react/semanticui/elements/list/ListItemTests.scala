@@ -39,11 +39,12 @@ object ListItemTests extends TestSuite {
       }
     }
     test("header") {
-      val item = ListItem(header = ListHeader("value"))
+      val item = ListItem(header = ListHeader(^.color.aqua, "value"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
+        val html = mountNode.innerHTML
         assert(
-          mountNode.innerHTML == """<div role="listitem" class="item"><div class="header">value</div></div>"""
+          html == """<div role="listitem" class="item"><div style="color: aqua;" class="header">value</div></div>"""
         )
       }
     }

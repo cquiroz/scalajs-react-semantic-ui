@@ -9,14 +9,16 @@ object ListIconTests extends TestSuite {
       val header = ListIcon()
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
-        assert(mountNode.innerHTML == """<i aria-hidden="true" class="icon"></i>""")
+        val html = mountNode.innerHTML
+        assert(html == """<i aria-hidden="true" class="icon"></i>""")
       }
     }
     test("renderAs") {
       val header = ListIcon("home")
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
-        assert(mountNode.innerHTML == """<i aria-hidden="true" class="home icon"></i>""")
+        val html = mountNode.innerHTML
+        assert(html == """<i aria-hidden="true" class="home icon"></i>""")
       }
     }
   }

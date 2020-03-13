@@ -9,20 +9,19 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ListHeader(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ListHeader.ListHeaderProps] {
-  override def cprops = ListHeader.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    ListHeader.component(ListHeader.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[ListHeader.ListHeaderProps] {
+  override protected def cprops    = ListHeader.props(this)
+  override protected val component = ListHeader.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ListHeader {
@@ -76,5 +75,5 @@ object ListHeader {
   private val component =
     JsFnComponent[ListHeaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ListHeader = new ListHeader(children = content)
+  def apply(content: TagMod*): ListHeader = new ListHeader(modifiers = content)
 }

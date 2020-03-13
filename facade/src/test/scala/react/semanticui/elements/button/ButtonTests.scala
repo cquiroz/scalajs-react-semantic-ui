@@ -128,5 +128,33 @@ object ButtonTests extends TestSuite {
         assert(m.outerHtmlScrubbed() == """<button class="ui big button"></button>""")
       }
     }
+    test("withContent") {
+      val button = Button(^.tpe := "submit")
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
+        assert(html == """<button type="submit" class="ui button"></button>""")
+      }
+    }
+    test("withTwoContents") {
+      val button = Button(^.tpe := "button")("Submit")
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
+        assert(html == """<button type="button" class="ui button">Submit</button>""")
+      }
+    }
+    test("withMixedContent") {
+      val button = Button(^.tpe := "button", "Submit")
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
+        assert(html == """<button type="button" class="ui button">Submit</button>""")
+      }
+    }
+    test("withPropsAndContent") {
+      val button = Button(color = Blue)(^.tpe := "submit")
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
+        assert(html == """<button type="submit" class="ui blue button"></button>""")
+      }
+    }
   }
 }

@@ -12,33 +12,32 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.elements.icon.IconShorthand
 import react.semanticui.elements.icon.Icon.IconProps
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Header(
-  as:                    js.UndefOr[AsC]                   = js.undefined,
-  attached:              js.UndefOr[HeaderAttached]        = js.undefined,
-  block:                 js.UndefOr[Boolean]               = js.undefined,
-  child:                 js.UndefOr[VdomNode]              = js.undefined,
-  className:             js.UndefOr[String]                = js.undefined,
-  clazz:                 js.UndefOr[Css]                   = js.undefined,
-  color:                 js.UndefOr[SemanticColor]         = js.undefined,
-  content:               js.UndefOr[VdomNode]              = js.undefined,
-  disabled:              js.UndefOr[Boolean]               = js.undefined,
-  dividing:              js.UndefOr[Boolean]               = js.undefined,
-  floated:               js.UndefOr[SemanticFloat]         = js.undefined,
-  icon:                  js.UndefOr[IconShorthand]         = js.undefined,
-  image:                 js.UndefOr[Boolean]               = js.undefined,
-  inverted:              js.UndefOr[Boolean]               = js.undefined,
-  size:                  js.UndefOr[SemanticSize]          = js.undefined,
-  sub:                   js.UndefOr[Boolean]               = js.undefined,
-  subheader:             js.UndefOr[HeaderSubheader]       = js.undefined,
-  textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
-  override val children: CtorType.ChildrenArgs             = Seq.empty
-) extends GenericFnComponentPC[Header.HeaderProps] {
-  override def cprops = Header.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    Header.component(Header.props(this))
+  as:                     js.UndefOr[AsC]                   = js.undefined,
+  attached:               js.UndefOr[HeaderAttached]        = js.undefined,
+  block:                  js.UndefOr[Boolean]               = js.undefined,
+  child:                  js.UndefOr[VdomNode]              = js.undefined,
+  className:              js.UndefOr[String]                = js.undefined,
+  clazz:                  js.UndefOr[Css]                   = js.undefined,
+  color:                  js.UndefOr[SemanticColor]         = js.undefined,
+  content:                js.UndefOr[VdomNode]              = js.undefined,
+  disabled:               js.UndefOr[Boolean]               = js.undefined,
+  dividing:               js.UndefOr[Boolean]               = js.undefined,
+  floated:                js.UndefOr[SemanticFloat]         = js.undefined,
+  icon:                   js.UndefOr[IconShorthand]         = js.undefined,
+  image:                  js.UndefOr[Boolean]               = js.undefined,
+  inverted:               js.UndefOr[Boolean]               = js.undefined,
+  size:                   js.UndefOr[SemanticSize]          = js.undefined,
+  sub:                    js.UndefOr[Boolean]               = js.undefined,
+  subheader:              js.UndefOr[HeaderSubheader]       = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod]                       = Seq.empty
+) extends GenericFnComponentPAC[Header.HeaderProps] {
+  override protected def cprops    = Header.props(this)
+  override protected val component = Header.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Header {
@@ -175,8 +174,6 @@ object Header {
   private val component =
     JsFnComponent[HeaderProps, Children.Varargs](RawComponent)
 
-  def apply(
-    content: VdomNode*
-  ): Header =
-    new Header(children = content)
+  def apply(content: TagMod*): Header =
+    Header(modifiers = content)
 }
