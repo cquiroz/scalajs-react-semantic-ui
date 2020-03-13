@@ -208,7 +208,7 @@ object Menu {
     vertical:           js.UndefOr[Boolean]       = js.undefined,
     widths:             js.UndefOr[SemanticWidth] = js.undefined
   ): MenuProps = {
-    val p = (new js.Object).asInstanceOf[MenuProps]
+    val p = as.toJsObject[MenuProps]
     p.as                 = as.toJs
     p.activeIndex        = activeIndex
     p.attached           = attached.toJs

@@ -136,7 +136,7 @@ object DimmerInner {
     simple:          js.UndefOr[Boolean]             = js.undefined,
     verticalAlign:   js.UndefOr[DimmerVerticalAlign] = js.undefined
   ): DimmerInnerProps = {
-    val p = (new js.Object).asInstanceOf[DimmerInnerProps]
+    val p = as.toJsObject[DimmerInnerProps]
     p.as             = as.toJs
     p.active         = active
     p.children       = children.toJs

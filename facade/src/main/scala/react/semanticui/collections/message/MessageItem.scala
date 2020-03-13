@@ -70,7 +70,7 @@ object MessageItem {
     clazz:     js.UndefOr[Css]                                     = js.undefined,
     content:   js.UndefOr[VdomNode | MessageItem.MessageItemProps] = js.undefined
   ): MessageItemProps = {
-    val p = (new js.Object).asInstanceOf[MessageItemProps]
+    val p = as.toJsObject[MessageItemProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

@@ -62,7 +62,7 @@ object ItemHeader {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ItemHeaderProps = {
-    val p = (new js.Object).asInstanceOf[ItemHeaderProps]
+    val p = as.toJsObject[ItemHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

@@ -120,7 +120,7 @@ object FormField {
     `type`:    js.UndefOr[String]          = js.undefined,
     width:     js.UndefOr[SemanticWidth]   = js.undefined
   ): FormFieldProps = {
-    val p = (new js.Object).asInstanceOf[FormFieldProps]
+    val p = as.toJsObject[FormFieldProps]
     p.as        = as.toJs
     p.children  = child.toJs
     p.className = (className, clazz).toJs

@@ -148,7 +148,7 @@ object MenuItem {
     onClick:   js.UndefOr[Callback]         = js.undefined,
     position:  js.UndefOr[MenuItemPosition] = js.undefined
   ): MenuItemProps = {
-    val p = (new js.Object).asInstanceOf[MenuItemProps]
+    val p = as.toJsObject[MenuItemProps]
     p.as        = as.toJs
     p.active    = active
     p.children  = children.toJs

@@ -127,7 +127,7 @@ object ListItem {
     onClick:     js.UndefOr[Callback]                   = js.undefined,
     value:       js.UndefOr[String]                     = js.undefined
   ): ListItemProps = {
-    val p = (new js.Object).asInstanceOf[ListItemProps]
+    val p = as.toJsObject[ListItemProps]
     p.as          = as.toJs
     p.active      = active
     p.children    = children.toJs

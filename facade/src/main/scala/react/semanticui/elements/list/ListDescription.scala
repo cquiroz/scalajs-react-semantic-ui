@@ -65,7 +65,7 @@ object ListDescription {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ListDescriptionProps = {
-    val p = (new js.Object).asInstanceOf[ListDescriptionProps]
+    val p = as.toJsObject[ListDescriptionProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

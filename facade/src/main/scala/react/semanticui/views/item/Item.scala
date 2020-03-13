@@ -96,7 +96,7 @@ object Item {
     header:      js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps]           = js.undefined,
     meta:        js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined
   ): ItemProps = {
-    val p = (new js.Object).asInstanceOf[ItemProps]
+    val p = as.toJsObject[ItemProps]
     p.as          = as.toJs
     p.children    = children.toJs
     p.className   = (className, clazz).toJs

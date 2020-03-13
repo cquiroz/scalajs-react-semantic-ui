@@ -95,7 +95,7 @@ object ListContent {
     header:        js.UndefOr[ListHeader]                = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
   ): ListContentProps = {
-    val p = (new js.Object).asInstanceOf[ListContentProps]
+    val p = as.toJsObject[ListContentProps]
     p.as            = as.toJs
     p.children      = children.toJs
     p.className     = (className, clazz).toJs

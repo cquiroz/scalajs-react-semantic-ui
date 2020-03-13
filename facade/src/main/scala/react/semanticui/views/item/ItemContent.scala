@@ -99,7 +99,7 @@ object ItemContent {
     meta:          js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment]                       = js.undefined
   ): ItemContentProps = {
-    val p = (new js.Object).asInstanceOf[ItemContentProps]
+    val p = as.toJsObject[ItemContentProps]
     p.as            = as.toJs
     p.children      = children.toJs
     p.className     = (className, clazz).toJs

@@ -63,7 +63,7 @@ object MenuHeader {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): MenuHeaderProps = {
-    val p = (new js.Object).asInstanceOf[MenuHeaderProps]
+    val p = as.toJsObject[MenuHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

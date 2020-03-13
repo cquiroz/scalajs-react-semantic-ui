@@ -234,7 +234,7 @@ object Modal {
     style:                js.UndefOr[Style]                                     = js.undefined,
     trigger:              js.UndefOr[VdomNode]                                  = js.undefined
   ): ModalProps = {
-    val p = (new js.Object).asInstanceOf[ModalProps]
+    val p = as.toJsObject[ModalProps]
     p.as                   = as.toJs
     p.actions              = actions.toRaw
     p.basic                = basic

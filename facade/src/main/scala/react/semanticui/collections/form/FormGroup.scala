@@ -93,7 +93,7 @@ object FormGroup {
     unstackable: js.UndefOr[Boolean]                    = js.undefined,
     widths:      js.UndefOr[SemanticWidth | FormWidths] = js.undefined
   ): FormGroupProps = {
-    val p = (new js.Object).asInstanceOf[FormGroupProps]
+    val p = as.toJsObject[FormGroupProps]
     p.as          = as.toJs
     p.children    = child.toJs
     p.className   = (className, clazz).toJs

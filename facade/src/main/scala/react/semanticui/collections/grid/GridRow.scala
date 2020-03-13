@@ -112,7 +112,7 @@ object GridRow {
     textAlign:     js.UndefOr[SemanticTextAlignment]     = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
   ): GridRowProps = {
-    val p = (new js.Object).asInstanceOf[GridRowProps]
+    val p = as.toJsObject[GridRowProps]
     p.as            = as.toJs
     p.centered      = centered
     p.children      = children.toJs

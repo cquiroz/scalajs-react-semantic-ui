@@ -63,7 +63,7 @@ object ItemExtra {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ItemExtraProps = {
-    val p = (new js.Object).asInstanceOf[ItemExtraProps]
+    val p = as.toJsObject[ItemExtraProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

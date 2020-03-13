@@ -63,7 +63,7 @@ object ItemDescription {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ItemDescriptionProps = {
-    val p = (new js.Object).asInstanceOf[ItemDescriptionProps]
+    val p = as.toJsObject[ItemDescriptionProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

@@ -89,7 +89,7 @@ object ModalActions {
     onActionClickE: js.UndefOr[OnActionClick]            = js.undefined,
     onActionClick:  js.UndefOr[Callback]                 = js.undefined
   ): ModalActionsProps = {
-    val p = (new js.Object).asInstanceOf[ModalActionsProps]
+    val p = as.toJsObject[ModalActionsProps]
     p.as = as.toJs
     p.actions = actions.map(x =>
       x.map((y: Button.ButtonProps) => y: suiraw.SemanticShorthandItem[Button.ButtonProps])

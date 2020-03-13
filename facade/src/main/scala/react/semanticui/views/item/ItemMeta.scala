@@ -63,7 +63,7 @@ object ItemMeta {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ItemMetaProps = {
-    val p = (new js.Object).asInstanceOf[ItemMetaProps]
+    val p = as.toJsObject[ItemMetaProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

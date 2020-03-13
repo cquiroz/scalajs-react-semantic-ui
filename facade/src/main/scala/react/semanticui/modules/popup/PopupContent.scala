@@ -62,7 +62,7 @@ object PopupContent {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): PopupContentProps = {
-    val p = (new js.Object).asInstanceOf[PopupContentProps]
+    val p = as.toJsObject[PopupContentProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

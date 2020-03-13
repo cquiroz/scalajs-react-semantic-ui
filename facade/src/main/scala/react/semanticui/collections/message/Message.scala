@@ -186,7 +186,7 @@ object Message {
     visible:    js.UndefOr[Boolean]                                       = js.undefined,
     warning:    js.UndefOr[Boolean]                                       = js.undefined
   ): MessageProps = {
-    val p = (new js.Object).asInstanceOf[MessageProps]
+    val p = as.toJsObject[MessageProps]
     p.as        = as.toJs
     p.attached  = attached.toJs
     p.children  = children.toJs

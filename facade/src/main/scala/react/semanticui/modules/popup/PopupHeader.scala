@@ -62,7 +62,7 @@ object PopupHeader {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): PopupHeaderProps = {
-    val p = (new js.Object).asInstanceOf[PopupHeaderProps]
+    val p = as.toJsObject[PopupHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

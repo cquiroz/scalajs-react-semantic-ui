@@ -10,31 +10,30 @@ import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import org.scalajs.dom
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Form(
-  as:                    js.UndefOr[AsC]            = js.undefined,
-  action:                js.UndefOr[String]         = js.undefined,
-  child:                 js.UndefOr[VdomNode]       = js.undefined,
-  className:             js.UndefOr[String]         = js.undefined,
-  clazz:                 js.UndefOr[Css]            = js.undefined,
-  error:                 js.UndefOr[Boolean]        = js.undefined,
-  inverted:              js.UndefOr[Boolean]        = js.undefined,
-  loading:               js.UndefOr[Boolean]        = js.undefined,
-  onSubmitE:             js.UndefOr[Form.OnSubmitE] = js.undefined,
-  onSubmit:              js.UndefOr[Callback]       = js.undefined,
-  reply:                 js.UndefOr[Boolean]        = js.undefined,
-  size:                  js.UndefOr[SemanticSize]   = js.undefined,
-  success:               js.UndefOr[Boolean]        = js.undefined,
-  unstackable:           js.UndefOr[Boolean]        = js.undefined,
-  warning:               js.UndefOr[Boolean]        = js.undefined,
-  widths:                js.UndefOr[FormWidths]     = js.undefined,
-  override val children: CtorType.ChildrenArgs      = Seq.empty
-) extends GenericComponentPC[Form.FormProps] {
-  override def cprops = Form.props(this)
-  @inline def renderWith =
-    Form.component(Form.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]            = js.undefined,
+  action:                 js.UndefOr[String]         = js.undefined,
+  child:                  js.UndefOr[VdomNode]       = js.undefined,
+  className:              js.UndefOr[String]         = js.undefined,
+  clazz:                  js.UndefOr[Css]            = js.undefined,
+  error:                  js.UndefOr[Boolean]        = js.undefined,
+  inverted:               js.UndefOr[Boolean]        = js.undefined,
+  loading:                js.UndefOr[Boolean]        = js.undefined,
+  onSubmitE:              js.UndefOr[Form.OnSubmitE] = js.undefined,
+  onSubmit:               js.UndefOr[Callback]       = js.undefined,
+  reply:                  js.UndefOr[Boolean]        = js.undefined,
+  size:                   js.UndefOr[SemanticSize]   = js.undefined,
+  success:                js.UndefOr[Boolean]        = js.undefined,
+  unstackable:            js.UndefOr[Boolean]        = js.undefined,
+  warning:                js.UndefOr[Boolean]        = js.undefined,
+  widths:                 js.UndefOr[FormWidths]     = js.undefined,
+  override val modifiers: Seq[TagMod]                = Seq.empty
+) extends GenericComponentPAC[Form.FormProps] {
+  override protected def cprops    = Form.props(this)
+  override protected val component = Form.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Form {
@@ -135,7 +134,7 @@ object Form {
     warning:     js.UndefOr[Boolean]        = js.undefined,
     widths:      js.UndefOr[FormWidths]     = js.undefined
   ): FormProps = {
-    val p = (new js.Object).asInstanceOf[FormProps]
+    val p = as.toJsObject[FormProps]
     p.as          = as.toJs
     p.action      = action
     p.children    = child.toJs
@@ -157,9 +156,9 @@ object Form {
 
   val defaultProps: FormProps = props(Default)
 
-  private val component =
+  private lazy val component =
     JsComponent[FormProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): Form =
-    new Form(children = content)
+  def apply(content: TagMod*): Form =
+    Form(modifiers = content)
 }

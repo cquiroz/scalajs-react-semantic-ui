@@ -68,7 +68,7 @@ object MenuMenu {
     content:   js.UndefOr[VdomNode]         = js.undefined,
     position:  js.UndefOr[MenuMenuPosition] = js.undefined
   ): MenuMenuProps = {
-    val p = (new js.Object).asInstanceOf[MenuMenuProps]
+    val p = as.toJsObject[MenuMenuProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

@@ -95,7 +95,7 @@ object ItemGroup {
     relaxed:     js.UndefOr[ItemRelaxed] = js.undefined,
     unstackable: js.UndefOr[Boolean]     = js.undefined
   ): ItemGroupProps = {
-    val p = (new js.Object).asInstanceOf[ItemGroupProps]
+    val p = as.toJsObject[ItemGroupProps]
     p.as          = as.toJs
     p.children    = children.toJs
     p.className   = (className, clazz).toJs

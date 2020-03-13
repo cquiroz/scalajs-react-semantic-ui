@@ -135,7 +135,7 @@ object GridColumn {
     widescreen:    js.UndefOr[SemanticWidth]             = js.undefined,
     width:         js.UndefOr[SemanticWidth]             = js.undefined
   ): GridColumnProps = {
-    val p = (new js.Object).asInstanceOf[GridColumnProps]
+    val p = as.toJsObject[GridColumnProps]
     p.as            = as.toJs
     p.children      = children.toJs
     p.className     = (className, clazz).toJs

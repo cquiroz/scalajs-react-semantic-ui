@@ -163,7 +163,7 @@ object Confirm {
     style:                js.UndefOr[Style]                                     = js.undefined,
     trigger:              js.UndefOr[VdomNode]                                  = js.undefined
   ): ConfirmProps = {
-    val p = (new js.Object).asInstanceOf[ConfirmProps]
+    val p = as.toJsObject[ConfirmProps]
     p.as                   = as.toJs
     p.actions              = actions.toRaw
     p.basic                = basic

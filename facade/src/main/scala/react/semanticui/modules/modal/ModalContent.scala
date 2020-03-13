@@ -72,7 +72,7 @@ object ModalContent {
     image:     js.UndefOr[Boolean]  = js.undefined,
     scrolling: js.UndefOr[Boolean]  = js.undefined
   ): ModalContentProps = {
-    val p = (new js.Object).asInstanceOf[ModalContentProps]
+    val p = as.toJsObject[ModalContentProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

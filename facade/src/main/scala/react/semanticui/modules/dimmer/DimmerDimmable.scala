@@ -73,7 +73,7 @@ object DimmerDimmable {
     content:   js.UndefOr[VdomNode] = js.undefined,
     dimmed:    js.UndefOr[Boolean]  = js.undefined
   ): DimmerDimmableProps = {
-    val p = (new js.Object).asInstanceOf[DimmerDimmableProps]
+    val p = as.toJsObject[DimmerDimmableProps]
     p.as        = as.toJs
     p.blurring  = blurring
     p.children  = children.toJs

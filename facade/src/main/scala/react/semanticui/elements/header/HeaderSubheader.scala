@@ -56,7 +56,7 @@ object HeaderSubheader {
   def props(
     q: HeaderSubheader
   ): HeaderSubheaderProps = {
-    val p = (new js.Object).asInstanceOf[HeaderSubheaderProps]
+    val p = q.as.toJsObject[HeaderSubheaderProps]
     p.as        = q.as.toJs
     p.children  = q.child.toJs
     p.className = (q.className, q.clazz).toJs

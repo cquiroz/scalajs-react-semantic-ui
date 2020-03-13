@@ -64,7 +64,7 @@ object ListHeader {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ListHeaderProps = {
-    val p = (new js.Object).asInstanceOf[ListHeaderProps]
+    val p = as.toJsObject[ListHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

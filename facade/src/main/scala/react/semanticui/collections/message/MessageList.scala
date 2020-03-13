@@ -70,7 +70,7 @@ object MessageList {
     clazz:     js.UndefOr[Css]                                          = js.undefined,
     items:     js.UndefOr[Seq[VdomNode | MessageItem.MessageItemProps]] = js.undefined
   ): MessageListProps = {
-    val p = (new js.Object).asInstanceOf[MessageListProps]
+    val p = as.toJsObject[MessageListProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs
