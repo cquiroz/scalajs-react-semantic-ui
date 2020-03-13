@@ -17,8 +17,8 @@ final case class HeaderSubheader(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[HeaderSubheader.HeaderSubheaderProps] {
-  override def cprops = HeaderSubheader.props(this)
+) extends GenericFnComponentPC[HeaderSubheader.HeaderSubheaderProps, HeaderSubheader] {
+  override protected def cprops = HeaderSubheader.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

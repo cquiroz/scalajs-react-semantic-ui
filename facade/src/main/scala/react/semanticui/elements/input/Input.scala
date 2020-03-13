@@ -39,8 +39,8 @@ final case class Input(
   transparent:           js.UndefOr[Boolean]                                 = js.undefined,
   `type`:                js.UndefOr[String]                                  = js.undefined,
   override val children: CtorType.ChildrenArgs                               = Seq.empty
-) extends GenericComponentPC[Input.InputProps] {
-  override def cprops = Input.props(this)
+) extends GenericComponentPC[Input.InputProps, Input] {
+  override protected def cprops = Input.props(this)
   @inline def renderWith =
     Input.component(Input.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

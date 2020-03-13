@@ -38,8 +38,8 @@ final case class Message(
   visible:               js.UndefOr[Boolean]                                       = js.undefined,
   warning:               js.UndefOr[Boolean]                                       = js.undefined,
   override val children: CtorType.ChildrenArgs                                     = Seq.empty
-) extends GenericComponentPC[Message.MessageProps] {
-  override def cprops = Message.props(this)
+) extends GenericComponentPC[Message.MessageProps, Message] {
+  override protected def cprops = Message.props(this)
   @inline def renderWith =
     Message.component(Message.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

@@ -32,8 +32,8 @@ final case class MenuItem(
   onClick:               js.UndefOr[Callback]         = js.undefined,
   position:              js.UndefOr[MenuItemPosition] = js.undefined,
   override val children: CtorType.ChildrenArgs        = Seq.empty
-) extends GenericComponentPC[MenuItem.MenuItemProps] {
-  override def cprops = MenuItem.props(this)
+) extends GenericComponentPC[MenuItem.MenuItemProps, MenuItem] {
+  override protected def cprops = MenuItem.props(this)
   @inline def renderWith =
     MenuItem.component(MenuItem.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

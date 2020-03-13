@@ -23,8 +23,8 @@ final case class ItemContent(
   meta:                  js.UndefOr[VdomNode | ItemMeta.ItemMetaProps] = js.undefined,
   verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs
-) extends GenericFnComponentPC[ItemContent.ItemContentProps] {
-  override def cprops = ItemContent.props(this)
+) extends GenericFnComponentPC[ItemContent.ItemContentProps, ItemContent] {
+  override protected def cprops = ItemContent.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

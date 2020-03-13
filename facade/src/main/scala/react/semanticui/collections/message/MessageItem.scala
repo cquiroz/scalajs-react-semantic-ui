@@ -17,8 +17,8 @@ final case class MessageItem(
   clazz:                 js.UndefOr[Css]                                     = js.undefined,
   content:               js.UndefOr[VdomNode | MessageItem.MessageItemProps] = js.undefined,
   override val children: CtorType.ChildrenArgs                               = Seq.empty
-) extends GenericComponentPC[MessageItem.MessageItemProps] {
-  override def cprops = MessageItem.props(this)
+) extends GenericComponentPC[MessageItem.MessageItemProps, MessageItem] {
+  override protected def cprops = MessageItem.props(this)
   @inline def renderWith =
     MessageItem.component(MessageItem.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

@@ -28,8 +28,8 @@ final case class GridColumn(
   widescreen:            js.UndefOr[SemanticWidth]             = js.undefined,
   width:                 js.UndefOr[SemanticWidth]             = js.undefined,
   override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[GridColumn.GridColumnProps] {
-  override def cprops = GridColumn.props(this)
+) extends GenericFnComponentPC[GridColumn.GridColumnProps, GridColumn] {
+  override protected def cprops = GridColumn.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

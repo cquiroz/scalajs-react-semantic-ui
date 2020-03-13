@@ -17,8 +17,8 @@ final case class ItemMeta(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ItemMeta.ItemMetaProps] {
-  override def cprops = ItemMeta.props(this)
+) extends GenericFnComponentPC[ItemMeta.ItemMetaProps, ItemMeta] {
+  override protected def cprops = ItemMeta.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

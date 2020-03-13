@@ -93,9 +93,9 @@ final case class Dropdown(
   upward:                js.UndefOr[Boolean]                              = js.undefined,
   wrapSelection:         js.UndefOr[Boolean]                              = js.undefined,
   override val children: CtorType.ChildrenArgs                            = Seq.empty
-) extends GenericComponentPC[Dropdown.DropdownProps] {
-  override def cprops    = Dropdown.props(this)
-  @inline def renderWith = Dropdown.component(Dropdown.props(this))
+) extends GenericComponentPC[Dropdown.DropdownProps, Dropdown] {
+  override protected def cprops = Dropdown.props(this)
+  @inline def renderWith        = Dropdown.component(Dropdown.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

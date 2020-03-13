@@ -39,8 +39,8 @@ final case class Checkbox(
   `type`:               js.UndefOr[CheckboxType]      = CheckboxType.Checkbox,
   value:                js.UndefOr[String | JsNumber] = js.undefined
 ) extends GenericComponentP[Checkbox.CheckboxProps] {
-  override def cprops = Checkbox.props(this)
-  @inline def render  = Checkbox.component(Checkbox.props(this))
+  override protected def cprops = Checkbox.props(this)
+  @inline def render            = Checkbox.component(Checkbox.props(this))
 }
 
 object Checkbox {

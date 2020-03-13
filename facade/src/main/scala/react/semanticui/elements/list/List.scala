@@ -38,9 +38,9 @@ final case class List(
   size:                  js.UndefOr[SemanticSize]              = js.undefined,
   verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericComponentPC[List.ListProps] {
-  override def cprops    = List.props(this)
-  @inline def renderWith = List.component(List.props(this))
+) extends GenericComponentPC[List.ListProps, List] {
+  override protected def cprops = List.props(this)
+  @inline def renderWith        = List.component(List.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

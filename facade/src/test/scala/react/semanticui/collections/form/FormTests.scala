@@ -12,6 +12,6 @@ object FormTests extends TestSuite {
         assert(mountNode.innerHTML == """<form class="ui form"></form>""")
       }
     }
-    
+
   }
 }

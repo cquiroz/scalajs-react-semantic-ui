@@ -20,9 +20,9 @@ final case class DropdownMenu(
   open:                  js.UndefOr[Boolean]       = js.undefined,
   scrolling:             js.UndefOr[Boolean]       = js.undefined,
   override val children: CtorType.ChildrenArgs     = Seq.empty
-) extends GenericComponentPC[DropdownMenu.DropdownMenuProps] {
-  override def cprops    = DropdownMenu.props(this)
-  @inline def renderWith = DropdownMenu.component(DropdownMenu.props(this))
+) extends GenericComponentPC[DropdownMenu.DropdownMenuProps, DropdownMenu] {
+  override protected def cprops = DropdownMenu.props(this)
+  @inline def renderWith        = DropdownMenu.component(DropdownMenu.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

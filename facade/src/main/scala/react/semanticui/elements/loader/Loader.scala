@@ -24,8 +24,8 @@ final case class Loader(
   inverted:              js.UndefOr[Boolean]      = js.undefined,
   size:                  js.UndefOr[SemanticSize] = js.undefined,
   override val children: CtorType.ChildrenArgs    = Seq.empty
-) extends GenericFnComponentPC[Loader.LoaderProps] {
-  override def cprops = Loader.props(this)
+) extends GenericFnComponentPC[Loader.LoaderProps, Loader] {
+  override protected def cprops = Loader.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

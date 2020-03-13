@@ -17,8 +17,8 @@ final case class MessageHeader(
   clazz:                 js.UndefOr[Css]                                         = js.undefined,
   content:               js.UndefOr[VdomNode | MessageHeader.MessageHeaderProps] = js.undefined,
   override val children: CtorType.ChildrenArgs                                   = Seq.empty
-) extends GenericComponentPC[MessageHeader.MessageHeaderProps] {
-  override def cprops = MessageHeader.props(this)
+) extends GenericComponentPC[MessageHeader.MessageHeaderProps, MessageHeader] {
+  override protected def cprops = MessageHeader.props(this)
   @inline def renderWith =
     MessageHeader.component(MessageHeader.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

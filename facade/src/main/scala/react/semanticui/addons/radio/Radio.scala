@@ -40,8 +40,8 @@ final case class Radio(
   `type`:               js.UndefOr[CheckboxType]      = CheckboxType.Radio,
   value:                js.UndefOr[String | JsNumber] = js.undefined
 ) extends GenericComponentP[Radio.RadioProps] {
-  override def cprops = Radio.props(this)
-  @inline def render  = Radio.component(Radio.props(this))
+  override protected def cprops = Radio.props(this)
+  @inline def render            = Radio.component(Radio.props(this))
 }
 
 object Radio {

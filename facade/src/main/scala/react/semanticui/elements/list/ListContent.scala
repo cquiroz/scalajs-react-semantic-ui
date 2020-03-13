@@ -21,8 +21,8 @@ final case class ListContent(
   header:                js.UndefOr[ListHeader]                = js.undefined,
   verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[ListContent.ListContentProps] {
-  override def cprops = ListContent.props(this)
+) extends GenericFnComponentPC[ListContent.ListContentProps, ListContent] {
+  override protected def cprops = ListContent.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

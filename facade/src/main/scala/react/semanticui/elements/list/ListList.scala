@@ -17,8 +17,8 @@ final case class ListList(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ListList.ListListProps] {
-  override def cprops = ListList.props(this)
+) extends GenericFnComponentPC[ListList.ListListProps, ListList] {
+  override protected def cprops = ListList.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

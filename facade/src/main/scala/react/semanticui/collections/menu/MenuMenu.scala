@@ -18,8 +18,8 @@ final case class MenuMenu(
   content:               js.UndefOr[VdomNode]         = js.undefined,
   position:              js.UndefOr[MenuMenuPosition] = js.undefined,
   override val children: CtorType.ChildrenArgs        = Seq.empty
-) extends GenericFnComponentPC[MenuMenu.MenuMenuProps] {
-  override def cprops = MenuMenu.props(this)
+) extends GenericFnComponentPC[MenuMenu.MenuMenuProps, MenuMenu] {
+  override protected def cprops = MenuMenu.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

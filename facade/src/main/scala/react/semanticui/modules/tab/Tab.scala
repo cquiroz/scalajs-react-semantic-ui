@@ -40,7 +40,7 @@ final case class Tab(
   renderActiveOnly:   js.UndefOr[Boolean]                  = js.undefined,
   vertical:           js.UndefOr[Boolean]                  = js.undefined
 ) extends GenericFnComponentP[Tab.TabProps] {
-  override def cprops = Tab.props(this)
+  override protected def cprops = Tab.props(this)
   @inline def render =
     Tab.component(Tab.props(this))
 }

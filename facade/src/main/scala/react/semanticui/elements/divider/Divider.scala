@@ -24,8 +24,8 @@ final case class Divider(
   section:               js.UndefOr[Boolean]   = js.undefined,
   vertical:              js.UndefOr[Boolean]   = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericComponentPC[Divider.DividerProps] {
-  override def cprops = Divider.props(this)
+) extends GenericComponentPC[Divider.DividerProps, Divider] {
+  override protected def cprops = Divider.props(this)
   @inline def renderWith =
     Divider.component(Divider.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

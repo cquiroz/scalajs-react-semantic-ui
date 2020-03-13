@@ -39,8 +39,8 @@ final case class Menu(
   vertical:              js.UndefOr[Boolean]          = js.undefined,
   widths:                js.UndefOr[SemanticWidth]    = js.undefined,
   override val children: CtorType.ChildrenArgs        = Seq.empty
-) extends GenericComponentPC[Menu.MenuProps] {
-  override def cprops = Menu.props(this)
+) extends GenericComponentPC[Menu.MenuProps, Menu] {
+  override protected def cprops = Menu.props(this)
   @inline def renderWith =
     Menu.component(Menu.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
@@ -208,7 +208,7 @@ object Menu {
     vertical:           js.UndefOr[Boolean]       = js.undefined,
     widths:             js.UndefOr[SemanticWidth] = js.undefined
   ): MenuProps = {
-    val p = as.toJsObject[MenuProps]
+    val p = (new js.Object).asInstanceOf[MenuProps]
     p.as                 = as.toJs
     p.activeIndex        = activeIndex
     p.attached           = attached.toJs

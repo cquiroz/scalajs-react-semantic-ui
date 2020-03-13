@@ -12,8 +12,8 @@ final case class SemanticToastContainer(
   className: js.UndefOr[String]            = js.undefined,
   clazz:     js.UndefOr[Css]               = js.undefined
 ) extends GenericComponentP[SemanticToastContainer.SemanticToastContainerProps] {
-  override def cprops = SemanticToastContainer.props(this)
-  @inline def render  = SemanticToastContainer.component(SemanticToastContainer.props(this))
+  override protected def cprops = SemanticToastContainer.props(this)
+  @inline def render            = SemanticToastContainer.component(SemanticToastContainer.props(this))
 }
 
 object SemanticToastContainer {

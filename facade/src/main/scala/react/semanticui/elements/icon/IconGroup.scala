@@ -18,8 +18,8 @@ final case class IconGroup(
   content:               js.UndefOr[VdomNode]     = js.undefined,
   size:                  js.UndefOr[SemanticSize] = js.undefined,
   override val children: CtorType.ChildrenArgs    = Seq.empty
-) extends GenericComponentPC[IconGroup.IconGroupProps] {
-  override def cprops = IconGroup.props(this)
+) extends GenericComponentPC[IconGroup.IconGroupProps, IconGroup] {
+  override protected def cprops = IconGroup.props(this)
   @inline def renderWith =
     IconGroup.component(IconGroup.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

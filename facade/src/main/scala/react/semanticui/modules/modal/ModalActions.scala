@@ -22,9 +22,9 @@ final case class ModalActions(
   onActionClickE:        js.UndefOr[ModalActions.OnActionClick] = js.undefined,
   onActionClick:         js.UndefOr[Callback]                   = js.undefined,
   override val children: CtorType.ChildrenArgs                  = Seq.empty
-) extends GenericComponentPC[ModalActions.ModalActionsProps] {
-  override def cprops    = ModalActions.props(this)
-  @inline def renderWith = ModalActions.component(ModalActions.props(this))
+) extends GenericComponentPC[ModalActions.ModalActionsProps, ModalActions] {
+  override protected def cprops = ModalActions.props(this)
+  @inline def renderWith        = ModalActions.component(ModalActions.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

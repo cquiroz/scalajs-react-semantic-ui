@@ -13,8 +13,8 @@ final case class Flag(
   clazz:     js.UndefOr[Css]    = js.undefined,
   name:      js.UndefOr[String] = js.undefined
 ) extends GenericComponentP[Flag.FlagProps] {
-  override def cprops = Flag.props(this)
-  @inline def render  = Flag.component(Flag.props(this))
+  override protected def cprops = Flag.props(this)
+  @inline def render            = Flag.component(Flag.props(this))
 }
 
 object Flag {

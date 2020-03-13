@@ -34,9 +34,9 @@ final case class Portal(
   openOnTriggerMouseEnter:  js.UndefOr[Boolean]          = js.undefined,
   trigger:                  js.UndefOr[VdomNode]         = js.undefined,
   override val children:    CtorType.ChildrenArgs        = Seq.empty
-) extends GenericComponentPC[Portal.PortalProps] {
-  override def cprops    = Portal.props(this)
-  @inline def renderWith = Portal.component(Portal.props(this))
+) extends GenericComponentPC[Portal.PortalProps, Portal] {
+  override protected def cprops = Portal.props(this)
+  @inline def renderWith        = Portal.component(Portal.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

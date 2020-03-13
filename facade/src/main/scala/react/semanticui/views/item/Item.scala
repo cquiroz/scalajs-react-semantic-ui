@@ -22,8 +22,8 @@ final case class Item(
   header:                js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps]           = js.undefined,
   meta:                  js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined,
   override val children: CtorType.ChildrenArgs                                       = Seq.empty
-) extends GenericFnComponentPC[Item.ItemProps] {
-  override def cprops = Item.props(this)
+) extends GenericFnComponentPC[Item.ItemProps, Item] {
+  override protected def cprops = Item.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

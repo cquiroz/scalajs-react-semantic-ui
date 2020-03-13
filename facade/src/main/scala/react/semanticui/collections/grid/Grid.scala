@@ -31,8 +31,8 @@ final case class Grid(
   textAlign:             js.UndefOr[SemanticTextAlignment]     = js.undefined,
   verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[Grid.GridProps] {
-  override def cprops = Grid.props(this)
+) extends GenericFnComponentPC[Grid.GridProps, Grid] {
+  override protected def cprops = Grid.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

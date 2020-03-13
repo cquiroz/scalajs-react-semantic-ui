@@ -24,8 +24,8 @@ final case class GridRow(
   textAlign:             js.UndefOr[SemanticTextAlignment]     = js.undefined,
   verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[GridRow.GridRowProps] {
-  override def cprops = GridRow.props(this)
+) extends GenericFnComponentPC[GridRow.GridRowProps, GridRow] {
+  override protected def cprops = GridRow.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

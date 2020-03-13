@@ -17,9 +17,9 @@ final case class ModalHeader(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ModalHeader.ModalHeaderProps] {
-  override def cprops    = ModalHeader.props(this)
-  @inline def renderWith = ModalHeader.component(ModalHeader.props(this))
+) extends GenericFnComponentPC[ModalHeader.ModalHeaderProps, ModalHeader] {
+  override protected def cprops = ModalHeader.props(this)
+  @inline def renderWith        = ModalHeader.component(ModalHeader.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

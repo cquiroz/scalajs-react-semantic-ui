@@ -23,29 +23,28 @@ import react.semanticui.elements.image.Image
 import react.semanticui._
 
 final case class DropdownItem(
-  as:                    js.UndefOr[AsC]                         = js.undefined,
-  active:                js.UndefOr[Boolean]                     = js.undefined,
-  child:                 js.UndefOr[VdomNode]                    = js.undefined,
-  className:             js.UndefOr[String]                      = js.undefined,
-  clazz:                 js.UndefOr[Css]                         = js.undefined,
-  content:               js.UndefOr[VdomNode]                    = js.undefined,
-  description:           js.UndefOr[String]                      = js.undefined,
-  disable:               js.UndefOr[Boolean]                     = js.undefined,
-  flag:                  js.UndefOr[VdomNode | Flag]             = js.undefined,
-  icon:                  js.UndefOr[IconShorthand]               = js.undefined,
-  image:                 js.UndefOr[VdomNode | Image]            = js.undefined,
-  label:                 js.UndefOr[VdomNode | Label]            = js.undefined,
-  onClickE:              js.UndefOr[DropdownItem.OnClick]        = js.undefined,
-  onClick:               js.UndefOr[Callback]                    = js.undefined,
-  selected:              js.UndefOr[Boolean]                     = js.undefined,
-  text:                  js.UndefOr[VdomNode]                    = js.undefined,
-  value:                 js.UndefOr[Boolean | JsNumber | String] = js.undefined,
-  override val children: CtorType.ChildrenArgs                   = Seq.empty
-) extends GenericComponentPC[DropdownItem.DropdownItemProps] {
-  override def cprops    = DropdownItem.props(this)
-  @inline def renderWith = DropdownItem.component(DropdownItem.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                         = js.undefined,
+  active:                 js.UndefOr[Boolean]                     = js.undefined,
+  child:                  js.UndefOr[VdomNode]                    = js.undefined,
+  className:              js.UndefOr[String]                      = js.undefined,
+  clazz:                  js.UndefOr[Css]                         = js.undefined,
+  content:                js.UndefOr[VdomNode]                    = js.undefined,
+  description:            js.UndefOr[String]                      = js.undefined,
+  disable:                js.UndefOr[Boolean]                     = js.undefined,
+  flag:                   js.UndefOr[VdomNode | Flag]             = js.undefined,
+  icon:                   js.UndefOr[IconShorthand]               = js.undefined,
+  image:                  js.UndefOr[VdomNode | Image]            = js.undefined,
+  label:                  js.UndefOr[VdomNode | Label]            = js.undefined,
+  onClickE:               js.UndefOr[DropdownItem.OnClick]        = js.undefined,
+  onClick:                js.UndefOr[Callback]                    = js.undefined,
+  selected:               js.UndefOr[Boolean]                     = js.undefined,
+  text:                   js.UndefOr[VdomNode]                    = js.undefined,
+  value:                  js.UndefOr[Boolean | JsNumber | String] = js.undefined,
+  override val modifiers: Seq[TagMod]                             = Seq.empty
+) extends GenericComponentPAC[DropdownItem.DropdownItemProps, DropdownItem] {
+  override protected def cprops    = DropdownItem.props(this)
+  override protected val component = DropdownItem.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object DropdownItem {
@@ -143,8 +142,8 @@ object DropdownItem {
     JsComponent[DropdownItemProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    value: Boolean | JsNumber | String
+    v: Boolean | JsNumber | String
   ): DropdownItem =
-    DropdownItem(value = value, children = Seq(value.toString))
+    DropdownItem(value = v, modifiers = Seq(v.toString))
 
 }

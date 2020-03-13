@@ -18,7 +18,7 @@ final case class ListHeader(
   clazz:                  js.UndefOr[Css]      = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
   override val modifiers: Seq[TagMod]          = Seq.empty
-) extends GenericFnComponentPAC[ListHeader.ListHeaderProps] {
+) extends GenericFnComponentPAC[ListHeader.ListHeaderProps, ListHeader] {
   override protected def cprops    = ListHeader.props(this)
   override protected val component = ListHeader.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)

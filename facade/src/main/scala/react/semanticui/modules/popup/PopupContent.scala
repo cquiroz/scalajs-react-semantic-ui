@@ -17,9 +17,9 @@ final case class PopupContent(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[PopupContent.PopupContentProps] {
-  override def cprops    = PopupContent.props(this)
-  @inline def renderWith = PopupContent.component(PopupContent.props(this))
+) extends GenericFnComponentPC[PopupContent.PopupContentProps, PopupContent] {
+  override protected def cprops = PopupContent.props(this)
+  @inline def renderWith        = PopupContent.component(PopupContent.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

@@ -38,9 +38,9 @@ final case class Progress(
   value:                 js.UndefOr[JsNumber | String] = js.undefined,
   warning:               js.UndefOr[Boolean]           = js.undefined,
   override val children: CtorType.ChildrenArgs         = Seq.empty
-) extends GenericComponentPC[Progress.ProgressProps] {
-  override def cprops    = Progress.props(this)
-  @inline def renderWith = Progress.component(Progress.props(this))
+) extends GenericComponentPC[Progress.ProgressProps, Progress] {
+  override protected def cprops = Progress.props(this)
+  @inline def renderWith        = Progress.component(Progress.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

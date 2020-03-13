@@ -41,9 +41,9 @@ final case class Label(
   size:                  js.UndefOr[SemanticSize]             = js.undefined,
   tag:                   js.UndefOr[Boolean]                  = js.undefined,
   override val children: CtorType.ChildrenArgs                = Seq.empty
-) extends GenericComponentPC[Label.LabelProps] {
-  override def cprops    = Label.props(this)
-  @inline def renderWith = Label.component(Label.props(this))
+) extends GenericComponentPC[Label.LabelProps, Label] {
+  override protected def cprops = Label.props(this)
+  @inline def renderWith        = Label.component(Label.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

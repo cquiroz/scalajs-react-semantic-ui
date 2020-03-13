@@ -18,8 +18,8 @@ final case class DropdownSearchInput(
   `type`:       js.UndefOr[String]            = js.undefined,
   value:        js.UndefOr[JsNumber | String] = js.undefined
 ) extends GenericComponentP[DropdownSearchInput.DropdownSearchInputProps] {
-  override def cprops = DropdownSearchInput.props(this)
-  @inline def render  = DropdownSearchInput.component(DropdownSearchInput.props(this))
+  override protected def cprops = DropdownSearchInput.props(this)
+  @inline def render            = DropdownSearchInput.component(DropdownSearchInput.props(this))
 }
 
 object DropdownSearchInput {

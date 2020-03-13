@@ -26,8 +26,8 @@ final case class FormField(
   `type`:                js.UndefOr[String]          = js.undefined,
   width:                 js.UndefOr[SemanticWidth]   = js.undefined,
   override val children: CtorType.ChildrenArgs       = Seq.empty
-) extends GenericComponentPC[FormField.FormFieldProps] {
-  override def cprops = FormField.props(this)
+) extends GenericComponentPC[FormField.FormFieldProps, FormField] {
+  override protected def cprops = FormField.props(this)
   @inline def renderWith =
     FormField.component(FormField.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

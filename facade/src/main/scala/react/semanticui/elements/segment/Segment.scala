@@ -40,8 +40,8 @@ final case class Segment(
   textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
   vertical:              js.UndefOr[Boolean]               = js.undefined,
   override val children: CtorType.ChildrenArgs             = Seq.empty
-) extends GenericFnComponentPC[Segment.SegmentProps] {
-  override def cprops = Segment.props(this)
+) extends GenericFnComponentPC[Segment.SegmentProps, Segment] {
+  override protected def cprops = Segment.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

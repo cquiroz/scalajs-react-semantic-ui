@@ -14,9 +14,9 @@ final case class DropdownDivider(
   className:             js.UndefOr[String]    = js.undefined,
   clazz:                 js.UndefOr[Css]       = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[DropdownDivider.DropdownDividerProps] {
-  override def cprops    = DropdownDivider.props(this)
-  @inline def renderWith = DropdownDivider.component(DropdownDivider.props(this))
+) extends GenericFnComponentPC[DropdownDivider.DropdownDividerProps, DropdownDivider] {
+  override protected def cprops = DropdownDivider.props(this)
+  @inline def renderWith        = DropdownDivider.component(DropdownDivider.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }
