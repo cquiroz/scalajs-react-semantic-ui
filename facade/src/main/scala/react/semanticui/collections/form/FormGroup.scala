@@ -22,8 +22,8 @@ final case class FormGroup(
   unstackable:           js.UndefOr[Boolean]                    = js.undefined,
   widths:                js.UndefOr[SemanticWidth | FormWidths] = js.undefined,
   override val children: CtorType.ChildrenArgs                  = Seq.empty
-) extends GenericComponentPC[FormGroup.FormGroupProps] {
-  override def cprops = FormGroup.props(this)
+) extends GenericComponentPC[FormGroup.FormGroupProps, FormGroup] {
+  override protected def cprops = FormGroup.props(this)
   @inline def renderWith =
     FormGroup.component(FormGroup.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
@@ -93,7 +93,7 @@ object FormGroup {
     unstackable: js.UndefOr[Boolean]                    = js.undefined,
     widths:      js.UndefOr[SemanticWidth | FormWidths] = js.undefined
   ): FormGroupProps = {
-    val p = (new js.Object).asInstanceOf[FormGroupProps]
+    val p = as.toJsObject[FormGroupProps]
     p.as          = as.toJs
     p.children    = child.toJs
     p.className   = (className, clazz).toJs

@@ -27,9 +27,9 @@ final case class DimmerInner(
   simple:                js.UndefOr[Boolean]                    = js.undefined,
   verticalAlign:         js.UndefOr[DimmerVerticalAlign]        = js.undefined,
   override val children: CtorType.ChildrenArgs                  = Seq.empty
-) extends GenericComponentPC[DimmerInner.DimmerInnerProps] {
-  override def cprops    = DimmerInner.props(this)
-  @inline def renderWith = DimmerInner.component(DimmerInner.props(this))
+) extends GenericComponentPC[DimmerInner.DimmerInnerProps, DimmerInner] {
+  override protected def cprops = DimmerInner.props(this)
+  @inline def renderWith        = DimmerInner.component(DimmerInner.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }
@@ -136,7 +136,7 @@ object DimmerInner {
     simple:          js.UndefOr[Boolean]             = js.undefined,
     verticalAlign:   js.UndefOr[DimmerVerticalAlign] = js.undefined
   ): DimmerInnerProps = {
-    val p = (new js.Object).asInstanceOf[DimmerInnerProps]
+    val p = as.toJsObject[DimmerInnerProps]
     p.as             = as.toJs
     p.active         = active
     p.children       = children.toJs

@@ -24,8 +24,8 @@ final case class Rail(
   position:              js.UndefOr[SemanticFloat],
   size:                  js.UndefOr[SemanticSize] = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[Rail.RailProps] {
-  override def cprops = Rail.props(this)
+) extends GenericFnComponentPC[Rail.RailProps, Rail] {
+  override protected def cprops = Rail.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

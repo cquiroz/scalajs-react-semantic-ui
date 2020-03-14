@@ -17,8 +17,8 @@ final case class HeaderContent(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[HeaderContent.HeaderContentProps] {
-  override def cprops = HeaderContent.props(this)
+) extends GenericFnComponentPC[HeaderContent.HeaderContentProps, HeaderContent] {
+  override protected def cprops = HeaderContent.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =
@@ -65,7 +65,7 @@ object HeaderContent {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): HeaderContentProps = {
-    val p = (new js.Object).asInstanceOf[HeaderContentProps]
+    val p = as.toJsObject[HeaderContentProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

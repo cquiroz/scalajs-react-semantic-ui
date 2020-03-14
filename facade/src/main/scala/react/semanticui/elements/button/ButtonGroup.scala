@@ -37,8 +37,8 @@ final case class ButtonGroup(
   vertical:              js.UndefOr[Boolean]                  = js.undefined,
   widths:                js.UndefOr[SemanticWidth]            = js.undefined,
   override val children: CtorType.ChildrenArgs                = Seq.empty
-) extends GenericComponentPC[ButtonGroup.ButtonGroupProps] {
-  override def cprops = ButtonGroup.props(this)
+) extends GenericComponentPC[ButtonGroup.ButtonGroupProps, ButtonGroup] {
+  override protected def cprops = ButtonGroup.props(this)
   @inline def renderWith =
     ButtonGroup.component(ButtonGroup.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

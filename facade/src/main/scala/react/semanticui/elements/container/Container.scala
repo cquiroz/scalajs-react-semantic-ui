@@ -20,8 +20,8 @@ final case class Container(
   text:                  js.UndefOr[Boolean]               = js.undefined,
   textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
   override val children: CtorType.ChildrenArgs             = Seq.empty
-) extends GenericFnComponentPC[Container.ContainerProps] {
-  override def cprops = Container.props(this)
+) extends GenericFnComponentPC[Container.ContainerProps, Container] {
+  override protected def cprops = Container.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

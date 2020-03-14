@@ -6,13 +6,13 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.vdom.TagMod
 import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.icon.Icon.IconProps
 import react.semanticui.elements.icon.Icon
 import react.semanticui.{ raw => suiraw }
-import japgolly.scalajs.react.vdom.TagMod
 
 final case class Modal(
   as:                     js.UndefOr[AsC]                                       = js.undefined,
@@ -43,7 +43,7 @@ final case class Modal(
   style:                  js.UndefOr[Style]                                     = js.undefined,
   trigger:                js.UndefOr[VdomNode]                                  = js.undefined,
   override val modifiers: Seq[TagMod]                                           = Seq.empty
-) extends GenericComponentPAC[Modal.ModalProps] {
+) extends GenericComponentPAC[Modal.ModalProps, Modal] {
   override protected def cprops    = Modal.props(this)
   override protected val component = Modal.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
@@ -234,7 +234,7 @@ object Modal {
     style:                js.UndefOr[Style]                                     = js.undefined,
     trigger:              js.UndefOr[VdomNode]                                  = js.undefined
   ): ModalProps = {
-    val p = (new js.Object).asInstanceOf[ModalProps]
+    val p = as.toJsObject[ModalProps]
     p.as                   = as.toJs
     p.actions              = actions.toRaw
     p.basic                = basic

@@ -22,8 +22,8 @@ final case class ItemGroup(
   relaxed:               js.UndefOr[ItemRelaxed] = js.undefined,
   unstackable:           js.UndefOr[Boolean]     = js.undefined,
   override val children: CtorType.ChildrenArgs   = Seq.empty
-) extends GenericFnComponentPC[ItemGroup.ItemGroupProps] {
-  override def cprops = ItemGroup.props(this)
+) extends GenericFnComponentPC[ItemGroup.ItemGroupProps, ItemGroup] {
+  override protected def cprops = ItemGroup.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =
@@ -95,7 +95,7 @@ object ItemGroup {
     relaxed:     js.UndefOr[ItemRelaxed] = js.undefined,
     unstackable: js.UndefOr[Boolean]     = js.undefined
   ): ItemGroupProps = {
-    val p = (new js.Object).asInstanceOf[ItemGroupProps]
+    val p = as.toJsObject[ItemGroupProps]
     p.as          = as.toJs
     p.children    = children.toJs
     p.className   = (className, clazz).toJs

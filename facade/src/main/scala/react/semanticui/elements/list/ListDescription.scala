@@ -17,8 +17,8 @@ final case class ListDescription(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ListDescription.ListDescriptionProps] {
-  override def cprops = ListDescription.props(this)
+) extends GenericFnComponentPC[ListDescription.ListDescriptionProps, ListDescription] {
+  override protected def cprops = ListDescription.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =
@@ -65,7 +65,7 @@ object ListDescription {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ListDescriptionProps = {
-    val p = (new js.Object).asInstanceOf[ListDescriptionProps]
+    val p = as.toJsObject[ListDescriptionProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

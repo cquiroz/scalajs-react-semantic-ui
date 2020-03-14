@@ -17,8 +17,8 @@ final case class LabelDetail(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericComponentPC[LabelDetail.LabelDetailProps] {
-  override def cprops = LabelDetail.props(this)
+) extends GenericComponentPC[LabelDetail.LabelDetailProps, LabelDetail] {
+  override protected def cprops = LabelDetail.props(this)
   @inline def renderWith =
     LabelDetail.component(LabelDetail.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

@@ -37,8 +37,8 @@ final case class ItemImage(
   verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   wrapped:               js.UndefOr[Boolean]                   = js.undefined,
   override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[ItemImage.ItemImageProps] {
-  override def cprops = ItemImage.props(this)
+) extends GenericFnComponentPC[ItemImage.ItemImageProps, ItemImage] {
+  override protected def cprops = ItemImage.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =

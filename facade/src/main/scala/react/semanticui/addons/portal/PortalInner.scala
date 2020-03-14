@@ -16,9 +16,9 @@ final case class PortalInner(
   onUnmountE:            js.UndefOr[PortalInner.OnUnmount] = js.undefined,
   onUnmount:             js.UndefOr[Callback]              = js.undefined,
   override val children: CtorType.ChildrenArgs             = Seq.empty
-) extends GenericComponentPC[PortalInner.PortalInnerProps] {
-  override def cprops    = PortalInner.props(this)
-  @inline def renderWith = PortalInner.component(PortalInner.props(this))
+) extends GenericComponentPC[PortalInner.PortalInnerProps, PortalInner] {
+  override protected def cprops = PortalInner.props(this)
+  @inline def renderWith        = PortalInner.component(PortalInner.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

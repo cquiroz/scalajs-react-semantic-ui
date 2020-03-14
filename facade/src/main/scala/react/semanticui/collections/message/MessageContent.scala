@@ -17,8 +17,8 @@ final case class MessageContent(
   clazz:                 js.UndefOr[Css]                                           = js.undefined,
   content:               js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined,
   override val children: CtorType.ChildrenArgs                                     = Seq.empty
-) extends GenericComponentPC[MessageContent.MessageContentProps] {
-  override def cprops = MessageContent.props(this)
+) extends GenericComponentPC[MessageContent.MessageContentProps, MessageContent] {
+  override protected def cprops = MessageContent.props(this)
   @inline def renderWith =
     MessageContent.component(MessageContent.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
@@ -70,7 +70,7 @@ object MessageContent {
     clazz:     js.UndefOr[Css]                                           = js.undefined,
     content:   js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined
   ): MessageContentProps = {
-    val p = (new js.Object).asInstanceOf[MessageContentProps]
+    val p = as.toJsObject[MessageContentProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

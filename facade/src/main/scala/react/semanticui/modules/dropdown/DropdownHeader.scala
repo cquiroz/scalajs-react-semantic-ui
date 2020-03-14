@@ -21,9 +21,9 @@ final case class DropdownHeader(
   content:               js.UndefOr[VdomNode]      = js.undefined,
   icon:                  js.UndefOr[IconShorthand] = js.undefined,
   override val children: CtorType.ChildrenArgs     = Seq.empty
-) extends GenericComponentPC[DropdownHeader.DropdownHeaderProps] {
-  override def cprops    = DropdownHeader.props(this)
-  @inline def renderWith = DropdownHeader.component(DropdownHeader.props(this))
+) extends GenericComponentPC[DropdownHeader.DropdownHeaderProps, DropdownHeader] {
+  override protected def cprops = DropdownHeader.props(this)
+  @inline def renderWith        = DropdownHeader.component(DropdownHeader.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

@@ -18,7 +18,7 @@ final case class ItemHeader(
   clazz:                  js.UndefOr[Css]      = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
   override val modifiers: Seq[TagMod]          = Seq.empty
-) extends GenericFnComponentPAC[ItemHeader.ItemHeaderProps] {
+) extends GenericFnComponentPAC[ItemHeader.ItemHeaderProps, ItemHeader] {
   override protected def cprops    = ItemHeader.props(this)
   override protected val component = ItemHeader.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
@@ -62,7 +62,7 @@ object ItemHeader {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ItemHeaderProps = {
-    val p = (new js.Object).asInstanceOf[ItemHeaderProps]
+    val p = as.toJsObject[ItemHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

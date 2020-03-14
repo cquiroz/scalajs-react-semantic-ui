@@ -34,7 +34,7 @@ final case class Header(
   subheader:              js.UndefOr[HeaderSubheader]       = js.undefined,
   textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
   override val modifiers: Seq[TagMod]                       = Seq.empty
-) extends GenericFnComponentPAC[Header.HeaderProps] {
+) extends GenericFnComponentPAC[Header.HeaderProps, Header] {
   override protected def cprops    = Header.props(this)
   override protected val component = Header.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)

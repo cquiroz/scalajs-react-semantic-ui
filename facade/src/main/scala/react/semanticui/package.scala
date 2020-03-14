@@ -7,6 +7,7 @@ import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
+import react.common.filterProps
 import react.common.GenericFnComponentPC
 import react.common.GenericFnComponentPAC
 import react.common.GenericComponentP
@@ -32,55 +33,58 @@ package semanticui {
     import elements.loader.{ Loader => SUILoader }
     import elements.container.{ Container => SUIContainer }
 
+    protected def removeAs[P <: js.Object](p: P): P =
+      filterProps(p, "as")
+
     final case class Segment(segment: SUISegment = SUISegment.Default) extends As {
       override type P = SUISegment.SegmentProps
-      override val props = SUISegment.props(segment)
+      override val props = removeAs(segment.props)
     }
     final case class SidebarPushable(pushable: SUISidebarPushable = SUISidebarPushable.Default)
         extends As {
       override type P = SUISidebarPushable.SidebarPushableProps
-      override val props = SUISidebarPushable.props(pushable)
+      override val props = removeAs(pushable.props)
     }
     final case class SidebarPusher(pusher: SUISidebarPusher) extends As {
       override type P = SUISidebarPusher.SidebarPusherProps
-      override val props = SUISidebarPusher.props(pusher)
+      override val props = removeAs(pusher.props)
     }
     final case class Header(props: SUIHeader.HeaderProps) extends As {
       override type P = SUIHeader.HeaderProps
     }
     final case class Menu(menu: SUIMenu = SUIMenu.Default) extends As {
       override type P = SUIMenu.MenuProps
-      override val props = SUIMenu.props(menu)
+      override val props = removeAs(menu.props)
     }
     final case class Grid(grid: SUIGrid = SUIGrid.Default) extends As {
       override type P = SUIGrid.GridProps
-      override val props = SUIGrid.props(grid)
+      override val props = removeAs(grid.props)
     }
     final case class Form(form: SUIForm = SUIForm.Default) extends As {
       override type P = SUIForm.FormProps
-      override val props = SUIForm.props(form)
+      override val props = removeAs(form.props)
     }
     final case class Image(image: SUIImage = SUIImage.Default) extends As {
       override type P = SUIImage.ImageProps
-      override val props = SUIImage.props(image)
+      override val props = removeAs(image.props)
     }
     final case class Divider(divider: SUIDivider = SUIDivider.Default) extends As {
       override type P = SUIDivider.DividerProps
-      override val props = SUIDivider.props(divider)
+      override val props = removeAs(divider.props)
     }
     final case class Checkbox(check: SUICheckbox = SUICheckbox.Default) extends As {
       override type P = SUICheckbox.CheckboxProps
-      override val props = SUICheckbox.props(check)
+      override val props = removeAs(check.props)
     }
     final case class Loader(loader: SUILoader = SUILoader.Default) extends As {
       override type P = SUILoader.LoaderProps
-      override val props = SUILoader.props(loader)
+      override val props = removeAs(loader.props)
     }
     final case class Container(
       container: SUIContainer = SUIContainer.Default
     ) extends As {
       override type P = SUIContainer.ContainerProps
-      override val props = SUIContainer.props(container)
+      override val props = removeAs(container.props)
     }
 
     def asFn(a: As): AsT = a match {
@@ -174,25 +178,25 @@ package object semanticui
       }
   }
 
-  def fnToRawOrPropsPC[P <: js.Object](
-    c: js.UndefOr[VdomNode | GenericFnComponentPC[P]]
+  def fnToRawOrPropsPC[P <: js.Object, A <: GenericFnComponentPC[P, A]](
+    c: js.UndefOr[VdomNode | A]
   ): js.UndefOr[raw.SemanticShorthandItem[P]] =
     c.map { d =>
       (d: Any) match {
         case o: VdomNode =>
           o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[GenericFnComponentPC[P]].props
+        case f => f.asInstanceOf[A].props
       }
     }
 
-  def fnToRawOrPropsPAC[P <: js.Object](
-    c: js.UndefOr[VdomNode | GenericFnComponentPAC[P]]
+  def fnToRawOrPropsPAC[P <: js.Object, A <: GenericFnComponentPAC[P, A]](
+    c: js.UndefOr[VdomNode | A]
   ): js.UndefOr[raw.SemanticShorthandItem[P]] =
     c.map { d =>
       (d: Any) match {
         case o: VdomNode =>
           o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[GenericFnComponentPAC[P]].props
+        case f => f.asInstanceOf[A].props
       }
     }
 
@@ -207,14 +211,14 @@ package object semanticui
       }
     }
 
-  def toRawOrPropsPC[P <: js.Object](
-    c: js.UndefOr[VdomNode | GenericComponentPC[P]]
+  def toRawOrPropsPC[P <: js.Object, A <: GenericComponentPC[P, A]](
+    c: js.UndefOr[VdomNode | A]
   ): js.UndefOr[raw.SemanticShorthandItem[P]] =
     c.map { d =>
       (d: Any) match {
         case o: VdomNode =>
           o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[GenericComponentPC[P]].props
+        case f => f.asInstanceOf[A].props
       }
     }
 

@@ -29,9 +29,9 @@ final case class Sidebar(
   visible:               js.UndefOr[Boolean]          = js.undefined,
   width:                 js.UndefOr[SidebarWidth]     = js.undefined,
   override val children: CtorType.ChildrenArgs        = Seq.empty
-) extends GenericComponentPC[Sidebar.SidebarProps] {
-  override def cprops    = Sidebar.props(this)
-  @inline def renderWith = Sidebar.component(Sidebar.props(this))
+) extends GenericComponentPC[Sidebar.SidebarProps, Sidebar] {
+  override protected def cprops = Sidebar.props(this)
+  @inline def renderWith        = Sidebar.component(Sidebar.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

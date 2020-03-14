@@ -38,11 +38,12 @@ object DropdownItemTests extends TestSuite {
       }
     }
     test("itemValueChild") {
-      val item = DropdownItem(1)(<.div("abc"))
+      val item = DropdownItem(value = 1)(<.div("abc"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
+        val html = mountNode.innerHTML
         assert(
-          mountNode.innerHTML == """<div role="option" class="item"><div>abc</div></div>"""
+          html == """<div role="option" class="item"><div>abc</div></div>"""
         )
       }
     }

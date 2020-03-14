@@ -17,9 +17,9 @@ final case class PopupHeader(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[PopupHeader.PopupHeaderProps] {
-  override def cprops    = PopupHeader.props(this)
-  @inline def renderWith = PopupHeader.component(PopupHeader.props(this))
+) extends GenericFnComponentPC[PopupHeader.PopupHeaderProps, PopupHeader] {
+  override protected def cprops = PopupHeader.props(this)
+  @inline def renderWith        = PopupHeader.component(PopupHeader.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }
@@ -62,7 +62,7 @@ object PopupHeader {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): PopupHeaderProps = {
-    val p = (new js.Object).asInstanceOf[PopupHeaderProps]
+    val p = as.toJsObject[PopupHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

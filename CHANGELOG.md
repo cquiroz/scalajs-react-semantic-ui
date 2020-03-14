@@ -1,5 +1,11 @@
 # Changes
 
+## 0.3.7
+
+* Protected cprops.
+* Specific types in withChildren and addModifiers.
+* Passthrough properties in some components.
+
 ## 0.3.5
 
 * Support Form, FormField, FormGroup component

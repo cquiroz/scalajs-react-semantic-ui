@@ -19,8 +19,8 @@ final case class DimmerDimmable(
   content:               js.UndefOr[VdomNode]  = js.undefined,
   dimmed:                js.UndefOr[Boolean]   = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[DimmerDimmable.DimmerDimmableProps] {
-  override def cprops = DimmerDimmable.props(this)
+) extends GenericFnComponentPC[DimmerDimmable.DimmerDimmableProps, DimmerDimmable] {
+  override protected def cprops = DimmerDimmable.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =
@@ -73,7 +73,7 @@ object DimmerDimmable {
     content:   js.UndefOr[VdomNode] = js.undefined,
     dimmed:    js.UndefOr[Boolean]  = js.undefined
   ): DimmerDimmableProps = {
-    val p = (new js.Object).asInstanceOf[DimmerDimmableProps]
+    val p = as.toJsObject[DimmerDimmableProps]
     p.as        = as.toJs
     p.blurring  = blurring
     p.children  = children.toJs

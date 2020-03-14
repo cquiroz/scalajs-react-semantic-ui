@@ -41,9 +41,9 @@ final case class Popup(
   trigger:               js.UndefOr[VdomNode]                       = js.undefined,
   wide:                  js.UndefOr[PopupWide]                      = js.undefined,
   override val children: CtorType.ChildrenArgs                      = Seq.empty
-) extends GenericComponentPC[Popup.PopupProps] {
-  override def cprops    = Popup.props(this)
-  @inline def renderWith = Popup.component(Popup.props(this))
+) extends GenericComponentPC[Popup.PopupProps, Popup] {
+  override protected def cprops = Popup.props(this)
+  @inline def renderWith        = Popup.component(Popup.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }

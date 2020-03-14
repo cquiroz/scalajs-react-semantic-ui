@@ -19,8 +19,8 @@ final case class ButtonContent(
   hidden:                js.UndefOr[Boolean]   = js.undefined,
   visible:               js.UndefOr[Boolean]   = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericComponentPC[ButtonContent.ButtonContentProps] {
-  override def cprops = ButtonContent.props(this)
+) extends GenericComponentPC[ButtonContent.ButtonContentProps, ButtonContent] {
+  override protected def cprops = ButtonContent.props(this)
   @inline def renderWith =
     ButtonContent.component(ButtonContent.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =

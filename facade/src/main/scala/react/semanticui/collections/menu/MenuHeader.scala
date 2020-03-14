@@ -17,8 +17,8 @@ final case class MenuHeader(
   clazz:                 js.UndefOr[Css]       = js.undefined,
   content:               js.UndefOr[VdomNode]  = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[MenuHeader.MenuHeaderProps] {
-  override def cprops = MenuHeader.props(this)
+) extends GenericFnComponentPC[MenuHeader.MenuHeaderProps, MenuHeader] {
+  override protected def cprops = MenuHeader.props(this)
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
   @inline def renderWith =
@@ -63,7 +63,7 @@ object MenuHeader {
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): MenuHeaderProps = {
-    val p = (new js.Object).asInstanceOf[MenuHeaderProps]
+    val p = as.toJsObject[MenuHeaderProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

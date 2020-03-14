@@ -9,8 +9,8 @@ final case class Dimmer(
   active: js.UndefOr[Boolean] = js.undefined,
   page:   js.UndefOr[Boolean] = js.undefined
 ) extends GenericComponentP[Dimmer.DimmerProps] {
-  override def cprops = Dimmer.props(this)
-  @inline def render  = Dimmer.component(Dimmer.props(this))
+  override protected def cprops = Dimmer.props(this)
+  @inline def render            = Dimmer.component(Dimmer.props(this))
 }
 
 object Dimmer {

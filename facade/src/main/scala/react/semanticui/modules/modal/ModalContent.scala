@@ -19,9 +19,9 @@ final case class ModalContent(
   image:                 js.UndefOr[Boolean]   = js.undefined,
   scrolling:             js.UndefOr[Boolean]   = js.undefined,
   override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ModalContent.ModalContentProps] {
-  override def cprops    = ModalContent.props(this)
-  @inline def renderWith = ModalContent.component(ModalContent.props(this))
+) extends GenericFnComponentPC[ModalContent.ModalContentProps, ModalContent] {
+  override protected def cprops = ModalContent.props(this)
+  @inline def renderWith        = ModalContent.component(ModalContent.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }
@@ -72,7 +72,7 @@ object ModalContent {
     image:     js.UndefOr[Boolean]  = js.undefined,
     scrolling: js.UndefOr[Boolean]  = js.undefined
   ): ModalContentProps = {
-    val p = (new js.Object).asInstanceOf[ModalContentProps]
+    val p = as.toJsObject[ModalContentProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs

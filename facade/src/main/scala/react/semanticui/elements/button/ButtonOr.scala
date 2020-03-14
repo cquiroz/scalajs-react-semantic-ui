@@ -15,7 +15,7 @@ final case class ButtonOr(
   clazz:     js.UndefOr[Css]               = js.undefined,
   text:      js.UndefOr[JsNumber | String] = js.undefined
 ) extends GenericComponentP[ButtonOr.ButtonOrProps] {
-  override def cprops = ButtonOr.props(this)
+  override protected def cprops = ButtonOr.props(this)
   @inline def render =
     ButtonOr.component(ButtonOr.props(this))
 }

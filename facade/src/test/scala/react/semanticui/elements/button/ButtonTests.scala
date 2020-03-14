@@ -32,6 +32,15 @@ object ButtonTests extends TestSuite {
         )
       }
     }
+    test("renderAsFormWithPassthrough") {
+      val button = Button(as = As.Form(Form(error = true)(^.method := "post")))
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
+        assert(
+          html == """<form method="post" role="button" class="ui error form ui button"></form>"""
+        )
+      }
+    }
     test("attached") {
       val button = Button(attached = ButtonAttached.Top)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>

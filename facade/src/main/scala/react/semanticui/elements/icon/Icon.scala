@@ -28,8 +28,8 @@ final case class Icon(
   size:      js.UndefOr[SemanticSize]         = js.undefined,
   ariaLabel: js.UndefOr[String]               = js.undefined
 ) extends GenericComponentP[Icon.IconProps] {
-  override def cprops = Icon.props(this)
-  @inline def render  = Icon.component(Icon.props(this))
+  override protected def cprops = Icon.props(this)
+  @inline def render            = Icon.component(Icon.props(this))
 }
 
 object Icon {

@@ -29,8 +29,8 @@ final case class ListIcon(
   ariaLabel:     js.UndefOr[String]                    = js.undefined,
   verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
 ) extends GenericComponentP[ListIcon.ListIconProps] {
-  override def cprops = ListIcon.props(this)
-  @inline def render  = ListIcon.component(ListIcon.props(this))
+  override protected def cprops = ListIcon.props(this)
+  @inline def render            = ListIcon.component(ListIcon.props(this))
 }
 
 object ListIcon {

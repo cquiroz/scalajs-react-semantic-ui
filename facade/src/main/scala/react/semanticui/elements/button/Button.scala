@@ -48,7 +48,7 @@ final case class Button(
   tabIndex:               js.UndefOr[TabIndex]       = js.undefined,
   toggle:                 js.UndefOr[Boolean]        = js.undefined,
   override val modifiers: Seq[TagMod]                = Seq.empty
-) extends GenericComponentPAC[Button.ButtonProps] {
+) extends GenericComponentPAC[Button.ButtonProps, Button] {
   override protected def cprops    = Button.props(this)
   override protected val component = Button.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)

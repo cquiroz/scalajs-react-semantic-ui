@@ -9,8 +9,8 @@ import react.common._
 import react.semanticui._
 import react.semanticui.elements.button.Button
 import react.semanticui.elements.icon.Icon
-import react.semanticui.modules.modal._
 import react.semanticui.{ raw => suiraw }
+import react.semanticui.modules.modal._
 
 final case class Confirm(
   as:                    js.UndefOr[AsC]                                       = js.undefined,
@@ -47,9 +47,9 @@ final case class Confirm(
   style:                 js.UndefOr[Style]                                     = js.undefined,
   trigger:               js.UndefOr[VdomNode]                                  = js.undefined,
   override val children: CtorType.ChildrenArgs                                 = Seq.empty
-) extends GenericComponentPC[Confirm.ConfirmProps] {
-  override def cprops    = Confirm.props(this)
-  @inline def renderWith = Confirm.component(Confirm.props(this))
+) extends GenericComponentPC[Confirm.ConfirmProps, Confirm] {
+  override protected def cprops = Confirm.props(this)
+  @inline def renderWith        = Confirm.component(Confirm.props(this))
   override def withChildren(children: CtorType.ChildrenArgs) =
     copy(children = children)
 }
@@ -163,7 +163,7 @@ object Confirm {
     style:                js.UndefOr[Style]                                     = js.undefined,
     trigger:              js.UndefOr[VdomNode]                                  = js.undefined
   ): ConfirmProps = {
-    val p = (new js.Object).asInstanceOf[ConfirmProps]
+    val p = as.toJsObject[ConfirmProps]
     p.as                   = as.toJs
     p.actions              = actions.toRaw
     p.basic                = basic
