@@ -9,20 +9,19 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ItemMeta(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ItemMeta.ItemMetaProps, ItemMeta] {
-  override protected def cprops = ItemMeta.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    ItemMeta.component(ItemMeta.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[ItemMeta.ItemMetaProps, ItemMeta] {
+  override protected def cprops    = ItemMeta.props(this)
+  override protected val component = ItemMeta.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ItemMeta {
@@ -74,6 +73,6 @@ object ItemMeta {
   private val component =
     JsFnComponent[ItemMetaProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ItemMeta =
-    ItemMeta(children = content)
+  def apply(content: TagMod*): ItemMeta =
+    ItemMeta(modifiers = content)
 }

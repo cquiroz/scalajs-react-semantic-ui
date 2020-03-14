@@ -12,6 +12,7 @@ import react.common.GenericFnComponentPC
 import react.common.GenericFnComponentPAC
 import react.common.GenericComponentP
 import react.common.GenericComponentPC
+import react.common.GenericComponentPAC
 
 package semanticui {
   sealed trait As extends Product with Serializable {
@@ -212,6 +213,17 @@ package object semanticui
     }
 
   def toRawOrPropsPC[P <: js.Object, A <: GenericComponentPC[P, A]](
+    c: js.UndefOr[VdomNode | A]
+  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
+    c.map { d =>
+      (d: Any) match {
+        case o: VdomNode =>
+          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
+        case f => f.asInstanceOf[A].props
+      }
+    }
+
+  def toRawOrPropsPAC[P <: js.Object, A <: GenericComponentPAC[P, A]](
     c: js.UndefOr[VdomNode | A]
   ): js.UndefOr[raw.SemanticShorthandItem[P]] =
     c.map { d =>

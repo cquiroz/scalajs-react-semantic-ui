@@ -11,38 +11,37 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ButtonGroup(
-  as:                    js.UndefOr[AsC]                      = js.undefined,
-  attached:              js.UndefOr[Boolean | String]         = js.undefined,
-  basic:                 js.UndefOr[Boolean]                  = js.undefined,
-  buttons:               js.UndefOr[List[Button.ButtonProps]] = js.undefined,
-  child:                 js.UndefOr[VdomNode]                 = js.undefined,
-  className:             js.UndefOr[String]                   = js.undefined,
-  clazz:                 js.UndefOr[Css]                      = js.undefined,
-  color:                 js.UndefOr[SemanticColor]            = js.undefined,
-  compact:               js.UndefOr[Boolean]                  = js.undefined,
-  content:               js.UndefOr[VdomNode]                 = js.undefined,
-  floated:               js.UndefOr[SemanticFloat]            = js.undefined,
-  fluid:                 js.UndefOr[Boolean]                  = js.undefined,
-  icon:                  js.UndefOr[Boolean]                  = js.undefined,
-  inverted:              js.UndefOr[Boolean]                  = js.undefined,
-  labeled:               js.UndefOr[Boolean]                  = js.undefined,
-  negative:              js.UndefOr[Boolean]                  = js.undefined,
-  positive:              js.UndefOr[Boolean]                  = js.undefined,
-  primary:               js.UndefOr[Boolean]                  = js.undefined,
-  secondary:             js.UndefOr[Boolean]                  = js.undefined,
-  size:                  js.UndefOr[SemanticSize]             = js.undefined,
-  toggle:                js.UndefOr[Boolean]                  = js.undefined,
-  vertical:              js.UndefOr[Boolean]                  = js.undefined,
-  widths:                js.UndefOr[SemanticWidth]            = js.undefined,
-  override val children: CtorType.ChildrenArgs                = Seq.empty
-) extends GenericComponentPC[ButtonGroup.ButtonGroupProps, ButtonGroup] {
-  override protected def cprops = ButtonGroup.props(this)
-  @inline def renderWith =
-    ButtonGroup.component(ButtonGroup.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                      = js.undefined,
+  attached:               js.UndefOr[Boolean | String]         = js.undefined,
+  basic:                  js.UndefOr[Boolean]                  = js.undefined,
+  buttons:                js.UndefOr[List[Button.ButtonProps]] = js.undefined,
+  child:                  js.UndefOr[VdomNode]                 = js.undefined,
+  className:              js.UndefOr[String]                   = js.undefined,
+  clazz:                  js.UndefOr[Css]                      = js.undefined,
+  color:                  js.UndefOr[SemanticColor]            = js.undefined,
+  compact:                js.UndefOr[Boolean]                  = js.undefined,
+  content:                js.UndefOr[VdomNode]                 = js.undefined,
+  floated:                js.UndefOr[SemanticFloat]            = js.undefined,
+  fluid:                  js.UndefOr[Boolean]                  = js.undefined,
+  icon:                   js.UndefOr[Boolean]                  = js.undefined,
+  inverted:               js.UndefOr[Boolean]                  = js.undefined,
+  labeled:                js.UndefOr[Boolean]                  = js.undefined,
+  negative:               js.UndefOr[Boolean]                  = js.undefined,
+  positive:               js.UndefOr[Boolean]                  = js.undefined,
+  primary:                js.UndefOr[Boolean]                  = js.undefined,
+  secondary:              js.UndefOr[Boolean]                  = js.undefined,
+  size:                   js.UndefOr[SemanticSize]             = js.undefined,
+  toggle:                 js.UndefOr[Boolean]                  = js.undefined,
+  vertical:               js.UndefOr[Boolean]                  = js.undefined,
+  widths:                 js.UndefOr[SemanticWidth]            = js.undefined,
+  override val modifiers: Seq[TagMod]                          = Seq.empty
+) extends GenericComponentPAC[ButtonGroup.ButtonGroupProps, ButtonGroup] {
+  override protected def cprops    = ButtonGroup.props(this)
+  override protected val component = ButtonGroup.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ButtonGroup {
@@ -208,6 +207,6 @@ object ButtonGroup {
   private val component =
     JsComponent[ButtonGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): ButtonGroup =
-    new ButtonGroup(children = content)
+  def apply(content: TagMod*): ButtonGroup =
+    new ButtonGroup(modifiers = content)
 }

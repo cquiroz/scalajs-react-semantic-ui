@@ -4,6 +4,7 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
+import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -11,18 +12,16 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 final case class ItemDescription(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ItemDescription.ItemDescriptionProps, ItemDescription] {
-  override protected def cprops = ItemDescription.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    ItemDescription.component(ItemDescription.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[ItemDescription.ItemDescriptionProps, ItemDescription] {
+  override protected def cprops    = ItemDescription.props(this)
+  override protected val component = ItemDescription.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ItemDescription {
@@ -74,6 +73,6 @@ object ItemDescription {
   private val component =
     JsFnComponent[ItemDescriptionProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ItemDescription =
-    new ItemDescription(children = content)
+  def apply(content: TagMod*): ItemDescription =
+    new ItemDescription(modifiers = content)
 }

@@ -9,21 +9,20 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class MenuMenu(
-  as:                    js.UndefOr[AsC]              = js.undefined,
-  child:                 js.UndefOr[VdomNode]         = js.undefined,
-  className:             js.UndefOr[String]           = js.undefined,
-  clazz:                 js.UndefOr[Css]              = js.undefined,
-  content:               js.UndefOr[VdomNode]         = js.undefined,
-  position:              js.UndefOr[MenuMenuPosition] = js.undefined,
-  override val children: CtorType.ChildrenArgs        = Seq.empty
-) extends GenericFnComponentPC[MenuMenu.MenuMenuProps, MenuMenu] {
-  override protected def cprops = MenuMenu.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    MenuMenu.component(MenuMenu.props(this))
+  as:                     js.UndefOr[AsC]              = js.undefined,
+  child:                  js.UndefOr[VdomNode]         = js.undefined,
+  className:              js.UndefOr[String]           = js.undefined,
+  clazz:                  js.UndefOr[Css]              = js.undefined,
+  content:                js.UndefOr[VdomNode]         = js.undefined,
+  position:               js.UndefOr[MenuMenuPosition] = js.undefined,
+  override val modifiers: Seq[TagMod]                  = Seq.empty
+) extends GenericFnComponentPAC[MenuMenu.MenuMenuProps, MenuMenu] {
+  override protected def cprops    = MenuMenu.props(this)
+  override protected val component = MenuMenu.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object MenuMenu {
@@ -80,6 +79,6 @@ object MenuMenu {
   private val component =
     JsFnComponent[MenuMenuProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): MenuMenu =
-    new MenuMenu(children = content)
+  def apply(content: TagMod*): MenuMenu =
+    new MenuMenu(modifiers = content)
 }

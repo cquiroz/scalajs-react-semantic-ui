@@ -56,7 +56,7 @@ object InputTests extends TestSuite {
       }
     }
     test("typePassword") {
-      val input = Input(`type` = "password")
+      val input = Input(tpe = "password")
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
         assert(m.outerHtmlScrubbed() == """<div class="ui input"><input type="password"></div>""")
       }

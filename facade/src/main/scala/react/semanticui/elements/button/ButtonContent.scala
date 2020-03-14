@@ -9,22 +9,21 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ButtonContent(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  hidden:                js.UndefOr[Boolean]   = js.undefined,
-  visible:               js.UndefOr[Boolean]   = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericComponentPC[ButtonContent.ButtonContentProps, ButtonContent] {
-  override protected def cprops = ButtonContent.props(this)
-  @inline def renderWith =
-    ButtonContent.component(ButtonContent.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  hidden:                 js.UndefOr[Boolean]  = js.undefined,
+  visible:                js.UndefOr[Boolean]  = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericComponentPAC[ButtonContent.ButtonContentProps, ButtonContent] {
+  override protected def cprops    = ButtonContent.props(this)
+  override protected val component = ButtonContent.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ButtonContent {
@@ -87,7 +86,7 @@ object ButtonContent {
     JsComponent[ButtonContentProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    content: VdomNode*
+    content: TagMod*
   ): ButtonContent =
-    new ButtonContent(children = content)
+    new ButtonContent(modifiers = content)
 }

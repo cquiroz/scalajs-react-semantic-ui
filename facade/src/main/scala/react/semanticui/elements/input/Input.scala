@@ -13,38 +13,37 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.elements.icon.IconShorthand
 import react.semanticui.elements.icon.Icon.IconProps
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Input(
-  as:                    js.UndefOr[AsC]                                     = js.undefined,
-  action:                js.UndefOr[Boolean | SemanticShortHandItem[js.Any]] = js.undefined,
-  actionPosition:        js.UndefOr[ActionPosition]                          = js.undefined,
-  child:                 js.UndefOr[VdomNode]                                = js.undefined,
-  className:             js.UndefOr[String]                                  = js.undefined,
-  clazz:                 js.UndefOr[Css]                                     = js.undefined,
-  disabled:              js.UndefOr[Boolean]                                 = js.undefined,
-  error:                 js.UndefOr[Boolean]                                 = js.undefined,
-  fluid:                 js.UndefOr[Boolean]                                 = js.undefined,
-  focus:                 js.UndefOr[Boolean]                                 = js.undefined,
-  icon:                  js.UndefOr[IconShorthand]                           = js.undefined,
-  iconPosition:          js.UndefOr[IconPosition]                            = js.undefined,
-  input:                 js.UndefOr[VdomNode]                                = js.undefined,
-  inverted:              js.UndefOr[Boolean]                                 = js.undefined,
-  label:                 js.UndefOr[VdomNode]                                = js.undefined,
-  labelPosition:         js.UndefOr[LabelPosition]                           = js.undefined,
-  loading:               js.UndefOr[Boolean]                                 = js.undefined,
-  onChangeE:             js.UndefOr[Input.OnChange]                          = js.undefined,
-  onChange:              js.UndefOr[Callback]                                = js.undefined,
-  size:                  js.UndefOr[SemanticSize]                            = js.undefined,
-  tabIndex:              js.UndefOr[String | JsNumber]                       = js.undefined,
-  transparent:           js.UndefOr[Boolean]                                 = js.undefined,
-  `type`:                js.UndefOr[String]                                  = js.undefined,
-  override val children: CtorType.ChildrenArgs                               = Seq.empty
-) extends GenericComponentPC[Input.InputProps, Input] {
-  override protected def cprops = Input.props(this)
-  @inline def renderWith =
-    Input.component(Input.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                                     = js.undefined,
+  action:                 js.UndefOr[Boolean | SemanticShortHandItem[js.Any]] = js.undefined,
+  actionPosition:         js.UndefOr[ActionPosition]                          = js.undefined,
+  child:                  js.UndefOr[VdomNode]                                = js.undefined,
+  className:              js.UndefOr[String]                                  = js.undefined,
+  clazz:                  js.UndefOr[Css]                                     = js.undefined,
+  disabled:               js.UndefOr[Boolean]                                 = js.undefined,
+  error:                  js.UndefOr[Boolean]                                 = js.undefined,
+  fluid:                  js.UndefOr[Boolean]                                 = js.undefined,
+  focus:                  js.UndefOr[Boolean]                                 = js.undefined,
+  icon:                   js.UndefOr[IconShorthand]                           = js.undefined,
+  iconPosition:           js.UndefOr[IconPosition]                            = js.undefined,
+  input:                  js.UndefOr[VdomNode]                                = js.undefined,
+  inverted:               js.UndefOr[Boolean]                                 = js.undefined,
+  label:                  js.UndefOr[VdomNode]                                = js.undefined,
+  labelPosition:          js.UndefOr[LabelPosition]                           = js.undefined,
+  loading:                js.UndefOr[Boolean]                                 = js.undefined,
+  onChangeE:              js.UndefOr[Input.OnChange]                          = js.undefined,
+  onChange:               js.UndefOr[Callback]                                = js.undefined,
+  size:                   js.UndefOr[SemanticSize]                            = js.undefined,
+  tabIndex:               js.UndefOr[String | JsNumber]                       = js.undefined,
+  transparent:            js.UndefOr[Boolean]                                 = js.undefined,
+  tpe:                    js.UndefOr[String]                                  = js.undefined,
+  override val modifiers: Seq[TagMod]                                         = Seq.empty
+) extends GenericComponentPAC[Input.InputProps, Input] {
+  override protected def cprops    = Input.props(this)
+  override protected val component = Input.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Input {
@@ -155,7 +154,7 @@ object Input {
     p.size           = q.size.toJs
     p.tabIndex       = q.tabIndex
     p.transparent    = q.transparent
-    p.`type`         = q.`type`
+    p.`type`         = q.tpe
     p
   }
 
@@ -163,7 +162,7 @@ object Input {
     JsComponent[InputProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    content: VdomNode*
+    content: TagMod*
   ): Input =
-    new Input(children = content)
+    new Input(modifiers = content)
 }

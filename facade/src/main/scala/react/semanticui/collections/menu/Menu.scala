@@ -10,41 +10,40 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Menu(
-  as:                    js.UndefOr[AsC]              = js.undefined,
-  activeIndex:           js.UndefOr[Int | String]     = js.undefined,
-  attached:              js.UndefOr[MenuAttached]     = js.undefined,
-  borderless:            js.UndefOr[Boolean]          = js.undefined,
-  child:                 js.UndefOr[VdomNode]         = js.undefined,
-  className:             js.UndefOr[String]           = js.undefined,
-  clazz:                 js.UndefOr[Css]              = js.undefined,
-  color:                 js.UndefOr[SemanticColor]    = js.undefined,
-  compact:               js.UndefOr[Boolean]          = js.undefined,
-  defaultActiveIndex:    js.UndefOr[Int | String]     = js.undefined,
-  fixed:                 js.UndefOr[MenuFixed]        = js.undefined,
-  floated:               js.UndefOr[MenuFloated]      = js.undefined,
-  fluid:                 js.UndefOr[Boolean]          = js.undefined,
-  icon:                  js.UndefOr[MenuIcon]         = js.undefined,
-  inverted:              js.UndefOr[Boolean]          = js.undefined,
-  onItemClickE:          js.UndefOr[Menu.OnItemClick] = js.undefined,
-  onItemClick:           js.UndefOr[Callback]         = js.undefined,
-  pagination:            js.UndefOr[Boolean]          = js.undefined,
-  pointing:              js.UndefOr[Boolean]          = js.undefined,
-  secondary:             js.UndefOr[Boolean]          = js.undefined,
-  size:                  js.UndefOr[SemanticSize]     = js.undefined,
-  stackable:             js.UndefOr[Boolean]          = js.undefined,
-  tabular:               js.UndefOr[MenuTabular]      = js.undefined,
-  text:                  js.UndefOr[Boolean]          = js.undefined,
-  vertical:              js.UndefOr[Boolean]          = js.undefined,
-  widths:                js.UndefOr[SemanticWidth]    = js.undefined,
-  override val children: CtorType.ChildrenArgs        = Seq.empty
-) extends GenericComponentPC[Menu.MenuProps, Menu] {
-  override protected def cprops = Menu.props(this)
-  @inline def renderWith =
-    Menu.component(Menu.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]              = js.undefined,
+  activeIndex:            js.UndefOr[Int | String]     = js.undefined,
+  attached:               js.UndefOr[MenuAttached]     = js.undefined,
+  borderless:             js.UndefOr[Boolean]          = js.undefined,
+  child:                  js.UndefOr[VdomNode]         = js.undefined,
+  className:              js.UndefOr[String]           = js.undefined,
+  clazz:                  js.UndefOr[Css]              = js.undefined,
+  color:                  js.UndefOr[SemanticColor]    = js.undefined,
+  compact:                js.UndefOr[Boolean]          = js.undefined,
+  defaultActiveIndex:     js.UndefOr[Int | String]     = js.undefined,
+  fixed:                  js.UndefOr[MenuFixed]        = js.undefined,
+  floated:                js.UndefOr[MenuFloated]      = js.undefined,
+  fluid:                  js.UndefOr[Boolean]          = js.undefined,
+  icon:                   js.UndefOr[MenuIcon]         = js.undefined,
+  inverted:               js.UndefOr[Boolean]          = js.undefined,
+  onItemClickE:           js.UndefOr[Menu.OnItemClick] = js.undefined,
+  onItemClick:            js.UndefOr[Callback]         = js.undefined,
+  pagination:             js.UndefOr[Boolean]          = js.undefined,
+  pointing:               js.UndefOr[Boolean]          = js.undefined,
+  secondary:              js.UndefOr[Boolean]          = js.undefined,
+  size:                   js.UndefOr[SemanticSize]     = js.undefined,
+  stackable:              js.UndefOr[Boolean]          = js.undefined,
+  tabular:                js.UndefOr[MenuTabular]      = js.undefined,
+  text:                   js.UndefOr[Boolean]          = js.undefined,
+  vertical:               js.UndefOr[Boolean]          = js.undefined,
+  widths:                 js.UndefOr[SemanticWidth]    = js.undefined,
+  override val modifiers: Seq[TagMod]                  = Seq.empty
+) extends GenericComponentPAC[Menu.MenuProps, Menu] {
+  override protected def cprops    = Menu.props(this)
+  override protected val component = Menu.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Menu {
@@ -146,10 +145,6 @@ object Menu {
     var widths: js.UndefOr[suiraw.SemanticWIDTHS] = js.native
   }
 
-  val Default: Menu = Menu()
-
-  val defaultProps: MenuProps = props(Default)
-
   def props(q: Menu): MenuProps =
     rawprops(
       q.as,
@@ -238,7 +233,11 @@ object Menu {
   private val component =
     JsComponent[MenuProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): Menu =
-    new Menu(children = content)
+  val Default: Menu = Menu()
+
+  val defaultProps: MenuProps = props(Default)
+
+  def apply(content: TagMod*): Menu =
+    new Menu(modifiers = content)
 
 }

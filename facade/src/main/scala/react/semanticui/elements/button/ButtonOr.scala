@@ -4,20 +4,22 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
+import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.raw.JsNumber
 import react.semanticui._
 import react.common._
 import react.common.style._
 
 final case class ButtonOr(
-  as:        js.UndefOr[AsC]               = js.undefined,
-  className: js.UndefOr[String]            = js.undefined,
-  clazz:     js.UndefOr[Css]               = js.undefined,
-  text:      js.UndefOr[JsNumber | String] = js.undefined
-) extends GenericComponentP[ButtonOr.ButtonOrProps] {
-  override protected def cprops = ButtonOr.props(this)
-  @inline def render =
-    ButtonOr.component(ButtonOr.props(this))
+  as:                     js.UndefOr[AsC]               = js.undefined,
+  className:              js.UndefOr[String]            = js.undefined,
+  clazz:                  js.UndefOr[Css]               = js.undefined,
+  text:                   js.UndefOr[JsNumber | String] = js.undefined,
+  override val modifiers: Seq[TagMod]                   = Seq.empty
+) extends GenericComponentPA[ButtonOr.ButtonOrProps, ButtonOr] {
+  override protected def cprops    = ButtonOr.props(this)
+  override protected val component = ButtonOr.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ButtonOr {
@@ -65,4 +67,8 @@ object ButtonOr {
   private val component =
     JsComponent[ButtonOrProps, Children.None, Null](RawComponent)
 
+  def apply(
+    content: TagMod*
+  ): ButtonOr =
+    new ButtonOr(modifiers = content)
 }

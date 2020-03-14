@@ -10,24 +10,23 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class FormGroup(
-  as:                    js.UndefOr[AsC]                        = js.undefined,
-  child:                 js.UndefOr[VdomNode]                   = js.undefined,
-  className:             js.UndefOr[String]                     = js.undefined,
-  clazz:                 js.UndefOr[Css]                        = js.undefined,
-  content:               js.UndefOr[VdomNode]                   = js.undefined,
-  grouped:               js.UndefOr[Boolean]                    = js.undefined,
-  inline:                js.UndefOr[Boolean]                    = js.undefined,
-  unstackable:           js.UndefOr[Boolean]                    = js.undefined,
-  widths:                js.UndefOr[SemanticWidth | FormWidths] = js.undefined,
-  override val children: CtorType.ChildrenArgs                  = Seq.empty
-) extends GenericComponentPC[FormGroup.FormGroupProps, FormGroup] {
-  override protected def cprops = FormGroup.props(this)
-  @inline def renderWith =
-    FormGroup.component(FormGroup.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                        = js.undefined,
+  child:                  js.UndefOr[VdomNode]                   = js.undefined,
+  className:              js.UndefOr[String]                     = js.undefined,
+  clazz:                  js.UndefOr[Css]                        = js.undefined,
+  content:                js.UndefOr[VdomNode]                   = js.undefined,
+  grouped:                js.UndefOr[Boolean]                    = js.undefined,
+  inline:                 js.UndefOr[Boolean]                    = js.undefined,
+  unstackable:            js.UndefOr[Boolean]                    = js.undefined,
+  widths:                 js.UndefOr[SemanticWidth | FormWidths] = js.undefined,
+  override val modifiers: Seq[TagMod]                            = Seq.empty
+) extends GenericComponentPAC[FormGroup.FormGroupProps, FormGroup] {
+  override protected def cprops    = FormGroup.props(this)
+  override protected val component = FormGroup.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object FormGroup {
@@ -112,6 +111,6 @@ object FormGroup {
   private val component =
     JsComponent[FormGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): FormGroup =
-    new FormGroup(children = content)
+  def apply(content: TagMod*): FormGroup =
+    new FormGroup(modifiers = content)
 }

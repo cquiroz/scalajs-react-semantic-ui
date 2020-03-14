@@ -130,7 +130,7 @@ object DropdownItem {
     p.flag        = toRawOrPropsP(q.flag)
     p.icon        = q.icon.toJs
     p.image       = fnToRawOrPropsPC(q.image)
-    p.label       = toRawOrPropsPC(q.label)
+    p.label       = toRawOrPropsPAC(q.label)
     p.onClick     = (q.onClickE, q.onClick).toJs
     p.selected    = q.selected
     p.text        = q.text.toJs
