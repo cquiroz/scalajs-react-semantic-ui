@@ -9,20 +9,19 @@ import react.semanticui._
 import react.semanticui.raw._
 import react.common.style._
 import react.common._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class LabelDetail(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericComponentPC[LabelDetail.LabelDetailProps, LabelDetail] {
-  override protected def cprops = LabelDetail.props(this)
-  @inline def renderWith =
-    LabelDetail.component(LabelDetail.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericComponentPAC[LabelDetail.LabelDetailProps, LabelDetail] {
+  override protected def cprops    = LabelDetail.props(this)
+  override protected val component = LabelDetail.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object LabelDetail {
@@ -58,7 +57,7 @@ object LabelDetail {
     JsComponent[LabelDetailProps, Children.Varargs, Null](RawComponent)
 
   def apply(
-    content: VdomNode*
+    content: TagMod*
   ): LabelDetail =
-    new LabelDetail(children = content)
+    new LabelDetail(modifiers = content)
 }

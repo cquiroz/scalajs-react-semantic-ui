@@ -9,20 +9,19 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class MenuHeader(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[MenuHeader.MenuHeaderProps, MenuHeader] {
-  override protected def cprops = MenuHeader.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    MenuHeader.component(MenuHeader.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[MenuHeader.MenuHeaderProps, MenuHeader] {
+  override protected def cprops    = MenuHeader.props(this)
+  override protected val component = MenuHeader.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object MenuHeader {
@@ -74,6 +73,6 @@ object MenuHeader {
   private val component =
     JsFnComponent[MenuHeaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): MenuHeader =
-    new MenuHeader(children = content)
+  def apply(content: TagMod*): MenuHeader =
+    new MenuHeader(modifiers = content)
 }

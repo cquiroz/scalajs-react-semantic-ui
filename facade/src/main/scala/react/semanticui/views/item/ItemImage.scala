@@ -10,39 +10,38 @@ import react.common._
 import react.semanticui._
 import react.semanticui.elements.image._
 import react.semanticui.elements.image.Image._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ItemImage(
-  as:                    js.UndefOr[AsC]                       = js.undefined,
-  avatar:                js.UndefOr[Boolean]                   = js.undefined,
-  bordered:              js.UndefOr[Boolean]                   = js.undefined,
-  centered:              js.UndefOr[Boolean]                   = js.undefined,
-  child:                 js.UndefOr[VdomNode]                  = js.undefined,
-  circular:              js.UndefOr[Boolean]                   = js.undefined,
-  className:             js.UndefOr[String]                    = js.undefined,
-  clazz:                 js.UndefOr[Css]                       = js.undefined,
-  content:               js.UndefOr[VdomNode]                  = js.undefined,
-  disabled:              js.UndefOr[Boolean]                   = js.undefined,
-  dimmer:                js.UndefOr[VdomNode]                  = js.undefined,
-  floated:               js.UndefOr[SemanticFloat]             = js.undefined,
-  fluid:                 js.UndefOr[Boolean | String]          = js.undefined,
-  hidden:                js.UndefOr[Boolean]                   = js.undefined,
-  href:                  js.UndefOr[String]                    = js.undefined,
-  inline:                js.UndefOr[Boolean]                   = js.undefined,
-  label:                 js.UndefOr[VdomNode]                  = js.undefined,
-  rounded:               js.UndefOr[Boolean]                   = js.undefined,
-  size:                  js.UndefOr[SemanticSize]              = js.undefined,
-  spaced:                js.UndefOr[ImageSpaced]               = js.undefined,
-  src:                   js.UndefOr[String]                    = js.undefined,
-  ui:                    js.UndefOr[Boolean]                   = js.undefined,
-  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  wrapped:               js.UndefOr[Boolean]                   = js.undefined,
-  override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[ItemImage.ItemImageProps, ItemImage] {
-  override protected def cprops = ItemImage.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    ItemImage.component(ItemImage.props(this))
+  as:                     js.UndefOr[AsC]                       = js.undefined,
+  avatar:                 js.UndefOr[Boolean]                   = js.undefined,
+  bordered:               js.UndefOr[Boolean]                   = js.undefined,
+  centered:               js.UndefOr[Boolean]                   = js.undefined,
+  child:                  js.UndefOr[VdomNode]                  = js.undefined,
+  circular:               js.UndefOr[Boolean]                   = js.undefined,
+  className:              js.UndefOr[String]                    = js.undefined,
+  clazz:                  js.UndefOr[Css]                       = js.undefined,
+  content:                js.UndefOr[VdomNode]                  = js.undefined,
+  disabled:               js.UndefOr[Boolean]                   = js.undefined,
+  dimmer:                 js.UndefOr[VdomNode]                  = js.undefined,
+  floated:                js.UndefOr[SemanticFloat]             = js.undefined,
+  fluid:                  js.UndefOr[Boolean | String]          = js.undefined,
+  hidden:                 js.UndefOr[Boolean]                   = js.undefined,
+  href:                   js.UndefOr[String]                    = js.undefined,
+  inline:                 js.UndefOr[Boolean]                   = js.undefined,
+  label:                  js.UndefOr[VdomNode]                  = js.undefined,
+  rounded:                js.UndefOr[Boolean]                   = js.undefined,
+  size:                   js.UndefOr[SemanticSize]              = js.undefined,
+  spaced:                 js.UndefOr[ImageSpaced]               = js.undefined,
+  src:                    js.UndefOr[String]                    = js.undefined,
+  ui:                     js.UndefOr[Boolean]                   = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  wrapped:                js.UndefOr[Boolean]                   = js.undefined,
+  override val modifiers: Seq[TagMod]                           = Seq.empty
+) extends GenericFnComponentPAC[ItemImage.ItemImageProps, ItemImage] {
+  override protected def cprops    = ItemImage.props(this)
+  override protected val component = ItemImage.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ItemImage {
@@ -88,6 +87,6 @@ object ItemImage {
   private val component =
     JsFnComponent[ItemImageProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ItemImage = new ItemImage(children = content)
+  def apply(content: TagMod*): ItemImage = new ItemImage(modifiers = content)
 
 }

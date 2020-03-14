@@ -10,38 +10,41 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.modules.checkbox._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Radio(
-  as:                   js.UndefOr[AsC]               = js.undefined,
-  checked:              js.UndefOr[Boolean]           = js.undefined,
-  className:            js.UndefOr[String]            = js.undefined,
-  clazz:                js.UndefOr[Css]               = js.undefined,
-  defaultChecked:       js.UndefOr[Boolean]           = js.undefined,
-  defaultIndeterminate: js.UndefOr[Boolean]           = js.undefined,
-  disabled:             js.UndefOr[Boolean]           = js.undefined,
-  fitted:               js.UndefOr[Boolean]           = js.undefined,
-  id:                   js.UndefOr[JsNumber | String] = js.undefined,
-  indeterminate:        js.UndefOr[Boolean]           = js.undefined,
-  label:                js.UndefOr[VdomNode]          = js.undefined,
-  name:                 js.UndefOr[String]            = js.undefined,
-  onChangeE:            js.UndefOr[Radio.Event]       = js.undefined,
-  onChange:             js.UndefOr[Callback]          = js.undefined,
-  onClickE:             js.UndefOr[Radio.Event]       = js.undefined,
-  onClick:              js.UndefOr[Callback]          = js.undefined,
-  onMouseDownE:         js.UndefOr[Radio.Event]       = js.undefined,
-  onMouseDown:          js.UndefOr[Callback]          = js.undefined,
-  onMouseUpE:           js.UndefOr[Radio.Event]       = js.undefined,
-  onMouseUp:            js.UndefOr[Callback]          = js.undefined,
-  radio:                js.UndefOr[Boolean]           = js.undefined,
-  readOnly:             js.UndefOr[Boolean]           = js.undefined,
-  slider:               js.UndefOr[Boolean]           = js.undefined,
-  tabIndex:             js.UndefOr[JsNumber | String] = js.undefined,
-  toggle:               js.UndefOr[Boolean]           = js.undefined,
-  `type`:               js.UndefOr[CheckboxType]      = CheckboxType.Radio,
-  value:                js.UndefOr[String | JsNumber] = js.undefined
-) extends GenericComponentP[Radio.RadioProps] {
-  override protected def cprops = Radio.props(this)
-  @inline def render            = Radio.component(Radio.props(this))
+  as:                     js.UndefOr[AsC]               = js.undefined,
+  checked:                js.UndefOr[Boolean]           = js.undefined,
+  className:              js.UndefOr[String]            = js.undefined,
+  clazz:                  js.UndefOr[Css]               = js.undefined,
+  defaultChecked:         js.UndefOr[Boolean]           = js.undefined,
+  defaultIndeterminate:   js.UndefOr[Boolean]           = js.undefined,
+  disabled:               js.UndefOr[Boolean]           = js.undefined,
+  fitted:                 js.UndefOr[Boolean]           = js.undefined,
+  id:                     js.UndefOr[JsNumber | String] = js.undefined,
+  indeterminate:          js.UndefOr[Boolean]           = js.undefined,
+  label:                  js.UndefOr[VdomNode]          = js.undefined,
+  name:                   js.UndefOr[String]            = js.undefined,
+  onChangeE:              js.UndefOr[Radio.Event]       = js.undefined,
+  onChange:               js.UndefOr[Callback]          = js.undefined,
+  onClickE:               js.UndefOr[Radio.Event]       = js.undefined,
+  onClick:                js.UndefOr[Callback]          = js.undefined,
+  onMouseDownE:           js.UndefOr[Radio.Event]       = js.undefined,
+  onMouseDown:            js.UndefOr[Callback]          = js.undefined,
+  onMouseUpE:             js.UndefOr[Radio.Event]       = js.undefined,
+  onMouseUp:              js.UndefOr[Callback]          = js.undefined,
+  radio:                  js.UndefOr[Boolean]           = js.undefined,
+  readOnly:               js.UndefOr[Boolean]           = js.undefined,
+  slider:                 js.UndefOr[Boolean]           = js.undefined,
+  tabIndex:               js.UndefOr[JsNumber | String] = js.undefined,
+  toggle:                 js.UndefOr[Boolean]           = js.undefined,
+  tpe:                    js.UndefOr[CheckboxType]      = CheckboxType.Radio,
+  value:                  js.UndefOr[String | JsNumber] = js.undefined,
+  override val modifiers: Seq[TagMod]                   = Seq.empty
+) extends GenericComponentPA[Radio.RadioProps, Radio] {
+  override protected def cprops    = Radio.props(this)
+  override protected val component = Radio.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Radio {
@@ -176,7 +179,7 @@ object Radio {
       q.slider,
       q.tabIndex,
       q.toggle,
-      q.`type`,
+      q.tpe,
       q.value
     )
 
@@ -242,4 +245,6 @@ object Radio {
 
   val defaultProps: RadioProps = props(Default)
 
+  def apply(content: TagMod*): Radio =
+    new Radio(modifiers = content)
 }

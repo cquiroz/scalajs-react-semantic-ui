@@ -4,6 +4,7 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
+import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -11,18 +12,16 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 final case class ItemExtra(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ItemExtra.ItemExtraProps, ItemExtra] {
-  override protected def cprops = ItemExtra.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    ItemExtra.component(ItemExtra.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[ItemExtra.ItemExtraProps, ItemExtra] {
+  override protected def cprops    = ItemExtra.props(this)
+  override protected val component = ItemExtra.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ItemExtra {
@@ -74,6 +73,6 @@ object ItemExtra {
   private val component =
     JsFnComponent[ItemExtraProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ItemExtra =
-    new ItemExtra(children = content)
+  def apply(content: TagMod*): ItemExtra =
+    new ItemExtra(modifiers = content)
 }

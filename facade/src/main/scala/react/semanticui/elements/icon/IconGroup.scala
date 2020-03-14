@@ -9,21 +9,20 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import scala.scalajs.js
 import js.annotation._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class IconGroup(
-  as:                    js.UndefOr[AsC]          = js.undefined,
-  child:                 js.UndefOr[VdomNode]     = js.undefined,
-  className:             js.UndefOr[String]       = js.undefined,
-  clazz:                 js.UndefOr[Css]          = js.undefined,
-  content:               js.UndefOr[VdomNode]     = js.undefined,
-  size:                  js.UndefOr[SemanticSize] = js.undefined,
-  override val children: CtorType.ChildrenArgs    = Seq.empty
-) extends GenericComponentPC[IconGroup.IconGroupProps, IconGroup] {
-  override protected def cprops = IconGroup.props(this)
-  @inline def renderWith =
-    IconGroup.component(IconGroup.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]          = js.undefined,
+  child:                  js.UndefOr[VdomNode]     = js.undefined,
+  className:              js.UndefOr[String]       = js.undefined,
+  clazz:                  js.UndefOr[Css]          = js.undefined,
+  content:                js.UndefOr[VdomNode]     = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  override val modifiers: Seq[TagMod]              = Seq.empty
+) extends GenericComponentPAC[IconGroup.IconGroupProps, IconGroup] {
+  override protected def cprops    = IconGroup.props(this)
+  override protected val component = IconGroup.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object IconGroup {
@@ -61,6 +60,6 @@ object IconGroup {
   private val component =
     JsComponent[IconGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): IconGroup =
-    new IconGroup(children = content)
+  def apply(content: TagMod*): IconGroup =
+    new IconGroup(modifiers = content)
 }

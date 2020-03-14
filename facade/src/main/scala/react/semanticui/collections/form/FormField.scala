@@ -11,27 +11,26 @@ import react.common._
 import react.semanticui._
 import react.semanticui.elements.label.Label
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class FormField(
-  as:                    js.UndefOr[AsC]             = js.undefined,
-  child:                 js.UndefOr[VdomNode]        = js.undefined,
-  className:             js.UndefOr[String]          = js.undefined,
-  clazz:                 js.UndefOr[Css]             = js.undefined,
-  content:               js.UndefOr[VdomNode]        = js.undefined,
-  disabled:              js.UndefOr[Boolean]         = js.undefined,
-  error:                 js.UndefOr[Label]           = js.undefined,
-  inline:                js.UndefOr[Boolean]         = js.undefined,
-  label:                 js.UndefOr[Label]           = js.undefined,
-  required:              js.UndefOr[Boolean | Label] = js.undefined,
-  `type`:                js.UndefOr[String]          = js.undefined,
-  width:                 js.UndefOr[SemanticWidth]   = js.undefined,
-  override val children: CtorType.ChildrenArgs       = Seq.empty
-) extends GenericComponentPC[FormField.FormFieldProps, FormField] {
-  override protected def cprops = FormField.props(this)
-  @inline def renderWith =
-    FormField.component(FormField.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]             = js.undefined,
+  child:                  js.UndefOr[VdomNode]        = js.undefined,
+  className:              js.UndefOr[String]          = js.undefined,
+  clazz:                  js.UndefOr[Css]             = js.undefined,
+  content:                js.UndefOr[VdomNode]        = js.undefined,
+  disabled:               js.UndefOr[Boolean]         = js.undefined,
+  error:                  js.UndefOr[Label]           = js.undefined,
+  inline:                 js.UndefOr[Boolean]         = js.undefined,
+  label:                  js.UndefOr[Label]           = js.undefined,
+  required:               js.UndefOr[Boolean | Label] = js.undefined,
+  tpe:                    js.UndefOr[String]          = js.undefined,
+  width:                  js.UndefOr[SemanticWidth]   = js.undefined,
+  override val modifiers: Seq[TagMod]                 = Seq.empty
+) extends GenericComponentPAC[FormField.FormFieldProps, FormField] {
+  override protected def cprops    = FormField.props(this)
+  override protected val component = FormField.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object FormField {
@@ -102,7 +101,7 @@ object FormField {
       q.inline,
       q.label,
       q.required,
-      q.`type`,
+      q.tpe,
       q.width
     )
 
@@ -142,6 +141,6 @@ object FormField {
   private val component =
     JsComponent[FormFieldProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): FormField =
-    new FormField(children = content)
+  def apply(content: TagMod*): FormField =
+    new FormField(modifiers = content)
 }

@@ -138,7 +138,7 @@ package toasts {
     def apply(
       title:       String,
       description: js.UndefOr[String] = js.undefined,
-      `type`:      js.UndefOr[ToastType] = js.undefined,
+      tpe:         js.UndefOr[ToastType] = js.undefined,
       icon:        js.UndefOr[Icon] = js.undefined,
       time:        js.UndefOr[Dismissal] = js.undefined,
       animation:   js.UndefOr[SemanticAnimation] = js.undefined,
@@ -149,7 +149,7 @@ package toasts {
       val p = (new js.Object).asInstanceOf[ToastOptions]
       p.title       = title
       p.description = description
-      p.`type`      = `type`.toJs
+      p.`type`      = tpe.toJs
       p.icon        = icon.map(_.props)
       p.time = time.map(_ match {
         case Dismissal.User  => 0
