@@ -14,35 +14,35 @@ import react.semanticui._
 import react.semanticui.colors._
 import react.semanticui.sizes._
 import react.semanticui.elements.label.Label.LabelProps
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Progress(
-  as:                    js.UndefOr[AsC]               = js.undefined,
-  active:                js.UndefOr[Boolean]           = js.undefined,
-  attached:              js.UndefOr[String]            = js.undefined,
-  autoSuccess:           js.UndefOr[Boolean]           = js.undefined,
-  child:                 js.UndefOr[VdomNode]          = js.undefined,
-  className:             js.UndefOr[String]            = js.undefined,
-  clazz:                 js.UndefOr[Css]               = js.undefined,
-  color:                 js.UndefOr[SemanticColor]     = js.undefined,
-  content:               js.UndefOr[VdomNode]          = js.undefined,
-  error:                 js.UndefOr[Boolean]           = js.undefined,
-  indicating:            js.UndefOr[Boolean]           = js.undefined,
-  inverted:              js.UndefOr[Boolean]           = js.undefined,
-  label:                 js.UndefOr[LabelProps]        = js.undefined,
-  percent:               js.UndefOr[JsNumber | String] = js.undefined,
-  precision:             js.UndefOr[JsNumber]          = js.undefined,
-  progress:              js.UndefOr[Boolean | String]  = js.undefined,
-  size:                  js.UndefOr[SemanticSize]      = js.undefined,
-  success:               js.UndefOr[Boolean]           = js.undefined,
-  total:                 js.UndefOr[JsNumber | String] = js.undefined,
-  value:                 js.UndefOr[JsNumber | String] = js.undefined,
-  warning:               js.UndefOr[Boolean]           = js.undefined,
-  override val children: CtorType.ChildrenArgs         = Seq.empty
-) extends GenericComponentPC[Progress.ProgressProps, Progress] {
-  override protected def cprops = Progress.props(this)
-  @inline def renderWith        = Progress.component(Progress.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]               = js.undefined,
+  active:                 js.UndefOr[Boolean]           = js.undefined,
+  attached:               js.UndefOr[String]            = js.undefined,
+  autoSuccess:            js.UndefOr[Boolean]           = js.undefined,
+  child:                  js.UndefOr[VdomNode]          = js.undefined,
+  className:              js.UndefOr[String]            = js.undefined,
+  clazz:                  js.UndefOr[Css]               = js.undefined,
+  color:                  js.UndefOr[SemanticColor]     = js.undefined,
+  content:                js.UndefOr[VdomNode]          = js.undefined,
+  error:                  js.UndefOr[Boolean]           = js.undefined,
+  indicating:             js.UndefOr[Boolean]           = js.undefined,
+  inverted:               js.UndefOr[Boolean]           = js.undefined,
+  label:                  js.UndefOr[LabelProps]        = js.undefined,
+  percent:                js.UndefOr[JsNumber | String] = js.undefined,
+  precision:              js.UndefOr[JsNumber]          = js.undefined,
+  progress:               js.UndefOr[Boolean | String]  = js.undefined,
+  size:                   js.UndefOr[SemanticSize]      = js.undefined,
+  success:                js.UndefOr[Boolean]           = js.undefined,
+  total:                  js.UndefOr[JsNumber | String] = js.undefined,
+  value:                  js.UndefOr[JsNumber | String] = js.undefined,
+  warning:                js.UndefOr[Boolean]           = js.undefined,
+  override val modifiers: Seq[TagMod]                   = Seq.empty
+) extends GenericComponentPAC[Progress.ProgressProps, Progress] {
+  override protected def cprops    = Progress.props(this)
+  override protected val component = Progress.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Progress {
@@ -201,6 +201,6 @@ object Progress {
   private val component =
     JsComponent[ProgressProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): Progress =
-    Progress(children = content)
+  def apply(content: TagMod*): Progress =
+    Progress(modifiers = content)
 }

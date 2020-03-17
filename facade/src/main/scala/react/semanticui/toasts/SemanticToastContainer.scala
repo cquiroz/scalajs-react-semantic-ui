@@ -5,15 +5,21 @@ import js.annotation._
 import japgolly.scalajs.react._
 import react.common.style._
 import react.common._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class SemanticToastContainer(
-  position:  js.UndefOr[ContainerPosition] = js.undefined,
-  animation: js.UndefOr[SemanticAnimation] = js.undefined,
-  className: js.UndefOr[String]            = js.undefined,
-  clazz:     js.UndefOr[Css]               = js.undefined
-) extends GenericComponentP[SemanticToastContainer.SemanticToastContainerProps] {
-  override protected def cprops = SemanticToastContainer.props(this)
-  @inline def render            = SemanticToastContainer.component(SemanticToastContainer.props(this))
+  position:               js.UndefOr[ContainerPosition] = js.undefined,
+  animation:              js.UndefOr[SemanticAnimation] = js.undefined,
+  className:              js.UndefOr[String]            = js.undefined,
+  clazz:                  js.UndefOr[Css]               = js.undefined,
+  override val modifiers: Seq[TagMod]                   = Seq.empty
+) extends GenericComponentPA[
+      SemanticToastContainer.SemanticToastContainerProps,
+      SemanticToastContainer
+    ] {
+  override protected def cprops    = SemanticToastContainer.props(this)
+  override protected val component = SemanticToastContainer.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object SemanticToastContainer {

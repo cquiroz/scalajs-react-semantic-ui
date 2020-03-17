@@ -9,20 +9,19 @@ import japgolly.scalajs.react.raw.React
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class MessageContent(
-  as:                    js.UndefOr[AsC]                                           = js.undefined,
-  child:                 js.UndefOr[VdomNode]                                      = js.undefined,
-  className:             js.UndefOr[String]                                        = js.undefined,
-  clazz:                 js.UndefOr[Css]                                           = js.undefined,
-  content:               js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined,
-  override val children: CtorType.ChildrenArgs                                     = Seq.empty
-) extends GenericComponentPC[MessageContent.MessageContentProps, MessageContent] {
-  override protected def cprops = MessageContent.props(this)
-  @inline def renderWith =
-    MessageContent.component(MessageContent.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                                           = js.undefined,
+  child:                  js.UndefOr[VdomNode]                                      = js.undefined,
+  className:              js.UndefOr[String]                                        = js.undefined,
+  clazz:                  js.UndefOr[Css]                                           = js.undefined,
+  content:                js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined,
+  override val modifiers: Seq[TagMod]                                               = Seq.empty
+) extends GenericComponentPAC[MessageContent.MessageContentProps, MessageContent] {
+  override protected def cprops    = MessageContent.props(this)
+  override protected val component = MessageContent.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object MessageContent {
@@ -81,6 +80,6 @@ object MessageContent {
   private val component =
     JsComponent[MessageContentProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): MessageContent =
-    new MessageContent(children = content)
+  def apply(content: TagMod*): MessageContent =
+    new MessageContent(modifiers = content)
 }

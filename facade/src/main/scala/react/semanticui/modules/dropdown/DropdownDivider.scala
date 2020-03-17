@@ -4,21 +4,20 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.JsFnComponent
-import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.common.style._
 import react.common._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownDivider(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[DropdownDivider.DropdownDividerProps, DropdownDivider] {
-  override protected def cprops = DropdownDivider.props(this)
-  @inline def renderWith        = DropdownDivider.component(DropdownDivider.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]    = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css]    = js.undefined,
+  override val modifiers: Seq[TagMod]        = Seq.empty
+) extends GenericFnComponentPAC[DropdownDivider.DropdownDividerProps, DropdownDivider] {
+  override protected def cprops    = DropdownDivider.props(this)
+  override protected val component = DropdownDivider.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object DropdownDivider {
@@ -60,8 +59,6 @@ object DropdownDivider {
   private val component =
     JsFnComponent[DropdownDividerProps, Children.Varargs](RawComponent)
 
-  def apply(
-    children: VdomNode*
-  ): DropdownDivider =
-    new DropdownDivider(children = children)
+  def apply(children: TagMod*): DropdownDivider =
+    new DropdownDivider(modifiers = children)
 }

@@ -9,19 +9,19 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ModalHeader(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ModalHeader.ModalHeaderProps, ModalHeader] {
-  override protected def cprops = ModalHeader.props(this)
-  @inline def renderWith        = ModalHeader.component(ModalHeader.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[ModalHeader.ModalHeaderProps, ModalHeader] {
+  override protected def cprops    = ModalHeader.props(this)
+  override protected val component = ModalHeader.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ModalHeader {
@@ -73,6 +73,6 @@ object ModalHeader {
   private val component =
     JsFnComponent[ModalHeaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ModalHeader =
-    new ModalHeader(children = content)
+  def apply(content: TagMod*): ModalHeader =
+    new ModalHeader(modifiers = content)
 }

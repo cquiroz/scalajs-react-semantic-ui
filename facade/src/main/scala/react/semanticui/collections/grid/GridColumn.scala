@@ -9,31 +9,30 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class GridColumn(
-  as:                    js.UndefOr[AsC]                       = js.undefined,
-  child:                 js.UndefOr[VdomNode]                  = js.undefined,
-  className:             js.UndefOr[String]                    = js.undefined,
-  clazz:                 js.UndefOr[Css]                       = js.undefined,
-  color:                 js.UndefOr[SemanticColor]             = js.undefined,
-  computer:              js.UndefOr[SemanticWidth]             = js.undefined,
-  floated:               js.UndefOr[SemanticFloat]             = js.undefined,
-  largeScreen:           js.UndefOr[SemanticWidth]             = js.undefined,
-  mobile:                js.UndefOr[SemanticWidth]             = js.undefined,
-  only:                  js.UndefOr[GridOnly]                  = js.undefined,
-  stretched:             js.UndefOr[Boolean]                   = js.undefined,
-  tablet:                js.UndefOr[SemanticWidth]             = js.undefined,
-  textAlign:             js.UndefOr[SemanticTextAlignment]     = js.undefined,
-  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  widescreen:            js.UndefOr[SemanticWidth]             = js.undefined,
-  width:                 js.UndefOr[SemanticWidth]             = js.undefined,
-  override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[GridColumn.GridColumnProps, GridColumn] {
-  override protected def cprops = GridColumn.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    GridColumn.component(GridColumn.props(this))
+  as:                     js.UndefOr[AsC]                       = js.undefined,
+  child:                  js.UndefOr[VdomNode]                  = js.undefined,
+  className:              js.UndefOr[String]                    = js.undefined,
+  clazz:                  js.UndefOr[Css]                       = js.undefined,
+  color:                  js.UndefOr[SemanticColor]             = js.undefined,
+  computer:               js.UndefOr[SemanticWidth]             = js.undefined,
+  floated:                js.UndefOr[SemanticFloat]             = js.undefined,
+  largeScreen:            js.UndefOr[SemanticWidth]             = js.undefined,
+  mobile:                 js.UndefOr[SemanticWidth]             = js.undefined,
+  only:                   js.UndefOr[GridOnly]                  = js.undefined,
+  stretched:              js.UndefOr[Boolean]                   = js.undefined,
+  tablet:                 js.UndefOr[SemanticWidth]             = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment]     = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  widescreen:             js.UndefOr[SemanticWidth]             = js.undefined,
+  width:                  js.UndefOr[SemanticWidth]             = js.undefined,
+  override val modifiers: Seq[TagMod]                           = Seq.empty
+) extends GenericFnComponentPAC[GridColumn.GridColumnProps, GridColumn] {
+  override protected def cprops    = GridColumn.props(this)
+  override protected val component = GridColumn.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object GridColumn {
@@ -157,6 +156,6 @@ object GridColumn {
   private val component =
     JsFnComponent[GridColumnProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): GridColumn =
-    new GridColumn(children = content)
+  def apply(content: TagMod*): GridColumn =
+    new GridColumn(modifiers = content)
 }

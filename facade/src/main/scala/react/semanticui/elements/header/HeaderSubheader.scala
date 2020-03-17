@@ -9,20 +9,19 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class HeaderSubheader(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[HeaderSubheader.HeaderSubheaderProps, HeaderSubheader] {
-  override protected def cprops = HeaderSubheader.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    HeaderSubheader.component(HeaderSubheader.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[HeaderSubheader.HeaderSubheaderProps, HeaderSubheader] {
+  override protected def cprops    = HeaderSubheader.props(this)
+  override protected val component = HeaderSubheader.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object HeaderSubheader {
@@ -67,5 +66,5 @@ object HeaderSubheader {
   private val component =
     JsFnComponent[HeaderSubheaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): HeaderSubheader = new HeaderSubheader(children = content)
+  def apply(content: TagMod*): HeaderSubheader = new HeaderSubheader(modifiers = content)
 }

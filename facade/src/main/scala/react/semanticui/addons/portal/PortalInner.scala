@@ -7,20 +7,20 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class PortalInner(
   child: js.UndefOr[VdomNode] = js.undefined,
   // innerRef:             js.UndefOr[Ref[html.Element]]                     = js.undefined,
-  onMountE:              js.UndefOr[PortalInner.OnMount]   = js.undefined,
-  onMount:               js.UndefOr[Callback]              = js.undefined,
-  onUnmountE:            js.UndefOr[PortalInner.OnUnmount] = js.undefined,
-  onUnmount:             js.UndefOr[Callback]              = js.undefined,
-  override val children: CtorType.ChildrenArgs             = Seq.empty
-) extends GenericComponentPC[PortalInner.PortalInnerProps, PortalInner] {
-  override protected def cprops = PortalInner.props(this)
-  @inline def renderWith        = PortalInner.component(PortalInner.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  onMountE:               js.UndefOr[PortalInner.OnMount]   = js.undefined,
+  onMount:                js.UndefOr[Callback]              = js.undefined,
+  onUnmountE:             js.UndefOr[PortalInner.OnUnmount] = js.undefined,
+  onUnmount:              js.UndefOr[Callback]              = js.undefined,
+  override val modifiers: Seq[TagMod]                       = Seq.empty
+) extends GenericComponentPAC[PortalInner.PortalInnerProps, PortalInner] {
+  override protected def cprops    = PortalInner.props(this)
+  override protected val component = PortalInner.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object PortalInner {
@@ -96,6 +96,6 @@ object PortalInner {
   private val component =
     JsComponent[PortalInnerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): PortalInner =
-    new PortalInner(children = content)
+  def apply(content: TagMod*): PortalInner =
+    new PortalInner(modifiers = content)
 }

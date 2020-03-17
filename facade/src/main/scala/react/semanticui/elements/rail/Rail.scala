@@ -10,26 +10,25 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Rail(
-  as:                    js.UndefOr[AsC] = js.undefined,
-  attached:              js.UndefOr[Boolean] = js.undefined,
-  child:                 js.UndefOr[VdomNode] = js.undefined,
-  className:             js.UndefOr[String] = js.undefined,
-  clazz:                 js.UndefOr[Css] = js.undefined,
-  close:                 js.UndefOr[RailClose] = js.undefined,
-  content:               js.UndefOr[VdomNode] = js.undefined,
-  dividing:              js.UndefOr[Boolean] = js.undefined,
-  internal:              js.UndefOr[Boolean] = js.undefined,
-  position:              js.UndefOr[SemanticFloat],
-  size:                  js.UndefOr[SemanticSize] = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[Rail.RailProps, Rail] {
-  override protected def cprops = Rail.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    Rail.component(Rail.props(this))
+  as:                     js.UndefOr[AsC] = js.undefined,
+  attached:               js.UndefOr[Boolean] = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  close:                  js.UndefOr[RailClose] = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  dividing:               js.UndefOr[Boolean] = js.undefined,
+  internal:               js.UndefOr[Boolean] = js.undefined,
+  position:               js.UndefOr[SemanticFloat],
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
+) extends GenericFnComponentPAC[Rail.RailProps, Rail] {
+  override protected def cprops    = Rail.props(this)
+  override protected val component = Rail.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Rail {
@@ -124,7 +123,7 @@ object Rail {
   private val component =
     JsFnComponent[RailProps, Children.Varargs](RawComponent)
 
-  def apply(position: SemanticFloat, content: VdomNode*): Rail =
-    new Rail(position = position, children = content)
+  def apply(position: SemanticFloat, content: TagMod*): Rail =
+    new Rail(position = position, modifiers = content)
 
 }

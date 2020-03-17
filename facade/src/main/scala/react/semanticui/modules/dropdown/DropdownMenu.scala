@@ -9,22 +9,22 @@ import react.common.style._
 import react.common._
 import react.semanticui.raw._
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownMenu(
-  as:                    js.UndefOr[AsC]           = js.undefined,
-  child:                 js.UndefOr[VdomNode]      = js.undefined,
-  className:             js.UndefOr[String]        = js.undefined,
-  clazz:                 js.UndefOr[Css]           = js.undefined,
-  content:               js.UndefOr[VdomNode]      = js.undefined,
-  direction:             js.UndefOr[MenuDirection] = js.undefined,
-  open:                  js.UndefOr[Boolean]       = js.undefined,
-  scrolling:             js.UndefOr[Boolean]       = js.undefined,
-  override val children: CtorType.ChildrenArgs     = Seq.empty
-) extends GenericComponentPC[DropdownMenu.DropdownMenuProps, DropdownMenu] {
-  override protected def cprops = DropdownMenu.props(this)
-  @inline def renderWith        = DropdownMenu.component(DropdownMenu.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]           = js.undefined,
+  child:                  js.UndefOr[VdomNode]      = js.undefined,
+  className:              js.UndefOr[String]        = js.undefined,
+  clazz:                  js.UndefOr[Css]           = js.undefined,
+  content:                js.UndefOr[VdomNode]      = js.undefined,
+  direction:              js.UndefOr[MenuDirection] = js.undefined,
+  open:                   js.UndefOr[Boolean]       = js.undefined,
+  scrolling:              js.UndefOr[Boolean]       = js.undefined,
+  override val modifiers: Seq[TagMod]               = Seq.empty
+) extends GenericComponentPAC[DropdownMenu.DropdownMenuProps, DropdownMenu] {
+  override protected def cprops    = DropdownMenu.props(this)
+  override protected val component = DropdownMenu.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object DropdownMenu {
@@ -91,8 +91,6 @@ object DropdownMenu {
   private val component =
     JsComponent[DropdownMenuProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    children: VdomNode*
-  ): DropdownMenu =
-    DropdownMenu(children = children)
+  def apply(children: TagMod*): DropdownMenu =
+    DropdownMenu(modifiers = children)
 }

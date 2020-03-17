@@ -16,33 +16,32 @@ import react.semanticui._
 import scala.collection.immutable.{ List => SList }
 
 final case class List(
-  as:                    js.UndefOr[AsC]                       = js.undefined,
-  animated:              js.UndefOr[Boolean]                   = js.undefined,
-  bulleted:              js.UndefOr[Boolean]                   = js.undefined,
-  celled:                js.UndefOr[Boolean]                   = js.undefined,
-  child:                 js.UndefOr[VdomNode]                  = js.undefined,
-  className:             js.UndefOr[String]                    = js.undefined,
-  clazz:                 js.UndefOr[Css]                       = js.undefined,
-  content:               js.UndefOr[VdomNode]                  = js.undefined,
-  divided:               js.UndefOr[Boolean]                   = js.undefined,
-  floated:               js.UndefOr[SemanticFloat]             = js.undefined,
-  horizontal:            js.UndefOr[Boolean]                   = js.undefined,
-  inverted:              js.UndefOr[Boolean]                   = js.undefined,
-  items:                 js.UndefOr[SList[ListItem]]           = js.undefined,
-  onItemClickE:          js.UndefOr[List.OnItemClick]          = js.undefined,
-  onItemClick:           js.UndefOr[Callback]                  = js.undefined,
-  link:                  js.UndefOr[Boolean]                   = js.undefined,
-  ordered:               js.UndefOr[Boolean]                   = js.undefined,
-  relaxed:               js.UndefOr[Boolean]                   = js.undefined,
-  selection:             js.UndefOr[Boolean]                   = js.undefined,
-  size:                  js.UndefOr[SemanticSize]              = js.undefined,
-  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericComponentPC[List.ListProps, List] {
-  override protected def cprops = List.props(this)
-  @inline def renderWith        = List.component(List.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                       = js.undefined,
+  animated:               js.UndefOr[Boolean]                   = js.undefined,
+  bulleted:               js.UndefOr[Boolean]                   = js.undefined,
+  celled:                 js.UndefOr[Boolean]                   = js.undefined,
+  child:                  js.UndefOr[VdomNode]                  = js.undefined,
+  className:              js.UndefOr[String]                    = js.undefined,
+  clazz:                  js.UndefOr[Css]                       = js.undefined,
+  content:                js.UndefOr[VdomNode]                  = js.undefined,
+  divided:                js.UndefOr[Boolean]                   = js.undefined,
+  floated:                js.UndefOr[SemanticFloat]             = js.undefined,
+  horizontal:             js.UndefOr[Boolean]                   = js.undefined,
+  inverted:               js.UndefOr[Boolean]                   = js.undefined,
+  items:                  js.UndefOr[SList[ListItem]]           = js.undefined,
+  onItemClickE:           js.UndefOr[List.OnItemClick]          = js.undefined,
+  onItemClick:            js.UndefOr[Callback]                  = js.undefined,
+  link:                   js.UndefOr[Boolean]                   = js.undefined,
+  ordered:                js.UndefOr[Boolean]                   = js.undefined,
+  relaxed:                js.UndefOr[Boolean]                   = js.undefined,
+  selection:              js.UndefOr[Boolean]                   = js.undefined,
+  size:                   js.UndefOr[SemanticSize]              = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod]                           = Seq.empty
+) extends GenericComponentPAC[List.ListProps, List] {
+  override protected def cprops    = List.props(this)
+  override protected val component = List.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object List {

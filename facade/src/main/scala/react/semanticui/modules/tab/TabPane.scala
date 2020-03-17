@@ -10,22 +10,21 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.raw._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class TabPane(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  active:                js.UndefOr[Boolean]   = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  loading:               js.UndefOr[Boolean]   = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[TabPane.TabPaneProps, TabPane] {
-  override protected def cprops = TabPane.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    TabPane.component(TabPane.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  active:                 js.UndefOr[Boolean]  = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  loading:                js.UndefOr[Boolean]  = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[TabPane.TabPaneProps, TabPane] {
+  override protected def cprops    = TabPane.props(this)
+  override protected val component = TabPane.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object TabPane {
@@ -78,6 +77,6 @@ object TabPane {
   private val component =
     JsFnComponent[TabPaneProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): TabPane =
-    new TabPane(children = content)
+  def apply(content: TagMod*): TabPane =
+    new TabPane(modifiers = content)
 }

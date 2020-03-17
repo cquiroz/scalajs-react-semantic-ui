@@ -11,29 +11,29 @@ import react.common.style._
 import react.common._
 import react.semanticui.raw._
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Sidebar(
-  as:                    js.UndefOr[AsC]              = js.undefined,
-  animation:             js.UndefOr[SidebarAnimation] = js.undefined,
-  child:                 js.UndefOr[VdomNode]         = js.undefined,
-  className:             js.UndefOr[String]           = js.undefined,
-  clazz:                 js.UndefOr[Css]              = js.undefined,
-  content:               js.UndefOr[VdomNode]         = js.undefined,
-  direction:             js.UndefOr[SidebarDirection] = js.undefined,
-  onHideE:               js.UndefOr[Sidebar.OnHide]   = js.undefined,
-  onHide:                js.UndefOr[Callback]         = js.undefined,
-  onHidden:              js.UndefOr[Callback]         = js.undefined,
-  onShow:                js.UndefOr[Callback]         = js.undefined,
-  onVisible:             js.UndefOr[Callback]         = js.undefined,
-  target:                js.UndefOr[Ref]              = js.undefined,
-  visible:               js.UndefOr[Boolean]          = js.undefined,
-  width:                 js.UndefOr[SidebarWidth]     = js.undefined,
-  override val children: CtorType.ChildrenArgs        = Seq.empty
-) extends GenericComponentPC[Sidebar.SidebarProps, Sidebar] {
-  override protected def cprops = Sidebar.props(this)
-  @inline def renderWith        = Sidebar.component(Sidebar.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]              = js.undefined,
+  animation:              js.UndefOr[SidebarAnimation] = js.undefined,
+  child:                  js.UndefOr[VdomNode]         = js.undefined,
+  className:              js.UndefOr[String]           = js.undefined,
+  clazz:                  js.UndefOr[Css]              = js.undefined,
+  content:                js.UndefOr[VdomNode]         = js.undefined,
+  direction:              js.UndefOr[SidebarDirection] = js.undefined,
+  onHideE:                js.UndefOr[Sidebar.OnHide]   = js.undefined,
+  onHide:                 js.UndefOr[Callback]         = js.undefined,
+  onHidden:               js.UndefOr[Callback]         = js.undefined,
+  onShow:                 js.UndefOr[Callback]         = js.undefined,
+  onVisible:              js.UndefOr[Callback]         = js.undefined,
+  target:                 js.UndefOr[Ref]              = js.undefined,
+  visible:                js.UndefOr[Boolean]          = js.undefined,
+  width:                  js.UndefOr[SidebarWidth]     = js.undefined,
+  override val modifiers: Seq[TagMod]                  = Seq.empty
+) extends GenericComponentPAC[Sidebar.SidebarProps, Sidebar] {
+  override protected def cprops    = Sidebar.props(this)
+  override protected val component = Sidebar.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Sidebar {
@@ -119,9 +119,7 @@ object Sidebar {
   private val component =
     JsComponent[SidebarProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    content: VdomNode*
-  ): Sidebar =
-    new Sidebar(children = content)
+  def apply(content: TagMod*): Sidebar =
+    new Sidebar(modifiers = content)
 
 }

@@ -9,19 +9,19 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class PopupContent(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[PopupContent.PopupContentProps, PopupContent] {
-  override protected def cprops = PopupContent.props(this)
-  @inline def renderWith        = PopupContent.component(PopupContent.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[PopupContent.PopupContentProps, PopupContent] {
+  override protected def cprops    = PopupContent.props(this)
+  override protected val component = PopupContent.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object PopupContent {
@@ -74,6 +74,6 @@ object PopupContent {
   private val component =
     JsFnComponent[PopupContentProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): PopupContent =
-    new PopupContent(children = content)
+  def apply(content: TagMod*): PopupContent =
+    new PopupContent(modifiers = content)
 }

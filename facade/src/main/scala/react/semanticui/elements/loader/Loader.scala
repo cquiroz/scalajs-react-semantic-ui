@@ -10,26 +10,25 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Loader(
-  as:                    js.UndefOr[AsC]          = js.undefined,
-  active:                js.UndefOr[Boolean]      = js.undefined,
-  child:                 js.UndefOr[VdomNode]     = js.undefined,
-  className:             js.UndefOr[String]       = js.undefined,
-  clazz:                 js.UndefOr[Css]          = js.undefined,
-  content:               js.UndefOr[VdomNode]     = js.undefined,
-  disabled:              js.UndefOr[Boolean]      = js.undefined,
-  indeterminate:         js.UndefOr[Boolean]      = js.undefined,
-  inline:                js.UndefOr[LoaderInline] = js.undefined,
-  inverted:              js.UndefOr[Boolean]      = js.undefined,
-  size:                  js.UndefOr[SemanticSize] = js.undefined,
-  override val children: CtorType.ChildrenArgs    = Seq.empty
-) extends GenericFnComponentPC[Loader.LoaderProps, Loader] {
-  override protected def cprops = Loader.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    Loader.component(Loader.props(this))
+  as:                     js.UndefOr[AsC]          = js.undefined,
+  active:                 js.UndefOr[Boolean]      = js.undefined,
+  child:                  js.UndefOr[VdomNode]     = js.undefined,
+  className:              js.UndefOr[String]       = js.undefined,
+  clazz:                  js.UndefOr[Css]          = js.undefined,
+  content:                js.UndefOr[VdomNode]     = js.undefined,
+  disabled:               js.UndefOr[Boolean]      = js.undefined,
+  indeterminate:          js.UndefOr[Boolean]      = js.undefined,
+  inline:                 js.UndefOr[LoaderInline] = js.undefined,
+  inverted:               js.UndefOr[Boolean]      = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  override val modifiers: Seq[TagMod]              = Seq.empty
+) extends GenericFnComponentPAC[Loader.LoaderProps, Loader] {
+  override protected def cprops    = Loader.props(this)
+  override protected val component = Loader.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Loader {
@@ -102,8 +101,6 @@ object Loader {
 
   val defaultProps: LoaderProps = props(Default)
 
-  def apply(
-    content: VdomNode*
-  ): Loader =
-    new Loader(children = content)
+  def apply(content: TagMod*): Loader =
+    new Loader(modifiers = content)
 }

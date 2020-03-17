@@ -10,24 +10,23 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Item(
-  as:                    js.UndefOr[AsC]                                             = js.undefined,
-  child:                 js.UndefOr[VdomNode]                                        = js.undefined,
-  className:             js.UndefOr[String]                                          = js.undefined,
-  clazz:                 js.UndefOr[Css]                                             = js.undefined,
-  content:               js.UndefOr[VdomNode]                                        = js.undefined,
-  description:           js.UndefOr[VdomNode | ItemDescription.ItemDescriptionProps] = js.undefined,
-  extra:                 js.UndefOr[VdomNode | ItemExtra.ItemExtraProps]             = js.undefined,
-  header:                js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps]           = js.undefined,
-  meta:                  js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined,
-  override val children: CtorType.ChildrenArgs                                       = Seq.empty
-) extends GenericFnComponentPC[Item.ItemProps, Item] {
-  override protected def cprops = Item.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    Item.component(Item.props(this))
+  as:                     js.UndefOr[AsC]                                             = js.undefined,
+  child:                  js.UndefOr[VdomNode]                                        = js.undefined,
+  className:              js.UndefOr[String]                                          = js.undefined,
+  clazz:                  js.UndefOr[Css]                                             = js.undefined,
+  content:                js.UndefOr[VdomNode]                                        = js.undefined,
+  description:            js.UndefOr[VdomNode | ItemDescription.ItemDescriptionProps] = js.undefined,
+  extra:                  js.UndefOr[VdomNode | ItemExtra.ItemExtraProps]             = js.undefined,
+  header:                 js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps]           = js.undefined,
+  meta:                   js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined,
+  override val modifiers: Seq[TagMod]                                                 = Seq.empty
+) extends GenericFnComponentPAC[Item.ItemProps, Item] {
+  override protected def cprops    = Item.props(this)
+  override protected val component = Item.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Item {
@@ -111,6 +110,6 @@ object Item {
   private val component =
     JsFnComponent[ItemProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): Item =
-    Item(children = content)
+  def apply(content: TagMod*): Item =
+    Item(modifiers = content)
 }

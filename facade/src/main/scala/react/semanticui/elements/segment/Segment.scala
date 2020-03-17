@@ -12,40 +12,39 @@ import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Segment(
-  as:                    js.UndefOr[AsC]                   = js.undefined,
-  attached:              js.UndefOr[SegmentAttached]       = js.undefined,
-  basic:                 js.UndefOr[Boolean]               = js.undefined,
-  child:                 js.UndefOr[VdomNode]              = js.undefined,
-  circular:              js.UndefOr[Boolean]               = js.undefined,
-  className:             js.UndefOr[String]                = js.undefined,
-  clazz:                 js.UndefOr[Css]                   = js.undefined,
-  clearing:              js.UndefOr[Boolean]               = js.undefined,
-  color:                 js.UndefOr[SemanticColor]         = js.undefined,
-  compact:               js.UndefOr[Boolean]               = js.undefined,
-  content:               js.UndefOr[VdomNode]              = js.undefined,
-  disabled:              js.UndefOr[Boolean]               = js.undefined,
-  floated:               js.UndefOr[SemanticFloat]         = js.undefined,
-  inverted:              js.UndefOr[Boolean]               = js.undefined,
-  loading:               js.UndefOr[Boolean]               = js.undefined,
-  padded:                js.UndefOr[String]                = js.undefined,
-  placeholder:           js.UndefOr[Boolean]               = js.undefined,
-  piled:                 js.UndefOr[Boolean]               = js.undefined,
-  raised:                js.UndefOr[Boolean]               = js.undefined,
-  secondary:             js.UndefOr[Boolean]               = js.undefined,
-  size:                  js.UndefOr[SemanticSize]          = js.undefined,
-  stacked:               js.UndefOr[Boolean]               = js.undefined,
-  tertiary:              js.UndefOr[Boolean]               = js.undefined,
-  textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
-  vertical:              js.UndefOr[Boolean]               = js.undefined,
-  override val children: CtorType.ChildrenArgs             = Seq.empty
-) extends GenericFnComponentPC[Segment.SegmentProps, Segment] {
-  override protected def cprops = Segment.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    Segment.component(Segment.props(this))
+  as:                     js.UndefOr[AsC]                   = js.undefined,
+  attached:               js.UndefOr[SegmentAttached]       = js.undefined,
+  basic:                  js.UndefOr[Boolean]               = js.undefined,
+  child:                  js.UndefOr[VdomNode]              = js.undefined,
+  circular:               js.UndefOr[Boolean]               = js.undefined,
+  className:              js.UndefOr[String]                = js.undefined,
+  clazz:                  js.UndefOr[Css]                   = js.undefined,
+  clearing:               js.UndefOr[Boolean]               = js.undefined,
+  color:                  js.UndefOr[SemanticColor]         = js.undefined,
+  compact:                js.UndefOr[Boolean]               = js.undefined,
+  content:                js.UndefOr[VdomNode]              = js.undefined,
+  disabled:               js.UndefOr[Boolean]               = js.undefined,
+  floated:                js.UndefOr[SemanticFloat]         = js.undefined,
+  inverted:               js.UndefOr[Boolean]               = js.undefined,
+  loading:                js.UndefOr[Boolean]               = js.undefined,
+  padded:                 js.UndefOr[String]                = js.undefined,
+  placeholder:            js.UndefOr[Boolean]               = js.undefined,
+  piled:                  js.UndefOr[Boolean]               = js.undefined,
+  raised:                 js.UndefOr[Boolean]               = js.undefined,
+  secondary:              js.UndefOr[Boolean]               = js.undefined,
+  size:                   js.UndefOr[SemanticSize]          = js.undefined,
+  stacked:                js.UndefOr[Boolean]               = js.undefined,
+  tertiary:               js.UndefOr[Boolean]               = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
+  vertical:               js.UndefOr[Boolean]               = js.undefined,
+  override val modifiers: Seq[TagMod]                       = Seq.empty
+) extends GenericFnComponentPAC[Segment.SegmentProps, Segment] {
+  override protected def cprops    = Segment.props(this)
+  override protected val component = Segment.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Segment {
@@ -128,8 +127,6 @@ object Segment {
 
   val defaultProps: SegmentProps = props(Default)
 
-  def apply(
-    content: VdomNode*
-  ): Segment =
-    new Segment(children = content)
+  def apply(content: TagMod*): Segment =
+    new Segment(modifiers = content)
 }

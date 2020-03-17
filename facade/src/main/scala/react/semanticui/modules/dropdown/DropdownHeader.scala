@@ -12,20 +12,20 @@ import react.semanticui.raw._
 import react.semanticui.elements.icon.Icon.IconProps
 import react.semanticui.elements.icon.IconShorthand
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownHeader(
-  as:                    js.UndefOr[AsC]           = js.undefined,
-  child:                 js.UndefOr[VdomNode]      = js.undefined,
-  className:             js.UndefOr[String]        = js.undefined,
-  clazz:                 js.UndefOr[Css]           = js.undefined,
-  content:               js.UndefOr[VdomNode]      = js.undefined,
-  icon:                  js.UndefOr[IconShorthand] = js.undefined,
-  override val children: CtorType.ChildrenArgs     = Seq.empty
-) extends GenericComponentPC[DropdownHeader.DropdownHeaderProps, DropdownHeader] {
-  override protected def cprops = DropdownHeader.props(this)
-  @inline def renderWith        = DropdownHeader.component(DropdownHeader.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]           = js.undefined,
+  child:                  js.UndefOr[VdomNode]      = js.undefined,
+  className:              js.UndefOr[String]        = js.undefined,
+  clazz:                  js.UndefOr[Css]           = js.undefined,
+  content:                js.UndefOr[VdomNode]      = js.undefined,
+  icon:                   js.UndefOr[IconShorthand] = js.undefined,
+  override val modifiers: Seq[TagMod]               = Seq.empty
+) extends GenericComponentPAC[DropdownHeader.DropdownHeaderProps, DropdownHeader] {
+  override protected def cprops    = DropdownHeader.props(this)
+  override protected val component = DropdownHeader.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object DropdownHeader {
@@ -82,14 +82,6 @@ object DropdownHeader {
   private val component =
     JsComponent[DropdownHeaderProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    content: VdomNode*
-  ): DropdownHeader =
-    new DropdownHeader(as        = js.undefined,
-                       child     = js.undefined,
-                       className = js.undefined,
-                       clazz     = js.undefined,
-                       content   = js.undefined,
-                       icon      = js.undefined,
-                       children  = content)
+  def apply(content: TagMod*): DropdownHeader =
+    new DropdownHeader(modifiers = content)
 }
