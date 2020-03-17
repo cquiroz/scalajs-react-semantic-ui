@@ -9,21 +9,21 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ModalContent(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  image:                 js.UndefOr[Boolean]   = js.undefined,
-  scrolling:             js.UndefOr[Boolean]   = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ModalContent.ModalContentProps, ModalContent] {
-  override protected def cprops = ModalContent.props(this)
-  @inline def renderWith        = ModalContent.component(ModalContent.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  image:                  js.UndefOr[Boolean]  = js.undefined,
+  scrolling:              js.UndefOr[Boolean]  = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[ModalContent.ModalContentProps, ModalContent] {
+  override protected def cprops    = ModalContent.props(this)
+  override protected val component = ModalContent.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ModalContent {
@@ -85,6 +85,6 @@ object ModalContent {
   private val component =
     JsFnComponent[ModalContentProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ModalContent =
-    new ModalContent(children = content)
+  def apply(content: TagMod*): ModalContent =
+    new ModalContent(modifiers = content)
 }

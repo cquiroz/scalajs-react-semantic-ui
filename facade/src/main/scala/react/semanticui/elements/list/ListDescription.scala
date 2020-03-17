@@ -9,20 +9,19 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ListDescription(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[ListDescription.ListDescriptionProps, ListDescription] {
-  override protected def cprops = ListDescription.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    ListDescription.component(ListDescription.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[ListDescription.ListDescriptionProps, ListDescription] {
+  override protected def cprops    = ListDescription.props(this)
+  override protected val component = ListDescription.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ListDescription {
@@ -76,5 +75,5 @@ object ListDescription {
   private val component =
     JsFnComponent[ListDescriptionProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): ListDescription = new ListDescription(children = content)
+  def apply(content: TagMod*): ListDescription = new ListDescription(modifiers = content)
 }

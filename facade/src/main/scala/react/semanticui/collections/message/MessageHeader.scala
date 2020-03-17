@@ -9,20 +9,19 @@ import japgolly.scalajs.react.raw.React
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class MessageHeader(
-  as:                    js.UndefOr[AsC]                                         = js.undefined,
-  child:                 js.UndefOr[VdomNode]                                    = js.undefined,
-  className:             js.UndefOr[String]                                      = js.undefined,
-  clazz:                 js.UndefOr[Css]                                         = js.undefined,
-  content:               js.UndefOr[VdomNode | MessageHeader.MessageHeaderProps] = js.undefined,
-  override val children: CtorType.ChildrenArgs                                   = Seq.empty
-) extends GenericComponentPC[MessageHeader.MessageHeaderProps, MessageHeader] {
-  override protected def cprops = MessageHeader.props(this)
-  @inline def renderWith =
-    MessageHeader.component(MessageHeader.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                                         = js.undefined,
+  child:                  js.UndefOr[VdomNode]                                    = js.undefined,
+  className:              js.UndefOr[String]                                      = js.undefined,
+  clazz:                  js.UndefOr[Css]                                         = js.undefined,
+  content:                js.UndefOr[VdomNode | MessageHeader.MessageHeaderProps] = js.undefined,
+  override val modifiers: Seq[TagMod]                                             = Seq.empty
+) extends GenericComponentPAC[MessageHeader.MessageHeaderProps, MessageHeader] {
+  override protected def cprops    = MessageHeader.props(this)
+  override protected val component = MessageHeader.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object MessageHeader {
@@ -81,6 +80,6 @@ object MessageHeader {
   private val component =
     JsComponent[MessageHeaderProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): MessageHeader =
-    new MessageHeader(children = content)
+  def apply(content: TagMod*): MessageHeader =
+    new MessageHeader(modifiers = content)
 }

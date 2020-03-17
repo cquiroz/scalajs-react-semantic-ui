@@ -12,6 +12,7 @@ import react.common.GenericFnComponentPC
 import react.common.GenericFnComponentPAC
 import react.common.GenericComponentP
 import react.common.GenericComponentPC
+import react.common.GenericComponentPA
 import react.common.GenericComponentPAC
 
 package semanticui {
@@ -209,6 +210,17 @@ package object semanticui
         case o: VdomNode =>
           o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
         case f => f.asInstanceOf[GenericComponentP[P]].props
+      }
+    }
+
+  def toRawOrPropsPA[P <: js.Object, A <: GenericComponentPA[P, A]](
+    c: js.UndefOr[VdomNode | A]
+  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
+    c.map { d =>
+      (d: Any) match {
+        case o: VdomNode =>
+          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
+        case f => f.asInstanceOf[GenericComponentPA[P, A]].props
       }
     }
 

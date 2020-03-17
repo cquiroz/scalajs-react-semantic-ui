@@ -9,23 +9,22 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Container(
-  as:                    js.UndefOr[AsC]                   = js.undefined,
-  child:                 js.UndefOr[VdomNode]              = js.undefined,
-  className:             js.UndefOr[String]                = js.undefined,
-  clazz:                 js.UndefOr[Css]                   = js.undefined,
-  content:               js.UndefOr[VdomNode]              = js.undefined,
-  fluid:                 js.UndefOr[Boolean]               = js.undefined,
-  text:                  js.UndefOr[Boolean]               = js.undefined,
-  textAlign:             js.UndefOr[SemanticTextAlignment] = js.undefined,
-  override val children: CtorType.ChildrenArgs             = Seq.empty
-) extends GenericFnComponentPC[Container.ContainerProps, Container] {
-  override protected def cprops = Container.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    Container.component(Container.props(this))
+  as:                     js.UndefOr[AsC]                   = js.undefined,
+  child:                  js.UndefOr[VdomNode]              = js.undefined,
+  className:              js.UndefOr[String]                = js.undefined,
+  clazz:                  js.UndefOr[Css]                   = js.undefined,
+  content:                js.UndefOr[VdomNode]              = js.undefined,
+  fluid:                  js.UndefOr[Boolean]               = js.undefined,
+  text:                   js.UndefOr[Boolean]               = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod]                       = Seq.empty
+) extends GenericFnComponentPAC[Container.ContainerProps, Container] {
+  override protected def cprops    = Container.props(this)
+  override protected val component = Container.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Container {
@@ -81,8 +80,8 @@ object Container {
   private val component =
     JsFnComponent[ContainerProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): Container =
-    new Container(children = content)
+  def apply(content: TagMod*): Container =
+    new Container(modifiers = content)
 
   val Default: Container = Container()
 

@@ -10,33 +10,32 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Grid(
-  as:                    js.UndefOr[AsC]                       = js.undefined,
-  celled:                js.UndefOr[GridCelled]                = js.undefined,
-  centered:              js.UndefOr[Boolean]                   = js.undefined,
-  child:                 js.UndefOr[VdomNode]                  = js.undefined,
-  className:             js.UndefOr[String]                    = js.undefined,
-  clazz:                 js.UndefOr[Css]                       = js.undefined,
-  columns:               js.UndefOr[SemanticWidth]             = js.undefined,
-  container:             js.UndefOr[Boolean]                   = js.undefined,
-  divided:               js.UndefOr[GridDivided]               = js.undefined,
-  doubling:              js.UndefOr[Boolean]                   = js.undefined,
-  inverted:              js.UndefOr[Boolean]                   = js.undefined,
-  padded:                js.UndefOr[GridPadded]                = js.undefined,
-  relaxed:               js.UndefOr[GridRelaxed]               = js.undefined,
-  reversed:              js.UndefOr[GridReversed]              = js.undefined,
-  stackable:             js.UndefOr[Boolean]                   = js.undefined,
-  stretched:             js.UndefOr[Boolean]                   = js.undefined,
-  textAlign:             js.UndefOr[SemanticTextAlignment]     = js.undefined,
-  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[Grid.GridProps, Grid] {
-  override protected def cprops = Grid.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    Grid.component(Grid.props(this))
+  as:                     js.UndefOr[AsC]                       = js.undefined,
+  celled:                 js.UndefOr[GridCelled]                = js.undefined,
+  centered:               js.UndefOr[Boolean]                   = js.undefined,
+  child:                  js.UndefOr[VdomNode]                  = js.undefined,
+  className:              js.UndefOr[String]                    = js.undefined,
+  clazz:                  js.UndefOr[Css]                       = js.undefined,
+  columns:                js.UndefOr[SemanticWidth]             = js.undefined,
+  container:              js.UndefOr[Boolean]                   = js.undefined,
+  divided:                js.UndefOr[GridDivided]               = js.undefined,
+  doubling:               js.UndefOr[Boolean]                   = js.undefined,
+  inverted:               js.UndefOr[Boolean]                   = js.undefined,
+  padded:                 js.UndefOr[GridPadded]                = js.undefined,
+  relaxed:                js.UndefOr[GridRelaxed]               = js.undefined,
+  reversed:               js.UndefOr[GridReversed]              = js.undefined,
+  stackable:              js.UndefOr[Boolean]                   = js.undefined,
+  stretched:              js.UndefOr[Boolean]                   = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment]     = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod]                           = Seq.empty
+) extends GenericFnComponentPAC[Grid.GridProps, Grid] {
+  override protected def cprops    = Grid.props(this)
+  override protected val component = Grid.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Grid {
@@ -106,10 +105,6 @@ object Grid {
     var verticalAlign: js.UndefOr[suiraw.SemanticVERTICALALIGNMENTS] = js.native
   }
 
-  val Default: Grid = Grid()
-
-  val defaultProps: GridProps = props(Default)
-
   def props(q: Grid): GridProps =
     rawprops(
       q.as,
@@ -176,6 +171,10 @@ object Grid {
   private val component =
     JsFnComponent[GridProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): Grid =
-    new Grid(children = content)
+  val Default: Grid = Grid()
+
+  val defaultProps: GridProps = props(Default)
+
+  def apply(content: TagMod*): Grid =
+    new Grid(modifiers = content)
 }

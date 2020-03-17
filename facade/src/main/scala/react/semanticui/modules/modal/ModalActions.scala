@@ -11,22 +11,22 @@ import react.common._
 import react.semanticui._
 import react.semanticui.elements.button.Button
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ModalActions(
-  as:                    js.UndefOr[AsC]                        = js.undefined,
-  actions:               js.UndefOr[List[Button.ButtonProps]]   = js.undefined,
-  child:                 js.UndefOr[VdomNode]                   = js.undefined,
-  className:             js.UndefOr[String]                     = js.undefined,
-  clazz:                 js.UndefOr[Css]                        = js.undefined,
-  content:               js.UndefOr[VdomNode]                   = js.undefined,
-  onActionClickE:        js.UndefOr[ModalActions.OnActionClick] = js.undefined,
-  onActionClick:         js.UndefOr[Callback]                   = js.undefined,
-  override val children: CtorType.ChildrenArgs                  = Seq.empty
-) extends GenericComponentPC[ModalActions.ModalActionsProps, ModalActions] {
-  override protected def cprops = ModalActions.props(this)
-  @inline def renderWith        = ModalActions.component(ModalActions.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                        = js.undefined,
+  actions:                js.UndefOr[List[Button.ButtonProps]]   = js.undefined,
+  child:                  js.UndefOr[VdomNode]                   = js.undefined,
+  className:              js.UndefOr[String]                     = js.undefined,
+  clazz:                  js.UndefOr[Css]                        = js.undefined,
+  content:                js.UndefOr[VdomNode]                   = js.undefined,
+  onActionClickE:         js.UndefOr[ModalActions.OnActionClick] = js.undefined,
+  onActionClick:          js.UndefOr[Callback]                   = js.undefined,
+  override val modifiers: Seq[TagMod]                            = Seq.empty
+) extends GenericComponentPAC[ModalActions.ModalActionsProps, ModalActions] {
+  override protected def cprops    = ModalActions.props(this)
+  override protected val component = ModalActions.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ModalActions {
@@ -105,6 +105,6 @@ object ModalActions {
   private val component =
     JsComponent[ModalActionsProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): ModalActions =
-    new ModalActions(children = content)
+  def apply(content: TagMod*): ModalActions =
+    new ModalActions(modifiers = content)
 }

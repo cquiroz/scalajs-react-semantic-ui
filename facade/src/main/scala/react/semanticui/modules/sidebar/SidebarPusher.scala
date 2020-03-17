@@ -9,19 +9,19 @@ import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
 import react.semanticui.raw._
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class SidebarPusher(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  dimmed:                js.UndefOr[Boolean]   = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[SidebarPusher.SidebarPusherProps, SidebarPusher] {
-  override protected def cprops = SidebarPusher.props(this)
-  @inline def renderWith        = SidebarPusher.component(SidebarPusher.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  dimmed:                 js.UndefOr[Boolean]  = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[SidebarPusher.SidebarPusherProps, SidebarPusher] {
+  override protected def cprops    = SidebarPusher.props(this)
+  override protected val component = SidebarPusher.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object SidebarPusher {
@@ -67,6 +67,6 @@ object SidebarPusher {
   private val component =
     JsFnComponent[SidebarPusherProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): SidebarPusher =
-    new SidebarPusher(children = content)
+  def apply(content: TagMod*): SidebarPusher =
+    new SidebarPusher(modifiers = content)
 }

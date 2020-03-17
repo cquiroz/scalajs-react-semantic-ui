@@ -13,6 +13,7 @@ import react.semanticui.collections.menu.Menu
 import react.semanticui.collections.menu.MenuItem
 import react.semanticui.collections.grid.Grid
 import react.semanticui._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Pane private (
   pane:     js.UndefOr[TabPane],
@@ -28,21 +29,22 @@ object Pane {
 }
 
 final case class Tab(
-  as:                 js.UndefOr[AsC]                      = js.undefined,
-  defaultActiveIndex: js.UndefOr[JsNumber | String]        = js.undefined,
-  activeIndex:        js.UndefOr[JsNumber | String]        = js.undefined,
-  menu:               js.UndefOr[Menu]                     = js.undefined,
-  menuPosition:       js.UndefOr[TabMenuPosition]          = js.undefined,
-  grid:               js.UndefOr[Grid]                     = js.undefined,
-  onTabChangeE:       js.UndefOr[Tab.OnTabChange]          = js.undefined,
-  onTabChange:        js.UndefOr[Tab.TabProps => Callback] = js.undefined,
-  panes:              List[Pane]                           = Nil,
-  renderActiveOnly:   js.UndefOr[Boolean]                  = js.undefined,
-  vertical:           js.UndefOr[Boolean]                  = js.undefined
-) extends GenericFnComponentP[Tab.TabProps] {
-  override protected def cprops = Tab.props(this)
-  @inline def render =
-    Tab.component(Tab.props(this))
+  as:                     js.UndefOr[AsC]                      = js.undefined,
+  defaultActiveIndex:     js.UndefOr[JsNumber | String]        = js.undefined,
+  activeIndex:            js.UndefOr[JsNumber | String]        = js.undefined,
+  menu:                   js.UndefOr[Menu]                     = js.undefined,
+  menuPosition:           js.UndefOr[TabMenuPosition]          = js.undefined,
+  grid:                   js.UndefOr[Grid]                     = js.undefined,
+  onTabChangeE:           js.UndefOr[Tab.OnTabChange]          = js.undefined,
+  onTabChange:            js.UndefOr[Tab.TabProps => Callback] = js.undefined,
+  panes:                  List[Pane]                           = Nil,
+  renderActiveOnly:       js.UndefOr[Boolean]                  = js.undefined,
+  vertical:               js.UndefOr[Boolean]                  = js.undefined,
+  override val modifiers: Seq[TagMod]                          = Seq.empty
+) extends GenericComponentPA[Tab.TabProps, Tab] {
+  override protected def cprops    = Tab.props(this)
+  override protected val component = Tab.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Tab {

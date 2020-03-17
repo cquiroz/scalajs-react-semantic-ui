@@ -9,29 +9,29 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class DimmerInner(
-  as:                    js.UndefOr[AsC]                        = js.undefined,
-  active:                js.UndefOr[Boolean]                    = js.undefined,
-  child:                 js.UndefOr[VdomNode]                   = js.undefined,
-  className:             js.UndefOr[String]                     = js.undefined,
-  clazz:                 js.UndefOr[Css]                        = js.undefined,
-  content:               js.UndefOr[VdomNode]                   = js.undefined,
-  disabled:              js.UndefOr[Boolean]                    = js.undefined,
-  onClickE:              js.UndefOr[DimmerInner.OnClick]        = js.undefined,
-  onClick:               js.UndefOr[Callback]                   = js.undefined,
-  onClickOutsideE:       js.UndefOr[DimmerInner.OnClickOutside] = js.undefined,
-  onClickOutside:        js.UndefOr[Callback]                   = js.undefined,
-  inverted:              js.UndefOr[Boolean]                    = js.undefined,
-  page:                  js.UndefOr[Boolean]                    = js.undefined,
-  simple:                js.UndefOr[Boolean]                    = js.undefined,
-  verticalAlign:         js.UndefOr[DimmerVerticalAlign]        = js.undefined,
-  override val children: CtorType.ChildrenArgs                  = Seq.empty
-) extends GenericComponentPC[DimmerInner.DimmerInnerProps, DimmerInner] {
-  override protected def cprops = DimmerInner.props(this)
-  @inline def renderWith        = DimmerInner.component(DimmerInner.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                        = js.undefined,
+  active:                 js.UndefOr[Boolean]                    = js.undefined,
+  child:                  js.UndefOr[VdomNode]                   = js.undefined,
+  className:              js.UndefOr[String]                     = js.undefined,
+  clazz:                  js.UndefOr[Css]                        = js.undefined,
+  content:                js.UndefOr[VdomNode]                   = js.undefined,
+  disabled:               js.UndefOr[Boolean]                    = js.undefined,
+  onClickE:               js.UndefOr[DimmerInner.OnClick]        = js.undefined,
+  onClick:                js.UndefOr[Callback]                   = js.undefined,
+  onClickOutsideE:        js.UndefOr[DimmerInner.OnClickOutside] = js.undefined,
+  onClickOutside:         js.UndefOr[Callback]                   = js.undefined,
+  inverted:               js.UndefOr[Boolean]                    = js.undefined,
+  page:                   js.UndefOr[Boolean]                    = js.undefined,
+  simple:                 js.UndefOr[Boolean]                    = js.undefined,
+  verticalAlign:          js.UndefOr[DimmerVerticalAlign]        = js.undefined,
+  override val modifiers: Seq[TagMod]                            = Seq.empty
+) extends GenericComponentPAC[DimmerInner.DimmerInnerProps, DimmerInner] {
+  override protected def cprops    = DimmerInner.props(this)
+  override protected val component = DimmerInner.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object DimmerInner {
@@ -154,6 +154,6 @@ object DimmerInner {
   private val component =
     JsComponent[DimmerInnerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): DimmerInner =
-    new DimmerInner(children = content)
+  def apply(content: TagMod*): DimmerInner =
+    new DimmerInner(modifiers = content)
 }

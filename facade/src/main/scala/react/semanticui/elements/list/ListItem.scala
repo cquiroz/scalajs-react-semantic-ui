@@ -133,11 +133,11 @@ object ListItem {
     p.children    = children.toJs
     p.className   = (className, clazz).toJs
     p.content     = content.toJs
-    p.description = fnToRawOrPropsPC(description)
+    p.description = fnToRawOrPropsPAC(description)
     p.disabled    = disabled
     p.header      = fnToRawOrPropsPAC(header)
-    p.icon        = toRawOrPropsP(icon)
-    p.image       = fnToRawOrPropsPC(image)
+    p.icon        = toRawOrPropsPA(icon)
+    p.image       = fnToRawOrPropsPAC(image)
     p.onClick     = (onClickE, onClick).toJs
     p.value       = value
     p

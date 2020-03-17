@@ -9,22 +9,21 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class DimmerDimmable(
-  as:                    js.UndefOr[AsC]       = js.undefined,
-  blurring:              js.UndefOr[Boolean]   = js.undefined,
-  child:                 js.UndefOr[VdomNode]  = js.undefined,
-  className:             js.UndefOr[String]    = js.undefined,
-  clazz:                 js.UndefOr[Css]       = js.undefined,
-  content:               js.UndefOr[VdomNode]  = js.undefined,
-  dimmed:                js.UndefOr[Boolean]   = js.undefined,
-  override val children: CtorType.ChildrenArgs = Seq.empty
-) extends GenericFnComponentPC[DimmerDimmable.DimmerDimmableProps, DimmerDimmable] {
-  override protected def cprops = DimmerDimmable.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    DimmerDimmable.component(DimmerDimmable.props(this))
+  as:                     js.UndefOr[AsC]      = js.undefined,
+  blurring:               js.UndefOr[Boolean]  = js.undefined,
+  child:                  js.UndefOr[VdomNode] = js.undefined,
+  className:              js.UndefOr[String]   = js.undefined,
+  clazz:                  js.UndefOr[Css]      = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  dimmed:                 js.UndefOr[Boolean]  = js.undefined,
+  override val modifiers: Seq[TagMod]          = Seq.empty
+) extends GenericFnComponentPAC[DimmerDimmable.DimmerDimmableProps, DimmerDimmable] {
+  override protected def cprops    = DimmerDimmable.props(this)
+  override protected val component = DimmerDimmable.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object DimmerDimmable {
@@ -86,6 +85,6 @@ object DimmerDimmable {
   private val component =
     JsFnComponent[DimmerDimmableProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): DimmerDimmable =
-    new DimmerDimmable(children = content)
+  def apply(content: TagMod*): DimmerDimmable =
+    new DimmerDimmable(modifiers = content)
 }

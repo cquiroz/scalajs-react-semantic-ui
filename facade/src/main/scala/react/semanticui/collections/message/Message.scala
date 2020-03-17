@@ -12,38 +12,37 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.icon.Icon.IconProps
 import react.semanticui.elements.icon.IconShorthand
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Message(
-  as:                    js.UndefOr[AsC]                                           = js.undefined,
-  attached:              js.UndefOr[MessageAttached]                               = js.undefined,
-  child:                 js.UndefOr[VdomNode]                                      = js.undefined,
-  className:             js.UndefOr[String]                                        = js.undefined,
-  clazz:                 js.UndefOr[Css]                                           = js.undefined,
-  color:                 js.UndefOr[SemanticColor]                                 = js.undefined,
-  compact:               js.UndefOr[Boolean]                                       = js.undefined,
-  content:               js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined,
-  error:                 js.UndefOr[Boolean]                                       = js.undefined,
-  floating:              js.UndefOr[Boolean]                                       = js.undefined,
-  header:                js.UndefOr[VdomNode | MessageHeader.MessageHeaderProps]   = js.undefined,
-  hidden:                js.UndefOr[Boolean]                                       = js.undefined,
-  icon:                  js.UndefOr[IconShorthand]                                 = js.undefined,
-  info:                  js.UndefOr[Boolean]                                       = js.undefined,
-  list:                  js.UndefOr[Seq[VdomNode] | MessageList.MessageListProps]  = js.undefined,
-  negative:              js.UndefOr[Boolean]                                       = js.undefined,
-  onDismissE:            js.UndefOr[Message.OnDismiss]                             = js.undefined,
-  onDismiss:             js.UndefOr[Callback]                                      = js.undefined,
-  positive:              js.UndefOr[Boolean]                                       = js.undefined,
-  size:                  js.UndefOr[MessageSize]                                   = js.undefined,
-  success:               js.UndefOr[Boolean]                                       = js.undefined,
-  visible:               js.UndefOr[Boolean]                                       = js.undefined,
-  warning:               js.UndefOr[Boolean]                                       = js.undefined,
-  override val children: CtorType.ChildrenArgs                                     = Seq.empty
-) extends GenericComponentPC[Message.MessageProps, Message] {
-  override protected def cprops = Message.props(this)
-  @inline def renderWith =
-    Message.component(Message.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  as:                     js.UndefOr[AsC]                                           = js.undefined,
+  attached:               js.UndefOr[MessageAttached]                               = js.undefined,
+  child:                  js.UndefOr[VdomNode]                                      = js.undefined,
+  className:              js.UndefOr[String]                                        = js.undefined,
+  clazz:                  js.UndefOr[Css]                                           = js.undefined,
+  color:                  js.UndefOr[SemanticColor]                                 = js.undefined,
+  compact:                js.UndefOr[Boolean]                                       = js.undefined,
+  content:                js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined,
+  error:                  js.UndefOr[Boolean]                                       = js.undefined,
+  floating:               js.UndefOr[Boolean]                                       = js.undefined,
+  header:                 js.UndefOr[VdomNode | MessageHeader.MessageHeaderProps]   = js.undefined,
+  hidden:                 js.UndefOr[Boolean]                                       = js.undefined,
+  icon:                   js.UndefOr[IconShorthand]                                 = js.undefined,
+  info:                   js.UndefOr[Boolean]                                       = js.undefined,
+  list:                   js.UndefOr[Seq[VdomNode] | MessageList.MessageListProps]  = js.undefined,
+  negative:               js.UndefOr[Boolean]                                       = js.undefined,
+  onDismissE:             js.UndefOr[Message.OnDismiss]                             = js.undefined,
+  onDismiss:              js.UndefOr[Callback]                                      = js.undefined,
+  positive:               js.UndefOr[Boolean]                                       = js.undefined,
+  size:                   js.UndefOr[MessageSize]                                   = js.undefined,
+  success:                js.UndefOr[Boolean]                                       = js.undefined,
+  visible:                js.UndefOr[Boolean]                                       = js.undefined,
+  warning:                js.UndefOr[Boolean]                                       = js.undefined,
+  override val modifiers: Seq[TagMod]                                               = Seq.empty
+) extends GenericComponentPAC[Message.MessageProps, Message] {
+  override protected def cprops    = Message.props(this)
+  override protected val component = Message.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Message {
@@ -213,6 +212,6 @@ object Message {
   private val component =
     JsComponent[MessageProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): Message =
-    new Message(children = content)
+  def apply(content: TagMod*): Message =
+    new Message(modifiers = content)
 }

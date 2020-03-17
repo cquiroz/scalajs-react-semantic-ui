@@ -6,15 +6,18 @@ import japgolly.scalajs.react._
 import react.common._
 import react.semanticui._
 import react.common.style._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Flag(
-  as:        js.UndefOr[AsC]    = js.undefined,
-  className: js.UndefOr[String] = js.undefined,
-  clazz:     js.UndefOr[Css]    = js.undefined,
-  name:      js.UndefOr[String] = js.undefined
-) extends GenericComponentP[Flag.FlagProps] {
-  override protected def cprops = Flag.props(this)
-  @inline def render            = Flag.component(Flag.props(this))
+  as:                     js.UndefOr[AsC]    = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css]    = js.undefined,
+  name:                   js.UndefOr[String] = js.undefined,
+  override val modifiers: Seq[TagMod]        = Seq.empty
+) extends GenericComponentPA[Flag.FlagProps, Flag] {
+  override protected def cprops    = Flag.props(this)
+  override protected val component = Flag.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Flag {

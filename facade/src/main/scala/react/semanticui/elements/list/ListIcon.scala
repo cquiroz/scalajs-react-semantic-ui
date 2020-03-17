@@ -8,29 +8,32 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.icon._
 import scala.scalajs.js
 import js.annotation._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class ListIcon(
-  as:            js.UndefOr[AsC]                       = js.undefined,
-  bordered:      js.UndefOr[Boolean]                   = js.undefined,
-  circular:      js.UndefOr[Boolean]                   = js.undefined,
-  className:     js.UndefOr[String]                    = js.undefined,
-  clazz:         js.UndefOr[Css]                       = js.undefined,
-  color:         js.UndefOr[SemanticColor]             = js.undefined,
-  corner:        js.UndefOr[IconCorner]                = js.undefined,
-  disabled:      js.UndefOr[Boolean]                   = js.undefined,
-  fitted:        js.UndefOr[Boolean]                   = js.undefined,
-  flipped:       js.UndefOr[IconFlip]                  = js.undefined,
-  inverted:      js.UndefOr[Boolean]                   = js.undefined,
-  link:          js.UndefOr[Boolean]                   = js.undefined,
-  loading:       js.UndefOr[Boolean]                   = js.undefined,
-  name:          js.UndefOr[suiraw.SemanticICONS]      = js.undefined,
-  rotated:       js.UndefOr[IconRotated]               = js.undefined,
-  size:          js.UndefOr[SemanticSize]              = js.undefined,
-  ariaLabel:     js.UndefOr[String]                    = js.undefined,
-  verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
-) extends GenericComponentP[ListIcon.ListIconProps] {
-  override protected def cprops = ListIcon.props(this)
-  @inline def render            = ListIcon.component(ListIcon.props(this))
+  as:                     js.UndefOr[AsC]                       = js.undefined,
+  bordered:               js.UndefOr[Boolean]                   = js.undefined,
+  circular:               js.UndefOr[Boolean]                   = js.undefined,
+  className:              js.UndefOr[String]                    = js.undefined,
+  clazz:                  js.UndefOr[Css]                       = js.undefined,
+  color:                  js.UndefOr[SemanticColor]             = js.undefined,
+  corner:                 js.UndefOr[IconCorner]                = js.undefined,
+  disabled:               js.UndefOr[Boolean]                   = js.undefined,
+  fitted:                 js.UndefOr[Boolean]                   = js.undefined,
+  flipped:                js.UndefOr[IconFlip]                  = js.undefined,
+  inverted:               js.UndefOr[Boolean]                   = js.undefined,
+  link:                   js.UndefOr[Boolean]                   = js.undefined,
+  loading:                js.UndefOr[Boolean]                   = js.undefined,
+  name:                   js.UndefOr[suiraw.SemanticICONS]      = js.undefined,
+  rotated:                js.UndefOr[IconRotated]               = js.undefined,
+  size:                   js.UndefOr[SemanticSize]              = js.undefined,
+  ariaLabel:              js.UndefOr[String]                    = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod]                           = Seq.empty
+) extends GenericComponentPA[ListIcon.ListIconProps, ListIcon] {
+  override protected def cprops    = ListIcon.props(this)
+  override protected val component = ListIcon.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ListIcon {

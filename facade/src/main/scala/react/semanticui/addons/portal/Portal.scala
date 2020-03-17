@@ -7,6 +7,7 @@ import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common._
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class Portal(
   child:                    js.UndefOr[VdomNode]         = js.undefined,
@@ -33,12 +34,11 @@ final case class Portal(
   openOnTriggerFocus:       js.UndefOr[Boolean]          = js.undefined,
   openOnTriggerMouseEnter:  js.UndefOr[Boolean]          = js.undefined,
   trigger:                  js.UndefOr[VdomNode]         = js.undefined,
-  override val children:    CtorType.ChildrenArgs        = Seq.empty
-) extends GenericComponentPC[Portal.PortalProps, Portal] {
-  override protected def cprops = Portal.props(this)
-  @inline def renderWith        = Portal.component(Portal.props(this))
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
+  override val modifiers:   Seq[TagMod]                  = Seq.empty
+) extends GenericComponentPAC[Portal.PortalProps, Portal] {
+  override protected def cprops    = Portal.props(this)
+  override protected val component = Portal.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object Portal {
@@ -235,6 +235,6 @@ object Portal {
   private val component =
     JsComponent[PortalProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): Portal =
-    new Portal(children = content)
+  def apply(content: TagMod*): Portal =
+    new Portal(modifiers = content)
 }

@@ -9,27 +9,26 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
+import japgolly.scalajs.react.vdom.TagMod
 
 final case class GridRow(
-  as:                    js.UndefOr[AsC]                       = js.undefined,
-  centered:              js.UndefOr[Boolean]                   = js.undefined,
-  child:                 js.UndefOr[VdomNode]                  = js.undefined,
-  className:             js.UndefOr[String]                    = js.undefined,
-  clazz:                 js.UndefOr[Css]                       = js.undefined,
-  color:                 js.UndefOr[SemanticColor]             = js.undefined,
-  divided:               js.UndefOr[Boolean]                   = js.undefined,
-  only:                  js.UndefOr[GridOnly]                  = js.undefined,
-  reversed:              js.UndefOr[GridReversed]              = js.undefined,
-  stretched:             js.UndefOr[Boolean]                   = js.undefined,
-  textAlign:             js.UndefOr[SemanticTextAlignment]     = js.undefined,
-  verticalAlign:         js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  override val children: CtorType.ChildrenArgs                 = Seq.empty
-) extends GenericFnComponentPC[GridRow.GridRowProps, GridRow] {
-  override protected def cprops = GridRow.props(this)
-  override def withChildren(children: CtorType.ChildrenArgs) =
-    copy(children = children)
-  @inline def renderWith =
-    GridRow.component(GridRow.props(this))
+  as:                     js.UndefOr[AsC]                       = js.undefined,
+  centered:               js.UndefOr[Boolean]                   = js.undefined,
+  child:                  js.UndefOr[VdomNode]                  = js.undefined,
+  className:              js.UndefOr[String]                    = js.undefined,
+  clazz:                  js.UndefOr[Css]                       = js.undefined,
+  color:                  js.UndefOr[SemanticColor]             = js.undefined,
+  divided:                js.UndefOr[Boolean]                   = js.undefined,
+  only:                   js.UndefOr[GridOnly]                  = js.undefined,
+  reversed:               js.UndefOr[GridReversed]              = js.undefined,
+  stretched:              js.UndefOr[Boolean]                   = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment]     = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod]                           = Seq.empty
+) extends GenericFnComponentPAC[GridRow.GridRowProps, GridRow] {
+  override protected def cprops    = GridRow.props(this)
+  override protected val component = GridRow.component
+  override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object GridRow {
@@ -130,6 +129,6 @@ object GridRow {
   private val component =
     JsFnComponent[GridRowProps, Children.Varargs](RawComponent)
 
-  def apply(content: VdomNode*): GridRow =
-    new GridRow(children = content)
+  def apply(content: TagMod*): GridRow =
+    new GridRow(modifiers = content)
 }
