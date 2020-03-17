@@ -11,7 +11,8 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.elements.icon.IconShorthand
+
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
 
@@ -26,7 +27,7 @@ final case class Input(
   error:                  js.UndefOr[Boolean]                                 = js.undefined,
   fluid:                  js.UndefOr[Boolean]                                 = js.undefined,
   focus:                  js.UndefOr[Boolean]                                 = js.undefined,
-  icon:                   js.UndefOr[IconShorthand]                           = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]]                       = js.undefined,
   iconPosition:           js.UndefOr[IconPosition]                            = js.undefined,
   input:                  js.UndefOr[VdomNode]                                = js.undefined,
   inverted:               js.UndefOr[Boolean]                                 = js.undefined,
@@ -65,7 +66,7 @@ object Input {
     var as: js.UndefOr[AsT] = js.native
 
     /** An Input can be formatted to alert the user to an action they may perform. */
-    var action: js.UndefOr[Boolean | suiraw.SemanticShorthandItem[js.Any]] = js.native
+    var action: js.UndefOr[Boolean | suiraw.SemanticShorthandItemS[js.Any]] = js.native
 
     /** An action can appear along side an Input on the left or right. */
     var actionPosition: js.UndefOr[String] = js.native

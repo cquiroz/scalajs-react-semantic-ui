@@ -96,6 +96,7 @@ object FormGroup {
     p.as          = as.toJs
     p.children    = child.toJs
     p.className   = (className, clazz).toJs
+    p.content     = content.toJs
     p.grouped     = grouped
     p.inline      = inline
     p.unstackable = unstackable

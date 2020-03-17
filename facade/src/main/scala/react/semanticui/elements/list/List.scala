@@ -3,7 +3,6 @@ package react.semanticui.elements.list
 import scala.scalajs.js
 import js.annotation._
 import js.|
-import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
@@ -13,7 +12,6 @@ import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui._
-import scala.collection.immutable.{ List => SList }
 
 final case class List(
   as:                     js.UndefOr[AsC]                       = js.undefined,
@@ -28,7 +26,7 @@ final case class List(
   floated:                js.UndefOr[SemanticFloat]             = js.undefined,
   horizontal:             js.UndefOr[Boolean]                   = js.undefined,
   inverted:               js.UndefOr[Boolean]                   = js.undefined,
-  items:                  js.UndefOr[SList[ListItem]]           = js.undefined,
+  items:                  js.UndefOr[Seq[ShorthandS[ListItem]]] = js.undefined,
   onItemClickE:           js.UndefOr[List.OnItemClick]          = js.undefined,
   onItemClick:            js.UndefOr[Callback]                  = js.undefined,
   link:                   js.UndefOr[Boolean]                   = js.undefined,
@@ -93,7 +91,7 @@ object List {
     var inverted: js.UndefOr[Boolean] = js.native
 
     /** Shorthand array of props for ListItem. */
-    var items: js.UndefOr[js.Array[suiraw.SemanticShorthandItem[ListItem.ListItemProps]]] =
+    var items: js.UndefOr[js.Array[suiraw.SemanticShorthandItemS[ListItem.ListItemProps]]] =
       js.native
 
     /** A list can be specially formatted for navigation links. */
@@ -129,23 +127,18 @@ object List {
     q: List
   ): ListProps = {
     val p = q.as.toJsObject[ListProps]
-    p.as         = q.as.toJs
-    p.animated   = q.animated
-    p.bulleted   = q.bulleted
-    p.celled     = q.celled
-    p.children   = q.child.toJs
-    p.className  = (q.className, q.clazz).toJs
-    p.content    = q.content.toJs
-    p.divided    = q.divided
-    p.floated    = q.floated.toJs
-    p.horizontal = q.horizontal
-    p.inverted   = q.inverted
-    p.items = q.items.map(x =>
-      x.map { (y: ListItem) =>
-        val k = y.props
-        k: suiraw.SemanticShorthandItem[ListItem.ListItemProps]
-      }.toJSArray
-    )
+    p.as            = q.as.toJs
+    p.animated      = q.animated
+    p.bulleted      = q.bulleted
+    p.celled        = q.celled
+    p.children      = q.child.toJs
+    p.className     = (q.className, q.clazz).toJs
+    p.content       = q.content.toJs
+    p.divided       = q.divided
+    p.floated       = q.floated.toJs
+    p.horizontal    = q.horizontal
+    p.inverted      = q.inverted
+    p.items         = q.items.toJs
     p.onItemClick   = (q.onItemClickE, q.onItemClick).toJs
     p.link          = q.link
     p.ordered       = q.ordered
@@ -159,6 +152,6 @@ object List {
   private val component =
     JsComponent[ListProps, Children.Varargs, Null](RawComponent)
 
-  def apply(items: SList[ListItem]): List = new List(items = items)
+  def apply(items: ShorthandS[ListItem]*): List = new List(items = items)
 
 }

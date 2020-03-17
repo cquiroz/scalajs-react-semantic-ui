@@ -3,7 +3,7 @@ package react.semanticui.elements.image
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon._
 
 object ImageTests extends TestSuite {
   val tests = Tests {
@@ -15,7 +15,9 @@ object ImageTests extends TestSuite {
       }
     }
     test("renderInside") {
-      val image = <.div(Image(src = "http://fig1.jpg", className = "draggable"))
+      val image = <.div(
+        Image(src = "http://fig1.jpg", className = "draggable")
+      )
       ReactTestUtils.withNewBodyElement { mountNode =>
         image.renderIntoDOM(mountNode)
         assert(

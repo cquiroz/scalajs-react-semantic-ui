@@ -4,7 +4,6 @@ import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.Callback
 import react.common._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.elements.icon.Icon.IconProps
 import react.semanticui.elements.icon.Icon
 import react.semanticui.sizes._
 import react.semanticui.colors._
@@ -125,13 +124,13 @@ package toasts {
   @js.native
   trait ToastOptions extends js.Object {
     var title: String
-    var description: js.UndefOr[String]                           = js.native
-    var `type`: js.UndefOr[String]                                = js.native
-    var icon: js.UndefOr[suiraw.SemanticShorthandItem[IconProps]] = js.native
-    var time: js.UndefOr[JsNumber]                                = js.native
-    var animation: js.UndefOr[String]                             = js.native
-    var size: js.UndefOr[suiraw.SemanticSIZES]                    = js.native
-    var color: js.UndefOr[suiraw.SemanticCOLORS]                  = js.native
+    var description: js.UndefOr[String]                                 = js.native
+    var `type`: js.UndefOr[String]                                      = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemS[Icon.IconProps]] = js.native
+    var time: js.UndefOr[JsNumber]                                      = js.native
+    var animation: js.UndefOr[String]                                   = js.native
+    var size: js.UndefOr[suiraw.SemanticSIZES]                          = js.native
+    var color: js.UndefOr[suiraw.SemanticCOLORS]                        = js.native
   }
 
   object ToastOptions {
@@ -139,7 +138,7 @@ package toasts {
       title:       String,
       description: js.UndefOr[String] = js.undefined,
       tpe:         js.UndefOr[ToastType] = js.undefined,
-      icon:        js.UndefOr[Icon] = js.undefined,
+      icon:        js.UndefOr[ShorthandS[Icon]] = js.undefined,
       time:        js.UndefOr[Dismissal] = js.undefined,
       animation:   js.UndefOr[SemanticAnimation] = js.undefined,
       size:        js.UndefOr[SemanticSize] = js.undefined,
@@ -150,7 +149,7 @@ package toasts {
       p.title       = title
       p.description = description
       p.`type`      = tpe.toJs
-      p.icon        = icon.map(_.props)
+      p.icon        = icon.toJs
       p.time = time.map(_ match {
         case Dismissal.User  => 0
         case Dismissal.On(t) => t.toMillis.toDouble

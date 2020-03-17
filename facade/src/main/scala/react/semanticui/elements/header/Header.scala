@@ -10,7 +10,8 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.elements.icon.IconShorthand
+
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
 
@@ -26,7 +27,7 @@ final case class Header(
   disabled:               js.UndefOr[Boolean]               = js.undefined,
   dividing:               js.UndefOr[Boolean]               = js.undefined,
   floated:                js.UndefOr[SemanticFloat]         = js.undefined,
-  icon:                   js.UndefOr[IconShorthand]         = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
   image:                  js.UndefOr[Boolean]               = js.undefined,
   inverted:               js.UndefOr[Boolean]               = js.undefined,
   size:                   js.UndefOr[SemanticSize]          = js.undefined,
@@ -101,7 +102,7 @@ object Header {
     var sub: js.UndefOr[Boolean] = js.native
 
     /** Shorthand for Header.Subheader. */
-    var subheader: js.UndefOr[suiraw.SemanticShorthandItem[HeaderSubheader.HeaderSubheaderProps]] =
+    var subheader: js.UndefOr[suiraw.SemanticShorthandItemS[HeaderSubheader.HeaderSubheaderProps]] =
       js.native
 
     /** Align header content. */
@@ -142,7 +143,7 @@ object Header {
     disabled:  js.UndefOr[Boolean]               = js.undefined,
     dividing:  js.UndefOr[Boolean]               = js.undefined,
     floated:   js.UndefOr[SemanticFloat]         = js.undefined,
-    icon:      js.UndefOr[IconShorthand]         = js.undefined,
+    icon:      js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
     image:     js.UndefOr[Boolean]               = js.undefined,
     inverted:  js.UndefOr[Boolean]               = js.undefined,
     size:      js.UndefOr[SemanticSize]          = js.undefined,

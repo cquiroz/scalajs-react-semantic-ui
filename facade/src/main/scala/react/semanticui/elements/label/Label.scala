@@ -9,7 +9,8 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.elements.icon.IconShorthand
+
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
 
@@ -29,14 +30,14 @@ final case class Label(
   empty:                  js.UndefOr[Boolean]                  = js.undefined,
   floating:               js.UndefOr[Boolean]                  = js.undefined,
   horizontal:             js.UndefOr[Boolean]                  = js.undefined,
-  icon:                   js.UndefOr[IconShorthand]            = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]]        = js.undefined,
   image:                  js.UndefOr[Boolean]                  = js.undefined,
   onClickE:               js.UndefOr[Label.OnClick]            = js.undefined,
   onClick:                js.UndefOr[Callback]                 = js.undefined,
   onRemove:               js.UndefOr[Label.OnClick]            = js.undefined,
   pointing:               js.UndefOr[LabelPointing]            = js.undefined,
   prompt:                 js.UndefOr[Boolean]                  = js.undefined,
-  removeIcon:             js.UndefOr[IconShorthand]            = js.undefined,
+  removeIcon:             js.UndefOr[ShorthandSB[Icon]]        = js.undefined,
   ribbon:                 js.UndefOr[LabelRibbon]              = js.undefined,
   size:                   js.UndefOr[SemanticSize]             = js.undefined,
   tag:                    js.UndefOr[Boolean]                  = js.undefined,
@@ -72,7 +73,7 @@ object Label {
     var color: js.UndefOr[suiraw.SemanticCOLORS]             = js.native
     var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
     var corner: js.UndefOr[Boolean | String]                 = js.native
-    var detail: js.UndefOr[suiraw.SemanticShorthandItem[LabelDetail.LabelDetailProps]] =
+    var detail: js.UndefOr[suiraw.SemanticShorthandItemS[LabelDetail.LabelDetailProps]] =
       js.native
     var empty: js.UndefOr[js.Any]       = js.native
     var floating: js.UndefOr[Boolean]   = js.native

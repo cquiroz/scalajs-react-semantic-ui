@@ -1,7 +1,6 @@
 package react.semanticui.collections.message
 
 import scala.scalajs.js
-import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
@@ -12,12 +11,12 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class MessageContent(
-  as:                     js.UndefOr[AsC]                                           = js.undefined,
-  child:                  js.UndefOr[VdomNode]                                      = js.undefined,
-  className:              js.UndefOr[String]                                        = js.undefined,
-  clazz:                  js.UndefOr[Css]                                           = js.undefined,
-  content:                js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined,
-  override val modifiers: Seq[TagMod]                                               = Seq.empty
+  as:                     js.UndefOr[AsC]                        = js.undefined,
+  child:                  js.UndefOr[VdomNode]                   = js.undefined,
+  className:              js.UndefOr[String]                     = js.undefined,
+  clazz:                  js.UndefOr[Css]                        = js.undefined,
+  content:                js.UndefOr[ShorthandS[MessageContent]] = js.undefined,
+  override val modifiers: Seq[TagMod]                            = Seq.empty
 ) extends GenericComponentPAC[MessageContent.MessageContentProps, MessageContent] {
   override protected def cprops    = MessageContent.props(this)
   override protected val component = MessageContent.component
@@ -49,7 +48,7 @@ object MessageContent {
     var className: js.UndefOr[String] = js.undefined
 
     /** Shorthand for primary content. */
-    var content: js.UndefOr[suiraw.SemanticShorthandItem[MessageContent.MessageContentProps]] =
+    var content: js.UndefOr[suiraw.SemanticShorthandItemS[MessageContent.MessageContentProps]] =
       js.undefined
   }
 
@@ -63,23 +62,23 @@ object MessageContent {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]                                           = js.undefined,
-    children:  js.UndefOr[VdomNode]                                      = js.undefined,
-    className: js.UndefOr[String]                                        = js.undefined,
-    clazz:     js.UndefOr[Css]                                           = js.undefined,
-    content:   js.UndefOr[VdomNode | MessageContent.MessageContentProps] = js.undefined
+    as:        js.UndefOr[AsC]                        = js.undefined,
+    children:  js.UndefOr[VdomNode]                   = js.undefined,
+    className: js.UndefOr[String]                     = js.undefined,
+    clazz:     js.UndefOr[Css]                        = js.undefined,
+    content:   js.UndefOr[ShorthandS[MessageContent]] = js.undefined
   ): MessageContentProps = {
     val p = as.toJsObject[MessageContentProps]
     p.as        = as.toJs
     p.children  = children.toJs
     p.className = (className, clazz).toJs
-    p.content   = content.toRaw
+    p.content   = content.toJs
     p
   }
 
   private val component =
     JsComponent[MessageContentProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): MessageContent =
-    new MessageContent(modifiers = content)
+  def apply(modifiers: TagMod*): MessageContent =
+    new MessageContent(modifiers = modifiers)
 }

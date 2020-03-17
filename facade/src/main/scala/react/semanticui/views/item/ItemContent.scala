@@ -2,7 +2,6 @@ package react.semanticui.views.item
 
 import scala.scalajs.js
 import js.annotation._
-import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.vdom.TagMod
@@ -13,17 +12,17 @@ import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 final case class ItemContent(
-  as:                     js.UndefOr[AsC]                                             = js.undefined,
-  child:                  js.UndefOr[VdomNode]                                        = js.undefined,
-  className:              js.UndefOr[String]                                          = js.undefined,
-  clazz:                  js.UndefOr[Css]                                             = js.undefined,
-  content:                js.UndefOr[VdomNode]                                        = js.undefined,
-  description:            js.UndefOr[VdomNode | ItemDescription.ItemDescriptionProps] = js.undefined,
-  extra:                  js.UndefOr[VdomNode | ItemExtra.ItemExtraProps]             = js.undefined,
-  header:                 js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps]           = js.undefined,
-  meta:                   js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined,
-  verticalAlign:          js.UndefOr[SemanticVerticalAlignment]                       = js.undefined,
-  override val modifiers: Seq[TagMod]                                                 = Seq.empty
+  as:                     js.UndefOr[AsC]                         = js.undefined,
+  child:                  js.UndefOr[VdomNode]                    = js.undefined,
+  className:              js.UndefOr[String]                      = js.undefined,
+  clazz:                  js.UndefOr[Css]                         = js.undefined,
+  content:                js.UndefOr[VdomNode]                    = js.undefined,
+  description:            js.UndefOr[ShorthandS[ItemDescription]] = js.undefined,
+  extra:                  js.UndefOr[ShorthandS[ItemExtra]]       = js.undefined,
+  header:                 js.UndefOr[ShorthandS[ItemHeader]]      = js.undefined,
+  meta:                   js.UndefOr[ShorthandS[ItemMeta]]        = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment]   = js.undefined,
+  override val modifiers: Seq[TagMod]                             = Seq.empty
 ) extends GenericFnComponentPAC[ItemContent.ItemContentProps, ItemContent] {
   override protected def cprops    = ItemContent.props(this)
   override protected val component = ItemContent.component
@@ -59,16 +58,16 @@ object ItemContent {
 
     /** Shorthand for ItemDescription component. */
     var description
-      : js.UndefOr[suiraw.SemanticShorthandItem[ItemDescription.ItemDescriptionProps]] = js.native
+      : js.UndefOr[suiraw.SemanticShorthandItemS[ItemDescription.ItemDescriptionProps]] = js.native
 
     /** Shorthand for ItemExtra component. */
-    var extra: js.UndefOr[suiraw.SemanticShorthandItem[ItemExtra.ItemExtraProps]] = js.native
+    var extra: js.UndefOr[suiraw.SemanticShorthandItemS[ItemExtra.ItemExtraProps]] = js.native
 
     /** Shorthand for ItemHeader component. */
-    var header: js.UndefOr[suiraw.SemanticShorthandItem[ItemHeader.ItemHeaderProps]] = js.native
+    var header: js.UndefOr[suiraw.SemanticShorthandItemS[ItemHeader.ItemHeaderProps]] = js.native
 
     /** Shorthand for ItemMeta component. */
-    var meta: js.UndefOr[suiraw.SemanticShorthandItem[ItemMeta.ItemMetaProps]] = js.native
+    var meta: js.UndefOr[suiraw.SemanticShorthandItemS[ItemMeta.ItemMetaProps]] = js.native
 
     /** Content can specify its vertical alignment. */
     var verticalAlign: js.UndefOr[suiraw.SemanticVERTICALALIGNMENTS] = js.native
@@ -87,26 +86,26 @@ object ItemContent {
              q.verticalAlign)
 
   def rawprops(
-    as:            js.UndefOr[AsC]                                             = js.undefined,
-    children:      js.UndefOr[VdomNode]                                        = js.undefined,
-    className:     js.UndefOr[String]                                          = js.undefined,
-    clazz:         js.UndefOr[Css]                                             = js.undefined,
-    content:       js.UndefOr[VdomNode]                                        = js.undefined,
-    description:   js.UndefOr[VdomNode | ItemDescription.ItemDescriptionProps] = js.undefined,
-    extra:         js.UndefOr[VdomNode | ItemExtra.ItemExtraProps]             = js.undefined,
-    header:        js.UndefOr[VdomNode | ItemHeader.ItemHeaderProps]           = js.undefined,
-    meta:          js.UndefOr[VdomNode | ItemMeta.ItemMetaProps]               = js.undefined,
-    verticalAlign: js.UndefOr[SemanticVerticalAlignment]                       = js.undefined
+    as:            js.UndefOr[AsC]                         = js.undefined,
+    children:      js.UndefOr[VdomNode]                    = js.undefined,
+    className:     js.UndefOr[String]                      = js.undefined,
+    clazz:         js.UndefOr[Css]                         = js.undefined,
+    content:       js.UndefOr[VdomNode]                    = js.undefined,
+    description:   js.UndefOr[ShorthandS[ItemDescription]] = js.undefined,
+    extra:         js.UndefOr[ShorthandS[ItemExtra]]       = js.undefined,
+    header:        js.UndefOr[ShorthandS[ItemHeader]]      = js.undefined,
+    meta:          js.UndefOr[ShorthandS[ItemMeta]]        = js.undefined,
+    verticalAlign: js.UndefOr[SemanticVerticalAlignment]   = js.undefined
   ): ItemContentProps = {
     val p = as.toJsObject[ItemContentProps]
     p.as            = as.toJs
     p.children      = children.toJs
     p.className     = (className, clazz).toJs
     p.content       = content.toJs
-    p.description   = description.toRaw
-    p.extra         = extra.toRaw
-    p.header        = header.toRaw
-    p.meta          = meta.toRaw
+    p.description   = description.toJs
+    p.extra         = extra.toJs
+    p.header        = header.toJs
+    p.meta          = meta.toJs
     p.verticalAlign = verticalAlign.toJs
     p
   }

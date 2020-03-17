@@ -1,7 +1,6 @@
 package react.semanticui.collections.form
 
 import scala.scalajs.js
-import js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
@@ -14,19 +13,20 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class FormField(
-  as:                     js.UndefOr[AsC]             = js.undefined,
-  child:                  js.UndefOr[VdomNode]        = js.undefined,
-  className:              js.UndefOr[String]          = js.undefined,
-  clazz:                  js.UndefOr[Css]             = js.undefined,
-  content:                js.UndefOr[VdomNode]        = js.undefined,
-  disabled:               js.UndefOr[Boolean]         = js.undefined,
-  error:                  js.UndefOr[Label]           = js.undefined,
-  inline:                 js.UndefOr[Boolean]         = js.undefined,
-  label:                  js.UndefOr[Label]           = js.undefined,
-  required:               js.UndefOr[Boolean | Label] = js.undefined,
-  tpe:                    js.UndefOr[String]          = js.undefined,
-  width:                  js.UndefOr[SemanticWidth]   = js.undefined,
-  override val modifiers: Seq[TagMod]                 = Seq.empty
+  as:                     js.UndefOr[AsC]                = js.undefined,
+  child:                  js.UndefOr[VdomNode]           = js.undefined,
+  className:              js.UndefOr[String]             = js.undefined,
+  clazz:                  js.UndefOr[Css]                = js.undefined,
+  content:                js.UndefOr[VdomNode]           = js.undefined,
+  control:                js.UndefOr[String]             = js.undefined,
+  disabled:               js.UndefOr[Boolean]            = js.undefined,
+  error:                  js.UndefOr[ShorthandB[Label]]  = js.undefined,
+  inline:                 js.UndefOr[Boolean]            = js.undefined,
+  label:                  js.UndefOr[ShorthandS[String]] = js.undefined,
+  required:               js.UndefOr[Boolean]            = js.undefined,
+  tpe:                    js.UndefOr[String]             = js.undefined,
+  width:                  js.UndefOr[SemanticWidth]      = js.undefined,
+  override val modifiers: Seq[TagMod]                    = Seq.empty
 ) extends GenericComponentPAC[FormField.FormFieldProps, FormField] {
   override protected def cprops    = FormField.props(this)
   override protected val component = FormField.component
@@ -66,21 +66,22 @@ object FormField {
       * Mutually exclusive with children.
       */
     // control?: any
+    var control: js.UndefOr[String]
 
     /** Individual fields may be disabled. */
     var disabled: js.UndefOr[Boolean] = js.native
 
     /** Individual fields may display an error state along with a message. */
-    var error: js.UndefOr[Boolean | suiraw.SemanticShorthandItem[Label.LabelProps]] = js.native
+    var error: js.UndefOr[suiraw.SemanticShorthandItemB[Label.LabelProps]] = js.native
 
     /** A field can have its label next to instead of above it. */
     var inline: js.UndefOr[Boolean] = js.native
 
     /** Mutually exclusive with children. */
-    var label: js.UndefOr[suiraw.SemanticShorthandItem[Label.LabelProps]] = js.native
+    var label: js.UndefOr[suiraw.SemanticShorthandItemS[Label.LabelProps]] = js.native
 
     /** A field can show that input is mandatory.  Requires a label. */
-    var required: js.UndefOr[Boolean | suiraw.SemanticShorthandItem[Label.LabelProps]] = js.native
+    var required: js.UndefOr[Boolean] = js.native
 
     /** Passed to the control component (i.e. <input type='password' />) */
     var `type`: js.UndefOr[String] = js.native
@@ -96,6 +97,7 @@ object FormField {
       q.className,
       q.clazz,
       q.content,
+      q.control,
       q.disabled,
       q.error,
       q.inline,
@@ -106,41 +108,39 @@ object FormField {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]             = js.undefined,
-    child:     js.UndefOr[VdomNode]        = js.undefined,
-    className: js.UndefOr[String]          = js.undefined,
-    clazz:     js.UndefOr[Css]             = js.undefined,
-    content:   js.UndefOr[VdomNode]        = js.undefined,
-    disabled:  js.UndefOr[Boolean]         = js.undefined,
-    error:     js.UndefOr[Label]           = js.undefined,
-    inline:    js.UndefOr[Boolean]         = js.undefined,
-    label:     js.UndefOr[Label]           = js.undefined,
-    required:  js.UndefOr[Boolean | Label] = js.undefined,
-    `type`:    js.UndefOr[String]          = js.undefined,
-    width:     js.UndefOr[SemanticWidth]   = js.undefined
+    as:        js.UndefOr[AsC]               = js.undefined,
+    child:     js.UndefOr[VdomNode]          = js.undefined,
+    className: js.UndefOr[String]            = js.undefined,
+    clazz:     js.UndefOr[Css]               = js.undefined,
+    content:   js.UndefOr[VdomNode]          = js.undefined,
+    control:   js.UndefOr[String]            = js.undefined,
+    disabled:  js.UndefOr[Boolean]           = js.undefined,
+    error:     js.UndefOr[ShorthandB[Label]] = js.undefined,
+    inline:    js.UndefOr[Boolean]           = js.undefined,
+    label:     js.UndefOr[ShorthandS[Label]] = js.undefined,
+    required:  js.UndefOr[Boolean]           = js.undefined,
+    tpe:       js.UndefOr[String]            = js.undefined,
+    width:     js.UndefOr[SemanticWidth]     = js.undefined
   ): FormFieldProps = {
     val p = as.toJsObject[FormFieldProps]
     p.as        = as.toJs
     p.children  = child.toJs
     p.className = (className, clazz).toJs
+    p.content   = content.toJs
+    p.control   = control
     p.disabled  = disabled
-    p.error     = error.map(_.props)
+    p.error     = error.toJs
     p.inline    = inline
-    p.label     = label.map(_.props)
-    p.required = required.map {
-      (_: Any) match {
-        case b: Boolean => b
-        case l: Label   => l.props
-      }
-    }
-    p.`type` = `type`
-    p.width  = width.toJs
+    p.label     = label.toJs
+    p.required  = required
+    p.`type`    = tpe
+    p.width     = width.toJs
     p
   }
 
   private val component =
     JsComponent[FormFieldProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): FormField =
-    new FormField(modifiers = content)
+  def apply(modifiers: TagMod*): FormField =
+    FormField(modifiers = modifiers)
 }

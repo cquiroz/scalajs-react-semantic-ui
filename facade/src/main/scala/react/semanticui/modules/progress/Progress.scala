@@ -13,8 +13,8 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import react.semanticui.colors._
 import react.semanticui.sizes._
-import react.semanticui.elements.label.Label.LabelProps
 import japgolly.scalajs.react.vdom.TagMod
+import react.semanticui.elements.label.Label
 
 final case class Progress(
   as:                     js.UndefOr[AsC]               = js.undefined,
@@ -29,7 +29,7 @@ final case class Progress(
   error:                  js.UndefOr[Boolean]           = js.undefined,
   indicating:             js.UndefOr[Boolean]           = js.undefined,
   inverted:               js.UndefOr[Boolean]           = js.undefined,
-  label:                  js.UndefOr[LabelProps]        = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
   percent:                js.UndefOr[JsNumber | String] = js.undefined,
   precision:              js.UndefOr[JsNumber]          = js.undefined,
   progress:               js.UndefOr[Boolean | String]  = js.undefined,
@@ -99,7 +99,7 @@ object Progress {
     var inverted: js.UndefOr[Boolean] = js.native
 
     /** Can be set to either to display progress as percent or ratio. */
-    var label: js.UndefOr[suiraw.SemanticShorthandItem[LabelProps]] = js.native
+    var label: js.UndefOr[suiraw.SemanticShorthandItemS[Label.LabelProps]] = js.native
 
     /** Current percent complete. */
     var percent: js.UndefOr[JsNumber | String] = js.native
@@ -164,7 +164,7 @@ object Progress {
     error:       js.UndefOr[Boolean]           = js.undefined,
     indicating:  js.UndefOr[Boolean]           = js.undefined,
     inverted:    js.UndefOr[Boolean]           = js.undefined,
-    label:       js.UndefOr[LabelProps]        = js.undefined,
+    label:       js.UndefOr[ShorthandS[Label]] = js.undefined,
     percent:     js.UndefOr[JsNumber | String] = js.undefined,
     precision:   js.UndefOr[JsNumber]          = js.undefined,
     progress:    js.UndefOr[Boolean | String]  = js.undefined,
@@ -186,7 +186,7 @@ object Progress {
     p.error       = error
     p.indicating  = indicating
     p.inverted    = inverted
-    p.label       = label
+    p.label       = label.toJs
     p.percent     = percent
     p.precision   = precision
     p.progress    = progress

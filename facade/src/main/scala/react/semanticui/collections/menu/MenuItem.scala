@@ -10,29 +10,30 @@ import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.elements.icon.IconShorthand
+
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class MenuItem(
-  as:                     js.UndefOr[AsC]              = js.undefined,
-  active:                 js.UndefOr[Boolean]          = js.undefined,
-  child:                  js.UndefOr[VdomNode]         = js.undefined,
-  className:              js.UndefOr[String]           = js.undefined,
-  clazz:                  js.UndefOr[Css]              = js.undefined,
-  color:                  js.UndefOr[SemanticColor]    = js.undefined,
-  content:                js.UndefOr[VdomNode]         = js.undefined,
-  disabled:               js.UndefOr[Boolean]          = js.undefined,
-  fitted:                 js.UndefOr[MenuItemFitted]   = js.undefined,
-  header:                 js.UndefOr[Boolean]          = js.undefined,
-  icon:                   js.UndefOr[IconShorthand]    = js.undefined,
-  index:                  js.UndefOr[Int]              = js.undefined,
-  link:                   js.UndefOr[Boolean]          = js.undefined,
-  name:                   js.UndefOr[String]           = js.undefined,
-  onClickE:               js.UndefOr[MenuItem.OnClick] = js.undefined,
-  onClick:                js.UndefOr[Callback]         = js.undefined,
-  position:               js.UndefOr[MenuItemPosition] = js.undefined,
-  override val modifiers: Seq[TagMod]                  = Seq.empty
+  as:                     js.UndefOr[AsC]               = js.undefined,
+  active:                 js.UndefOr[Boolean]           = js.undefined,
+  child:                  js.UndefOr[VdomNode]          = js.undefined,
+  className:              js.UndefOr[String]            = js.undefined,
+  clazz:                  js.UndefOr[Css]               = js.undefined,
+  color:                  js.UndefOr[SemanticColor]     = js.undefined,
+  content:                js.UndefOr[VdomNode]          = js.undefined,
+  disabled:               js.UndefOr[Boolean]           = js.undefined,
+  fitted:                 js.UndefOr[MenuItemFitted]    = js.undefined,
+  header:                 js.UndefOr[Boolean]           = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+  index:                  js.UndefOr[Int]               = js.undefined,
+  link:                   js.UndefOr[Boolean]           = js.undefined,
+  name:                   js.UndefOr[String]            = js.undefined,
+  onClickE:               js.UndefOr[MenuItem.OnClick]  = js.undefined,
+  onClick:                js.UndefOr[Callback]          = js.undefined,
+  position:               js.UndefOr[MenuItemPosition]  = js.undefined,
+  override val modifiers: Seq[TagMod]                   = Seq.empty
 ) extends GenericComponentPAC[MenuItem.MenuItemProps, MenuItem] {
   override protected def cprops    = MenuItem.props(this)
   override protected val component = MenuItem.component
@@ -129,23 +130,23 @@ object MenuItem {
              q.position)
 
   def rawprops(
-    as:        js.UndefOr[AsC]              = js.undefined,
-    active:    js.UndefOr[Boolean]          = js.undefined,
-    children:  js.UndefOr[VdomNode]         = js.undefined,
-    className: js.UndefOr[String]           = js.undefined,
-    clazz:     js.UndefOr[Css]              = js.undefined,
-    color:     js.UndefOr[SemanticColor]    = js.undefined,
-    content:   js.UndefOr[VdomNode]         = js.undefined,
-    disabled:  js.UndefOr[Boolean]          = js.undefined,
-    fitted:    js.UndefOr[MenuItemFitted]   = js.undefined,
-    header:    js.UndefOr[Boolean]          = js.undefined,
-    icon:      js.UndefOr[IconShorthand]    = js.undefined,
-    index:     js.UndefOr[Int]              = js.undefined,
-    link:      js.UndefOr[Boolean]          = js.undefined,
-    name:      js.UndefOr[String]           = js.undefined,
-    onClickE:  js.UndefOr[OnClick]          = js.undefined,
-    onClick:   js.UndefOr[Callback]         = js.undefined,
-    position:  js.UndefOr[MenuItemPosition] = js.undefined
+    as:        js.UndefOr[AsC]               = js.undefined,
+    active:    js.UndefOr[Boolean]           = js.undefined,
+    children:  js.UndefOr[VdomNode]          = js.undefined,
+    className: js.UndefOr[String]            = js.undefined,
+    clazz:     js.UndefOr[Css]               = js.undefined,
+    color:     js.UndefOr[SemanticColor]     = js.undefined,
+    content:   js.UndefOr[VdomNode]          = js.undefined,
+    disabled:  js.UndefOr[Boolean]           = js.undefined,
+    fitted:    js.UndefOr[MenuItemFitted]    = js.undefined,
+    header:    js.UndefOr[Boolean]           = js.undefined,
+    icon:      js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+    index:     js.UndefOr[Int]               = js.undefined,
+    link:      js.UndefOr[Boolean]           = js.undefined,
+    name:      js.UndefOr[String]            = js.undefined,
+    onClickE:  js.UndefOr[OnClick]           = js.undefined,
+    onClick:   js.UndefOr[Callback]          = js.undefined,
+    position:  js.UndefOr[MenuItemPosition]  = js.undefined
   ): MenuItemProps = {
     val p = as.toJsObject[MenuItemProps]
     p.as        = as.toJs

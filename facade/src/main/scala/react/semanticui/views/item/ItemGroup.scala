@@ -3,6 +3,7 @@ package react.semanticui.views.item
 import scala.scalajs.js
 import js.annotation._
 import js.|
+import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.vdom.TagMod
@@ -19,6 +20,7 @@ final case class ItemGroup(
   clazz:                  js.UndefOr[Css]         = js.undefined,
   content:                js.UndefOr[VdomNode]    = js.undefined,
   divided:                js.UndefOr[Boolean]     = js.undefined,
+  items:                  js.UndefOr[Seq[Item]]   = js.undefined,
   link:                   js.UndefOr[Boolean]     = js.undefined,
   relaxed:                js.UndefOr[ItemRelaxed] = js.undefined,
   unstackable:            js.UndefOr[Boolean]     = js.undefined,
@@ -60,7 +62,7 @@ object ItemGroup {
     var divided: js.UndefOr[Boolean] = js.native
 
     /** Shorthand array of props for Item. */
-    // var items: js.Array[suiraw.SemanticShorthandItem[Item.ItemProps]] = js.native
+    var items: js.UndefOr[js.Array[Item.ItemProps]] = js.native
 
     /** An item can be formatted so that the entire contents link to another page. */
     var link: js.UndefOr[Boolean] = js.native
@@ -79,6 +81,7 @@ object ItemGroup {
              q.clazz,
              q.content,
              q.divided,
+             q.items,
              q.link,
              q.relaxed,
              q.unstackable)
@@ -90,6 +93,7 @@ object ItemGroup {
     clazz:       js.UndefOr[Css]         = js.undefined,
     content:     js.UndefOr[VdomNode]    = js.undefined,
     divided:     js.UndefOr[Boolean]     = js.undefined,
+    items:       js.UndefOr[Seq[Item]]   = js.undefined,
     link:        js.UndefOr[Boolean]     = js.undefined,
     relaxed:     js.UndefOr[ItemRelaxed] = js.undefined,
     unstackable: js.UndefOr[Boolean]     = js.undefined
@@ -100,6 +104,7 @@ object ItemGroup {
     p.className   = (className, clazz).toJs
     p.content     = content.toJs
     p.divided     = divided
+    p.items       = items.map(_.map(_.props).toJSArray)
     p.link        = link
     p.relaxed     = relaxed.toJs
     p.unstackable = unstackable

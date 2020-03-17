@@ -2,7 +2,6 @@ package react.semanticui.modules.modal
 
 import scala.scalajs.js
 import js.annotation._
-import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
@@ -15,7 +14,7 @@ import japgolly.scalajs.react.vdom.TagMod
 
 final case class ModalActions(
   as:                     js.UndefOr[AsC]                        = js.undefined,
-  actions:                js.UndefOr[List[Button.ButtonProps]]   = js.undefined,
+  actions:                js.UndefOr[Seq[ShorthandS[Button]]]    = js.undefined,
   child:                  js.UndefOr[VdomNode]                   = js.undefined,
   className:              js.UndefOr[String]                     = js.undefined,
   clazz:                  js.UndefOr[Css]                        = js.undefined,
@@ -49,7 +48,7 @@ object ModalActions {
     var as: js.UndefOr[AsT] = js.native
 
     /** Array of shorthand buttons. */
-    var actions: js.UndefOr[js.Array[suiraw.SemanticShorthandItem[Button.ButtonProps]]] = js.native
+    var actions: js.UndefOr[suiraw.SemanticShorthandArray[Button.ButtonProps]] = js.native
 
     /** Primary content. */
     var children: js.UndefOr[React.Node] = js.native
@@ -80,21 +79,18 @@ object ModalActions {
              q.onActionClick)
 
   def rawprops(
-    as:             js.UndefOr[AsC]                      = js.undefined,
-    actions:        js.UndefOr[List[Button.ButtonProps]] = js.undefined,
-    children:       js.UndefOr[VdomNode]                 = js.undefined,
-    className:      js.UndefOr[String]                   = js.undefined,
-    clazz:          js.UndefOr[Css]                      = js.undefined,
-    content:        js.UndefOr[VdomNode]                 = js.undefined,
-    onActionClickE: js.UndefOr[OnActionClick]            = js.undefined,
-    onActionClick:  js.UndefOr[Callback]                 = js.undefined
+    as:             js.UndefOr[AsC]                     = js.undefined,
+    actions:        js.UndefOr[Seq[ShorthandS[Button]]] = js.undefined,
+    children:       js.UndefOr[VdomNode]                = js.undefined,
+    className:      js.UndefOr[String]                  = js.undefined,
+    clazz:          js.UndefOr[Css]                     = js.undefined,
+    content:        js.UndefOr[VdomNode]                = js.undefined,
+    onActionClickE: js.UndefOr[OnActionClick]           = js.undefined,
+    onActionClick:  js.UndefOr[Callback]                = js.undefined
   ): ModalActionsProps = {
     val p = as.toJsObject[ModalActionsProps]
-    p.as = as.toJs
-    p.actions = actions.map(x =>
-      x.map((y: Button.ButtonProps) => y: suiraw.SemanticShorthandItem[Button.ButtonProps])
-        .toJSArray
-    )
+    p.as            = as.toJs
+    p.actions       = actions.toJs
     p.children      = children.toJs
     p.className     = (className, clazz).toJs
     p.content       = content.toJs
@@ -105,6 +101,6 @@ object ModalActions {
   private val component =
     JsComponent[ModalActionsProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): ModalActions =
-    new ModalActions(modifiers = content)
+  def apply(modifiers: TagMod*): ModalActions =
+    new ModalActions(modifiers = modifiers)
 }

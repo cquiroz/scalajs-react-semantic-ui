@@ -13,5 +13,19 @@ object ButtonContentTests extends TestSuite {
         assert(mountNode.innerHTML == """<div class="content">abc</div>""")
       }
     }
+    test("contentString") {
+      val buttonContent = ButtonContent(content = "abc")
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        buttonContent.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="content">abc</div>""")
+      }
+    }
+    test("contentNode") {
+      val buttonContent = ButtonContent(content = <.span("abc"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        buttonContent.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="content"><span>abc</span></div>""")
+      }
+    }
   }
 }

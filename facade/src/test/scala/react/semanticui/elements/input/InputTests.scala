@@ -5,7 +5,7 @@ import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.test.ReactTestUtils
 import japgolly.scalajs.react.vdom.html_<^._
 import japgolly.scalajs.react.Callback
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon._
 
 object InputTests extends TestSuite {
   val tests = Tests {

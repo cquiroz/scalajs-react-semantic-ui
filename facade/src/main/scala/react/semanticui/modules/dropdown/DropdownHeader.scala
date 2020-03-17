@@ -9,19 +9,20 @@ import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
-import react.semanticui.elements.icon.IconShorthand
+
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownHeader(
-  as:                     js.UndefOr[AsC]           = js.undefined,
-  child:                  js.UndefOr[VdomNode]      = js.undefined,
-  className:              js.UndefOr[String]        = js.undefined,
-  clazz:                  js.UndefOr[Css]           = js.undefined,
-  content:                js.UndefOr[VdomNode]      = js.undefined,
-  icon:                   js.UndefOr[IconShorthand] = js.undefined,
-  override val modifiers: Seq[TagMod]               = Seq.empty
+  as:                     js.UndefOr[AsC]               = js.undefined,
+  child:                  js.UndefOr[VdomNode]          = js.undefined,
+  className:              js.UndefOr[String]            = js.undefined,
+  clazz:                  js.UndefOr[Css]               = js.undefined,
+  content:                js.UndefOr[VdomNode]          = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+  override val modifiers: Seq[TagMod]                   = Seq.empty
 ) extends GenericComponentPAC[DropdownHeader.DropdownHeaderProps, DropdownHeader] {
   override protected def cprops    = DropdownHeader.props(this)
   override protected val component = DropdownHeader.component
@@ -63,12 +64,12 @@ object DropdownHeader {
     rawprops(q.as, q.child, q.className, q.clazz, q.content, q.icon)
 
   def rawprops(
-    as:        js.UndefOr[AsC]           = js.undefined,
-    children:  js.UndefOr[VdomNode]      = js.undefined,
-    className: js.UndefOr[String]        = js.undefined,
-    clazz:     js.UndefOr[Css]           = js.undefined,
-    content:   js.UndefOr[VdomNode]      = js.undefined,
-    icon:      js.UndefOr[IconShorthand] = js.undefined
+    as:        js.UndefOr[AsC]               = js.undefined,
+    children:  js.UndefOr[VdomNode]          = js.undefined,
+    className: js.UndefOr[String]            = js.undefined,
+    clazz:     js.UndefOr[Css]               = js.undefined,
+    content:   js.UndefOr[VdomNode]          = js.undefined,
+    icon:      js.UndefOr[ShorthandSB[Icon]] = js.undefined
   ): DropdownHeaderProps = {
     val p = as.toJsObject[DropdownHeaderProps]
     p.as        = as.toJs
@@ -82,6 +83,6 @@ object DropdownHeader {
   private val component =
     JsComponent[DropdownHeaderProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): DropdownHeader =
-    new DropdownHeader(modifiers = content)
+  def apply(modifiers: TagMod*): DropdownHeader =
+    new DropdownHeader(modifiers = modifiers)
 }
