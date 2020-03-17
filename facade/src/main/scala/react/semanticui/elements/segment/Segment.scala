@@ -18,14 +18,13 @@ final case class Segment(
   as:                     js.UndefOr[AsC]                   = js.undefined,
   attached:               js.UndefOr[SegmentAttached]       = js.undefined,
   basic:                  js.UndefOr[Boolean]               = js.undefined,
-  child:                  js.UndefOr[VdomNode]              = js.undefined,
   circular:               js.UndefOr[Boolean]               = js.undefined,
   className:              js.UndefOr[String]                = js.undefined,
   clazz:                  js.UndefOr[Css]                   = js.undefined,
   clearing:               js.UndefOr[Boolean]               = js.undefined,
   color:                  js.UndefOr[SemanticColor]         = js.undefined,
   compact:                js.UndefOr[Boolean]               = js.undefined,
-  content:                js.UndefOr[VdomNode]              = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
   disabled:               js.UndefOr[Boolean]               = js.undefined,
   floated:                js.UndefOr[SemanticFloat]         = js.undefined,
   inverted:               js.UndefOr[Boolean]               = js.undefined,
@@ -96,7 +95,6 @@ object Segment {
     p.as          = q.as.toJs
     p.attached    = q.attached.toJs
     p.basic       = q.basic
-    p.children    = q.child.toJs
     p.circular    = q.circular
     p.className   = (q.className, q.clazz).toJs
     p.clearing    = q.clearing
@@ -127,6 +125,6 @@ object Segment {
 
   val defaultProps: SegmentProps = props(Default)
 
-  def apply(content: TagMod*): Segment =
-    new Segment(modifiers = content)
+  def apply(modifiers: TagMod*): Segment =
+    new Segment(modifiers = modifiers)
 }

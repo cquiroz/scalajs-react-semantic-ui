@@ -18,7 +18,6 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class Popup(
   as:                     js.UndefOr[AsC]                      = js.undefined,
   basic:                  js.UndefOr[Boolean]                  = js.undefined,
-  child:                  js.UndefOr[VdomNode]                 = js.undefined,
   className:              js.UndefOr[String]                   = js.undefined,
   clazz:                  js.UndefOr[Css]                      = js.undefined,
   content:                js.UndefOr[ShorthandS[PopupContent]] = js.undefined,
@@ -176,7 +175,6 @@ object Popup {
     rawprops(
       q.as,
       q.basic,
-      q.child,
       q.className,
       q.clazz,
       q.content,
@@ -204,7 +202,6 @@ object Popup {
   def rawprops(
     as:              js.UndefOr[AsC]                      = js.undefined,
     basic:           js.UndefOr[Boolean]                  = js.undefined,
-    children:        js.UndefOr[VdomNode]                 = js.undefined,
     className:       js.UndefOr[String]                   = js.undefined,
     clazz:           js.UndefOr[Css]                      = js.undefined,
     content:         js.UndefOr[ShorthandS[PopupContent]] = js.undefined,
@@ -231,7 +228,6 @@ object Popup {
     val p = as.toJsObject[PopupProps]
     p.as           = as.toJs
     p.basic        = basic
-    p.children     = children.toJs
     p.className    = (className, clazz).toJs
     p.content      = content.toJs
     p.disabled     = disabled
@@ -262,6 +258,6 @@ object Popup {
   private val component =
     JsComponent[PopupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): Popup =
-    new Popup(modifiers = content)
+  def apply(modifiers: TagMod*): Popup =
+    new Popup(modifiers = modifiers)
 }

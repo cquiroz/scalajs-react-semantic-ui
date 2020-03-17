@@ -20,7 +20,6 @@ final case class Modal(
   actions:                js.UndefOr[Seq[ShorthandS[Button]]]  = js.undefined,
   basic:                  js.UndefOr[Boolean]                  = js.undefined,
   centered:               js.UndefOr[Boolean]                  = js.undefined,
-  child:                  js.UndefOr[VdomNode]                 = js.undefined,
   className:              js.UndefOr[String]                   = js.undefined,
   clazz:                  js.UndefOr[Css]                      = js.undefined,
   closeIcon:              js.UndefOr[Icon]                     = js.undefined,
@@ -181,7 +180,6 @@ object Modal {
       q.actions,
       q.basic,
       q.centered,
-      q.child,
       q.className,
       q.clazz,
       q.closeIcon,
@@ -211,7 +209,6 @@ object Modal {
     actions:              js.UndefOr[Seq[ShorthandS[Button]]]  = js.undefined,
     basic:                js.UndefOr[Boolean]                  = js.undefined,
     centered:             js.UndefOr[Boolean]                  = js.undefined,
-    children:             js.UndefOr[VdomNode]                 = js.undefined,
     className:            js.UndefOr[String]                   = js.undefined,
     clazz:                js.UndefOr[Css]                      = js.undefined,
     closeIcon:            js.UndefOr[Icon]                     = js.undefined,
@@ -240,7 +237,6 @@ object Modal {
     p.actions              = actions.toJs
     p.basic                = basic
     p.centered             = centered
-    p.children             = children.toJs
     p.className            = (className, clazz).toJs
     p.closeIcon            = closeIcon.map(_.props)
     p.closeOnDimmerClick   = closeOnDimmerClick
@@ -263,6 +259,6 @@ object Modal {
   private val component =
     JsComponent[ModalProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): Modal =
-    new Modal(modifiers = content)
+  def apply(modifiers: TagMod*): Modal =
+    new Modal(modifiers = modifiers)
 }

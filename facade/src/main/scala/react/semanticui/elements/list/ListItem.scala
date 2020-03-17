@@ -15,10 +15,9 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class ListItem(
   as:                     js.UndefOr[AsC]                         = js.undefined,
   active:                 js.UndefOr[Boolean]                     = js.undefined,
-  child:                  js.UndefOr[VdomNode]                    = js.undefined,
   className:              js.UndefOr[String]                      = js.undefined,
   clazz:                  js.UndefOr[Css]                         = js.undefined,
-  content:                js.UndefOr[VdomNode]                    = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
   description:            js.UndefOr[ShorthandS[ListDescription]] = js.undefined,
   disabled:               js.UndefOr[Boolean]                     = js.undefined,
   header:                 js.UndefOr[ShorthandS[ListHeader]]      = js.undefined,
@@ -97,7 +96,6 @@ object ListItem {
   def props(q: ListItem): ListItemProps =
     rawprops(q.as,
              q.active,
-             q.child,
              q.className,
              q.clazz,
              q.content,
@@ -113,10 +111,9 @@ object ListItem {
   def rawprops(
     as:          js.UndefOr[AsC]                         = js.undefined,
     active:      js.UndefOr[Boolean]                     = js.undefined,
-    children:    js.UndefOr[VdomNode]                    = js.undefined,
     className:   js.UndefOr[String]                      = js.undefined,
     clazz:       js.UndefOr[Css]                         = js.undefined,
-    content:     js.UndefOr[VdomNode]                    = js.undefined,
+    content:     js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
     description: js.UndefOr[ShorthandS[ListDescription]] = js.undefined,
     disabled:    js.UndefOr[Boolean]                     = js.undefined,
     header:      js.UndefOr[ShorthandS[ListHeader]]      = js.undefined,
@@ -129,7 +126,6 @@ object ListItem {
     val p = as.toJsObject[ListItemProps]
     p.as          = as.toJs
     p.active      = active
-    p.children    = children.toJs
     p.className   = (className, clazz).toJs
     p.content     = content.toJs
     p.description = description.toJs
@@ -145,6 +141,6 @@ object ListItem {
   private val component =
     JsComponent[ListItemProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: VdomNode*): ListItem =
-    ListItem(modifiers = content)
+  def apply(modifiers: VdomNode*): ListItem =
+    new ListItem(modifiers = modifiers)
 }

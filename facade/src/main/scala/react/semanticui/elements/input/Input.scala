@@ -13,34 +13,33 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 
 import react.semanticui.elements.icon.Icon
-import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
+import react.semanticui.elements.label.Label
 
 final case class Input(
-  as:                     js.UndefOr[AsC]                                     = js.undefined,
-  action:                 js.UndefOr[Boolean | SemanticShortHandItem[js.Any]] = js.undefined,
-  actionPosition:         js.UndefOr[ActionPosition]                          = js.undefined,
-  child:                  js.UndefOr[VdomNode]                                = js.undefined,
-  className:              js.UndefOr[String]                                  = js.undefined,
-  clazz:                  js.UndefOr[Css]                                     = js.undefined,
-  disabled:               js.UndefOr[Boolean]                                 = js.undefined,
-  error:                  js.UndefOr[Boolean]                                 = js.undefined,
-  fluid:                  js.UndefOr[Boolean]                                 = js.undefined,
-  focus:                  js.UndefOr[Boolean]                                 = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]                       = js.undefined,
-  iconPosition:           js.UndefOr[IconPosition]                            = js.undefined,
-  input:                  js.UndefOr[VdomNode]                                = js.undefined,
-  inverted:               js.UndefOr[Boolean]                                 = js.undefined,
-  label:                  js.UndefOr[VdomNode]                                = js.undefined,
-  labelPosition:          js.UndefOr[LabelPosition]                           = js.undefined,
-  loading:                js.UndefOr[Boolean]                                 = js.undefined,
-  onChangeE:              js.UndefOr[Input.OnChange]                          = js.undefined,
-  onChange:               js.UndefOr[Callback]                                = js.undefined,
-  size:                   js.UndefOr[SemanticSize]                            = js.undefined,
-  tabIndex:               js.UndefOr[String | JsNumber]                       = js.undefined,
-  transparent:            js.UndefOr[Boolean]                                 = js.undefined,
-  tpe:                    js.UndefOr[String]                                  = js.undefined,
-  override val modifiers: Seq[TagMod]                                         = Seq.empty
+  as:                     js.UndefOr[AsC]                   = js.undefined,
+  action:                 js.UndefOr[ShorthandSB[VdomNode]] = js.undefined,
+  actionPosition:         js.UndefOr[ActionPosition]        = js.undefined,
+  className:              js.UndefOr[String]                = js.undefined,
+  clazz:                  js.UndefOr[Css]                   = js.undefined,
+  disabled:               js.UndefOr[Boolean]               = js.undefined,
+  error:                  js.UndefOr[Boolean]               = js.undefined,
+  fluid:                  js.UndefOr[Boolean]               = js.undefined,
+  focus:                  js.UndefOr[Boolean]               = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
+  iconPosition:           js.UndefOr[IconPosition]          = js.undefined,
+  input:                  js.UndefOr[VdomNode]              = js.undefined,
+  inverted:               js.UndefOr[Boolean]               = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]]     = js.undefined,
+  labelPosition:          js.UndefOr[LabelPosition]         = js.undefined,
+  loading:                js.UndefOr[Boolean]               = js.undefined,
+  onChangeE:              js.UndefOr[Input.OnChange]        = js.undefined,
+  onChange:               js.UndefOr[Callback]              = js.undefined,
+  size:                   js.UndefOr[SemanticSize]          = js.undefined,
+  tabIndex:               js.UndefOr[String | JsNumber]     = js.undefined,
+  transparent:            js.UndefOr[Boolean]               = js.undefined,
+  tpe:                    js.UndefOr[String]                = js.undefined,
+  override val modifiers: Seq[TagMod]                       = Seq.empty
 ) extends GenericComponentPAC[Input.InputProps, Input] {
   override protected def cprops    = Input.props(this)
   override protected val component = Input.component
@@ -66,7 +65,7 @@ object Input {
     var as: js.UndefOr[AsT] = js.native
 
     /** An Input can be formatted to alert the user to an action they may perform. */
-    var action: js.UndefOr[Boolean | suiraw.SemanticShorthandItemS[js.Any]] = js.native
+    var action: js.UndefOr[suiraw.SemanticShorthandContentB] = js.native
 
     /** An action can appear along side an Input on the left or right. */
     var actionPosition: js.UndefOr[String] = js.native
@@ -90,7 +89,7 @@ object Input {
     var focus: js.UndefOr[Boolean] = js.native
 
     /** Optional Icon to display inside the Input. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[Icon.IconProps]] = js.native
 
     /** An Icon can appear inside an Input on the left or right. */
     var iconPosition: js.UndefOr[String]
@@ -102,7 +101,7 @@ object Input {
     var inverted: js.UndefOr[Boolean] = js.native
 
     /** Optional Label to display along side the Input. */
-    var label: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
+    var label: js.UndefOr[suiraw.SemanticShorthandItemS[Label.LabelProps]] = js.native
 
     /** A Label can appear outside an Input on the left or right. */
     var labelPosition: js.UndefOr[String] = js.native
@@ -136,9 +135,8 @@ object Input {
   ): InputProps = {
     val p = q.as.toJsObject[InputProps]
     p.as             = q.as.toJs
-    p.action         = q.action.toRaw
+    p.action         = q.action.toJs
     p.actionPosition = q.actionPosition.toJs
-    p.children       = q.child.toJs
     p.className      = (q.className, q.clazz).toJs
     p.disabled       = q.disabled
     p.error          = q.error
@@ -162,8 +160,6 @@ object Input {
   private val component =
     JsComponent[InputProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    content: TagMod*
-  ): Input =
-    new Input(modifiers = content)
+  def apply(modifiers: TagMod*): Input =
+    new Input(modifiers = modifiers)
 }

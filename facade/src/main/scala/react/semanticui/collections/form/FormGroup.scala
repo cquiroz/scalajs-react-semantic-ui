@@ -4,20 +4,19 @@ import scala.scalajs.js
 import js.|
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class FormGroup(
   as:                     js.UndefOr[AsC]                        = js.undefined,
-  child:                  js.UndefOr[VdomNode]                   = js.undefined,
   className:              js.UndefOr[String]                     = js.undefined,
   clazz:                  js.UndefOr[Css]                        = js.undefined,
-  content:                js.UndefOr[VdomNode]                   = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]       = js.undefined,
   grouped:                js.UndefOr[Boolean]                    = js.undefined,
   inline:                 js.UndefOr[Boolean]                    = js.undefined,
   unstackable:            js.UndefOr[Boolean]                    = js.undefined,
@@ -71,7 +70,6 @@ object FormGroup {
   def props(q: FormGroup): FormGroupProps =
     rawprops(
       q.as,
-      q.child,
       q.className,
       q.clazz,
       q.content,
@@ -83,10 +81,9 @@ object FormGroup {
 
   def rawprops(
     as:          js.UndefOr[AsC]                        = js.undefined,
-    child:       js.UndefOr[VdomNode]                   = js.undefined,
     className:   js.UndefOr[String]                     = js.undefined,
     clazz:       js.UndefOr[Css]                        = js.undefined,
-    content:     js.UndefOr[VdomNode]                   = js.undefined,
+    content:     js.UndefOr[ShorthandS[VdomNode]]       = js.undefined,
     grouped:     js.UndefOr[Boolean]                    = js.undefined,
     inline:      js.UndefOr[Boolean]                    = js.undefined,
     unstackable: js.UndefOr[Boolean]                    = js.undefined,
@@ -94,7 +91,6 @@ object FormGroup {
   ): FormGroupProps = {
     val p = as.toJsObject[FormGroupProps]
     p.as          = as.toJs
-    p.children    = child.toJs
     p.className   = (className, clazz).toJs
     p.content     = content.toJs
     p.grouped     = grouped
@@ -112,6 +108,6 @@ object FormGroup {
   private val component =
     JsComponent[FormGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): FormGroup =
-    new FormGroup(modifiers = content)
+  def apply(modifiers: TagMod*): FormGroup =
+    new FormGroup(modifiers = modifiers)
 }

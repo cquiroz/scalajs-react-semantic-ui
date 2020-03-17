@@ -13,10 +13,9 @@ import react.semanticui.{ raw => suiraw }
 
 final case class ItemContent(
   as:                     js.UndefOr[AsC]                         = js.undefined,
-  child:                  js.UndefOr[VdomNode]                    = js.undefined,
   className:              js.UndefOr[String]                      = js.undefined,
   clazz:                  js.UndefOr[Css]                         = js.undefined,
-  content:                js.UndefOr[VdomNode]                    = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
   description:            js.UndefOr[ShorthandS[ItemDescription]] = js.undefined,
   extra:                  js.UndefOr[ShorthandS[ItemExtra]]       = js.undefined,
   header:                 js.UndefOr[ShorthandS[ItemHeader]]      = js.undefined,
@@ -75,7 +74,6 @@ object ItemContent {
 
   def props(q: ItemContent): ItemContentProps =
     rawprops(q.as,
-             q.child,
              q.className,
              q.clazz,
              q.content,
@@ -87,10 +85,9 @@ object ItemContent {
 
   def rawprops(
     as:            js.UndefOr[AsC]                         = js.undefined,
-    children:      js.UndefOr[VdomNode]                    = js.undefined,
     className:     js.UndefOr[String]                      = js.undefined,
     clazz:         js.UndefOr[Css]                         = js.undefined,
-    content:       js.UndefOr[VdomNode]                    = js.undefined,
+    content:       js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
     description:   js.UndefOr[ShorthandS[ItemDescription]] = js.undefined,
     extra:         js.UndefOr[ShorthandS[ItemExtra]]       = js.undefined,
     header:        js.UndefOr[ShorthandS[ItemHeader]]      = js.undefined,
@@ -99,7 +96,6 @@ object ItemContent {
   ): ItemContentProps = {
     val p = as.toJsObject[ItemContentProps]
     p.as            = as.toJs
-    p.children      = children.toJs
     p.className     = (className, clazz).toJs
     p.content       = content.toJs
     p.description   = description.toJs
@@ -113,6 +109,6 @@ object ItemContent {
   private val component =
     JsFnComponent[ItemContentProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): ItemContent =
-    new ItemContent(modifiers = content)
+  def apply(modifiers: TagMod*): ItemContent =
+    new ItemContent(modifiers = modifiers)
 }

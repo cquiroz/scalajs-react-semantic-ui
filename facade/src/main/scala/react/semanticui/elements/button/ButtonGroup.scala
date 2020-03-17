@@ -18,12 +18,11 @@ final case class ButtonGroup(
   attached:               js.UndefOr[Boolean | String] = js.undefined,
   basic:                  js.UndefOr[Boolean]          = js.undefined,
   buttons:                js.UndefOr[Seq[Button]]      = js.undefined,
-  child:                  js.UndefOr[VdomNode]         = js.undefined,
   className:              js.UndefOr[String]           = js.undefined,
   clazz:                  js.UndefOr[Css]              = js.undefined,
   color:                  js.UndefOr[SemanticColor]    = js.undefined,
   compact:                js.UndefOr[Boolean]          = js.undefined,
-  content:                js.UndefOr[VdomNode]         = js.undefined,
+  content:                js.UndefOr[Seq[VdomNode]]    = js.undefined,
   floated:                js.UndefOr[SemanticFloat]    = js.undefined,
   fluid:                  js.UndefOr[Boolean]          = js.undefined,
   icon:                   js.UndefOr[Boolean]          = js.undefined,
@@ -82,7 +81,7 @@ object ButtonGroup {
     var compact: js.UndefOr[Boolean] = js.native
 
     /** Shorthand for primary content. */
-    var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
+    var content: js.UndefOr[js.Array[suiraw.SemanticShorthandContent]] = js.native
 
     /** Groups can be aligned to the left or right of its container. */
     var floated: js.UndefOr[suiraw.SemanticFLOATS] = js.native
@@ -130,7 +129,6 @@ object ButtonGroup {
       q.attached,
       q.basic,
       q.buttons,
-      q.child,
       q.className,
       q.clazz,
       q.color,
@@ -156,12 +154,11 @@ object ButtonGroup {
     attached:  js.UndefOr[Boolean | String] = js.undefined,
     basic:     js.UndefOr[Boolean]          = js.undefined,
     buttons:   js.UndefOr[Seq[Button]]      = js.undefined,
-    children:  js.UndefOr[VdomNode]         = js.undefined,
     className: js.UndefOr[String]           = js.undefined,
     clazz:     js.UndefOr[Css]              = js.undefined,
     color:     js.UndefOr[SemanticColor]    = js.undefined,
     compact:   js.UndefOr[Boolean]          = js.undefined,
-    content:   js.UndefOr[VdomNode]         = js.undefined,
+    content:   js.UndefOr[Seq[VdomNode]]    = js.undefined,
     floated:   js.UndefOr[SemanticFloat]    = js.undefined,
     fluid:     js.UndefOr[Boolean]          = js.undefined,
     icon:      js.UndefOr[Boolean]          = js.undefined,
@@ -181,11 +178,10 @@ object ButtonGroup {
     p.attached  = attached
     p.basic     = basic
     p.buttons   = buttons.map(x => x.map(btn => btn.props).toJSArray)
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.color     = color.toJs
     p.compact   = compact
-    p.content   = content.toJs
+    p.content   = content.map(_.map(_.rawNode).toJSArray)
     p.floated   = floated.toJs
     p.icon      = icon
     p.inverted  = inverted
@@ -207,6 +203,6 @@ object ButtonGroup {
   def apply(button: Button, buttons: Button*): ButtonGroup =
     new ButtonGroup(buttons = button +: buttons)
 
-  def apply(content: TagMod*): ButtonGroup =
-    new ButtonGroup(modifiers = content)
+  def apply(modifiers: TagMod*): ButtonGroup =
+    new ButtonGroup(modifiers = modifiers)
 }

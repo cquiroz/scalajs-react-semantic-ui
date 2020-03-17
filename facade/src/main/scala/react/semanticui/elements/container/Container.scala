@@ -4,19 +4,18 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Container(
   as:                     js.UndefOr[AsC]                   = js.undefined,
-  child:                  js.UndefOr[VdomNode]              = js.undefined,
   className:              js.UndefOr[String]                = js.undefined,
   clazz:                  js.UndefOr[Css]                   = js.undefined,
-  content:                js.UndefOr[VdomNode]              = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
   fluid:                  js.UndefOr[Boolean]               = js.undefined,
   text:                   js.UndefOr[Boolean]               = js.undefined,
   textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
@@ -68,7 +67,6 @@ object Container {
     q: Container
   ): ContainerProps = {
     val p = q.as.toJsObject[ContainerProps]
-    p.children  = q.child.toJs
     p.className = (q.className, q.clazz).toJs
     p.content   = q.content.toJs
     p.fluid     = q.fluid
@@ -80,8 +78,8 @@ object Container {
   private val component =
     JsFnComponent[ContainerProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): Container =
-    new Container(modifiers = content)
+  def apply(modifiers: TagMod*): Container =
+    new Container(modifiers = modifiers)
 
   val Default: Container = Container()
 

@@ -3,21 +3,20 @@ package react.semanticui.elements.header
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class HeaderSubheader(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericFnComponentPAC[HeaderSubheader.HeaderSubheaderProps, HeaderSubheader] {
   override protected def cprops    = HeaderSubheader.props(this)
   override protected val component = HeaderSubheader.component
@@ -57,7 +56,6 @@ object HeaderSubheader {
   ): HeaderSubheaderProps = {
     val p = q.as.toJsObject[HeaderSubheaderProps]
     p.as        = q.as.toJs
-    p.children  = q.child.toJs
     p.className = (q.className, q.clazz).toJs
     p.content   = q.content.toJs
     p
@@ -66,5 +64,6 @@ object HeaderSubheader {
   private val component =
     JsFnComponent[HeaderSubheaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): HeaderSubheader = new HeaderSubheader(modifiers = content)
+  def apply(modifiers: TagMod*): HeaderSubheader =
+    new HeaderSubheader(modifiers = modifiers)
 }

@@ -13,18 +13,17 @@ import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Loader(
-  as:                     js.UndefOr[AsC]          = js.undefined,
-  active:                 js.UndefOr[Boolean]      = js.undefined,
-  child:                  js.UndefOr[VdomNode]     = js.undefined,
-  className:              js.UndefOr[String]       = js.undefined,
-  clazz:                  js.UndefOr[Css]          = js.undefined,
-  content:                js.UndefOr[VdomNode]     = js.undefined,
-  disabled:               js.UndefOr[Boolean]      = js.undefined,
-  indeterminate:          js.UndefOr[Boolean]      = js.undefined,
-  inline:                 js.UndefOr[LoaderInline] = js.undefined,
-  inverted:               js.UndefOr[Boolean]      = js.undefined,
-  size:                   js.UndefOr[SemanticSize] = js.undefined,
-  override val modifiers: Seq[TagMod]              = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  active:                 js.UndefOr[Boolean]              = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  disabled:               js.UndefOr[Boolean]              = js.undefined,
+  indeterminate:          js.UndefOr[Boolean]              = js.undefined,
+  inline:                 js.UndefOr[LoaderInline]         = js.undefined,
+  inverted:               js.UndefOr[Boolean]              = js.undefined,
+  size:                   js.UndefOr[SemanticSize]         = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericFnComponentPAC[Loader.LoaderProps, Loader] {
   override protected def cprops    = Loader.props(this)
   override protected val component = Loader.component
@@ -83,7 +82,6 @@ object Loader {
     val p = q.as.toJsObject[LoaderProps]
     p.as            = q.as.toJs
     p.active        = q.active
-    p.children      = q.child.toJs
     p.className     = (q.className, q.clazz).toJs
     p.content       = q.content.toJs
     p.disabled      = q.disabled
@@ -101,6 +99,6 @@ object Loader {
 
   val defaultProps: LoaderProps = props(Default)
 
-  def apply(content: TagMod*): Loader =
-    new Loader(modifiers = content)
+  def apply(modifiers: TagMod*): Loader =
+    new Loader(modifiers = modifiers)
 }

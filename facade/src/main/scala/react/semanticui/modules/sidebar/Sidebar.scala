@@ -16,7 +16,6 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class Sidebar(
   as:                     js.UndefOr[AsC]              = js.undefined,
   animation:              js.UndefOr[SidebarAnimation] = js.undefined,
-  child:                  js.UndefOr[VdomNode]         = js.undefined,
   className:              js.UndefOr[String]           = js.undefined,
   clazz:                  js.UndefOr[Css]              = js.undefined,
   content:                js.UndefOr[VdomNode]         = js.undefined,
@@ -68,7 +67,6 @@ object Sidebar {
   def props(q: Sidebar): SidebarProps =
     rawprops(q.as,
              q.animation,
-             q.child,
              q.className,
              q.clazz,
              q.content,
@@ -85,7 +83,6 @@ object Sidebar {
   def rawprops(
     as:        js.UndefOr[AsC]              = js.undefined,
     animation: js.UndefOr[SidebarAnimation] = js.undefined,
-    children:  js.UndefOr[VdomNode]         = js.undefined,
     className: js.UndefOr[String]           = js.undefined,
     clazz:     js.UndefOr[Css]              = js.undefined,
     content:   js.UndefOr[VdomNode]         = js.undefined,
@@ -101,7 +98,6 @@ object Sidebar {
   ): SidebarProps = {
     val p = as.toJsObject[SidebarProps]
     p.as        = as.toJs
-    p.children  = children.toJs
     p.animation = animation.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
@@ -119,7 +115,7 @@ object Sidebar {
   private val component =
     JsComponent[SidebarProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): Sidebar =
-    new Sidebar(modifiers = content)
+  def apply(modifiers: TagMod*): Sidebar =
+    new Sidebar(modifiers = modifiers)
 
 }

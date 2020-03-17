@@ -15,7 +15,6 @@ import react.semanticui.{ raw => suiraw }
 
 final case class ItemGroup(
   as:                     js.UndefOr[AsC]         = js.undefined,
-  child:                  js.UndefOr[VdomNode]    = js.undefined,
   className:              js.UndefOr[String]      = js.undefined,
   clazz:                  js.UndefOr[Css]         = js.undefined,
   content:                js.UndefOr[VdomNode]    = js.undefined,
@@ -76,7 +75,6 @@ object ItemGroup {
 
   def props(q: ItemGroup): ItemGroupProps =
     rawprops(q.as,
-             q.child,
              q.className,
              q.clazz,
              q.content,
@@ -88,7 +86,6 @@ object ItemGroup {
 
   def rawprops(
     as:          js.UndefOr[AsC]         = js.undefined,
-    children:    js.UndefOr[VdomNode]    = js.undefined,
     className:   js.UndefOr[String]      = js.undefined,
     clazz:       js.UndefOr[Css]         = js.undefined,
     content:     js.UndefOr[VdomNode]    = js.undefined,
@@ -100,7 +97,6 @@ object ItemGroup {
   ): ItemGroupProps = {
     val p = as.toJsObject[ItemGroupProps]
     p.as          = as.toJs
-    p.children    = children.toJs
     p.className   = (className, clazz).toJs
     p.content     = content.toJs
     p.divided     = divided
@@ -114,6 +110,6 @@ object ItemGroup {
   private val component =
     JsFnComponent[ItemGroupProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): ItemGroup =
-    new ItemGroup(modifiers = content)
+  def apply(modifiers: TagMod*): ItemGroup =
+    new ItemGroup(modifiers = modifiers)
 }

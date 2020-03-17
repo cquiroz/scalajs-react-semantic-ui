@@ -5,11 +5,12 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui._
+import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
+import react.semanticui.elements.label.Label
 
 final case class Checkbox(
   as:                     js.UndefOr[AsC]               = js.undefined,
@@ -22,7 +23,7 @@ final case class Checkbox(
   fitted:                 js.UndefOr[Boolean]           = js.undefined,
   id:                     js.UndefOr[JsNumber | String] = js.undefined,
   indeterminate:          js.UndefOr[Boolean]           = js.undefined,
-  label:                  js.UndefOr[VdomNode]          = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
   name:                   js.UndefOr[String]            = js.undefined,
   onChangeE:              js.UndefOr[Checkbox.Event]    = js.undefined,
   onChange:               js.UndefOr[Callback]          = js.undefined,
@@ -92,7 +93,7 @@ object Checkbox {
     var indeterminate: js.UndefOr[Boolean] = js.native
 
     /** The text of the associated label element. */
-    var label: js.UndefOr[VdomNode] = js.native
+    var label: js.UndefOr[suiraw.SemanticShorthandItemS[Label.LabelProps]] = js.native
 
     /** The HTML input name. */
     var name: js.UndefOr[String] = js.native
@@ -193,7 +194,7 @@ object Checkbox {
     fitted:               js.UndefOr[Boolean]           = js.undefined,
     id:                   js.UndefOr[JsNumber | String] = js.undefined,
     indeterminate:        js.UndefOr[Boolean]           = js.undefined,
-    label:                js.UndefOr[VdomNode]          = js.undefined,
+    label:                js.UndefOr[ShorthandS[Label]] = js.undefined,
     name:                 js.UndefOr[String]            = js.undefined,
     onChangeE:            js.UndefOr[Event]             = js.undefined,
     onChange:             js.UndefOr[Callback]          = js.undefined,
@@ -221,7 +222,7 @@ object Checkbox {
     p.fitted               = fitted
     p.id                   = id
     p.indeterminate        = indeterminate
-    p.label                = label
+    p.label                = label.toJs
     p.name                 = name
     p.onChange             = (onChangeE, onChange).toJs
     p.onClick              = (onClickE, onClick).toJs
@@ -244,6 +245,6 @@ object Checkbox {
 
   val defaultProps: CheckboxProps = props(Default)
 
-  def apply(content: TagMod*): Checkbox =
-    new Checkbox(modifiers = content)
+  def apply(modifiers: TagMod*): Checkbox =
+    new Checkbox(modifiers = modifiers)
 }

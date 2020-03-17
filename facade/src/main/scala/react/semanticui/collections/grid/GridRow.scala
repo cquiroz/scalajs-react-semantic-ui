@@ -3,7 +3,6 @@ package react.semanticui.collections.grid
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -14,7 +13,6 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class GridRow(
   as:                     js.UndefOr[AsC]                       = js.undefined,
   centered:               js.UndefOr[Boolean]                   = js.undefined,
-  child:                  js.UndefOr[VdomNode]                  = js.undefined,
   className:              js.UndefOr[String]                    = js.undefined,
   clazz:                  js.UndefOr[Css]                       = js.undefined,
   color:                  js.UndefOr[SemanticColor]             = js.undefined,
@@ -86,7 +84,6 @@ object GridRow {
   def props(q: GridRow): GridRowProps =
     rawprops(q.as,
              q.centered,
-             q.child,
              q.className,
              q.clazz,
              q.color,
@@ -100,7 +97,6 @@ object GridRow {
   def rawprops(
     as:            js.UndefOr[AsC]                       = js.undefined,
     centered:      js.UndefOr[Boolean]                   = js.undefined,
-    children:      js.UndefOr[VdomNode]                  = js.undefined,
     className:     js.UndefOr[String]                    = js.undefined,
     clazz:         js.UndefOr[Css]                       = js.undefined,
     color:         js.UndefOr[SemanticColor]             = js.undefined,
@@ -114,7 +110,6 @@ object GridRow {
     val p = as.toJsObject[GridRowProps]
     p.as            = as.toJs
     p.centered      = centered
-    p.children      = children.toJs
     p.className     = (className, clazz).toJs
     p.color         = color.toJs
     p.divided       = divided
@@ -129,6 +124,6 @@ object GridRow {
   private val component =
     JsFnComponent[GridRowProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): GridRow =
-    new GridRow(modifiers = content)
+  def apply(modifiers: TagMod*): GridRow =
+    new GridRow(modifiers = modifiers)
 }

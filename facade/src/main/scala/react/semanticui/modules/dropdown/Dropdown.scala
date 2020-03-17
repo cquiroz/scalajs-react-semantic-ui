@@ -26,7 +26,6 @@ final case class Dropdown(
   allowAdditions:         js.UndefOr[Boolean]                           = js.undefined,
   basic:                  js.UndefOr[Boolean]                           = js.undefined,
   button:                 js.UndefOr[Boolean]                           = js.undefined,
-  child:                  js.UndefOr[VdomNode]                          = js.undefined,
   className:              js.UndefOr[String]                            = js.undefined,
   clazz:                  js.UndefOr[Css]                               = js.undefined,
   clearable:              js.UndefOr[Boolean]                           = js.undefined,
@@ -45,7 +44,7 @@ final case class Dropdown(
   error:                  js.UndefOr[Boolean]                           = js.undefined,
   floating:               js.UndefOr[Boolean]                           = js.undefined,
   fluid:                  js.UndefOr[Boolean]                           = js.undefined,
-  header:                 js.UndefOr[VdomNode]                          = js.undefined,
+  header:                 js.UndefOr[ShorthandS[VdomNode]]              = js.undefined,
   icon:                   js.UndefOr[ShorthandSB[Icon]]                 = js.undefined,
   inline:                 js.UndefOr[Boolean]                           = js.undefined,
   item:                   js.UndefOr[Boolean]                           = js.undefined,
@@ -54,7 +53,7 @@ final case class Dropdown(
   loading:                js.UndefOr[Boolean]                           = js.undefined,
   minCharacters:          js.UndefOr[JsNumber]                          = js.undefined,
   multiple:               js.UndefOr[Boolean]                           = js.undefined,
-  noResultsMessage:       js.UndefOr[VdomNode]                          = js.undefined,
+  noResultsMessage:       js.UndefOr[ShorthandS[VdomNode]]              = js.undefined,
   onAddItem:              js.UndefOr[Dropdown.OnAddItem]                = js.undefined,
   onBlurE:                js.UndefOr[Dropdown.OnBlur]                   = js.undefined,
   onBlur:                 js.UndefOr[Callback]                          = js.undefined,
@@ -81,7 +80,7 @@ final case class Dropdown(
   renderLabel:            js.UndefOr[Dropdown.RenderLabel]              = js.undefined,
   scrolling:              js.UndefOr[Boolean]                           = js.undefined,
   search:                 js.UndefOr[Boolean | Dropdown.SearchFunction] = js.undefined,
-  searchInput:            js.UndefOr[VdomNode]                          = js.undefined,
+  searchInput:            js.UndefOr[ShorthandS[VdomNode]]              = js.undefined,
   searchQuery:            js.UndefOr[String]                            = js.undefined,
   selectOnBlur:           js.UndefOr[Boolean]                           = js.undefined,
   selectOnNavigation:     js.UndefOr[Boolean]                           = js.undefined,
@@ -433,7 +432,6 @@ object Dropdown {
       q.allowAdditions,
       q.basic,
       q.button,
-      q.child,
       q.className,
       q.clazz,
       q.clearable,
@@ -510,7 +508,6 @@ object Dropdown {
     allowAdditions:       js.UndefOr[Boolean]                  = js.undefined,
     basic:                js.UndefOr[Boolean]                  = js.undefined,
     button:               js.UndefOr[Boolean]                  = js.undefined,
-    children:             js.UndefOr[VdomNode]                 = js.undefined,
     className:            js.UndefOr[String]                   = js.undefined,
     clazz:                js.UndefOr[Css]                      = js.undefined,
     clearable:            js.UndefOr[Boolean]                  = js.undefined,
@@ -529,7 +526,7 @@ object Dropdown {
     error:                js.UndefOr[Boolean]                  = js.undefined,
     floating:             js.UndefOr[Boolean]                  = js.undefined,
     fluid:                js.UndefOr[Boolean]                  = js.undefined,
-    header:               js.UndefOr[VdomNode]                 = js.undefined,
+    header:               js.UndefOr[ShorthandS[VdomNode]]     = js.undefined,
     icon:                 js.UndefOr[ShorthandSB[Icon]]        = js.undefined,
     inline:               js.UndefOr[Boolean]                  = js.undefined,
     item:                 js.UndefOr[Boolean]                  = js.undefined,
@@ -538,7 +535,7 @@ object Dropdown {
     loading:              js.UndefOr[Boolean]                  = js.undefined,
     minCharacters:        js.UndefOr[JsNumber]                 = js.undefined,
     multiple:             js.UndefOr[Boolean]                  = js.undefined,
-    noResultsMessage:     js.UndefOr[VdomNode]                 = js.undefined,
+    noResultsMessage:     js.UndefOr[ShorthandS[VdomNode]]     = js.undefined,
     onAddItem:            js.UndefOr[OnAddItem]                = js.undefined,
     onBlurE:              js.UndefOr[OnBlur]                   = js.undefined,
     onBlur:               js.UndefOr[Callback]                 = js.undefined,
@@ -565,7 +562,7 @@ object Dropdown {
     renderLabel:          js.UndefOr[RenderLabel]              = js.undefined,
     scrolling:            js.UndefOr[Boolean]                  = js.undefined,
     search:               js.UndefOr[Boolean | SearchFunction] = js.undefined,
-    searchInput:          js.UndefOr[VdomNode]                 = js.undefined,
+    searchInput:          js.UndefOr[ShorthandS[VdomNode]]     = js.undefined,
     searchQuery:          js.UndefOr[String]                   = js.undefined,
     selectOnBlur:         js.UndefOr[Boolean]                  = js.undefined,
     selectOnNavigation:   js.UndefOr[Boolean]                  = js.undefined,
@@ -597,7 +594,6 @@ object Dropdown {
     p.allowAdditions       = allowAdditions
     p.basic                = basic
     p.button               = button
-    p.children             = children.toJs
     p.className            = (className, clazz).toJs
     p.clearable            = clearable
     p.closeOnBlur          = closeOnBlur

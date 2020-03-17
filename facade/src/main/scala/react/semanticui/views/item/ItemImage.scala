@@ -11,25 +11,26 @@ import react.semanticui._
 import react.semanticui.elements.image._
 import react.semanticui.elements.image.Image._
 import japgolly.scalajs.react.vdom.TagMod
+import react.semanticui.modules.dimmer.Dimmer
+import react.semanticui.elements.label.Label
 
 final case class ItemImage(
   as:                     js.UndefOr[AsC]                       = js.undefined,
   avatar:                 js.UndefOr[Boolean]                   = js.undefined,
   bordered:               js.UndefOr[Boolean]                   = js.undefined,
   centered:               js.UndefOr[Boolean]                   = js.undefined,
-  child:                  js.UndefOr[VdomNode]                  = js.undefined,
   circular:               js.UndefOr[Boolean]                   = js.undefined,
   className:              js.UndefOr[String]                    = js.undefined,
   clazz:                  js.UndefOr[Css]                       = js.undefined,
-  content:                js.UndefOr[VdomNode]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]      = js.undefined,
   disabled:               js.UndefOr[Boolean]                   = js.undefined,
-  dimmer:                 js.UndefOr[VdomNode]                  = js.undefined,
+  dimmer:                 js.UndefOr[Dimmer]                    = js.undefined,
   floated:                js.UndefOr[SemanticFloat]             = js.undefined,
   fluid:                  js.UndefOr[Boolean | String]          = js.undefined,
   hidden:                 js.UndefOr[Boolean]                   = js.undefined,
   href:                   js.UndefOr[String]                    = js.undefined,
   inline:                 js.UndefOr[Boolean]                   = js.undefined,
-  label:                  js.UndefOr[VdomNode]                  = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]]         = js.undefined,
   rounded:                js.UndefOr[Boolean]                   = js.undefined,
   size:                   js.UndefOr[SemanticSize]              = js.undefined,
   spaced:                 js.UndefOr[ImageSpaced]               = js.undefined,
@@ -62,12 +63,11 @@ object ItemImage {
     p.avatar        = q.avatar
     p.bordered      = q.bordered
     p.centered      = q.centered
-    p.children      = q.child.toJs
     p.circular      = q.circular
     p.className     = (q.className, q.clazz).toJs
     p.content       = q.content.toJs
     p.disabled      = q.disabled
-    p.dimmer        = q.dimmer.toJs
+    p.dimmer        = q.dimmer.map(_.props)
     p.floated       = q.floated.toJs
     p.fluid         = q.fluid
     p.hidden        = q.hidden
@@ -87,6 +87,6 @@ object ItemImage {
   private val component =
     JsFnComponent[ItemImageProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): ItemImage = new ItemImage(modifiers = content)
-
+  def apply(modifiers: TagMod*): ItemImage =
+    new ItemImage(modifiers = modifiers)
 }

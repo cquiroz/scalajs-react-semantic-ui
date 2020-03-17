@@ -15,7 +15,6 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class ModalActions(
   as:                     js.UndefOr[AsC]                        = js.undefined,
   actions:                js.UndefOr[Seq[ShorthandS[Button]]]    = js.undefined,
-  child:                  js.UndefOr[VdomNode]                   = js.undefined,
   className:              js.UndefOr[String]                     = js.undefined,
   clazz:                  js.UndefOr[Css]                        = js.undefined,
   content:                js.UndefOr[VdomNode]                   = js.undefined,
@@ -69,19 +68,11 @@ object ModalActions {
   }
 
   def props(q: ModalActions): ModalActionsProps =
-    rawprops(q.as,
-             q.actions,
-             q.child,
-             q.className,
-             q.clazz,
-             q.content,
-             q.onActionClickE,
-             q.onActionClick)
+    rawprops(q.as, q.actions, q.className, q.clazz, q.content, q.onActionClickE, q.onActionClick)
 
   def rawprops(
     as:             js.UndefOr[AsC]                     = js.undefined,
     actions:        js.UndefOr[Seq[ShorthandS[Button]]] = js.undefined,
-    children:       js.UndefOr[VdomNode]                = js.undefined,
     className:      js.UndefOr[String]                  = js.undefined,
     clazz:          js.UndefOr[Css]                     = js.undefined,
     content:        js.UndefOr[VdomNode]                = js.undefined,
@@ -91,7 +82,6 @@ object ModalActions {
     val p = as.toJsObject[ModalActionsProps]
     p.as            = as.toJs
     p.actions       = actions.toJs
-    p.children      = children.toJs
     p.className     = (className, clazz).toJs
     p.content       = content.toJs
     p.onActionClick = (onActionClickE, onActionClick).toJs

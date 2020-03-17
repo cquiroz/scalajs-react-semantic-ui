@@ -4,13 +4,11 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 // import japgolly.scalajs.react.Ref
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class PortalInner(
-  child: js.UndefOr[VdomNode] = js.undefined,
   // innerRef:             js.UndefOr[Ref[html.Element]]                     = js.undefined,
   onMountE:               js.UndefOr[PortalInner.OnMount]   = js.undefined,
   onMount:                js.UndefOr[Callback]              = js.undefined,
@@ -69,7 +67,6 @@ object PortalInner {
 
   def props(q: PortalInner): PortalInnerProps =
     rawprops(
-      q.child,
       // q.innerRef,
       q.onMountE,
       q.onMount,
@@ -78,7 +75,6 @@ object PortalInner {
     )
 
   def rawprops(
-    children: js.UndefOr[VdomNode] = js.undefined,
     // innerRef:             js.UndefOr[Ref]                     = js.undefined,
     onMountE:   js.UndefOr[OnMount]   = js.undefined,
     onMount:    js.UndefOr[Callback]  = js.undefined,
@@ -86,7 +82,6 @@ object PortalInner {
     onUnmount:  js.UndefOr[Callback]  = js.undefined
   ): PortalInnerProps = {
     val p = (new js.Object).asInstanceOf[PortalInnerProps]
-    p.children = children.toJs
     // p.innerRef = innerRef
     p.onMount   = (onMountE, onMount).toJs
     p.onUnmount = (onUnmountE, onUnmount).toJs
@@ -96,6 +91,6 @@ object PortalInner {
   private val component =
     JsComponent[PortalInnerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): PortalInner =
-    new PortalInner(modifiers = content)
+  def apply(modifiers: TagMod*): PortalInner =
+    new PortalInner(modifiers = modifiers)
 }

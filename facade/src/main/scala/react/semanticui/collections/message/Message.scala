@@ -1,10 +1,10 @@
 package react.semanticui.collections.message
 
 import scala.scalajs.js
-import scala.scalajs.js.|
+import js.|
 import js.annotation._
+import js.JSConverters._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -15,30 +15,29 @@ import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Message(
-  as:                     js.UndefOr[AsC]                                          = js.undefined,
-  attached:               js.UndefOr[MessageAttached]                              = js.undefined,
-  child:                  js.UndefOr[VdomNode]                                     = js.undefined,
-  className:              js.UndefOr[String]                                       = js.undefined,
-  clazz:                  js.UndefOr[Css]                                          = js.undefined,
-  color:                  js.UndefOr[SemanticColor]                                = js.undefined,
-  compact:                js.UndefOr[Boolean]                                      = js.undefined,
-  content:                js.UndefOr[ShorthandS[MessageContent]]                   = js.undefined,
-  error:                  js.UndefOr[Boolean]                                      = js.undefined,
-  floating:               js.UndefOr[Boolean]                                      = js.undefined,
-  header:                 js.UndefOr[ShorthandS[MessageHeader]]                    = js.undefined,
-  hidden:                 js.UndefOr[Boolean]                                      = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]                            = js.undefined,
-  info:                   js.UndefOr[Boolean]                                      = js.undefined,
-  list:                   js.UndefOr[Seq[VdomNode] | MessageList.MessageListProps] = js.undefined,
-  negative:               js.UndefOr[Boolean]                                      = js.undefined,
-  onDismissE:             js.UndefOr[Message.OnDismiss]                            = js.undefined,
-  onDismiss:              js.UndefOr[Callback]                                     = js.undefined,
-  positive:               js.UndefOr[Boolean]                                      = js.undefined,
-  size:                   js.UndefOr[MessageSize]                                  = js.undefined,
-  success:                js.UndefOr[Boolean]                                      = js.undefined,
-  visible:                js.UndefOr[Boolean]                                      = js.undefined,
-  warning:                js.UndefOr[Boolean]                                      = js.undefined,
-  override val modifiers: Seq[TagMod]                                              = Seq.empty
+  as:                     js.UndefOr[AsC]                                        = js.undefined,
+  attached:               js.UndefOr[MessageAttached]                            = js.undefined,
+  className:              js.UndefOr[String]                                     = js.undefined,
+  clazz:                  js.UndefOr[Css]                                        = js.undefined,
+  color:                  js.UndefOr[SemanticColor]                              = js.undefined,
+  compact:                js.UndefOr[Boolean]                                    = js.undefined,
+  content:                js.UndefOr[ShorthandS[MessageContent]]                 = js.undefined,
+  error:                  js.UndefOr[Boolean]                                    = js.undefined,
+  floating:               js.UndefOr[Boolean]                                    = js.undefined,
+  header:                 js.UndefOr[ShorthandS[MessageHeader]]                  = js.undefined,
+  hidden:                 js.UndefOr[Boolean]                                    = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]]                          = js.undefined,
+  info:                   js.UndefOr[Boolean]                                    = js.undefined,
+  list:                   js.UndefOr[Seq[ShorthandS[MessageItem]] | MessageList] = js.undefined,
+  negative:               js.UndefOr[Boolean]                                    = js.undefined,
+  onDismissE:             js.UndefOr[Message.OnDismiss]                          = js.undefined,
+  onDismiss:              js.UndefOr[Callback]                                   = js.undefined,
+  positive:               js.UndefOr[Boolean]                                    = js.undefined,
+  size:                   js.UndefOr[MessageSize]                                = js.undefined,
+  success:                js.UndefOr[Boolean]                                    = js.undefined,
+  visible:                js.UndefOr[Boolean]                                    = js.undefined,
+  warning:                js.UndefOr[Boolean]                                    = js.undefined,
+  override val modifiers: Seq[TagMod]                                            = Seq.empty
 ) extends GenericComponentPAC[Message.MessageProps, Message] {
   override protected def cprops    = Message.props(this)
   override protected val component = Message.component
@@ -102,7 +101,9 @@ object Message {
     var info: js.UndefOr[Boolean] = js.undefined
 
     /** Array shorthand items for the MessageList. Mutually exclusive with children. */
-    var list: js.UndefOr[suiraw.SemanticShorthandOrArray[MessageList.MessageListProps]] =
+    var list: js.UndefOr[
+      js.Array[suiraw.SemanticShorthandItemS[MessageItem.MessageItemProps]] | MessageList.MessageListProps
+    ] =
       js.undefined
 
     /** A message may be formatted to display a negative message. Same as `error`. */
@@ -137,7 +138,6 @@ object Message {
     rawprops(
       q.as,
       q.attached,
-      q.child,
       q.className,
       q.clazz,
       q.color,
@@ -161,34 +161,32 @@ object Message {
     )
 
   def rawprops(
-    as:         js.UndefOr[AsC]                                          = js.undefined,
-    attached:   js.UndefOr[MessageAttached]                              = js.undefined,
-    children:   js.UndefOr[VdomNode]                                     = js.undefined,
-    className:  js.UndefOr[String]                                       = js.undefined,
-    clazz:      js.UndefOr[Css]                                          = js.undefined,
-    color:      js.UndefOr[SemanticColor]                                = js.undefined,
-    compact:    js.UndefOr[Boolean]                                      = js.undefined,
-    content:    js.UndefOr[ShorthandS[MessageContent]]                   = js.undefined,
-    error:      js.UndefOr[Boolean]                                      = js.undefined,
-    floating:   js.UndefOr[Boolean]                                      = js.undefined,
-    header:     js.UndefOr[ShorthandS[MessageHeader]]                    = js.undefined,
-    hidden:     js.UndefOr[Boolean]                                      = js.undefined,
-    icon:       js.UndefOr[ShorthandSB[Icon]]                            = js.undefined,
-    info:       js.UndefOr[Boolean]                                      = js.undefined,
-    list:       js.UndefOr[Seq[VdomNode] | MessageList.MessageListProps] = js.undefined,
-    negative:   js.UndefOr[Boolean]                                      = js.undefined,
-    onDismissE: js.UndefOr[Message.OnDismiss]                            = js.undefined,
-    onDismiss:  js.UndefOr[Callback]                                     = js.undefined,
-    positive:   js.UndefOr[Boolean]                                      = js.undefined,
-    size:       js.UndefOr[MessageSize]                                  = js.undefined,
-    success:    js.UndefOr[Boolean]                                      = js.undefined,
-    visible:    js.UndefOr[Boolean]                                      = js.undefined,
-    warning:    js.UndefOr[Boolean]                                      = js.undefined
+    as:         js.UndefOr[AsC]                                        = js.undefined,
+    attached:   js.UndefOr[MessageAttached]                            = js.undefined,
+    className:  js.UndefOr[String]                                     = js.undefined,
+    clazz:      js.UndefOr[Css]                                        = js.undefined,
+    color:      js.UndefOr[SemanticColor]                              = js.undefined,
+    compact:    js.UndefOr[Boolean]                                    = js.undefined,
+    content:    js.UndefOr[ShorthandS[MessageContent]]                 = js.undefined,
+    error:      js.UndefOr[Boolean]                                    = js.undefined,
+    floating:   js.UndefOr[Boolean]                                    = js.undefined,
+    header:     js.UndefOr[ShorthandS[MessageHeader]]                  = js.undefined,
+    hidden:     js.UndefOr[Boolean]                                    = js.undefined,
+    icon:       js.UndefOr[ShorthandSB[Icon]]                          = js.undefined,
+    info:       js.UndefOr[Boolean]                                    = js.undefined,
+    list:       js.UndefOr[Seq[ShorthandS[MessageItem]] | MessageList] = js.undefined,
+    negative:   js.UndefOr[Boolean]                                    = js.undefined,
+    onDismissE: js.UndefOr[Message.OnDismiss]                          = js.undefined,
+    onDismiss:  js.UndefOr[Callback]                                   = js.undefined,
+    positive:   js.UndefOr[Boolean]                                    = js.undefined,
+    size:       js.UndefOr[MessageSize]                                = js.undefined,
+    success:    js.UndefOr[Boolean]                                    = js.undefined,
+    visible:    js.UndefOr[Boolean]                                    = js.undefined,
+    warning:    js.UndefOr[Boolean]                                    = js.undefined
   ): MessageProps = {
     val p = as.toJsObject[MessageProps]
     p.as        = as.toJs
     p.attached  = attached.toJs
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.color     = color.toJs
     p.compact   = compact
@@ -199,7 +197,14 @@ object Message {
     p.hidden    = hidden
     p.icon      = icon.toJs
     p.info      = info
-    p.list      = list.toRaw
+    p.list = list.map(v =>
+      (v: Any) match {
+        case s: Seq[_] =>
+          s.map(item => compToPropS(item.asInstanceOf[ShorthandS[MessageItem]])).toJSArray
+        // .asInstanceOf[raw.SemanticShorthandOrArray[T]]
+        case l: MessageList => l.props
+      }
+    )
     p.negative  = negative
     p.onDismiss = (onDismissE, onDismiss).toJs
     p.positive  = positive

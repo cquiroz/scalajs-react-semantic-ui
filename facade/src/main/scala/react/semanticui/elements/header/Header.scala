@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -14,16 +13,16 @@ import react.semanticui._
 import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Header(
   as:                     js.UndefOr[AsC]                   = js.undefined,
   attached:               js.UndefOr[HeaderAttached]        = js.undefined,
   block:                  js.UndefOr[Boolean]               = js.undefined,
-  child:                  js.UndefOr[VdomNode]              = js.undefined,
   className:              js.UndefOr[String]                = js.undefined,
   clazz:                  js.UndefOr[Css]                   = js.undefined,
   color:                  js.UndefOr[SemanticColor]         = js.undefined,
-  content:                js.UndefOr[VdomNode]              = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
   disabled:               js.UndefOr[Boolean]               = js.undefined,
   dividing:               js.UndefOr[Boolean]               = js.undefined,
   floated:                js.UndefOr[SemanticFloat]         = js.undefined,
@@ -114,7 +113,6 @@ object Header {
       as        = q.as,
       attached  = q.attached,
       block     = q.block,
-      children  = q.child,
       className = q.className,
       clazz     = q.clazz,
       color     = q.color,
@@ -135,11 +133,10 @@ object Header {
     as:        js.UndefOr[AsC]                   = js.undefined,
     attached:  js.UndefOr[HeaderAttached]        = js.undefined,
     block:     js.UndefOr[Boolean]               = js.undefined,
-    children:  js.UndefOr[VdomNode]              = js.undefined,
     className: js.UndefOr[String]                = js.undefined,
     clazz:     js.UndefOr[Css]                   = js.undefined,
     color:     js.UndefOr[SemanticColor]         = js.undefined,
-    content:   js.UndefOr[VdomNode]              = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
     disabled:  js.UndefOr[Boolean]               = js.undefined,
     dividing:  js.UndefOr[Boolean]               = js.undefined,
     floated:   js.UndefOr[SemanticFloat]         = js.undefined,
@@ -155,7 +152,6 @@ object Header {
     p.as        = as.toJs
     p.attached  = attached.toJs
     p.block     = block
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.color     = color.toJs
     p.content   = content.toJs
@@ -175,6 +171,6 @@ object Header {
   private val component =
     JsFnComponent[HeaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): Header =
-    Header(modifiers = content)
+  def apply(modifiers: TagMod*): Header =
+    Header(modifiers = modifiers)
 }

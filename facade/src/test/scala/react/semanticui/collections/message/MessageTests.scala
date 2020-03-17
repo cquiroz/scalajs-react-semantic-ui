@@ -79,7 +79,7 @@ object MessageTests extends TestSuite {
 
     test("listShorthand") {
       val message = Message(
-        list = List[VdomNode]("", "")
+        list = List("", "")
       )
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)

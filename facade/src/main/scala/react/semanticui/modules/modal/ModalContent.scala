@@ -12,14 +12,13 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class ModalContent(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  image:                  js.UndefOr[Boolean]  = js.undefined,
-  scrolling:              js.UndefOr[Boolean]  = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  image:                  js.UndefOr[Boolean]              = js.undefined,
+  scrolling:              js.UndefOr[Boolean]              = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericFnComponentPAC[ModalContent.ModalContentProps, ModalContent] {
   override protected def cprops    = ModalContent.props(this)
   override protected val component = ModalContent.component
@@ -61,20 +60,18 @@ object ModalContent {
   }
 
   def props(q: ModalContent): ModalContentProps =
-    rawprops(q.as, q.child, q.className, q.clazz, q.content, q.image, q.scrolling)
+    rawprops(q.as, q.className, q.clazz, q.content, q.image, q.scrolling)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined,
-    image:     js.UndefOr[Boolean]  = js.undefined,
-    scrolling: js.UndefOr[Boolean]  = js.undefined
+    as:        js.UndefOr[AsC]                  = js.undefined,
+    className: js.UndefOr[String]               = js.undefined,
+    clazz:     js.UndefOr[Css]                  = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+    image:     js.UndefOr[Boolean]              = js.undefined,
+    scrolling: js.UndefOr[Boolean]              = js.undefined
   ): ModalContentProps = {
     val p = as.toJsObject[ModalContentProps]
     p.as        = as.toJs
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.image     = image
@@ -85,6 +82,6 @@ object ModalContent {
   private val component =
     JsFnComponent[ModalContentProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): ModalContent =
-    new ModalContent(modifiers = content)
+  def apply(modifiers: TagMod*): ModalContent =
+    new ModalContent(modifiers = modifiers)
 }

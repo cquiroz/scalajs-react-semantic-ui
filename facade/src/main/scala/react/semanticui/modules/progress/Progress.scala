@@ -17,28 +17,27 @@ import japgolly.scalajs.react.vdom.TagMod
 import react.semanticui.elements.label.Label
 
 final case class Progress(
-  as:                     js.UndefOr[AsC]               = js.undefined,
-  active:                 js.UndefOr[Boolean]           = js.undefined,
-  attached:               js.UndefOr[String]            = js.undefined,
-  autoSuccess:            js.UndefOr[Boolean]           = js.undefined,
-  child:                  js.UndefOr[VdomNode]          = js.undefined,
-  className:              js.UndefOr[String]            = js.undefined,
-  clazz:                  js.UndefOr[Css]               = js.undefined,
-  color:                  js.UndefOr[SemanticColor]     = js.undefined,
-  content:                js.UndefOr[VdomNode]          = js.undefined,
-  error:                  js.UndefOr[Boolean]           = js.undefined,
-  indicating:             js.UndefOr[Boolean]           = js.undefined,
-  inverted:               js.UndefOr[Boolean]           = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
-  percent:                js.UndefOr[JsNumber | String] = js.undefined,
-  precision:              js.UndefOr[JsNumber]          = js.undefined,
-  progress:               js.UndefOr[Boolean | String]  = js.undefined,
-  size:                   js.UndefOr[SemanticSize]      = js.undefined,
-  success:                js.UndefOr[Boolean]           = js.undefined,
-  total:                  js.UndefOr[JsNumber | String] = js.undefined,
-  value:                  js.UndefOr[JsNumber | String] = js.undefined,
-  warning:                js.UndefOr[Boolean]           = js.undefined,
-  override val modifiers: Seq[TagMod]                   = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  active:                 js.UndefOr[Boolean]              = js.undefined,
+  attached:               js.UndefOr[String]               = js.undefined,
+  autoSuccess:            js.UndefOr[Boolean]              = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  color:                  js.UndefOr[SemanticColor]        = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  error:                  js.UndefOr[Boolean]              = js.undefined,
+  indicating:             js.UndefOr[Boolean]              = js.undefined,
+  inverted:               js.UndefOr[Boolean]              = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]]    = js.undefined,
+  percent:                js.UndefOr[JsNumber | String]    = js.undefined,
+  precision:              js.UndefOr[JsNumber]             = js.undefined,
+  progress:               js.UndefOr[Boolean | String]     = js.undefined,
+  size:                   js.UndefOr[SemanticSize]         = js.undefined,
+  success:                js.UndefOr[Boolean]              = js.undefined,
+  total:                  js.UndefOr[JsNumber | String]    = js.undefined,
+  value:                  js.UndefOr[JsNumber | String]    = js.undefined,
+  warning:                js.UndefOr[Boolean]              = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericComponentPAC[Progress.ProgressProps, Progress] {
   override protected def cprops    = Progress.props(this)
   override protected val component = Progress.component
@@ -132,7 +131,6 @@ object Progress {
       q.active,
       q.attached,
       q.autoSuccess,
-      q.child,
       q.className,
       q.clazz,
       q.color,
@@ -152,34 +150,32 @@ object Progress {
     )
 
   def rawprops(
-    as:          js.UndefOr[AsC]               = js.undefined,
-    active:      js.UndefOr[Boolean]           = js.undefined,
-    attached:    js.UndefOr[String]            = js.undefined,
-    autoSuccess: js.UndefOr[Boolean]           = js.undefined,
-    children:    js.UndefOr[VdomNode]          = js.undefined,
-    className:   js.UndefOr[String]            = js.undefined,
-    clazz:       js.UndefOr[Css]               = js.undefined,
-    color:       js.UndefOr[SemanticColor]     = js.undefined,
-    content:     js.UndefOr[VdomNode]          = js.undefined,
-    error:       js.UndefOr[Boolean]           = js.undefined,
-    indicating:  js.UndefOr[Boolean]           = js.undefined,
-    inverted:    js.UndefOr[Boolean]           = js.undefined,
-    label:       js.UndefOr[ShorthandS[Label]] = js.undefined,
-    percent:     js.UndefOr[JsNumber | String] = js.undefined,
-    precision:   js.UndefOr[JsNumber]          = js.undefined,
-    progress:    js.UndefOr[Boolean | String]  = js.undefined,
-    size:        js.UndefOr[SemanticSize]      = js.undefined,
-    success:     js.UndefOr[Boolean]           = js.undefined,
-    total:       js.UndefOr[JsNumber | String] = js.undefined,
-    value:       js.UndefOr[JsNumber | String] = js.undefined,
-    warning:     js.UndefOr[Boolean]           = js.undefined
+    as:          js.UndefOr[AsC]                  = js.undefined,
+    active:      js.UndefOr[Boolean]              = js.undefined,
+    attached:    js.UndefOr[String]               = js.undefined,
+    autoSuccess: js.UndefOr[Boolean]              = js.undefined,
+    className:   js.UndefOr[String]               = js.undefined,
+    clazz:       js.UndefOr[Css]                  = js.undefined,
+    color:       js.UndefOr[SemanticColor]        = js.undefined,
+    content:     js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+    error:       js.UndefOr[Boolean]              = js.undefined,
+    indicating:  js.UndefOr[Boolean]              = js.undefined,
+    inverted:    js.UndefOr[Boolean]              = js.undefined,
+    label:       js.UndefOr[ShorthandS[Label]]    = js.undefined,
+    percent:     js.UndefOr[JsNumber | String]    = js.undefined,
+    precision:   js.UndefOr[JsNumber]             = js.undefined,
+    progress:    js.UndefOr[Boolean | String]     = js.undefined,
+    size:        js.UndefOr[SemanticSize]         = js.undefined,
+    success:     js.UndefOr[Boolean]              = js.undefined,
+    total:       js.UndefOr[JsNumber | String]    = js.undefined,
+    value:       js.UndefOr[JsNumber | String]    = js.undefined,
+    warning:     js.UndefOr[Boolean]              = js.undefined
   ): ProgressProps = {
     val p = as.toJsObject[ProgressProps]
     p.as          = as.toJs
     p.active      = active
     p.attached    = attached
     p.autoSuccess = autoSuccess
-    p.children    = children.toJs
     p.className   = (className, clazz).toJs
     p.color       = color.toJs
     p.content     = content.toJs
@@ -201,6 +197,6 @@ object Progress {
   private val component =
     JsComponent[ProgressProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): Progress =
-    Progress(modifiers = content)
+  def apply(modifiers: TagMod*): Progress =
+    Progress(modifiers = modifiers)
 }

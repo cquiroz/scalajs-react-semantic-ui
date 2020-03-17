@@ -3,6 +3,7 @@ package react.semanticui.elements.list
 import scala.scalajs.js
 import js.annotation._
 import js.|
+import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
@@ -18,10 +19,9 @@ final case class List(
   animated:               js.UndefOr[Boolean]                   = js.undefined,
   bulleted:               js.UndefOr[Boolean]                   = js.undefined,
   celled:                 js.UndefOr[Boolean]                   = js.undefined,
-  child:                  js.UndefOr[VdomNode]                  = js.undefined,
   className:              js.UndefOr[String]                    = js.undefined,
   clazz:                  js.UndefOr[Css]                       = js.undefined,
-  content:                js.UndefOr[VdomNode]                  = js.undefined,
+  content:                js.UndefOr[Seq[VdomNode]]             = js.undefined,
   divided:                js.UndefOr[Boolean]                   = js.undefined,
   floated:                js.UndefOr[SemanticFloat]             = js.undefined,
   horizontal:             js.UndefOr[Boolean]                   = js.undefined,
@@ -76,7 +76,7 @@ object List {
     var className: js.UndefOr[String] = js.native
 
     /** Shorthand for primary content. */
-    var content: js.UndefOr[SemanticShorthandContent] = js.native
+    var content: js.UndefOr[js.Array[SemanticShorthandContent]] = js.native
 
     /** A list can show divisions between content. */
     var divided: js.UndefOr[Boolean] = js.native
@@ -131,9 +131,8 @@ object List {
     p.animated      = q.animated
     p.bulleted      = q.bulleted
     p.celled        = q.celled
-    p.children      = q.child.toJs
     p.className     = (q.className, q.clazz).toJs
-    p.content       = q.content.toJs
+    p.content       = q.content.map(_.map(_.rawNode).toJSArray)
     p.divided       = q.divided
     p.floated       = q.floated.toJs
     p.horizontal    = q.horizontal
@@ -152,6 +151,7 @@ object List {
   private val component =
     JsComponent[ListProps, Children.Varargs, Null](RawComponent)
 
-  def apply(items: ShorthandS[ListItem]*): List = new List(items = items)
+  def apply(items: ShorthandS[ListItem]*): List =
+    new List(items = items)
 
 }

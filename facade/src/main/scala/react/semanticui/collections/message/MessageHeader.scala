@@ -3,20 +3,19 @@ package react.semanticui.collections.message
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class MessageHeader(
-  as:                     js.UndefOr[AsC]                       = js.undefined,
-  child:                  js.UndefOr[VdomNode]                  = js.undefined,
-  className:              js.UndefOr[String]                    = js.undefined,
-  clazz:                  js.UndefOr[Css]                       = js.undefined,
-  content:                js.UndefOr[ShorthandS[MessageHeader]] = js.undefined,
-  override val modifiers: Seq[TagMod]                           = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericComponentPAC[MessageHeader.MessageHeaderProps, MessageHeader] {
   override protected def cprops    = MessageHeader.props(this)
   override protected val component = MessageHeader.component
@@ -48,29 +47,26 @@ object MessageHeader {
     var className: js.UndefOr[String] = js.undefined
 
     /** Shorthand for primary content. */
-    var content: js.UndefOr[suiraw.SemanticShorthandItemS[MessageHeader.MessageHeaderProps]] =
+    var content: js.UndefOr[suiraw.SemanticShorthandContent] =
       js.undefined
   }
 
   def props(q: MessageHeader): MessageHeaderProps =
     rawprops(
       q.as,
-      q.child,
       q.className,
       q.clazz,
       q.content
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]                       = js.undefined,
-    children:  js.UndefOr[VdomNode]                  = js.undefined,
-    className: js.UndefOr[String]                    = js.undefined,
-    clazz:     js.UndefOr[Css]                       = js.undefined,
-    content:   js.UndefOr[ShorthandS[MessageHeader]] = js.undefined
+    as:        js.UndefOr[AsC]                  = js.undefined,
+    className: js.UndefOr[String]               = js.undefined,
+    clazz:     js.UndefOr[Css]                  = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined
   ): MessageHeaderProps = {
     val p = as.toJsObject[MessageHeaderProps]
     p.as        = as.toJs
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
     p

@@ -27,7 +27,7 @@ final case class DropdownItem(
   active:                 js.UndefOr[Boolean]                     = js.undefined,
   className:              js.UndefOr[String]                      = js.undefined,
   clazz:                  js.UndefOr[Css]                         = js.undefined,
-  content:                js.UndefOr[String]                      = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
   description:            js.UndefOr[String]                      = js.undefined,
   disable:                js.UndefOr[Boolean]                     = js.undefined,
   flag:                   js.UndefOr[ShorthandS[Flag]]            = js.undefined,
@@ -122,7 +122,7 @@ object DropdownItem {
     p.as          = q.as.toJs
     p.active      = q.active
     p.className   = (q.className, q.clazz).toJs
-    p.content     = q.content
+    p.content     = q.content.toJs
     p.description = q.description
     p.disable     = q.disable
     p.flag        = q.flag.toJs
@@ -139,9 +139,7 @@ object DropdownItem {
   private val component =
     JsComponent[DropdownItemProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    v: Boolean | JsNumber | String
-  ): DropdownItem =
+  def apply(v: Boolean | JsNumber | String): DropdownItem =
     new DropdownItem(value = v, modifiers = Seq(v.toString))
 
 }

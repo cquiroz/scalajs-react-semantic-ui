@@ -3,7 +3,6 @@ package react.semanticui.collections.form
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -15,7 +14,6 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class Form(
   as:                     js.UndefOr[AsC]            = js.undefined,
   action:                 js.UndefOr[String]         = js.undefined,
-  child:                  js.UndefOr[VdomNode]       = js.undefined,
   className:              js.UndefOr[String]         = js.undefined,
   clazz:                  js.UndefOr[Css]            = js.undefined,
   error:                  js.UndefOr[Boolean]        = js.undefined,
@@ -100,7 +98,6 @@ object Form {
     rawprops(
       q.as,
       q.action,
-      q.child,
       q.className,
       q.clazz,
       q.error,
@@ -119,7 +116,6 @@ object Form {
   def rawprops(
     as:          js.UndefOr[AsC]            = js.undefined,
     action:      js.UndefOr[String]         = js.undefined,
-    child:       js.UndefOr[VdomNode]       = js.undefined,
     className:   js.UndefOr[String]         = js.undefined,
     clazz:       js.UndefOr[Css]            = js.undefined,
     error:       js.UndefOr[Boolean]        = js.undefined,
@@ -137,7 +133,6 @@ object Form {
     val p = as.toJsObject[FormProps]
     p.as          = as.toJs
     p.action      = action
-    p.children    = child.toJs
     p.className   = (className, clazz).toJs
     p.error       = error
     p.inverted    = inverted
@@ -159,6 +154,6 @@ object Form {
 
   val defaultProps: FormProps = props(Default)
 
-  def apply(content: TagMod*): Form =
-    Form(modifiers = content)
+  def apply(modifiers: TagMod*): Form =
+    Form(modifiers = modifiers)
 }

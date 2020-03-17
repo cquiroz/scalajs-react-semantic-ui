@@ -67,8 +67,6 @@ object ButtonOr {
   private val component =
     JsComponent[ButtonOrProps, Children.None, Null](RawComponent)
 
-  def apply(
-    content: TagMod*
-  ): ButtonOr =
-    new ButtonOr(modifiers = content)
+  def apply(modifiers: TagMod*): ButtonOr =
+    new ButtonOr(modifiers = modifiers)
 }

@@ -1,7 +1,6 @@
 package react.semanticui.elements.icon
 
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -10,15 +9,15 @@ import react.semanticui.{ raw => suiraw }
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class IconGroup(
-  as:                     js.UndefOr[AsC]          = js.undefined,
-  child:                  js.UndefOr[VdomNode]     = js.undefined,
-  className:              js.UndefOr[String]       = js.undefined,
-  clazz:                  js.UndefOr[Css]          = js.undefined,
-  content:                js.UndefOr[VdomNode]     = js.undefined,
-  size:                   js.UndefOr[SemanticSize] = js.undefined,
-  override val modifiers: Seq[TagMod]              = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  size:                   js.UndefOr[SemanticSize]         = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericComponentPAC[IconGroup.IconGroupProps, IconGroup] {
   override protected def cprops    = IconGroup.props(this)
   override protected val component = IconGroup.component
@@ -49,8 +48,6 @@ object IconGroup {
   ): IconGroupProps = {
     val p = q.as.toJsObject[IconGroupProps]
     p.as        = q.as.toJs
-    p.children  = q.child.toJs
-    p.content   = q.content.toJs
     p.className = (q.className, q.clazz).toJs
     p.content   = q.content.toJs
     p.size      = q.size.toJs
@@ -60,6 +57,6 @@ object IconGroup {
   private val component =
     JsComponent[IconGroupProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): IconGroup =
-    new IconGroup(modifiers = content)
+  def apply(modifiers: TagMod*): IconGroup =
+    new IconGroup(modifiers = modifiers)
 }
