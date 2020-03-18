@@ -49,11 +49,11 @@ package object icon {
     def rotated(s: IconRotated): Icon =
       i.copy(rotated = s)
 
-    def bordered(): Icon =
-      i.copy(bordered = true)
+    def bordered(s: Boolean = true): Icon =
+      i.copy(bordered = s)
 
-    def circular(): Icon =
-      i.copy(circular = true)
+    def circular(s: Boolean = true): Icon =
+      i.copy(circular = s)
 
     def className(c: String): Icon =
       i.copy(className = c)
@@ -61,19 +61,19 @@ package object icon {
     def corner(c: IconCorner): Icon =
       i.copy(corner = c)
 
-    def disabled: Icon =
-      i.copy(disabled = true)
+    def disabled(s: Boolean = true): Icon =
+      i.copy(disabled = s)
 
-    def fitted: Icon =
-      i.copy(fitted = true)
+    def fitted(s: Boolean = true): Icon =
+      i.copy(fitted = s)
 
-    def inverted: Icon =
-      i.copy(inverted = true)
+    def inverted(s: Boolean = true): Icon =
+      i.copy(inverted = s)
 
-    def link: Icon =
-      i.copy(link = true)
+    def link(s: Boolean = true): Icon =
+      i.copy(link = s)
 
-    def loading: Icon =
-      i.copy(loading = true)
+    def loading(s: Boolean = true): Icon =
+      i.copy(loading = s)
   }
 }
