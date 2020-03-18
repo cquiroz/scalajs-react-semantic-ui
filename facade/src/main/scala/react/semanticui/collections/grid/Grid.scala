@@ -4,7 +4,6 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -16,7 +15,6 @@ final case class Grid(
   as:                     js.UndefOr[AsC]                       = js.undefined,
   celled:                 js.UndefOr[GridCelled]                = js.undefined,
   centered:               js.UndefOr[Boolean]                   = js.undefined,
-  child:                  js.UndefOr[VdomNode]                  = js.undefined,
   className:              js.UndefOr[String]                    = js.undefined,
   clazz:                  js.UndefOr[Css]                       = js.undefined,
   columns:                js.UndefOr[SemanticWidth]             = js.undefined,
@@ -110,7 +108,6 @@ object Grid {
       q.as,
       q.celled,
       q.centered,
-      q.child,
       q.className,
       q.clazz,
       q.columns,
@@ -131,7 +128,6 @@ object Grid {
     as:            js.UndefOr[AsC]                       = js.undefined,
     celled:        js.UndefOr[GridCelled]                = js.undefined,
     centered:      js.UndefOr[Boolean]                   = js.undefined,
-    children:      js.UndefOr[VdomNode]                  = js.undefined,
     className:     js.UndefOr[String]                    = js.undefined,
     clazz:         js.UndefOr[Css]                       = js.undefined,
     columns:       js.UndefOr[SemanticWidth]             = js.undefined,
@@ -151,7 +147,6 @@ object Grid {
     p.as            = as.toJs
     p.celled        = celled.toJs
     p.centered      = centered
-    p.children      = children.toJs
     p.className     = (className, clazz).toJs
     p.columns       = columns.toJs
     p.container     = container
@@ -175,6 +170,6 @@ object Grid {
 
   val defaultProps: GridProps = props(Default)
 
-  def apply(content: TagMod*): Grid =
-    new Grid(modifiers = content)
+  def apply(modifiers: TagMod*): Grid =
+    new Grid(modifiers = modifiers)
 }

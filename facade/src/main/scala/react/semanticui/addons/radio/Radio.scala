@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui._
@@ -23,7 +22,7 @@ final case class Radio(
   fitted:                 js.UndefOr[Boolean]           = js.undefined,
   id:                     js.UndefOr[JsNumber | String] = js.undefined,
   indeterminate:          js.UndefOr[Boolean]           = js.undefined,
-  label:                  js.UndefOr[VdomNode]          = js.undefined,
+  label:                  js.UndefOr[String]            = js.undefined,
   name:                   js.UndefOr[String]            = js.undefined,
   onChangeE:              js.UndefOr[Radio.Event]       = js.undefined,
   onChange:               js.UndefOr[Callback]          = js.undefined,
@@ -93,7 +92,7 @@ object Radio {
     var indeterminate: js.UndefOr[Boolean] = js.native
 
     /** The text of the associated label element. */
-    var label: js.UndefOr[VdomNode] = js.native
+    var label: js.UndefOr[String] = js.native
 
     /** The HTML input name. */
     var name: js.UndefOr[String] = js.native
@@ -194,7 +193,7 @@ object Radio {
     fitted:               js.UndefOr[Boolean]           = js.undefined,
     id:                   js.UndefOr[JsNumber | String] = js.undefined,
     indeterminate:        js.UndefOr[Boolean]           = js.undefined,
-    label:                js.UndefOr[VdomNode]          = js.undefined,
+    label:                js.UndefOr[String]            = js.undefined,
     name:                 js.UndefOr[String]            = js.undefined,
     onChangeE:            js.UndefOr[Event]             = js.undefined,
     onChange:             js.UndefOr[Callback]          = js.undefined,
@@ -245,6 +244,6 @@ object Radio {
 
   val defaultProps: RadioProps = props(Default)
 
-  def apply(content: TagMod*): Radio =
-    new Radio(modifiers = content)
+  def apply(modifiers: TagMod*): Radio =
+    new Radio(modifiers = modifiers)
 }

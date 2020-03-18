@@ -15,11 +15,10 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class Rail(
   as:                     js.UndefOr[AsC] = js.undefined,
   attached:               js.UndefOr[Boolean] = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
   className:              js.UndefOr[String] = js.undefined,
   clazz:                  js.UndefOr[Css] = js.undefined,
   close:                  js.UndefOr[RailClose] = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   dividing:               js.UndefOr[Boolean] = js.undefined,
   internal:               js.UndefOr[Boolean] = js.undefined,
   position:               js.UndefOr[SemanticFloat],
@@ -83,7 +82,6 @@ object Rail {
     rawprops(
       q.as,
       q.attached,
-      q.child,
       q.className,
       q.clazz,
       q.close,
@@ -95,21 +93,19 @@ object Rail {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]           = js.undefined,
-    attached:  js.UndefOr[Boolean]       = js.undefined,
-    child:     js.UndefOr[VdomNode]      = js.undefined,
-    className: js.UndefOr[String]        = js.undefined,
-    clazz:     js.UndefOr[Css]           = js.undefined,
-    close:     js.UndefOr[RailClose]     = js.undefined,
-    content:   js.UndefOr[VdomNode]      = js.undefined,
-    dividing:  js.UndefOr[Boolean]       = js.undefined,
-    internal:  js.UndefOr[Boolean]       = js.undefined,
-    position:  js.UndefOr[SemanticFloat] = js.undefined,
-    size:      js.UndefOr[SemanticSize]  = js.undefined
+    as:        js.UndefOr[AsC]                  = js.undefined,
+    attached:  js.UndefOr[Boolean]              = js.undefined,
+    className: js.UndefOr[String]               = js.undefined,
+    clazz:     js.UndefOr[Css]                  = js.undefined,
+    close:     js.UndefOr[RailClose]            = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+    dividing:  js.UndefOr[Boolean]              = js.undefined,
+    internal:  js.UndefOr[Boolean]              = js.undefined,
+    position:  js.UndefOr[SemanticFloat]        = js.undefined,
+    size:      js.UndefOr[SemanticSize]         = js.undefined
   ): RailProps = {
     val p = as.toJsObject[RailProps]
     p.attached  = attached
-    p.children  = child.toJs
     p.className = (className, clazz).toJs
     p.close     = close.toJs
     p.content   = content.toJs
@@ -123,7 +119,7 @@ object Rail {
   private val component =
     JsFnComponent[RailProps, Children.Varargs](RawComponent)
 
-  def apply(position: SemanticFloat, content: TagMod*): Rail =
-    new Rail(position = position, modifiers = content)
+  def apply(position: SemanticFloat, modifiers: TagMod*): Rail =
+    new Rail(position = position, modifiers = modifiers)
 
 }

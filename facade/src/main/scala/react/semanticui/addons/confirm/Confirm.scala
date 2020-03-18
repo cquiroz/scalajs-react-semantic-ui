@@ -2,53 +2,50 @@ package react.semanticui.addons.confirm
 
 import scala.scalajs.js
 import js.annotation._
-import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.button.Button
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.modules.modal._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Confirm(
-  as:                     js.UndefOr[AsC]                                       = js.undefined,
-  actions:                js.UndefOr[VdomNode | ModalActions.ModalActionsProps] = js.undefined,
-  basic:                  js.UndefOr[Boolean]                                   = js.undefined,
-  cancelButton:           js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
-  centered:               js.UndefOr[Boolean]                                   = js.undefined,
-  child:                  js.UndefOr[VdomNode]                                  = js.undefined,
-  className:              js.UndefOr[String]                                    = js.undefined,
-  clazz:                  js.UndefOr[Css]                                       = js.undefined,
-  closeIcon:              js.UndefOr[Icon]                                      = js.undefined,
-  closeOnDimmerClick:     js.UndefOr[Boolean]                                   = js.undefined,
-  closeOnDocumentClick:   js.UndefOr[Boolean]                                   = js.undefined,
-  confirmButton:          js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
-  content:                js.UndefOr[VdomNode | ModalContent.ModalContentProps] = js.undefined,
-  defaultOpen:            js.UndefOr[Boolean]                                   = js.undefined,
-  dimmer:                 js.UndefOr[ModalDimmer]                               = js.undefined,
-  eventPool:              js.UndefOr[String]                                    = js.undefined,
-  header:                 js.UndefOr[VdomNode | ModalHeader.ModalHeaderProps]   = js.undefined,
-  onActionClickE:         js.UndefOr[Modal.OnActionClick]                       = js.undefined,
-  onActionClick:          js.UndefOr[Callback]                                  = js.undefined,
-  onCancelE:              js.UndefOr[Confirm.OnCancel]                          = js.undefined,
-  onCancel:               js.UndefOr[Callback]                                  = js.undefined,
-  onCloseE:               js.UndefOr[Modal.OnClose]                             = js.undefined,
-  onClose:                js.UndefOr[Callback]                                  = js.undefined,
-  onConfirmE:             js.UndefOr[Confirm.OnConfirm]                         = js.undefined,
-  onConfirm:              js.UndefOr[Callback]                                  = js.undefined,
-  onOpenE:                js.UndefOr[Modal.OnOpen]                              = js.undefined,
-  onOpen:                 js.UndefOr[Callback]                                  = js.undefined,
-  onMountE:               js.UndefOr[Modal.OnMount]                             = js.undefined,
-  onMount:                js.UndefOr[Callback]                                  = js.undefined,
-  open:                   js.UndefOr[Boolean]                                   = js.undefined,
-  size:                   js.UndefOr[ModalSize]                                 = js.undefined,
-  style:                  js.UndefOr[Style]                                     = js.undefined,
-  trigger:                js.UndefOr[VdomNode]                                  = js.undefined,
-  override val modifiers: Seq[TagMod]                                           = Seq.empty
-) extends GenericComponentPAC[Confirm.ConfirmProps, Confirm] {
+  as:                     js.UndefOr[AsC]                      = js.undefined,
+  basic:                  js.UndefOr[Boolean]                  = js.undefined,
+  cancelButton:           js.UndefOr[ShorthandS[Button]]       = js.undefined,
+  centered:               js.UndefOr[Boolean]                  = js.undefined,
+  className:              js.UndefOr[String]                   = js.undefined,
+  clazz:                  js.UndefOr[Css]                      = js.undefined,
+  closeIcon:              js.UndefOr[Icon]                     = js.undefined,
+  closeOnDimmerClick:     js.UndefOr[Boolean]                  = js.undefined,
+  closeOnDocumentClick:   js.UndefOr[Boolean]                  = js.undefined,
+  confirmButton:          js.UndefOr[ShorthandS[Button]]       = js.undefined,
+  content:                js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
+  defaultOpen:            js.UndefOr[Boolean]                  = js.undefined,
+  dimmer:                 js.UndefOr[ModalDimmer]              = js.undefined,
+  eventPool:              js.UndefOr[String]                   = js.undefined,
+  header:                 js.UndefOr[ShorthandS[ModalHeader]]  = js.undefined,
+  onActionClickE:         js.UndefOr[Modal.OnActionClick]      = js.undefined,
+  onActionClick:          js.UndefOr[Callback]                 = js.undefined,
+  onCancelE:              js.UndefOr[Confirm.OnCancel]         = js.undefined,
+  onCancel:               js.UndefOr[Callback]                 = js.undefined,
+  onCloseE:               js.UndefOr[Modal.OnClose]            = js.undefined,
+  onClose:                js.UndefOr[Callback]                 = js.undefined,
+  onConfirmE:             js.UndefOr[Confirm.OnConfirm]        = js.undefined,
+  onConfirm:              js.UndefOr[Callback]                 = js.undefined,
+  onOpenE:                js.UndefOr[Modal.OnOpen]             = js.undefined,
+  onOpen:                 js.UndefOr[Callback]                 = js.undefined,
+  onMountE:               js.UndefOr[Modal.OnMount]            = js.undefined,
+  onMount:                js.UndefOr[Callback]                 = js.undefined,
+  open:                   js.UndefOr[Boolean]                  = js.undefined,
+  size:                   js.UndefOr[ModalSize]                = js.undefined,
+  style:                  js.UndefOr[Style]                    = js.undefined,
+  trigger:                js.UndefOr[VdomNode]                 = js.undefined,
+  override val modifiers: Seq[TagMod]                          = Seq.empty
+) extends GenericComponentPA[Confirm.ConfirmProps, Confirm] {
   override protected def cprops    = Confirm.props(this)
   override protected val component = Confirm.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
@@ -68,10 +65,10 @@ object Confirm {
   trait ConfirmProps extends Modal.ModalProps {
 
     /** The cancel button text. */
-    var cancelButton: js.UndefOr[suiraw.SemanticShorthandItem[Button.ButtonProps]] = js.native
+    var cancelButton: js.UndefOr[suiraw.SemanticShorthandItemS[Button.ButtonProps]] = js.native
 
     /** The OK button text. */
-    var confirmButton: js.UndefOr[suiraw.SemanticShorthandItem[Button.ButtonProps]] = js.native
+    var confirmButton: js.UndefOr[suiraw.SemanticShorthandItemS[Button.ButtonProps]] = js.native
 
     /**
       * Called when the Modal is closed without clicking confirm.
@@ -94,11 +91,9 @@ object Confirm {
   def props(q: Confirm): ConfirmProps =
     rawprops(
       q.as,
-      q.actions,
       q.basic,
       q.cancelButton,
       q.centered,
-      q.child,
       q.className,
       q.clazz,
       q.closeIcon,
@@ -129,57 +124,53 @@ object Confirm {
     )
 
   def rawprops(
-    as:                   js.UndefOr[AsC]                                       = js.undefined,
-    actions:              js.UndefOr[VdomNode | ModalActions.ModalActionsProps] = js.undefined,
-    basic:                js.UndefOr[Boolean]                                   = js.undefined,
-    cancelButton:         js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
-    centered:             js.UndefOr[Boolean]                                   = js.undefined,
-    children:             js.UndefOr[VdomNode]                                  = js.undefined,
-    className:            js.UndefOr[String]                                    = js.undefined,
-    clazz:                js.UndefOr[Css]                                       = js.undefined,
-    closeIcon:            js.UndefOr[Icon]                                      = js.undefined,
-    closeOnDimmerClick:   js.UndefOr[Boolean]                                   = js.undefined,
-    closeOnDocumentClick: js.UndefOr[Boolean]                                   = js.undefined,
-    confirmButton:        js.UndefOr[VdomNode | Button.ButtonProps]             = js.undefined,
-    content:              js.UndefOr[VdomNode | ModalContent.ModalContentProps] = js.undefined,
-    defaultOpen:          js.UndefOr[Boolean]                                   = js.undefined,
-    dimmer:               js.UndefOr[ModalDimmer]                               = js.undefined,
-    eventPool:            js.UndefOr[String]                                    = js.undefined,
-    header:               js.UndefOr[VdomNode | ModalHeader.ModalHeaderProps]   = js.undefined,
-    onActionClickE:       js.UndefOr[Modal.OnActionClick]                       = js.undefined,
-    onActionClick:        js.UndefOr[Callback]                                  = js.undefined,
-    onCancelE:            js.UndefOr[Confirm.OnCancel]                          = js.undefined,
-    onCancel:             js.UndefOr[Callback]                                  = js.undefined,
-    onCloseE:             js.UndefOr[Modal.OnClose]                             = js.undefined,
-    onClose:              js.UndefOr[Callback]                                  = js.undefined,
-    onConfirmE:           js.UndefOr[Confirm.OnConfirm]                         = js.undefined,
-    onConfirm:            js.UndefOr[Callback]                                  = js.undefined,
-    onOpenE:              js.UndefOr[Modal.OnOpen]                              = js.undefined,
-    onOpen:               js.UndefOr[Callback]                                  = js.undefined,
-    onMountE:             js.UndefOr[Modal.OnMount]                             = js.undefined,
-    onMount:              js.UndefOr[Callback]                                  = js.undefined,
-    open:                 js.UndefOr[Boolean]                                   = js.undefined,
-    size:                 js.UndefOr[ModalSize]                                 = js.undefined,
-    style:                js.UndefOr[Style]                                     = js.undefined,
-    trigger:              js.UndefOr[VdomNode]                                  = js.undefined
+    as:                   js.UndefOr[AsC]                      = js.undefined,
+    basic:                js.UndefOr[Boolean]                  = js.undefined,
+    cancelButton:         js.UndefOr[ShorthandS[Button]]       = js.undefined,
+    centered:             js.UndefOr[Boolean]                  = js.undefined,
+    className:            js.UndefOr[String]                   = js.undefined,
+    clazz:                js.UndefOr[Css]                      = js.undefined,
+    closeIcon:            js.UndefOr[Icon]                     = js.undefined,
+    closeOnDimmerClick:   js.UndefOr[Boolean]                  = js.undefined,
+    closeOnDocumentClick: js.UndefOr[Boolean]                  = js.undefined,
+    confirmButton:        js.UndefOr[ShorthandS[Button]]       = js.undefined,
+    content:              js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
+    defaultOpen:          js.UndefOr[Boolean]                  = js.undefined,
+    dimmer:               js.UndefOr[ModalDimmer]              = js.undefined,
+    eventPool:            js.UndefOr[String]                   = js.undefined,
+    header:               js.UndefOr[ShorthandS[ModalHeader]]  = js.undefined,
+    onActionClickE:       js.UndefOr[Modal.OnActionClick]      = js.undefined,
+    onActionClick:        js.UndefOr[Callback]                 = js.undefined,
+    onCancelE:            js.UndefOr[Confirm.OnCancel]         = js.undefined,
+    onCancel:             js.UndefOr[Callback]                 = js.undefined,
+    onCloseE:             js.UndefOr[Modal.OnClose]            = js.undefined,
+    onClose:              js.UndefOr[Callback]                 = js.undefined,
+    onConfirmE:           js.UndefOr[Confirm.OnConfirm]        = js.undefined,
+    onConfirm:            js.UndefOr[Callback]                 = js.undefined,
+    onOpenE:              js.UndefOr[Modal.OnOpen]             = js.undefined,
+    onOpen:               js.UndefOr[Callback]                 = js.undefined,
+    onMountE:             js.UndefOr[Modal.OnMount]            = js.undefined,
+    onMount:              js.UndefOr[Callback]                 = js.undefined,
+    open:                 js.UndefOr[Boolean]                  = js.undefined,
+    size:                 js.UndefOr[ModalSize]                = js.undefined,
+    style:                js.UndefOr[Style]                    = js.undefined,
+    trigger:              js.UndefOr[VdomNode]                 = js.undefined
   ): ConfirmProps = {
     val p = as.toJsObject[ConfirmProps]
     p.as                   = as.toJs
-    p.actions              = actions.toRaw
     p.basic                = basic
-    p.cancelButton         = cancelButton.toRaw
+    p.cancelButton         = cancelButton.toJs
     p.centered             = centered
-    p.children             = children.toJs
     p.className            = (className, clazz).toJs
     p.closeIcon            = closeIcon.map(_.props)
     p.closeOnDimmerClick   = closeOnDimmerClick
     p.closeOnDocumentClick = closeOnDocumentClick
-    p.confirmButton        = confirmButton.toRaw
-    p.content              = content.toRaw
+    p.confirmButton        = confirmButton.toJs
+    p.content              = content.toJs
     p.defaultOpen          = defaultOpen
     p.dimmer               = dimmer.toJs
     p.eventPool            = eventPool
-    p.header               = header.toRaw
+    p.header               = header.toJs
     p.onActionClick        = (onActionClickE, onActionClick).toJs
     p.onCancel             = (onCancelE, onCancel).toJs
     p.onClose              = (onCloseE, onClose).toJs
@@ -193,8 +184,8 @@ object Confirm {
   }
 
   private val component =
-    JsComponent[ConfirmProps, Children.Varargs, Null](RawComponent)
+    JsComponent[ConfirmProps, Children.None, Null](RawComponent)
 
-  def apply(content: TagMod*): Confirm =
-    new Confirm(modifiers = content)
+  def apply(modifiers: TagMod*): Confirm =
+    new Confirm(modifiers = modifiers)
 }

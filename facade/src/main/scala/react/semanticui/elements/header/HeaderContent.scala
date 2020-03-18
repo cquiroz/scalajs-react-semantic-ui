@@ -3,21 +3,20 @@ package react.semanticui.elements.header
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class HeaderContent(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericFnComponentPAC[HeaderContent.HeaderContentProps, HeaderContent] {
   override protected def cprops    = HeaderContent.props(this)
   override protected val component = HeaderContent.component
@@ -55,18 +54,16 @@ object HeaderContent {
   def props(
     q: HeaderContent
   ): HeaderContentProps =
-    rawprops(q.as, q.child, q.className, q.clazz, q.content)
+    rawprops(q.as, q.className, q.clazz, q.content)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined
+    as:        js.UndefOr[AsC]                  = js.undefined,
+    className: js.UndefOr[String]               = js.undefined,
+    clazz:     js.UndefOr[Css]                  = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined
   ): HeaderContentProps = {
     val p = as.toJsObject[HeaderContentProps]
     p.as        = as.toJs
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
     p
@@ -75,5 +72,6 @@ object HeaderContent {
   private val component =
     JsFnComponent[HeaderContentProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): HeaderContent = new HeaderContent(modifiers = content)
+  def apply(modifiers: TagMod*): HeaderContent =
+    new HeaderContent(modifiers = modifiers)
 }

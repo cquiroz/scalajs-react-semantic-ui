@@ -4,7 +4,6 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
@@ -17,7 +16,6 @@ final case class Menu(
   activeIndex:            js.UndefOr[Int | String]     = js.undefined,
   attached:               js.UndefOr[MenuAttached]     = js.undefined,
   borderless:             js.UndefOr[Boolean]          = js.undefined,
-  child:                  js.UndefOr[VdomNode]         = js.undefined,
   className:              js.UndefOr[String]           = js.undefined,
   clazz:                  js.UndefOr[Css]              = js.undefined,
   color:                  js.UndefOr[SemanticColor]    = js.undefined,
@@ -151,7 +149,6 @@ object Menu {
       q.activeIndex,
       q.attached,
       q.borderless,
-      q.child,
       q.className,
       q.clazz,
       q.color,
@@ -180,7 +177,6 @@ object Menu {
     activeIndex:        js.UndefOr[Int | String]  = js.undefined,
     attached:           js.UndefOr[MenuAttached]  = js.undefined,
     borderless:         js.UndefOr[Boolean]       = js.undefined,
-    children:           js.UndefOr[VdomNode]      = js.undefined,
     className:          js.UndefOr[String]        = js.undefined,
     clazz:              js.UndefOr[Css]           = js.undefined,
     color:              js.UndefOr[SemanticColor] = js.undefined,
@@ -208,7 +204,6 @@ object Menu {
     p.activeIndex        = activeIndex
     p.attached           = attached.toJs
     p.borderless         = borderless
-    p.children           = children.toJs
     p.className          = (className, clazz).toJs
     p.compact            = compact
     p.defaultActiveIndex = defaultActiveIndex
@@ -237,7 +232,7 @@ object Menu {
 
   val defaultProps: MenuProps = props(Default)
 
-  def apply(content: TagMod*): Menu =
-    new Menu(modifiers = content)
+  def apply(modifiers: TagMod*): Menu =
+    new Menu(modifiers = modifiers)
 
 }

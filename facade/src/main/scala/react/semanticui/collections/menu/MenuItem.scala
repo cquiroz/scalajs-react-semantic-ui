@@ -4,35 +4,35 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
-import react.semanticui.elements.icon.IconShorthand
+
+import react.semanticui.elements.icon.Icon
 import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class MenuItem(
-  as:                     js.UndefOr[AsC]              = js.undefined,
-  active:                 js.UndefOr[Boolean]          = js.undefined,
-  child:                  js.UndefOr[VdomNode]         = js.undefined,
-  className:              js.UndefOr[String]           = js.undefined,
-  clazz:                  js.UndefOr[Css]              = js.undefined,
-  color:                  js.UndefOr[SemanticColor]    = js.undefined,
-  content:                js.UndefOr[VdomNode]         = js.undefined,
-  disabled:               js.UndefOr[Boolean]          = js.undefined,
-  fitted:                 js.UndefOr[MenuItemFitted]   = js.undefined,
-  header:                 js.UndefOr[Boolean]          = js.undefined,
-  icon:                   js.UndefOr[IconShorthand]    = js.undefined,
-  index:                  js.UndefOr[Int]              = js.undefined,
-  link:                   js.UndefOr[Boolean]          = js.undefined,
-  name:                   js.UndefOr[String]           = js.undefined,
-  onClickE:               js.UndefOr[MenuItem.OnClick] = js.undefined,
-  onClick:                js.UndefOr[Callback]         = js.undefined,
-  position:               js.UndefOr[MenuItemPosition] = js.undefined,
-  override val modifiers: Seq[TagMod]                  = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  active:                 js.UndefOr[Boolean]              = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  color:                  js.UndefOr[SemanticColor]        = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  disabled:               js.UndefOr[Boolean]              = js.undefined,
+  fitted:                 js.UndefOr[MenuItemFitted]       = js.undefined,
+  header:                 js.UndefOr[Boolean]              = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
+  index:                  js.UndefOr[Int]                  = js.undefined,
+  link:                   js.UndefOr[Boolean]              = js.undefined,
+  name:                   js.UndefOr[String]               = js.undefined,
+  onClickE:               js.UndefOr[MenuItem.OnClick]     = js.undefined,
+  onClick:                js.UndefOr[Callback]             = js.undefined,
+  position:               js.UndefOr[MenuItemPosition]     = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericComponentPAC[MenuItem.MenuItemProps, MenuItem] {
   override protected def cprops    = MenuItem.props(this)
   override protected val component = MenuItem.component
@@ -112,7 +112,6 @@ object MenuItem {
   ): MenuItemProps =
     rawprops(q.as,
              q.active,
-             q.child,
              q.className,
              q.clazz,
              q.color,
@@ -129,28 +128,26 @@ object MenuItem {
              q.position)
 
   def rawprops(
-    as:        js.UndefOr[AsC]              = js.undefined,
-    active:    js.UndefOr[Boolean]          = js.undefined,
-    children:  js.UndefOr[VdomNode]         = js.undefined,
-    className: js.UndefOr[String]           = js.undefined,
-    clazz:     js.UndefOr[Css]              = js.undefined,
-    color:     js.UndefOr[SemanticColor]    = js.undefined,
-    content:   js.UndefOr[VdomNode]         = js.undefined,
-    disabled:  js.UndefOr[Boolean]          = js.undefined,
-    fitted:    js.UndefOr[MenuItemFitted]   = js.undefined,
-    header:    js.UndefOr[Boolean]          = js.undefined,
-    icon:      js.UndefOr[IconShorthand]    = js.undefined,
-    index:     js.UndefOr[Int]              = js.undefined,
-    link:      js.UndefOr[Boolean]          = js.undefined,
-    name:      js.UndefOr[String]           = js.undefined,
-    onClickE:  js.UndefOr[OnClick]          = js.undefined,
-    onClick:   js.UndefOr[Callback]         = js.undefined,
-    position:  js.UndefOr[MenuItemPosition] = js.undefined
+    as:        js.UndefOr[AsC]                  = js.undefined,
+    active:    js.UndefOr[Boolean]              = js.undefined,
+    className: js.UndefOr[String]               = js.undefined,
+    clazz:     js.UndefOr[Css]                  = js.undefined,
+    color:     js.UndefOr[SemanticColor]        = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+    disabled:  js.UndefOr[Boolean]              = js.undefined,
+    fitted:    js.UndefOr[MenuItemFitted]       = js.undefined,
+    header:    js.UndefOr[Boolean]              = js.undefined,
+    icon:      js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
+    index:     js.UndefOr[Int]                  = js.undefined,
+    link:      js.UndefOr[Boolean]              = js.undefined,
+    name:      js.UndefOr[String]               = js.undefined,
+    onClickE:  js.UndefOr[OnClick]              = js.undefined,
+    onClick:   js.UndefOr[Callback]             = js.undefined,
+    position:  js.UndefOr[MenuItemPosition]     = js.undefined
   ): MenuItemProps = {
     val p = as.toJsObject[MenuItemProps]
     p.as        = as.toJs
     p.active    = active
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.color     = color.toJs
     p.content   = content.toJs
@@ -169,6 +166,6 @@ object MenuItem {
   private val component =
     JsComponent[MenuItemProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): MenuItem =
-    new MenuItem(modifiers = content)
+  def apply(modifiers: TagMod*): MenuItem =
+    new MenuItem(modifiers = modifiers)
 }

@@ -10,7 +10,6 @@ import react.common._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Portal(
-  child:                    js.UndefOr[VdomNode]         = js.undefined,
   closeOnDocumentClick:     js.UndefOr[Boolean]          = js.undefined,
   closeOnEscape:            js.UndefOr[Boolean]          = js.undefined,
   closeOnPortalMouseLeave:  js.UndefOr[Boolean]          = js.undefined,
@@ -156,7 +155,6 @@ object Portal {
 
   def props(q: Portal): PortalProps =
     rawprops(
-      q.child,
       q.closeOnDocumentClick,
       q.closeOnEscape,
       q.closeOnPortalMouseLeave,
@@ -183,7 +181,6 @@ object Portal {
     )
 
   def rawprops(
-    children:                 js.UndefOr[VdomNode]         = js.undefined,
     closeOnDocumentClick:     js.UndefOr[Boolean]          = js.undefined,
     closeOnEscape:            js.UndefOr[Boolean]          = js.undefined,
     closeOnPortalMouseLeave:  js.UndefOr[Boolean]          = js.undefined,
@@ -209,7 +206,6 @@ object Portal {
     trigger:                  js.UndefOr[VdomNode]         = js.undefined
   ): PortalProps = {
     val p = (new js.Object).asInstanceOf[PortalProps]
-    p.children                 = children.toJs
     p.closeOnDocumentClick     = closeOnDocumentClick
     p.closeOnEscape            = closeOnEscape
     p.closeOnPortalMouseLeave  = closeOnPortalMouseLeave
@@ -235,6 +231,6 @@ object Portal {
   private val component =
     JsComponent[PortalProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): Portal =
-    new Portal(modifiers = content)
+  def apply(modifiers: TagMod*): Portal =
+    new Portal(modifiers = modifiers)
 }

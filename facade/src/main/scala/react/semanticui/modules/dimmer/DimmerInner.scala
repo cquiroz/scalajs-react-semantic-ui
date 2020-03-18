@@ -14,7 +14,6 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class DimmerInner(
   as:                     js.UndefOr[AsC]                        = js.undefined,
   active:                 js.UndefOr[Boolean]                    = js.undefined,
-  child:                  js.UndefOr[VdomNode]                   = js.undefined,
   className:              js.UndefOr[String]                     = js.undefined,
   clazz:                  js.UndefOr[Css]                        = js.undefined,
   content:                js.UndefOr[VdomNode]                   = js.undefined,
@@ -104,7 +103,6 @@ object DimmerInner {
     rawprops(
       q.as,
       q.active,
-      q.child,
       q.className,
       q.clazz,
       q.content,
@@ -122,7 +120,6 @@ object DimmerInner {
   def rawprops(
     as:              js.UndefOr[AsC]                 = js.undefined,
     active:          js.UndefOr[Boolean]             = js.undefined,
-    children:        js.UndefOr[VdomNode]            = js.undefined,
     className:       js.UndefOr[String]              = js.undefined,
     clazz:           js.UndefOr[Css]                 = js.undefined,
     content:         js.UndefOr[VdomNode]            = js.undefined,
@@ -139,7 +136,6 @@ object DimmerInner {
     val p = as.toJsObject[DimmerInnerProps]
     p.as             = as.toJs
     p.active         = active
-    p.children       = children.toJs
     p.className      = (className, clazz).toJs
     p.disabled       = disabled
     p.onClick        = (onClickE, onClick).toJs
@@ -154,6 +150,6 @@ object DimmerInner {
   private val component =
     JsComponent[DimmerInnerProps, Children.Varargs, Null](RawComponent)
 
-  def apply(content: TagMod*): DimmerInner =
-    new DimmerInner(modifiers = content)
+  def apply(modifiers: TagMod*): DimmerInner =
+    new DimmerInner(modifiers = modifiers)
 }

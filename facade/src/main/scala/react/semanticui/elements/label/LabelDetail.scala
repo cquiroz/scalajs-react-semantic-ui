@@ -4,20 +4,19 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui._
 import react.semanticui.raw._
 import react.common.style._
 import react.common._
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class LabelDetail(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericComponentPAC[LabelDetail.LabelDetailProps, LabelDetail] {
   override protected def cprops    = LabelDetail.props(this)
   override protected val component = LabelDetail.component
@@ -47,7 +46,6 @@ object LabelDetail {
   ): LabelDetailProps = {
     val p = q.as.toJsObject[LabelDetailProps]
     p.as        = q.as.toJs
-    p.children  = q.child.toJs
     p.className = (q.className, q.clazz).toJs
     p.content   = q.content.toJs
     p
@@ -56,8 +54,6 @@ object LabelDetail {
   private val component =
     JsComponent[LabelDetailProps, Children.Varargs, Null](RawComponent)
 
-  def apply(
-    content: TagMod*
-  ): LabelDetail =
-    new LabelDetail(modifiers = content)
+  def apply(modifiers: TagMod*): LabelDetail =
+    new LabelDetail(modifiers = modifiers)
 }

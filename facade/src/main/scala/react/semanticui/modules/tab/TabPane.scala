@@ -13,14 +13,13 @@ import react.semanticui.raw._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class TabPane(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  active:                 js.UndefOr[Boolean]  = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  loading:                js.UndefOr[Boolean]  = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  active:                 js.UndefOr[Boolean]              = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  loading:                js.UndefOr[Boolean]              = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericFnComponentPAC[TabPane.TabPaneProps, TabPane] {
   override protected def cprops    = TabPane.props(this)
   override protected val component = TabPane.component
@@ -67,7 +66,6 @@ object TabPane {
     val p = q.as.toJsObject[TabPaneProps]
     p.as        = q.as.toJs
     p.active    = q.active
-    p.children  = q.child.toJs
     p.className = (q.className, q.clazz).toJs
     p.content   = q.content.toJs
     p.loading   = q.loading
@@ -77,6 +75,6 @@ object TabPane {
   private val component =
     JsFnComponent[TabPaneProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): TabPane =
-    new TabPane(modifiers = content)
+  def apply(modifiers: TagMod*): TabPane =
+    new TabPane(modifiers = modifiers)
 }

@@ -3,21 +3,20 @@ package react.semanticui.collections.menu
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class MenuHeader(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericFnComponentPAC[MenuHeader.MenuHeaderProps, MenuHeader] {
   override protected def cprops    = MenuHeader.props(this)
   override protected val component = MenuHeader.component
@@ -53,18 +52,16 @@ object MenuHeader {
   }
 
   def props(q: MenuHeader): MenuHeaderProps =
-    rawprops(q.as, q.child, q.className, q.clazz, q.content)
+    rawprops(q.as, q.className, q.clazz, q.content)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined
+    as:        js.UndefOr[AsC]                  = js.undefined,
+    className: js.UndefOr[String]               = js.undefined,
+    clazz:     js.UndefOr[Css]                  = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined
   ): MenuHeaderProps = {
     val p = as.toJsObject[MenuHeaderProps]
     p.as        = as.toJs
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
     p
@@ -73,6 +70,6 @@ object MenuHeader {
   private val component =
     JsFnComponent[MenuHeaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): MenuHeader =
-    new MenuHeader(modifiers = content)
+  def apply(modifiers: TagMod*): MenuHeader =
+    new MenuHeader(modifiers = modifiers)
 }

@@ -8,12 +8,8 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
 import react.common.filterProps
-import react.common.GenericFnComponentPC
-import react.common.GenericFnComponentPAC
-import react.common.GenericComponentP
-import react.common.GenericComponentPC
-import react.common.GenericComponentPA
-import react.common.GenericComponentPAC
+import react.common.Render
+import react.common.RenderFn
 
 package semanticui {
   sealed trait As extends Product with Serializable {
@@ -114,9 +110,8 @@ package object semanticui
     with TextAlignment
     with VerticalAlignment
     with Transitions {
-  type SemanticShortHandItem[T] = VdomNode | T
-  type SemanticShortHandContent = VdomNode
-  type TabIndex                 = Double | String
+
+  type TabIndex = Double | String
 
   val floats            = SemanticFloat
   val widths            = SemanticWidth
@@ -126,125 +121,114 @@ package object semanticui
   val verticalalignment = SemanticVerticalAlignment
   val transitions       = SemanticTransition
 
-  implicit class HandContent2Content(val c: SemanticShortHandContent) extends AnyVal {
-    def toRaw: raw.SemanticShorthandContent = c.rawNode
-  }
+  type ShorthandS[C]  = String | C
+  type ShorthandB[C]  = Boolean | C
+  type ShorthandSB[C] = String | Boolean | C
 
-  implicit class HandContent2ContentUndef(val c: js.UndefOr[SemanticShortHandContent])
-      extends AnyVal {
-    def toRaw: js.UndefOr[raw.SemanticShorthandContent] = c.map(_.rawNode)
-  }
-
-  implicit class HandItem2Item[T](val c: SemanticShortHandItem[T]) extends AnyVal {
-    def toRaw: raw.SemanticShorthandItem[T] =
-      (c: Any) match {
-        case o: VdomNode => o.rawNode.asInstanceOf[raw.SemanticShorthandItem[T]]
-        case f           => f.asInstanceOf[T]
+  implicit class CompFnToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(
+    implicit render:                                  C => RenderFn[P]
+  ) {
+    def toJs: js.UndefOr[raw.SemanticShorthandItemS[P]] =
+      c.map { d =>
+        (d: Any) match {
+          case s: String => s
+          case c         => c.asInstanceOf[C].props
+        }
       }
   }
 
-  implicit class HandItem2ItemB[T](val c: Boolean | SemanticShortHandItem[T]) extends AnyVal {
-    def toRaw: Boolean | raw.SemanticShorthandItem[T] =
-      (c: Any) match {
-        case o: Boolean  => o
-        case o: VdomNode => o.rawNode.asInstanceOf[Boolean | raw.SemanticShorthandItem[T]]
-        case f           => f.asInstanceOf[Boolean | raw.SemanticShorthandItem[T]]
+  implicit class CompFnToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(
+    implicit render:                                  C => RenderFn[P]
+  ) {
+    def toJs: js.UndefOr[raw.SemanticShorthandItemB[P]] =
+      c.map { d =>
+        (d: Any) match {
+          case b: Boolean => b
+          case c          => c.asInstanceOf[C].props
+        }
       }
   }
 
-  implicit class HandItem2ItemBUndef[T](val c: js.UndefOr[Boolean | SemanticShortHandItem[T]])
-      extends AnyVal {
-    def toRaw: js.UndefOr[Boolean | raw.SemanticShorthandItem[T]] =
-      c.map(_.toRaw)
-  }
-
-  implicit class HandItem2ItemUndef[T](val c: js.UndefOr[SemanticShortHandItem[T]]) extends AnyVal {
-    def toRaw: js.UndefOr[raw.SemanticShorthandItem[T]] =
-      c.map(_.toRaw)
-  }
-
-  implicit class HandItemSeq2ArrayUndef[T](val c: js.UndefOr[Seq[SemanticShortHandItem[T]]])
-      extends AnyVal {
-    def toRaw: js.UndefOr[js.Array[raw.SemanticShorthandItem[T]]] =
-      c.map(_.map(_.toRaw).toJSArray)
-  }
-
-  implicit class HandSeq2OrArrayUndef[T](val c: js.UndefOr[Seq[VdomNode] | T]) extends AnyVal {
-    def toRaw: js.UndefOr[raw.SemanticShorthandOrArray[T]] =
-      (c: Any) match {
-        case s: Seq[_] =>
-          s.map(_.asInstanceOf[VdomNode].rawNode)
-            .toJSArray
-            .asInstanceOf[raw.SemanticShorthandOrArray[T]]
-        case f => f.asInstanceOf[T]
+  implicit class CompFnToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(
+    implicit render:                                   C => RenderFn[P]
+  ) {
+    def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
+      c.map { d =>
+        (d: Any) match {
+          case s: String  => s
+          case b: Boolean => b
+          case c          => c.asInstanceOf[C].props
+        }
       }
   }
 
-  def fnToRawOrPropsPC[P <: js.Object, A <: GenericFnComponentPC[P, A]](
-    c: js.UndefOr[VdomNode | A]
-  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
-    c.map { d =>
-      (d: Any) match {
-        case o: VdomNode =>
-          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[A].props
-      }
+  def compToPropS[P <: js.Object, C](c: ShorthandS[C])(
+    implicit render:                    C => Render[P]
+  ): raw.SemanticShorthandItemS[P] =
+    (c: Any) match {
+      case s: String => s
+      case _         => c.asInstanceOf[C].props
     }
 
-  def fnToRawOrPropsPAC[P <: js.Object, A <: GenericFnComponentPAC[P, A]](
-    c: js.UndefOr[VdomNode | A]
-  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
-    c.map { d =>
-      (d: Any) match {
-        case o: VdomNode =>
-          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[A].props
-      }
-    }
+  implicit class CompToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(
+    implicit render:                                C => Render[P]
+  ) {
+    def toJs: js.UndefOr[raw.SemanticShorthandItemS[P]] =
+      c.map(d => compToPropS(d)(render))
+  }
 
-  def toRawOrPropsP[P <: js.Object](
-    c: js.UndefOr[VdomNode | GenericComponentP[P]]
-  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
-    c.map { d =>
-      (d: Any) match {
-        case o: VdomNode =>
-          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[GenericComponentP[P]].props
+  implicit class CompToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(
+    implicit render:                                C => Render[P]
+  ) {
+    def toJs: js.UndefOr[raw.SemanticShorthandItemB[P]] =
+      c.map { d =>
+        (d: Any) match {
+          case b: Boolean => b
+          case c          => c.asInstanceOf[C].props
+        }
       }
-    }
+  }
 
-  def toRawOrPropsPA[P <: js.Object, A <: GenericComponentPA[P, A]](
-    c: js.UndefOr[VdomNode | A]
-  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
-    c.map { d =>
-      (d: Any) match {
-        case o: VdomNode =>
-          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[GenericComponentPA[P, A]].props
+  implicit class CompToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(
+    implicit render:                                 C => Render[P]
+  ) {
+    def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
+      c.map { d =>
+        (d: Any) match {
+          case s: String  => s
+          case b: Boolean => b
+          case c          => c.asInstanceOf[C].props
+        }
       }
-    }
+  }
 
-  def toRawOrPropsPC[P <: js.Object, A <: GenericComponentPC[P, A]](
-    c: js.UndefOr[VdomNode | A]
-  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
-    c.map { d =>
-      (d: Any) match {
-        case o: VdomNode =>
-          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[A].props
-      }
-    }
+  implicit class CompSeqToArray[P <: js.Object, C](val c: js.UndefOr[Seq[ShorthandS[C]]])(
+    implicit render:                                      C => Render[P]
+  ) {
+    def toJs: js.UndefOr[js.Array[raw.SemanticShorthandItemS[P]]] =
+      c.map(_.map(d => compToPropS(d)(render)).toJSArray)
+  }
 
-  def toRawOrPropsPAC[P <: js.Object, A <: GenericComponentPAC[P, A]](
-    c: js.UndefOr[VdomNode | A]
-  ): js.UndefOr[raw.SemanticShorthandItem[P]] =
-    c.map { d =>
-      (d: Any) match {
-        case o: VdomNode =>
-          o.rawNode.asInstanceOf[raw.SemanticShorthandItem[P]]
-        case f => f.asInstanceOf[A].props
+  implicit class VdomNodeToReactNodeS[P <: js.Object](c: js.UndefOr[ShorthandS[VdomNode]]) {
+    def toJs: js.UndefOr[raw.SemanticShorthandContent] =
+      c.map { d =>
+        (d: Any) match {
+          case s: String   => s
+          case v: VdomNode => v.rawNode
+        }
       }
-    }
+  }
+
+  implicit class VdomNodeToReactNodeSB[P <: js.Object](c: js.UndefOr[ShorthandSB[VdomNode]]) {
+    def toJs: js.UndefOr[raw.SemanticShorthandContentB] =
+      c.map { d =>
+        (d: Any) match {
+          case s: String   => s
+          case b: Boolean  => b
+          case v: VdomNode => v.rawNode
+        }
+      }
+  }
 
   type AsFn  = js.Function1[js.Any, js.Any]
   type AsObj = js.Object
@@ -282,9 +266,11 @@ package object semanticui
     type SemanticTEXTALIGNMENTS      = String
     type SemanticVERTICALALIGNMENTS  = String
     type SemanticShorthandContent    = React.Node
-    type SemanticShorthandItem[T]    = React.Node | T
-    type SemanticShorthandItemSB[T]  = String | Boolean | SemanticShortHandItem[T]
-    type SemanticShorthandArray[T]   = js.Array[SemanticShorthandItem[T]]
+    type SemanticShorthandContentB   = Boolean | React.Node
+    type SemanticShorthandItemS[T]   = String | T
+    type SemanticShorthandItemB[T]   = Boolean | T
+    type SemanticShorthandItemSB[T]  = String | Boolean | T
+    type SemanticShorthandArray[T]   = js.Array[SemanticShorthandItemS[T]]
     type SemanticShorthandOrArray[T] = js.Array[React.Node] | T
 
     @js.native

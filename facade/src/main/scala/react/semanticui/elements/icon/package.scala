@@ -2,8 +2,6 @@ package react.semanticui.elements
 
 import react.common._
 import react.semanticui._
-import scala.scalajs.js
-import scala.scalajs.js.|
 
 package icon {
   sealed trait IconFlip extends Product with Serializable
@@ -38,19 +36,6 @@ package icon {
 }
 
 package object icon {
-  type IconShorthand = Boolean | String | Icon
-
-  implicit class IconShorthandOpsUndef(icon: js.UndefOr[IconShorthand]) {
-    def toJs: js.UndefOr[raw.SemanticShorthandItemSB[Icon.IconProps]] =
-      icon.map(i =>
-        (i: Any) match {
-          case s: String  => s
-          case b: Boolean => b
-          case obj: Icon  => obj.props
-        }
-      )
-  }
-
   implicit class CopyIconOps(val i: Icon) extends AnyVal {
     def size(s: SemanticSize): Icon =
       i.copy(size = s)

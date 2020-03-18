@@ -13,7 +13,6 @@ import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownMenu(
   as:                     js.UndefOr[AsC]           = js.undefined,
-  child:                  js.UndefOr[VdomNode]      = js.undefined,
   className:              js.UndefOr[String]        = js.undefined,
   clazz:                  js.UndefOr[Css]           = js.undefined,
   content:                js.UndefOr[VdomNode]      = js.undefined,
@@ -65,11 +64,10 @@ object DropdownMenu {
   }
 
   def props(q: DropdownMenu): DropdownMenuProps =
-    rawprops(q.as, q.child, q.className, q.clazz, q.content, q.direction, q.open, q.scrolling)
+    rawprops(q.as, q.className, q.clazz, q.content, q.direction, q.open, q.scrolling)
 
   def rawprops(
     as:        js.UndefOr[AsC]           = js.undefined,
-    children:  js.UndefOr[VdomNode]      = js.undefined,
     className: js.UndefOr[String]        = js.undefined,
     clazz:     js.UndefOr[Css]           = js.undefined,
     content:   js.UndefOr[VdomNode]      = js.undefined,
@@ -79,7 +77,6 @@ object DropdownMenu {
   ): DropdownMenuProps = {
     val p = as.toJsObject[DropdownMenuProps]
     p.as        = as.toJs
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.direction = direction.toJs

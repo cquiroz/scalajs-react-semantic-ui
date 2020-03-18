@@ -12,12 +12,11 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class ItemHeader(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericFnComponentPAC[ItemHeader.ItemHeaderProps, ItemHeader] {
   override protected def cprops    = ItemHeader.props(this)
   override protected val component = ItemHeader.component
@@ -53,18 +52,16 @@ object ItemHeader {
   }
 
   def props(q: ItemHeader): ItemHeaderProps =
-    rawprops(q.as, q.child, q.className, q.clazz, q.content)
+    rawprops(q.as, q.className, q.clazz, q.content)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
-    content:   js.UndefOr[VdomNode] = js.undefined
+    as:        js.UndefOr[AsC]                  = js.undefined,
+    className: js.UndefOr[String]               = js.undefined,
+    clazz:     js.UndefOr[Css]                  = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined
   ): ItemHeaderProps = {
     val p = as.toJsObject[ItemHeaderProps]
     p.as        = as.toJs
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
     p
@@ -73,6 +70,6 @@ object ItemHeader {
   private val component =
     JsFnComponent[ItemHeaderProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): ItemHeader =
-    ItemHeader(modifiers = content)
+  def apply(modifiers: TagMod*): ItemHeader =
+    ItemHeader(modifiers = modifiers)
 }

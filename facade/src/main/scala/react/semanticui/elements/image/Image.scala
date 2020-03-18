@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -13,25 +12,27 @@ import react.semanticui._
 import react.semanticui.sizes._
 import react.semanticui.verticalalignment._
 import japgolly.scalajs.react.vdom.TagMod
+import react.semanticui.elements.label.Label
+import react.semanticui.modules.dimmer.Dimmer
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Image(
   as:                     js.UndefOr[AsC]                       = js.undefined,
   avatar:                 js.UndefOr[Boolean]                   = js.undefined,
   bordered:               js.UndefOr[Boolean]                   = js.undefined,
   centered:               js.UndefOr[Boolean]                   = js.undefined,
-  child:                  js.UndefOr[VdomNode]                  = js.undefined,
   circular:               js.UndefOr[Boolean]                   = js.undefined,
   className:              js.UndefOr[String]                    = js.undefined,
   clazz:                  js.UndefOr[Css]                       = js.undefined,
   content:                js.UndefOr[VdomNode]                  = js.undefined,
   disabled:               js.UndefOr[Boolean]                   = js.undefined,
-  dimmer:                 js.UndefOr[VdomNode]                  = js.undefined,
+  dimmer:                 js.UndefOr[Dimmer]                    = js.undefined,
   floated:                js.UndefOr[SemanticFloat]             = js.undefined,
   fluid:                  js.UndefOr[Boolean | String]          = js.undefined,
   hidden:                 js.UndefOr[Boolean]                   = js.undefined,
   href:                   js.UndefOr[String]                    = js.undefined,
   inline:                 js.UndefOr[Boolean]                   = js.undefined,
-  label:                  js.UndefOr[VdomNode]                  = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]]         = js.undefined,
   rounded:                js.UndefOr[Boolean]                   = js.undefined,
   size:                   js.UndefOr[SemanticSize]              = js.undefined,
   spaced:                 js.UndefOr[ImageSpaced]               = js.undefined,
@@ -89,7 +90,7 @@ object Image {
     var disabled: js.UndefOr[Boolean] = js.native
 
     /** Shorthand for Dimmer. */
-    var dimmer: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
+    var dimmer: js.UndefOr[Dimmer.DimmerProps] = js.native
 
     /** An image can sit to the left or right of other content. */
     var floated: js.UndefOr[suiraw.SemanticFLOATS] = js.native
@@ -107,7 +108,7 @@ object Image {
     var inline: js.UndefOr[Boolean] = js.native
 
     /** Shorthand for Label. */
-    var label: js.UndefOr[suiraw.SemanticShorthandContent]
+    var label: js.UndefOr[suiraw.SemanticShorthandItemS[Label.LabelProps]]
 
     /** An image may appear rounded. */
     var rounded: js.UndefOr[Boolean] = js.native
@@ -138,12 +139,11 @@ object Image {
     p.avatar        = q.avatar
     p.bordered      = q.bordered
     p.centered      = q.centered
-    p.children      = q.child.toJs
     p.circular      = q.circular
     p.className     = (q.className, q.clazz).toJs
-    p.content       = q.content.toJs
+    p.content       = q.content.map(_.rawNode)
     p.disabled      = q.disabled
-    p.dimmer        = q.dimmer.toJs
+    p.dimmer        = q.dimmer.map(_.props)
     p.floated       = q.floated.toJs
     p.fluid         = q.fluid
     p.hidden        = q.hidden
@@ -163,7 +163,8 @@ object Image {
   private val component =
     JsFnComponent[ImageProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): Image = new Image(modifiers = content)
+  def apply(modifiers: TagMod*): Image =
+    new Image(modifiers = modifiers)
 
   val Default: Image = Image()
 

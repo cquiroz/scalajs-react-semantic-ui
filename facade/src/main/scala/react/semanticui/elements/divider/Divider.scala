@@ -4,27 +4,26 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
+import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Divider(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
-  clearing:               js.UndefOr[Boolean]  = js.undefined,
-  content:                js.UndefOr[VdomNode] = js.undefined,
-  fitted:                 js.UndefOr[Boolean]  = js.undefined,
-  hidden:                 js.UndefOr[Boolean]  = js.undefined,
-  horizontal:             js.UndefOr[Boolean]  = js.undefined,
-  inverted:               js.UndefOr[Boolean]  = js.undefined,
-  section:                js.UndefOr[Boolean]  = js.undefined,
-  vertical:               js.UndefOr[Boolean]  = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  as:                     js.UndefOr[AsC]                  = js.undefined,
+  className:              js.UndefOr[String]               = js.undefined,
+  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  clearing:               js.UndefOr[Boolean]              = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  fitted:                 js.UndefOr[Boolean]              = js.undefined,
+  hidden:                 js.UndefOr[Boolean]              = js.undefined,
+  horizontal:             js.UndefOr[Boolean]              = js.undefined,
+  inverted:               js.UndefOr[Boolean]              = js.undefined,
+  section:                js.UndefOr[Boolean]              = js.undefined,
+  vertical:               js.UndefOr[Boolean]              = js.undefined,
+  override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericComponentPAC[Divider.DividerProps, Divider] {
   override protected def cprops    = Divider.props(this)
   override protected val component = Divider.component
@@ -85,7 +84,6 @@ object Divider {
   ): DividerProps = {
     val p = q.as.toJsObject[DividerProps]
     p.as         = q.as.toJs
-    p.children   = q.child.toJs
     p.className  = (q.className, q.clazz).toJs
     p.clearing   = q.clearing
     p.content    = q.content.toJs
@@ -105,6 +103,6 @@ object Divider {
 
   val defaultProps: DividerProps = props(Default)
 
-  def apply(content: TagMod*): Divider =
-    new Divider(modifiers = content)
+  def apply(modifiers: TagMod*): Divider =
+    new Divider(modifiers = modifiers)
 }

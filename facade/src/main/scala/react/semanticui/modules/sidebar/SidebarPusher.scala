@@ -13,7 +13,6 @@ import japgolly.scalajs.react.vdom.TagMod
 
 final case class SidebarPusher(
   as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
   className:              js.UndefOr[String]   = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
   dimmed:                 js.UndefOr[Boolean]  = js.undefined,
@@ -46,18 +45,16 @@ object SidebarPusher {
   }
 
   def props(q: SidebarPusher): SidebarPusherProps =
-    rawprops(q.as, q.child, q.className, q.content, q.dimmed)
+    rawprops(q.as, q.className, q.content, q.dimmed)
 
   def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
     dimmed:    js.UndefOr[Boolean]  = js.undefined
   ): SidebarPusherProps = {
     val p = as.toJsObject[SidebarPusherProps]
     p.as        = as.toJs
-    p.children  = children.map(_.rawNode)
     p.className = className
     p.content   = content.map(_.rawNode)
     p.dimmed    = dimmed
@@ -67,6 +64,6 @@ object SidebarPusher {
   private val component =
     JsFnComponent[SidebarPusherProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): SidebarPusher =
-    new SidebarPusher(modifiers = content)
+  def apply(modifiers: TagMod*): SidebarPusher =
+    new SidebarPusher(modifiers = modifiers)
 }

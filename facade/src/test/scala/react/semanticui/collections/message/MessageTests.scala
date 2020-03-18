@@ -28,7 +28,7 @@ object MessageTests extends TestSuite {
 
     test("headerShorthand") {
       val message = Message(
-        header = "": VdomNode
+        header = ""
       )
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)
@@ -52,12 +52,12 @@ object MessageTests extends TestSuite {
 
     test("contentShorthand") {
       val message = Message(
-        content = "*": VdomNode
+        content = ""
       )
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)
         val html = mountNode.innerHTML
-        assert(html == """<div class="ui message">*</div>""")
+        assert(html == """<div class="ui message"><div class="content"><p></p></div></div>""")
       }
     }
 
@@ -79,7 +79,7 @@ object MessageTests extends TestSuite {
 
     test("listShorthand") {
       val message = Message(
-        list = List[VdomNode]("", "")
+        list = List("", "")
       )
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)

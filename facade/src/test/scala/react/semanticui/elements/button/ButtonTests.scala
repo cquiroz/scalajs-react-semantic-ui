@@ -3,7 +3,7 @@ package react.semanticui.elements.button
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.semanticui.elements.icon.Icon
+import react.semanticui.elements.icon._
 import react.semanticui.elements.label.Label
 import react.semanticui.collections.form.Form
 import react.semanticui.colors._

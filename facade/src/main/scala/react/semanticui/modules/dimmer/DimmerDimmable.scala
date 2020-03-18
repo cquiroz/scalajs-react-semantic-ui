@@ -14,7 +14,6 @@ import japgolly.scalajs.react.vdom.TagMod
 final case class DimmerDimmable(
   as:                     js.UndefOr[AsC]      = js.undefined,
   blurring:               js.UndefOr[Boolean]  = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
   className:              js.UndefOr[String]   = js.undefined,
   clazz:                  js.UndefOr[Css]      = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
@@ -61,12 +60,11 @@ object DimmerDimmable {
   }
 
   def props(q: DimmerDimmable): DimmerDimmableProps =
-    rawprops(q.as, q.blurring, q.child, q.className, q.clazz, q.content, q.dimmed)
+    rawprops(q.as, q.blurring, q.className, q.clazz, q.content, q.dimmed)
 
   def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
     blurring:  js.UndefOr[Boolean]  = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     clazz:     js.UndefOr[Css]      = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
@@ -75,7 +73,6 @@ object DimmerDimmable {
     val p = as.toJsObject[DimmerDimmableProps]
     p.as        = as.toJs
     p.blurring  = blurring
-    p.children  = children.toJs
     p.className = (className, clazz).toJs
     p.content   = content.toJs
     p.dimmed    = dimmed
@@ -85,6 +82,6 @@ object DimmerDimmable {
   private val component =
     JsFnComponent[DimmerDimmableProps, Children.Varargs](RawComponent)
 
-  def apply(content: TagMod*): DimmerDimmable =
-    new DimmerDimmable(modifiers = content)
+  def apply(modifiers: TagMod*): DimmerDimmable =
+    new DimmerDimmable(modifiers = modifiers)
 }

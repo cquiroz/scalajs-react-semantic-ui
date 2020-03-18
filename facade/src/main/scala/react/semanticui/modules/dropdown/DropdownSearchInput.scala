@@ -82,6 +82,6 @@ object DropdownSearchInput {
   private val component =
     JsComponent[DropdownSearchInputProps, Children.None, Null](RawComponent)
 
-  def apply(content: TagMod*): DropdownSearchInput =
-    new DropdownSearchInput(modifiers = content)
+  def apply(modifiers: TagMod*): DropdownSearchInput =
+    new DropdownSearchInput(modifiers = modifiers)
 }

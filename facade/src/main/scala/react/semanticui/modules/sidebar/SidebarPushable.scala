@@ -13,7 +13,6 @@ import japgolly.scalajs.react.vdom.TagMod
 
 final case class SidebarPushable(
   as:                     js.UndefOr[AsC]      = js.undefined,
-  child:                  js.UndefOr[VdomNode] = js.undefined,
   className:              js.UndefOr[String]   = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
   override val modifiers: Seq[TagMod]          = Seq.empty
@@ -44,19 +43,17 @@ object SidebarPushable {
   }
 
   def props(q: SidebarPushable): SidebarPushableProps =
-    rawprops(q.as, q.child, q.className, q.content)
+    rawprops(q.as, q.className, q.content)
 
   def rawprops(
     as:        js.UndefOr[AsC]      = js.undefined,
-    children:  js.UndefOr[VdomNode] = js.undefined,
     className: js.UndefOr[String]   = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): SidebarPushableProps = {
     val p = as.toJsObject[SidebarPushableProps]
     p.as        = as.toJs
-    p.children  = children.map(_.rawNode)
     p.className = className
-    p.content   = content.map(_.rawNode)
+    p.content   = content.toJs
     p
   }
 
@@ -67,6 +64,6 @@ object SidebarPushable {
 
   val defaultProps: SidebarPushableProps = props(Default)
 
-  def apply(content: TagMod*): SidebarPushable =
-    new SidebarPushable(modifiers = content)
+  def apply(modifiers: TagMod*): SidebarPushable =
+    new SidebarPushable(modifiers = modifiers)
 }
