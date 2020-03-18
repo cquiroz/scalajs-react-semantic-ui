@@ -1,5 +1,17 @@
 # Changes
 
+## 0.4.0
+* New shorthand syntax that doesn't require casting to `VdomNode`.
+* Revision of shorthand types.
+* Rename `content` parameter in `apply` constructor so it doesn't clash with `content` property.
+* Remove `child` parameters.
+
+## 0.3.9
+* Convert all components to passthrough style.
+
+## 0.3.8
+* Convert more components to passthrough style.
+
 ## 0.3.7
 
 * Protected cprops.
