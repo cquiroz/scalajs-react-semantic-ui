@@ -1,5 +1,8 @@
 # Changes
 
+## 0.4.2
+* Improved IconOps
+
 ## 0.4.1
 * Allow `as = <.tag` / `as = <.tag(...)`.
 
