@@ -1,5 +1,8 @@
 # Changes
 
+## 0.4.1
+* Allow `as = <.tag` / `as = <.tag(...)`.
+
 ## 0.4.0
 * New shorthand syntax that doesn't require casting to `VdomNode`.
 * Revision of shorthand types.
