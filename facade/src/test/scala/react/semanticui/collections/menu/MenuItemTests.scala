@@ -20,8 +20,8 @@ object MenuItemTests extends TestSuite {
         assert(m.outerHtmlScrubbed() == """<a class="item"></a>""")
       }
     }
-    test("renderAs") {
-      val button = MenuItem(as = "a", icon = Icon(name = "comment"))
+    test("renderAsTag") {
+      val button = MenuItem(as = <.a, icon = Icon(name = "comment"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<a class="icon item"><i aria-hidden="true" class="comment icon"></i></a>"""

@@ -2,6 +2,7 @@ package react.semanticui.elements.list
 
 import utest._
 import japgolly.scalajs.react.test._
+import japgolly.scalajs.react.vdom.html_<^._
 
 object ListHeaderTests extends TestSuite {
   val tests = Tests {
@@ -13,7 +14,7 @@ object ListHeaderTests extends TestSuite {
       }
     }
     test("renderAs") {
-      val header = ListHeader(as = "a")
+      val header = ListHeader(as = <.a)
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a class="header"></a>""")

@@ -130,7 +130,6 @@ object Button {
       q.size,
       q.tabIndex,
       q.toggle
-      // q.attrs
     )
 
   def rawprops(

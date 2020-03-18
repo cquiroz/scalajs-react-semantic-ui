@@ -24,6 +24,13 @@ object ButtonTests extends TestSuite {
         assert(m.outerHtmlScrubbed() == """<a class="ui button" role="button"></a>""")
       }
     }
+    test("renderAsTag") {
+      val button = Button(as = <.a(^.href := "")(^.target := ""))
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
+        assert(html == """<a href="" target="" class="ui button" role="button"></a>""")
+      }
+    }
     test("renderAsForm") {
       val button = Button(as = As.Form(Form(error = true)))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>

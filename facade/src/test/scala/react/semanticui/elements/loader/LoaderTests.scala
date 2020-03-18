@@ -31,7 +31,7 @@ object LoaderTest extends TestSuite {
       }
     }
     test("renderAs") {
-      val loader = Loader(as = "a", inverted = true)
+      val loader = Loader(as = <.a, inverted = true)
       ReactTestUtils.withNewBodyElement { mountNode =>
         loader.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a class="ui inverted loader"></a>""")

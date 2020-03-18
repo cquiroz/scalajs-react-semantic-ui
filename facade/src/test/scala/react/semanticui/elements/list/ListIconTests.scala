@@ -13,7 +13,7 @@ object ListIconTests extends TestSuite {
         assert(html == """<i aria-hidden="true" class="icon"></i>""")
       }
     }
-    test("renderAs") {
+    test("renderIcon") {
       val header = ListIcon("home")
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)

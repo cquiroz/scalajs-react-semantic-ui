@@ -34,6 +34,12 @@ package semanticui {
     protected def removeAs[P <: js.Object](p: P): P =
       filterProps(p, "as")
 
+    final case class AsTag[N <: TopNode](tagOf: TagOf[N]) extends As {
+      override type P = js.Object
+      override val props =
+        js.Object.assign(js.Object(), tagOf.rawElement.asInstanceOf[React.DomElement].props)
+    }
+
     final case class Segment(segment: SUISegment = SUISegment.Default) extends As {
       override type P = SUISegment.SegmentProps
       override val props = removeAs(segment.props)
@@ -86,6 +92,7 @@ package semanticui {
     }
 
     def asFn(a: As): AsT = a match {
+      case AsTag(tagOf)       => tagOf.tag
       case Segment(_)         => SUISegment.RawComponent
       case SidebarPushable(_) => SUISidebarPushable.RawComponent
       case SidebarPusher(_)   => SUISidebarPusher.RawComponent
@@ -234,6 +241,9 @@ package object semanticui
   type AsObj = js.Object
   type AsT   = String | AsFn | AsObj
   type AsC   = String | As
+
+  implicit def tagOf2AsC[N <: TopNode](tagOf: TagOf[N]): js.UndefOr[AsC] =
+    As.AsTag(tagOf)
 
   implicit class AsCUndef[T](val c: js.UndefOr[AsC]) extends AnyVal {
     def toJs: js.UndefOr[AsT] =

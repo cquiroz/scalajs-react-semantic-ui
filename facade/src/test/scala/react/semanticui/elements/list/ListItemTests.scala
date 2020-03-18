@@ -14,7 +14,7 @@ object ListItemTests extends TestSuite {
       }
     }
     test("renderAs") {
-      val item = ListItem(as = "a")
+      val item = ListItem(as = <.a)
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a role="listitem" class="item"></a>""")

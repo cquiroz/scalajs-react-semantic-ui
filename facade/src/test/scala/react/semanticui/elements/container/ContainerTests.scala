@@ -30,7 +30,7 @@ object ContainerTests extends TestSuite {
       }
     }
     test("renderAs") {
-      val container = Container(as = "a", fluid = true)("Abc")
+      val container = Container(as = <.a, fluid = true)("Abc")
       ReactTestUtils.withNewBodyElement { mountNode =>
         container.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui fluid container">Abc</div>""")
