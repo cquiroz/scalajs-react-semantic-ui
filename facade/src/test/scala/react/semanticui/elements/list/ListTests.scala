@@ -9,7 +9,7 @@ object ListTests extends TestSuite {
     test("render") {
       val item1 = ListItem(value = "a")("a")
       val item2 = ListItem(value = "b")("b")
-      val list  = List()(item1, item2)
+      val list  = List(item1, item2)
       ReactTestUtils.withNewBodyElement { mountNode =>
         list.renderIntoDOM(mountNode)
         assert(
@@ -18,39 +18,40 @@ object ListTests extends TestSuite {
       }
     }
     test("renderAs") {
-      // val item = ListItem(as = "a")
-      // ReactTestUtils.withNewBodyElement { mountNode =>
-      //   item.renderIntoDOM(mountNode)
-      //println(mountNode.innerHTML)
-      //   assert(mountNode.innerHTML == """<a role="listitem" class="item"></a>""")
-      // }
+      val item = ListItem(as = <.a)
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        val html = mountNode.innerHTML
+        assert(html == """<a role="listitem" class="item"></a>""")
+      }
     }
-    // test("icon") {
-    //   val item = ListItem(icon = ListIcon("home"))
-    //   ReactTestUtils.withNewBodyElement { mountNode =>
-    //     item.renderIntoDOM(mountNode)
-    //     assert(
-    //       mountNode.innerHTML == """<div role="listitem" class="item"><i aria-hidden="true" class="home icon"></i></div>"""
-    //     )
-    //   }
-    // }
-    // test("icon2") {
-    //   val item = ListItem(icon = <.div("valid"))
-    //   ReactTestUtils.withNewBodyElement { mountNode =>
-    //     item.renderIntoDOM(mountNode)
-    //     assert(
-    //       mountNode.innerHTML == """<div role="listitem" class="item"><div>valid</div></div>"""
-    //     )
-    //   }
-    // }
-    // test("header") {
-    //   val item = ListItem(header = ListHeader("value"))
-    //   ReactTestUtils.withNewBodyElement { mountNode =>
-    //     item.renderIntoDOM(mountNode)
-    //     assert(
-    //       mountNode.innerHTML == """<div role="listitem" class="item"><div class="header">value</div></div>"""
-    //     )
-    //   }
-    // }
+    test("icon") {
+      val item = ListItem(icon = ListIcon("home"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div role="listitem" class="item"><i aria-hidden="true" class="home icon"></i></div>"""
+        )
+      }
+    }
+    test("icon2") {
+      val item = ListItem(icon = "valid")
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        val html = mountNode.innerHTML
+        assert(
+          html == """<div role="listitem" class="item"><i aria-hidden="true" class="valid icon"></i></div>"""
+        )
+      }
+    }
+    test("header") {
+      val item = ListItem(header = ListHeader("value"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        item.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div role="listitem" class="item"><div class="header">value</div></div>"""
+        )
+      }
+    }
   }
 }

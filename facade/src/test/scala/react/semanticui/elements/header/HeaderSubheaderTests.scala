@@ -2,6 +2,7 @@ package react.semanticui.elements.header
 
 import utest._
 import japgolly.scalajs.react.test._
+import japgolly.scalajs.react.vdom.html_<^._
 
 object HeaderSubheaderTests extends TestSuite {
   val tests = Tests {
@@ -13,7 +14,7 @@ object HeaderSubheaderTests extends TestSuite {
       }
     }
     test("renderAs") {
-      val header = HeaderSubheader(as = "a")
+      val header = HeaderSubheader(as = <.a)
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a class="sub header"></a>""")

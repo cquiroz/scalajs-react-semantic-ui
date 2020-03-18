@@ -3,7 +3,7 @@ package react.semanticui.collections.menu
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
-// import react.common.style.Css
+import react.common.style.Css
 
 object MenuTests extends TestSuite {
   val tests = Tests {
@@ -14,20 +14,22 @@ object MenuTests extends TestSuite {
       }
     }
     test("renderAs") {
-      val menu = Menu(as = "a")
+      val menu = Menu(as = <.a)
       ReactTestUtils.withRenderedIntoDocument(menu) { m =>
         assert(m.outerHtmlScrubbed() == """<a class="ui menu"></a>""")
       }
     }
-    /*test("applyItems") {
+    test("applyItems") {
       val menu = Menu(
         MenuHeader(),
         MenuItem(clazz = Css("my-class"))(<.div, <.span)
       )
       ReactTestUtils.withRenderedIntoDocument(menu) { m =>
         val html = m.outerHtmlScrubbed()
-        assert(html == """<div class="ui menu"><div class="item my-class"><div></div><span></span></div></div>""")
+        assert(
+          html == """<div class="ui menu"><div class="header"></div><div class="item my-class"><div></div><span></span></div></div>"""
+        )
       }
-    }*/
+    }
   }
 }

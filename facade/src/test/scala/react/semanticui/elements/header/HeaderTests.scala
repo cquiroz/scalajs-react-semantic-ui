@@ -14,7 +14,7 @@ object HeaderTests extends TestSuite {
       }
     }
     test("renderAs") {
-      val header = Header(as = "a")
+      val header = Header(as = <.a)
       ReactTestUtils.withNewBodyElement { mountNode =>
         header.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<a class="ui header"></a>""")

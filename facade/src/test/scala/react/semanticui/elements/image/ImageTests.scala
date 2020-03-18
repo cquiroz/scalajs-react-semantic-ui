@@ -33,7 +33,7 @@ object ImageTests extends TestSuite {
       }
     }
     test("renderChild") {
-      val image = Image(as = "a", circular = true)(Icon(name = "help"))
+      val image = Image(as = <.a, circular = true)(Icon(name = "help"))
       ReactTestUtils.withNewBodyElement { mountNode =>
         image.renderIntoDOM(mountNode)
         assert(
