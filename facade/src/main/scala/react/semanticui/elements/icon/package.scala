@@ -37,18 +37,6 @@ package icon {
 
 package object icon {
   implicit class CopyIconOps(val i: Icon) extends AnyVal {
-    def size(s: SemanticSize): Icon =
-      i.copy(size = s)
-
-    def color(s: SemanticColor): Icon =
-      i.copy(color = s)
-
-    def flipped(s: IconFlip): Icon =
-      i.copy(flipped = s)
-
-    def rotated(s: IconRotated): Icon =
-      i.copy(rotated = s)
-
     def bordered(s: Boolean = true): Icon =
       i.copy(bordered = s)
 
@@ -57,6 +45,15 @@ package object icon {
 
     def className(c: String): Icon =
       i.copy(className = c)
+
+    def clazz(s: Css): Icon =
+      i.copy(clazz = s)
+
+    def color(s: SemanticColor): Icon =
+      i.copy(color = s)
+
+    def flipped(s: IconFlip): Icon =
+      i.copy(flipped = s)
 
     def corner(c: IconCorner): Icon =
       i.copy(corner = c)
@@ -75,5 +72,12 @@ package object icon {
 
     def loading(s: Boolean = true): Icon =
       i.copy(loading = s)
+
+    def rotated(s: IconRotated): Icon =
+      i.copy(rotated = s)
+
+    def size(s: SemanticSize): Icon =
+      i.copy(size = s)
+
   }
 }
