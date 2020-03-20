@@ -1,5 +1,9 @@
 # Changes
 
+## 0.4.4
+
+* Support updating an Icon's clazz
+
 ## 0.4.3
 
 * Update scalajs-react-common
