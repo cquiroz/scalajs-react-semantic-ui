@@ -96,6 +96,8 @@ object IconTests extends TestSuite {
         Icon(rotated = IconRotated.Clockwise, name = "edit") == Icon("edit")
           .rotated(IconRotated.Clockwise)
       )
+      val clazz = Css("prop")
+      assert(Icon(clazz = clazz, name = "edit") == Icon("edit").clazz(clazz))
     }
   }
 }
