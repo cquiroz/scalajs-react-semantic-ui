@@ -1,8 +1,9 @@
 # Changes
 
-## 0.4.3
+## 0.4.5
 
 * Update scalajs-react-common
+* Use an enum for Button's labelPosition
 
 ## 0.4.2
 * Improved IconOps
