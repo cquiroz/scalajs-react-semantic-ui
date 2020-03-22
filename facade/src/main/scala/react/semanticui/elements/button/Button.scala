@@ -35,7 +35,7 @@ final case class Button(
   icon:                   js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
   inverted:               js.UndefOr[Boolean]              = js.undefined,
   label:                  js.UndefOr[Label]                = js.undefined,
-  labelPosition:          js.UndefOr[String]               = js.undefined,
+  labelPosition:          js.UndefOr[LabelPosition]        = js.undefined,
   loading:                js.UndefOr[Boolean]              = js.undefined,
   negative:               js.UndefOr[Boolean]              = js.undefined,
   onClickE:               js.UndefOr[Button.OnClick]       = js.undefined,
@@ -150,7 +150,7 @@ object Button {
     icon:          js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
     inverted:      js.UndefOr[Boolean]              = js.undefined,
     label:         js.UndefOr[Label]                = js.undefined,
-    labelPosition: js.UndefOr[String]               = js.undefined,
+    labelPosition: js.UndefOr[LabelPosition]        = js.undefined,
     loading:       js.UndefOr[Boolean]              = js.undefined,
     negative:      js.UndefOr[Boolean]              = js.undefined,
     onClickE:      js.UndefOr[OnClick]              = js.undefined,
@@ -180,7 +180,7 @@ object Button {
     p.icon          = icon.toJs
     p.inverted      = inverted
     p.label         = label.map(_.props)
-    p.labelPosition = labelPosition
+    p.labelPosition = labelPosition.toJs
     p.loading       = loading
     p.negative      = negative
     p.onClick       = (onClickE, onClick).toJs

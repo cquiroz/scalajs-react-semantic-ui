@@ -1,6 +1,7 @@
 package react.semanticui.elements
 
 import react.common.EnumValueB
+import react.common.EnumValue
 
 package button {
   sealed trait ButtonAnimated extends Product with Serializable
@@ -19,6 +20,13 @@ package button {
     case object Bottom extends ButtonAttached
     case object Right extends ButtonAttached
     case object Left extends ButtonAttached
+  }
+
+  sealed trait LabelPosition extends Product with Serializable
+  object LabelPosition {
+    implicit val enum: EnumValue[LabelPosition] = EnumValue.toLowerCaseString
+    case object Right extends LabelPosition
+    case object Left extends LabelPosition
   }
 }
 
