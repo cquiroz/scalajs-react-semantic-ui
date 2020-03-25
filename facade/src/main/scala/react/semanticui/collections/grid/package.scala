@@ -82,6 +82,13 @@ package grid {
     case object NotDivided extends GridDivided
     case object Vertically extends GridDivided
   }
+
+  sealed trait GridColumns extends Product with Serializable
+  object GridColumns {
+    implicit val enum: EnumValue[GridColumns] = EnumValue.toLowerCaseString
+
+    case object Equal extends GridColumns
+  }
 }
 
 package object grid
