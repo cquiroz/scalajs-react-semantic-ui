@@ -1,5 +1,9 @@
 # Changes
 
+## 0.4.6
+
+* Add columns attribute to GridRow
+
 ## 0.4.5
 
 * Update scalajs-react-common
