@@ -5,7 +5,6 @@ import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
-import react.semanticui.{ raw => suiraw }
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react.vdom.TagMod
@@ -30,17 +29,9 @@ object IconGroup {
   object RawComponent extends js.Object
 
   @js.native
-  trait IconGroupProps extends js.Object {
-    @JSBracketAccess
-    def apply(key: String): js.Any = js.native
-
-    @JSBracketAccess
-    def update(key: String, v: js.Any): Unit = js.native
-    var as: js.UndefOr[AsT]                    = js.native
-    var children: js.UndefOr[React.Node]       = js.native
-    var className: js.UndefOr[String]          = js.native
-    var content: js.UndefOr[React.Node]        = js.native
-    var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
+  trait IconGroupProps extends Icon.IconProps {
+    var children: js.UndefOr[React.Node] = js.native
+    var content: js.UndefOr[React.Node]  = js.native
   }
 
   def props(
