@@ -7,8 +7,8 @@ import japgolly.scalajs.react.vdom.html_<^._
 object ListTests extends TestSuite {
   val tests = Tests {
     test("render") {
-      val item1 = ListItem(value = "a")("a")
-      val item2 = ListItem(value = "b")("b")
+      val item1 = ListItem(value = "a")(^.key := "a")("a")
+      val item2 = ListItem(value = "b")(^.key := "b")("b")
       val list  = List(item1, item2)
       ReactTestUtils.withNewBodyElement { mountNode =>
         list.renderIntoDOM(mountNode)
@@ -35,12 +35,12 @@ object ListTests extends TestSuite {
       }
     }
     test("icon2") {
-      val item = ListItem(icon = "valid")
+      val item = ListItem(icon = "reply")
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         val html = mountNode.innerHTML
         assert(
-          html == """<div role="listitem" class="item"><i aria-hidden="true" class="valid icon"></i></div>"""
+          html == """<div role="listitem" class="item"><i aria-hidden="true" class="reply icon"></i></div>"""
         )
       }
     }

@@ -30,12 +30,12 @@ object ListItemTests extends TestSuite {
       }
     }
     test("icon2") {
-      val item = ListItem(icon = "valid")
+      val item = ListItem(icon = "reply")
       ReactTestUtils.withNewBodyElement { mountNode =>
         item.renderIntoDOM(mountNode)
         val html = mountNode.innerHTML
         assert(
-          html == """<div role="listitem" class="item"><i aria-hidden="true" class="valid icon"></i></div>"""
+          html == """<div role="listitem" class="item"><i aria-hidden="true" class="reply icon"></i></div>"""
         )
       }
     }

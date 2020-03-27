@@ -1,5 +1,8 @@
 # Changes
 
+## 0.4.7
+
+* Add support for Placeholder
 ## 0.4.6
 
 * Add columns attribute to GridRow
