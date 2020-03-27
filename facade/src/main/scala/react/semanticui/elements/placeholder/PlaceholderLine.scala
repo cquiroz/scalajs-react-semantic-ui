@@ -4,21 +4,17 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import japgolly.scalajs.react.vdom.VdomNode
 import react.common.style._
 import react.common._
-import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class PlaceholderLine(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
-  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  square:                 js.UndefOr[Boolean]              = js.undefined,
-  rectangular:            js.UndefOr[Boolean]              = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  as:                     js.UndefOr[AsC]        = js.undefined,
+  className:              js.UndefOr[String]     = js.undefined,
+  clazz:                  js.UndefOr[Css]        = js.undefined,
+  length:                 js.UndefOr[LineLength] = js.undefined,
+  override val modifiers: Seq[TagMod]            = Seq.empty
 ) extends GenericFnComponentPA[
       PlaceholderLine.PlaceholderLineProps,
       PlaceholderLine
@@ -52,25 +48,17 @@ object PlaceholderLine {
     /** Additional classes. */
     var className: js.UndefOr[String] = js.native
 
-    /** Shorthand for primary content. */
-    var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
-
-    /** An image can modify size correctly with responsive styles. */
-    var square: js.UndefOr[Boolean] = js.native
-
-    /** An image can modify size correctly with responsive styles. */
-    var rectangular: js.UndefOr[Boolean] = js.native
+    /** A line can specify how long its contents should appear. */
+    var length: js.UndefOr[String]
   }
 
   def props(
     q: PlaceholderLine
   ): PlaceholderLineProps = {
     val p = q.as.toJsObject[PlaceholderLineProps]
-    p.as          = q.as.toJs
-    p.className   = (q.className, q.clazz).toJs
-    p.content     = q.content.toJs
-    p.square      = q.square
-    p.rectangular = q.rectangular
+    p.as        = q.as.toJs
+    p.className = (q.className, q.clazz).toJs
+    p.length    = q.length.toJs
     p
   }
 

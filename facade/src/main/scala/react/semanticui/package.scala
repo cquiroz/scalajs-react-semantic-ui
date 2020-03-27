@@ -12,6 +12,7 @@ import react.common.Render
 import react.common.RenderFn
 
 package semanticui {
+
   sealed trait As extends Product with Serializable {
     type P <: js.Object // props
     val props: P
@@ -30,6 +31,11 @@ package semanticui {
     import elements.divider.{ Divider => SUIDivider }
     import elements.loader.{ Loader => SUILoader }
     import elements.container.{ Container => SUIContainer }
+    import elements.placeholder.{ Placeholder => SUIPlaceholder }
+    import elements.placeholder.{ PlaceholderParagraph => SUIPlaceholderParagraph }
+    import elements.placeholder.{ PlaceholderImage => SUIPlaceholderImage }
+    import elements.placeholder.{ PlaceholderLine => SUIPlaceholderLine }
+    import elements.placeholder.{ PlaceholderHeader => SUIPlaceholderHeader }
 
     protected def removeAs[P <: js.Object](p: P): P =
       filterProps(p, "as")
@@ -84,6 +90,33 @@ package semanticui {
       override type P = SUILoader.LoaderProps
       override val props = removeAs(loader.props)
     }
+    final case class Placeholder(loader: SUIPlaceholder = SUIPlaceholder.Default) extends As {
+      override type P = SUIPlaceholder.PlaceholderProps
+      override val props = removeAs(loader.props)
+    }
+    final case class PlaceholderImage(loader: SUIPlaceholderImage = SUIPlaceholderImage.Default)
+        extends As {
+      override type P = SUIPlaceholderImage.PlaceholderImageProps
+      override val props = removeAs(loader.props)
+    }
+    final case class PlaceholderParagraph(
+      loader: SUIPlaceholderParagraph = SUIPlaceholderParagraph.Default
+    ) extends As {
+      override type P = SUIPlaceholderParagraph.PlaceholderParagraphProps
+      override val props = removeAs(loader.props)
+    }
+    final case class PlaceholderHeader(
+      loader: SUIPlaceholderHeader = SUIPlaceholderHeader.Default
+    ) extends As {
+      override type P = SUIPlaceholderHeader.PlaceholderHeaderProps
+      override val props = removeAs(loader.props)
+    }
+    final case class PlaceholderLine(
+      loader: SUIPlaceholderLine = SUIPlaceholderLine.Default
+    ) extends As {
+      override type P = SUIPlaceholderLine.PlaceholderLineProps
+      override val props = removeAs(loader.props)
+    }
     final case class Container(
       container: SUIContainer = SUIContainer.Default
     ) extends As {
@@ -92,19 +125,24 @@ package semanticui {
     }
 
     def asFn(a: As): AsT = a match {
-      case AsTag(tagOf)       => tagOf.tag
-      case Segment(_)         => SUISegment.RawComponent
-      case SidebarPushable(_) => SUISidebarPushable.RawComponent
-      case SidebarPusher(_)   => SUISidebarPusher.RawComponent
-      case Header(_)          => SUIHeader.RawComponent
-      case Menu(_)            => SUIMenu.RawComponent
-      case Grid(_)            => SUIGrid.RawComponent
-      case Form(_)            => SUIForm.RawComponent
-      case Image(_)           => SUIImage.RawComponent
-      case Divider(_)         => SUIDivider.RawComponent
-      case Checkbox(_)        => SUICheckbox.RawComponent
-      case Loader(_)          => SUILoader.RawComponent
-      case Container(_)       => SUIContainer.RawComponent
+      case AsTag(tagOf)            => tagOf.tag
+      case Segment(_)              => SUISegment.RawComponent
+      case SidebarPushable(_)      => SUISidebarPushable.RawComponent
+      case SidebarPusher(_)        => SUISidebarPusher.RawComponent
+      case Header(_)               => SUIHeader.RawComponent
+      case Menu(_)                 => SUIMenu.RawComponent
+      case Grid(_)                 => SUIGrid.RawComponent
+      case Form(_)                 => SUIForm.RawComponent
+      case Image(_)                => SUIImage.RawComponent
+      case Divider(_)              => SUIDivider.RawComponent
+      case Checkbox(_)             => SUICheckbox.RawComponent
+      case Loader(_)               => SUILoader.RawComponent
+      case Container(_)            => SUIContainer.RawComponent
+      case Placeholder(_)          => SUIPlaceholder.RawComponent
+      case PlaceholderImage(_)     => SUIPlaceholderImage.RawComponent
+      case PlaceholderHeader(_)    => SUIPlaceholderHeader.RawComponent
+      case PlaceholderParagraph(_) => SUIPlaceholderParagraph.RawComponent
+      case PlaceholderLine(_)      => SUIPlaceholderLine.RawComponent
     }
   }
 }

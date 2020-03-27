@@ -3,6 +3,8 @@
 ## 0.4.7
 
 * Add support for Placeholder
+* Add facade for Select
+
 ## 0.4.6
 
 * Add columns attribute to GridRow
