@@ -103,9 +103,9 @@ final case class Dropdown(
 object Dropdown {
   type Value =
     String | JsNumber | Boolean | js.Array[JsNumber] | js.Array[String] | js.Array[Boolean]
-  private type RawAdditionLabel = JsNumber | String | SemanticShorthandContent
-  type AdditionLabel            = JsNumber | String | VdomNode
-  private type RawSearchFunction =
+  type RawAdditionLabel = JsNumber | String | SemanticShorthandContent
+  type AdditionLabel    = JsNumber | String | VdomNode
+  type RawSearchFunction =
     js.Function2[js.Array[DropdownItem.DropdownItemProps], String, js.Array[
       DropdownItem.DropdownItemProps
     ]]
@@ -117,27 +117,27 @@ object Dropdown {
     js.Function3[DropdownItem.DropdownItemProps, Int, Label.LabelProps, Label.LabelProps]
   type RenderLabel =
     (DropdownItem.DropdownItemProps, Int, Label.LabelProps) => CallbackTo[Label.LabelProps]
-  private type RawOnAddItem      = js.Function2[ReactKeyboardEvent, DropdownProps, Unit]
-  type OnAddItem                 = (ReactKeyboardEvent, DropdownProps) => Callback
-  private type RawOnBlur         = RawOnAddItem
-  type OnBlur                    = OnAddItem
-  private type RawOnChange       = js.Function2[ReactEvent, DropdownProps, Unit]
-  type OnChange                  = (ReactEvent, DropdownProps) => Callback
-  private type RawOnClick        = js.Function2[ReactMouseEvent, DropdownProps, Unit]
-  type OnClick                   = (ReactMouseEvent, DropdownProps) => Callback
-  private type RawOnClose        = RawOnChange
-  type OnClose                   = OnChange
-  private type RawOnFocus        = RawOnChange
-  type OnFocus                   = OnChange
-  private type RawOnOpen         = RawOnChange
-  type OnOpen                    = OnChange
-  private type RawOnLabelClick   = js.Function2[ReactMouseEvent, Label.LabelProps, Unit]
-  type OnLabelClick              = (ReactMouseEvent, Label.LabelProps) => Callback
-  private type RawOnMouseDown    = RawOnLabelClick
-  type OnMouseDown               = OnLabelClick
-  private type RawOnSearchChange = js.Function2[ReactEvent, DropdownOnSearchChangeData, Unit]
-  type OnSearchChangeE           = (ReactEvent, DropdownOnSearchChangeData) => Callback
-  type OnSearchChange            = DropdownOnSearchChangeData => Callback
+  private type RawOnAddItem    = js.Function2[ReactKeyboardEvent, DropdownProps, Unit]
+  type OnAddItem               = (ReactKeyboardEvent, DropdownProps) => Callback
+  private type RawOnBlur       = RawOnAddItem
+  type OnBlur                  = OnAddItem
+  private type RawOnChange     = js.Function2[ReactEvent, DropdownProps, Unit]
+  type OnChange                = (ReactEvent, DropdownProps) => Callback
+  private type RawOnClick      = js.Function2[ReactMouseEvent, DropdownProps, Unit]
+  type OnClick                 = (ReactMouseEvent, DropdownProps) => Callback
+  private type RawOnClose      = RawOnChange
+  type OnClose                 = OnChange
+  private type RawOnFocus      = RawOnChange
+  type OnFocus                 = OnChange
+  private type RawOnOpen       = RawOnChange
+  type OnOpen                  = OnChange
+  private type RawOnLabelClick = js.Function2[ReactMouseEvent, Label.LabelProps, Unit]
+  type OnLabelClick            = (ReactMouseEvent, Label.LabelProps) => Callback
+  private type RawOnMouseDown  = RawOnLabelClick
+  type OnMouseDown             = OnLabelClick
+  type RawOnSearchChange       = js.Function2[ReactEvent, DropdownOnSearchChangeData, Unit]
+  type OnSearchChangeE         = (ReactEvent, DropdownOnSearchChangeData) => Callback
+  type OnSearchChange          = DropdownOnSearchChangeData => Callback
 
   @js.native
   @JSImport("semantic-ui-react", "Dropdown")

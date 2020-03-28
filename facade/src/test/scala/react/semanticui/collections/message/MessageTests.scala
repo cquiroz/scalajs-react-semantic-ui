@@ -79,13 +79,13 @@ object MessageTests extends TestSuite {
 
     test("listShorthand") {
       val message = Message(
-        list = List("", "")
+        list = List("a", "b")
       )
       ReactTestUtils.withNewBodyElement { mountNode =>
         message.renderIntoDOM(mountNode)
         val html = mountNode.innerHTML
         assert(
-          html == """<div class="ui message"><div class="content"><ul class="list"><li class="content"></li><li class="content"></li></ul></div></div>"""
+          html == """<div class="ui message"><div class="content"><ul class="list"><li class="content">a</li><li class="content">b</li></ul></div></div>"""
         )
       }
     }
