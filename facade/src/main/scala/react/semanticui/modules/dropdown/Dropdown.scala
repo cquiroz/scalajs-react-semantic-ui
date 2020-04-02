@@ -45,7 +45,7 @@ final case class Dropdown(
   floating:               js.UndefOr[Boolean]                           = js.undefined,
   fluid:                  js.UndefOr[Boolean]                           = js.undefined,
   header:                 js.UndefOr[ShorthandS[VdomNode]]              = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]                 = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]]                  = js.undefined,
   inline:                 js.UndefOr[Boolean]                           = js.undefined,
   item:                   js.UndefOr[Boolean]                           = js.undefined,
   labeled:                js.UndefOr[Boolean]                           = js.undefined,
@@ -240,7 +240,7 @@ object Dropdown {
     var header: js.UndefOr[React.Node] = js.native
 
     /** Shorthand for Icon. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemS[IconProps]] = js.native
 
     /** A dropdown can be formatted to appear inline in other content. */
     var inline: js.UndefOr[Boolean] = js.native
@@ -527,7 +527,7 @@ object Dropdown {
     floating:             js.UndefOr[Boolean]                  = js.undefined,
     fluid:                js.UndefOr[Boolean]                  = js.undefined,
     header:               js.UndefOr[ShorthandS[VdomNode]]     = js.undefined,
-    icon:                 js.UndefOr[ShorthandSB[Icon]]        = js.undefined,
+    icon:                 js.UndefOr[ShorthandS[Icon]]         = js.undefined,
     inline:               js.UndefOr[Boolean]                  = js.undefined,
     item:                 js.UndefOr[Boolean]                  = js.undefined,
     labeled:              js.UndefOr[Boolean]                  = js.undefined,

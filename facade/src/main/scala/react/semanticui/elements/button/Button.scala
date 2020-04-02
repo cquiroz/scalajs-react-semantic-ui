@@ -32,7 +32,7 @@ final case class Button(
   disabled:               js.UndefOr[Boolean]              = js.undefined,
   floated:                js.UndefOr[SemanticFloat]        = js.undefined,
   fluid:                  js.UndefOr[Boolean]              = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]]     = js.undefined,
   inverted:               js.UndefOr[Boolean]              = js.undefined,
   label:                  js.UndefOr[Label]                = js.undefined,
   labelPosition:          js.UndefOr[LabelPosition]        = js.undefined,
@@ -83,7 +83,7 @@ object Button {
     var disabled: js.UndefOr[Boolean]                                         = js.native
     var floated: js.UndefOr[suiraw.SemanticFLOATS]                            = js.native
     var fluid: js.UndefOr[Boolean]                                            = js.native
-    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]]           = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemS[IconProps]]            = js.native
     var inverted: js.UndefOr[Boolean]                                         = js.native
     var label: js.UndefOr[suiraw.SemanticShorthandItemS[LabelProps]]          = js.native
     var labelPosition: js.UndefOr[String]                                     = js.native
@@ -147,7 +147,7 @@ object Button {
     disabled:      js.UndefOr[Boolean]              = js.undefined,
     floated:       js.UndefOr[SemanticFloat]        = js.undefined,
     fluid:         js.UndefOr[Boolean]              = js.undefined,
-    icon:          js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
+    icon:          js.UndefOr[ShorthandS[Icon]]     = js.undefined,
     inverted:      js.UndefOr[Boolean]              = js.undefined,
     label:         js.UndefOr[Label]                = js.undefined,
     labelPosition: js.UndefOr[LabelPosition]        = js.undefined,

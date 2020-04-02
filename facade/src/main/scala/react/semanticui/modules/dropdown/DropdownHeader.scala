@@ -20,7 +20,7 @@ final case class DropdownHeader(
   className:              js.UndefOr[String]               = js.undefined,
   clazz:                  js.UndefOr[Css]                  = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]]     = js.undefined,
   override val modifiers: Seq[TagMod]                      = Seq.empty
 ) extends GenericComponentPAC[DropdownHeader.DropdownHeaderProps, DropdownHeader] {
   override protected def cprops    = DropdownHeader.props(this)
@@ -56,7 +56,7 @@ object DropdownHeader {
     var content: js.UndefOr[SemanticShorthandContent] = js.native
 
     /** Shorthand for Icon. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemS[IconProps]] = js.native
   }
 
   def props(q: DropdownHeader): DropdownHeaderProps =
@@ -67,7 +67,7 @@ object DropdownHeader {
     className: js.UndefOr[String]               = js.undefined,
     clazz:     js.UndefOr[Css]                  = js.undefined,
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    icon:      js.UndefOr[ShorthandSB[Icon]]    = js.undefined
+    icon:      js.UndefOr[ShorthandS[Icon]]     = js.undefined
   ): DropdownHeaderProps = {
     val p = as.toJsObject[DropdownHeaderProps]
     p.as        = as.toJs
