@@ -1,5 +1,9 @@
 # Changes
 
+## 0.4.8
+
+* Some components don't take Boolean in icon
+
 ## 0.4.7
 
 * Add support for Placeholder
