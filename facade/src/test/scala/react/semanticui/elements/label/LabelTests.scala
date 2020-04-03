@@ -68,6 +68,15 @@ object LabelTests extends TestSuite {
       }
     }
     test("icon") {
+      val label = Label(Icon(name = "comment"))
+      ReactTestUtils.withNewBodyElement { m =>
+        label.renderIntoDOM(m)
+        assert(
+          m.innerHTML == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i></div>"""
+        )
+      }
+    }
+    test("iconShorthand") {
       val label = Label(icon = Icon(name = "comment"))
       ReactTestUtils.withNewBodyElement { m =>
         label.renderIntoDOM(m)
@@ -77,11 +86,22 @@ object LabelTests extends TestSuite {
       }
     }
     test("iconAndText") {
-      val label = Label()(Icon(name = "comment"), "23")
+      val label = Label(Icon("comment"), "23")
       ReactTestUtils.withNewBodyElement { m =>
         label.renderIntoDOM(m)
+        val html = m.innerHTML
         assert(
-          m.innerHTML == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i>23</div>"""
+          html == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i>23</div>"""
+        )
+      }
+    }
+    test("iconAndTextShorthand") {
+      val label = Label(icon = Icon(name = "comment"), content = "23")
+      ReactTestUtils.withNewBodyElement { m =>
+        label.renderIntoDOM(m)
+        val html = m.innerHTML
+        assert(
+          html == """<div class="ui label"><i aria-hidden="true" class="comment icon"></i>23</div>"""
         )
       }
     }
