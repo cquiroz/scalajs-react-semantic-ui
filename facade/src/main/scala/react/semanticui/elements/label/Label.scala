@@ -31,14 +31,14 @@ final case class Label(
   empty:                  js.UndefOr[Boolean]              = js.undefined,
   floating:               js.UndefOr[Boolean]              = js.undefined,
   horizontal:             js.UndefOr[Boolean]              = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]]     = js.undefined,
   image:                  js.UndefOr[Boolean]              = js.undefined,
   onClickE:               js.UndefOr[Label.OnClick]        = js.undefined,
   onClick:                js.UndefOr[Callback]             = js.undefined,
   onRemove:               js.UndefOr[Label.OnClick]        = js.undefined,
   pointing:               js.UndefOr[LabelPointing]        = js.undefined,
   prompt:                 js.UndefOr[Boolean]              = js.undefined,
-  removeIcon:             js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
+  removeIcon:             js.UndefOr[ShorthandS[Icon]]     = js.undefined,
   ribbon:                 js.UndefOr[LabelRibbon]          = js.undefined,
   size:                   js.UndefOr[SemanticSize]         = js.undefined,
   tag:                    js.UndefOr[Boolean]              = js.undefined,
@@ -79,7 +79,7 @@ object Label {
     var empty: js.UndefOr[js.Any]       = js.native
     var floating: js.UndefOr[Boolean]   = js.native
     var horizontal: js.UndefOr[Boolean] = js.native
-    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] =
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemS[IconProps]] =
       js.native
     var image: js.UndefOr[js.Any] = js.native
     var onClick: js.UndefOr[js.Function2[ReactMouseEvent, LabelProps, Unit]] =
@@ -90,7 +90,7 @@ object Label {
 
     /** A label can prompt for an error in your forms. */
     var prompt: js.UndefOr[Boolean]
-    var removeIcon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] =
+    var removeIcon: js.UndefOr[suiraw.SemanticShorthandItemS[IconProps]] =
       js.native
     var ribbon: js.UndefOr[Boolean | String]   = js.native
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native

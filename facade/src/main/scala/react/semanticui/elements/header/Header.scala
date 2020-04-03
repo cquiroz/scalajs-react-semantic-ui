@@ -26,7 +26,7 @@ final case class Header(
   disabled:               js.UndefOr[Boolean]               = js.undefined,
   dividing:               js.UndefOr[Boolean]               = js.undefined,
   floated:                js.UndefOr[SemanticFloat]         = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]]      = js.undefined,
   image:                  js.UndefOr[Boolean]               = js.undefined,
   inverted:               js.UndefOr[Boolean]               = js.undefined,
   size:                   js.UndefOr[SemanticSize]          = js.undefined,
@@ -86,7 +86,7 @@ object Header {
     var floated: js.UndefOr[suiraw.SemanticFLOATS] = js.native
 
     /** Add an icon by icon name or pass an Icon. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemS[IconProps]] = js.native
 
     /** Add an image by img src or pass an Image. */
     var image: js.UndefOr[Boolean] = js.native
@@ -140,7 +140,7 @@ object Header {
     disabled:  js.UndefOr[Boolean]               = js.undefined,
     dividing:  js.UndefOr[Boolean]               = js.undefined,
     floated:   js.UndefOr[SemanticFloat]         = js.undefined,
-    icon:      js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
+    icon:      js.UndefOr[ShorthandS[Icon]]      = js.undefined,
     image:     js.UndefOr[Boolean]               = js.undefined,
     inverted:  js.UndefOr[Boolean]               = js.undefined,
     size:      js.UndefOr[SemanticSize]          = js.undefined,

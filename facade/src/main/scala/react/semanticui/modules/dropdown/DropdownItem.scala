@@ -31,7 +31,7 @@ final case class DropdownItem(
   description:            js.UndefOr[String]                      = js.undefined,
   disable:                js.UndefOr[Boolean]                     = js.undefined,
   flag:                   js.UndefOr[ShorthandS[Flag]]            = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]           = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]]            = js.undefined,
   image:                  js.UndefOr[ShorthandS[Image]]           = js.undefined,
   label:                  js.UndefOr[ShorthandS[Label]]           = js.undefined,
   onClickE:               js.UndefOr[DropdownItem.OnClick]        = js.undefined,
@@ -86,7 +86,7 @@ object DropdownItem {
     var flag: js.UndefOr[suiraw.SemanticShorthandItemS[FlagProps]] = js.native
 
     /** Shorthand for Icon. */
-    var icon: js.UndefOr[suiraw.SemanticShorthandItemSB[IconProps]] = js.native
+    var icon: js.UndefOr[suiraw.SemanticShorthandItemS[IconProps]] = js.native
 
     /** Shorthand for Image. */
     var image: js.UndefOr[suiraw.SemanticShorthandItemS[ImageProps]] = js.native
