@@ -1,5 +1,11 @@
 # Changes
 
+## 0.4.9
+
+* Reenable icon=Boolean in Button.
+* Add label=String to Button.
+* Add some Button and Label tests as examples.
+
 ## 0.4.8
 
 * Some components don't take Boolean in icon
