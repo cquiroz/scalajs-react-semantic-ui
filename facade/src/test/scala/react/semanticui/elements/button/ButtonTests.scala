@@ -69,6 +69,14 @@ object ButtonTests extends TestSuite {
       }
     }
     test("icon") {
+      val button = Button(icon = true)(Icon(name = "comment"))
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        assert(
+          m.outerHtmlScrubbed() == """<button class="ui icon button"><i aria-hidden="true" class="comment icon"></i></button>"""
+        )
+      }
+    }
+    test("iconShorthand") {
       val button = Button(icon = Icon(name = "comment"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
@@ -81,6 +89,15 @@ object ButtonTests extends TestSuite {
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(
           m.outerHtmlScrubbed() == """<div class="ui labeled button"><button class="ui button" tabindex="0"> </button><div class="ui label">Label</div></div>"""
+        )
+      }
+    }
+    test("labelText") {
+      val button = Button(label = "Label")
+      ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
+        assert(
+          html == """<div class="ui labeled button"><button class="ui button" tabindex="0"> </button><div class="ui left pointing basic label">Label</div></div>"""
         )
       }
     }
