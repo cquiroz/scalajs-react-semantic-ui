@@ -1,5 +1,9 @@
 # Changes
 
+## 0.4.10
+
+* Avoid passing undefined properties to components ([PR #122](https://github.com/cquiroz/scalajs-react-semantic-ui/pull/122)).
+
 ## 0.4.9
 
 * Reenable icon=Boolean in Button.
