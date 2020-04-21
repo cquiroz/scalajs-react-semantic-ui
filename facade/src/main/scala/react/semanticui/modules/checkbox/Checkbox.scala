@@ -213,28 +213,28 @@ object Checkbox {
     value:                js.UndefOr[String | JsNumber] = js.undefined
   ): CheckboxProps = {
     val p = as.toJsObject[CheckboxProps]
-    p.as                   = as.toJs
-    p.checked              = checked
-    p.className            = (className, clazz).toJs
-    p.defaultChecked       = defaultChecked
-    p.defaultIndeterminate = defaultIndeterminate
-    p.disabled             = disabled
-    p.fitted               = fitted
-    p.id                   = id
-    p.indeterminate        = indeterminate
-    p.label                = label.toJs
-    p.name                 = name
-    p.onChange             = (onChangeE, onChange).toJs
-    p.onClick              = (onClickE, onClick).toJs
-    p.onMouseDown          = (onMouseDownE, onMouseDown).toJs
-    p.onMouseUp            = (onMouseUpE, onMouseUp).toJs
-    p.radio                = radio
-    p.readOnly             = readOnly
-    p.slider               = slider
-    p.tabIndex             = tabIndex
-    p.toggle               = toggle
-    p.`type`               = `type`.toJs
-    p.value                = value
+    as.toJs.foreach(v => p.as                                   = v)
+    checked.foreach(v => p.checked                              = v)
+    (className, clazz).toJs.foreach(v => p.className            = v)
+    defaultChecked.foreach(v => p.defaultChecked                = v)
+    defaultIndeterminate.foreach(v => p.defaultIndeterminate    = v)
+    disabled.foreach(v => p.disabled                            = v)
+    fitted.foreach(v => p.fitted                                = v)
+    id.foreach(v => p.id                                        = v)
+    indeterminate.foreach(v => p.indeterminate                  = v)
+    label.toJs.foreach(v => p.label                             = v)
+    name.foreach(v => p.name                                    = v)
+    (onChangeE, onChange).toJs.foreach(v => p.onChange          = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick             = v)
+    (onMouseDownE, onMouseDown).toJs.foreach(v => p.onMouseDown = v)
+    (onMouseUpE, onMouseUp).toJs.foreach(v => p.onMouseUp       = v)
+    radio.foreach(v => p.radio                                  = v)
+    readOnly.foreach(v => p.readOnly                            = v)
+    slider.foreach(v => p.slider                                = v)
+    tabIndex.foreach(v => p.tabIndex                            = v)
+    toggle.foreach(v => p.toggle                                = v)
+    p.`type` = `type`.toJs
+    value.foreach(v => p.value = v)
     p
   }
 

@@ -157,29 +157,31 @@ object Confirm {
     trigger:              js.UndefOr[VdomNode]                 = js.undefined
   ): ConfirmProps = {
     val p = as.toJsObject[ConfirmProps]
-    p.as                   = as.toJs
-    p.basic                = basic
-    p.cancelButton         = cancelButton.toJs
-    p.centered             = centered
-    p.className            = (className, clazz).toJs
-    p.closeIcon            = closeIcon.map(_.props)
-    p.closeOnDimmerClick   = closeOnDimmerClick
-    p.closeOnDocumentClick = closeOnDocumentClick
-    p.confirmButton        = confirmButton.toJs
-    p.content              = content.toJs
-    p.defaultOpen          = defaultOpen
-    p.dimmer               = dimmer.toJs
-    p.eventPool            = eventPool
-    p.header               = header.toJs
-    p.onActionClick        = (onActionClickE, onActionClick).toJs
-    p.onCancel             = (onCancelE, onCancel).toJs
-    p.onClose              = (onCloseE, onClose).toJs
-    p.onConfirm            = (onConfirmE, onConfirm).toJs
-    p.onMount              = (onMountE, onMount).toJs.map(f => (_, p: Modal.ModalProps) => f(p))
-    p.open                 = open
-    p.size                 = size.toJs
-    p.style                = style.map(_.toJsObject)
-    p.trigger              = trigger.toJs
+    as.toJs.foreach(v => p.as                                         = v)
+    basic.foreach(v => p.basic                                        = v)
+    cancelButton.toJs.foreach(v => p.cancelButton                     = v)
+    centered.foreach(v => p.centered                                  = v)
+    (className, clazz).toJs.foreach(v => p.className                  = v)
+    closeIcon.map(_.props).foreach(v => p.closeIcon                   = v)
+    closeOnDimmerClick.foreach(v => p.closeOnDimmerClick              = v)
+    closeOnDocumentClick.foreach(v => p.closeOnDocumentClick          = v)
+    confirmButton.toJs.foreach(v => p.confirmButton                   = v)
+    content.toJs.foreach(v => p.content                               = v)
+    defaultOpen.foreach(v => p.defaultOpen                            = v)
+    dimmer.toJs.foreach(v => p.dimmer                                 = v)
+    eventPool.foreach(v => p.eventPool                                = v)
+    header.toJs.foreach(v => p.header                                 = v)
+    (onActionClickE, onActionClick).toJs.foreach(v => p.onActionClick = v)
+    (onCancelE, onCancel).toJs.foreach(v => p.onCancel                = v)
+    (onCloseE, onClose).toJs.foreach(v => p.onClose                   = v)
+    (onConfirmE, onConfirm).toJs.foreach(v => p.onConfirm             = v)
+    (onMountE, onMount).toJs
+      .map[Modal.RawOnMount](f => (_, p: Modal.ModalProps) => f(p))
+      .foreach(v => p.onMount                    = v)
+    open.foreach(v => p.open                     = v)
+    size.toJs.foreach(v => p.size                = v)
+    style.map(_.toJsObject).foreach(v => p.style = v)
+    trigger.toJs.foreach(v => p.trigger          = v)
     p
   }
 

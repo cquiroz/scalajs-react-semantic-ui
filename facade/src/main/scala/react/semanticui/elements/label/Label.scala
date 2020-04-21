@@ -101,30 +101,30 @@ object Label {
     q: Label
   ): LabelProps = {
     val p = q.as.toJsObject[LabelProps]
-    p.as         = q.as.toJs
-    p.active     = q.active
-    p.attached   = q.attached.toJs
-    p.basic      = q.basic
-    p.children   = q.child
-    p.circular   = q.circular
-    p.className  = (q.className, q.clazz).toJs
-    p.color      = q.color.toJs
-    p.content    = q.content.toJs
-    p.corner     = q.corner.toJs
-    p.detail     = q.detail.map(_.props)
-    p.empty      = q.empty.map(_.asInstanceOf[js.Any])
-    p.floating   = q.floating
-    p.horizontal = q.horizontal
-    p.icon       = q.icon.toJs
-    p.image      = q.image.map(_.asInstanceOf[js.Any])
-    p.onClick    = (q.onClickE, q.onClick).toJs
-    p.onRemove   = q.onRemove.toJs
-    p.pointing   = q.pointing.toJs
-    p.prompt     = q.prompt
-    p.removeIcon = q.removeIcon.toJs
-    p.ribbon     = q.ribbon.toJs
-    p.size       = q.size.toJs
-    p.tag        = q.tag
+    q.as.toJs.foreach(v => p.as                              = v)
+    q.active.foreach(v => p.active                           = v)
+    q.attached.toJs.foreach(v => p.attached                  = v)
+    q.basic.foreach(v => p.basic                             = v)
+    q.child.foreach(v => p.children                          = v)
+    q.circular.foreach(v => p.circular                       = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className     = v)
+    q.color.toJs.foreach(v => p.color                        = v)
+    q.content.toJs.foreach(v => p.content                    = v)
+    q.corner.toJs.foreach(v => p.corner                      = v)
+    q.detail.map(_.props).foreach(v => p.detail              = v)
+    q.empty.map(_.asInstanceOf[js.Any]).foreach(v => p.empty = v)
+    q.floating.foreach(v => p.floating                       = v)
+    q.horizontal.foreach(v => p.horizontal                   = v)
+    q.icon.toJs.foreach(v => p.icon                          = v)
+    q.image.map(_.asInstanceOf[js.Any]).foreach(v => p.image = v)
+    (q.onClickE, q.onClick).toJs.foreach(v => p.onClick      = v)
+    q.onRemove.toJs.foreach(v => p.onRemove                  = v)
+    q.pointing.toJs.foreach(v => p.pointing                  = v)
+    q.prompt.foreach(v => p.prompt                           = v)
+    q.removeIcon.toJs.foreach(v => p.removeIcon              = v)
+    q.ribbon.toJs.foreach(v => p.ribbon                      = v)
+    q.size.toJs.foreach(v => p.size                          = v)
+    q.tag.foreach(v => p.tag                                 = v)
     p
   }
 

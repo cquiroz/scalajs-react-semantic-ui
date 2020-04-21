@@ -52,23 +52,23 @@ object ListIcon {
     q: ListIcon
   ): ListIconProps = {
     val p = q.as.toJsObject[ListIconProps]
-    p.as            = q.as.toJs
-    p.bordered      = q.bordered
-    p.circular      = q.circular
-    p.className     = (q.className, q.clazz).toJs
-    p.color         = q.color.toJs
-    p.corner        = q.corner.toJs
-    p.disabled      = q.disabled
-    p.fitted        = q.fitted
-    p.flipped       = q.flipped.toJs
-    p.inverted      = q.inverted
-    p.link          = q.link
-    p.loading       = q.loading
-    p.name          = q.name
-    p.rotated       = q.rotated.toJs
-    p.size          = q.size.toJs
-    p.`aria-label`  = q.ariaLabel
-    p.verticalAlign = q.verticalAlign.toJs
+    q.as.toJs.foreach(v => p.as                          = v)
+    q.bordered.foreach(v => p.bordered                   = v)
+    q.circular.foreach(v => p.circular                   = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.color.toJs.foreach(v => p.color                    = v)
+    q.corner.toJs.foreach(v => p.corner                  = v)
+    q.disabled.foreach(v => p.disabled                   = v)
+    q.fitted.foreach(v => p.fitted                       = v)
+    q.flipped.toJs.foreach(v => p.flipped                = v)
+    q.inverted.foreach(v => p.inverted                   = v)
+    q.link.foreach(v => p.link                           = v)
+    q.loading.foreach(v => p.loading                     = v)
+    q.name.foreach(v => p.name                           = v)
+    q.rotated.toJs.foreach(v => p.rotated                = v)
+    q.size.toJs.foreach(v => p.size                      = v)
+    p.`aria-label` = q.ariaLabel
+    q.verticalAlign.toJs.foreach(v => p.verticalAlign = v)
     p
   }
 

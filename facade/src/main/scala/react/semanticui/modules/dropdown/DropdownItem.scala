@@ -119,20 +119,20 @@ object DropdownItem {
     q: DropdownItem
   ): DropdownItemProps = {
     val p = q.as.toJsObject[DropdownItemProps]
-    p.as          = q.as.toJs
-    p.active      = q.active
-    p.className   = (q.className, q.clazz).toJs
-    p.content     = q.content.toJs
-    p.description = q.description
-    p.disable     = q.disable
-    p.flag        = q.flag.toJs
-    p.icon        = q.icon.toJs
-    p.image       = q.image.toJs
-    p.label       = q.label.toJs
-    p.onClick     = (q.onClickE, q.onClick).toJs
-    p.selected    = q.selected
-    p.text        = q.text
-    p.value       = q.value
+    q.as.toJs.foreach(v => p.as                          = v)
+    q.active.foreach(v => p.active                       = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.description.foreach(v => p.description             = v)
+    q.disable.foreach(v => p.disable                     = v)
+    q.flag.toJs.foreach(v => p.flag                      = v)
+    q.icon.toJs.foreach(v => p.icon                      = v)
+    q.image.toJs.foreach(v => p.image                    = v)
+    q.label.toJs.foreach(v => p.label                    = v)
+    (q.onClickE, q.onClick).toJs.foreach(v => p.onClick  = v)
+    q.selected.foreach(v => p.selected                   = v)
+    q.text.foreach(v => p.text                           = v)
+    q.value.foreach(v => p.value                         = v)
     p
   }
 

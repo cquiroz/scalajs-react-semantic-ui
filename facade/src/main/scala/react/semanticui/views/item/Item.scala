@@ -95,14 +95,14 @@ object Item {
     meta:        js.UndefOr[ShorthandS[ItemMeta]]        = js.undefined
   ): ItemProps = {
     val p = as.toJsObject[ItemProps]
-    p.as          = as.toJs
-    p.className   = (className, clazz).toJs
-    p.content     = content.toJs
-    p.description = description.toJs
-    p.extra       = extra.toJs
-    p.header      = header.toJs
-    p.image       = image.toJs
-    p.meta        = meta.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    description.toJs.foreach(v => p.description      = v)
+    extra.toJs.foreach(v => p.extra                  = v)
+    header.toJs.foreach(v => p.header                = v)
+    image.toJs.foreach(v => p.image                  = v)
+    meta.toJs.foreach(v => p.meta                    = v)
     p
   }
 

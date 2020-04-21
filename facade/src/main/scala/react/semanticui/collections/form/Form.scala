@@ -131,19 +131,19 @@ object Form {
     widths:      js.UndefOr[FormWidths]     = js.undefined
   ): FormProps = {
     val p = as.toJsObject[FormProps]
-    p.as          = as.toJs
-    p.action      = action
-    p.className   = (className, clazz).toJs
-    p.error       = error
-    p.inverted    = inverted
-    p.loading     = loading
-    p.onSubmit    = (onSubmitE, onSubmit).toJs
-    p.reply       = reply
-    p.size        = size.toJs
-    p.success     = success
-    p.unstackable = unstackable
-    p.warning     = warning
-    p.widths      = widths.toJs
+    as.toJs.foreach(v => p.as                          = v)
+    action.foreach(v => p.action                       = v)
+    (className, clazz).toJs.foreach(v => p.className   = v)
+    error.foreach(v => p.error                         = v)
+    inverted.foreach(v => p.inverted                   = v)
+    loading.foreach(v => p.loading                     = v)
+    (onSubmitE, onSubmit).toJs.foreach(v => p.onSubmit = v)
+    reply.foreach(v => p.reply                         = v)
+    size.toJs.foreach(v => p.size                      = v)
+    success.foreach(v => p.success                     = v)
+    unstackable.foreach(v => p.unstackable             = v)
+    warning.foreach(v => p.warning                     = v)
+    widths.toJs.foreach(v => p.widths                  = v)
     p
   }
 

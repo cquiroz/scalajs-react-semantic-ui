@@ -70,12 +70,12 @@ object DropdownSearchInput {
     value:        js.UndefOr[JsNumber | String] = js.undefined
   ): DropdownSearchInputProps = {
     val p = as.toJsObject[DropdownSearchInputProps]
-    p.as           = as.toJs
-    p.autoComplete = autoComplete
-    p.className    = (className, clazz).toJs
-    p.tabIndex     = tabIndex
-    p.`type`       = `type`
-    p.value        = value
+    as.toJs.foreach(v => p.as                        = v)
+    autoComplete.foreach(v => p.autoComplete         = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    tabIndex.foreach(v => p.tabIndex                 = v)
+    p.`type` = `type`
+    value.foreach(v => p.value = v)
     p
   }
 

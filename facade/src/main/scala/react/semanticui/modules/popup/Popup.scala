@@ -226,32 +226,33 @@ object Popup {
     wide:            js.UndefOr[PopupWide]                = js.undefined
   ): PopupProps = {
     val p = as.toJsObject[PopupProps]
-    p.as           = as.toJs
-    p.basic        = basic
-    p.className    = (className, clazz).toJs
-    p.content      = content.toJs
-    p.disabled     = disabled
-    p.flowing      = flowing
-    p.header       = header.toJs
-    p.hideOnScroll = hideOnScroll
-    p.hoverable    = hoverable
-    p.inverted     = inverted
-    p.offset       = offset
-    p.on = on.map { x =>
-      (x: Any) match {
-        case p: PopupOn => p.toJs
-        case p          => p.asInstanceOf[List[PopupOn]].map(_.toJs).toJSArray
+    as.toJs.foreach(v => p.as                        = v)
+    basic.foreach(v => p.basic                       = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    disabled.foreach(v => p.disabled                 = v)
+    flowing.foreach(v => p.flowing                   = v)
+    header.toJs.foreach(v => p.header                = v)
+    hideOnScroll.foreach(v => p.hideOnScroll         = v)
+    hoverable.foreach(v => p.hoverable               = v)
+    inverted.foreach(v => p.inverted                 = v)
+    offset.foreach(v => p.offset                     = v)
+    on.map[String | js.Array[String]] { x =>
+        (x: Any) match {
+          case p: PopupOn => p.toJs
+          case p          => p.asInstanceOf[List[PopupOn]].map(_.toJs).toJSArray
+        }
       }
-    }
-    p.onClose         = (onCloseE, onClose).toJs
-    p.onOpen          = (onOpenE, onOpen).toJs
-    p.pinned          = pinned
-    p.position        = position.toJs
-    p.popperModifiers = popperModifiers
-    p.size            = size.toJs
-    p.style           = style.map(_.toJsObject)
-    p.trigger         = trigger.toJs
-    p.wide            = wide.toJs
+      .foreach(v => p.on                            = v)
+    (onCloseE, onClose).toJs.foreach(v => p.onClose = v)
+    (onOpenE, onOpen).toJs.foreach(v => p.onOpen    = v)
+    pinned.foreach(v => p.pinned                    = v)
+    position.toJs.foreach(v => p.position           = v)
+    popperModifiers.foreach(v => p.popperModifiers  = v)
+    size.toJs.foreach(v => p.size                   = v)
+    style.map(_.toJsObject).foreach(v => p.style    = v)
+    trigger.toJs.foreach(v => p.trigger             = v)
+    wide.toJs.foreach(v => p.wide                   = v)
     p
   }
 

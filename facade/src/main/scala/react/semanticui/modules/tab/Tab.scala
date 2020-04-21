@@ -62,19 +62,22 @@ object Tab {
   object RawPane {
     def fromPane(q: Pane): RawPane = {
       val p = (new js.Object()).asInstanceOf[RawPane]
-      p.pane = q.pane.map(_.props)
-      p.menuItem = q.menuItem.map(d =>
-        (d: Any) match {
-          case s: String   => s
-          case m: MenuItem => m.props
+      q.pane.map(_.props).foreach(v => p.pane = v)
+      q.menuItem
+        .map[String | MenuItem.MenuItemProps](d =>
+          (d: Any) match {
+            case s: String   => s
+            case m: MenuItem => m.props
+          }
+        )
+        .foreach(v => p.menuItem = v)
+      q.render
+        .map { f =>
+          val r: js.Function0[React.Node] = f
+          r
         }
-      )
-      p.render = q.render.map { f =>
-        val r: js.Function0[React.Node] = f
-        r
-      }
+        .foreach(v => p.render = v)
       p
-
     }
   }
 
@@ -142,17 +145,18 @@ object Tab {
     q: Tab
   ): TabProps = {
     val p = q.as.toJsObject[TabProps]
-    p.as                 = q.as.toJs
-    p.defaultActiveIndex = q.defaultActiveIndex
-    p.activeIndex        = q.activeIndex
-    p.menu               = q.menu.map(_.props)
-    p.menuPosition       = q.menuPosition.toJs
-    p.grid               = q.grid.map(_.props)
-    p.onTabChange = q.onTabChangeE.toJs
-      .orElse(q.onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow))
-    p.panes            = q.panes.map(RawPane.fromPane(_)).toJSArray
-    p.renderActiveOnly = q.renderActiveOnly
-    p.vertical         = q.vertical
+    q.as.toJs.foreach(v => p.as                            = v)
+    q.defaultActiveIndex.foreach(v => p.defaultActiveIndex = v)
+    q.activeIndex.foreach(v => p.activeIndex               = v)
+    q.menu.map(_.props).foreach(v => p.menu                = v)
+    q.menuPosition.toJs.foreach(v => p.menuPosition        = v)
+    q.grid.map(_.props).foreach(v => p.grid                = v)
+    q.onTabChangeE.toJs
+      .orElse[RawOnTabChange](q.onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow))
+      .foreach(v => p.onTabChange = v)
+    p.panes = q.panes.map(RawPane.fromPane(_)).toJSArray
+    q.renderActiveOnly.foreach(v => p.renderActiveOnly = v)
+    q.vertical.foreach(v => p.vertical                 = v)
     p
   }
 

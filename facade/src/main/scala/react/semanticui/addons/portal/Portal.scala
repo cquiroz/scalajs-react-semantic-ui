@@ -206,25 +206,25 @@ object Portal {
     trigger:                  js.UndefOr[VdomNode]         = js.undefined
   ): PortalProps = {
     val p = (new js.Object).asInstanceOf[PortalProps]
-    p.closeOnDocumentClick     = closeOnDocumentClick
-    p.closeOnEscape            = closeOnEscape
-    p.closeOnPortalMouseLeave  = closeOnPortalMouseLeave
-    p.closeOnTriggerBlur       = closeOnTriggerBlur
-    p.closeOnTriggerClick      = closeOnTriggerClick
-    p.closeOnTriggerMouseLeave = closeOnTriggerMouseLeave
-    p.defaultOpen              = defaultOpen
-    p.eventPool                = eventPool
-    p.mouseEnterDelay          = mouseEnterDelay
-    p.mouseLeaveDelay          = mouseLeaveDelay
-    p.onClose                  = (onCloseE, onClose).toJs
-    p.onMount                  = (onMountE, onMount).toJs
-    p.onOpen                   = (onOpenE, onOpen).toJs
-    p.onUnmount                = (onUnmountE, onUnmount).toJs
-    p.open                     = open
-    p.openOnTriggerClick       = openOnTriggerClick
-    p.openOnTriggerFocus       = openOnTriggerFocus
-    p.openOnTriggerMouseEnter  = openOnTriggerMouseEnter
-    p.trigger                  = trigger.toJs
+    closeOnDocumentClick.foreach(v => p.closeOnDocumentClick         = v)
+    closeOnEscape.foreach(v => p.closeOnEscape                       = v)
+    closeOnPortalMouseLeave.foreach(v => p.closeOnPortalMouseLeave   = v)
+    closeOnTriggerBlur.foreach(v => p.closeOnTriggerBlur             = v)
+    closeOnTriggerClick.foreach(v => p.closeOnTriggerClick           = v)
+    closeOnTriggerMouseLeave.foreach(v => p.closeOnTriggerMouseLeave = v)
+    defaultOpen.foreach(v => p.defaultOpen                           = v)
+    eventPool.foreach(v => p.eventPool                               = v)
+    mouseEnterDelay.foreach(v => p.mouseEnterDelay                   = v)
+    mouseLeaveDelay.foreach(v => p.mouseLeaveDelay                   = v)
+    (onCloseE, onClose).toJs.foreach(v => p.onClose                  = v)
+    (onMountE, onMount).toJs.foreach(v => p.onMount                  = v)
+    (onOpenE, onOpen).toJs.foreach(v => p.onOpen                     = v)
+    (onUnmountE, onUnmount).toJs.foreach(v => p.onUnmount            = v)
+    open.foreach(v => p.open                                         = v)
+    openOnTriggerClick.foreach(v => p.openOnTriggerClick             = v)
+    openOnTriggerFocus.foreach(v => p.openOnTriggerFocus             = v)
+    openOnTriggerMouseEnter.foreach(v => p.openOnTriggerMouseEnter   = v)
+    trigger.toJs.foreach(v => p.trigger                              = v)
     p
   }
 

@@ -87,8 +87,9 @@ object ButtonTests extends TestSuite {
     test("label") {
       val button = Button(label = Label("Label"))
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
+        val html = m.outerHtmlScrubbed()
         assert(
-          m.outerHtmlScrubbed() == """<div class="ui labeled button"><button class="ui button" tabindex="0"> </button><div class="ui label">Label</div></div>"""
+          html == """<div class="ui labeled button"><button class="ui button" tabindex="0"> </button><div class="ui left pointing basic label">Label</div></div>"""
         )
       }
     }

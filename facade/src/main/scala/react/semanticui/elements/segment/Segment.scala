@@ -92,29 +92,29 @@ object Segment {
     q: Segment
   ): SegmentProps = {
     val p = q.as.toJsObject[SegmentProps]
-    p.as          = q.as.toJs
-    p.attached    = q.attached.toJs
-    p.basic       = q.basic
-    p.circular    = q.circular
-    p.className   = (q.className, q.clazz).toJs
-    p.clearing    = q.clearing
-    p.color       = q.color.toJs
-    p.compact     = q.compact
-    p.content     = q.content.toJs
-    p.disabled    = q.disabled
-    p.floated     = q.floated.toJs
-    p.inverted    = q.inverted
-    p.loading     = q.loading
-    p.padded      = q.padded
-    p.placeholder = q.placeholder
-    p.piled       = q.piled
-    p.raised      = q.raised
-    p.secondary   = q.secondary
-    p.size        = q.size.toJs
-    p.stacked     = q.stacked
-    p.tertiary    = q.tertiary
-    p.textAlign   = q.textAlign.toJs
-    p.vertical    = q.vertical
+    q.as.toJs.foreach(v => p.as                          = v)
+    q.attached.toJs.foreach(v => p.attached              = v)
+    q.basic.foreach(v => p.basic                         = v)
+    q.circular.foreach(v => p.circular                   = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.clearing.foreach(v => p.clearing                   = v)
+    q.color.toJs.foreach(v => p.color                    = v)
+    q.compact.foreach(v => p.compact                     = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.disabled.foreach(v => p.disabled                   = v)
+    q.floated.toJs.foreach(v => p.floated                = v)
+    q.inverted.foreach(v => p.inverted                   = v)
+    q.loading.foreach(v => p.loading                     = v)
+    q.padded.foreach(v => p.padded                       = v)
+    q.placeholder.foreach(v => p.placeholder             = v)
+    q.piled.foreach(v => p.piled                         = v)
+    q.raised.foreach(v => p.raised                       = v)
+    q.secondary.foreach(v => p.secondary                 = v)
+    q.size.toJs.foreach(v => p.size                      = v)
+    q.stacked.foreach(v => p.stacked                     = v)
+    q.tertiary.foreach(v => p.tertiary                   = v)
+    q.textAlign.toJs.foreach(v => p.textAlign            = v)
+    q.vertical.foreach(v => p.vertical                   = v)
     p
   }
 

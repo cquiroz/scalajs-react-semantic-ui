@@ -72,11 +72,11 @@ object ButtonContent {
     visible:   js.UndefOr[Boolean]              = js.undefined
   ): ButtonContentProps = {
     val p = as.toJsObject[ButtonContentProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
-    p.hidden    = hidden
-    p.visible   = visible
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    hidden.foreach(v => p.hidden                     = v)
+    visible.foreach(v => p.visible                   = v)
     p
   }
 

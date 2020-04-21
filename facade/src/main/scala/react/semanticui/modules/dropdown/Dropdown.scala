@@ -59,6 +59,7 @@ final case class Dropdown(
   onBlur:                 js.UndefOr[Callback]                          = js.undefined,
   onClickE:               js.UndefOr[Dropdown.OnClick]                  = js.undefined,
   onClick:                js.UndefOr[Callback]                          = js.undefined,
+  onChangeE:              js.UndefOr[Dropdown.OnChangeE]                = js.undefined,
   onChange:               js.UndefOr[Dropdown.OnChange]                 = js.undefined,
   onCloseE:               js.UndefOr[Dropdown.OnClose]                  = js.undefined,
   onClose:                js.UndefOr[Callback]                          = js.undefined,
@@ -113,7 +114,7 @@ object Dropdown {
     List[DropdownItem.DropdownItemProps],
     String
   ) => CallbackTo[List[DropdownItem.DropdownItemProps]]
-  private type RawRenderLabel =
+  type RawRenderLabel =
     js.Function3[DropdownItem.DropdownItemProps, Int, Label.LabelProps, Label.LabelProps]
   type RenderLabel =
     (DropdownItem.DropdownItemProps, Int, Label.LabelProps) => CallbackTo[Label.LabelProps]
@@ -121,16 +122,17 @@ object Dropdown {
   type OnAddItem               = (ReactKeyboardEvent, DropdownProps) => Callback
   private type RawOnBlur       = RawOnAddItem
   type OnBlur                  = OnAddItem
-  private type RawOnChange     = js.Function2[ReactEvent, DropdownProps, Unit]
-  type OnChange                = (ReactEvent, DropdownProps) => Callback
+  type RawOnChange             = js.Function2[ReactEvent, DropdownProps, Unit]
+  type OnChangeE               = (ReactEvent, DropdownProps) => Callback
+  type OnChange                = DropdownProps => Callback
   private type RawOnClick      = js.Function2[ReactMouseEvent, DropdownProps, Unit]
   type OnClick                 = (ReactMouseEvent, DropdownProps) => Callback
   private type RawOnClose      = RawOnChange
-  type OnClose                 = OnChange
+  type OnClose                 = OnChangeE
   private type RawOnFocus      = RawOnChange
-  type OnFocus                 = OnChange
+  type OnFocus                 = OnChangeE
   private type RawOnOpen       = RawOnChange
-  type OnOpen                  = OnChange
+  type OnOpen                  = OnChangeE
   private type RawOnLabelClick = js.Function2[ReactMouseEvent, Label.LabelProps, Unit]
   type OnLabelClick            = (ReactMouseEvent, Label.LabelProps) => Callback
   private type RawOnMouseDown  = RawOnLabelClick
@@ -465,6 +467,7 @@ object Dropdown {
       q.onBlur,
       q.onClickE,
       q.onClick,
+      q.onChangeE,
       q.onChange,
       q.onCloseE,
       q.onClose,
@@ -541,6 +544,7 @@ object Dropdown {
     onBlur:               js.UndefOr[Callback]                 = js.undefined,
     onClickE:             js.UndefOr[OnClick]                  = js.undefined,
     onClick:              js.UndefOr[Callback]                 = js.undefined,
+    onChangeE:            js.UndefOr[OnChangeE]                = js.undefined,
     onChange:             js.UndefOr[OnChange]                 = js.undefined,
     onCloseE:             js.UndefOr[OnClose]                  = js.undefined,
     onClose:              js.UndefOr[Callback]                 = js.undefined,
@@ -577,96 +581,108 @@ object Dropdown {
     wrapSelection:        js.UndefOr[Boolean]                  = js.undefined
   ): DropdownProps = {
     val p = as.toJsObject[DropdownProps]
-    p.as = as.toJs
-    p.additionLabel = additionLabel.map {
-      (_: Any) match {
-        case b: String => b
-        case b: Byte   => b
-        case b: Short  => b
-        case b: Int    => b
-        case b: Float  => b
-        case b: Double => b
-        case b: VdomNode =>
-          b.rawNode.asInstanceOf[RawAdditionLabel]
+    as.toJs.foreach(v => p.as = v)
+    additionLabel
+      .map[JsNumber | String | SemanticShorthandContent] {
+        (_: Any) match {
+          case b: String => b
+          case b: Byte   => b
+          case b: Short  => b
+          case b: Int    => b
+          case b: Float  => b
+          case b: Double => b
+          case b: VdomNode =>
+            b.rawNode.asInstanceOf[RawAdditionLabel]
+        }
       }
-    }
-    p.additionPosition     = additionPosition.toJs
-    p.allowAdditions       = allowAdditions
-    p.basic                = basic
-    p.button               = button
-    p.className            = (className, clazz).toJs
-    p.clearable            = clearable
-    p.closeOnBlur          = closeOnBlur
-    p.closeOnEscape        = closeOnEscape
-    p.closeOnChange        = closeOnChange
-    p.compact              = compact
-    p.deburr               = deburr
-    p.defaultOpen          = defaultOpen
-    p.defaultSearchQuery   = defaultSearchQuery
-    p.defaultSelectedLabel = defaultSelectedLabel
-    p.defaultUpward        = defaultUpward
-    p.defaultValue         = defaultValue
-    p.direction            = direction.toJs
-    p.disabled             = disabled
-    p.error                = error
-    p.floating             = floating
-    p.fluid                = fluid
-    p.header               = header.toJs
-    p.icon                 = icon.toJs
-    p.inline               = inline
-    p.item                 = item
-    p.labeled              = labeled
-    p.lazyLoad             = lazyLoad
-    p.loading              = loading
-    p.minCharacters        = minCharacters
-    p.multiple             = multiple
-    p.noResultsMessage     = noResultsMessage.toJs
-    p.onAddItem            = onAddItem.toJs
-    p.onBlur               = (onBlurE, onBlur).toJs
-    p.onChange             = onChange.toJs
-    p.onClick              = (onClickE, onClick).toJs
-    p.onClose              = (onCloseE, onClose).toJs
-    p.onFocus              = (onFocusE, onFocus).toJs
-    p.onLabelClick         = (onLabelClickE, onLabelClick).toJs
-    p.onMouseDown          = (onMouseDownE, onMouseDown).toJs
-    p.onOpen               = (onOpenE, onOpen).toJs
-    p.onSearchChange = onSearchChangeE.toJs.orElse(
-      onSearchChange.map(t => (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow)
-    )
-    p.onAddItem   = onAddItem.toJs
-    p.open        = open
-    p.openOnFocus = openOnFocus
-    p.options     = options.map(_.map(_.props).toJSArray)
-    p.placeholder = placeholder
-    p.pointing    = pointing.toJs
-    p.renderLabel = renderLabel.map {
-      b => (item: DropdownItem.DropdownItemProps, index: Int, defaultProps: Label.LabelProps) =>
-        b(item, index, defaultProps).runNow
-    }
-    p.scrolling = scrolling
-    p.search = search.map {
-      (_: Any) match {
-        case b: Boolean => b
-        case b =>
-          val sf = b.asInstanceOf[SearchFunction]
-          val rsf: RawSearchFunction = (l: js.Array[DropdownItem.DropdownItemProps], s: String) =>
-            sf(l.toList, s).runNow.toJSArray
-          rsf
+      .foreach(v => p.additionLabel                          = v)
+    additionPosition.toJs.foreach(v => p.additionPosition    = v)
+    allowAdditions.foreach(v => p.allowAdditions             = v)
+    basic.foreach(v => p.basic                               = v)
+    button.foreach(v => p.button                             = v)
+    (className, clazz).toJs.foreach(v => p.className         = v)
+    clearable.foreach(v => p.clearable                       = v)
+    closeOnBlur.foreach(v => p.closeOnBlur                   = v)
+    closeOnEscape.foreach(v => p.closeOnEscape               = v)
+    closeOnChange.foreach(v => p.closeOnChange               = v)
+    compact.foreach(v => p.compact                           = v)
+    deburr.foreach(v => p.deburr                             = v)
+    defaultOpen.foreach(v => p.defaultOpen                   = v)
+    defaultSearchQuery.foreach(v => p.defaultSearchQuery     = v)
+    defaultSelectedLabel.foreach(v => p.defaultSelectedLabel = v)
+    defaultUpward.foreach(v => p.defaultUpward               = v)
+    defaultValue.foreach(v => p.defaultValue                 = v)
+    direction.toJs.foreach(v => p.direction                  = v)
+    disabled.foreach(v => p.disabled                         = v)
+    error.foreach(v => p.error                               = v)
+    floating.foreach(v => p.floating                         = v)
+    fluid.foreach(v => p.fluid                               = v)
+    header.toJs.foreach(v => p.header                        = v)
+    icon.toJs.foreach(v => p.icon                            = v)
+    inline.foreach(v => p.inline                             = v)
+    item.foreach(v => p.item                                 = v)
+    labeled.foreach(v => p.labeled                           = v)
+    lazyLoad.foreach(v => p.lazyLoad                         = v)
+    loading.foreach(v => p.loading                           = v)
+    minCharacters.foreach(v => p.minCharacters               = v)
+    multiple.foreach(v => p.multiple                         = v)
+    noResultsMessage.toJs.foreach(v => p.noResultsMessage    = v)
+    onAddItem.toJs.foreach(v => p.onAddItem                  = v)
+    (onBlurE, onBlur).toJs.foreach(v => p.onBlur             = v)
+    onChangeE.toJs
+      .orElse[RawOnChange](
+        onChange.map(t => (_: ReactEvent, b: DropdownProps) => t(b).runNow)
+      )
+      .foreach(v => p.onChange                                     = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick                = v)
+    (onCloseE, onClose).toJs.foreach(v => p.onClose                = v)
+    (onFocusE, onFocus).toJs.foreach(v => p.onFocus                = v)
+    (onLabelClickE, onLabelClick).toJs.foreach(v => p.onLabelClick = v)
+    (onMouseDownE, onMouseDown).toJs.foreach(v => p.onMouseDown    = v)
+    (onOpenE, onOpen).toJs.foreach(v => p.onOpen                   = v)
+    onSearchChangeE.toJs
+      .orElse[RawOnSearchChange](
+        onSearchChange.map(t => (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow)
+      )
+      .foreach(v => p.onSearchChange                             = v)
+    onAddItem.toJs.foreach(v => p.onAddItem                      = v)
+    open.foreach(v => p.open                                     = v)
+    openOnFocus.foreach(v => p.openOnFocus                       = v)
+    options.map(_.map(_.props).toJSArray).foreach(v => p.options = v)
+    placeholder.foreach(v => p.placeholder                       = v)
+    pointing.toJs.foreach(v => p.pointing                        = v)
+    renderLabel
+      .map[RawRenderLabel] {
+        b => (item: DropdownItem.DropdownItemProps, index: Int, defaultProps: Label.LabelProps) =>
+          b(item, index, defaultProps).runNow
       }
-    }
-    p.searchInput        = searchInput.toJs
-    p.searchQuery        = searchQuery
-    p.selectOnBlur       = selectOnBlur
-    p.selectOnNavigation = selectOnNavigation
-    p.selectedLabel      = selectedLabel
-    p.selection          = selection
-    p.simple             = simple
-    p.tabIndex           = tabIndex
-    p.text               = text
-    p.trigger            = trigger.toJs
-    p.value              = value
-    p.upward             = upward
-    p.wrapSelection      = wrapSelection
+      .foreach(v => p.renderLabel      = v)
+    scrolling.foreach(v => p.scrolling = v)
+    search
+      .map[Boolean | RawSearchFunction] {
+        (_: Any) match {
+          case b: Boolean => b
+          case b =>
+            val sf = b.asInstanceOf[SearchFunction]
+            val rsf: RawSearchFunction = (l: js.Array[DropdownItem.DropdownItemProps], s: String) =>
+              sf(l.toList, s).runNow.toJSArray
+            rsf
+        }
+      }
+      .foreach(v => p.search                             = v)
+    searchInput.toJs.foreach(v => p.searchInput          = v)
+    searchQuery.foreach(v => p.searchQuery               = v)
+    selectOnBlur.foreach(v => p.selectOnBlur             = v)
+    selectOnNavigation.foreach(v => p.selectOnNavigation = v)
+    selectedLabel.foreach(v => p.selectedLabel           = v)
+    selection.foreach(v => p.selection                   = v)
+    simple.foreach(v => p.simple                         = v)
+    tabIndex.foreach(v => p.tabIndex                     = v)
+    text.foreach(v => p.text                             = v)
+    trigger.toJs.foreach(v => p.trigger                  = v)
+    value.foreach(v => p.value                           = v)
+    upward.foreach(v => p.upward                         = v)
+    wrapSelection.foreach(v => p.wrapSelection           = v)
     p
   }
 

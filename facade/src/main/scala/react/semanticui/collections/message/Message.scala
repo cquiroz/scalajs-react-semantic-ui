@@ -46,6 +46,8 @@ final case class Message(
 
 object Message {
   type OnDismiss = (ReactEvent, MessageProps) => Callback
+  type RawList =
+    js.Array[suiraw.SemanticShorthandItemS[MessageItem.MessageItemProps]] | MessageList.MessageListProps
 
   @js.native
   @JSImport("semantic-ui-react", "Message")
@@ -101,9 +103,7 @@ object Message {
     var info: js.UndefOr[Boolean] = js.undefined
 
     /** Array shorthand items for the MessageList. Mutually exclusive with children. */
-    var list: js.UndefOr[
-      js.Array[suiraw.SemanticShorthandItemS[MessageItem.MessageItemProps]] | MessageList.MessageListProps
-    ] =
+    var list: js.UndefOr[RawList] =
       js.undefined
 
     /** A message may be formatted to display a negative message. Same as `error`. */
@@ -185,32 +185,34 @@ object Message {
     warning:    js.UndefOr[Boolean]                                    = js.undefined
   ): MessageProps = {
     val p = as.toJsObject[MessageProps]
-    p.as        = as.toJs
-    p.attached  = attached.toJs
-    p.className = (className, clazz).toJs
-    p.color     = color.toJs
-    p.compact   = compact
-    p.content   = content.toJs
-    p.error     = error
-    p.floating  = floating
-    p.header    = header.toJs
-    p.hidden    = hidden
-    p.icon      = icon.toJs
-    p.info      = info
-    p.list = list.map(v =>
-      (v: Any) match {
-        case s: Seq[_] =>
-          s.map(item => compToPropS(item.asInstanceOf[ShorthandS[MessageItem]])).toJSArray
-        // .asInstanceOf[raw.SemanticShorthandOrArray[T]]
-        case l: MessageList => l.props
-      }
-    )
-    p.negative  = negative
-    p.onDismiss = (onDismissE, onDismiss).toJs
-    p.positive  = positive
-    p.size      = size.toJs
-    p.visible   = visible
-    p.warning   = warning
+    as.toJs.foreach(v => p.as                        = v)
+    attached.toJs.foreach(v => p.attached            = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    color.toJs.foreach(v => p.color                  = v)
+    compact.foreach(v => p.compact                   = v)
+    content.toJs.foreach(v => p.content              = v)
+    error.foreach(v => p.error                       = v)
+    floating.foreach(v => p.floating                 = v)
+    header.toJs.foreach(v => p.header                = v)
+    hidden.foreach(v => p.hidden                     = v)
+    icon.toJs.foreach(v => p.icon                    = v)
+    info.foreach(v => p.info                         = v)
+    list
+      .map[RawList](v =>
+        (v: Any) match {
+          case s: Seq[_] =>
+            s.map(item => compToPropS(item.asInstanceOf[ShorthandS[MessageItem]])).toJSArray
+          // .asInstanceOf[raw.SemanticShorthandOrArray[T]]
+          case l: MessageList => l.props
+        }
+      )
+      .foreach(v => p.list                                = v)
+    negative.foreach(v => p.negative                      = v)
+    (onDismissE, onDismiss).toJs.foreach(v => p.onDismiss = v)
+    positive.foreach(v => p.positive                      = v)
+    size.toJs.foreach(v => p.size                         = v)
+    visible.foreach(v => p.visible                        = v)
+    warning.foreach(v => p.warning                        = v)
     p
   }
 

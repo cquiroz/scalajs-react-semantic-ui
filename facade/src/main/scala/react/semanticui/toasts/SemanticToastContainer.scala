@@ -60,9 +60,9 @@ object SemanticToastContainer {
     clazz:     js.UndefOr[Css]               = js.undefined
   ): SemanticToastContainerProps = {
     val p = (new js.Object).asInstanceOf[SemanticToastContainerProps]
-    p.position  = position.toJs
-    p.animation = animation.toJs
-    p.className = (className, clazz).toJs
+    position.toJs.foreach(v => p.position            = v)
+    animation.toJs.foreach(v => p.animation          = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
     p
   }
 

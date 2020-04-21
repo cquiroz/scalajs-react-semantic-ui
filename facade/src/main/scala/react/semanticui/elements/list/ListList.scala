@@ -63,9 +63,9 @@ object ListList {
     content:   js.UndefOr[VdomNode] = js.undefined
   ): ListListProps = {
     val p = as.toJsObject[ListListProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
     p
   }
 

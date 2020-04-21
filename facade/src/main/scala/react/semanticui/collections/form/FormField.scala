@@ -120,17 +120,17 @@ object FormField {
     width:     js.UndefOr[SemanticWidth]        = js.undefined
   ): FormFieldProps = {
     val p = as.toJsObject[FormFieldProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
-    p.control   = control
-    p.disabled  = disabled
-    p.error     = error.toJs
-    p.inline    = inline
-    p.label     = label.toJs
-    p.required  = required
-    p.`type`    = tpe
-    p.width     = width.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    control.foreach(v => p.control                   = v)
+    disabled.foreach(v => p.disabled                 = v)
+    error.toJs.foreach(v => p.error                  = v)
+    inline.foreach(v => p.inline                     = v)
+    label.toJs.foreach(v => p.label                  = v)
+    required.foreach(v => p.required                 = v)
+    p.`type` = tpe
+    width.toJs.foreach(v => p.width = v)
     p
   }
 

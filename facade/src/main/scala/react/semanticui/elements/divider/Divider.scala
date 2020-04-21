@@ -83,16 +83,16 @@ object Divider {
     q: Divider
   ): DividerProps = {
     val p = q.as.toJsObject[DividerProps]
-    p.as         = q.as.toJs
-    p.className  = (q.className, q.clazz).toJs
-    p.clearing   = q.clearing
-    p.content    = q.content.toJs
-    p.fitted     = q.fitted
-    p.hidden     = q.hidden
-    p.horizontal = q.horizontal
-    p.inverted   = q.inverted
-    p.section    = q.section
-    p.vertical   = q.vertical
+    q.as.toJs.foreach(v => p.as                          = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.clearing.foreach(v => p.clearing                   = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.fitted.foreach(v => p.fitted                       = v)
+    q.hidden.foreach(v => p.hidden                       = v)
+    q.horizontal.foreach(v => p.horizontal               = v)
+    q.inverted.foreach(v => p.inverted                   = v)
+    q.section.foreach(v => p.section                     = v)
+    q.vertical.foreach(v => p.vertical                   = v)
     p
   }
 

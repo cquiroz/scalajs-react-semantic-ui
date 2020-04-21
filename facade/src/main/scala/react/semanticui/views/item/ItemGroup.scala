@@ -96,14 +96,14 @@ object ItemGroup {
     unstackable: js.UndefOr[Boolean]     = js.undefined
   ): ItemGroupProps = {
     val p = as.toJsObject[ItemGroupProps]
-    p.as          = as.toJs
-    p.className   = (className, clazz).toJs
-    p.content     = content.toJs
-    p.divided     = divided
-    p.items       = items.map(_.map(_.props).toJSArray)
-    p.link        = link
-    p.relaxed     = relaxed.toJs
-    p.unstackable = unstackable
+    as.toJs.foreach(v => p.as                                = v)
+    (className, clazz).toJs.foreach(v => p.className         = v)
+    content.toJs.foreach(v => p.content                      = v)
+    divided.foreach(v => p.divided                           = v)
+    items.map(_.map(_.props).toJSArray).foreach(v => p.items = v)
+    link.foreach(v => p.link                                 = v)
+    relaxed.toJs.foreach(v => p.relaxed                      = v)
+    unstackable.foreach(v => p.unstackable                   = v)
     p
   }
 

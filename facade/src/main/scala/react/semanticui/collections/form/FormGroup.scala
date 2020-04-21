@@ -90,18 +90,20 @@ object FormGroup {
     widths:      js.UndefOr[SemanticWidth | FormWidths] = js.undefined
   ): FormGroupProps = {
     val p = as.toJsObject[FormGroupProps]
-    p.as          = as.toJs
-    p.className   = (className, clazz).toJs
-    p.content     = content.toJs
-    p.grouped     = grouped
-    p.inline      = inline
-    p.unstackable = unstackable
-    p.widths = widths.map {
-      (_: Any) match {
-        case w: FormWidths => w.toJs
-        case w             => w.asInstanceOf[SemanticWidth].toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    grouped.foreach(v => p.grouped                   = v)
+    inline.foreach(v => p.inline                     = v)
+    unstackable.foreach(v => p.unstackable           = v)
+    widths
+      .map {
+        (_: Any) match {
+          case w: FormWidths => w.toJs
+          case w             => w.asInstanceOf[SemanticWidth].toJs
+        }
       }
-    }
+      .foreach(v => p.widths = v)
     p
   }
 

@@ -76,12 +76,12 @@ object DropdownMenu {
     scrolling: js.UndefOr[Boolean]       = js.undefined
   ): DropdownMenuProps = {
     val p = as.toJsObject[DropdownMenuProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
-    p.direction = direction.toJs
-    p.open      = open
-    p.scrolling = scrolling
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    direction.toJs.foreach(v => p.direction          = v)
+    open.foreach(v => p.open                         = v)
+    scrolling.foreach(v => p.scrolling               = v)
     p
   }
 

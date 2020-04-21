@@ -71,11 +71,11 @@ object DimmerDimmable {
     dimmed:    js.UndefOr[Boolean]  = js.undefined
   ): DimmerDimmableProps = {
     val p = as.toJsObject[DimmerDimmableProps]
-    p.as        = as.toJs
-    p.blurring  = blurring
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
-    p.dimmed    = dimmed
+    as.toJs.foreach(v => p.as                        = v)
+    blurring.foreach(v => p.blurring                 = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    dimmed.foreach(v => p.dimmed                     = v)
     p
   }
 

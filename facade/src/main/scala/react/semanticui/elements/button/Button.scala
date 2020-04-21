@@ -164,33 +164,33 @@ object Button {
     toggle:        js.UndefOr[Boolean]              = js.undefined
   ): ButtonProps = {
     val p = as.toJsObject[ButtonProps]
-    p.as            = as.toJs
-    p.active        = active
-    p.animated      = animated.toJs
-    p.attached      = attached.toJs
-    p.basic         = basic
-    p.circular      = circular
-    p.className     = (className, clazz).toJs
-    p.color         = color.toJs
-    p.compact       = compact
-    p.content       = content.toJs
-    p.disabled      = disabled
-    p.floated       = floated.toJs
-    p.fluid         = fluid
-    p.icon          = icon.toJs
-    p.inverted      = inverted
-    p.label         = label.toJs
-    p.labelPosition = labelPosition.toJs
-    p.loading       = loading
-    p.negative      = negative
-    p.onClick       = (onClickE, onClick).toJs
-    p.positive      = positive
-    p.primary       = primary
-    p.role          = role
-    p.secondary     = secondary
-    p.size          = size.toJs
-    p.tabIndex      = tabIndex
-    p.toggle        = toggle
+    as.toJs.foreach(v => p.as                        = v)
+    active.foreach(v => p.active                     = v)
+    animated.toJs.foreach(v => p.animated            = v)
+    attached.toJs.foreach(v => p.attached            = v)
+    basic.foreach(v => p.basic                       = v)
+    circular.foreach(v => p.circular                 = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    color.toJs.foreach(v => p.color                  = v)
+    compact.foreach(v => p.compact                   = v)
+    content.toJs.foreach(v => p.content              = v)
+    disabled.foreach(v => p.disabled                 = v)
+    floated.toJs.foreach(v => p.floated              = v)
+    fluid.foreach(v => p.fluid                       = v)
+    icon.toJs.foreach(v => p.icon                    = v)
+    inverted.foreach(v => p.inverted                 = v)
+    label.toJs.foreach(v => p.label                  = v)
+    labelPosition.toJs.foreach(v => p.labelPosition  = v)
+    loading.foreach(v => p.loading                   = v)
+    negative.foreach(v => p.negative                 = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick  = v)
+    positive.foreach(v => p.positive                 = v)
+    primary.foreach(v => p.primary                   = v)
+    role.foreach(v => p.role                         = v)
+    secondary.foreach(v => p.secondary               = v)
+    size.toJs.foreach(v => p.size                    = v)
+    tabIndex.foreach(v => p.tabIndex                 = v)
+    toggle.foreach(v => p.toggle                     = v)
     p
   }
 
