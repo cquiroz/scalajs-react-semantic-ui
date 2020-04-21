@@ -2,7 +2,7 @@
 
 ## 0.4.11
 
-* Add FormButton facade
+* Add FormButton/FormCheckbox facade
 
 ## 0.4.10
 
