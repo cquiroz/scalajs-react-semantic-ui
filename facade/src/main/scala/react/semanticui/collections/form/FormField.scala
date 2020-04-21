@@ -3,7 +3,6 @@ package react.semanticui.collections.form
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.raw.React
 import react.common.style._
 import react.common._
 import react.semanticui._
@@ -26,7 +25,7 @@ final case class FormField(
   tpe:                    js.UndefOr[String]               = js.undefined,
   width:                  js.UndefOr[SemanticWidth]        = js.undefined,
   override val modifiers: Seq[TagMod]                      = Seq.empty
-) extends GenericComponentPAC[FormField.FormFieldProps, FormField] {
+) extends GenericComponentPA[FormField.FormFieldProps, FormField] {
   override protected def cprops    = FormField.props(this)
   override protected val component = FormField.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
@@ -48,9 +47,6 @@ object FormField {
 
     /** An element type to render as (string or function). */
     var as: js.UndefOr[AsT] = js.native
-
-    /** Primary content. */
-    var children: js.UndefOr[React.Node] = js.native
 
     /** Additional classes. */
     var className: js.UndefOr[String] = js.native
@@ -135,7 +131,7 @@ object FormField {
   }
 
   private val component =
-    JsComponent[FormFieldProps, Children.Varargs, Null](RawComponent)
+    JsComponent[FormFieldProps, Children.None, Null](RawComponent)
 
   def apply(modifiers: TagMod*): FormField =
     FormField(modifiers = modifiers)

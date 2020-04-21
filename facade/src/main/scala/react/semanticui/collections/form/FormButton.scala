@@ -241,15 +241,15 @@ object FormButton {
     loading.foreach(v => p.loading                   = v)
     negative.foreach(v => p.negative                 = v)
     p.`type` = tpe
-    positive.foreach(v => p.positive                 = v)
-    primary.foreach(v => p.primary                   = v)
-    required.foreach(v => p.required                 = v)
-    role.foreach(v => p.role                         = v)
-    secondary.foreach(v => p.secondary               = v)
-    size.toJs.foreach(v => p.size                    = v)
-    tabIndex.foreach(v => p.tabIndex                 = v)
-    toggle.foreach(v => p.toggle                     = v)
-    width.toJs.foreach(v => p.width = v)
+    positive.foreach(v => p.positive   = v)
+    primary.foreach(v => p.primary     = v)
+    required.foreach(v => p.required   = v)
+    role.foreach(v => p.role           = v)
+    secondary.foreach(v => p.secondary = v)
+    size.toJs.foreach(v => p.size      = v)
+    tabIndex.foreach(v => p.tabIndex   = v)
+    toggle.foreach(v => p.toggle       = v)
+    width.toJs.foreach(v => p.width    = v)
     p
   }
 
