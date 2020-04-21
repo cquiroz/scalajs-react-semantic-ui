@@ -59,28 +59,28 @@ object ItemImage {
     q: ItemImage
   ): ItemImageProps = {
     val p = q.as.toJsObject[ItemImageProps]
-    p.as            = q.as.toJs
-    p.avatar        = q.avatar
-    p.bordered      = q.bordered
-    p.centered      = q.centered
-    p.circular      = q.circular
-    p.className     = (q.className, q.clazz).toJs
-    p.content       = q.content.toJs
-    p.disabled      = q.disabled
-    p.dimmer        = q.dimmer.map(_.props)
-    p.floated       = q.floated.toJs
-    p.fluid         = q.fluid
-    p.hidden        = q.hidden
-    p.href          = q.href
-    p.inline        = q.inline
-    p.label         = q.label.toJs
-    p.rounded       = q.rounded
-    p.size          = q.size.toJs
-    p.spaced        = q.spaced.toJs
-    p.src           = q.src
-    p.ui            = q.ui
-    p.verticalAlign = q.verticalAlign.toJs
-    p.wrapped       = q.wrapped
+    q.as.toJs.foreach(v => p.as                          = v)
+    q.avatar.foreach(v => p.avatar                       = v)
+    q.bordered.foreach(v => p.bordered                   = v)
+    q.centered.foreach(v => p.centered                   = v)
+    q.circular.foreach(v => p.circular                   = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.disabled.foreach(v => p.disabled                   = v)
+    q.dimmer.map(_.props).foreach(v => p.dimmer          = v)
+    q.floated.toJs.foreach(v => p.floated                = v)
+    q.fluid.foreach(v => p.fluid                         = v)
+    q.hidden.foreach(v => p.hidden                       = v)
+    q.href.foreach(v => p.href                           = v)
+    q.inline.foreach(v => p.inline                       = v)
+    q.label.toJs.foreach(v => p.label                    = v)
+    q.rounded.foreach(v => p.rounded                     = v)
+    q.size.toJs.foreach(v => p.size                      = v)
+    q.spaced.toJs.foreach(v => p.spaced                  = v)
+    q.src.foreach(v => p.src                             = v)
+    q.ui.foreach(v => p.ui                               = v)
+    q.verticalAlign.toJs.foreach(v => p.verticalAlign    = v)
+    q.wrapped.foreach(v => p.wrapped                     = v)
     p
   }
 

@@ -127,24 +127,24 @@ object List {
     q: List
   ): ListProps = {
     val p = q.as.toJsObject[ListProps]
-    p.as            = q.as.toJs
-    p.animated      = q.animated
-    p.bulleted      = q.bulleted
-    p.celled        = q.celled
-    p.className     = (q.className, q.clazz).toJs
-    p.content       = q.content.map(_.map(_.rawNode).toJSArray)
-    p.divided       = q.divided
-    p.floated       = q.floated.toJs
-    p.horizontal    = q.horizontal
-    p.inverted      = q.inverted
-    p.items         = q.items.toJs
-    p.onItemClick   = (q.onItemClickE, q.onItemClick).toJs
-    p.link          = q.link
-    p.ordered       = q.ordered
-    p.relaxed       = q.relaxed
-    p.selection     = q.selection
-    p.size          = q.size.toJs
-    p.verticalAlign = q.verticalAlign.toJs
+    q.as.toJs.foreach(v => p.as                                      = v)
+    q.animated.foreach(v => p.animated                               = v)
+    q.bulleted.foreach(v => p.bulleted                               = v)
+    q.celled.foreach(v => p.celled                                   = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className             = v)
+    q.content.map(_.map(_.rawNode).toJSArray).foreach(v => p.content = v)
+    q.divided.foreach(v => p.divided                                 = v)
+    q.floated.toJs.foreach(v => p.floated                            = v)
+    q.horizontal.foreach(v => p.horizontal                           = v)
+    q.inverted.foreach(v => p.inverted                               = v)
+    q.items.toJs.foreach(v => p.items                                = v)
+    (q.onItemClickE, q.onItemClick).toJs.foreach(v => p.onItemClick  = v)
+    q.link.foreach(v => p.link                                       = v)
+    q.ordered.foreach(v => p.ordered                                 = v)
+    q.relaxed.foreach(v => p.relaxed                                 = v)
+    q.selection.foreach(v => p.selection                             = v)
+    q.size.toJs.foreach(v => p.size                                  = v)
+    q.verticalAlign.toJs.foreach(v => p.verticalAlign                = v)
     p
   }
 

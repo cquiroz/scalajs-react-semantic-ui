@@ -51,8 +51,8 @@ object DropdownDivider {
     clazz:     js.UndefOr[Css]    = js.undefined
   ): DropdownDividerProps = {
     val p = as.toJsObject[DropdownDividerProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
     p
   }
 

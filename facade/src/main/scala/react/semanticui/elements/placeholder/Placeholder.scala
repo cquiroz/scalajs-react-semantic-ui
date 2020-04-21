@@ -63,11 +63,11 @@ object Placeholder {
     q: Placeholder
   ): PlaceholderProps = {
     val p = q.as.toJsObject[PlaceholderProps]
-    p.as        = q.as.toJs
-    p.className = (q.className, q.clazz).toJs
-    p.content   = q.content.toJs
-    p.fluid     = q.fluid
-    p.inverted  = q.inverted
+    q.as.toJs.foreach(v => p.as                          = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.fluid.foreach(v => p.fluid                         = v)
+    q.inverted.foreach(v => p.inverted                   = v)
     p
   }
 

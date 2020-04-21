@@ -54,10 +54,10 @@ object SidebarPusher {
     dimmed:    js.UndefOr[Boolean]  = js.undefined
   ): SidebarPusherProps = {
     val p = as.toJsObject[SidebarPusherProps]
-    p.as        = as.toJs
-    p.className = className
-    p.content   = content.map(_.rawNode)
-    p.dimmed    = dimmed
+    as.toJs.foreach(v => p.as                     = v)
+    className.foreach(v => p.className            = v)
+    content.map(_.rawNode).foreach(v => p.content = v)
+    dimmed.foreach(v => p.dimmed                  = v)
     p
   }
 

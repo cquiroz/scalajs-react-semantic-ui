@@ -134,26 +134,26 @@ object Input {
     q: Input
   ): InputProps = {
     val p = q.as.toJsObject[InputProps]
-    p.as             = q.as.toJs
-    p.action         = q.action.toJs
-    p.actionPosition = q.actionPosition.toJs
-    p.className      = (q.className, q.clazz).toJs
-    p.disabled       = q.disabled
-    p.error          = q.error
-    p.fluid          = q.fluid
-    p.focus          = q.focus
-    p.icon           = q.icon.toJs
-    p.iconPosition   = q.iconPosition.toJs
-    p.input          = q.input.toJs
-    p.inverted       = q.inverted
-    p.label          = q.label.toJs
-    p.labelPosition  = q.labelPosition.toJs
-    p.loading        = q.loading
-    p.onChange       = (q.onChangeE, q.onChange).toJs
-    p.size           = q.size.toJs
-    p.tabIndex       = q.tabIndex
-    p.transparent    = q.transparent
-    p.`type`         = q.tpe
+    q.as.toJs.foreach(v => p.as                            = v)
+    q.action.toJs.foreach(v => p.action                    = v)
+    q.actionPosition.toJs.foreach(v => p.actionPosition    = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className   = v)
+    q.disabled.foreach(v => p.disabled                     = v)
+    q.error.foreach(v => p.error                           = v)
+    q.fluid.foreach(v => p.fluid                           = v)
+    q.focus.foreach(v => p.focus                           = v)
+    q.icon.toJs.foreach(v => p.icon                        = v)
+    q.iconPosition.toJs.foreach(v => p.iconPosition        = v)
+    q.input.toJs.foreach(v => p.input                      = v)
+    q.inverted.foreach(v => p.inverted                     = v)
+    q.label.toJs.foreach(v => p.label                      = v)
+    q.labelPosition.toJs.foreach(v => p.labelPosition      = v)
+    q.loading.foreach(v => p.loading                       = v)
+    (q.onChangeE, q.onChange).toJs.foreach(v => p.onChange = v)
+    q.size.toJs.foreach(v => p.size                        = v)
+    q.tabIndex.foreach(v => p.tabIndex                     = v)
+    q.transparent.foreach(v => p.transparent               = v)
+    p.`type` = q.tpe
     p
   }
 

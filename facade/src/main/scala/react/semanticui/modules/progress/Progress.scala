@@ -172,25 +172,25 @@ object Progress {
     warning:     js.UndefOr[Boolean]              = js.undefined
   ): ProgressProps = {
     val p = as.toJsObject[ProgressProps]
-    p.as          = as.toJs
-    p.active      = active
-    p.attached    = attached
-    p.autoSuccess = autoSuccess
-    p.className   = (className, clazz).toJs
-    p.color       = color.toJs
-    p.content     = content.toJs
-    p.error       = error
-    p.indicating  = indicating
-    p.inverted    = inverted
-    p.label       = label.toJs
-    p.percent     = percent
-    p.precision   = precision
-    p.progress    = progress
-    p.size        = size.toJs
-    p.success     = success
-    p.total       = total
-    p.value       = value
-    p.warning     = warning
+    as.toJs.foreach(v => p.as                        = v)
+    active.foreach(v => p.active                     = v)
+    attached.foreach(v => p.attached                 = v)
+    autoSuccess.foreach(v => p.autoSuccess           = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    color.toJs.foreach(v => p.color                  = v)
+    content.toJs.foreach(v => p.content              = v)
+    error.foreach(v => p.error                       = v)
+    indicating.foreach(v => p.indicating             = v)
+    inverted.foreach(v => p.inverted                 = v)
+    label.toJs.foreach(v => p.label                  = v)
+    percent.foreach(v => p.percent                   = v)
+    precision.foreach(v => p.precision               = v)
+    progress.foreach(v => p.progress                 = v)
+    size.toJs.foreach(v => p.size                    = v)
+    success.foreach(v => p.success                   = v)
+    total.foreach(v => p.total                       = v)
+    value.foreach(v => p.value                       = v)
+    warning.foreach(v => p.warning                   = v)
     p
   }
 

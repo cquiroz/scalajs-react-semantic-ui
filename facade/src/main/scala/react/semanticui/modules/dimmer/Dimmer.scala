@@ -44,8 +44,8 @@ object Dimmer {
     page:   js.UndefOr[Boolean] = js.undefined
   ): DimmerProps = {
     val p = (new js.Object).asInstanceOf[DimmerProps]
-    p.active = active
-    p.page   = page
+    active.foreach(v => p.active = v)
+    page.foreach(v => p.page     = v)
     p
   }
 

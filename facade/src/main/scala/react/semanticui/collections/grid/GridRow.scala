@@ -112,20 +112,22 @@ object GridRow {
     verticalAlign: js.UndefOr[SemanticVerticalAlignment]   = js.undefined
   ): GridRowProps = {
     val p = as.toJsObject[GridRowProps]
-    p.as        = as.toJs
-    p.centered  = centered
-    p.className = (className, clazz).toJs
-    p.color     = color.toJs
-    p.columns = columns.map((_: Any) match {
-      case s: GridColumns => s.toJs
-      case s              => s.asInstanceOf[SemanticWidth].toJs
-    })
-    p.divided       = divided
-    p.only          = only.toJs
-    p.reversed      = reversed.toJs
-    p.stretched     = stretched
-    p.textAlign     = textAlign.toJs
-    p.verticalAlign = verticalAlign.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    centered.foreach(v => p.centered                 = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    color.toJs.foreach(v => p.color                  = v)
+    columns
+      .map((_: Any) match {
+        case s: GridColumns => s.toJs
+        case s              => s.asInstanceOf[SemanticWidth].toJs
+      })
+      .foreach(v => p.columns                       = v)
+    divided.foreach(v => p.divided                  = v)
+    only.toJs.foreach(v => p.only                   = v)
+    reversed.toJs.foreach(v => p.reversed           = v)
+    stretched.foreach(v => p.stretched              = v)
+    textAlign.toJs.foreach(v => p.textAlign         = v)
+    verticalAlign.toJs.foreach(v => p.verticalAlign = v)
     p
   }
 

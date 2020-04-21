@@ -83,8 +83,8 @@ object PortalInner {
   ): PortalInnerProps = {
     val p = (new js.Object).asInstanceOf[PortalInnerProps]
     // p.innerRef = innerRef
-    p.onMount   = (onMountE, onMount).toJs
-    p.onUnmount = (onUnmountE, onUnmount).toJs
+    (onMountE, onMount).toJs.foreach(v => p.onMount       = v)
+    (onUnmountE, onUnmount).toJs.foreach(v => p.onUnmount = v)
     p
   }
 

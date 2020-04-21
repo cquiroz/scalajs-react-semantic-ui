@@ -61,9 +61,9 @@ object ModalHeader {
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined
   ): ModalHeaderProps = {
     val p = as.toJsObject[ModalHeaderProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
     p
   }
 

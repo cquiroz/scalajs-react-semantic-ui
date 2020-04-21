@@ -51,9 +51,9 @@ object SidebarPushable {
     content:   js.UndefOr[VdomNode] = js.undefined
   ): SidebarPushableProps = {
     val p = as.toJsObject[SidebarPushableProps]
-    p.as        = as.toJs
-    p.className = className
-    p.content   = content.toJs
+    as.toJs.foreach(v => p.as           = v)
+    className.foreach(v => p.className  = v)
+    content.toJs.foreach(v => p.content = v)
     p
   }
 

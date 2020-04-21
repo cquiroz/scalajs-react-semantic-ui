@@ -131,20 +131,20 @@ object GridColumn {
     width:         js.UndefOr[SemanticWidth]             = js.undefined
   ): GridColumnProps = {
     val p = as.toJsObject[GridColumnProps]
-    p.as            = as.toJs
-    p.className     = (className, clazz).toJs
-    p.color         = color.toJs
-    p.computer      = computer.toJs
-    p.floated       = floated.toJs
-    p.largeScreen   = largeScreen.toJs
-    p.mobile        = mobile.toJs
-    p.only          = only.toJs
-    p.stretched     = stretched
-    p.tablet        = tablet.toJs
-    p.textAlign     = textAlign.toJs
-    p.verticalAlign = verticalAlign.toJs
-    p.widescreen    = widescreen.toJs
-    p.width         = width.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    color.toJs.foreach(v => p.color                  = v)
+    computer.toJs.foreach(v => p.computer            = v)
+    floated.toJs.foreach(v => p.floated              = v)
+    largeScreen.toJs.foreach(v => p.largeScreen      = v)
+    mobile.toJs.foreach(v => p.mobile                = v)
+    only.toJs.foreach(v => p.only                    = v)
+    stretched.foreach(v => p.stretched               = v)
+    tablet.toJs.foreach(v => p.tablet                = v)
+    textAlign.toJs.foreach(v => p.textAlign          = v)
+    verticalAlign.toJs.foreach(v => p.verticalAlign  = v)
+    widescreen.toJs.foreach(v => p.widescreen        = v)
+    width.toJs.foreach(v => p.width                  = v)
     p
   }
 

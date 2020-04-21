@@ -66,10 +66,10 @@ object MenuMenu {
     position:  js.UndefOr[MenuMenuPosition]     = js.undefined
   ): MenuMenuProps = {
     val p = as.toJsObject[MenuMenuProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.content   = content.toJs
-    p.position  = position.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    position.toJs.foreach(v => p.position            = v)
     p
   }
 

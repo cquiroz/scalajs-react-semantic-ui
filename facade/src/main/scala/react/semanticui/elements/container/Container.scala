@@ -67,11 +67,11 @@ object Container {
     q: Container
   ): ContainerProps = {
     val p = q.as.toJsObject[ContainerProps]
-    p.className = (q.className, q.clazz).toJs
-    p.content   = q.content.toJs
-    p.fluid     = q.fluid
-    p.text      = q.text
-    p.textAlign = q.textAlign.toJs
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.fluid.foreach(v => p.fluid                         = v)
+    q.text.foreach(v => p.text                           = v)
+    q.textAlign.toJs.foreach(v => p.textAlign            = v)
     p
   }
 

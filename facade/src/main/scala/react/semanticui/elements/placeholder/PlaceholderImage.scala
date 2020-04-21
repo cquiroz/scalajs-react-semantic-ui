@@ -66,11 +66,11 @@ object PlaceholderImage {
     q: PlaceholderImage
   ): PlaceholderImageProps = {
     val p = q.as.toJsObject[PlaceholderImageProps]
-    p.as          = q.as.toJs
-    p.className   = (q.className, q.clazz).toJs
-    p.content     = q.content.toJs
-    p.square      = q.square
-    p.rectangular = q.rectangular
+    q.as.toJs.foreach(v => p.as                          = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.square.foreach(v => p.square                       = v)
+    q.rectangular.foreach(v => p.rectangular             = v)
     p
   }
 

@@ -124,17 +124,17 @@ object ListItem {
     value:       js.UndefOr[String]                      = js.undefined
   ): ListItemProps = {
     val p = as.toJsObject[ListItemProps]
-    p.as          = as.toJs
-    p.active      = active
-    p.className   = (className, clazz).toJs
-    p.content     = content.toJs
-    p.description = description.toJs
-    p.disabled    = disabled
-    p.header      = header.toJs
-    p.icon        = icon.toJs
-    p.image       = image.toJs
-    p.onClick     = (onClickE, onClick).toJs
-    p.value       = value
+    as.toJs.foreach(v => p.as                        = v)
+    active.foreach(v => p.active                     = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content              = v)
+    description.toJs.foreach(v => p.description      = v)
+    disabled.foreach(v => p.disabled                 = v)
+    header.toJs.foreach(v => p.header                = v)
+    icon.toJs.foreach(v => p.icon                    = v)
+    image.toJs.foreach(v => p.image                  = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick  = v)
+    value.foreach(v => p.value                       = v)
     p
   }
 

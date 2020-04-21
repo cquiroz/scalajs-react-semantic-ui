@@ -65,9 +65,9 @@ object MessageList {
     items:     js.UndefOr[Seq[ShorthandS[MessageItem]]] = js.undefined
   ): MessageListProps = {
     val p = as.toJsObject[MessageListProps]
-    p.as        = as.toJs
-    p.className = (className, clazz).toJs
-    p.items     = items.toJs
+    as.toJs.foreach(v => p.as                        = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    items.toJs.foreach(v => p.items                  = v)
     p
   }
 

@@ -49,9 +49,9 @@ object Flag {
     q: Flag
   ): FlagProps = {
     val p = q.as.toJsObject[FlagProps]
-    p.as        = q.as.toJs
-    p.className = (q.className, q.clazz).toJs
-    p.name      = q.name
+    q.as.toJs.foreach(v => p.as                          = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.name.foreach(v => p.name                           = v)
     p
   }
 

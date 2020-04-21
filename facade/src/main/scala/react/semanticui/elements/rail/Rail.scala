@@ -105,14 +105,14 @@ object Rail {
     size:      js.UndefOr[SemanticSize]         = js.undefined
   ): RailProps = {
     val p = as.toJsObject[RailProps]
-    p.attached  = attached
-    p.className = (className, clazz).toJs
-    p.close     = close.toJs
-    p.content   = content.toJs
-    p.dividing  = dividing
-    p.internal  = internal
-    p.position  = position.toJs
-    p.size      = size.toJs
+    attached.foreach(v => p.attached                 = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    close.toJs.foreach(v => p.close                  = v)
+    content.toJs.foreach(v => p.content              = v)
+    dividing.foreach(v => p.dividing                 = v)
+    internal.foreach(v => p.internal                 = v)
+    position.toJs.foreach(v => p.position            = v)
+    size.toJs.foreach(v => p.size                    = v)
     p
   }
 

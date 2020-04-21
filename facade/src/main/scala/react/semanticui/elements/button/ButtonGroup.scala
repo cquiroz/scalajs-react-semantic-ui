@@ -174,26 +174,26 @@ object ButtonGroup {
     widths:    js.UndefOr[SemanticWidth]    = js.undefined
   ): ButtonGroupProps = {
     val p = as.toJsObject[ButtonGroupProps]
-    p.as        = as.toJs
-    p.attached  = attached
-    p.basic     = basic
-    p.buttons   = buttons.map(x => x.map(btn => btn.props).toJSArray)
-    p.className = (className, clazz).toJs
-    p.color     = color.toJs
-    p.compact   = compact
-    p.content   = content.map(_.map(_.rawNode).toJSArray)
-    p.floated   = floated.toJs
-    p.icon      = icon
-    p.inverted  = inverted
-    p.labeled   = labeled
-    p.negative  = negative
-    p.positive  = positive
-    p.primary   = primary
-    p.secondary = secondary
-    p.size      = size.toJs
-    p.toggle    = toggle
-    p.vertical  = vertical
-    p.widths    = widths.toJs
+    as.toJs.foreach(v => p.as                                                  = v)
+    attached.foreach(v => p.attached                                           = v)
+    basic.foreach(v => p.basic                                                 = v)
+    buttons.map(x => x.map(btn => btn.props).toJSArray).foreach(v => p.buttons = v)
+    (className, clazz).toJs.foreach(v => p.className                           = v)
+    color.toJs.foreach(v => p.color                                            = v)
+    compact.foreach(v => p.compact                                             = v)
+    content.map(_.map(_.rawNode).toJSArray).foreach(v => p.content             = v)
+    floated.toJs.foreach(v => p.floated                                        = v)
+    icon.foreach(v => p.icon                                                   = v)
+    inverted.foreach(v => p.inverted                                           = v)
+    labeled.foreach(v => p.labeled                                             = v)
+    negative.foreach(v => p.negative                                           = v)
+    positive.foreach(v => p.positive                                           = v)
+    primary.foreach(v => p.primary                                             = v)
+    secondary.foreach(v => p.secondary                                         = v)
+    size.toJs.foreach(v => p.size                                              = v)
+    toggle.foreach(v => p.toggle                                               = v)
+    vertical.foreach(v => p.vertical                                           = v)
+    widths.toJs.foreach(v => p.widths                                          = v)
     p
   }
 

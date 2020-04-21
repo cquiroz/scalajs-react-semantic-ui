@@ -200,28 +200,28 @@ object Menu {
     widths:             js.UndefOr[SemanticWidth] = js.undefined
   ): MenuProps = {
     val p = (new js.Object).asInstanceOf[MenuProps]
-    p.as                 = as.toJs
-    p.activeIndex        = activeIndex
-    p.attached           = attached.toJs
-    p.borderless         = borderless
-    p.className          = (className, clazz).toJs
-    p.compact            = compact
-    p.defaultActiveIndex = defaultActiveIndex
-    p.fixed              = fixed.toJs
-    p.floated            = floated.toJs
-    p.fluid              = fluid
-    p.icon               = icon.toJs
-    p.inverted           = inverted
-    p.onItemClick        = (onItemClickE, onItemClick).toJs
-    p.pagination         = pagination
-    p.pointing           = pointing
-    p.secondary          = secondary
-    p.size               = size.toJs
-    p.stackable          = stackable
-    p.tabular            = tabular.toJs
-    p.text               = text
-    p.vertical           = vertical
-    p.widths             = widths.toJs
+    as.toJs.foreach(v => p.as                                   = v)
+    activeIndex.foreach(v => p.activeIndex                      = v)
+    attached.toJs.foreach(v => p.attached                       = v)
+    borderless.foreach(v => p.borderless                        = v)
+    (className, clazz).toJs.foreach(v => p.className            = v)
+    compact.foreach(v => p.compact                              = v)
+    defaultActiveIndex.foreach(v => p.defaultActiveIndex        = v)
+    fixed.toJs.foreach(v => p.fixed                             = v)
+    floated.toJs.foreach(v => p.floated                         = v)
+    fluid.foreach(v => p.fluid                                  = v)
+    icon.toJs.foreach(v => p.icon                               = v)
+    inverted.foreach(v => p.inverted                            = v)
+    (onItemClickE, onItemClick).toJs.foreach(v => p.onItemClick = v)
+    pagination.foreach(v => p.pagination                        = v)
+    pointing.foreach(v => p.pointing                            = v)
+    secondary.foreach(v => p.secondary                          = v)
+    size.toJs.foreach(v => p.size                               = v)
+    stackable.foreach(v => p.stackable                          = v)
+    tabular.toJs.foreach(v => p.tabular                         = v)
+    text.foreach(v => p.text                                    = v)
+    vertical.foreach(v => p.vertical                            = v)
+    widths.toJs.foreach(v => p.widths                           = v)
     p
   }
 

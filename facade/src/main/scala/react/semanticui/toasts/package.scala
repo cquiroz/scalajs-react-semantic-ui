@@ -146,17 +146,19 @@ package toasts {
     ): ToastOptions = {
 
       val p = (new js.Object).asInstanceOf[ToastOptions]
-      p.title       = title
-      p.description = description
-      p.`type`      = tpe.toJs
-      p.icon        = icon.toJs
-      p.time = time.map(_ match {
-        case Dismissal.User  => 0
-        case Dismissal.On(t) => t.toMillis.toDouble
-      })
-      p.animation = animation.toJs
-      p.size      = size.toJs
-      p.color     = color.toJs
+      p.title = title
+      description.foreach(v => p.description = v)
+      p.`type` = tpe.toJs
+      icon.toJs.foreach(v => p.icon = v)
+      time
+        .map(_ match {
+          case Dismissal.User  => 0
+          case Dismissal.On(t) => t.toMillis.toDouble
+        })
+        .foreach(v => p.time                  = v)
+      animation.toJs.foreach(v => p.animation = v)
+      size.toJs.foreach(v => p.size           = v)
+      color.toJs.foreach(v => p.color         = v)
       p
     }
   }

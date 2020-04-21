@@ -64,11 +64,11 @@ object TabPane {
     q: TabPane
   ): TabPaneProps = {
     val p = q.as.toJsObject[TabPaneProps]
-    p.as        = q.as.toJs
-    p.active    = q.active
-    p.className = (q.className, q.clazz).toJs
-    p.content   = q.content.toJs
-    p.loading   = q.loading
+    q.as.toJs.foreach(v => p.as                          = v)
+    q.active.foreach(v => p.active                       = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.content.toJs.foreach(v => p.content                = v)
+    q.loading.foreach(v => p.loading                     = v)
     p
   }
 
