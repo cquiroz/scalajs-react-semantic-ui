@@ -48,8 +48,8 @@ final case class Checkbox(
 }
 
 object Checkbox {
-  type Event            = (ReactMouseEvent, CheckboxProps) => Callback
-  private type RawEvent = js.Function2[ReactMouseEvent, CheckboxProps, Unit]
+  type Event    = (ReactMouseEvent, CheckboxProps) => Callback
+  type RawEvent = js.Function2[ReactMouseEvent, CheckboxProps, Unit]
 
   @js.native
   @JSImport("semantic-ui-react", "Checkbox")
@@ -209,7 +209,7 @@ object Checkbox {
     slider:               js.UndefOr[Boolean]           = js.undefined,
     tabIndex:             js.UndefOr[JsNumber | String] = js.undefined,
     toggle:               js.UndefOr[Boolean]           = js.undefined,
-    `type`:               js.UndefOr[CheckboxType]      = js.undefined,
+    tpe:                  js.UndefOr[CheckboxType]      = js.undefined,
     value:                js.UndefOr[String | JsNumber] = js.undefined
   ): CheckboxProps = {
     val p = as.toJsObject[CheckboxProps]
@@ -233,7 +233,7 @@ object Checkbox {
     slider.foreach(v => p.slider                                = v)
     tabIndex.foreach(v => p.tabIndex                            = v)
     toggle.foreach(v => p.toggle                                = v)
-    p.`type` = `type`.toJs
+    p.`type` = tpe.toJs
     value.foreach(v => p.value = v)
     p
   }

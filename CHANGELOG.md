@@ -1,5 +1,9 @@
 # Changes
 
+## 0.4.11
+
+* Add FormButton/FormCheckbox/FormInput facade
+
 ## 0.4.10
 
 * Avoid passing undefined properties to components ([PR #122](https://github.com/cquiroz/scalajs-react-semantic-ui/pull/122)).

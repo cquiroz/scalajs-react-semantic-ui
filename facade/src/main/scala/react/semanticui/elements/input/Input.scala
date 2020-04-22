@@ -39,6 +39,7 @@ final case class Input(
   tabIndex:               js.UndefOr[String | JsNumber]     = js.undefined,
   transparent:            js.UndefOr[Boolean]               = js.undefined,
   tpe:                    js.UndefOr[String]                = js.undefined,
+  value:                  js.UndefOr[String]                = js.undefined,
   override val modifiers: Seq[TagMod]                       = Seq.empty
 ) extends GenericComponentPAC[Input.InputProps, Input] {
   override protected def cprops    = Input.props(this)
@@ -128,6 +129,9 @@ object Input {
 
     /** The HTML input type. */
     var `type`: js.UndefOr[String] = js.native
+
+    /** The HTML value. */
+    var value: js.UndefOr[String] = js.native
   }
 
   def props(
@@ -154,6 +158,7 @@ object Input {
     q.tabIndex.foreach(v => p.tabIndex                     = v)
     q.transparent.foreach(v => p.transparent               = v)
     p.`type` = q.tpe
+    q.value.foreach(v => p.value = v)
     p
   }
 

@@ -39,6 +39,14 @@ object InputTests extends TestSuite {
         )
       }
     }
+    test("value") {
+      val input = Input(value = "test")
+      ReactTestUtils.withRenderedIntoDocument(input) { m =>
+        assert(
+          m.outerHtmlScrubbed() == """<div class="ui input"><input type="text" value="test"></div>"""
+        )
+      }
+    }
     test("iconAndText") {
       val input = Input()(Icon(name = "comment"), "23")
       ReactTestUtils.withRenderedIntoDocument(input) { m =>
