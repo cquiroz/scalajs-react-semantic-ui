@@ -12,7 +12,7 @@ object FormInputTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         form.renderIntoDOM(mountNode)
         assert(
-          mountNode.innerHTML == """<div class="field"><div class="ui fitted checkbox"><input class="hidden" readonly="" tabindex="0" type="checkbox" value=""><label></label></div></div>"""
+          mountNode.innerHTML == """<div class="field"><div class="ui input"><input type="text"></div></div>"""
         )
       }
     }
@@ -20,13 +20,12 @@ object FormInputTests extends TestSuite {
       val form = FormInput(width = Two)
       ReactTestUtils.withNewBodyElement { mountNode =>
         form.renderIntoDOM(mountNode)
-        println(mountNode.innerHTML)
         assert(
           mountNode.innerHTML == """<div class="two wide field"><div class="ui input"><input type="text"></div></div>"""
         )
       }
     }
-    test("inverted") {
+    test("value") {
       val form = FormInput(width = Two, inverted = true, focus = true, value = "test")
       ReactTestUtils.withNewBodyElement { mountNode =>
         form.renderIntoDOM(mountNode)
