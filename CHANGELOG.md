@@ -3,7 +3,7 @@
 ## 0.4.12
 
 * Add TextArea facade
-* Add FormTextArea facade
+* Add FormTextArea/FormatDropdown facade
 
 ## 0.4.11
 
