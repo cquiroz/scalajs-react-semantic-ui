@@ -3,6 +3,7 @@
 ## 0.4.12
 
 * Add TextArea facade
+* Add FormTextArea facade
 
 ## 0.4.11
 
