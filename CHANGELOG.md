@@ -1,5 +1,10 @@
 # Changes
 
+## 0.4.12
+
+* Add TextArea facade
+* Add FormTextArea/FormatDropdown facade
+
 ## 0.4.11
 
 * Add FormButton/FormCheckbox/FormInput facade
