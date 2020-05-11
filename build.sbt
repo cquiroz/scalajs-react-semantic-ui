@@ -1,5 +1,5 @@
 val reactJS      = "16.7.0"
-val scalaJsReact = "1.6.0"
+val scalaJsReact = "1.7.0"
 val SUI          = "2.4.1"
 val reactSUI     = "0.87.3" // Newer versions require React 16.8, which scalajs-react doesn't support yet.
 val Toasts       = "0.6.5"
