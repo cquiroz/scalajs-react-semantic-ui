@@ -4,7 +4,6 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
@@ -12,12 +11,12 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class MenuMenu(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  position:               js.UndefOr[MenuMenuPosition]     = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  position:               js.UndefOr[MenuMenuPosition] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[MenuMenu.MenuMenuProps, MenuMenu] {
   override protected def cprops    = MenuMenu.props(this)
   override protected val component = MenuMenu.component
@@ -59,17 +58,17 @@ object MenuMenu {
     rawprops(q.as, q.className, q.clazz, q.content, q.position)
 
   def rawprops(
-    as:        js.UndefOr[AsC]                  = js.undefined,
-    className: js.UndefOr[String]               = js.undefined,
-    clazz:     js.UndefOr[Css]                  = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    position:  js.UndefOr[MenuMenuPosition]     = js.undefined
+    position:  js.UndefOr[MenuMenuPosition] = js.undefined
   ): MenuMenuProps = {
     val p = as.toJsObject[MenuMenuProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    position.toJs.foreach(v => p.position            = v)
+    content.toJs.foreach(v => p.content = v)
+    position.toJs.foreach(v => p.position = v)
     p
   }
 

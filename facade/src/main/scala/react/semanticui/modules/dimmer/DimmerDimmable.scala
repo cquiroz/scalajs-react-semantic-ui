@@ -5,20 +5,19 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class DimmerDimmable(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  blurring:               js.UndefOr[Boolean]  = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
-  clazz:                  js.UndefOr[Css]      = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  blurring:               js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
-  dimmed:                 js.UndefOr[Boolean]  = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  dimmed:                 js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[DimmerDimmable.DimmerDimmableProps, DimmerDimmable] {
   override protected def cprops    = DimmerDimmable.props(this)
   override protected val component = DimmerDimmable.component
@@ -63,19 +62,19 @@ object DimmerDimmable {
     rawprops(q.as, q.blurring, q.className, q.clazz, q.content, q.dimmed)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    blurring:  js.UndefOr[Boolean]  = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
-    clazz:     js.UndefOr[Css]      = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    blurring:  js.UndefOr[Boolean] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
-    dimmed:    js.UndefOr[Boolean]  = js.undefined
+    dimmed:    js.UndefOr[Boolean] = js.undefined
   ): DimmerDimmableProps = {
     val p = as.toJsObject[DimmerDimmableProps]
-    as.toJs.foreach(v => p.as                        = v)
-    blurring.foreach(v => p.blurring                 = v)
+    as.toJs.foreach(v => p.as = v)
+    blurring.foreach(v => p.blurring = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    dimmed.foreach(v => p.dimmed                     = v)
+    content.toJs.foreach(v => p.content = v)
+    dimmed.foreach(v => p.dimmed = v)
     p
   }
 

@@ -9,7 +9,7 @@ import react.common._
 final case class Dimmer(
   active:                 js.UndefOr[Boolean] = js.undefined,
   page:                   js.UndefOr[Boolean] = js.undefined,
-  override val modifiers: Seq[TagMod]         = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[Dimmer.DimmerProps, Dimmer] {
   override protected def cprops    = Dimmer.props(this)
   override protected val component = Dimmer.component
@@ -45,7 +45,7 @@ object Dimmer {
   ): DimmerProps = {
     val p = (new js.Object).asInstanceOf[DimmerProps]
     active.foreach(v => p.active = v)
-    page.foreach(v => p.page     = v)
+    page.foreach(v => p.page = v)
     p
   }
 

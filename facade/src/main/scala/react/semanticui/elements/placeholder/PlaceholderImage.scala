@@ -5,20 +5,19 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class PlaceholderImage(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  square:                 js.UndefOr[Boolean]              = js.undefined,
-  rectangular:            js.UndefOr[Boolean]              = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  square:                 js.UndefOr[Boolean] = js.undefined,
+  rectangular:            js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPA[
       PlaceholderImage.PlaceholderImageProps,
       PlaceholderImage
@@ -66,11 +65,11 @@ object PlaceholderImage {
     q: PlaceholderImage
   ): PlaceholderImageProps = {
     val p = q.as.toJsObject[PlaceholderImageProps]
-    q.as.toJs.foreach(v => p.as                          = v)
+    q.as.toJs.foreach(v => p.as = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
-    q.square.foreach(v => p.square                       = v)
-    q.rectangular.foreach(v => p.rectangular             = v)
+    q.content.toJs.foreach(v => p.content = v)
+    q.square.foreach(v => p.square = v)
+    q.rectangular.foreach(v => p.rectangular = v)
     p
   }
 

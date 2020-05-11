@@ -8,7 +8,7 @@ trait VerticalAlignment {
     implicit val enum: EnumValue[SemanticVerticalAlignment] = EnumValue.toLowerCaseString
     case object Bottom extends SemanticVerticalAlignment
     case object Middle extends SemanticVerticalAlignment
-    case object Top extends SemanticVerticalAlignment
+    case object Top    extends SemanticVerticalAlignment
   }
 }
 

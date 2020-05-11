@@ -5,7 +5,6 @@ import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
@@ -16,23 +15,23 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class MenuItem(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  active:                 js.UndefOr[Boolean]              = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
-  color:                  js.UndefOr[SemanticColor]        = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  active:                 js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  disabled:               js.UndefOr[Boolean]              = js.undefined,
-  fitted:                 js.UndefOr[MenuItemFitted]       = js.undefined,
-  header:                 js.UndefOr[Boolean]              = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
-  index:                  js.UndefOr[Int]                  = js.undefined,
-  link:                   js.UndefOr[Boolean]              = js.undefined,
-  name:                   js.UndefOr[String]               = js.undefined,
-  onClickE:               js.UndefOr[MenuItem.OnClick]     = js.undefined,
-  onClick:                js.UndefOr[Callback]             = js.undefined,
-  position:               js.UndefOr[MenuItemPosition]     = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  fitted:                 js.UndefOr[MenuItemFitted] = js.undefined,
+  header:                 js.UndefOr[Boolean] = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+  index:                  js.UndefOr[Int] = js.undefined,
+  link:                   js.UndefOr[Boolean] = js.undefined,
+  name:                   js.UndefOr[String] = js.undefined,
+  onClickE:               js.UndefOr[MenuItem.OnClick] = js.undefined,
+  onClick:                js.UndefOr[Callback] = js.undefined,
+  position:               js.UndefOr[MenuItemPosition] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[MenuItem.MenuItemProps, MenuItem] {
   override protected def cprops    = MenuItem.props(this)
   override protected val component = MenuItem.component
@@ -125,41 +124,42 @@ object MenuItem {
              q.name,
              q.onClickE,
              q.onClick,
-             q.position)
+             q.position
+    )
 
   def rawprops(
-    as:        js.UndefOr[AsC]                  = js.undefined,
-    active:    js.UndefOr[Boolean]              = js.undefined,
-    className: js.UndefOr[String]               = js.undefined,
-    clazz:     js.UndefOr[Css]                  = js.undefined,
-    color:     js.UndefOr[SemanticColor]        = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    active:    js.UndefOr[Boolean] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
+    color:     js.UndefOr[SemanticColor] = js.undefined,
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    disabled:  js.UndefOr[Boolean]              = js.undefined,
-    fitted:    js.UndefOr[MenuItemFitted]       = js.undefined,
-    header:    js.UndefOr[Boolean]              = js.undefined,
-    icon:      js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
-    index:     js.UndefOr[Int]                  = js.undefined,
-    link:      js.UndefOr[Boolean]              = js.undefined,
-    name:      js.UndefOr[String]               = js.undefined,
-    onClickE:  js.UndefOr[OnClick]              = js.undefined,
-    onClick:   js.UndefOr[Callback]             = js.undefined,
-    position:  js.UndefOr[MenuItemPosition]     = js.undefined
+    disabled:  js.UndefOr[Boolean] = js.undefined,
+    fitted:    js.UndefOr[MenuItemFitted] = js.undefined,
+    header:    js.UndefOr[Boolean] = js.undefined,
+    icon:      js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+    index:     js.UndefOr[Int] = js.undefined,
+    link:      js.UndefOr[Boolean] = js.undefined,
+    name:      js.UndefOr[String] = js.undefined,
+    onClickE:  js.UndefOr[OnClick] = js.undefined,
+    onClick:   js.UndefOr[Callback] = js.undefined,
+    position:  js.UndefOr[MenuItemPosition] = js.undefined
   ): MenuItemProps = {
     val p = as.toJsObject[MenuItemProps]
-    as.toJs.foreach(v => p.as                        = v)
-    active.foreach(v => p.active                     = v)
+    as.toJs.foreach(v => p.as = v)
+    active.foreach(v => p.active = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    color.toJs.foreach(v => p.color                  = v)
-    content.toJs.foreach(v => p.content              = v)
-    disabled.foreach(v => p.disabled                 = v)
-    fitted.toJs.foreach(v => p.fitted                = v)
-    header.foreach(v => p.header                     = v)
-    icon.toJs.foreach(v => p.icon                    = v)
-    index.foreach(v => p.index                       = v)
-    link.foreach(v => p.link                         = v)
-    name.foreach(v => p.name                         = v)
-    (onClickE, onClick).toJs.foreach(v => p.onClick  = v)
-    position.toJs.foreach(v => p.position            = v)
+    color.toJs.foreach(v => p.color = v)
+    content.toJs.foreach(v => p.content = v)
+    disabled.foreach(v => p.disabled = v)
+    fitted.toJs.foreach(v => p.fitted = v)
+    header.foreach(v => p.header = v)
+    icon.toJs.foreach(v => p.icon = v)
+    index.foreach(v => p.index = v)
+    link.foreach(v => p.link = v)
+    name.foreach(v => p.name = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick = v)
+    position.toJs.foreach(v => p.position = v)
     p
   }
 

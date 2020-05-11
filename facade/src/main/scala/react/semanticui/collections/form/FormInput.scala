@@ -6,7 +6,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.label.Label
@@ -18,34 +17,34 @@ import japgolly.scalajs.react.vdom.VdomNode
 
 final case class FormInput(
   action:                 js.UndefOr[ShorthandSB[VdomNode]] = js.undefined,
-  actionPosition:         js.UndefOr[ActionPosition]        = js.undefined,
-  as:                     js.UndefOr[AsC]                   = js.undefined,
-  className:              js.UndefOr[String]                = js.undefined,
-  clazz:                  js.UndefOr[Css]                   = js.undefined,
-  content:                js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
-  control:                js.UndefOr[String]                = js.undefined,
-  disabled:               js.UndefOr[Boolean]               = js.undefined,
-  error:                  js.UndefOr[ShorthandB[Label]]     = js.undefined,
-  fluid:                  js.UndefOr[Boolean]               = js.undefined,
-  focus:                  js.UndefOr[Boolean]               = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
-  iconPosition:           js.UndefOr[IconPosition]          = js.undefined,
-  inline:                 js.UndefOr[Boolean]               = js.undefined,
-  input:                  js.UndefOr[VdomNode]              = js.undefined,
-  inverted:               js.UndefOr[Boolean]               = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]     = js.undefined,
-  labelPosition:          js.UndefOr[LabelPosition]         = js.undefined,
-  loading:                js.UndefOr[Boolean]               = js.undefined,
-  onChange:               js.UndefOr[Callback]              = js.undefined,
-  onChangeE:              js.UndefOr[Input.OnChange]        = js.undefined,
-  required:               js.UndefOr[Boolean]               = js.undefined,
-  size:                   js.UndefOr[SemanticSize]          = js.undefined,
-  tabIndex:               js.UndefOr[String | JsNumber]     = js.undefined,
-  tpe:                    js.UndefOr[String]                = js.undefined,
-  transparent:            js.UndefOr[Boolean]               = js.undefined,
-  width:                  js.UndefOr[SemanticWidth]         = js.undefined,
-  value:                  js.UndefOr[String]                = js.undefined,
-  override val modifiers: Seq[TagMod]                       = Seq.empty
+  actionPosition:         js.UndefOr[ActionPosition] = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  control:                js.UndefOr[String] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  error:                  js.UndefOr[ShorthandB[Label]] = js.undefined,
+  fluid:                  js.UndefOr[Boolean] = js.undefined,
+  focus:                  js.UndefOr[Boolean] = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+  iconPosition:           js.UndefOr[IconPosition] = js.undefined,
+  inline:                 js.UndefOr[Boolean] = js.undefined,
+  input:                  js.UndefOr[VdomNode] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  labelPosition:          js.UndefOr[LabelPosition] = js.undefined,
+  loading:                js.UndefOr[Boolean] = js.undefined,
+  onChange:               js.UndefOr[Callback] = js.undefined,
+  onChangeE:              js.UndefOr[Input.OnChange] = js.undefined,
+  required:               js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  tabIndex:               js.UndefOr[String | JsNumber] = js.undefined,
+  tpe:                    js.UndefOr[String] = js.undefined,
+  transparent:            js.UndefOr[Boolean] = js.undefined,
+  width:                  js.UndefOr[SemanticWidth] = js.undefined,
+  value:                  js.UndefOr[String] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[FormInput.FormInputProps, FormInput] {
   override protected def cprops    = FormInput.props(this)
   override protected val component = FormInput.component
@@ -193,66 +192,66 @@ object FormInput {
 
   def rawprops(
     action:         js.UndefOr[ShorthandSB[VdomNode]] = js.undefined,
-    actionPosition: js.UndefOr[ActionPosition]        = js.undefined,
-    as:             js.UndefOr[AsC]                   = js.undefined,
-    className:      js.UndefOr[String]                = js.undefined,
-    clazz:          js.UndefOr[Css]                   = js.undefined,
-    content:        js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
-    control:        js.UndefOr[String]                = js.undefined,
-    disabled:       js.UndefOr[Boolean]               = js.undefined,
-    error:          js.UndefOr[ShorthandB[Label]]     = js.undefined,
-    fluid:          js.UndefOr[Boolean]               = js.undefined,
-    focus:          js.UndefOr[Boolean]               = js.undefined,
-    icon:           js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
-    iconPosition:   js.UndefOr[IconPosition]          = js.undefined,
-    inline:         js.UndefOr[Boolean]               = js.undefined,
-    input:          js.UndefOr[VdomNode]              = js.undefined,
-    inverted:       js.UndefOr[Boolean]               = js.undefined,
-    label:          js.UndefOr[ShorthandS[Label]]     = js.undefined,
-    labelPosition:  js.UndefOr[LabelPosition]         = js.undefined,
-    loading:        js.UndefOr[Boolean]               = js.undefined,
-    onChange:       js.UndefOr[Callback]              = js.undefined,
-    onChangeE:      js.UndefOr[Input.OnChange]        = js.undefined,
-    required:       js.UndefOr[Boolean]               = js.undefined,
-    size:           js.UndefOr[SemanticSize]          = js.undefined,
-    tabIndex:       js.UndefOr[String | JsNumber]     = js.undefined,
-    tpe:            js.UndefOr[String]                = js.undefined,
-    transparent:    js.UndefOr[Boolean]               = js.undefined,
-    width:          js.UndefOr[SemanticWidth]         = js.undefined,
-    value:          js.UndefOr[String]                = js.undefined
+    actionPosition: js.UndefOr[ActionPosition] = js.undefined,
+    as:             js.UndefOr[AsC] = js.undefined,
+    className:      js.UndefOr[String] = js.undefined,
+    clazz:          js.UndefOr[Css] = js.undefined,
+    content:        js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+    control:        js.UndefOr[String] = js.undefined,
+    disabled:       js.UndefOr[Boolean] = js.undefined,
+    error:          js.UndefOr[ShorthandB[Label]] = js.undefined,
+    fluid:          js.UndefOr[Boolean] = js.undefined,
+    focus:          js.UndefOr[Boolean] = js.undefined,
+    icon:           js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+    iconPosition:   js.UndefOr[IconPosition] = js.undefined,
+    inline:         js.UndefOr[Boolean] = js.undefined,
+    input:          js.UndefOr[VdomNode] = js.undefined,
+    inverted:       js.UndefOr[Boolean] = js.undefined,
+    label:          js.UndefOr[ShorthandS[Label]] = js.undefined,
+    labelPosition:  js.UndefOr[LabelPosition] = js.undefined,
+    loading:        js.UndefOr[Boolean] = js.undefined,
+    onChange:       js.UndefOr[Callback] = js.undefined,
+    onChangeE:      js.UndefOr[Input.OnChange] = js.undefined,
+    required:       js.UndefOr[Boolean] = js.undefined,
+    size:           js.UndefOr[SemanticSize] = js.undefined,
+    tabIndex:       js.UndefOr[String | JsNumber] = js.undefined,
+    tpe:            js.UndefOr[String] = js.undefined,
+    transparent:    js.UndefOr[Boolean] = js.undefined,
+    width:          js.UndefOr[SemanticWidth] = js.undefined,
+    value:          js.UndefOr[String] = js.undefined
   ): FormInputProps = {
     val p = as.toJsObject[FormInputProps]
-    as.toJs.foreach(v => p.as                          = v)
-    action.toJs.foreach(v => p.action                  = v)
-    actionPosition.toJs.foreach(v => p.actionPosition  = v)
-    (className, clazz).toJs.foreach(v => p.className   = v)
-    disabled.foreach(v => p.disabled                   = v)
-    error.toJs.foreach(v => p.error                    = v)
-    fluid.foreach(v => p.fluid                         = v)
-    focus.foreach(v => p.focus                         = v)
-    icon.toJs.foreach(v => p.icon                      = v)
-    iconPosition.toJs.foreach(v => p.iconPosition      = v)
-    input.toJs.foreach(v => p.input                    = v)
-    inverted.foreach(v => p.inverted                   = v)
-    label.toJs.foreach(v => p.label                    = v)
-    labelPosition.toJs.foreach(v => p.labelPosition    = v)
-    loading.foreach(v => p.loading                     = v)
+    as.toJs.foreach(v => p.as = v)
+    action.toJs.foreach(v => p.action = v)
+    actionPosition.toJs.foreach(v => p.actionPosition = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    disabled.foreach(v => p.disabled = v)
+    error.toJs.foreach(v => p.error = v)
+    fluid.foreach(v => p.fluid = v)
+    focus.foreach(v => p.focus = v)
+    icon.toJs.foreach(v => p.icon = v)
+    iconPosition.toJs.foreach(v => p.iconPosition = v)
+    input.toJs.foreach(v => p.input = v)
+    inverted.foreach(v => p.inverted = v)
+    label.toJs.foreach(v => p.label = v)
+    labelPosition.toJs.foreach(v => p.labelPosition = v)
+    loading.foreach(v => p.loading = v)
     (onChangeE, onChange).toJs.foreach(v => p.onChange = v)
-    size.toJs.foreach(v => p.size                      = v)
-    tabIndex.foreach(v => p.tabIndex                   = v)
-    transparent.foreach(v => p.transparent             = v)
-    as.toJs.foreach(v => p.as                          = v)
-    (className, clazz).toJs.foreach(v => p.className   = v)
-    content.toJs.foreach(v => p.content                = v)
-    control.foreach(v => p.control                     = v)
-    disabled.foreach(v => p.disabled                   = v)
-    error.toJs.foreach(v => p.error                    = v)
-    inline.foreach(v => p.inline                       = v)
-    label.toJs.foreach(v => p.label                    = v)
-    required.foreach(v => p.required                   = v)
+    size.toJs.foreach(v => p.size = v)
+    tabIndex.foreach(v => p.tabIndex = v)
+    transparent.foreach(v => p.transparent = v)
+    as.toJs.foreach(v => p.as = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content = v)
+    control.foreach(v => p.control = v)
+    disabled.foreach(v => p.disabled = v)
+    error.toJs.foreach(v => p.error = v)
+    inline.foreach(v => p.inline = v)
+    label.toJs.foreach(v => p.label = v)
+    required.foreach(v => p.required = v)
     p.`type` = tpe
     width.toJs.foreach(v => p.width = v)
-    value.foreach(v => p.value      = v)
+    value.foreach(v => p.value = v)
     p
   }
 

@@ -89,9 +89,9 @@ object IconTests extends TestSuite {
       }
     }
     test("conversions") {
-      assert(Icon(loading = true, name  = "edit") == Icon("edit").loading())
+      assert(Icon(loading = true, name = "edit") == Icon("edit").loading())
       assert(Icon(loading = false, name = "edit") == Icon("edit").loading(false))
-      assert(Icon(color   = Red, name   = "edit") == Icon("edit").color(Red))
+      assert(Icon(color = Red, name = "edit") == Icon("edit").color(Red))
       assert(
         Icon(rotated = IconRotated.Clockwise, name = "edit") == Icon("edit")
           .rotated(IconRotated.Clockwise)

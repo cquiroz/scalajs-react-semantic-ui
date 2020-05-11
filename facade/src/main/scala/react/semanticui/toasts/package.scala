@@ -5,7 +5,6 @@ import japgolly.scalajs.react.Callback
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.icon.Icon
-import react.semanticui.sizes._
 import react.semanticui.colors._
 import scala.scalajs.js
 import scala.scalajs.js.annotation._
@@ -23,12 +22,12 @@ package toasts {
       case BottomLeft   => "bottom-left"
     }
 
-    case object TopRight extends ContainerPosition
-    case object TopCenter extends ContainerPosition
-    case object TopLeft extends ContainerPosition
-    case object BottomRight extends ContainerPosition
+    case object TopRight     extends ContainerPosition
+    case object TopCenter    extends ContainerPosition
+    case object TopLeft      extends ContainerPosition
+    case object BottomRight  extends ContainerPosition
     case object BottomCenter extends ContainerPosition
-    case object BottomLeft extends ContainerPosition
+    case object BottomLeft   extends ContainerPosition
   }
 
   sealed trait ToastType extends Product with Serializable
@@ -40,10 +39,10 @@ package toasts {
       case Error   => "error"
     }
 
-    case object Info extends ToastType
+    case object Info    extends ToastType
     case object Success extends ToastType
     case object Warning extends ToastType
-    case object Error extends ToastType
+    case object Error   extends ToastType
   }
 
   sealed trait SemanticAnimation extends Product with Serializable
@@ -82,37 +81,37 @@ package toasts {
       case Glow           => "glow"
     }
 
-    case object Scale extends SemanticAnimation
-    case object Zoom extends SemanticAnimation
-    case object Fade extends SemanticAnimation
-    case object FadeUp extends SemanticAnimation
-    case object FadeDown extends SemanticAnimation
-    case object FadeLeft extends SemanticAnimation
-    case object FadeRight extends SemanticAnimation
+    case object Scale          extends SemanticAnimation
+    case object Zoom           extends SemanticAnimation
+    case object Fade           extends SemanticAnimation
+    case object FadeUp         extends SemanticAnimation
+    case object FadeDown       extends SemanticAnimation
+    case object FadeLeft       extends SemanticAnimation
+    case object FadeRight      extends SemanticAnimation
     case object HorizontalFlip extends SemanticAnimation
-    case object VerticalFlip extends SemanticAnimation
-    case object Drop extends SemanticAnimation
-    case object FlyLeft extends SemanticAnimation
-    case object FlyRight extends SemanticAnimation
-    case object FlyDown extends SemanticAnimation
-    case object FlyUp extends SemanticAnimation
-    case object SwingLeft extends SemanticAnimation
-    case object SwingRight extends SemanticAnimation
-    case object SwingUp extends SemanticAnimation
-    case object SwingDown extends SemanticAnimation
-    case object Browse extends SemanticAnimation
-    case object BrowseRight extends SemanticAnimation
-    case object SlideDown extends SemanticAnimation
-    case object SlideUp extends SemanticAnimation
-    case object SlideLeft extends SemanticAnimation
-    case object SlideRight extends SemanticAnimation
-    case object Jiggle extends SemanticAnimation
-    case object Flash extends SemanticAnimation
-    case object Shake extends SemanticAnimation
-    case object Pulse extends SemanticAnimation
-    case object Tada extends SemanticAnimation
-    case object Bounce extends SemanticAnimation
-    case object Glow extends SemanticAnimation
+    case object VerticalFlip   extends SemanticAnimation
+    case object Drop           extends SemanticAnimation
+    case object FlyLeft        extends SemanticAnimation
+    case object FlyRight       extends SemanticAnimation
+    case object FlyDown        extends SemanticAnimation
+    case object FlyUp          extends SemanticAnimation
+    case object SwingLeft      extends SemanticAnimation
+    case object SwingRight     extends SemanticAnimation
+    case object SwingUp        extends SemanticAnimation
+    case object SwingDown      extends SemanticAnimation
+    case object Browse         extends SemanticAnimation
+    case object BrowseRight    extends SemanticAnimation
+    case object SlideDown      extends SemanticAnimation
+    case object SlideUp        extends SemanticAnimation
+    case object SlideLeft      extends SemanticAnimation
+    case object SlideRight     extends SemanticAnimation
+    case object Jiggle         extends SemanticAnimation
+    case object Flash          extends SemanticAnimation
+    case object Shake          extends SemanticAnimation
+    case object Pulse          extends SemanticAnimation
+    case object Tada           extends SemanticAnimation
+    case object Bounce         extends SemanticAnimation
+    case object Glow           extends SemanticAnimation
   }
 
   sealed trait Dismissal extends Product with Serializable
@@ -155,10 +154,10 @@ package toasts {
           case Dismissal.User  => 0
           case Dismissal.On(t) => t.toMillis.toDouble
         })
-        .foreach(v => p.time                  = v)
+        .foreach(v => p.time = v)
       animation.toJs.foreach(v => p.animation = v)
-      size.toJs.foreach(v => p.size           = v)
-      color.toJs.foreach(v => p.color         = v)
+      size.toJs.foreach(v => p.size = v)
+      color.toJs.foreach(v => p.color = v)
       p
     }
   }

@@ -5,39 +5,38 @@ import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Menu(
-  as:                     js.UndefOr[AsC]              = js.undefined,
-  activeIndex:            js.UndefOr[Int | String]     = js.undefined,
-  attached:               js.UndefOr[MenuAttached]     = js.undefined,
-  borderless:             js.UndefOr[Boolean]          = js.undefined,
-  className:              js.UndefOr[String]           = js.undefined,
-  clazz:                  js.UndefOr[Css]              = js.undefined,
-  color:                  js.UndefOr[SemanticColor]    = js.undefined,
-  compact:                js.UndefOr[Boolean]          = js.undefined,
-  defaultActiveIndex:     js.UndefOr[Int | String]     = js.undefined,
-  fixed:                  js.UndefOr[MenuFixed]        = js.undefined,
-  floated:                js.UndefOr[MenuFloated]      = js.undefined,
-  fluid:                  js.UndefOr[Boolean]          = js.undefined,
-  icon:                   js.UndefOr[MenuIcon]         = js.undefined,
-  inverted:               js.UndefOr[Boolean]          = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  activeIndex:            js.UndefOr[Int | String] = js.undefined,
+  attached:               js.UndefOr[MenuAttached] = js.undefined,
+  borderless:             js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
+  compact:                js.UndefOr[Boolean] = js.undefined,
+  defaultActiveIndex:     js.UndefOr[Int | String] = js.undefined,
+  fixed:                  js.UndefOr[MenuFixed] = js.undefined,
+  floated:                js.UndefOr[MenuFloated] = js.undefined,
+  fluid:                  js.UndefOr[Boolean] = js.undefined,
+  icon:                   js.UndefOr[MenuIcon] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
   onItemClickE:           js.UndefOr[Menu.OnItemClick] = js.undefined,
-  onItemClick:            js.UndefOr[Callback]         = js.undefined,
-  pagination:             js.UndefOr[Boolean]          = js.undefined,
-  pointing:               js.UndefOr[Boolean]          = js.undefined,
-  secondary:              js.UndefOr[Boolean]          = js.undefined,
-  size:                   js.UndefOr[SemanticSize]     = js.undefined,
-  stackable:              js.UndefOr[Boolean]          = js.undefined,
-  tabular:                js.UndefOr[MenuTabular]      = js.undefined,
-  text:                   js.UndefOr[Boolean]          = js.undefined,
-  vertical:               js.UndefOr[Boolean]          = js.undefined,
-  widths:                 js.UndefOr[SemanticWidth]    = js.undefined,
-  override val modifiers: Seq[TagMod]                  = Seq.empty
+  onItemClick:            js.UndefOr[Callback] = js.undefined,
+  pagination:             js.UndefOr[Boolean] = js.undefined,
+  pointing:               js.UndefOr[Boolean] = js.undefined,
+  secondary:              js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  stackable:              js.UndefOr[Boolean] = js.undefined,
+  tabular:                js.UndefOr[MenuTabular] = js.undefined,
+  text:                   js.UndefOr[Boolean] = js.undefined,
+  vertical:               js.UndefOr[Boolean] = js.undefined,
+  widths:                 js.UndefOr[SemanticWidth] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Menu.MenuProps, Menu] {
   override protected def cprops    = Menu.props(this)
   override protected val component = Menu.component
@@ -173,55 +172,55 @@ object Menu {
     )
 
   def rawprops(
-    as:                 js.UndefOr[AsC]           = js.undefined,
-    activeIndex:        js.UndefOr[Int | String]  = js.undefined,
-    attached:           js.UndefOr[MenuAttached]  = js.undefined,
-    borderless:         js.UndefOr[Boolean]       = js.undefined,
-    className:          js.UndefOr[String]        = js.undefined,
-    clazz:              js.UndefOr[Css]           = js.undefined,
+    as:                 js.UndefOr[AsC] = js.undefined,
+    activeIndex:        js.UndefOr[Int | String] = js.undefined,
+    attached:           js.UndefOr[MenuAttached] = js.undefined,
+    borderless:         js.UndefOr[Boolean] = js.undefined,
+    className:          js.UndefOr[String] = js.undefined,
+    clazz:              js.UndefOr[Css] = js.undefined,
     color:              js.UndefOr[SemanticColor] = js.undefined,
-    compact:            js.UndefOr[Boolean]       = js.undefined,
-    defaultActiveIndex: js.UndefOr[Int | String]  = js.undefined,
-    fixed:              js.UndefOr[MenuFixed]     = js.undefined,
-    floated:            js.UndefOr[MenuFloated]   = js.undefined,
-    fluid:              js.UndefOr[Boolean]       = js.undefined,
-    icon:               js.UndefOr[MenuIcon]      = js.undefined,
-    inverted:           js.UndefOr[Boolean]       = js.undefined,
-    onItemClickE:       js.UndefOr[OnItemClick]   = js.undefined,
-    onItemClick:        js.UndefOr[Callback]      = js.undefined,
-    pagination:         js.UndefOr[Boolean]       = js.undefined,
-    pointing:           js.UndefOr[Boolean]       = js.undefined,
-    secondary:          js.UndefOr[Boolean]       = js.undefined,
-    size:               js.UndefOr[SemanticSize]  = js.undefined,
-    stackable:          js.UndefOr[Boolean]       = js.undefined,
-    tabular:            js.UndefOr[MenuTabular]   = js.undefined,
-    text:               js.UndefOr[Boolean]       = js.undefined,
-    vertical:           js.UndefOr[Boolean]       = js.undefined,
+    compact:            js.UndefOr[Boolean] = js.undefined,
+    defaultActiveIndex: js.UndefOr[Int | String] = js.undefined,
+    fixed:              js.UndefOr[MenuFixed] = js.undefined,
+    floated:            js.UndefOr[MenuFloated] = js.undefined,
+    fluid:              js.UndefOr[Boolean] = js.undefined,
+    icon:               js.UndefOr[MenuIcon] = js.undefined,
+    inverted:           js.UndefOr[Boolean] = js.undefined,
+    onItemClickE:       js.UndefOr[OnItemClick] = js.undefined,
+    onItemClick:        js.UndefOr[Callback] = js.undefined,
+    pagination:         js.UndefOr[Boolean] = js.undefined,
+    pointing:           js.UndefOr[Boolean] = js.undefined,
+    secondary:          js.UndefOr[Boolean] = js.undefined,
+    size:               js.UndefOr[SemanticSize] = js.undefined,
+    stackable:          js.UndefOr[Boolean] = js.undefined,
+    tabular:            js.UndefOr[MenuTabular] = js.undefined,
+    text:               js.UndefOr[Boolean] = js.undefined,
+    vertical:           js.UndefOr[Boolean] = js.undefined,
     widths:             js.UndefOr[SemanticWidth] = js.undefined
   ): MenuProps = {
     val p = (new js.Object).asInstanceOf[MenuProps]
-    as.toJs.foreach(v => p.as                                   = v)
-    activeIndex.foreach(v => p.activeIndex                      = v)
-    attached.toJs.foreach(v => p.attached                       = v)
-    borderless.foreach(v => p.borderless                        = v)
-    (className, clazz).toJs.foreach(v => p.className            = v)
-    compact.foreach(v => p.compact                              = v)
-    defaultActiveIndex.foreach(v => p.defaultActiveIndex        = v)
-    fixed.toJs.foreach(v => p.fixed                             = v)
-    floated.toJs.foreach(v => p.floated                         = v)
-    fluid.foreach(v => p.fluid                                  = v)
-    icon.toJs.foreach(v => p.icon                               = v)
-    inverted.foreach(v => p.inverted                            = v)
+    as.toJs.foreach(v => p.as = v)
+    activeIndex.foreach(v => p.activeIndex = v)
+    attached.toJs.foreach(v => p.attached = v)
+    borderless.foreach(v => p.borderless = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    compact.foreach(v => p.compact = v)
+    defaultActiveIndex.foreach(v => p.defaultActiveIndex = v)
+    fixed.toJs.foreach(v => p.fixed = v)
+    floated.toJs.foreach(v => p.floated = v)
+    fluid.foreach(v => p.fluid = v)
+    icon.toJs.foreach(v => p.icon = v)
+    inverted.foreach(v => p.inverted = v)
     (onItemClickE, onItemClick).toJs.foreach(v => p.onItemClick = v)
-    pagination.foreach(v => p.pagination                        = v)
-    pointing.foreach(v => p.pointing                            = v)
-    secondary.foreach(v => p.secondary                          = v)
-    size.toJs.foreach(v => p.size                               = v)
-    stackable.foreach(v => p.stackable                          = v)
-    tabular.toJs.foreach(v => p.tabular                         = v)
-    text.foreach(v => p.text                                    = v)
-    vertical.foreach(v => p.vertical                            = v)
-    widths.toJs.foreach(v => p.widths                           = v)
+    pagination.foreach(v => p.pagination = v)
+    pointing.foreach(v => p.pointing = v)
+    secondary.foreach(v => p.secondary = v)
+    size.toJs.foreach(v => p.size = v)
+    stackable.foreach(v => p.stackable = v)
+    tabular.toJs.foreach(v => p.tabular = v)
+    text.foreach(v => p.text = v)
+    vertical.foreach(v => p.vertical = v)
+    widths.toJs.foreach(v => p.widths = v)
     p
   }
 

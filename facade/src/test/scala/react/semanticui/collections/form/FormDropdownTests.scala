@@ -17,7 +17,7 @@ object FormDropdownTests extends TestSuite {
       }
     }
     test("options") {
-      val options =
+      val options  =
         List(DropdownItem("abc"), DropdownItem(text = "def", value = 2))
       val dropdown = FormDropdown(width = Two, options = options)
       ReactTestUtils.withNewBodyElement { mountNode =>

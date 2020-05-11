@@ -7,37 +7,35 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.colors._
 import react.semanticui.sizes._
 import japgolly.scalajs.react.vdom.TagMod
 import react.semanticui.elements.label.Label
 
 final case class Progress(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  active:                 js.UndefOr[Boolean]              = js.undefined,
-  attached:               js.UndefOr[String]               = js.undefined,
-  autoSuccess:            js.UndefOr[Boolean]              = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
-  color:                  js.UndefOr[SemanticColor]        = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  active:                 js.UndefOr[Boolean] = js.undefined,
+  attached:               js.UndefOr[String] = js.undefined,
+  autoSuccess:            js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  error:                  js.UndefOr[Boolean]              = js.undefined,
-  indicating:             js.UndefOr[Boolean]              = js.undefined,
-  inverted:               js.UndefOr[Boolean]              = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]    = js.undefined,
-  percent:                js.UndefOr[JsNumber | String]    = js.undefined,
-  precision:              js.UndefOr[JsNumber]             = js.undefined,
-  progress:               js.UndefOr[Boolean | String]     = js.undefined,
-  size:                   js.UndefOr[SemanticSize]         = js.undefined,
-  success:                js.UndefOr[Boolean]              = js.undefined,
-  total:                  js.UndefOr[JsNumber | String]    = js.undefined,
-  value:                  js.UndefOr[JsNumber | String]    = js.undefined,
-  warning:                js.UndefOr[Boolean]              = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  error:                  js.UndefOr[Boolean] = js.undefined,
+  indicating:             js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  percent:                js.UndefOr[JsNumber | String] = js.undefined,
+  precision:              js.UndefOr[JsNumber] = js.undefined,
+  progress:               js.UndefOr[Boolean | String] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  success:                js.UndefOr[Boolean] = js.undefined,
+  total:                  js.UndefOr[JsNumber | String] = js.undefined,
+  value:                  js.UndefOr[JsNumber | String] = js.undefined,
+  warning:                js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Progress.ProgressProps, Progress] {
   override protected def cprops    = Progress.props(this)
   override protected val component = Progress.component
@@ -150,47 +148,47 @@ object Progress {
     )
 
   def rawprops(
-    as:          js.UndefOr[AsC]                  = js.undefined,
-    active:      js.UndefOr[Boolean]              = js.undefined,
-    attached:    js.UndefOr[String]               = js.undefined,
-    autoSuccess: js.UndefOr[Boolean]              = js.undefined,
-    className:   js.UndefOr[String]               = js.undefined,
-    clazz:       js.UndefOr[Css]                  = js.undefined,
-    color:       js.UndefOr[SemanticColor]        = js.undefined,
+    as:          js.UndefOr[AsC] = js.undefined,
+    active:      js.UndefOr[Boolean] = js.undefined,
+    attached:    js.UndefOr[String] = js.undefined,
+    autoSuccess: js.UndefOr[Boolean] = js.undefined,
+    className:   js.UndefOr[String] = js.undefined,
+    clazz:       js.UndefOr[Css] = js.undefined,
+    color:       js.UndefOr[SemanticColor] = js.undefined,
     content:     js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    error:       js.UndefOr[Boolean]              = js.undefined,
-    indicating:  js.UndefOr[Boolean]              = js.undefined,
-    inverted:    js.UndefOr[Boolean]              = js.undefined,
-    label:       js.UndefOr[ShorthandS[Label]]    = js.undefined,
-    percent:     js.UndefOr[JsNumber | String]    = js.undefined,
-    precision:   js.UndefOr[JsNumber]             = js.undefined,
-    progress:    js.UndefOr[Boolean | String]     = js.undefined,
-    size:        js.UndefOr[SemanticSize]         = js.undefined,
-    success:     js.UndefOr[Boolean]              = js.undefined,
-    total:       js.UndefOr[JsNumber | String]    = js.undefined,
-    value:       js.UndefOr[JsNumber | String]    = js.undefined,
-    warning:     js.UndefOr[Boolean]              = js.undefined
+    error:       js.UndefOr[Boolean] = js.undefined,
+    indicating:  js.UndefOr[Boolean] = js.undefined,
+    inverted:    js.UndefOr[Boolean] = js.undefined,
+    label:       js.UndefOr[ShorthandS[Label]] = js.undefined,
+    percent:     js.UndefOr[JsNumber | String] = js.undefined,
+    precision:   js.UndefOr[JsNumber] = js.undefined,
+    progress:    js.UndefOr[Boolean | String] = js.undefined,
+    size:        js.UndefOr[SemanticSize] = js.undefined,
+    success:     js.UndefOr[Boolean] = js.undefined,
+    total:       js.UndefOr[JsNumber | String] = js.undefined,
+    value:       js.UndefOr[JsNumber | String] = js.undefined,
+    warning:     js.UndefOr[Boolean] = js.undefined
   ): ProgressProps = {
     val p = as.toJsObject[ProgressProps]
-    as.toJs.foreach(v => p.as                        = v)
-    active.foreach(v => p.active                     = v)
-    attached.foreach(v => p.attached                 = v)
-    autoSuccess.foreach(v => p.autoSuccess           = v)
+    as.toJs.foreach(v => p.as = v)
+    active.foreach(v => p.active = v)
+    attached.foreach(v => p.attached = v)
+    autoSuccess.foreach(v => p.autoSuccess = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    color.toJs.foreach(v => p.color                  = v)
-    content.toJs.foreach(v => p.content              = v)
-    error.foreach(v => p.error                       = v)
-    indicating.foreach(v => p.indicating             = v)
-    inverted.foreach(v => p.inverted                 = v)
-    label.toJs.foreach(v => p.label                  = v)
-    percent.foreach(v => p.percent                   = v)
-    precision.foreach(v => p.precision               = v)
-    progress.foreach(v => p.progress                 = v)
-    size.toJs.foreach(v => p.size                    = v)
-    success.foreach(v => p.success                   = v)
-    total.foreach(v => p.total                       = v)
-    value.foreach(v => p.value                       = v)
-    warning.foreach(v => p.warning                   = v)
+    color.toJs.foreach(v => p.color = v)
+    content.toJs.foreach(v => p.content = v)
+    error.foreach(v => p.error = v)
+    indicating.foreach(v => p.indicating = v)
+    inverted.foreach(v => p.inverted = v)
+    label.toJs.foreach(v => p.label = v)
+    percent.foreach(v => p.percent = v)
+    precision.foreach(v => p.precision = v)
+    progress.foreach(v => p.progress = v)
+    size.toJs.foreach(v => p.size = v)
+    success.foreach(v => p.success = v)
+    total.foreach(v => p.total = v)
+    value.foreach(v => p.value = v)
+    warning.foreach(v => p.warning = v)
     p
   }
 

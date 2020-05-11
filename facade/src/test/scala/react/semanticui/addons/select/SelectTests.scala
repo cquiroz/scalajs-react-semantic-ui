@@ -9,7 +9,7 @@ object SelectTests extends TestSuite {
     test("options") {
       val options =
         List(DropdownItem("abc"), DropdownItem(text = "def", value = 2, selected = true))
-      val select = Select(options = options)
+      val select  = Select(options = options)
       ReactTestUtils.withNewBodyElement { mountNode =>
         select.renderIntoDOM(mountNode)
         val html = mountNode.outerHTML

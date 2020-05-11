@@ -5,11 +5,9 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
-import react.semanticui.sizes._
 import react.semanticui.verticalalignment._
 import japgolly.scalajs.react.vdom.TagMod
 import react.semanticui.elements.label.Label
@@ -17,30 +15,30 @@ import react.semanticui.modules.dimmer.Dimmer
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Image(
-  as:                     js.UndefOr[AsC]                       = js.undefined,
-  avatar:                 js.UndefOr[Boolean]                   = js.undefined,
-  bordered:               js.UndefOr[Boolean]                   = js.undefined,
-  centered:               js.UndefOr[Boolean]                   = js.undefined,
-  circular:               js.UndefOr[Boolean]                   = js.undefined,
-  className:              js.UndefOr[String]                    = js.undefined,
-  clazz:                  js.UndefOr[Css]                       = js.undefined,
-  content:                js.UndefOr[VdomNode]                  = js.undefined,
-  disabled:               js.UndefOr[Boolean]                   = js.undefined,
-  dimmer:                 js.UndefOr[Dimmer]                    = js.undefined,
-  floated:                js.UndefOr[SemanticFloat]             = js.undefined,
-  fluid:                  js.UndefOr[Boolean | String]          = js.undefined,
-  hidden:                 js.UndefOr[Boolean]                   = js.undefined,
-  href:                   js.UndefOr[String]                    = js.undefined,
-  inline:                 js.UndefOr[Boolean]                   = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]         = js.undefined,
-  rounded:                js.UndefOr[Boolean]                   = js.undefined,
-  size:                   js.UndefOr[SemanticSize]              = js.undefined,
-  spaced:                 js.UndefOr[ImageSpaced]               = js.undefined,
-  src:                    js.UndefOr[String]                    = js.undefined,
-  ui:                     js.UndefOr[Boolean]                   = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  avatar:                 js.UndefOr[Boolean] = js.undefined,
+  bordered:               js.UndefOr[Boolean] = js.undefined,
+  centered:               js.UndefOr[Boolean] = js.undefined,
+  circular:               js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  dimmer:                 js.UndefOr[Dimmer] = js.undefined,
+  floated:                js.UndefOr[SemanticFloat] = js.undefined,
+  fluid:                  js.UndefOr[Boolean | String] = js.undefined,
+  hidden:                 js.UndefOr[Boolean] = js.undefined,
+  href:                   js.UndefOr[String] = js.undefined,
+  inline:                 js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  rounded:                js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  spaced:                 js.UndefOr[ImageSpaced] = js.undefined,
+  src:                    js.UndefOr[String] = js.undefined,
+  ui:                     js.UndefOr[Boolean] = js.undefined,
   verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  wrapped:                js.UndefOr[Boolean]                   = js.undefined,
-  override val modifiers: Seq[TagMod]                           = Seq.empty
+  wrapped:                js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Image.ImageProps, Image] {
   override protected def cprops    = Image.props(this)
   override protected val component = Image.component
@@ -135,28 +133,28 @@ object Image {
     q: Image
   ): ImageProps = {
     val p = q.as.toJsObject[ImageProps]
-    q.as.toJs.foreach(v => p.as                          = v)
-    q.avatar.foreach(v => p.avatar                       = v)
-    q.bordered.foreach(v => p.bordered                   = v)
-    q.centered.foreach(v => p.centered                   = v)
-    q.circular.foreach(v => p.circular                   = v)
+    q.as.toJs.foreach(v => p.as = v)
+    q.avatar.foreach(v => p.avatar = v)
+    q.bordered.foreach(v => p.bordered = v)
+    q.centered.foreach(v => p.centered = v)
+    q.circular.foreach(v => p.circular = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.map(_.rawNode).foreach(v => p.content      = v)
-    q.disabled.foreach(v => p.disabled                   = v)
-    q.dimmer.map(_.props).foreach(v => p.dimmer          = v)
-    q.floated.toJs.foreach(v => p.floated                = v)
-    q.fluid.foreach(v => p.fluid                         = v)
-    q.hidden.foreach(v => p.hidden                       = v)
-    q.href.foreach(v => p.href                           = v)
-    q.inline.foreach(v => p.inline                       = v)
-    q.label.toJs.foreach(v => p.label                    = v)
-    q.rounded.foreach(v => p.rounded                     = v)
-    q.size.toJs.foreach(v => p.size                      = v)
-    q.spaced.toJs.foreach(v => p.spaced                  = v)
-    q.src.foreach(v => p.src                             = v)
-    q.ui.foreach(v => p.ui                               = v)
-    q.verticalAlign.toJs.foreach(v => p.verticalAlign    = v)
-    q.wrapped.foreach(v => p.wrapped                     = v)
+    q.content.map(_.rawNode).foreach(v => p.content = v)
+    q.disabled.foreach(v => p.disabled = v)
+    q.dimmer.map(_.props).foreach(v => p.dimmer = v)
+    q.floated.toJs.foreach(v => p.floated = v)
+    q.fluid.foreach(v => p.fluid = v)
+    q.hidden.foreach(v => p.hidden = v)
+    q.href.foreach(v => p.href = v)
+    q.inline.foreach(v => p.inline = v)
+    q.label.toJs.foreach(v => p.label = v)
+    q.rounded.foreach(v => p.rounded = v)
+    q.size.toJs.foreach(v => p.size = v)
+    q.spaced.toJs.foreach(v => p.spaced = v)
+    q.src.foreach(v => p.src = v)
+    q.ui.foreach(v => p.ui = v)
+    q.verticalAlign.toJs.foreach(v => p.verticalAlign = v)
+    q.wrapped.foreach(v => p.wrapped = v)
     p
   }
 

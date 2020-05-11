@@ -29,9 +29,10 @@ object FormButtonTests extends TestSuite {
     }
     test("label") {
       val form =
-        FormButton(width         = Two,
-                   label         = Label(content = "label"),
-                   labelPosition = LabelPosition.Left)("Press")
+        FormButton(width = Two,
+                   label = Label(content = "label"),
+                   labelPosition = LabelPosition.Left
+        )("Press")
       ReactTestUtils.withNewBodyElement { mountNode =>
         form.renderIntoDOM(mountNode)
         assert(

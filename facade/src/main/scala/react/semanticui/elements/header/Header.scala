@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
@@ -16,24 +15,24 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Header(
-  as:                     js.UndefOr[AsC]                   = js.undefined,
-  attached:               js.UndefOr[HeaderAttached]        = js.undefined,
-  block:                  js.UndefOr[Boolean]               = js.undefined,
-  className:              js.UndefOr[String]                = js.undefined,
-  clazz:                  js.UndefOr[Css]                   = js.undefined,
-  color:                  js.UndefOr[SemanticColor]         = js.undefined,
-  content:                js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
-  disabled:               js.UndefOr[Boolean]               = js.undefined,
-  dividing:               js.UndefOr[Boolean]               = js.undefined,
-  floated:                js.UndefOr[SemanticFloat]         = js.undefined,
-  icon:                   js.UndefOr[ShorthandS[Icon]]      = js.undefined,
-  image:                  js.UndefOr[Boolean]               = js.undefined,
-  inverted:               js.UndefOr[Boolean]               = js.undefined,
-  size:                   js.UndefOr[SemanticSize]          = js.undefined,
-  sub:                    js.UndefOr[Boolean]               = js.undefined,
-  subheader:              js.UndefOr[HeaderSubheader]       = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  attached:               js.UndefOr[HeaderAttached] = js.undefined,
+  block:                  js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  dividing:               js.UndefOr[Boolean] = js.undefined,
+  floated:                js.UndefOr[SemanticFloat] = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]] = js.undefined,
+  image:                  js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  sub:                    js.UndefOr[Boolean] = js.undefined,
+  subheader:              js.UndefOr[HeaderSubheader] = js.undefined,
   textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
-  override val modifiers: Seq[TagMod]                       = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Header.HeaderProps, Header] {
   override protected def cprops    = Header.props(this)
   override protected val component = Header.component
@@ -110,61 +109,61 @@ object Header {
 
   def props(q: Header): HeaderProps =
     rawprops(
-      as        = q.as,
-      attached  = q.attached,
-      block     = q.block,
+      as = q.as,
+      attached = q.attached,
+      block = q.block,
       className = q.className,
-      clazz     = q.clazz,
-      color     = q.color,
-      content   = q.content,
-      disabled  = q.disabled,
-      dividing  = q.dividing,
-      floated   = q.floated,
-      icon      = q.icon,
-      image     = q.image,
-      inverted  = q.inverted,
-      size      = q.size,
-      sub       = q.sub,
+      clazz = q.clazz,
+      color = q.color,
+      content = q.content,
+      disabled = q.disabled,
+      dividing = q.dividing,
+      floated = q.floated,
+      icon = q.icon,
+      image = q.image,
+      inverted = q.inverted,
+      size = q.size,
+      sub = q.sub,
       subheader = q.subheader,
       textAlign = q.textAlign
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]                   = js.undefined,
-    attached:  js.UndefOr[HeaderAttached]        = js.undefined,
-    block:     js.UndefOr[Boolean]               = js.undefined,
-    className: js.UndefOr[String]                = js.undefined,
-    clazz:     js.UndefOr[Css]                   = js.undefined,
-    color:     js.UndefOr[SemanticColor]         = js.undefined,
-    content:   js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
-    disabled:  js.UndefOr[Boolean]               = js.undefined,
-    dividing:  js.UndefOr[Boolean]               = js.undefined,
-    floated:   js.UndefOr[SemanticFloat]         = js.undefined,
-    icon:      js.UndefOr[ShorthandS[Icon]]      = js.undefined,
-    image:     js.UndefOr[Boolean]               = js.undefined,
-    inverted:  js.UndefOr[Boolean]               = js.undefined,
-    size:      js.UndefOr[SemanticSize]          = js.undefined,
-    sub:       js.UndefOr[Boolean]               = js.undefined,
-    subheader: js.UndefOr[HeaderSubheader]       = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    attached:  js.UndefOr[HeaderAttached] = js.undefined,
+    block:     js.UndefOr[Boolean] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
+    color:     js.UndefOr[SemanticColor] = js.undefined,
+    content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+    disabled:  js.UndefOr[Boolean] = js.undefined,
+    dividing:  js.UndefOr[Boolean] = js.undefined,
+    floated:   js.UndefOr[SemanticFloat] = js.undefined,
+    icon:      js.UndefOr[ShorthandS[Icon]] = js.undefined,
+    image:     js.UndefOr[Boolean] = js.undefined,
+    inverted:  js.UndefOr[Boolean] = js.undefined,
+    size:      js.UndefOr[SemanticSize] = js.undefined,
+    sub:       js.UndefOr[Boolean] = js.undefined,
+    subheader: js.UndefOr[HeaderSubheader] = js.undefined,
     textAlign: js.UndefOr[SemanticTextAlignment] = js.undefined
   ): HeaderProps = {
     val p = as.toJsObject[HeaderProps]
-    as.toJs.foreach(v => p.as                        = v)
-    attached.toJs.foreach(v => p.attached            = v)
-    block.foreach(v => p.block                       = v)
+    as.toJs.foreach(v => p.as = v)
+    attached.toJs.foreach(v => p.attached = v)
+    block.foreach(v => p.block = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    color.toJs.foreach(v => p.color                  = v)
-    content.toJs.foreach(v => p.content              = v)
-    disabled.foreach(v => p.disabled                 = v)
-    dividing.foreach(v => p.dividing                 = v)
-    floated.toJs.foreach(v => p.floated              = v)
-    icon.toJs.foreach(v => p.icon                    = v)
-    image.foreach(v => p.image                       = v)
-    inverted.foreach(v => p.inverted                 = v)
-    size.toJs.foreach(v => p.size                    = v)
-    sub.foreach(v => p.sub                           = v)
-    subheader.map(_.props).foreach(v => p.subheader  = v)
-    textAlign.toJs.foreach(v => p.textAlign          = v)
+    color.toJs.foreach(v => p.color = v)
+    content.toJs.foreach(v => p.content = v)
+    disabled.foreach(v => p.disabled = v)
+    dividing.foreach(v => p.dividing = v)
+    floated.toJs.foreach(v => p.floated = v)
+    icon.toJs.foreach(v => p.icon = v)
+    image.foreach(v => p.image = v)
+    inverted.foreach(v => p.inverted = v)
+    size.toJs.foreach(v => p.size = v)
+    sub.foreach(v => p.sub = v)
+    subheader.map(_.props).foreach(v => p.subheader = v)
+    textAlign.toJs.foreach(v => p.textAlign = v)
     p
   }
 

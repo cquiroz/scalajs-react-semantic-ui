@@ -53,10 +53,10 @@ object SidebarTests extends TestSuite {
       val sidebar =
         <.div(
           Menu(
-            attached   = MenuAttached.Top,
-            compact    = true,
+            attached = MenuAttached.Top,
+            compact = true,
             borderless = true,
-            tabular    = MenuTabular.Right
+            tabular = MenuTabular.Right
           )(
             MenuItem(as = "a")(
               Icon("bars"),
@@ -69,13 +69,13 @@ object SidebarTests extends TestSuite {
                 Menu(
                   inverted = true,
                   vertical = true,
-                  icon     = MenuIcon.Labeled
+                  icon = MenuIcon.Labeled
                 )
               ),
-              width     = SidebarWidth.Thin,
+              width = SidebarWidth.Thin,
               animation = SidebarAnimation.Push,
               direction = SidebarDirection.Left,
-              visible   = true
+              visible = true
             )(
               MenuItem(as = "a")(Icon("home"), "P I"),
               MenuItem(as = "a")(Icon("home"), "P II")

@@ -8,14 +8,13 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.raw.JsNumber
 import react.semanticui._
 import react.common._
-import react.common.style._
 
 final case class ButtonOr(
-  as:                     js.UndefOr[AsC]               = js.undefined,
-  className:              js.UndefOr[String]            = js.undefined,
-  clazz:                  js.UndefOr[Css]               = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   text:                   js.UndefOr[JsNumber | String] = js.undefined,
-  override val modifiers: Seq[TagMod]                   = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[ButtonOr.ButtonOrProps, ButtonOr] {
   override protected def cprops    = ButtonOr.props(this)
   override protected val component = ButtonOr.component
@@ -29,7 +28,7 @@ object ButtonOr {
     def apply(i: js.Any): js.Any = js.native
   }
   @js.native
-  trait ButtonOrProps extends js.Object {
+  trait ButtonOrProps extends js.Object                    {
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
@@ -52,15 +51,15 @@ object ButtonOr {
     rawprops(q.as, q.className, q.clazz, q.text)
 
   def rawprops(
-    as:        js.UndefOr[AsC]               = js.undefined,
-    className: js.UndefOr[String]            = js.undefined,
-    clazz:     js.UndefOr[Css]               = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     text:      js.UndefOr[JsNumber | String] = js.undefined
   ): ButtonOrProps = {
     val p = as.toJsObject[ButtonOrProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    text.foreach(v => p.text                         = v)
+    text.foreach(v => p.text = v)
     p
   }
 

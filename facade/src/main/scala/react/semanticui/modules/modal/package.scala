@@ -8,7 +8,7 @@ package modal {
   object ModalDimmer {
     implicit val enum: EnumValueB[ModalDimmer] = EnumValueB.toLowerCaseStringT(Dimmer)
 
-    case object Dimmer extends ModalDimmer
+    case object Dimmer   extends ModalDimmer
     case object Blurring extends ModalDimmer
     case object Inverted extends ModalDimmer
   }
@@ -17,10 +17,10 @@ package modal {
   object ModalSize {
     implicit val enum: EnumValue[ModalSize] = EnumValue.toLowerCaseString
 
-    case object Mini extends ModalSize
-    case object Tiny extends ModalSize
-    case object Small extends ModalSize
-    case object Large extends ModalSize
+    case object Mini       extends ModalSize
+    case object Tiny       extends ModalSize
+    case object Small      extends ModalSize
+    case object Large      extends ModalSize
     case object Fullscreen extends ModalSize
   }
 }

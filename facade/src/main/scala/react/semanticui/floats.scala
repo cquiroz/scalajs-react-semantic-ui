@@ -6,7 +6,7 @@ trait Floats {
   sealed trait SemanticFloat extends Product with Serializable
   object SemanticFloat {
     implicit val enum: EnumValue[SemanticFloat] = EnumValue.toLowerCaseString
-    case object Left extends SemanticFloat
+    case object Left  extends SemanticFloat
     case object Right extends SemanticFloat
   }
 }

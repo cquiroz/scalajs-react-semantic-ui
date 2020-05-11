@@ -1,5 +1,19 @@
 # Changes
 
+## 0.5.0
+
+* Updates in dependencies:
+  * react: 16.13.1
+  * scala.js: 1.0.1
+  * scalajs-react: 1.7.0
+  * semantic-ui-react: 0.88.2
+  * react-common: 0.8.1
+  * scalafmt: 2.5.2
+  * jsdom: 16.2.2
+  * webpack: 4.43.0
+  * webpack-dev-server: 3.11.0
+  * All npmDevDependencies.
+
 ## 0.4.12
 
 * Add TextArea facade

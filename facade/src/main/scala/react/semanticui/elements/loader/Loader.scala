@@ -6,24 +6,23 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Loader(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  active:                 js.UndefOr[Boolean]              = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  active:                 js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  disabled:               js.UndefOr[Boolean]              = js.undefined,
-  indeterminate:          js.UndefOr[Boolean]              = js.undefined,
-  inline:                 js.UndefOr[LoaderInline]         = js.undefined,
-  inverted:               js.UndefOr[Boolean]              = js.undefined,
-  size:                   js.UndefOr[SemanticSize]         = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  indeterminate:          js.UndefOr[Boolean] = js.undefined,
+  inline:                 js.UndefOr[LoaderInline] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Loader.LoaderProps, Loader] {
   override protected def cprops    = Loader.props(this)
   override protected val component = Loader.component
@@ -80,15 +79,15 @@ object Loader {
     q: Loader
   ): LoaderProps = {
     val p = q.as.toJsObject[LoaderProps]
-    q.as.toJs.foreach(v => p.as                          = v)
-    q.active.foreach(v => p.active                       = v)
+    q.as.toJs.foreach(v => p.as = v)
+    q.active.foreach(v => p.active = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
-    q.disabled.foreach(v => p.disabled                   = v)
-    q.indeterminate.foreach(v => p.indeterminate         = v)
-    q.inline.toJs.foreach(v => p.inline                  = v)
-    q.inverted.foreach(v => p.inverted                   = v)
-    q.size.toJs.foreach(v => p.size                      = v)
+    q.content.toJs.foreach(v => p.content = v)
+    q.disabled.foreach(v => p.disabled = v)
+    q.indeterminate.foreach(v => p.indeterminate = v)
+    q.inline.toJs.foreach(v => p.inline = v)
+    q.inverted.foreach(v => p.inverted = v)
+    q.size.toJs.foreach(v => p.size = v)
     p
   }
 

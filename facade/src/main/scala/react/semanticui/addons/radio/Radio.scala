@@ -5,41 +5,40 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.modules.checkbox._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Radio(
-  as:                     js.UndefOr[AsC]               = js.undefined,
-  checked:                js.UndefOr[Boolean]           = js.undefined,
-  className:              js.UndefOr[String]            = js.undefined,
-  clazz:                  js.UndefOr[Css]               = js.undefined,
-  defaultChecked:         js.UndefOr[Boolean]           = js.undefined,
-  defaultIndeterminate:   js.UndefOr[Boolean]           = js.undefined,
-  disabled:               js.UndefOr[Boolean]           = js.undefined,
-  fitted:                 js.UndefOr[Boolean]           = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  checked:                js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  defaultChecked:         js.UndefOr[Boolean] = js.undefined,
+  defaultIndeterminate:   js.UndefOr[Boolean] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  fitted:                 js.UndefOr[Boolean] = js.undefined,
   id:                     js.UndefOr[JsNumber | String] = js.undefined,
-  indeterminate:          js.UndefOr[Boolean]           = js.undefined,
-  label:                  js.UndefOr[String]            = js.undefined,
-  name:                   js.UndefOr[String]            = js.undefined,
-  onChangeE:              js.UndefOr[Radio.Event]       = js.undefined,
-  onChange:               js.UndefOr[Callback]          = js.undefined,
-  onClickE:               js.UndefOr[Radio.Event]       = js.undefined,
-  onClick:                js.UndefOr[Callback]          = js.undefined,
-  onMouseDownE:           js.UndefOr[Radio.Event]       = js.undefined,
-  onMouseDown:            js.UndefOr[Callback]          = js.undefined,
-  onMouseUpE:             js.UndefOr[Radio.Event]       = js.undefined,
-  onMouseUp:              js.UndefOr[Callback]          = js.undefined,
-  radio:                  js.UndefOr[Boolean]           = js.undefined,
-  readOnly:               js.UndefOr[Boolean]           = js.undefined,
-  slider:                 js.UndefOr[Boolean]           = js.undefined,
+  indeterminate:          js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[String] = js.undefined,
+  name:                   js.UndefOr[String] = js.undefined,
+  onChangeE:              js.UndefOr[Radio.Event] = js.undefined,
+  onChange:               js.UndefOr[Callback] = js.undefined,
+  onClickE:               js.UndefOr[Radio.Event] = js.undefined,
+  onClick:                js.UndefOr[Callback] = js.undefined,
+  onMouseDownE:           js.UndefOr[Radio.Event] = js.undefined,
+  onMouseDown:            js.UndefOr[Callback] = js.undefined,
+  onMouseUpE:             js.UndefOr[Radio.Event] = js.undefined,
+  onMouseUp:              js.UndefOr[Callback] = js.undefined,
+  radio:                  js.UndefOr[Boolean] = js.undefined,
+  readOnly:               js.UndefOr[Boolean] = js.undefined,
+  slider:                 js.UndefOr[Boolean] = js.undefined,
   tabIndex:               js.UndefOr[JsNumber | String] = js.undefined,
-  toggle:                 js.UndefOr[Boolean]           = js.undefined,
-  tpe:                    js.UndefOr[CheckboxType]      = CheckboxType.Radio,
+  toggle:                 js.UndefOr[Boolean] = js.undefined,
+  tpe:                    js.UndefOr[CheckboxType] = CheckboxType.Radio,
   value:                  js.UndefOr[String | JsNumber] = js.undefined,
-  override val modifiers: Seq[TagMod]                   = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[Radio.RadioProps, Radio] {
   override protected def cprops    = Radio.props(this)
   override protected val component = Radio.component
@@ -183,55 +182,55 @@ object Radio {
     )
 
   def rawprops(
-    as:                   js.UndefOr[AsC]               = js.undefined,
-    checked:              js.UndefOr[Boolean]           = js.undefined,
-    className:            js.UndefOr[String]            = js.undefined,
-    clazz:                js.UndefOr[Css]               = js.undefined,
-    defaultChecked:       js.UndefOr[Boolean]           = js.undefined,
-    defaultIndeterminate: js.UndefOr[Boolean]           = js.undefined,
-    disabled:             js.UndefOr[Boolean]           = js.undefined,
-    fitted:               js.UndefOr[Boolean]           = js.undefined,
+    as:                   js.UndefOr[AsC] = js.undefined,
+    checked:              js.UndefOr[Boolean] = js.undefined,
+    className:            js.UndefOr[String] = js.undefined,
+    clazz:                js.UndefOr[Css] = js.undefined,
+    defaultChecked:       js.UndefOr[Boolean] = js.undefined,
+    defaultIndeterminate: js.UndefOr[Boolean] = js.undefined,
+    disabled:             js.UndefOr[Boolean] = js.undefined,
+    fitted:               js.UndefOr[Boolean] = js.undefined,
     id:                   js.UndefOr[JsNumber | String] = js.undefined,
-    indeterminate:        js.UndefOr[Boolean]           = js.undefined,
-    label:                js.UndefOr[String]            = js.undefined,
-    name:                 js.UndefOr[String]            = js.undefined,
-    onChangeE:            js.UndefOr[Event]             = js.undefined,
-    onChange:             js.UndefOr[Callback]          = js.undefined,
-    onClickE:             js.UndefOr[Event]             = js.undefined,
-    onClick:              js.UndefOr[Callback]          = js.undefined,
-    onMouseDownE:         js.UndefOr[Event]             = js.undefined,
-    onMouseDown:          js.UndefOr[Callback]          = js.undefined,
-    onMouseUpE:           js.UndefOr[Event]             = js.undefined,
-    onMouseUp:            js.UndefOr[Callback]          = js.undefined,
-    radio:                js.UndefOr[Boolean]           = js.undefined,
-    readOnly:             js.UndefOr[Boolean]           = js.undefined,
-    slider:               js.UndefOr[Boolean]           = js.undefined,
+    indeterminate:        js.UndefOr[Boolean] = js.undefined,
+    label:                js.UndefOr[String] = js.undefined,
+    name:                 js.UndefOr[String] = js.undefined,
+    onChangeE:            js.UndefOr[Event] = js.undefined,
+    onChange:             js.UndefOr[Callback] = js.undefined,
+    onClickE:             js.UndefOr[Event] = js.undefined,
+    onClick:              js.UndefOr[Callback] = js.undefined,
+    onMouseDownE:         js.UndefOr[Event] = js.undefined,
+    onMouseDown:          js.UndefOr[Callback] = js.undefined,
+    onMouseUpE:           js.UndefOr[Event] = js.undefined,
+    onMouseUp:            js.UndefOr[Callback] = js.undefined,
+    radio:                js.UndefOr[Boolean] = js.undefined,
+    readOnly:             js.UndefOr[Boolean] = js.undefined,
+    slider:               js.UndefOr[Boolean] = js.undefined,
     tabIndex:             js.UndefOr[JsNumber | String] = js.undefined,
-    toggle:               js.UndefOr[Boolean]           = js.undefined,
-    `type`:               js.UndefOr[CheckboxType]      = js.undefined,
+    toggle:               js.UndefOr[Boolean] = js.undefined,
+    `type`:               js.UndefOr[CheckboxType] = js.undefined,
     value:                js.UndefOr[String | JsNumber] = js.undefined
   ): RadioProps = {
     val p = as.toJsObject[RadioProps]
-    as.toJs.foreach(v => p.as                                   = v)
-    checked.foreach(v => p.checked                              = v)
-    (className, clazz).toJs.foreach(v => p.className            = v)
-    defaultChecked.foreach(v => p.defaultChecked                = v)
-    defaultIndeterminate.foreach(v => p.defaultIndeterminate    = v)
-    disabled.foreach(v => p.disabled                            = v)
-    fitted.foreach(v => p.fitted                                = v)
-    id.foreach(v => p.id                                        = v)
-    indeterminate.foreach(v => p.indeterminate                  = v)
-    label.foreach(v => p.label                                  = v)
-    name.foreach(v => p.name                                    = v)
-    (onChangeE, onChange).toJs.foreach(v => p.onChange          = v)
-    (onClickE, onClick).toJs.foreach(v => p.onClick             = v)
+    as.toJs.foreach(v => p.as = v)
+    checked.foreach(v => p.checked = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    defaultChecked.foreach(v => p.defaultChecked = v)
+    defaultIndeterminate.foreach(v => p.defaultIndeterminate = v)
+    disabled.foreach(v => p.disabled = v)
+    fitted.foreach(v => p.fitted = v)
+    id.foreach(v => p.id = v)
+    indeterminate.foreach(v => p.indeterminate = v)
+    label.foreach(v => p.label = v)
+    name.foreach(v => p.name = v)
+    (onChangeE, onChange).toJs.foreach(v => p.onChange = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick = v)
     (onMouseDownE, onMouseDown).toJs.foreach(v => p.onMouseDown = v)
-    (onMouseUpE, onMouseUp).toJs.foreach(v => p.onMouseUp       = v)
-    radio.foreach(v => p.radio                                  = v)
-    readOnly.foreach(v => p.readOnly                            = v)
-    slider.foreach(v => p.slider                                = v)
-    tabIndex.foreach(v => p.tabIndex                            = v)
-    toggle.foreach(v => p.toggle                                = v)
+    (onMouseUpE, onMouseUp).toJs.foreach(v => p.onMouseUp = v)
+    radio.foreach(v => p.radio = v)
+    readOnly.foreach(v => p.readOnly = v)
+    slider.foreach(v => p.slider = v)
+    tabIndex.foreach(v => p.tabIndex = v)
+    toggle.foreach(v => p.toggle = v)
     p.`type` = `type`.toJs
     value.foreach(v => p.value = v)
     p

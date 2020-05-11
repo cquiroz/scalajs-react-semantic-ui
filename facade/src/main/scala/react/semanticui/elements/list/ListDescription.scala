@@ -4,18 +4,17 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class ListDescription(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ListDescription.ListDescriptionProps, ListDescription] {
   override protected def cprops    = ListDescription.props(this)
   override protected val component = ListDescription.component
@@ -56,15 +55,15 @@ object ListDescription {
     rawprops(q.as, q.className, q.clazz, q.content)
 
   def rawprops(
-    as:        js.UndefOr[AsC]                  = js.undefined,
-    className: js.UndefOr[String]               = js.undefined,
-    clazz:     js.UndefOr[Css]                  = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined
   ): ListDescriptionProps = {
     val p = as.toJsObject[ListDescriptionProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
+    content.toJs.foreach(v => p.content = v)
     p
   }
 

@@ -14,10 +14,10 @@ package sidebar {
       case SlideAlong => "slide along"
     }
     case object Overlay extends SidebarAnimation
-    case object Push extends SidebarAnimation
-    case object ScaleDown extends SidebarAnimation
-    case object Uncover extends SidebarAnimation
-    case object SlideOut extends SidebarAnimation
+    case object Push       extends SidebarAnimation
+    case object ScaleDown  extends SidebarAnimation
+    case object Uncover    extends SidebarAnimation
+    case object SlideOut   extends SidebarAnimation
     case object SlideAlong extends SidebarAnimation
   }
 
@@ -25,10 +25,10 @@ package sidebar {
   object SidebarDirection {
     implicit val enum: EnumValue[SidebarDirection] = EnumValue.toLowerCaseString
 
-    case object Top extends SidebarDirection
-    case object Right extends SidebarDirection
+    case object Top    extends SidebarDirection
+    case object Right  extends SidebarDirection
     case object Bottom extends SidebarDirection
-    case object Left extends SidebarDirection
+    case object Left   extends SidebarDirection
   }
 
   sealed trait SidebarWidth extends Product with Serializable
@@ -40,8 +40,8 @@ package sidebar {
       case VeryWide => "very wide"
     }
     case object VeryThin extends SidebarWidth
-    case object Thin extends SidebarWidth
-    case object Wide extends SidebarWidth
+    case object Thin     extends SidebarWidth
+    case object Wide     extends SidebarWidth
     case object VeryWide extends SidebarWidth
   }
 }

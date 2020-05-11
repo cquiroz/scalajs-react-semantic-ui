@@ -7,7 +7,7 @@ package dimmer {
   object DimmerVerticalAlign {
     implicit val enum: EnumValue[DimmerVerticalAlign] = EnumValue.toLowerCaseString
     case object Bottom extends DimmerVerticalAlign
-    case object Top extends DimmerVerticalAlign
+    case object Top    extends DimmerVerticalAlign
   }
 }
 

@@ -40,37 +40,37 @@ trait Transitions {
       case Glow           => "glow"
     }
 
-    case object Browse extends SemanticTransition
-    case object BrowseRight extends SemanticTransition
-    case object Drop extends SemanticTransition
-    case object Fade extends SemanticTransition
-    case object FadeUp extends SemanticTransition
-    case object FadeDown extends SemanticTransition
-    case object FadeLeft extends SemanticTransition
-    case object FadeRight extends SemanticTransition
-    case object FlyUp extends SemanticTransition
-    case object FlyDown extends SemanticTransition
-    case object FlyLeft extends SemanticTransition
-    case object FlyRight extends SemanticTransition
+    case object Browse         extends SemanticTransition
+    case object BrowseRight    extends SemanticTransition
+    case object Drop           extends SemanticTransition
+    case object Fade           extends SemanticTransition
+    case object FadeUp         extends SemanticTransition
+    case object FadeDown       extends SemanticTransition
+    case object FadeLeft       extends SemanticTransition
+    case object FadeRight      extends SemanticTransition
+    case object FlyUp          extends SemanticTransition
+    case object FlyDown        extends SemanticTransition
+    case object FlyLeft        extends SemanticTransition
+    case object FlyRight       extends SemanticTransition
     case object HorizontalFlip extends SemanticTransition
-    case object VerticalFlip extends SemanticTransition
-    case object Scale extends SemanticTransition
-    case object SlideUp extends SemanticTransition
-    case object SlideDown extends SemanticTransition
-    case object SlideLeft extends SemanticTransition
-    case object SlideRight extends SemanticTransition
-    case object SwingUp extends SemanticTransition
-    case object SwingDown extends SemanticTransition
-    case object SwingLeft extends SemanticTransition
-    case object SwingRight extends SemanticTransition
-    case object Zoom extends SemanticTransition
-    case object Jiggle extends SemanticTransition
-    case object Flash extends SemanticTransition
-    case object Shake extends SemanticTransition
-    case object Pulse extends SemanticTransition
-    case object Tada extends SemanticTransition
-    case object Bounce extends SemanticTransition
-    case object Glow extends SemanticTransition
+    case object VerticalFlip   extends SemanticTransition
+    case object Scale          extends SemanticTransition
+    case object SlideUp        extends SemanticTransition
+    case object SlideDown      extends SemanticTransition
+    case object SlideLeft      extends SemanticTransition
+    case object SlideRight     extends SemanticTransition
+    case object SwingUp        extends SemanticTransition
+    case object SwingDown      extends SemanticTransition
+    case object SwingLeft      extends SemanticTransition
+    case object SwingRight     extends SemanticTransition
+    case object Zoom           extends SemanticTransition
+    case object Jiggle         extends SemanticTransition
+    case object Flash          extends SemanticTransition
+    case object Shake          extends SemanticTransition
+    case object Pulse          extends SemanticTransition
+    case object Tada           extends SemanticTransition
+    case object Bounce         extends SemanticTransition
+    case object Glow           extends SemanticTransition
   }
 }
 

@@ -4,7 +4,6 @@ import scala.scalajs.js
 import js.annotation.JSImport
 import js.|
 import js.JSConverters._
-import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
 import react.common.filterProps
@@ -18,7 +17,7 @@ package semanticui {
     val props: P
   }
 
-  object As {
+  object As          {
     import elements.segment.{ Segment => SUISegment }
     import collections.menu.{ Menu => SUIMenu }
     import collections.grid.{ Grid => SUIGrid }
@@ -124,26 +123,27 @@ package semanticui {
       override val props = removeAs(container.props)
     }
 
-    def asFn(a: As): AsT = a match {
-      case AsTag(tagOf)            => tagOf.tag
-      case Segment(_)              => SUISegment.RawComponent
-      case SidebarPushable(_)      => SUISidebarPushable.RawComponent
-      case SidebarPusher(_)        => SUISidebarPusher.RawComponent
-      case Header(_)               => SUIHeader.RawComponent
-      case Menu(_)                 => SUIMenu.RawComponent
-      case Grid(_)                 => SUIGrid.RawComponent
-      case Form(_)                 => SUIForm.RawComponent
-      case Image(_)                => SUIImage.RawComponent
-      case Divider(_)              => SUIDivider.RawComponent
-      case Checkbox(_)             => SUICheckbox.RawComponent
-      case Loader(_)               => SUILoader.RawComponent
-      case Container(_)            => SUIContainer.RawComponent
-      case Placeholder(_)          => SUIPlaceholder.RawComponent
-      case PlaceholderImage(_)     => SUIPlaceholderImage.RawComponent
-      case PlaceholderHeader(_)    => SUIPlaceholderHeader.RawComponent
-      case PlaceholderParagraph(_) => SUIPlaceholderParagraph.RawComponent
-      case PlaceholderLine(_)      => SUIPlaceholderLine.RawComponent
-    }
+    def asFn(a: As): AsT =
+      a match {
+        case AsTag(tagOf)            => tagOf.tag
+        case Segment(_)              => SUISegment.RawComponent
+        case SidebarPushable(_)      => SUISidebarPushable.RawComponent
+        case SidebarPusher(_)        => SUISidebarPusher.RawComponent
+        case Header(_)               => SUIHeader.RawComponent
+        case Menu(_)                 => SUIMenu.RawComponent
+        case Grid(_)                 => SUIGrid.RawComponent
+        case Form(_)                 => SUIForm.RawComponent
+        case Image(_)                => SUIImage.RawComponent
+        case Divider(_)              => SUIDivider.RawComponent
+        case Checkbox(_)             => SUICheckbox.RawComponent
+        case Loader(_)               => SUILoader.RawComponent
+        case Container(_)            => SUIContainer.RawComponent
+        case Placeholder(_)          => SUIPlaceholder.RawComponent
+        case PlaceholderImage(_)     => SUIPlaceholderImage.RawComponent
+        case PlaceholderHeader(_)    => SUIPlaceholderHeader.RawComponent
+        case PlaceholderParagraph(_) => SUIPlaceholderParagraph.RawComponent
+        case PlaceholderLine(_)      => SUIPlaceholderLine.RawComponent
+      }
   }
 }
 
@@ -170,8 +170,8 @@ package object semanticui
   type ShorthandB[C]  = Boolean | C
   type ShorthandSB[C] = String | Boolean | C
 
-  implicit class CompFnToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(
-    implicit render:                                  C => RenderFn[P]
+  implicit class CompFnToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(implicit
+    render:                                           C => RenderFn[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemS[P]] =
       c.map { d =>
@@ -182,8 +182,8 @@ package object semanticui
       }
   }
 
-  implicit class CompFnToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(
-    implicit render:                                  C => RenderFn[P]
+  implicit class CompFnToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(implicit
+    render:                                           C => RenderFn[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemB[P]] =
       c.map { d =>
@@ -194,8 +194,8 @@ package object semanticui
       }
   }
 
-  implicit class CompFnToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(
-    implicit render:                                   C => RenderFn[P]
+  implicit class CompFnToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(implicit
+    render:                                            C => RenderFn[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
       c.map { d =>
@@ -207,23 +207,23 @@ package object semanticui
       }
   }
 
-  def compToPropS[P <: js.Object, C](c: ShorthandS[C])(
-    implicit render:                    C => Render[P]
+  def compToPropS[P <: js.Object, C](c: ShorthandS[C])(implicit
+    render:                             C => Render[P]
   ): raw.SemanticShorthandItemS[P] =
     (c: Any) match {
       case s: String => s
       case _         => c.asInstanceOf[C].props
     }
 
-  implicit class CompToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(
-    implicit render:                                C => Render[P]
+  implicit class CompToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(implicit
+    render:                                         C => Render[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemS[P]] =
       c.map(d => compToPropS(d)(render))
   }
 
-  implicit class CompToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(
-    implicit render:                                C => Render[P]
+  implicit class CompToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(implicit
+    render:                                         C => Render[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemB[P]] =
       c.map { d =>
@@ -234,8 +234,8 @@ package object semanticui
       }
   }
 
-  implicit class CompToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(
-    implicit render:                                 C => Render[P]
+  implicit class CompToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(implicit
+    render:                                          C => Render[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
       c.map { d =>
@@ -247,8 +247,8 @@ package object semanticui
       }
   }
 
-  implicit class CompSeqToArray[P <: js.Object, C](val c: js.UndefOr[Seq[ShorthandS[C]]])(
-    implicit render:                                      C => Render[P]
+  implicit class CompSeqToArray[P <: js.Object, C](val c: js.UndefOr[Seq[ShorthandS[C]]])(implicit
+    render:                                               C => Render[P]
   ) {
     def toJs: js.UndefOr[js.Array[raw.SemanticShorthandItemS[P]]] =
       c.map(_.map(d => compToPropS(d)(render)).toJSArray)
@@ -287,7 +287,7 @@ package object semanticui
     def toJs: js.UndefOr[AsT] =
       c.map { d =>
         (d: Any) match {
-          case o: As =>
+          case o: As     =>
             As.asFn(o)
           case f: String => f
         }
@@ -296,7 +296,7 @@ package object semanticui
     def toJsObject[A <: js.Object]: A =
       c.map { d =>
           (d: Any) match {
-            case o: As =>
+            case o: As     =>
               o.props.asInstanceOf[A]
             case _: String => (new js.Object).asInstanceOf[A]
           }

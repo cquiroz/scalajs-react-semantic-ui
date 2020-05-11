@@ -15,7 +15,7 @@ object DropdownTests extends TestSuite {
       }
     }
     test("options") {
-      val options =
+      val options  =
         List(DropdownItem("abc"), DropdownItem(text = "def", value = 2))
       val dropdown = Dropdown(options = options)
       ReactTestUtils.withNewBodyElement { mountNode =>
@@ -27,15 +27,16 @@ object DropdownTests extends TestSuite {
       }
     }
     test("additionLabel") {
-      val options =
+      val options  =
         List(DropdownItem("abc"), DropdownItem(text = "def", value = 2))
       val dropdown = Dropdown(options = options,
-                              selection        = false,
-                              search           = true,
-                              defaultOpen      = true,
+                              selection = false,
+                              search = true,
+                              defaultOpen = true,
                               additionPosition = AdditionPosition.Top,
-                              allowAdditions   = true,
-                              additionLabel    = "add")
+                              allowAdditions = true,
+                              additionLabel = "add"
+      )
       ReactTestUtils.withNewBodyElement { mountNode =>
         dropdown.renderIntoDOM(mountNode)
         val html = mountNode.outerHTML

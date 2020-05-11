@@ -6,7 +6,7 @@ package loader {
   sealed trait LoaderInline extends Product with Serializable
   object LoaderInline {
     implicit val enum: EnumValueB[LoaderInline] = EnumValueB.toLowerCaseStringT(Inline)
-    case object Inline extends LoaderInline
+    case object Inline   extends LoaderInline
     case object Centered extends LoaderInline
   }
 }

@@ -7,7 +7,6 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.TagMod
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.icon.Icon
@@ -16,33 +15,33 @@ import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.button.Button
 
 final case class Modal(
-  as:                     js.UndefOr[AsC]                      = js.undefined,
-  actions:                js.UndefOr[Seq[ShorthandS[Button]]]  = js.undefined,
-  basic:                  js.UndefOr[Boolean]                  = js.undefined,
-  centered:               js.UndefOr[Boolean]                  = js.undefined,
-  className:              js.UndefOr[String]                   = js.undefined,
-  clazz:                  js.UndefOr[Css]                      = js.undefined,
-  closeIcon:              js.UndefOr[Icon]                     = js.undefined,
-  closeOnDimmerClick:     js.UndefOr[Boolean]                  = js.undefined,
-  closeOnDocumentClick:   js.UndefOr[Boolean]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  actions:                js.UndefOr[Seq[ShorthandS[Button]]] = js.undefined,
+  basic:                  js.UndefOr[Boolean] = js.undefined,
+  centered:               js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  closeIcon:              js.UndefOr[Icon] = js.undefined,
+  closeOnDimmerClick:     js.UndefOr[Boolean] = js.undefined,
+  closeOnDocumentClick:   js.UndefOr[Boolean] = js.undefined,
   content:                js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
-  defaultOpen:            js.UndefOr[Boolean]                  = js.undefined,
-  dimmer:                 js.UndefOr[ModalDimmer]              = js.undefined,
-  eventPool:              js.UndefOr[String]                   = js.undefined,
-  header:                 js.UndefOr[ShorthandS[ModalHeader]]  = js.undefined,
-  onActionClickE:         js.UndefOr[Modal.OnActionClick]      = js.undefined,
-  onActionClick:          js.UndefOr[Callback]                 = js.undefined,
-  onCloseE:               js.UndefOr[Modal.OnClose]            = js.undefined,
-  onClose:                js.UndefOr[Callback]                 = js.undefined,
-  onOpenE:                js.UndefOr[Modal.OnOpen]             = js.undefined,
-  onOpen:                 js.UndefOr[Callback]                 = js.undefined,
-  onMountE:               js.UndefOr[Modal.OnMount]            = js.undefined,
-  onMount:                js.UndefOr[Callback]                 = js.undefined,
-  open:                   js.UndefOr[Boolean]                  = js.undefined,
-  size:                   js.UndefOr[ModalSize]                = js.undefined,
-  style:                  js.UndefOr[Style]                    = js.undefined,
-  trigger:                js.UndefOr[VdomNode]                 = js.undefined,
-  override val modifiers: Seq[TagMod]                          = Seq.empty
+  defaultOpen:            js.UndefOr[Boolean] = js.undefined,
+  dimmer:                 js.UndefOr[ModalDimmer] = js.undefined,
+  eventPool:              js.UndefOr[String] = js.undefined,
+  header:                 js.UndefOr[ShorthandS[ModalHeader]] = js.undefined,
+  onActionClickE:         js.UndefOr[Modal.OnActionClick] = js.undefined,
+  onActionClick:          js.UndefOr[Callback] = js.undefined,
+  onCloseE:               js.UndefOr[Modal.OnClose] = js.undefined,
+  onClose:                js.UndefOr[Callback] = js.undefined,
+  onOpenE:                js.UndefOr[Modal.OnOpen] = js.undefined,
+  onOpen:                 js.UndefOr[Callback] = js.undefined,
+  onMountE:               js.UndefOr[Modal.OnMount] = js.undefined,
+  onMount:                js.UndefOr[Callback] = js.undefined,
+  open:                   js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[ModalSize] = js.undefined,
+  style:                  js.UndefOr[Style] = js.undefined,
+  trigger:                js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Modal.ModalProps, Modal] {
   override protected def cprops    = Modal.props(this)
   override protected val component = Modal.component
@@ -205,56 +204,56 @@ object Modal {
     )
 
   def rawprops(
-    as:                   js.UndefOr[AsC]                      = js.undefined,
-    actions:              js.UndefOr[Seq[ShorthandS[Button]]]  = js.undefined,
-    basic:                js.UndefOr[Boolean]                  = js.undefined,
-    centered:             js.UndefOr[Boolean]                  = js.undefined,
-    className:            js.UndefOr[String]                   = js.undefined,
-    clazz:                js.UndefOr[Css]                      = js.undefined,
-    closeIcon:            js.UndefOr[Icon]                     = js.undefined,
-    closeOnDimmerClick:   js.UndefOr[Boolean]                  = js.undefined,
-    closeOnDocumentClick: js.UndefOr[Boolean]                  = js.undefined,
+    as:                   js.UndefOr[AsC] = js.undefined,
+    actions:              js.UndefOr[Seq[ShorthandS[Button]]] = js.undefined,
+    basic:                js.UndefOr[Boolean] = js.undefined,
+    centered:             js.UndefOr[Boolean] = js.undefined,
+    className:            js.UndefOr[String] = js.undefined,
+    clazz:                js.UndefOr[Css] = js.undefined,
+    closeIcon:            js.UndefOr[Icon] = js.undefined,
+    closeOnDimmerClick:   js.UndefOr[Boolean] = js.undefined,
+    closeOnDocumentClick: js.UndefOr[Boolean] = js.undefined,
     content:              js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
-    defaultOpen:          js.UndefOr[Boolean]                  = js.undefined,
-    dimmer:               js.UndefOr[ModalDimmer]              = js.undefined,
-    eventPool:            js.UndefOr[String]                   = js.undefined,
-    header:               js.UndefOr[ShorthandS[ModalHeader]]  = js.undefined,
-    onActionClickE:       js.UndefOr[OnActionClick]            = js.undefined,
-    onActionClick:        js.UndefOr[Callback]                 = js.undefined,
-    onCloseE:             js.UndefOr[OnClose]                  = js.undefined,
-    onClose:              js.UndefOr[Callback]                 = js.undefined,
-    onOpenE:              js.UndefOr[OnOpen]                   = js.undefined,
-    onOpen:               js.UndefOr[Callback]                 = js.undefined,
-    onMountE:             js.UndefOr[OnMount]                  = js.undefined,
-    onMount:              js.UndefOr[Callback]                 = js.undefined,
-    open:                 js.UndefOr[Boolean]                  = js.undefined,
-    size:                 js.UndefOr[ModalSize]                = js.undefined,
-    style:                js.UndefOr[Style]                    = js.undefined,
-    trigger:              js.UndefOr[VdomNode]                 = js.undefined
+    defaultOpen:          js.UndefOr[Boolean] = js.undefined,
+    dimmer:               js.UndefOr[ModalDimmer] = js.undefined,
+    eventPool:            js.UndefOr[String] = js.undefined,
+    header:               js.UndefOr[ShorthandS[ModalHeader]] = js.undefined,
+    onActionClickE:       js.UndefOr[OnActionClick] = js.undefined,
+    onActionClick:        js.UndefOr[Callback] = js.undefined,
+    onCloseE:             js.UndefOr[OnClose] = js.undefined,
+    onClose:              js.UndefOr[Callback] = js.undefined,
+    onOpenE:              js.UndefOr[OnOpen] = js.undefined,
+    onOpen:               js.UndefOr[Callback] = js.undefined,
+    onMountE:             js.UndefOr[OnMount] = js.undefined,
+    onMount:              js.UndefOr[Callback] = js.undefined,
+    open:                 js.UndefOr[Boolean] = js.undefined,
+    size:                 js.UndefOr[ModalSize] = js.undefined,
+    style:                js.UndefOr[Style] = js.undefined,
+    trigger:              js.UndefOr[VdomNode] = js.undefined
   ): ModalProps = {
     val p = as.toJsObject[ModalProps]
-    as.toJs.foreach(v => p.as                                         = v)
-    actions.toJs.foreach(v => p.actions                               = v)
-    basic.foreach(v => p.basic                                        = v)
-    centered.foreach(v => p.centered                                  = v)
-    (className, clazz).toJs.foreach(v => p.className                  = v)
-    closeIcon.map(_.props).foreach(v => p.closeIcon                   = v)
-    closeOnDimmerClick.foreach(v => p.closeOnDimmerClick              = v)
-    closeOnDocumentClick.foreach(v => p.closeOnDocumentClick          = v)
-    content.toJs.foreach(v => p.content                               = v)
-    defaultOpen.foreach(v => p.defaultOpen                            = v)
-    dimmer.toJs.foreach(v => p.dimmer                                 = v)
-    eventPool.foreach(v => p.eventPool                                = v)
-    header.toJs.foreach(v => p.header                                 = v)
+    as.toJs.foreach(v => p.as = v)
+    actions.toJs.foreach(v => p.actions = v)
+    basic.foreach(v => p.basic = v)
+    centered.foreach(v => p.centered = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    closeIcon.map(_.props).foreach(v => p.closeIcon = v)
+    closeOnDimmerClick.foreach(v => p.closeOnDimmerClick = v)
+    closeOnDocumentClick.foreach(v => p.closeOnDocumentClick = v)
+    content.toJs.foreach(v => p.content = v)
+    defaultOpen.foreach(v => p.defaultOpen = v)
+    dimmer.toJs.foreach(v => p.dimmer = v)
+    eventPool.foreach(v => p.eventPool = v)
+    header.toJs.foreach(v => p.header = v)
     (onActionClickE, onActionClick).toJs.foreach(v => p.onActionClick = v)
-    (onCloseE, onClose).toJs.foreach(v => p.onClose                   = v)
+    (onCloseE, onClose).toJs.foreach(v => p.onClose = v)
     (onMountE, onMount).toJs
       .map[RawOnMount](f => (_, p: Modal.ModalProps) => f(p))
-      .foreach(v => p.onMount                    = v)
-    open.foreach(v => p.open                     = v)
-    size.toJs.foreach(v => p.size                = v)
+      .foreach(v => p.onMount = v)
+    open.foreach(v => p.open = v)
+    size.toJs.foreach(v => p.size = v)
     style.map(_.toJsObject).foreach(v => p.style = v)
-    trigger.toJs.foreach(v => p.trigger          = v)
+    trigger.toJs.foreach(v => p.trigger = v)
     p
   }
 

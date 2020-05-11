@@ -7,36 +7,35 @@ import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class ButtonGroup(
-  as:                     js.UndefOr[AsC]              = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
   attached:               js.UndefOr[Boolean | String] = js.undefined,
-  basic:                  js.UndefOr[Boolean]          = js.undefined,
-  buttons:                js.UndefOr[Seq[Button]]      = js.undefined,
-  className:              js.UndefOr[String]           = js.undefined,
-  clazz:                  js.UndefOr[Css]              = js.undefined,
-  color:                  js.UndefOr[SemanticColor]    = js.undefined,
-  compact:                js.UndefOr[Boolean]          = js.undefined,
-  content:                js.UndefOr[Seq[VdomNode]]    = js.undefined,
-  floated:                js.UndefOr[SemanticFloat]    = js.undefined,
-  fluid:                  js.UndefOr[Boolean]          = js.undefined,
-  icon:                   js.UndefOr[Boolean]          = js.undefined,
-  inverted:               js.UndefOr[Boolean]          = js.undefined,
-  labeled:                js.UndefOr[Boolean]          = js.undefined,
-  negative:               js.UndefOr[Boolean]          = js.undefined,
-  positive:               js.UndefOr[Boolean]          = js.undefined,
-  primary:                js.UndefOr[Boolean]          = js.undefined,
-  secondary:              js.UndefOr[Boolean]          = js.undefined,
-  size:                   js.UndefOr[SemanticSize]     = js.undefined,
-  toggle:                 js.UndefOr[Boolean]          = js.undefined,
-  vertical:               js.UndefOr[Boolean]          = js.undefined,
-  widths:                 js.UndefOr[SemanticWidth]    = js.undefined,
-  override val modifiers: Seq[TagMod]                  = Seq.empty
+  basic:                  js.UndefOr[Boolean] = js.undefined,
+  buttons:                js.UndefOr[Seq[Button]] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
+  compact:                js.UndefOr[Boolean] = js.undefined,
+  content:                js.UndefOr[Seq[VdomNode]] = js.undefined,
+  floated:                js.UndefOr[SemanticFloat] = js.undefined,
+  fluid:                  js.UndefOr[Boolean] = js.undefined,
+  icon:                   js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  labeled:                js.UndefOr[Boolean] = js.undefined,
+  negative:               js.UndefOr[Boolean] = js.undefined,
+  positive:               js.UndefOr[Boolean] = js.undefined,
+  primary:                js.UndefOr[Boolean] = js.undefined,
+  secondary:              js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  toggle:                 js.UndefOr[Boolean] = js.undefined,
+  vertical:               js.UndefOr[Boolean] = js.undefined,
+  widths:                 js.UndefOr[SemanticWidth] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[ButtonGroup.ButtonGroupProps, ButtonGroup] {
   override protected def cprops    = ButtonGroup.props(this)
   override protected val component = ButtonGroup.component
@@ -150,50 +149,50 @@ object ButtonGroup {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]              = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
     attached:  js.UndefOr[Boolean | String] = js.undefined,
-    basic:     js.UndefOr[Boolean]          = js.undefined,
-    buttons:   js.UndefOr[Seq[Button]]      = js.undefined,
-    className: js.UndefOr[String]           = js.undefined,
-    clazz:     js.UndefOr[Css]              = js.undefined,
-    color:     js.UndefOr[SemanticColor]    = js.undefined,
-    compact:   js.UndefOr[Boolean]          = js.undefined,
-    content:   js.UndefOr[Seq[VdomNode]]    = js.undefined,
-    floated:   js.UndefOr[SemanticFloat]    = js.undefined,
-    fluid:     js.UndefOr[Boolean]          = js.undefined,
-    icon:      js.UndefOr[Boolean]          = js.undefined,
-    inverted:  js.UndefOr[Boolean]          = js.undefined,
-    labeled:   js.UndefOr[Boolean]          = js.undefined,
-    negative:  js.UndefOr[Boolean]          = js.undefined,
-    positive:  js.UndefOr[Boolean]          = js.undefined,
-    primary:   js.UndefOr[Boolean]          = js.undefined,
-    secondary: js.UndefOr[Boolean]          = js.undefined,
-    size:      js.UndefOr[SemanticSize]     = js.undefined,
-    toggle:    js.UndefOr[Boolean]          = js.undefined,
-    vertical:  js.UndefOr[Boolean]          = js.undefined,
-    widths:    js.UndefOr[SemanticWidth]    = js.undefined
+    basic:     js.UndefOr[Boolean] = js.undefined,
+    buttons:   js.UndefOr[Seq[Button]] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
+    color:     js.UndefOr[SemanticColor] = js.undefined,
+    compact:   js.UndefOr[Boolean] = js.undefined,
+    content:   js.UndefOr[Seq[VdomNode]] = js.undefined,
+    floated:   js.UndefOr[SemanticFloat] = js.undefined,
+    fluid:     js.UndefOr[Boolean] = js.undefined,
+    icon:      js.UndefOr[Boolean] = js.undefined,
+    inverted:  js.UndefOr[Boolean] = js.undefined,
+    labeled:   js.UndefOr[Boolean] = js.undefined,
+    negative:  js.UndefOr[Boolean] = js.undefined,
+    positive:  js.UndefOr[Boolean] = js.undefined,
+    primary:   js.UndefOr[Boolean] = js.undefined,
+    secondary: js.UndefOr[Boolean] = js.undefined,
+    size:      js.UndefOr[SemanticSize] = js.undefined,
+    toggle:    js.UndefOr[Boolean] = js.undefined,
+    vertical:  js.UndefOr[Boolean] = js.undefined,
+    widths:    js.UndefOr[SemanticWidth] = js.undefined
   ): ButtonGroupProps = {
     val p = as.toJsObject[ButtonGroupProps]
-    as.toJs.foreach(v => p.as                                                  = v)
-    attached.foreach(v => p.attached                                           = v)
-    basic.foreach(v => p.basic                                                 = v)
+    as.toJs.foreach(v => p.as = v)
+    attached.foreach(v => p.attached = v)
+    basic.foreach(v => p.basic = v)
     buttons.map(x => x.map(btn => btn.props).toJSArray).foreach(v => p.buttons = v)
-    (className, clazz).toJs.foreach(v => p.className                           = v)
-    color.toJs.foreach(v => p.color                                            = v)
-    compact.foreach(v => p.compact                                             = v)
-    content.map(_.map(_.rawNode).toJSArray).foreach(v => p.content             = v)
-    floated.toJs.foreach(v => p.floated                                        = v)
-    icon.foreach(v => p.icon                                                   = v)
-    inverted.foreach(v => p.inverted                                           = v)
-    labeled.foreach(v => p.labeled                                             = v)
-    negative.foreach(v => p.negative                                           = v)
-    positive.foreach(v => p.positive                                           = v)
-    primary.foreach(v => p.primary                                             = v)
-    secondary.foreach(v => p.secondary                                         = v)
-    size.toJs.foreach(v => p.size                                              = v)
-    toggle.foreach(v => p.toggle                                               = v)
-    vertical.foreach(v => p.vertical                                           = v)
-    widths.toJs.foreach(v => p.widths                                          = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    color.toJs.foreach(v => p.color = v)
+    compact.foreach(v => p.compact = v)
+    content.map(_.map(_.rawNode).toJSArray).foreach(v => p.content = v)
+    floated.toJs.foreach(v => p.floated = v)
+    icon.foreach(v => p.icon = v)
+    inverted.foreach(v => p.inverted = v)
+    labeled.foreach(v => p.labeled = v)
+    negative.foreach(v => p.negative = v)
+    positive.foreach(v => p.positive = v)
+    primary.foreach(v => p.primary = v)
+    secondary.foreach(v => p.secondary = v)
+    size.toJs.foreach(v => p.size = v)
+    toggle.foreach(v => p.toggle = v)
+    vertical.foreach(v => p.vertical = v)
+    widths.toJs.foreach(v => p.widths = v)
     p
   }
 

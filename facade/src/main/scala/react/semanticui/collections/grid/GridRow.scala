@@ -5,26 +5,25 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class GridRow(
-  as:                     js.UndefOr[AsC]                         = js.undefined,
-  centered:               js.UndefOr[Boolean]                     = js.undefined,
-  className:              js.UndefOr[String]                      = js.undefined,
-  clazz:                  js.UndefOr[Css]                         = js.undefined,
-  color:                  js.UndefOr[SemanticColor]               = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  centered:               js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
   columns:                js.UndefOr[SemanticWidth | GridColumns] = js.undefined,
-  divided:                js.UndefOr[Boolean]                     = js.undefined,
-  only:                   js.UndefOr[GridOnly]                    = js.undefined,
-  reversed:               js.UndefOr[GridReversed]                = js.undefined,
-  stretched:              js.UndefOr[Boolean]                     = js.undefined,
-  textAlign:              js.UndefOr[SemanticTextAlignment]       = js.undefined,
-  verticalAlign:          js.UndefOr[SemanticVerticalAlignment]   = js.undefined,
-  override val modifiers: Seq[TagMod]                             = Seq.empty
+  divided:                js.UndefOr[Boolean] = js.undefined,
+  only:                   js.UndefOr[GridOnly] = js.undefined,
+  reversed:               js.UndefOr[GridReversed] = js.undefined,
+  stretched:              js.UndefOr[Boolean] = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[GridRow.GridRowProps, GridRow] {
   override protected def cprops    = GridRow.props(this)
   override protected val component = GridRow.component
@@ -95,38 +94,39 @@ object GridRow {
              q.reversed,
              q.stretched,
              q.textAlign,
-             q.verticalAlign)
+             q.verticalAlign
+    )
 
   def rawprops(
-    as:            js.UndefOr[AsC]                         = js.undefined,
-    centered:      js.UndefOr[Boolean]                     = js.undefined,
-    className:     js.UndefOr[String]                      = js.undefined,
-    clazz:         js.UndefOr[Css]                         = js.undefined,
-    color:         js.UndefOr[SemanticColor]               = js.undefined,
+    as:            js.UndefOr[AsC] = js.undefined,
+    centered:      js.UndefOr[Boolean] = js.undefined,
+    className:     js.UndefOr[String] = js.undefined,
+    clazz:         js.UndefOr[Css] = js.undefined,
+    color:         js.UndefOr[SemanticColor] = js.undefined,
     columns:       js.UndefOr[SemanticWidth | GridColumns] = js.undefined,
-    divided:       js.UndefOr[Boolean]                     = js.undefined,
-    only:          js.UndefOr[GridOnly]                    = js.undefined,
-    reversed:      js.UndefOr[GridReversed]                = js.undefined,
-    stretched:     js.UndefOr[Boolean]                     = js.undefined,
-    textAlign:     js.UndefOr[SemanticTextAlignment]       = js.undefined,
-    verticalAlign: js.UndefOr[SemanticVerticalAlignment]   = js.undefined
+    divided:       js.UndefOr[Boolean] = js.undefined,
+    only:          js.UndefOr[GridOnly] = js.undefined,
+    reversed:      js.UndefOr[GridReversed] = js.undefined,
+    stretched:     js.UndefOr[Boolean] = js.undefined,
+    textAlign:     js.UndefOr[SemanticTextAlignment] = js.undefined,
+    verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
   ): GridRowProps = {
     val p = as.toJsObject[GridRowProps]
-    as.toJs.foreach(v => p.as                        = v)
-    centered.foreach(v => p.centered                 = v)
+    as.toJs.foreach(v => p.as = v)
+    centered.foreach(v => p.centered = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    color.toJs.foreach(v => p.color                  = v)
+    color.toJs.foreach(v => p.color = v)
     columns
       .map((_: Any) match {
         case s: GridColumns => s.toJs
         case s              => s.asInstanceOf[SemanticWidth].toJs
       })
-      .foreach(v => p.columns                       = v)
-    divided.foreach(v => p.divided                  = v)
-    only.toJs.foreach(v => p.only                   = v)
-    reversed.toJs.foreach(v => p.reversed           = v)
-    stretched.foreach(v => p.stretched              = v)
-    textAlign.toJs.foreach(v => p.textAlign         = v)
+      .foreach(v => p.columns = v)
+    divided.foreach(v => p.divided = v)
+    only.toJs.foreach(v => p.only = v)
+    reversed.toJs.foreach(v => p.reversed = v)
+    stretched.foreach(v => p.stretched = v)
+    textAlign.toJs.foreach(v => p.textAlign = v)
     verticalAlign.toJs.foreach(v => p.verticalAlign = v)
     p
   }

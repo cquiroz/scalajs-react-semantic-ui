@@ -10,30 +10,30 @@ import react.common._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Portal(
-  closeOnDocumentClick:     js.UndefOr[Boolean]          = js.undefined,
-  closeOnEscape:            js.UndefOr[Boolean]          = js.undefined,
-  closeOnPortalMouseLeave:  js.UndefOr[Boolean]          = js.undefined,
-  closeOnTriggerBlur:       js.UndefOr[Boolean]          = js.undefined,
-  closeOnTriggerClick:      js.UndefOr[Boolean]          = js.undefined,
-  closeOnTriggerMouseLeave: js.UndefOr[Boolean]          = js.undefined,
-  defaultOpen:              js.UndefOr[Boolean]          = js.undefined,
-  eventPool:                js.UndefOr[String]           = js.undefined,
-  mouseEnterDelay:          js.UndefOr[JsNumber]         = js.undefined,
-  mouseLeaveDelay:          js.UndefOr[JsNumber]         = js.undefined,
-  onCloseE:                 js.UndefOr[Portal.OnClose]   = js.undefined,
-  onClose:                  js.UndefOr[Callback]         = js.undefined,
-  onMountE:                 js.UndefOr[Portal.OnMount]   = js.undefined,
-  onMount:                  js.UndefOr[Callback]         = js.undefined,
-  onOpenE:                  js.UndefOr[Portal.OnOpen]    = js.undefined,
-  onOpen:                   js.UndefOr[Callback]         = js.undefined,
+  closeOnDocumentClick:     js.UndefOr[Boolean] = js.undefined,
+  closeOnEscape:            js.UndefOr[Boolean] = js.undefined,
+  closeOnPortalMouseLeave:  js.UndefOr[Boolean] = js.undefined,
+  closeOnTriggerBlur:       js.UndefOr[Boolean] = js.undefined,
+  closeOnTriggerClick:      js.UndefOr[Boolean] = js.undefined,
+  closeOnTriggerMouseLeave: js.UndefOr[Boolean] = js.undefined,
+  defaultOpen:              js.UndefOr[Boolean] = js.undefined,
+  eventPool:                js.UndefOr[String] = js.undefined,
+  mouseEnterDelay:          js.UndefOr[JsNumber] = js.undefined,
+  mouseLeaveDelay:          js.UndefOr[JsNumber] = js.undefined,
+  onCloseE:                 js.UndefOr[Portal.OnClose] = js.undefined,
+  onClose:                  js.UndefOr[Callback] = js.undefined,
+  onMountE:                 js.UndefOr[Portal.OnMount] = js.undefined,
+  onMount:                  js.UndefOr[Callback] = js.undefined,
+  onOpenE:                  js.UndefOr[Portal.OnOpen] = js.undefined,
+  onOpen:                   js.UndefOr[Callback] = js.undefined,
   onUnmountE:               js.UndefOr[Portal.OnUnmount] = js.undefined,
-  onUnmount:                js.UndefOr[Callback]         = js.undefined,
-  open:                     js.UndefOr[Boolean]          = js.undefined,
-  openOnTriggerClick:       js.UndefOr[Boolean]          = js.undefined,
-  openOnTriggerFocus:       js.UndefOr[Boolean]          = js.undefined,
-  openOnTriggerMouseEnter:  js.UndefOr[Boolean]          = js.undefined,
-  trigger:                  js.UndefOr[VdomNode]         = js.undefined,
-  override val modifiers:   Seq[TagMod]                  = Seq.empty
+  onUnmount:                js.UndefOr[Callback] = js.undefined,
+  open:                     js.UndefOr[Boolean] = js.undefined,
+  openOnTriggerClick:       js.UndefOr[Boolean] = js.undefined,
+  openOnTriggerFocus:       js.UndefOr[Boolean] = js.undefined,
+  openOnTriggerMouseEnter:  js.UndefOr[Boolean] = js.undefined,
+  trigger:                  js.UndefOr[VdomNode] = js.undefined,
+  override val modifiers:   Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Portal.PortalProps, Portal] {
   override protected def cprops    = Portal.props(this)
   override protected val component = Portal.component
@@ -181,50 +181,50 @@ object Portal {
     )
 
   def rawprops(
-    closeOnDocumentClick:     js.UndefOr[Boolean]          = js.undefined,
-    closeOnEscape:            js.UndefOr[Boolean]          = js.undefined,
-    closeOnPortalMouseLeave:  js.UndefOr[Boolean]          = js.undefined,
-    closeOnTriggerBlur:       js.UndefOr[Boolean]          = js.undefined,
-    closeOnTriggerClick:      js.UndefOr[Boolean]          = js.undefined,
-    closeOnTriggerMouseLeave: js.UndefOr[Boolean]          = js.undefined,
-    defaultOpen:              js.UndefOr[Boolean]          = js.undefined,
-    eventPool:                js.UndefOr[String]           = js.undefined,
-    mouseEnterDelay:          js.UndefOr[JsNumber]         = js.undefined,
-    mouseLeaveDelay:          js.UndefOr[JsNumber]         = js.undefined,
-    onCloseE:                 js.UndefOr[Portal.OnClose]   = js.undefined,
-    onClose:                  js.UndefOr[Callback]         = js.undefined,
-    onMountE:                 js.UndefOr[Portal.OnMount]   = js.undefined,
-    onMount:                  js.UndefOr[Callback]         = js.undefined,
-    onOpenE:                  js.UndefOr[Portal.OnOpen]    = js.undefined,
-    onOpen:                   js.UndefOr[Callback]         = js.undefined,
+    closeOnDocumentClick:     js.UndefOr[Boolean] = js.undefined,
+    closeOnEscape:            js.UndefOr[Boolean] = js.undefined,
+    closeOnPortalMouseLeave:  js.UndefOr[Boolean] = js.undefined,
+    closeOnTriggerBlur:       js.UndefOr[Boolean] = js.undefined,
+    closeOnTriggerClick:      js.UndefOr[Boolean] = js.undefined,
+    closeOnTriggerMouseLeave: js.UndefOr[Boolean] = js.undefined,
+    defaultOpen:              js.UndefOr[Boolean] = js.undefined,
+    eventPool:                js.UndefOr[String] = js.undefined,
+    mouseEnterDelay:          js.UndefOr[JsNumber] = js.undefined,
+    mouseLeaveDelay:          js.UndefOr[JsNumber] = js.undefined,
+    onCloseE:                 js.UndefOr[Portal.OnClose] = js.undefined,
+    onClose:                  js.UndefOr[Callback] = js.undefined,
+    onMountE:                 js.UndefOr[Portal.OnMount] = js.undefined,
+    onMount:                  js.UndefOr[Callback] = js.undefined,
+    onOpenE:                  js.UndefOr[Portal.OnOpen] = js.undefined,
+    onOpen:                   js.UndefOr[Callback] = js.undefined,
     onUnmountE:               js.UndefOr[Portal.OnUnmount] = js.undefined,
-    onUnmount:                js.UndefOr[Callback]         = js.undefined,
-    open:                     js.UndefOr[Boolean]          = js.undefined,
-    openOnTriggerClick:       js.UndefOr[Boolean]          = js.undefined,
-    openOnTriggerFocus:       js.UndefOr[Boolean]          = js.undefined,
-    openOnTriggerMouseEnter:  js.UndefOr[Boolean]          = js.undefined,
-    trigger:                  js.UndefOr[VdomNode]         = js.undefined
+    onUnmount:                js.UndefOr[Callback] = js.undefined,
+    open:                     js.UndefOr[Boolean] = js.undefined,
+    openOnTriggerClick:       js.UndefOr[Boolean] = js.undefined,
+    openOnTriggerFocus:       js.UndefOr[Boolean] = js.undefined,
+    openOnTriggerMouseEnter:  js.UndefOr[Boolean] = js.undefined,
+    trigger:                  js.UndefOr[VdomNode] = js.undefined
   ): PortalProps = {
     val p = (new js.Object).asInstanceOf[PortalProps]
-    closeOnDocumentClick.foreach(v => p.closeOnDocumentClick         = v)
-    closeOnEscape.foreach(v => p.closeOnEscape                       = v)
-    closeOnPortalMouseLeave.foreach(v => p.closeOnPortalMouseLeave   = v)
-    closeOnTriggerBlur.foreach(v => p.closeOnTriggerBlur             = v)
-    closeOnTriggerClick.foreach(v => p.closeOnTriggerClick           = v)
+    closeOnDocumentClick.foreach(v => p.closeOnDocumentClick = v)
+    closeOnEscape.foreach(v => p.closeOnEscape = v)
+    closeOnPortalMouseLeave.foreach(v => p.closeOnPortalMouseLeave = v)
+    closeOnTriggerBlur.foreach(v => p.closeOnTriggerBlur = v)
+    closeOnTriggerClick.foreach(v => p.closeOnTriggerClick = v)
     closeOnTriggerMouseLeave.foreach(v => p.closeOnTriggerMouseLeave = v)
-    defaultOpen.foreach(v => p.defaultOpen                           = v)
-    eventPool.foreach(v => p.eventPool                               = v)
-    mouseEnterDelay.foreach(v => p.mouseEnterDelay                   = v)
-    mouseLeaveDelay.foreach(v => p.mouseLeaveDelay                   = v)
-    (onCloseE, onClose).toJs.foreach(v => p.onClose                  = v)
-    (onMountE, onMount).toJs.foreach(v => p.onMount                  = v)
-    (onOpenE, onOpen).toJs.foreach(v => p.onOpen                     = v)
-    (onUnmountE, onUnmount).toJs.foreach(v => p.onUnmount            = v)
-    open.foreach(v => p.open                                         = v)
-    openOnTriggerClick.foreach(v => p.openOnTriggerClick             = v)
-    openOnTriggerFocus.foreach(v => p.openOnTriggerFocus             = v)
-    openOnTriggerMouseEnter.foreach(v => p.openOnTriggerMouseEnter   = v)
-    trigger.toJs.foreach(v => p.trigger                              = v)
+    defaultOpen.foreach(v => p.defaultOpen = v)
+    eventPool.foreach(v => p.eventPool = v)
+    mouseEnterDelay.foreach(v => p.mouseEnterDelay = v)
+    mouseLeaveDelay.foreach(v => p.mouseLeaveDelay = v)
+    (onCloseE, onClose).toJs.foreach(v => p.onClose = v)
+    (onMountE, onMount).toJs.foreach(v => p.onMount = v)
+    (onOpenE, onOpen).toJs.foreach(v => p.onOpen = v)
+    (onUnmountE, onUnmount).toJs.foreach(v => p.onUnmount = v)
+    open.foreach(v => p.open = v)
+    openOnTriggerClick.foreach(v => p.openOnTriggerClick = v)
+    openOnTriggerFocus.foreach(v => p.openOnTriggerFocus = v)
+    openOnTriggerMouseEnter.foreach(v => p.openOnTriggerMouseEnter = v)
+    trigger.toJs.foreach(v => p.trigger = v)
     p
   }
 

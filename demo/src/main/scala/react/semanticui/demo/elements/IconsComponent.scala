@@ -12,22 +12,22 @@ import react.semanticui.colors._
 import react.semanticui._
 
 object IconsComponent {
-  val IconMailOutline              = Icon(name = "mail outline")
-  val IconSearch                   = Icon(name = "search")
-  val IconFeed                     = Icon(name = "feed")
-  val IconCloudUpload              = Icon(name = "cloud upload")
-  val IconEdit                     = Icon(name = "edit")
-  val IconDashboard                = Icon(name = "dashboard")
-  val IconNewspaper                = Icon(name = "newspaper")
-  val IconAreaChart                = Icon(name = "area chart")
-  val IconTwitter                  = Icon(name = "twitter")
-  val IconAdd                      = Icon(name = "add")
-  val IconCircleThin               = Icon(name = "circle thin")
-  val IconUser                     = Icon(name = "user")
-  val AllSizes: List[SemanticSize] = List(Mini, Tiny, Small, Medium, Large, Big, Huge, Massive)
+  val IconMailOutline                = Icon(name = "mail outline")
+  val IconSearch                     = Icon(name = "search")
+  val IconFeed                       = Icon(name = "feed")
+  val IconCloudUpload                = Icon(name = "cloud upload")
+  val IconEdit                       = Icon(name = "edit")
+  val IconDashboard                  = Icon(name = "dashboard")
+  val IconNewspaper                  = Icon(name = "newspaper")
+  val IconAreaChart                  = Icon(name = "area chart")
+  val IconTwitter                    = Icon(name = "twitter")
+  val IconAdd                        = Icon(name = "add")
+  val IconCircleThin                 = Icon(name = "circle thin")
+  val IconUser                       = Icon(name = "user")
+  val AllSizes: List[SemanticSize]   = List(Mini, Tiny, Small, Medium, Large, Big, Huge, Massive)
   val AllColors: List[SemanticColor] =
     List(Red, Orange, Yellow, Olive, Green, Teal, Blue, Violet, Purple, Pink, Brown, Grey, Black)
-  private val sampleIcons = Map("mail outline" -> IconMailOutline, "search" -> IconSearch)
+  private val sampleIcons            = Map("mail outline" -> IconMailOutline, "search" -> IconSearch)
 
   def section(title: String, description: String)(icons: TagMod): TagMod =
     <.div(
@@ -82,7 +82,7 @@ object IconsComponent {
                     ^.cls := "name",
                     name
                   )
-                ),
+                )
             }.toTagMod
           },
           section("Sizes", "An icon can vary in size") {
@@ -95,7 +95,7 @@ object IconsComponent {
                     ^.cls := "name",
                     s.toJs
                   )
-                ),
+                )
             }.toTagMod
           },
           section("Flipped", "An icon can be flipped") {
@@ -121,7 +121,7 @@ object IconsComponent {
                     ^.cls := "name",
                     o.toJs
                   )
-                ),
+                )
             }.toTagMod
           },
           section("Rotated", "Icons can be rotated") {
@@ -134,7 +134,7 @@ object IconsComponent {
                     ^.cls := "name",
                     o.toJs
                   )
-                ),
+                )
             }.toTagMod
           },
           section("Bordered", "Icons can have a border") {

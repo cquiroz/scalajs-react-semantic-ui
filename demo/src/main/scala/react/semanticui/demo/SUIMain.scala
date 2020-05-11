@@ -26,7 +26,7 @@ object SUiMain {
 }
 
 sealed trait ElementItem
-case object IconsElement extends ElementItem
+case object IconsElement  extends ElementItem
 case object LabelsElement extends ElementItem
 
 sealed trait Page

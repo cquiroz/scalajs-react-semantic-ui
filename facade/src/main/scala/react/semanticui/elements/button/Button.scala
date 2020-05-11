@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
@@ -18,36 +17,36 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Button(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  active:                 js.UndefOr[Boolean]              = js.undefined,
-  animated:               js.UndefOr[ButtonAnimated]       = js.undefined,
-  attached:               js.UndefOr[ButtonAttached]       = js.undefined,
-  basic:                  js.UndefOr[Boolean]              = js.undefined,
-  circular:               js.UndefOr[Boolean]              = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
-  color:                  js.UndefOr[SemanticColor]        = js.undefined,
-  compact:                js.UndefOr[Boolean]              = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  active:                 js.UndefOr[Boolean] = js.undefined,
+  animated:               js.UndefOr[ButtonAnimated] = js.undefined,
+  attached:               js.UndefOr[ButtonAttached] = js.undefined,
+  basic:                  js.UndefOr[Boolean] = js.undefined,
+  circular:               js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
+  compact:                js.UndefOr[Boolean] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  disabled:               js.UndefOr[Boolean]              = js.undefined,
-  floated:                js.UndefOr[SemanticFloat]        = js.undefined,
-  fluid:                  js.UndefOr[Boolean]              = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
-  inverted:               js.UndefOr[Boolean]              = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]    = js.undefined,
-  labelPosition:          js.UndefOr[LabelPosition]        = js.undefined,
-  loading:                js.UndefOr[Boolean]              = js.undefined,
-  negative:               js.UndefOr[Boolean]              = js.undefined,
-  onClickE:               js.UndefOr[Button.OnClick]       = js.undefined,
-  onClick:                js.UndefOr[Callback]             = js.undefined,
-  positive:               js.UndefOr[Boolean]              = js.undefined,
-  primary:                js.UndefOr[Boolean]              = js.undefined,
-  role:                   js.UndefOr[Boolean]              = js.undefined,
-  secondary:              js.UndefOr[Boolean]              = js.undefined,
-  size:                   js.UndefOr[SemanticSize]         = js.undefined,
-  tabIndex:               js.UndefOr[TabIndex]             = js.undefined,
-  toggle:                 js.UndefOr[Boolean]              = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  floated:                js.UndefOr[SemanticFloat] = js.undefined,
+  fluid:                  js.UndefOr[Boolean] = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  labelPosition:          js.UndefOr[LabelPosition] = js.undefined,
+  loading:                js.UndefOr[Boolean] = js.undefined,
+  negative:               js.UndefOr[Boolean] = js.undefined,
+  onClickE:               js.UndefOr[Button.OnClick] = js.undefined,
+  onClick:                js.UndefOr[Callback] = js.undefined,
+  positive:               js.UndefOr[Boolean] = js.undefined,
+  primary:                js.UndefOr[Boolean] = js.undefined,
+  role:                   js.UndefOr[Boolean] = js.undefined,
+  secondary:              js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  tabIndex:               js.UndefOr[TabIndex] = js.undefined,
+  toggle:                 js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Button.ButtonProps, Button] {
   override protected def cprops    = Button.props(this)
   override protected val component = Button.component
@@ -133,64 +132,64 @@ object Button {
     )
 
   def rawprops(
-    as:            js.UndefOr[AsC]                  = js.undefined,
-    active:        js.UndefOr[Boolean]              = js.undefined,
-    animated:      js.UndefOr[ButtonAnimated]       = js.undefined,
-    attached:      js.UndefOr[ButtonAttached]       = js.undefined,
-    basic:         js.UndefOr[Boolean]              = js.undefined,
-    circular:      js.UndefOr[Boolean]              = js.undefined,
-    className:     js.UndefOr[String]               = js.undefined,
-    clazz:         js.UndefOr[Css]                  = js.undefined,
-    color:         js.UndefOr[SemanticColor]        = js.undefined,
-    compact:       js.UndefOr[Boolean]              = js.undefined,
+    as:            js.UndefOr[AsC] = js.undefined,
+    active:        js.UndefOr[Boolean] = js.undefined,
+    animated:      js.UndefOr[ButtonAnimated] = js.undefined,
+    attached:      js.UndefOr[ButtonAttached] = js.undefined,
+    basic:         js.UndefOr[Boolean] = js.undefined,
+    circular:      js.UndefOr[Boolean] = js.undefined,
+    className:     js.UndefOr[String] = js.undefined,
+    clazz:         js.UndefOr[Css] = js.undefined,
+    color:         js.UndefOr[SemanticColor] = js.undefined,
+    compact:       js.UndefOr[Boolean] = js.undefined,
     content:       js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    disabled:      js.UndefOr[Boolean]              = js.undefined,
-    floated:       js.UndefOr[SemanticFloat]        = js.undefined,
-    fluid:         js.UndefOr[Boolean]              = js.undefined,
-    icon:          js.UndefOr[ShorthandSB[Icon]]    = js.undefined,
-    inverted:      js.UndefOr[Boolean]              = js.undefined,
-    label:         js.UndefOr[ShorthandS[Label]]    = js.undefined,
-    labelPosition: js.UndefOr[LabelPosition]        = js.undefined,
-    loading:       js.UndefOr[Boolean]              = js.undefined,
-    negative:      js.UndefOr[Boolean]              = js.undefined,
-    onClickE:      js.UndefOr[OnClick]              = js.undefined,
-    onClick:       js.UndefOr[Callback]             = js.undefined,
-    positive:      js.UndefOr[Boolean]              = js.undefined,
-    primary:       js.UndefOr[Boolean]              = js.undefined,
-    role:          js.UndefOr[Boolean]              = js.undefined,
-    secondary:     js.UndefOr[Boolean]              = js.undefined,
-    size:          js.UndefOr[SemanticSize]         = js.undefined,
-    tabIndex:      js.UndefOr[TabIndex]             = js.undefined,
-    toggle:        js.UndefOr[Boolean]              = js.undefined
+    disabled:      js.UndefOr[Boolean] = js.undefined,
+    floated:       js.UndefOr[SemanticFloat] = js.undefined,
+    fluid:         js.UndefOr[Boolean] = js.undefined,
+    icon:          js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+    inverted:      js.UndefOr[Boolean] = js.undefined,
+    label:         js.UndefOr[ShorthandS[Label]] = js.undefined,
+    labelPosition: js.UndefOr[LabelPosition] = js.undefined,
+    loading:       js.UndefOr[Boolean] = js.undefined,
+    negative:      js.UndefOr[Boolean] = js.undefined,
+    onClickE:      js.UndefOr[OnClick] = js.undefined,
+    onClick:       js.UndefOr[Callback] = js.undefined,
+    positive:      js.UndefOr[Boolean] = js.undefined,
+    primary:       js.UndefOr[Boolean] = js.undefined,
+    role:          js.UndefOr[Boolean] = js.undefined,
+    secondary:     js.UndefOr[Boolean] = js.undefined,
+    size:          js.UndefOr[SemanticSize] = js.undefined,
+    tabIndex:      js.UndefOr[TabIndex] = js.undefined,
+    toggle:        js.UndefOr[Boolean] = js.undefined
   ): ButtonProps = {
     val p = as.toJsObject[ButtonProps]
-    as.toJs.foreach(v => p.as                        = v)
-    active.foreach(v => p.active                     = v)
-    animated.toJs.foreach(v => p.animated            = v)
-    attached.toJs.foreach(v => p.attached            = v)
-    basic.foreach(v => p.basic                       = v)
-    circular.foreach(v => p.circular                 = v)
+    as.toJs.foreach(v => p.as = v)
+    active.foreach(v => p.active = v)
+    animated.toJs.foreach(v => p.animated = v)
+    attached.toJs.foreach(v => p.attached = v)
+    basic.foreach(v => p.basic = v)
+    circular.foreach(v => p.circular = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    color.toJs.foreach(v => p.color                  = v)
-    compact.foreach(v => p.compact                   = v)
-    content.toJs.foreach(v => p.content              = v)
-    disabled.foreach(v => p.disabled                 = v)
-    floated.toJs.foreach(v => p.floated              = v)
-    fluid.foreach(v => p.fluid                       = v)
-    icon.toJs.foreach(v => p.icon                    = v)
-    inverted.foreach(v => p.inverted                 = v)
-    label.toJs.foreach(v => p.label                  = v)
-    labelPosition.toJs.foreach(v => p.labelPosition  = v)
-    loading.foreach(v => p.loading                   = v)
-    negative.foreach(v => p.negative                 = v)
-    (onClickE, onClick).toJs.foreach(v => p.onClick  = v)
-    positive.foreach(v => p.positive                 = v)
-    primary.foreach(v => p.primary                   = v)
-    role.foreach(v => p.role                         = v)
-    secondary.foreach(v => p.secondary               = v)
-    size.toJs.foreach(v => p.size                    = v)
-    tabIndex.foreach(v => p.tabIndex                 = v)
-    toggle.foreach(v => p.toggle                     = v)
+    color.toJs.foreach(v => p.color = v)
+    compact.foreach(v => p.compact = v)
+    content.toJs.foreach(v => p.content = v)
+    disabled.foreach(v => p.disabled = v)
+    floated.toJs.foreach(v => p.floated = v)
+    fluid.foreach(v => p.fluid = v)
+    icon.toJs.foreach(v => p.icon = v)
+    inverted.foreach(v => p.inverted = v)
+    label.toJs.foreach(v => p.label = v)
+    labelPosition.toJs.foreach(v => p.labelPosition = v)
+    loading.foreach(v => p.loading = v)
+    negative.foreach(v => p.negative = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick = v)
+    positive.foreach(v => p.positive = v)
+    primary.foreach(v => p.primary = v)
+    role.foreach(v => p.role = v)
+    secondary.foreach(v => p.secondary = v)
+    size.toJs.foreach(v => p.size = v)
+    tabIndex.foreach(v => p.tabIndex = v)
+    toggle.foreach(v => p.toggle = v)
     p
   }
 

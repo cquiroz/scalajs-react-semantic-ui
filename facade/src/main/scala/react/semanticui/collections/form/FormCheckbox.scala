@@ -6,7 +6,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.label.Label
@@ -16,40 +15,40 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class FormCheckbox(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  checked:                js.UndefOr[Boolean]              = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  checked:                js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  control:                js.UndefOr[String]               = js.undefined,
-  defaultChecked:         js.UndefOr[Boolean]              = js.undefined,
-  defaultIndeterminate:   js.UndefOr[Boolean]              = js.undefined,
-  disabled:               js.UndefOr[Boolean]              = js.undefined,
-  error:                  js.UndefOr[ShorthandB[Label]]    = js.undefined,
-  fitted:                 js.UndefOr[Boolean]              = js.undefined,
-  id:                     js.UndefOr[JsNumber | String]    = js.undefined,
-  indeterminate:          js.UndefOr[Boolean]              = js.undefined,
-  inline:                 js.UndefOr[Boolean]              = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]    = js.undefined,
-  name:                   js.UndefOr[String]               = js.undefined,
-  onChange:               js.UndefOr[Callback]             = js.undefined,
-  onChangeE:              js.UndefOr[Checkbox.Event]       = js.undefined,
-  onClick:                js.UndefOr[Callback]             = js.undefined,
-  onClickE:               js.UndefOr[Checkbox.Event]       = js.undefined,
-  onMouseDown:            js.UndefOr[Callback]             = js.undefined,
-  onMouseDownE:           js.UndefOr[Checkbox.Event]       = js.undefined,
-  onMouseUp:              js.UndefOr[Callback]             = js.undefined,
-  onMouseUpE:             js.UndefOr[Checkbox.Event]       = js.undefined,
-  radio:                  js.UndefOr[Boolean]              = js.undefined,
-  readOnly:               js.UndefOr[Boolean]              = js.undefined,
-  required:               js.UndefOr[Boolean]              = js.undefined,
-  slider:                 js.UndefOr[Boolean]              = js.undefined,
-  tabIndex:               js.UndefOr[JsNumber | String]    = js.undefined,
-  toggle:                 js.UndefOr[Boolean]              = js.undefined,
-  tpe:                    js.UndefOr[CheckboxType]         = CheckboxType.Checkbox,
-  value:                  js.UndefOr[String | JsNumber]    = js.undefined,
-  width:                  js.UndefOr[SemanticWidth]        = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  control:                js.UndefOr[String] = js.undefined,
+  defaultChecked:         js.UndefOr[Boolean] = js.undefined,
+  defaultIndeterminate:   js.UndefOr[Boolean] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  error:                  js.UndefOr[ShorthandB[Label]] = js.undefined,
+  fitted:                 js.UndefOr[Boolean] = js.undefined,
+  id:                     js.UndefOr[JsNumber | String] = js.undefined,
+  indeterminate:          js.UndefOr[Boolean] = js.undefined,
+  inline:                 js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  name:                   js.UndefOr[String] = js.undefined,
+  onChange:               js.UndefOr[Callback] = js.undefined,
+  onChangeE:              js.UndefOr[Checkbox.Event] = js.undefined,
+  onClick:                js.UndefOr[Callback] = js.undefined,
+  onClickE:               js.UndefOr[Checkbox.Event] = js.undefined,
+  onMouseDown:            js.UndefOr[Callback] = js.undefined,
+  onMouseDownE:           js.UndefOr[Checkbox.Event] = js.undefined,
+  onMouseUp:              js.UndefOr[Callback] = js.undefined,
+  onMouseUpE:             js.UndefOr[Checkbox.Event] = js.undefined,
+  radio:                  js.UndefOr[Boolean] = js.undefined,
+  readOnly:               js.UndefOr[Boolean] = js.undefined,
+  required:               js.UndefOr[Boolean] = js.undefined,
+  slider:                 js.UndefOr[Boolean] = js.undefined,
+  tabIndex:               js.UndefOr[JsNumber | String] = js.undefined,
+  toggle:                 js.UndefOr[Boolean] = js.undefined,
+  tpe:                    js.UndefOr[CheckboxType] = CheckboxType.Checkbox,
+  value:                  js.UndefOr[String | JsNumber] = js.undefined,
+  width:                  js.UndefOr[SemanticWidth] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[FormCheckbox.FormCheckboxProps, FormCheckbox] {
   override protected def cprops    = FormCheckbox.props(this)
   override protected val component = FormCheckbox.component
@@ -224,69 +223,69 @@ object FormCheckbox {
     )
 
   def rawprops(
-    as:                   js.UndefOr[AsC]                  = js.undefined,
-    checked:              js.UndefOr[Boolean]              = js.undefined,
-    className:            js.UndefOr[String]               = js.undefined,
-    clazz:                js.UndefOr[Css]                  = js.undefined,
+    as:                   js.UndefOr[AsC] = js.undefined,
+    checked:              js.UndefOr[Boolean] = js.undefined,
+    className:            js.UndefOr[String] = js.undefined,
+    clazz:                js.UndefOr[Css] = js.undefined,
     content:              js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    control:              js.UndefOr[String]               = js.undefined,
-    defaultChecked:       js.UndefOr[Boolean]              = js.undefined,
-    defaultIndeterminate: js.UndefOr[Boolean]              = js.undefined,
-    disabled:             js.UndefOr[Boolean]              = js.undefined,
-    error:                js.UndefOr[ShorthandB[Label]]    = js.undefined,
-    fitted:               js.UndefOr[Boolean]              = js.undefined,
-    id:                   js.UndefOr[JsNumber | String]    = js.undefined,
-    indeterminate:        js.UndefOr[Boolean]              = js.undefined,
-    inline:               js.UndefOr[Boolean]              = js.undefined,
-    label:                js.UndefOr[ShorthandS[Label]]    = js.undefined,
-    name:                 js.UndefOr[String]               = js.undefined,
-    onChange:             js.UndefOr[Callback]             = js.undefined,
-    onChangeE:            js.UndefOr[Checkbox.Event]       = js.undefined,
-    onClick:              js.UndefOr[Callback]             = js.undefined,
-    onClickE:             js.UndefOr[Checkbox.Event]       = js.undefined,
-    onMouseDown:          js.UndefOr[Callback]             = js.undefined,
-    onMouseDownE:         js.UndefOr[Checkbox.Event]       = js.undefined,
-    onMouseUp:            js.UndefOr[Callback]             = js.undefined,
-    onMouseUpE:           js.UndefOr[Checkbox.Event]       = js.undefined,
-    radio:                js.UndefOr[Boolean]              = js.undefined,
-    readOnly:             js.UndefOr[Boolean]              = js.undefined,
-    required:             js.UndefOr[Boolean]              = js.undefined,
-    slider:               js.UndefOr[Boolean]              = js.undefined,
-    tabIndex:             js.UndefOr[JsNumber | String]    = js.undefined,
-    toggle:               js.UndefOr[Boolean]              = js.undefined,
-    tpe:                  js.UndefOr[CheckboxType]         = CheckboxType.Checkbox,
-    value:                js.UndefOr[String | JsNumber]    = js.undefined,
-    width:                js.UndefOr[SemanticWidth]        = js.undefined
+    control:              js.UndefOr[String] = js.undefined,
+    defaultChecked:       js.UndefOr[Boolean] = js.undefined,
+    defaultIndeterminate: js.UndefOr[Boolean] = js.undefined,
+    disabled:             js.UndefOr[Boolean] = js.undefined,
+    error:                js.UndefOr[ShorthandB[Label]] = js.undefined,
+    fitted:               js.UndefOr[Boolean] = js.undefined,
+    id:                   js.UndefOr[JsNumber | String] = js.undefined,
+    indeterminate:        js.UndefOr[Boolean] = js.undefined,
+    inline:               js.UndefOr[Boolean] = js.undefined,
+    label:                js.UndefOr[ShorthandS[Label]] = js.undefined,
+    name:                 js.UndefOr[String] = js.undefined,
+    onChange:             js.UndefOr[Callback] = js.undefined,
+    onChangeE:            js.UndefOr[Checkbox.Event] = js.undefined,
+    onClick:              js.UndefOr[Callback] = js.undefined,
+    onClickE:             js.UndefOr[Checkbox.Event] = js.undefined,
+    onMouseDown:          js.UndefOr[Callback] = js.undefined,
+    onMouseDownE:         js.UndefOr[Checkbox.Event] = js.undefined,
+    onMouseUp:            js.UndefOr[Callback] = js.undefined,
+    onMouseUpE:           js.UndefOr[Checkbox.Event] = js.undefined,
+    radio:                js.UndefOr[Boolean] = js.undefined,
+    readOnly:             js.UndefOr[Boolean] = js.undefined,
+    required:             js.UndefOr[Boolean] = js.undefined,
+    slider:               js.UndefOr[Boolean] = js.undefined,
+    tabIndex:             js.UndefOr[JsNumber | String] = js.undefined,
+    toggle:               js.UndefOr[Boolean] = js.undefined,
+    tpe:                  js.UndefOr[CheckboxType] = CheckboxType.Checkbox,
+    value:                js.UndefOr[String | JsNumber] = js.undefined,
+    width:                js.UndefOr[SemanticWidth] = js.undefined
   ): FormCheckboxProps = {
     val p = as.toJsObject[FormCheckboxProps]
-    (className, clazz).toJs.foreach(v => p.className            = v)
-    (onChangeE, onChange).toJs.foreach(v => p.onChange          = v)
-    (onClickE, onClick).toJs.foreach(v => p.onClick             = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    (onChangeE, onChange).toJs.foreach(v => p.onChange = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick = v)
     (onMouseDownE, onMouseDown).toJs.foreach(v => p.onMouseDown = v)
-    (onMouseUpE, onMouseUp).toJs.foreach(v => p.onMouseUp       = v)
-    as.toJs.foreach(v => p.as                                   = v)
-    checked.foreach(v => p.checked                              = v)
-    content.toJs.foreach(v => p.content                         = v)
-    control.foreach(v => p.control                              = v)
-    defaultChecked.foreach(v => p.defaultChecked                = v)
-    defaultIndeterminate.foreach(v => p.defaultIndeterminate    = v)
-    disabled.foreach(v => p.disabled                            = v)
-    error.toJs.foreach(v => p.error                             = v)
-    fitted.foreach(v => p.fitted                                = v)
-    id.foreach(v => p.id                                        = v)
-    indeterminate.foreach(v => p.indeterminate                  = v)
-    inline.foreach(v => p.inline                                = v)
-    label.toJs.foreach(v => p.label                             = v)
-    name.foreach(v => p.name                                    = v)
+    (onMouseUpE, onMouseUp).toJs.foreach(v => p.onMouseUp = v)
+    as.toJs.foreach(v => p.as = v)
+    checked.foreach(v => p.checked = v)
+    content.toJs.foreach(v => p.content = v)
+    control.foreach(v => p.control = v)
+    defaultChecked.foreach(v => p.defaultChecked = v)
+    defaultIndeterminate.foreach(v => p.defaultIndeterminate = v)
+    disabled.foreach(v => p.disabled = v)
+    error.toJs.foreach(v => p.error = v)
+    fitted.foreach(v => p.fitted = v)
+    id.foreach(v => p.id = v)
+    indeterminate.foreach(v => p.indeterminate = v)
+    inline.foreach(v => p.inline = v)
+    label.toJs.foreach(v => p.label = v)
+    name.foreach(v => p.name = v)
     p.`type` = tpe.toJs
-    radio.foreach(v => p.radio       = v)
+    radio.foreach(v => p.radio = v)
     readOnly.foreach(v => p.readOnly = v)
     required.foreach(v => p.required = v)
-    slider.foreach(v => p.slider     = v)
+    slider.foreach(v => p.slider = v)
     tabIndex.foreach(v => p.tabIndex = v)
-    toggle.foreach(v => p.toggle     = v)
-    value.foreach(v => p.value       = v)
-    width.toJs.foreach(v => p.width  = v)
+    toggle.foreach(v => p.toggle = v)
+    value.foreach(v => p.value = v)
+    width.toJs.foreach(v => p.width = v)
     p
   }
 

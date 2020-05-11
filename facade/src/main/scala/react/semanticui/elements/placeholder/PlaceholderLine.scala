@@ -4,17 +4,16 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class PlaceholderLine(
-  as:                     js.UndefOr[AsC]        = js.undefined,
-  className:              js.UndefOr[String]     = js.undefined,
-  clazz:                  js.UndefOr[Css]        = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   length:                 js.UndefOr[LineLength] = js.undefined,
-  override val modifiers: Seq[TagMod]            = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPA[
       PlaceholderLine.PlaceholderLineProps,
       PlaceholderLine
@@ -56,9 +55,9 @@ object PlaceholderLine {
     q: PlaceholderLine
   ): PlaceholderLineProps = {
     val p = q.as.toJsObject[PlaceholderLineProps]
-    q.as.toJs.foreach(v => p.as                          = v)
+    q.as.toJs.foreach(v => p.as = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.length.toJs.foreach(v => p.length                  = v)
+    q.length.toJs.foreach(v => p.length = v)
     p
   }
 

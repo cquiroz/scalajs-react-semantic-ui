@@ -6,22 +6,21 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class ListContent(
-  as:                     js.UndefOr[AsC]                         = js.undefined,
-  className:              js.UndefOr[String]                      = js.undefined,
-  clazz:                  js.UndefOr[Css]                         = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   description:            js.UndefOr[ShorthandS[ListDescription]] = js.undefined,
-  content:                js.UndefOr[Seq[VdomNode]]               = js.undefined,
-  floated:                js.UndefOr[SemanticFloat]               = js.undefined,
-  header:                 js.UndefOr[ListHeader]                  = js.undefined,
-  verticalAlign:          js.UndefOr[SemanticVerticalAlignment]   = js.undefined,
-  override val modifiers: Seq[TagMod]                             = Seq.empty
+  content:                js.UndefOr[Seq[VdomNode]] = js.undefined,
+  floated:                js.UndefOr[SemanticFloat] = js.undefined,
+  header:                 js.UndefOr[ListHeader] = js.undefined,
+  verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ListContent.ListContentProps, ListContent] {
   override protected def cprops    = ListContent.props(this)
   override protected val component = ListContent.component
@@ -80,26 +79,27 @@ object ListContent {
              q.description,
              q.floated,
              q.header,
-             q.verticalAlign)
+             q.verticalAlign
+    )
 
   def rawprops(
-    as:            js.UndefOr[AsC]                         = js.undefined,
-    className:     js.UndefOr[String]                      = js.undefined,
-    clazz:         js.UndefOr[Css]                         = js.undefined,
-    content:       js.UndefOr[Seq[VdomNode]]               = js.undefined,
+    as:            js.UndefOr[AsC] = js.undefined,
+    className:     js.UndefOr[String] = js.undefined,
+    clazz:         js.UndefOr[Css] = js.undefined,
+    content:       js.UndefOr[Seq[VdomNode]] = js.undefined,
     description:   js.UndefOr[ShorthandS[ListDescription]] = js.undefined,
-    floated:       js.UndefOr[SemanticFloat]               = js.undefined,
-    header:        js.UndefOr[ListHeader]                  = js.undefined,
-    verticalAlign: js.UndefOr[SemanticVerticalAlignment]   = js.undefined
+    floated:       js.UndefOr[SemanticFloat] = js.undefined,
+    header:        js.UndefOr[ListHeader] = js.undefined,
+    verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
   ): ListContentProps = {
     val p = as.toJsObject[ListContentProps]
-    as.toJs.foreach(v => p.as                                      = v)
-    (className, clazz).toJs.foreach(v => p.className               = v)
+    as.toJs.foreach(v => p.as = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
     content.map(_.map(_.rawNode).toJSArray).foreach(v => p.content = v)
-    description.toJs.foreach(v => p.description                    = v)
-    floated.toJs.foreach(v => p.floated                            = v)
-    header.map(_.props).foreach(v => p.header                      = v)
-    verticalAlign.toJs.foreach(v => p.verticalAlign                = v)
+    description.toJs.foreach(v => p.description = v)
+    floated.toJs.foreach(v => p.floated = v)
+    header.map(_.props).foreach(v => p.header = v)
+    verticalAlign.toJs.foreach(v => p.verticalAlign = v)
     p
   }
 

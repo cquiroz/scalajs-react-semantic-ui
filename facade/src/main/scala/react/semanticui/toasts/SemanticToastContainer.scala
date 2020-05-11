@@ -3,16 +3,15 @@ package react.semanticui.toasts
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import react.common.style._
 import react.common._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class SemanticToastContainer(
   position:               js.UndefOr[ContainerPosition] = js.undefined,
   animation:              js.UndefOr[SemanticAnimation] = js.undefined,
-  className:              js.UndefOr[String]            = js.undefined,
-  clazz:                  js.UndefOr[Css]               = js.undefined,
-  override val modifiers: Seq[TagMod]                   = Seq.empty
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[
       SemanticToastContainer.SemanticToastContainerProps,
       SemanticToastContainer
@@ -56,12 +55,12 @@ object SemanticToastContainer {
   def rawprops(
     position:  js.UndefOr[ContainerPosition] = js.undefined,
     animation: js.UndefOr[SemanticAnimation] = js.undefined,
-    className: js.UndefOr[String]            = js.undefined,
-    clazz:     js.UndefOr[Css]               = js.undefined
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined
   ): SemanticToastContainerProps = {
     val p = (new js.Object).asInstanceOf[SemanticToastContainerProps]
-    position.toJs.foreach(v => p.position            = v)
-    animation.toJs.foreach(v => p.animation          = v)
+    position.toJs.foreach(v => p.position = v)
+    animation.toJs.foreach(v => p.animation = v)
     (className, clazz).toJs.foreach(v => p.className = v)
     p
   }

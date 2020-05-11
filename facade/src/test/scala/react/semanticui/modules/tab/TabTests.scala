@@ -22,7 +22,8 @@ object TabTest extends TestSuite {
                     panes = List(
                       Pane(menuItem = "1", render = <.div("11")),
                       Pane(menuItem = "2", render = <.div("21"))
-                    ))
+                    )
+      )
       ReactTestUtils.withNewBodyElement { mountNode =>
         tab.renderIntoDOM(mountNode)
         assert(

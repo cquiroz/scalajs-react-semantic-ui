@@ -5,31 +5,30 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Grid(
-  as:                     js.UndefOr[AsC]                       = js.undefined,
-  celled:                 js.UndefOr[GridCelled]                = js.undefined,
-  centered:               js.UndefOr[Boolean]                   = js.undefined,
-  className:              js.UndefOr[String]                    = js.undefined,
-  clazz:                  js.UndefOr[Css]                       = js.undefined,
-  columns:                js.UndefOr[SemanticWidth]             = js.undefined,
-  container:              js.UndefOr[Boolean]                   = js.undefined,
-  divided:                js.UndefOr[GridDivided]               = js.undefined,
-  doubling:               js.UndefOr[Boolean]                   = js.undefined,
-  inverted:               js.UndefOr[Boolean]                   = js.undefined,
-  padded:                 js.UndefOr[GridPadded]                = js.undefined,
-  relaxed:                js.UndefOr[GridRelaxed]               = js.undefined,
-  reversed:               js.UndefOr[GridReversed]              = js.undefined,
-  stackable:              js.UndefOr[Boolean]                   = js.undefined,
-  stretched:              js.UndefOr[Boolean]                   = js.undefined,
-  textAlign:              js.UndefOr[SemanticTextAlignment]     = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  celled:                 js.UndefOr[GridCelled] = js.undefined,
+  centered:               js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  columns:                js.UndefOr[SemanticWidth] = js.undefined,
+  container:              js.UndefOr[Boolean] = js.undefined,
+  divided:                js.UndefOr[GridDivided] = js.undefined,
+  doubling:               js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  padded:                 js.UndefOr[GridPadded] = js.undefined,
+  relaxed:                js.UndefOr[GridRelaxed] = js.undefined,
+  reversed:               js.UndefOr[GridReversed] = js.undefined,
+  stackable:              js.UndefOr[Boolean] = js.undefined,
+  stretched:              js.UndefOr[Boolean] = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
   verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  override val modifiers: Seq[TagMod]                           = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Grid.GridProps, Grid] {
   override protected def cprops    = Grid.props(this)
   override protected val component = Grid.component
@@ -125,41 +124,41 @@ object Grid {
     )
 
   def rawprops(
-    as:            js.UndefOr[AsC]                       = js.undefined,
-    celled:        js.UndefOr[GridCelled]                = js.undefined,
-    centered:      js.UndefOr[Boolean]                   = js.undefined,
-    className:     js.UndefOr[String]                    = js.undefined,
-    clazz:         js.UndefOr[Css]                       = js.undefined,
-    columns:       js.UndefOr[SemanticWidth]             = js.undefined,
-    container:     js.UndefOr[Boolean]                   = js.undefined,
-    divided:       js.UndefOr[GridDivided]               = js.undefined,
-    doubling:      js.UndefOr[Boolean]                   = js.undefined,
-    inverted:      js.UndefOr[Boolean]                   = js.undefined,
-    padded:        js.UndefOr[GridPadded]                = js.undefined,
-    relaxed:       js.UndefOr[GridRelaxed]               = js.undefined,
-    reversed:      js.UndefOr[GridReversed]              = js.undefined,
-    stackable:     js.UndefOr[Boolean]                   = js.undefined,
-    stretched:     js.UndefOr[Boolean]                   = js.undefined,
-    textAlign:     js.UndefOr[SemanticTextAlignment]     = js.undefined,
+    as:            js.UndefOr[AsC] = js.undefined,
+    celled:        js.UndefOr[GridCelled] = js.undefined,
+    centered:      js.UndefOr[Boolean] = js.undefined,
+    className:     js.UndefOr[String] = js.undefined,
+    clazz:         js.UndefOr[Css] = js.undefined,
+    columns:       js.UndefOr[SemanticWidth] = js.undefined,
+    container:     js.UndefOr[Boolean] = js.undefined,
+    divided:       js.UndefOr[GridDivided] = js.undefined,
+    doubling:      js.UndefOr[Boolean] = js.undefined,
+    inverted:      js.UndefOr[Boolean] = js.undefined,
+    padded:        js.UndefOr[GridPadded] = js.undefined,
+    relaxed:       js.UndefOr[GridRelaxed] = js.undefined,
+    reversed:      js.UndefOr[GridReversed] = js.undefined,
+    stackable:     js.UndefOr[Boolean] = js.undefined,
+    stretched:     js.UndefOr[Boolean] = js.undefined,
+    textAlign:     js.UndefOr[SemanticTextAlignment] = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined
   ): GridProps = {
     val p = as.toJsObject[GridProps]
-    as.toJs.foreach(v => p.as                        = v)
-    celled.toJs.foreach(v => p.celled                = v)
-    centered.foreach(v => p.centered                 = v)
+    as.toJs.foreach(v => p.as = v)
+    celled.toJs.foreach(v => p.celled = v)
+    centered.foreach(v => p.centered = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    columns.toJs.foreach(v => p.columns              = v)
-    container.foreach(v => p.container               = v)
-    divided.toJs.foreach(v => p.divided              = v)
-    doubling.foreach(v => p.doubling                 = v)
-    inverted.foreach(v => p.inverted                 = v)
-    padded.toJs.foreach(v => p.padded                = v)
-    relaxed.toJs.foreach(v => p.relaxed              = v)
-    reversed.toJs.foreach(v => p.reversed            = v)
-    stackable.foreach(v => p.stackable               = v)
-    stretched.foreach(v => p.stretched               = v)
-    textAlign.toJs.foreach(v => p.textAlign          = v)
-    verticalAlign.toJs.foreach(v => p.verticalAlign  = v)
+    columns.toJs.foreach(v => p.columns = v)
+    container.foreach(v => p.container = v)
+    divided.toJs.foreach(v => p.divided = v)
+    doubling.foreach(v => p.doubling = v)
+    inverted.foreach(v => p.inverted = v)
+    padded.toJs.foreach(v => p.padded = v)
+    relaxed.toJs.foreach(v => p.relaxed = v)
+    reversed.toJs.foreach(v => p.reversed = v)
+    stackable.foreach(v => p.stackable = v)
+    stretched.foreach(v => p.stretched = v)
+    textAlign.toJs.foreach(v => p.textAlign = v)
+    verticalAlign.toJs.foreach(v => p.verticalAlign = v)
     p
   }
 
