@@ -6,7 +6,6 @@ import js.annotation._
 import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
@@ -15,29 +14,29 @@ import react.semanticui.elements.icon.Icon.IconProps
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Message(
-  as:                     js.UndefOr[AsC]                                        = js.undefined,
-  attached:               js.UndefOr[MessageAttached]                            = js.undefined,
-  className:              js.UndefOr[String]                                     = js.undefined,
-  clazz:                  js.UndefOr[Css]                                        = js.undefined,
-  color:                  js.UndefOr[SemanticColor]                              = js.undefined,
-  compact:                js.UndefOr[Boolean]                                    = js.undefined,
-  content:                js.UndefOr[ShorthandS[MessageContent]]                 = js.undefined,
-  error:                  js.UndefOr[Boolean]                                    = js.undefined,
-  floating:               js.UndefOr[Boolean]                                    = js.undefined,
-  header:                 js.UndefOr[ShorthandS[MessageHeader]]                  = js.undefined,
-  hidden:                 js.UndefOr[Boolean]                                    = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]                          = js.undefined,
-  info:                   js.UndefOr[Boolean]                                    = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  attached:               js.UndefOr[MessageAttached] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
+  compact:                js.UndefOr[Boolean] = js.undefined,
+  content:                js.UndefOr[ShorthandS[MessageContent]] = js.undefined,
+  error:                  js.UndefOr[Boolean] = js.undefined,
+  floating:               js.UndefOr[Boolean] = js.undefined,
+  header:                 js.UndefOr[ShorthandS[MessageHeader]] = js.undefined,
+  hidden:                 js.UndefOr[Boolean] = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+  info:                   js.UndefOr[Boolean] = js.undefined,
   list:                   js.UndefOr[Seq[ShorthandS[MessageItem]] | MessageList] = js.undefined,
-  negative:               js.UndefOr[Boolean]                                    = js.undefined,
-  onDismissE:             js.UndefOr[Message.OnDismiss]                          = js.undefined,
-  onDismiss:              js.UndefOr[Callback]                                   = js.undefined,
-  positive:               js.UndefOr[Boolean]                                    = js.undefined,
-  size:                   js.UndefOr[MessageSize]                                = js.undefined,
-  success:                js.UndefOr[Boolean]                                    = js.undefined,
-  visible:                js.UndefOr[Boolean]                                    = js.undefined,
-  warning:                js.UndefOr[Boolean]                                    = js.undefined,
-  override val modifiers: Seq[TagMod]                                            = Seq.empty
+  negative:               js.UndefOr[Boolean] = js.undefined,
+  onDismissE:             js.UndefOr[Message.OnDismiss] = js.undefined,
+  onDismiss:              js.UndefOr[Callback] = js.undefined,
+  positive:               js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[MessageSize] = js.undefined,
+  success:                js.UndefOr[Boolean] = js.undefined,
+  visible:                js.UndefOr[Boolean] = js.undefined,
+  warning:                js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Message.MessageProps, Message] {
   override protected def cprops    = Message.props(this)
   override protected val component = Message.component
@@ -46,8 +45,10 @@ final case class Message(
 
 object Message {
   type OnDismiss = (ReactEvent, MessageProps) => Callback
-  type RawList =
-    js.Array[suiraw.SemanticShorthandItemS[MessageItem.MessageItemProps]] | MessageList.MessageListProps
+  type RawList   =
+    js.Array[
+      suiraw.SemanticShorthandItemS[MessageItem.MessageItemProps]
+    ] | MessageList.MessageListProps
 
   @js.native
   @JSImport("semantic-ui-react", "Message")
@@ -161,58 +162,58 @@ object Message {
     )
 
   def rawprops(
-    as:         js.UndefOr[AsC]                                        = js.undefined,
-    attached:   js.UndefOr[MessageAttached]                            = js.undefined,
-    className:  js.UndefOr[String]                                     = js.undefined,
-    clazz:      js.UndefOr[Css]                                        = js.undefined,
-    color:      js.UndefOr[SemanticColor]                              = js.undefined,
-    compact:    js.UndefOr[Boolean]                                    = js.undefined,
-    content:    js.UndefOr[ShorthandS[MessageContent]]                 = js.undefined,
-    error:      js.UndefOr[Boolean]                                    = js.undefined,
-    floating:   js.UndefOr[Boolean]                                    = js.undefined,
-    header:     js.UndefOr[ShorthandS[MessageHeader]]                  = js.undefined,
-    hidden:     js.UndefOr[Boolean]                                    = js.undefined,
-    icon:       js.UndefOr[ShorthandSB[Icon]]                          = js.undefined,
-    info:       js.UndefOr[Boolean]                                    = js.undefined,
+    as:         js.UndefOr[AsC] = js.undefined,
+    attached:   js.UndefOr[MessageAttached] = js.undefined,
+    className:  js.UndefOr[String] = js.undefined,
+    clazz:      js.UndefOr[Css] = js.undefined,
+    color:      js.UndefOr[SemanticColor] = js.undefined,
+    compact:    js.UndefOr[Boolean] = js.undefined,
+    content:    js.UndefOr[ShorthandS[MessageContent]] = js.undefined,
+    error:      js.UndefOr[Boolean] = js.undefined,
+    floating:   js.UndefOr[Boolean] = js.undefined,
+    header:     js.UndefOr[ShorthandS[MessageHeader]] = js.undefined,
+    hidden:     js.UndefOr[Boolean] = js.undefined,
+    icon:       js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+    info:       js.UndefOr[Boolean] = js.undefined,
     list:       js.UndefOr[Seq[ShorthandS[MessageItem]] | MessageList] = js.undefined,
-    negative:   js.UndefOr[Boolean]                                    = js.undefined,
-    onDismissE: js.UndefOr[Message.OnDismiss]                          = js.undefined,
-    onDismiss:  js.UndefOr[Callback]                                   = js.undefined,
-    positive:   js.UndefOr[Boolean]                                    = js.undefined,
-    size:       js.UndefOr[MessageSize]                                = js.undefined,
-    success:    js.UndefOr[Boolean]                                    = js.undefined,
-    visible:    js.UndefOr[Boolean]                                    = js.undefined,
-    warning:    js.UndefOr[Boolean]                                    = js.undefined
+    negative:   js.UndefOr[Boolean] = js.undefined,
+    onDismissE: js.UndefOr[Message.OnDismiss] = js.undefined,
+    onDismiss:  js.UndefOr[Callback] = js.undefined,
+    positive:   js.UndefOr[Boolean] = js.undefined,
+    size:       js.UndefOr[MessageSize] = js.undefined,
+    success:    js.UndefOr[Boolean] = js.undefined,
+    visible:    js.UndefOr[Boolean] = js.undefined,
+    warning:    js.UndefOr[Boolean] = js.undefined
   ): MessageProps = {
     val p = as.toJsObject[MessageProps]
-    as.toJs.foreach(v => p.as                        = v)
-    attached.toJs.foreach(v => p.attached            = v)
+    as.toJs.foreach(v => p.as = v)
+    attached.toJs.foreach(v => p.attached = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    color.toJs.foreach(v => p.color                  = v)
-    compact.foreach(v => p.compact                   = v)
-    content.toJs.foreach(v => p.content              = v)
-    error.foreach(v => p.error                       = v)
-    floating.foreach(v => p.floating                 = v)
-    header.toJs.foreach(v => p.header                = v)
-    hidden.foreach(v => p.hidden                     = v)
-    icon.toJs.foreach(v => p.icon                    = v)
-    info.foreach(v => p.info                         = v)
+    color.toJs.foreach(v => p.color = v)
+    compact.foreach(v => p.compact = v)
+    content.toJs.foreach(v => p.content = v)
+    error.foreach(v => p.error = v)
+    floating.foreach(v => p.floating = v)
+    header.toJs.foreach(v => p.header = v)
+    hidden.foreach(v => p.hidden = v)
+    icon.toJs.foreach(v => p.icon = v)
+    info.foreach(v => p.info = v)
     list
       .map[RawList](v =>
         (v: Any) match {
-          case s: Seq[_] =>
+          case s: Seq[_]      =>
             s.map(item => compToPropS(item.asInstanceOf[ShorthandS[MessageItem]])).toJSArray
           // .asInstanceOf[raw.SemanticShorthandOrArray[T]]
           case l: MessageList => l.props
         }
       )
-      .foreach(v => p.list                                = v)
-    negative.foreach(v => p.negative                      = v)
+      .foreach(v => p.list = v)
+    negative.foreach(v => p.negative = v)
     (onDismissE, onDismiss).toJs.foreach(v => p.onDismiss = v)
-    positive.foreach(v => p.positive                      = v)
-    size.toJs.foreach(v => p.size                         = v)
-    visible.foreach(v => p.visible                        = v)
-    warning.foreach(v => p.warning                        = v)
+    positive.foreach(v => p.positive = v)
+    size.toJs.foreach(v => p.size = v)
+    visible.foreach(v => p.visible = v)
+    warning.foreach(v => p.warning = v)
     p
   }
 

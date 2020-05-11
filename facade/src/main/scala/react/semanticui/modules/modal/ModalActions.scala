@@ -5,7 +5,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.button.Button
@@ -13,14 +12,14 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class ModalActions(
-  as:                     js.UndefOr[AsC]                        = js.undefined,
-  actions:                js.UndefOr[Seq[ShorthandS[Button]]]    = js.undefined,
-  className:              js.UndefOr[String]                     = js.undefined,
-  clazz:                  js.UndefOr[Css]                        = js.undefined,
-  content:                js.UndefOr[VdomNode]                   = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  actions:                js.UndefOr[Seq[ShorthandS[Button]]] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
   onActionClickE:         js.UndefOr[ModalActions.OnActionClick] = js.undefined,
-  onActionClick:          js.UndefOr[Callback]                   = js.undefined,
-  override val modifiers: Seq[TagMod]                            = Seq.empty
+  onActionClick:          js.UndefOr[Callback] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[ModalActions.ModalActionsProps, ModalActions] {
   override protected def cprops    = ModalActions.props(this)
   override protected val component = ModalActions.component
@@ -71,19 +70,19 @@ object ModalActions {
     rawprops(q.as, q.actions, q.className, q.clazz, q.content, q.onActionClickE, q.onActionClick)
 
   def rawprops(
-    as:             js.UndefOr[AsC]                     = js.undefined,
+    as:             js.UndefOr[AsC] = js.undefined,
     actions:        js.UndefOr[Seq[ShorthandS[Button]]] = js.undefined,
-    className:      js.UndefOr[String]                  = js.undefined,
-    clazz:          js.UndefOr[Css]                     = js.undefined,
-    content:        js.UndefOr[VdomNode]                = js.undefined,
-    onActionClickE: js.UndefOr[OnActionClick]           = js.undefined,
-    onActionClick:  js.UndefOr[Callback]                = js.undefined
+    className:      js.UndefOr[String] = js.undefined,
+    clazz:          js.UndefOr[Css] = js.undefined,
+    content:        js.UndefOr[VdomNode] = js.undefined,
+    onActionClickE: js.UndefOr[OnActionClick] = js.undefined,
+    onActionClick:  js.UndefOr[Callback] = js.undefined
   ): ModalActionsProps = {
     val p = as.toJsObject[ModalActionsProps]
-    as.toJs.foreach(v => p.as                                         = v)
-    actions.toJs.foreach(v => p.actions                               = v)
-    (className, clazz).toJs.foreach(v => p.className                  = v)
-    content.toJs.foreach(v => p.content                               = v)
+    as.toJs.foreach(v => p.as = v)
+    actions.toJs.foreach(v => p.actions = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content = v)
     (onActionClickE, onActionClick).toJs.foreach(v => p.onActionClick = v)
     p
   }

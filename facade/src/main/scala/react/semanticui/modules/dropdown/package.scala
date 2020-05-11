@@ -7,21 +7,21 @@ package dropdown {
   sealed trait MenuDirection extends Product with Serializable
   object MenuDirection {
     implicit val enum: EnumValue[MenuDirection] = EnumValue.toLowerCaseString
-    case object Left extends MenuDirection
+    case object Left  extends MenuDirection
     case object Right extends MenuDirection
   }
 
   sealed trait AdditionPosition extends Product with Serializable
   object AdditionPosition {
     implicit val enum: EnumValue[AdditionPosition] = EnumValue.toLowerCaseString
-    case object Top extends AdditionPosition
+    case object Top    extends AdditionPosition
     case object Bottom extends AdditionPosition
   }
 
   sealed trait Direction extends Product with Serializable
   object Direction {
     implicit val enum: EnumValue[Direction] = EnumValue.toLowerCaseString
-    case object Left extends Direction
+    case object Left  extends Direction
     case object Right extends Direction
   }
 
@@ -38,12 +38,12 @@ package dropdown {
       case BottomRight => "bottom right"
     }
     case object Left extends Pointing
-    case object Right extends Pointing
-    case object Top extends Pointing
-    case object TopLeft extends Pointing
-    case object TopRight extends Pointing
-    case object Bottom extends Pointing
-    case object BottomLeft extends Pointing
+    case object Right       extends Pointing
+    case object Top         extends Pointing
+    case object TopLeft     extends Pointing
+    case object TopRight    extends Pointing
+    case object Bottom      extends Pointing
+    case object BottomLeft  extends Pointing
     case object BottomRight extends Pointing
   }
 }

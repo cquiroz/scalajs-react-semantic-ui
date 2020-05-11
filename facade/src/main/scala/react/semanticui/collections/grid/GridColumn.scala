@@ -4,29 +4,28 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class GridColumn(
-  as:                     js.UndefOr[AsC]                       = js.undefined,
-  className:              js.UndefOr[String]                    = js.undefined,
-  clazz:                  js.UndefOr[Css]                       = js.undefined,
-  color:                  js.UndefOr[SemanticColor]             = js.undefined,
-  computer:               js.UndefOr[SemanticWidth]             = js.undefined,
-  floated:                js.UndefOr[SemanticFloat]             = js.undefined,
-  largeScreen:            js.UndefOr[SemanticWidth]             = js.undefined,
-  mobile:                 js.UndefOr[SemanticWidth]             = js.undefined,
-  only:                   js.UndefOr[GridOnly]                  = js.undefined,
-  stretched:              js.UndefOr[Boolean]                   = js.undefined,
-  tablet:                 js.UndefOr[SemanticWidth]             = js.undefined,
-  textAlign:              js.UndefOr[SemanticTextAlignment]     = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  color:                  js.UndefOr[SemanticColor] = js.undefined,
+  computer:               js.UndefOr[SemanticWidth] = js.undefined,
+  floated:                js.UndefOr[SemanticFloat] = js.undefined,
+  largeScreen:            js.UndefOr[SemanticWidth] = js.undefined,
+  mobile:                 js.UndefOr[SemanticWidth] = js.undefined,
+  only:                   js.UndefOr[GridOnly] = js.undefined,
+  stretched:              js.UndefOr[Boolean] = js.undefined,
+  tablet:                 js.UndefOr[SemanticWidth] = js.undefined,
+  textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
   verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  widescreen:             js.UndefOr[SemanticWidth]             = js.undefined,
-  width:                  js.UndefOr[SemanticWidth]             = js.undefined,
-  override val modifiers: Seq[TagMod]                           = Seq.empty
+  widescreen:             js.UndefOr[SemanticWidth] = js.undefined,
+  width:                  js.UndefOr[SemanticWidth] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[GridColumn.GridColumnProps, GridColumn] {
   override protected def cprops    = GridColumn.props(this)
   override protected val component = GridColumn.component
@@ -114,37 +113,37 @@ object GridColumn {
     )
 
   def rawprops(
-    as:            js.UndefOr[AsC]                       = js.undefined,
-    className:     js.UndefOr[String]                    = js.undefined,
-    clazz:         js.UndefOr[Css]                       = js.undefined,
-    color:         js.UndefOr[SemanticColor]             = js.undefined,
-    computer:      js.UndefOr[SemanticWidth]             = js.undefined,
-    floated:       js.UndefOr[SemanticFloat]             = js.undefined,
-    largeScreen:   js.UndefOr[SemanticWidth]             = js.undefined,
-    mobile:        js.UndefOr[SemanticWidth]             = js.undefined,
-    only:          js.UndefOr[GridOnly]                  = js.undefined,
-    stretched:     js.UndefOr[Boolean]                   = js.undefined,
-    tablet:        js.UndefOr[SemanticWidth]             = js.undefined,
-    textAlign:     js.UndefOr[SemanticTextAlignment]     = js.undefined,
+    as:            js.UndefOr[AsC] = js.undefined,
+    className:     js.UndefOr[String] = js.undefined,
+    clazz:         js.UndefOr[Css] = js.undefined,
+    color:         js.UndefOr[SemanticColor] = js.undefined,
+    computer:      js.UndefOr[SemanticWidth] = js.undefined,
+    floated:       js.UndefOr[SemanticFloat] = js.undefined,
+    largeScreen:   js.UndefOr[SemanticWidth] = js.undefined,
+    mobile:        js.UndefOr[SemanticWidth] = js.undefined,
+    only:          js.UndefOr[GridOnly] = js.undefined,
+    stretched:     js.UndefOr[Boolean] = js.undefined,
+    tablet:        js.UndefOr[SemanticWidth] = js.undefined,
+    textAlign:     js.UndefOr[SemanticTextAlignment] = js.undefined,
     verticalAlign: js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-    widescreen:    js.UndefOr[SemanticWidth]             = js.undefined,
-    width:         js.UndefOr[SemanticWidth]             = js.undefined
+    widescreen:    js.UndefOr[SemanticWidth] = js.undefined,
+    width:         js.UndefOr[SemanticWidth] = js.undefined
   ): GridColumnProps = {
     val p = as.toJsObject[GridColumnProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    color.toJs.foreach(v => p.color                  = v)
-    computer.toJs.foreach(v => p.computer            = v)
-    floated.toJs.foreach(v => p.floated              = v)
-    largeScreen.toJs.foreach(v => p.largeScreen      = v)
-    mobile.toJs.foreach(v => p.mobile                = v)
-    only.toJs.foreach(v => p.only                    = v)
-    stretched.foreach(v => p.stretched               = v)
-    tablet.toJs.foreach(v => p.tablet                = v)
-    textAlign.toJs.foreach(v => p.textAlign          = v)
-    verticalAlign.toJs.foreach(v => p.verticalAlign  = v)
-    widescreen.toJs.foreach(v => p.widescreen        = v)
-    width.toJs.foreach(v => p.width                  = v)
+    color.toJs.foreach(v => p.color = v)
+    computer.toJs.foreach(v => p.computer = v)
+    floated.toJs.foreach(v => p.floated = v)
+    largeScreen.toJs.foreach(v => p.largeScreen = v)
+    mobile.toJs.foreach(v => p.mobile = v)
+    only.toJs.foreach(v => p.only = v)
+    stretched.foreach(v => p.stretched = v)
+    tablet.toJs.foreach(v => p.tablet = v)
+    textAlign.toJs.foreach(v => p.textAlign = v)
+    verticalAlign.toJs.foreach(v => p.verticalAlign = v)
+    widescreen.toJs.foreach(v => p.widescreen = v)
+    width.toJs.foreach(v => p.width = v)
     p
   }
 

@@ -7,8 +7,8 @@ package list {
   object ListRelaxed {
     implicit val enum: EnumValueB[ListRelaxed] = EnumValueB.toLowerCaseStringT(Relaxed)
     case object Relaxed extends ListRelaxed
-    case object Very extends ListRelaxed
+    case object Very    extends ListRelaxed
   }
 }
 
-package object list {}
+package object list  {}

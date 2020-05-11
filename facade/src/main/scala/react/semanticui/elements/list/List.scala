@@ -8,34 +8,33 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.vdom.html_<^._
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
 import react.semanticui._
 
 final case class List(
-  as:                     js.UndefOr[AsC]                       = js.undefined,
-  animated:               js.UndefOr[Boolean]                   = js.undefined,
-  bulleted:               js.UndefOr[Boolean]                   = js.undefined,
-  celled:                 js.UndefOr[Boolean]                   = js.undefined,
-  className:              js.UndefOr[String]                    = js.undefined,
-  clazz:                  js.UndefOr[Css]                       = js.undefined,
-  content:                js.UndefOr[Seq[VdomNode]]             = js.undefined,
-  divided:                js.UndefOr[Boolean]                   = js.undefined,
-  floated:                js.UndefOr[SemanticFloat]             = js.undefined,
-  horizontal:             js.UndefOr[Boolean]                   = js.undefined,
-  inverted:               js.UndefOr[Boolean]                   = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  animated:               js.UndefOr[Boolean] = js.undefined,
+  bulleted:               js.UndefOr[Boolean] = js.undefined,
+  celled:                 js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[Seq[VdomNode]] = js.undefined,
+  divided:                js.UndefOr[Boolean] = js.undefined,
+  floated:                js.UndefOr[SemanticFloat] = js.undefined,
+  horizontal:             js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
   items:                  js.UndefOr[Seq[ShorthandS[ListItem]]] = js.undefined,
-  onItemClickE:           js.UndefOr[List.OnItemClick]          = js.undefined,
-  onItemClick:            js.UndefOr[Callback]                  = js.undefined,
-  link:                   js.UndefOr[Boolean]                   = js.undefined,
-  ordered:                js.UndefOr[Boolean]                   = js.undefined,
-  relaxed:                js.UndefOr[Boolean]                   = js.undefined,
-  selection:              js.UndefOr[Boolean]                   = js.undefined,
-  size:                   js.UndefOr[SemanticSize]              = js.undefined,
+  onItemClickE:           js.UndefOr[List.OnItemClick] = js.undefined,
+  onItemClick:            js.UndefOr[Callback] = js.undefined,
+  link:                   js.UndefOr[Boolean] = js.undefined,
+  ordered:                js.UndefOr[Boolean] = js.undefined,
+  relaxed:                js.UndefOr[Boolean] = js.undefined,
+  selection:              js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
   verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
-  override val modifiers: Seq[TagMod]                           = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[List.ListProps, List] {
   override protected def cprops    = List.props(this)
   override protected val component = List.component
@@ -127,24 +126,24 @@ object List {
     q: List
   ): ListProps = {
     val p = q.as.toJsObject[ListProps]
-    q.as.toJs.foreach(v => p.as                                      = v)
-    q.animated.foreach(v => p.animated                               = v)
-    q.bulleted.foreach(v => p.bulleted                               = v)
-    q.celled.foreach(v => p.celled                                   = v)
-    (q.className, q.clazz).toJs.foreach(v => p.className             = v)
+    q.as.toJs.foreach(v => p.as = v)
+    q.animated.foreach(v => p.animated = v)
+    q.bulleted.foreach(v => p.bulleted = v)
+    q.celled.foreach(v => p.celled = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
     q.content.map(_.map(_.rawNode).toJSArray).foreach(v => p.content = v)
-    q.divided.foreach(v => p.divided                                 = v)
-    q.floated.toJs.foreach(v => p.floated                            = v)
-    q.horizontal.foreach(v => p.horizontal                           = v)
-    q.inverted.foreach(v => p.inverted                               = v)
-    q.items.toJs.foreach(v => p.items                                = v)
-    (q.onItemClickE, q.onItemClick).toJs.foreach(v => p.onItemClick  = v)
-    q.link.foreach(v => p.link                                       = v)
-    q.ordered.foreach(v => p.ordered                                 = v)
-    q.relaxed.foreach(v => p.relaxed                                 = v)
-    q.selection.foreach(v => p.selection                             = v)
-    q.size.toJs.foreach(v => p.size                                  = v)
-    q.verticalAlign.toJs.foreach(v => p.verticalAlign                = v)
+    q.divided.foreach(v => p.divided = v)
+    q.floated.toJs.foreach(v => p.floated = v)
+    q.horizontal.foreach(v => p.horizontal = v)
+    q.inverted.foreach(v => p.inverted = v)
+    q.items.toJs.foreach(v => p.items = v)
+    (q.onItemClickE, q.onItemClick).toJs.foreach(v => p.onItemClick = v)
+    q.link.foreach(v => p.link = v)
+    q.ordered.foreach(v => p.ordered = v)
+    q.relaxed.foreach(v => p.relaxed = v)
+    q.selection.foreach(v => p.selection = v)
+    q.size.toJs.foreach(v => p.size = v)
+    q.verticalAlign.toJs.foreach(v => p.verticalAlign = v)
     p
   }
 

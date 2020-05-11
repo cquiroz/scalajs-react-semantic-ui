@@ -6,20 +6,19 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.JsFnComponent
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.raw._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class TabPane(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  active:                 js.UndefOr[Boolean]              = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  active:                 js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  loading:                js.UndefOr[Boolean]              = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  loading:                js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[TabPane.TabPaneProps, TabPane] {
   override protected def cprops    = TabPane.props(this)
   override protected val component = TabPane.component
@@ -64,11 +63,11 @@ object TabPane {
     q: TabPane
   ): TabPaneProps = {
     val p = q.as.toJsObject[TabPaneProps]
-    q.as.toJs.foreach(v => p.as                          = v)
-    q.active.foreach(v => p.active                       = v)
+    q.as.toJs.foreach(v => p.as = v)
+    q.active.foreach(v => p.active = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
-    q.loading.foreach(v => p.loading                     = v)
+    q.content.toJs.foreach(v => p.content = v)
+    q.loading.foreach(v => p.loading = v)
     p
   }
 

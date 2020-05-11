@@ -4,7 +4,7 @@ import react.common.EnumValue
 
 package placeholder {
   sealed trait LineLength extends Product with Serializable
-  object LineLength {
+  object LineLength        {
     implicit val enum: EnumValue[LineLength] = EnumValue.instance {
       case Full      => "full"
       case VeryLong  => "very long"
@@ -14,10 +14,10 @@ package placeholder {
       case VeryShort => "very short"
     }
     case object Full extends LineLength
-    case object VeryLong extends LineLength
-    case object Long extends LineLength
-    case object Medium extends LineLength
-    case object Short extends LineLength
+    case object VeryLong  extends LineLength
+    case object Long      extends LineLength
+    case object Medium    extends LineLength
+    case object Short     extends LineLength
     case object VeryShort extends LineLength
   }
 }

@@ -7,7 +7,6 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.html_<^._
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
@@ -23,23 +22,23 @@ import react.semanticui.elements.image.Image
 import react.semanticui._
 
 final case class DropdownItem(
-  as:                     js.UndefOr[AsC]                         = js.undefined,
-  active:                 js.UndefOr[Boolean]                     = js.undefined,
-  className:              js.UndefOr[String]                      = js.undefined,
-  clazz:                  js.UndefOr[Css]                         = js.undefined,
-  content:                js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
-  description:            js.UndefOr[String]                      = js.undefined,
-  disable:                js.UndefOr[Boolean]                     = js.undefined,
-  flag:                   js.UndefOr[ShorthandS[Flag]]            = js.undefined,
-  icon:                   js.UndefOr[ShorthandS[Icon]]            = js.undefined,
-  image:                  js.UndefOr[ShorthandS[Image]]           = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]           = js.undefined,
-  onClickE:               js.UndefOr[DropdownItem.OnClick]        = js.undefined,
-  onClick:                js.UndefOr[Callback]                    = js.undefined,
-  selected:               js.UndefOr[Boolean]                     = js.undefined,
-  text:                   js.UndefOr[String]                      = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  active:                 js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  description:            js.UndefOr[String] = js.undefined,
+  disable:                js.UndefOr[Boolean] = js.undefined,
+  flag:                   js.UndefOr[ShorthandS[Flag]] = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[Icon]] = js.undefined,
+  image:                  js.UndefOr[ShorthandS[Image]] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  onClickE:               js.UndefOr[DropdownItem.OnClick] = js.undefined,
+  onClick:                js.UndefOr[Callback] = js.undefined,
+  selected:               js.UndefOr[Boolean] = js.undefined,
+  text:                   js.UndefOr[String] = js.undefined,
   value:                  js.UndefOr[Boolean | JsNumber | String] = js.undefined,
-  override val modifiers: Seq[TagMod]                             = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[DropdownItem.DropdownItemProps, DropdownItem] {
   override protected def cprops    = DropdownItem.props(this)
   override protected val component = DropdownItem.component
@@ -119,20 +118,20 @@ object DropdownItem {
     q: DropdownItem
   ): DropdownItemProps = {
     val p = q.as.toJsObject[DropdownItemProps]
-    q.as.toJs.foreach(v => p.as                          = v)
-    q.active.foreach(v => p.active                       = v)
+    q.as.toJs.foreach(v => p.as = v)
+    q.active.foreach(v => p.active = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
-    q.description.foreach(v => p.description             = v)
-    q.disable.foreach(v => p.disable                     = v)
-    q.flag.toJs.foreach(v => p.flag                      = v)
-    q.icon.toJs.foreach(v => p.icon                      = v)
-    q.image.toJs.foreach(v => p.image                    = v)
-    q.label.toJs.foreach(v => p.label                    = v)
-    (q.onClickE, q.onClick).toJs.foreach(v => p.onClick  = v)
-    q.selected.foreach(v => p.selected                   = v)
-    q.text.foreach(v => p.text                           = v)
-    q.value.foreach(v => p.value                         = v)
+    q.content.toJs.foreach(v => p.content = v)
+    q.description.foreach(v => p.description = v)
+    q.disable.foreach(v => p.disable = v)
+    q.flag.toJs.foreach(v => p.flag = v)
+    q.icon.toJs.foreach(v => p.icon = v)
+    q.image.toJs.foreach(v => p.image = v)
+    q.label.toJs.foreach(v => p.label = v)
+    (q.onClickE, q.onClick).toJs.foreach(v => p.onClick = v)
+    q.selected.foreach(v => p.selected = v)
+    q.text.foreach(v => p.text = v)
+    q.value.foreach(v => p.value = v)
     p
   }
 

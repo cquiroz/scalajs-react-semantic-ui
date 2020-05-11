@@ -10,11 +10,11 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class MessageList(
-  as:                     js.UndefOr[AsC]                          = js.undefined,
-  className:              js.UndefOr[String]                       = js.undefined,
-  clazz:                  js.UndefOr[Css]                          = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   items:                  js.UndefOr[Seq[ShorthandS[MessageItem]]] = js.undefined,
-  override val modifiers: Seq[TagMod]                              = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[MessageList.MessageListProps, MessageList] {
   override protected def cprops    = MessageList.props(this)
   override protected val component = MessageList.component
@@ -59,15 +59,15 @@ object MessageList {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]                          = js.undefined,
-    className: js.UndefOr[String]                       = js.undefined,
-    clazz:     js.UndefOr[Css]                          = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     items:     js.UndefOr[Seq[ShorthandS[MessageItem]]] = js.undefined
   ): MessageListProps = {
     val p = as.toJsObject[MessageListProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    items.toJs.foreach(v => p.items                  = v)
+    items.toJs.foreach(v => p.items = v)
     p
   }
 

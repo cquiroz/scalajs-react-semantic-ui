@@ -24,23 +24,23 @@ final case class Pane private (
 object Pane {
   def apply(menuItem: js.UndefOr[String | MenuItem], render: => VdomNode): Pane =
     new Pane(pane = js.undefined, menuItem = menuItem, render = () => render.rawNode)
-  def apply(menuItem: js.UndefOr[String | MenuItem], pane: TabPane): Pane =
+  def apply(menuItem: js.UndefOr[String | MenuItem], pane:   TabPane): Pane     =
     new Pane(pane = pane, menuItem = menuItem, render = js.undefined)
 }
 
 final case class Tab(
-  as:                     js.UndefOr[AsC]                      = js.undefined,
-  defaultActiveIndex:     js.UndefOr[JsNumber | String]        = js.undefined,
-  activeIndex:            js.UndefOr[JsNumber | String]        = js.undefined,
-  menu:                   js.UndefOr[Menu]                     = js.undefined,
-  menuPosition:           js.UndefOr[TabMenuPosition]          = js.undefined,
-  grid:                   js.UndefOr[Grid]                     = js.undefined,
-  onTabChangeE:           js.UndefOr[Tab.OnTabChange]          = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  defaultActiveIndex:     js.UndefOr[JsNumber | String] = js.undefined,
+  activeIndex:            js.UndefOr[JsNumber | String] = js.undefined,
+  menu:                   js.UndefOr[Menu] = js.undefined,
+  menuPosition:           js.UndefOr[TabMenuPosition] = js.undefined,
+  grid:                   js.UndefOr[Grid] = js.undefined,
+  onTabChangeE:           js.UndefOr[Tab.OnTabChange] = js.undefined,
   onTabChange:            js.UndefOr[Tab.TabProps => Callback] = js.undefined,
-  panes:                  List[Pane]                           = Nil,
-  renderActiveOnly:       js.UndefOr[Boolean]                  = js.undefined,
-  vertical:               js.UndefOr[Boolean]                  = js.undefined,
-  override val modifiers: Seq[TagMod]                          = Seq.empty
+  panes:                  List[Pane] = Nil,
+  renderActiveOnly:       js.UndefOr[Boolean] = js.undefined,
+  vertical:               js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[Tab.TabProps, Tab] {
   override protected def cprops    = Tab.props(this)
   override protected val component = Tab.component
@@ -145,18 +145,18 @@ object Tab {
     q: Tab
   ): TabProps = {
     val p = q.as.toJsObject[TabProps]
-    q.as.toJs.foreach(v => p.as                            = v)
+    q.as.toJs.foreach(v => p.as = v)
     q.defaultActiveIndex.foreach(v => p.defaultActiveIndex = v)
-    q.activeIndex.foreach(v => p.activeIndex               = v)
-    q.menu.map(_.props).foreach(v => p.menu                = v)
-    q.menuPosition.toJs.foreach(v => p.menuPosition        = v)
-    q.grid.map(_.props).foreach(v => p.grid                = v)
+    q.activeIndex.foreach(v => p.activeIndex = v)
+    q.menu.map(_.props).foreach(v => p.menu = v)
+    q.menuPosition.toJs.foreach(v => p.menuPosition = v)
+    q.grid.map(_.props).foreach(v => p.grid = v)
     q.onTabChangeE.toJs
       .orElse[RawOnTabChange](q.onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow))
       .foreach(v => p.onTabChange = v)
     p.panes = q.panes.map(RawPane.fromPane(_)).toJSArray
     q.renderActiveOnly.foreach(v => p.renderActiveOnly = v)
-    q.vertical.foreach(v => p.vertical                 = v)
+    q.vertical.foreach(v => p.vertical = v)
     p
   }
 

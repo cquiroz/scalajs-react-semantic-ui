@@ -5,7 +5,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.image._
@@ -13,20 +12,20 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class ListItem(
-  as:                     js.UndefOr[AsC]                         = js.undefined,
-  active:                 js.UndefOr[Boolean]                     = js.undefined,
-  className:              js.UndefOr[String]                      = js.undefined,
-  clazz:                  js.UndefOr[Css]                         = js.undefined,
-  content:                js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  active:                 js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   description:            js.UndefOr[ShorthandS[ListDescription]] = js.undefined,
-  disabled:               js.UndefOr[Boolean]                     = js.undefined,
-  header:                 js.UndefOr[ShorthandS[ListHeader]]      = js.undefined,
-  icon:                   js.UndefOr[ShorthandS[ListIcon]]        = js.undefined,
-  image:                  js.UndefOr[ShorthandS[Image]]           = js.undefined,
-  onClickE:               js.UndefOr[ListItem.OnClick]            = js.undefined,
-  onClick:                js.UndefOr[Callback]                    = js.undefined,
-  value:                  js.UndefOr[String]                      = js.undefined,
-  override val modifiers: Seq[TagMod]                             = Seq.empty
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  header:                 js.UndefOr[ShorthandS[ListHeader]] = js.undefined,
+  icon:                   js.UndefOr[ShorthandS[ListIcon]] = js.undefined,
+  image:                  js.UndefOr[ShorthandS[Image]] = js.undefined,
+  onClickE:               js.UndefOr[ListItem.OnClick] = js.undefined,
+  onClick:                js.UndefOr[Callback] = js.undefined,
+  value:                  js.UndefOr[String] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[ListItem.ListItemProps, ListItem] {
   override protected def cprops    = ListItem.props(this)
   override protected val component = ListItem.component
@@ -106,35 +105,36 @@ object ListItem {
              q.image,
              q.onClickE,
              q.onClick,
-             q.value)
+             q.value
+    )
 
   def rawprops(
-    as:          js.UndefOr[AsC]                         = js.undefined,
-    active:      js.UndefOr[Boolean]                     = js.undefined,
-    className:   js.UndefOr[String]                      = js.undefined,
-    clazz:       js.UndefOr[Css]                         = js.undefined,
-    content:     js.UndefOr[ShorthandS[VdomNode]]        = js.undefined,
+    as:          js.UndefOr[AsC] = js.undefined,
+    active:      js.UndefOr[Boolean] = js.undefined,
+    className:   js.UndefOr[String] = js.undefined,
+    clazz:       js.UndefOr[Css] = js.undefined,
+    content:     js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
     description: js.UndefOr[ShorthandS[ListDescription]] = js.undefined,
-    disabled:    js.UndefOr[Boolean]                     = js.undefined,
-    header:      js.UndefOr[ShorthandS[ListHeader]]      = js.undefined,
-    icon:        js.UndefOr[ShorthandS[ListIcon]]        = js.undefined,
-    image:       js.UndefOr[ShorthandS[Image]]           = js.undefined,
-    onClickE:    js.UndefOr[ListItem.OnClick]            = js.undefined,
-    onClick:     js.UndefOr[Callback]                    = js.undefined,
-    value:       js.UndefOr[String]                      = js.undefined
+    disabled:    js.UndefOr[Boolean] = js.undefined,
+    header:      js.UndefOr[ShorthandS[ListHeader]] = js.undefined,
+    icon:        js.UndefOr[ShorthandS[ListIcon]] = js.undefined,
+    image:       js.UndefOr[ShorthandS[Image]] = js.undefined,
+    onClickE:    js.UndefOr[ListItem.OnClick] = js.undefined,
+    onClick:     js.UndefOr[Callback] = js.undefined,
+    value:       js.UndefOr[String] = js.undefined
   ): ListItemProps = {
     val p = as.toJsObject[ListItemProps]
-    as.toJs.foreach(v => p.as                        = v)
-    active.foreach(v => p.active                     = v)
+    as.toJs.foreach(v => p.as = v)
+    active.foreach(v => p.active = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    description.toJs.foreach(v => p.description      = v)
-    disabled.foreach(v => p.disabled                 = v)
-    header.toJs.foreach(v => p.header                = v)
-    icon.toJs.foreach(v => p.icon                    = v)
-    image.toJs.foreach(v => p.image                  = v)
-    (onClickE, onClick).toJs.foreach(v => p.onClick  = v)
-    value.foreach(v => p.value                       = v)
+    content.toJs.foreach(v => p.content = v)
+    description.toJs.foreach(v => p.description = v)
+    disabled.foreach(v => p.disabled = v)
+    header.toJs.foreach(v => p.header = v)
+    icon.toJs.foreach(v => p.icon = v)
+    image.toJs.foreach(v => p.image = v)
+    (onClickE, onClick).toJs.foreach(v => p.onClick = v)
+    value.foreach(v => p.value = v)
     p
   }
 

@@ -7,7 +7,6 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
@@ -17,30 +16,30 @@ import japgolly.scalajs.react.vdom.TagMod
 import react.semanticui.elements.label.Label
 
 final case class Input(
-  as:                     js.UndefOr[AsC]                   = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
   action:                 js.UndefOr[ShorthandSB[VdomNode]] = js.undefined,
-  actionPosition:         js.UndefOr[ActionPosition]        = js.undefined,
-  className:              js.UndefOr[String]                = js.undefined,
-  clazz:                  js.UndefOr[Css]                   = js.undefined,
-  disabled:               js.UndefOr[Boolean]               = js.undefined,
-  error:                  js.UndefOr[Boolean]               = js.undefined,
-  fluid:                  js.UndefOr[Boolean]               = js.undefined,
-  focus:                  js.UndefOr[Boolean]               = js.undefined,
-  icon:                   js.UndefOr[ShorthandSB[Icon]]     = js.undefined,
-  iconPosition:           js.UndefOr[IconPosition]          = js.undefined,
-  input:                  js.UndefOr[VdomNode]              = js.undefined,
-  inverted:               js.UndefOr[Boolean]               = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]     = js.undefined,
-  labelPosition:          js.UndefOr[LabelPosition]         = js.undefined,
-  loading:                js.UndefOr[Boolean]               = js.undefined,
-  onChangeE:              js.UndefOr[Input.OnChange]        = js.undefined,
-  onChange:               js.UndefOr[Callback]              = js.undefined,
-  size:                   js.UndefOr[SemanticSize]          = js.undefined,
-  tabIndex:               js.UndefOr[String | JsNumber]     = js.undefined,
-  transparent:            js.UndefOr[Boolean]               = js.undefined,
-  tpe:                    js.UndefOr[String]                = js.undefined,
-  value:                  js.UndefOr[String]                = js.undefined,
-  override val modifiers: Seq[TagMod]                       = Seq.empty
+  actionPosition:         js.UndefOr[ActionPosition] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  error:                  js.UndefOr[Boolean] = js.undefined,
+  fluid:                  js.UndefOr[Boolean] = js.undefined,
+  focus:                  js.UndefOr[Boolean] = js.undefined,
+  icon:                   js.UndefOr[ShorthandSB[Icon]] = js.undefined,
+  iconPosition:           js.UndefOr[IconPosition] = js.undefined,
+  input:                  js.UndefOr[VdomNode] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  labelPosition:          js.UndefOr[LabelPosition] = js.undefined,
+  loading:                js.UndefOr[Boolean] = js.undefined,
+  onChangeE:              js.UndefOr[Input.OnChange] = js.undefined,
+  onChange:               js.UndefOr[Callback] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  tabIndex:               js.UndefOr[String | JsNumber] = js.undefined,
+  transparent:            js.UndefOr[Boolean] = js.undefined,
+  tpe:                    js.UndefOr[String] = js.undefined,
+  value:                  js.UndefOr[String] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Input.InputProps, Input] {
   override protected def cprops    = Input.props(this)
   override protected val component = Input.component
@@ -138,25 +137,25 @@ object Input {
     q: Input
   ): InputProps = {
     val p = q.as.toJsObject[InputProps]
-    q.as.toJs.foreach(v => p.as                            = v)
-    q.action.toJs.foreach(v => p.action                    = v)
-    q.actionPosition.toJs.foreach(v => p.actionPosition    = v)
-    (q.className, q.clazz).toJs.foreach(v => p.className   = v)
-    q.disabled.foreach(v => p.disabled                     = v)
-    q.error.foreach(v => p.error                           = v)
-    q.fluid.foreach(v => p.fluid                           = v)
-    q.focus.foreach(v => p.focus                           = v)
-    q.icon.toJs.foreach(v => p.icon                        = v)
-    q.iconPosition.toJs.foreach(v => p.iconPosition        = v)
-    q.input.toJs.foreach(v => p.input                      = v)
-    q.inverted.foreach(v => p.inverted                     = v)
-    q.label.toJs.foreach(v => p.label                      = v)
-    q.labelPosition.toJs.foreach(v => p.labelPosition      = v)
-    q.loading.foreach(v => p.loading                       = v)
+    q.as.toJs.foreach(v => p.as = v)
+    q.action.toJs.foreach(v => p.action = v)
+    q.actionPosition.toJs.foreach(v => p.actionPosition = v)
+    (q.className, q.clazz).toJs.foreach(v => p.className = v)
+    q.disabled.foreach(v => p.disabled = v)
+    q.error.foreach(v => p.error = v)
+    q.fluid.foreach(v => p.fluid = v)
+    q.focus.foreach(v => p.focus = v)
+    q.icon.toJs.foreach(v => p.icon = v)
+    q.iconPosition.toJs.foreach(v => p.iconPosition = v)
+    q.input.toJs.foreach(v => p.input = v)
+    q.inverted.foreach(v => p.inverted = v)
+    q.label.toJs.foreach(v => p.label = v)
+    q.labelPosition.toJs.foreach(v => p.labelPosition = v)
+    q.loading.foreach(v => p.loading = v)
     (q.onChangeE, q.onChange).toJs.foreach(v => p.onChange = v)
-    q.size.toJs.foreach(v => p.size                        = v)
-    q.tabIndex.foreach(v => p.tabIndex                     = v)
-    q.transparent.foreach(v => p.transparent               = v)
+    q.size.toJs.foreach(v => p.size = v)
+    q.tabIndex.foreach(v => p.tabIndex = v)
+    q.transparent.foreach(v => p.transparent = v)
     p.`type` = q.tpe
     q.value.foreach(v => p.value = v)
     p

@@ -5,7 +5,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.raw._
@@ -16,12 +15,12 @@ import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownHeader(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  icon:                   js.UndefOr[ShorthandS[Icon]]     = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  icon:                   js.UndefOr[ShorthandS[Icon]] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[DropdownHeader.DropdownHeaderProps, DropdownHeader] {
   override protected def cprops    = DropdownHeader.props(this)
   override protected val component = DropdownHeader.component
@@ -63,17 +62,17 @@ object DropdownHeader {
     rawprops(q.as, q.className, q.clazz, q.content, q.icon)
 
   def rawprops(
-    as:        js.UndefOr[AsC]                  = js.undefined,
-    className: js.UndefOr[String]               = js.undefined,
-    clazz:     js.UndefOr[Css]                  = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    icon:      js.UndefOr[ShorthandS[Icon]]     = js.undefined
+    icon:      js.UndefOr[ShorthandS[Icon]] = js.undefined
   ): DropdownHeaderProps = {
     val p = as.toJsObject[DropdownHeaderProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    icon.toJs.foreach(v => p.icon                    = v)
+    content.toJs.foreach(v => p.content = v)
+    icon.toJs.foreach(v => p.icon = v)
     p
   }
 

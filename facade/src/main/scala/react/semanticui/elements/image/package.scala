@@ -7,8 +7,8 @@ package image {
   object ImageSpaced {
     implicit val enum: EnumValueB[ImageSpaced] = EnumValueB.toLowerCaseStringT(Spaced)
     case object Spaced extends ImageSpaced
-    case object Left extends ImageSpaced
-    case object Right extends ImageSpaced
+    case object Left   extends ImageSpaced
+    case object Right  extends ImageSpaced
   }
 }
 

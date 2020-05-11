@@ -9,13 +9,13 @@ package icon {
     implicit val enum: EnumValue[IconFlip] = EnumValue.toLowerCaseString
 
     case object Horizontally extends IconFlip
-    case object Vertically extends IconFlip
+    case object Vertically   extends IconFlip
   }
 
   sealed trait IconRotated extends Product with Serializable
   object IconRotated {
     implicit val enum: EnumValue[IconRotated] = EnumValue.toLowerCaseString
-    case object Clockwise extends IconRotated
+    case object Clockwise        extends IconRotated
     case object CounterClockwise extends IconRotated
   }
 
@@ -29,9 +29,9 @@ package icon {
     }
 
     case object BottomRight extends IconCorner
-    case object TopRight extends IconCorner
-    case object TopLeft extends IconCorner
-    case object BottomLeft extends IconCorner
+    case object TopRight    extends IconCorner
+    case object TopLeft     extends IconCorner
+    case object BottomLeft  extends IconCorner
   }
 }
 

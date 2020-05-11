@@ -7,28 +7,27 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.React.Ref
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.raw._
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Sidebar(
-  as:                     js.UndefOr[AsC]              = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
   animation:              js.UndefOr[SidebarAnimation] = js.undefined,
-  className:              js.UndefOr[String]           = js.undefined,
-  clazz:                  js.UndefOr[Css]              = js.undefined,
-  content:                js.UndefOr[VdomNode]         = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
   direction:              js.UndefOr[SidebarDirection] = js.undefined,
-  onHideE:                js.UndefOr[Sidebar.OnHide]   = js.undefined,
-  onHide:                 js.UndefOr[Callback]         = js.undefined,
-  onHidden:               js.UndefOr[Callback]         = js.undefined,
-  onShow:                 js.UndefOr[Callback]         = js.undefined,
-  onVisible:              js.UndefOr[Callback]         = js.undefined,
-  target:                 js.UndefOr[Ref]              = js.undefined,
-  visible:                js.UndefOr[Boolean]          = js.undefined,
-  width:                  js.UndefOr[SidebarWidth]     = js.undefined,
-  override val modifiers: Seq[TagMod]                  = Seq.empty
+  onHideE:                js.UndefOr[Sidebar.OnHide] = js.undefined,
+  onHide:                 js.UndefOr[Callback] = js.undefined,
+  onHidden:               js.UndefOr[Callback] = js.undefined,
+  onShow:                 js.UndefOr[Callback] = js.undefined,
+  onVisible:              js.UndefOr[Callback] = js.undefined,
+  target:                 js.UndefOr[Ref] = js.undefined,
+  visible:                js.UndefOr[Boolean] = js.undefined,
+  width:                  js.UndefOr[SidebarWidth] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Sidebar.SidebarProps, Sidebar] {
   override protected def cprops    = Sidebar.props(this)
   override protected val component = Sidebar.component
@@ -78,37 +77,38 @@ object Sidebar {
              q.onVisible,
              q.target,
              q.visible,
-             q.width)
+             q.width
+    )
 
   def rawprops(
-    as:        js.UndefOr[AsC]              = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
     animation: js.UndefOr[SidebarAnimation] = js.undefined,
-    className: js.UndefOr[String]           = js.undefined,
-    clazz:     js.UndefOr[Css]              = js.undefined,
-    content:   js.UndefOr[VdomNode]         = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
+    content:   js.UndefOr[VdomNode] = js.undefined,
     direction: js.UndefOr[SidebarDirection] = js.undefined,
-    onHideE:   js.UndefOr[OnHide]           = js.undefined,
-    onHide:    js.UndefOr[Callback]         = js.undefined,
-    onHidden:  js.UndefOr[Callback]         = js.undefined,
-    onShow:    js.UndefOr[Callback]         = js.undefined,
-    onVisible: js.UndefOr[Callback]         = js.undefined,
-    target:    js.UndefOr[Ref]              = js.undefined,
-    visible:   js.UndefOr[Boolean]          = js.undefined,
-    width:     js.UndefOr[SidebarWidth]     = js.undefined
+    onHideE:   js.UndefOr[OnHide] = js.undefined,
+    onHide:    js.UndefOr[Callback] = js.undefined,
+    onHidden:  js.UndefOr[Callback] = js.undefined,
+    onShow:    js.UndefOr[Callback] = js.undefined,
+    onVisible: js.UndefOr[Callback] = js.undefined,
+    target:    js.UndefOr[Ref] = js.undefined,
+    visible:   js.UndefOr[Boolean] = js.undefined,
+    width:     js.UndefOr[SidebarWidth] = js.undefined
   ): SidebarProps = {
     val p = as.toJsObject[SidebarProps]
-    as.toJs.foreach(v => p.as                        = v)
-    animation.toJs.foreach(v => p.animation          = v)
+    as.toJs.foreach(v => p.as = v)
+    animation.toJs.foreach(v => p.animation = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    direction.toJs.foreach(v => p.direction          = v)
-    (onHideE, onHide).toJs.foreach(v => p.onHide     = v)
-    onHidden.toJs.foreach(v => p.onHidden            = v)
-    onShow.toJs.foreach(v => p.onShow                = v)
-    onVisible.toJs.foreach(v => p.onVisible          = v)
-    target.foreach(v => p.target                     = v)
-    visible.foreach(v => p.visible                   = v)
-    width.toJs.foreach(v => p.width                  = v)
+    content.toJs.foreach(v => p.content = v)
+    direction.toJs.foreach(v => p.direction = v)
+    (onHideE, onHide).toJs.foreach(v => p.onHide = v)
+    onHidden.toJs.foreach(v => p.onHidden = v)
+    onShow.toJs.foreach(v => p.onShow = v)
+    onVisible.toJs.foreach(v => p.onVisible = v)
+    target.foreach(v => p.target = v)
+    visible.foreach(v => p.visible = v)
+    width.toJs.foreach(v => p.width = v)
     p
   }
 

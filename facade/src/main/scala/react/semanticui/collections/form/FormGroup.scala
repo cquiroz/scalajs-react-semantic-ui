@@ -5,7 +5,6 @@ import js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
@@ -13,15 +12,15 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class FormGroup(
-  as:                     js.UndefOr[AsC]                        = js.undefined,
-  className:              js.UndefOr[String]                     = js.undefined,
-  clazz:                  js.UndefOr[Css]                        = js.undefined,
-  content:                js.UndefOr[ShorthandS[VdomNode]]       = js.undefined,
-  grouped:                js.UndefOr[Boolean]                    = js.undefined,
-  inline:                 js.UndefOr[Boolean]                    = js.undefined,
-  unstackable:            js.UndefOr[Boolean]                    = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  grouped:                js.UndefOr[Boolean] = js.undefined,
+  inline:                 js.UndefOr[Boolean] = js.undefined,
+  unstackable:            js.UndefOr[Boolean] = js.undefined,
   widths:                 js.UndefOr[SemanticWidth | FormWidths] = js.undefined,
-  override val modifiers: Seq[TagMod]                            = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[FormGroup.FormGroupProps, FormGroup] {
   override protected def cprops    = FormGroup.props(this)
   override protected val component = FormGroup.component
@@ -80,22 +79,22 @@ object FormGroup {
     )
 
   def rawprops(
-    as:          js.UndefOr[AsC]                        = js.undefined,
-    className:   js.UndefOr[String]                     = js.undefined,
-    clazz:       js.UndefOr[Css]                        = js.undefined,
-    content:     js.UndefOr[ShorthandS[VdomNode]]       = js.undefined,
-    grouped:     js.UndefOr[Boolean]                    = js.undefined,
-    inline:      js.UndefOr[Boolean]                    = js.undefined,
-    unstackable: js.UndefOr[Boolean]                    = js.undefined,
+    as:          js.UndefOr[AsC] = js.undefined,
+    className:   js.UndefOr[String] = js.undefined,
+    clazz:       js.UndefOr[Css] = js.undefined,
+    content:     js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+    grouped:     js.UndefOr[Boolean] = js.undefined,
+    inline:      js.UndefOr[Boolean] = js.undefined,
+    unstackable: js.UndefOr[Boolean] = js.undefined,
     widths:      js.UndefOr[SemanticWidth | FormWidths] = js.undefined
   ): FormGroupProps = {
     val p = as.toJsObject[FormGroupProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    grouped.foreach(v => p.grouped                   = v)
-    inline.foreach(v => p.inline                     = v)
-    unstackable.foreach(v => p.unstackable           = v)
+    content.toJs.foreach(v => p.content = v)
+    grouped.foreach(v => p.grouped = v)
+    inline.foreach(v => p.inline = v)
+    unstackable.foreach(v => p.unstackable = v)
     widths
       .map {
         (_: Any) match {

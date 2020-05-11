@@ -6,19 +6,18 @@ import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
 import react.semanticui._
-import react.common.style._
 import react.common._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownSearchInput(
-  as:                     js.UndefOr[AsC]               = js.undefined,
-  autoComplete:           js.UndefOr[String]            = js.undefined,
-  className:              js.UndefOr[String]            = js.undefined,
-  clazz:                  js.UndefOr[Css]               = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  autoComplete:           js.UndefOr[String] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   tabIndex:               js.UndefOr[String | JsNumber] = js.undefined,
-  tpe:                    js.UndefOr[String]            = js.undefined,
+  tpe:                    js.UndefOr[String] = js.undefined,
   value:                  js.UndefOr[JsNumber | String] = js.undefined,
-  override val modifiers: Seq[TagMod]                   = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[DropdownSearchInput.DropdownSearchInputProps, DropdownSearchInput] {
   override protected def cprops = DropdownSearchInput.props(this)
   override val component        = DropdownSearchInput.component
@@ -61,19 +60,19 @@ object DropdownSearchInput {
     rawprops(q.as, q.autoComplete, q.className, q.clazz, q.tabIndex, q.tpe, q.value)
 
   def rawprops(
-    as:           js.UndefOr[AsC]               = js.undefined,
-    autoComplete: js.UndefOr[String]            = js.undefined,
-    className:    js.UndefOr[String]            = js.undefined,
-    clazz:        js.UndefOr[Css]               = js.undefined,
+    as:           js.UndefOr[AsC] = js.undefined,
+    autoComplete: js.UndefOr[String] = js.undefined,
+    className:    js.UndefOr[String] = js.undefined,
+    clazz:        js.UndefOr[Css] = js.undefined,
     tabIndex:     js.UndefOr[String | JsNumber] = js.undefined,
-    `type`:       js.UndefOr[String]            = js.undefined,
+    `type`:       js.UndefOr[String] = js.undefined,
     value:        js.UndefOr[JsNumber | String] = js.undefined
   ): DropdownSearchInputProps = {
     val p = as.toJsObject[DropdownSearchInputProps]
-    as.toJs.foreach(v => p.as                        = v)
-    autoComplete.foreach(v => p.autoComplete         = v)
+    as.toJs.foreach(v => p.as = v)
+    autoComplete.foreach(v => p.autoComplete = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    tabIndex.foreach(v => p.tabIndex                 = v)
+    tabIndex.foreach(v => p.tabIndex = v)
     p.`type` = `type`
     value.foreach(v => p.value = v)
     p

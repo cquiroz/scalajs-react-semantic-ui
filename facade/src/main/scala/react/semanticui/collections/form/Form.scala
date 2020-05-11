@@ -4,7 +4,6 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
@@ -12,22 +11,22 @@ import org.scalajs.dom
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Form(
-  as:                     js.UndefOr[AsC]            = js.undefined,
-  action:                 js.UndefOr[String]         = js.undefined,
-  className:              js.UndefOr[String]         = js.undefined,
-  clazz:                  js.UndefOr[Css]            = js.undefined,
-  error:                  js.UndefOr[Boolean]        = js.undefined,
-  inverted:               js.UndefOr[Boolean]        = js.undefined,
-  loading:                js.UndefOr[Boolean]        = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  action:                 js.UndefOr[String] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  error:                  js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  loading:                js.UndefOr[Boolean] = js.undefined,
   onSubmitE:              js.UndefOr[Form.OnSubmitE] = js.undefined,
-  onSubmit:               js.UndefOr[Callback]       = js.undefined,
-  reply:                  js.UndefOr[Boolean]        = js.undefined,
-  size:                   js.UndefOr[SemanticSize]   = js.undefined,
-  success:                js.UndefOr[Boolean]        = js.undefined,
-  unstackable:            js.UndefOr[Boolean]        = js.undefined,
-  warning:                js.UndefOr[Boolean]        = js.undefined,
-  widths:                 js.UndefOr[FormWidths]     = js.undefined,
-  override val modifiers: Seq[TagMod]                = Seq.empty
+  onSubmit:               js.UndefOr[Callback] = js.undefined,
+  reply:                  js.UndefOr[Boolean] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  success:                js.UndefOr[Boolean] = js.undefined,
+  unstackable:            js.UndefOr[Boolean] = js.undefined,
+  warning:                js.UndefOr[Boolean] = js.undefined,
+  widths:                 js.UndefOr[FormWidths] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Form.FormProps, Form] {
   override protected def cprops    = Form.props(this)
   override protected val component = Form.component
@@ -114,36 +113,36 @@ object Form {
     )
 
   def rawprops(
-    as:          js.UndefOr[AsC]            = js.undefined,
-    action:      js.UndefOr[String]         = js.undefined,
-    className:   js.UndefOr[String]         = js.undefined,
-    clazz:       js.UndefOr[Css]            = js.undefined,
-    error:       js.UndefOr[Boolean]        = js.undefined,
-    inverted:    js.UndefOr[Boolean]        = js.undefined,
-    loading:     js.UndefOr[Boolean]        = js.undefined,
+    as:          js.UndefOr[AsC] = js.undefined,
+    action:      js.UndefOr[String] = js.undefined,
+    className:   js.UndefOr[String] = js.undefined,
+    clazz:       js.UndefOr[Css] = js.undefined,
+    error:       js.UndefOr[Boolean] = js.undefined,
+    inverted:    js.UndefOr[Boolean] = js.undefined,
+    loading:     js.UndefOr[Boolean] = js.undefined,
     onSubmitE:   js.UndefOr[Form.OnSubmitE] = js.undefined,
-    onSubmit:    js.UndefOr[Callback]       = js.undefined,
-    reply:       js.UndefOr[Boolean]        = js.undefined,
-    size:        js.UndefOr[SemanticSize]   = js.undefined,
-    success:     js.UndefOr[Boolean]        = js.undefined,
-    unstackable: js.UndefOr[Boolean]        = js.undefined,
-    warning:     js.UndefOr[Boolean]        = js.undefined,
-    widths:      js.UndefOr[FormWidths]     = js.undefined
+    onSubmit:    js.UndefOr[Callback] = js.undefined,
+    reply:       js.UndefOr[Boolean] = js.undefined,
+    size:        js.UndefOr[SemanticSize] = js.undefined,
+    success:     js.UndefOr[Boolean] = js.undefined,
+    unstackable: js.UndefOr[Boolean] = js.undefined,
+    warning:     js.UndefOr[Boolean] = js.undefined,
+    widths:      js.UndefOr[FormWidths] = js.undefined
   ): FormProps = {
     val p = as.toJsObject[FormProps]
-    as.toJs.foreach(v => p.as                          = v)
-    action.foreach(v => p.action                       = v)
-    (className, clazz).toJs.foreach(v => p.className   = v)
-    error.foreach(v => p.error                         = v)
-    inverted.foreach(v => p.inverted                   = v)
-    loading.foreach(v => p.loading                     = v)
+    as.toJs.foreach(v => p.as = v)
+    action.foreach(v => p.action = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    error.foreach(v => p.error = v)
+    inverted.foreach(v => p.inverted = v)
+    loading.foreach(v => p.loading = v)
     (onSubmitE, onSubmit).toJs.foreach(v => p.onSubmit = v)
-    reply.foreach(v => p.reply                         = v)
-    size.toJs.foreach(v => p.size                      = v)
-    success.foreach(v => p.success                     = v)
-    unstackable.foreach(v => p.unstackable             = v)
-    warning.foreach(v => p.warning                     = v)
-    widths.toJs.foreach(v => p.widths                  = v)
+    reply.foreach(v => p.reply = v)
+    size.toJs.foreach(v => p.size = v)
+    success.foreach(v => p.success = v)
+    unstackable.foreach(v => p.unstackable = v)
+    warning.foreach(v => p.warning = v)
+    widths.toJs.foreach(v => p.widths = v)
     p
   }
 

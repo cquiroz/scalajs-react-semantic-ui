@@ -5,20 +5,19 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Placeholder(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  fluid:                  js.UndefOr[Boolean]              = js.undefined,
-  inverted:               js.UndefOr[Boolean]              = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  fluid:                  js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Placeholder.PlaceholderProps, Placeholder] {
   override protected def cprops    = Placeholder.props(this)
   override protected val component = Placeholder.component
@@ -63,11 +62,11 @@ object Placeholder {
     q: Placeholder
   ): PlaceholderProps = {
     val p = q.as.toJsObject[PlaceholderProps]
-    q.as.toJs.foreach(v => p.as                          = v)
+    q.as.toJs.foreach(v => p.as = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
-    q.fluid.foreach(v => p.fluid                         = v)
-    q.inverted.foreach(v => p.inverted                   = v)
+    q.content.toJs.foreach(v => p.content = v)
+    q.fluid.foreach(v => p.fluid = v)
+    q.inverted.foreach(v => p.inverted = v)
     p
   }
 

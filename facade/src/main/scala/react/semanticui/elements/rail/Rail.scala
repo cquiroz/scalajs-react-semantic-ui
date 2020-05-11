@@ -6,7 +6,6 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
@@ -93,26 +92,26 @@ object Rail {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]                  = js.undefined,
-    attached:  js.UndefOr[Boolean]              = js.undefined,
-    className: js.UndefOr[String]               = js.undefined,
-    clazz:     js.UndefOr[Css]                  = js.undefined,
-    close:     js.UndefOr[RailClose]            = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    attached:  js.UndefOr[Boolean] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
+    close:     js.UndefOr[RailClose] = js.undefined,
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    dividing:  js.UndefOr[Boolean]              = js.undefined,
-    internal:  js.UndefOr[Boolean]              = js.undefined,
-    position:  js.UndefOr[SemanticFloat]        = js.undefined,
-    size:      js.UndefOr[SemanticSize]         = js.undefined
+    dividing:  js.UndefOr[Boolean] = js.undefined,
+    internal:  js.UndefOr[Boolean] = js.undefined,
+    position:  js.UndefOr[SemanticFloat] = js.undefined,
+    size:      js.UndefOr[SemanticSize] = js.undefined
   ): RailProps = {
     val p = as.toJsObject[RailProps]
-    attached.foreach(v => p.attached                 = v)
+    attached.foreach(v => p.attached = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    close.toJs.foreach(v => p.close                  = v)
-    content.toJs.foreach(v => p.content              = v)
-    dividing.foreach(v => p.dividing                 = v)
-    internal.foreach(v => p.internal                 = v)
-    position.toJs.foreach(v => p.position            = v)
-    size.toJs.foreach(v => p.size                    = v)
+    close.toJs.foreach(v => p.close = v)
+    content.toJs.foreach(v => p.content = v)
+    dividing.foreach(v => p.dividing = v)
+    internal.foreach(v => p.internal = v)
+    position.toJs.foreach(v => p.position = v)
+    size.toJs.foreach(v => p.size = v)
     p
   }
 

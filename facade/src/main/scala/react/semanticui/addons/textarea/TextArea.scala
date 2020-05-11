@@ -11,14 +11,14 @@ import japgolly.scalajs.react.vdom.TagMod
 import react.semanticui.collections.form.Form
 
 final case class TextArea(
-  as:                     js.UndefOr[AsC]               = js.undefined,
-  onChangeE:              js.UndefOr[TextArea.Event]    = js.undefined,
-  onChange:               js.UndefOr[Callback]          = js.undefined,
-  onInputE:               js.UndefOr[TextArea.Event]    = js.undefined,
-  onInput:                js.UndefOr[Callback]          = js.undefined,
-  rows:                   js.UndefOr[Int | String]      = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  onChangeE:              js.UndefOr[TextArea.Event] = js.undefined,
+  onChange:               js.UndefOr[Callback] = js.undefined,
+  onInputE:               js.UndefOr[TextArea.Event] = js.undefined,
+  onInput:                js.UndefOr[Callback] = js.undefined,
+  rows:                   js.UndefOr[Int | String] = js.undefined,
   value:                  js.UndefOr[String | JsNumber] = js.undefined,
-  override val modifiers: Seq[TagMod]                   = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[TextArea.TextAreaProps, TextArea] {
   override protected def cprops    = TextArea.props(this)
   override protected val component = TextArea.component
@@ -80,20 +80,20 @@ object TextArea {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]               = js.undefined,
-    onChangeE: js.UndefOr[TextArea.Event]    = js.undefined,
-    onChange:  js.UndefOr[Callback]          = js.undefined,
-    onInputE:  js.UndefOr[TextArea.Event]    = js.undefined,
-    onInput:   js.UndefOr[Callback]          = js.undefined,
-    rows:      js.UndefOr[Int | String]      = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    onChangeE: js.UndefOr[TextArea.Event] = js.undefined,
+    onChange:  js.UndefOr[Callback] = js.undefined,
+    onInputE:  js.UndefOr[TextArea.Event] = js.undefined,
+    onInput:   js.UndefOr[Callback] = js.undefined,
+    rows:      js.UndefOr[Int | String] = js.undefined,
     value:     js.UndefOr[String | JsNumber] = js.undefined
   ): TextAreaProps = {
     val p = as.toJsObject[TextAreaProps]
-    as.toJs.foreach(v => p.as                          = v)
+    as.toJs.foreach(v => p.as = v)
     (onChangeE, onChange).toJs.foreach(v => p.onChange = v)
-    (onInputE, onInput).toJs.foreach(v => p.onInput    = v)
-    rows.foreach(v => p.rows                           = v)
-    value.foreach(v => p.value                         = v)
+    (onInputE, onInput).toJs.foreach(v => p.onInput = v)
+    rows.foreach(v => p.rows = v)
+    value.foreach(v => p.value = v)
     p
   }
 

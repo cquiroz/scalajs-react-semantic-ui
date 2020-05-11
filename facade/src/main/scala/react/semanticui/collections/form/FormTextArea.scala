@@ -4,7 +4,6 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.label.Label
@@ -15,25 +14,25 @@ import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class FormTextArea(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  control:                js.UndefOr[String]               = js.undefined,
-  disabled:               js.UndefOr[Boolean]              = js.undefined,
-  error:                  js.UndefOr[ShorthandB[Label]]    = js.undefined,
-  inline:                 js.UndefOr[Boolean]              = js.undefined,
-  label:                  js.UndefOr[ShorthandS[Label]]    = js.undefined,
-  onChange:               js.UndefOr[Callback]             = js.undefined,
-  onChangeE:              js.UndefOr[TextArea.Event]       = js.undefined,
-  onInput:                js.UndefOr[Callback]             = js.undefined,
-  onInputE:               js.UndefOr[TextArea.Event]       = js.undefined,
-  required:               js.UndefOr[Boolean]              = js.undefined,
-  rows:                   js.UndefOr[Int | String]         = js.undefined,
-  tpe:                    js.UndefOr[String]               = js.undefined,
-  value:                  js.UndefOr[String | JsNumber]    = js.undefined,
-  width:                  js.UndefOr[SemanticWidth]        = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  control:                js.UndefOr[String] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  error:                  js.UndefOr[ShorthandB[Label]] = js.undefined,
+  inline:                 js.UndefOr[Boolean] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
+  onChange:               js.UndefOr[Callback] = js.undefined,
+  onChangeE:              js.UndefOr[TextArea.Event] = js.undefined,
+  onInput:                js.UndefOr[Callback] = js.undefined,
+  onInputE:               js.UndefOr[TextArea.Event] = js.undefined,
+  required:               js.UndefOr[Boolean] = js.undefined,
+  rows:                   js.UndefOr[Int | String] = js.undefined,
+  tpe:                    js.UndefOr[String] = js.undefined,
+  value:                  js.UndefOr[String | JsNumber] = js.undefined,
+  width:                  js.UndefOr[SemanticWidth] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[FormTextArea.FormFieldProps, FormTextArea] {
   override protected def cprops    = FormTextArea.props(this)
   override protected val component = FormTextArea.component
@@ -138,41 +137,41 @@ object FormTextArea {
     )
 
   def rawprops(
-    as:        js.UndefOr[AsC]                  = js.undefined,
-    className: js.UndefOr[String]               = js.undefined,
-    clazz:     js.UndefOr[Css]                  = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
+    clazz:     js.UndefOr[Css] = js.undefined,
     content:   js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-    control:   js.UndefOr[String]               = js.undefined,
-    disabled:  js.UndefOr[Boolean]              = js.undefined,
-    error:     js.UndefOr[ShorthandB[Label]]    = js.undefined,
-    inline:    js.UndefOr[Boolean]              = js.undefined,
-    label:     js.UndefOr[ShorthandS[Label]]    = js.undefined,
-    onChange:  js.UndefOr[Callback]             = js.undefined,
-    onChangeE: js.UndefOr[TextArea.Event]       = js.undefined,
-    onInput:   js.UndefOr[Callback]             = js.undefined,
-    onInputE:  js.UndefOr[TextArea.Event]       = js.undefined,
-    required:  js.UndefOr[Boolean]              = js.undefined,
-    rows:      js.UndefOr[Int | String]         = js.undefined,
-    tpe:       js.UndefOr[String]               = js.undefined,
-    value:     js.UndefOr[String | JsNumber]    = js.undefined,
-    width:     js.UndefOr[SemanticWidth]        = js.undefined
+    control:   js.UndefOr[String] = js.undefined,
+    disabled:  js.UndefOr[Boolean] = js.undefined,
+    error:     js.UndefOr[ShorthandB[Label]] = js.undefined,
+    inline:    js.UndefOr[Boolean] = js.undefined,
+    label:     js.UndefOr[ShorthandS[Label]] = js.undefined,
+    onChange:  js.UndefOr[Callback] = js.undefined,
+    onChangeE: js.UndefOr[TextArea.Event] = js.undefined,
+    onInput:   js.UndefOr[Callback] = js.undefined,
+    onInputE:  js.UndefOr[TextArea.Event] = js.undefined,
+    required:  js.UndefOr[Boolean] = js.undefined,
+    rows:      js.UndefOr[Int | String] = js.undefined,
+    tpe:       js.UndefOr[String] = js.undefined,
+    value:     js.UndefOr[String | JsNumber] = js.undefined,
+    width:     js.UndefOr[SemanticWidth] = js.undefined
   ): FormFieldProps = {
     val p = as.toJsObject[FormFieldProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    control.foreach(v => p.control                   = v)
-    disabled.foreach(v => p.disabled                 = v)
-    error.toJs.foreach(v => p.error                  = v)
-    inline.foreach(v => p.inline                     = v)
-    label.toJs.foreach(v => p.label                  = v)
-    required.foreach(v => p.required                 = v)
+    content.toJs.foreach(v => p.content = v)
+    control.foreach(v => p.control = v)
+    disabled.foreach(v => p.disabled = v)
+    error.toJs.foreach(v => p.error = v)
+    inline.foreach(v => p.inline = v)
+    label.toJs.foreach(v => p.label = v)
+    required.foreach(v => p.required = v)
     p.`type` = tpe
-    width.toJs.foreach(v => p.width                    = v)
+    width.toJs.foreach(v => p.width = v)
     (onChangeE, onChange).toJs.foreach(v => p.onChange = v)
-    (onInputE, onInput).toJs.foreach(v => p.onInput    = v)
-    rows.foreach(v => p.rows                           = v)
-    value.foreach(v => p.value                         = v)
+    (onInputE, onInput).toJs.foreach(v => p.onInput = v)
+    rows.foreach(v => p.rows = v)
+    value.foreach(v => p.value = v)
     p
   }
 

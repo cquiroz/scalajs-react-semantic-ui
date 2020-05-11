@@ -17,12 +17,12 @@ package popup {
       case BottomCenter => "bottom center"
     }
     case object TopLeft extends PopupPosition
-    case object TopRight extends PopupPosition
-    case object BottomRight extends PopupPosition
-    case object BottomLeft extends PopupPosition
-    case object RightCenter extends PopupPosition
-    case object LeftCenter extends PopupPosition
-    case object TopCenter extends PopupPosition
+    case object TopRight     extends PopupPosition
+    case object BottomRight  extends PopupPosition
+    case object BottomLeft   extends PopupPosition
+    case object RightCenter  extends PopupPosition
+    case object LeftCenter   extends PopupPosition
+    case object TopCenter    extends PopupPosition
     case object BottomCenter extends PopupPosition
   }
 
@@ -38,9 +38,9 @@ package popup {
   sealed trait PopupWide extends Product with Serializable
   object PopupWide {
     implicit val enum: EnumValueB[PopupWide] = EnumValueB.toLowerCaseStringTF(WideTrue, WideFalse)
-    case object WideTrue extends PopupWide
+    case object WideTrue  extends PopupWide
     case object WideFalse extends PopupWide
-    case object Very extends PopupWide
+    case object Very      extends PopupWide
   }
 }
 

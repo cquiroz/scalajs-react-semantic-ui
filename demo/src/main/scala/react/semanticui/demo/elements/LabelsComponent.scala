@@ -66,7 +66,8 @@ object LabelsComponent {
                 Label(as = "a", image = true)(<.img(
                                                 ^.src := WebpackResources.AdaAvatar.resource
                                               ),
-                                              "Ade")
+                                              "Ade"
+                )
               ),
               <.div(
                 ^.cls := "column docs-icon-set-column",
@@ -84,7 +85,8 @@ object LabelsComponent {
                                                 ^.src := WebpackResources.AdaAvatar.resource
                                               ),
                                               "Ade",
-                                              IconDelete)
+                                              IconDelete
+                )
               )
             ).toTagMod
           },
@@ -110,7 +112,8 @@ object LabelsComponent {
                 ^.cls := "column docs-icon-set-column",
                 Label(as = "a",
                       onClickE = (e: ReactMouseEvent, p: Label.LabelProps) =>
-                        Callback.log(s"${e.screenX} $p"))("Callback")
+                        Callback.log(s"${e.screenX} $p")
+                )("Callback")
               )
             ).toTagMod
           },

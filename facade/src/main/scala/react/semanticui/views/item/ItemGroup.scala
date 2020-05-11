@@ -8,22 +8,21 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 
 final case class ItemGroup(
-  as:                     js.UndefOr[AsC]         = js.undefined,
-  className:              js.UndefOr[String]      = js.undefined,
-  clazz:                  js.UndefOr[Css]         = js.undefined,
-  content:                js.UndefOr[VdomNode]    = js.undefined,
-  divided:                js.UndefOr[Boolean]     = js.undefined,
-  items:                  js.UndefOr[Seq[Item]]   = js.undefined,
-  link:                   js.UndefOr[Boolean]     = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
+  divided:                js.UndefOr[Boolean] = js.undefined,
+  items:                  js.UndefOr[Seq[Item]] = js.undefined,
+  link:                   js.UndefOr[Boolean] = js.undefined,
   relaxed:                js.UndefOr[ItemRelaxed] = js.undefined,
-  unstackable:            js.UndefOr[Boolean]     = js.undefined,
-  override val modifiers: Seq[TagMod]             = Seq.empty
+  unstackable:            js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ItemGroup.ItemGroupProps, ItemGroup] {
   override protected def cprops    = ItemGroup.props(this)
   override protected val component = ItemGroup.component
@@ -82,28 +81,29 @@ object ItemGroup {
              q.items,
              q.link,
              q.relaxed,
-             q.unstackable)
+             q.unstackable
+    )
 
   def rawprops(
-    as:          js.UndefOr[AsC]         = js.undefined,
-    className:   js.UndefOr[String]      = js.undefined,
-    clazz:       js.UndefOr[Css]         = js.undefined,
-    content:     js.UndefOr[VdomNode]    = js.undefined,
-    divided:     js.UndefOr[Boolean]     = js.undefined,
-    items:       js.UndefOr[Seq[Item]]   = js.undefined,
-    link:        js.UndefOr[Boolean]     = js.undefined,
+    as:          js.UndefOr[AsC] = js.undefined,
+    className:   js.UndefOr[String] = js.undefined,
+    clazz:       js.UndefOr[Css] = js.undefined,
+    content:     js.UndefOr[VdomNode] = js.undefined,
+    divided:     js.UndefOr[Boolean] = js.undefined,
+    items:       js.UndefOr[Seq[Item]] = js.undefined,
+    link:        js.UndefOr[Boolean] = js.undefined,
     relaxed:     js.UndefOr[ItemRelaxed] = js.undefined,
-    unstackable: js.UndefOr[Boolean]     = js.undefined
+    unstackable: js.UndefOr[Boolean] = js.undefined
   ): ItemGroupProps = {
     val p = as.toJsObject[ItemGroupProps]
-    as.toJs.foreach(v => p.as                                = v)
-    (className, clazz).toJs.foreach(v => p.className         = v)
-    content.toJs.foreach(v => p.content                      = v)
-    divided.foreach(v => p.divided                           = v)
+    as.toJs.foreach(v => p.as = v)
+    (className, clazz).toJs.foreach(v => p.className = v)
+    content.toJs.foreach(v => p.content = v)
+    divided.foreach(v => p.divided = v)
     items.map(_.map(_.props).toJSArray).foreach(v => p.items = v)
-    link.foreach(v => p.link                                 = v)
-    relaxed.toJs.foreach(v => p.relaxed                      = v)
-    unstackable.foreach(v => p.unstackable                   = v)
+    link.foreach(v => p.link = v)
+    relaxed.toJs.foreach(v => p.relaxed = v)
+    unstackable.foreach(v => p.unstackable = v)
     p
   }
 

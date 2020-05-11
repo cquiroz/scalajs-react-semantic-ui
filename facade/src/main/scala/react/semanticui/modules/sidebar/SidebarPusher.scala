@@ -12,11 +12,11 @@ import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class SidebarPusher(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
-  dimmed:                 js.UndefOr[Boolean]  = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  dimmed:                 js.UndefOr[Boolean] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[SidebarPusher.SidebarPusherProps, SidebarPusher] {
   override protected def cprops    = SidebarPusher.props(this)
   override protected val component = SidebarPusher.component
@@ -48,16 +48,16 @@ object SidebarPusher {
     rawprops(q.as, q.className, q.content, q.dimmed)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined,
-    dimmed:    js.UndefOr[Boolean]  = js.undefined
+    dimmed:    js.UndefOr[Boolean] = js.undefined
   ): SidebarPusherProps = {
     val p = as.toJsObject[SidebarPusherProps]
-    as.toJs.foreach(v => p.as                     = v)
-    className.foreach(v => p.className            = v)
+    as.toJs.foreach(v => p.as = v)
+    className.foreach(v => p.className = v)
     content.map(_.rawNode).foreach(v => p.content = v)
-    dimmed.foreach(v => p.dimmed                  = v)
+    dimmed.foreach(v => p.dimmed = v)
     p
   }
 

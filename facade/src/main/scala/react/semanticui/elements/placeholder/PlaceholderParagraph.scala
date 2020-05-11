@@ -5,18 +5,17 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class PlaceholderParagraph(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[
       PlaceholderParagraph.PlaceholderParagraphProps,
       PlaceholderParagraph
@@ -58,9 +57,9 @@ object PlaceholderParagraph {
     q: PlaceholderParagraph
   ): PlaceholderParagraphProps = {
     val p = q.as.toJsObject[PlaceholderParagraphProps]
-    q.as.toJs.foreach(v => p.as                          = v)
+    q.as.toJs.foreach(v => p.as = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
+    q.content.toJs.foreach(v => p.content = v)
     p
   }
 

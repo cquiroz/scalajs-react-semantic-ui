@@ -6,14 +6,14 @@ package input {
   sealed trait ActionPosition extends Product with Serializable
   object ActionPosition {
     implicit val enum: EnumValue[ActionPosition] = EnumValue.toLowerCaseString
-    case object Left extends ActionPosition
+    case object Left  extends ActionPosition
     case object Right extends ActionPosition
   }
 
   sealed trait IconPosition extends Product with Serializable
   object IconPosition {
     implicit val enum: EnumValue[IconPosition] = EnumValue.toLowerCaseString
-    case object Left extends IconPosition
+    case object Left  extends IconPosition
     case object Right extends IconPosition
   }
 
@@ -26,8 +26,8 @@ package input {
       case RightCorner => "right corner"
     }
     case object Left extends LabelPosition
-    case object Right extends LabelPosition
-    case object LeftCorner extends LabelPosition
+    case object Right       extends LabelPosition
+    case object LeftCorner  extends LabelPosition
     case object RightCorner extends LabelPosition
   }
 }

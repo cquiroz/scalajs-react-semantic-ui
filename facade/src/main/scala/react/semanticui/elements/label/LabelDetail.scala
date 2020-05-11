@@ -6,17 +6,16 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import react.semanticui._
 import react.semanticui.raw._
-import react.common.style._
 import react.common._
 import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class LabelDetail(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[LabelDetail.LabelDetailProps, LabelDetail] {
   override protected def cprops    = LabelDetail.props(this)
   override protected val component = LabelDetail.component
@@ -45,9 +44,9 @@ object LabelDetail {
     q: LabelDetail
   ): LabelDetailProps = {
     val p = q.as.toJsObject[LabelDetailProps]
-    q.as.toJs.foreach(v => p.as                          = v)
+    q.as.toJs.foreach(v => p.as = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
+    q.content.toJs.foreach(v => p.content = v)
     p
   }
 

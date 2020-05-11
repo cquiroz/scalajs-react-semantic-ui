@@ -12,10 +12,10 @@ import react.semanticui._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class SidebarPushable(
-  as:                     js.UndefOr[AsC]      = js.undefined,
-  className:              js.UndefOr[String]   = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
   content:                js.UndefOr[VdomNode] = js.undefined,
-  override val modifiers: Seq[TagMod]          = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[SidebarPushable.SidebarPushableProps, SidebarPushable] {
   override protected def cprops    = SidebarPushable.props(this)
   override protected val component = SidebarPushable.component
@@ -46,13 +46,13 @@ object SidebarPushable {
     rawprops(q.as, q.className, q.content)
 
   def rawprops(
-    as:        js.UndefOr[AsC]      = js.undefined,
-    className: js.UndefOr[String]   = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
+    className: js.UndefOr[String] = js.undefined,
     content:   js.UndefOr[VdomNode] = js.undefined
   ): SidebarPushableProps = {
     val p = as.toJsObject[SidebarPushableProps]
-    as.toJs.foreach(v => p.as           = v)
-    className.foreach(v => p.className  = v)
+    as.toJs.foreach(v => p.as = v)
+    className.foreach(v => p.className = v)
     content.toJs.foreach(v => p.content = v)
     p
   }

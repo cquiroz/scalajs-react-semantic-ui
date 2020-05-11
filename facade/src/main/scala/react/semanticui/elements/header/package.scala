@@ -7,8 +7,8 @@ package header {
   object HeaderAttached {
     implicit val enum: EnumValueB[HeaderAttached] = EnumValueB.toLowerCaseStringT(Attached)
     case object Attached extends HeaderAttached
-    case object Top extends HeaderAttached
-    case object Bottom extends HeaderAttached
+    case object Top      extends HeaderAttached
+    case object Bottom   extends HeaderAttached
   }
 }
 

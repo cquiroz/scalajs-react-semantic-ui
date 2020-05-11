@@ -15,11 +15,11 @@ package label {
       case BottomRight => "bottom right"
     }
 
-    case object Top extends LabelAttached
-    case object Bottom extends LabelAttached
-    case object TopRight extends LabelAttached
-    case object TopLeft extends LabelAttached
-    case object BottomLeft extends LabelAttached
+    case object Top         extends LabelAttached
+    case object Bottom      extends LabelAttached
+    case object TopRight    extends LabelAttached
+    case object TopLeft     extends LabelAttached
+    case object BottomLeft  extends LabelAttached
     case object BottomRight extends LabelAttached
   }
 
@@ -27,25 +27,25 @@ package label {
   object LabelCorner {
     implicit val enum: EnumValueB[LabelCorner] = EnumValueB.toLowerCaseStringT(Corner)
     case object Corner extends LabelCorner
-    case object Left extends LabelCorner
-    case object Right extends LabelCorner
+    case object Left   extends LabelCorner
+    case object Right  extends LabelCorner
   }
 
   sealed trait LabelPointing extends Product with Serializable
   object LabelPointing {
     implicit val enum: EnumValueB[LabelPointing] = EnumValueB.toLowerCaseStringT(Default)
     case object Default extends LabelPointing
-    case object Above extends LabelPointing
-    case object Below extends LabelPointing
-    case object Left extends LabelPointing
-    case object Right extends LabelPointing
+    case object Above   extends LabelPointing
+    case object Below   extends LabelPointing
+    case object Left    extends LabelPointing
+    case object Right   extends LabelPointing
   }
 
   sealed trait LabelRibbon extends Product with Serializable
   object LabelRibbon {
     implicit val enum: EnumValueB[LabelRibbon] = EnumValueB.toLowerCaseStringT(Default)
     case object Default extends LabelRibbon
-    case object Right extends LabelRibbon
+    case object Right   extends LabelRibbon
   }
 }
 

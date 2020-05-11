@@ -10,11 +10,11 @@ import japgolly.scalajs.react.vdom.TagMod
 
 final case class PortalInner(
   // innerRef:             js.UndefOr[Ref[html.Element]]                     = js.undefined,
-  onMountE:               js.UndefOr[PortalInner.OnMount]   = js.undefined,
-  onMount:                js.UndefOr[Callback]              = js.undefined,
+  onMountE:               js.UndefOr[PortalInner.OnMount] = js.undefined,
+  onMount:                js.UndefOr[Callback] = js.undefined,
   onUnmountE:             js.UndefOr[PortalInner.OnUnmount] = js.undefined,
-  onUnmount:              js.UndefOr[Callback]              = js.undefined,
-  override val modifiers: Seq[TagMod]                       = Seq.empty
+  onUnmount:              js.UndefOr[Callback] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[PortalInner.PortalInnerProps, PortalInner] {
   override protected def cprops    = PortalInner.props(this)
   override protected val component = PortalInner.component
@@ -76,14 +76,14 @@ object PortalInner {
 
   def rawprops(
     // innerRef:             js.UndefOr[Ref]                     = js.undefined,
-    onMountE:   js.UndefOr[OnMount]   = js.undefined,
-    onMount:    js.UndefOr[Callback]  = js.undefined,
+    onMountE:   js.UndefOr[OnMount] = js.undefined,
+    onMount:    js.UndefOr[Callback] = js.undefined,
     onUnmountE: js.UndefOr[OnUnmount] = js.undefined,
-    onUnmount:  js.UndefOr[Callback]  = js.undefined
+    onUnmount:  js.UndefOr[Callback] = js.undefined
   ): PortalInnerProps = {
     val p = (new js.Object).asInstanceOf[PortalInnerProps]
     // p.innerRef = innerRef
-    (onMountE, onMount).toJs.foreach(v => p.onMount       = v)
+    (onMountE, onMount).toJs.foreach(v => p.onMount = v)
     (onUnmountE, onUnmount).toJs.foreach(v => p.onUnmount = v)
     p
   }

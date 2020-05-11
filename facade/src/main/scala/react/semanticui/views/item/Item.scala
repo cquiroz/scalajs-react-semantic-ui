@@ -5,23 +5,22 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.VdomNode
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Item(
-  as:                     js.UndefOr[AsC]                         = js.undefined,
-  className:              js.UndefOr[String]                      = js.undefined,
-  clazz:                  js.UndefOr[Css]                         = js.undefined,
-  content:                js.UndefOr[VdomNode]                    = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[VdomNode] = js.undefined,
   description:            js.UndefOr[ShorthandS[ItemDescription]] = js.undefined,
-  extra:                  js.UndefOr[ShorthandS[ItemExtra]]       = js.undefined,
-  header:                 js.UndefOr[ShorthandS[ItemHeader]]      = js.undefined,
-  image:                  js.UndefOr[ShorthandS[ItemImage]]       = js.undefined,
-  meta:                   js.UndefOr[ShorthandS[ItemMeta]]        = js.undefined,
-  override val modifiers: Seq[TagMod]                             = Seq.empty
+  extra:                  js.UndefOr[ShorthandS[ItemExtra]] = js.undefined,
+  header:                 js.UndefOr[ShorthandS[ItemHeader]] = js.undefined,
+  image:                  js.UndefOr[ShorthandS[ItemImage]] = js.undefined,
+  meta:                   js.UndefOr[ShorthandS[ItemMeta]] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Item.ItemProps, Item] {
   override protected def cprops    = Item.props(this)
   override protected val component = Item.component
@@ -81,28 +80,29 @@ object Item {
              q.extra,
              q.header,
              q.image,
-             q.meta)
+             q.meta
+    )
 
   def rawprops(
-    as:          js.UndefOr[AsC]                         = js.undefined,
-    className:   js.UndefOr[String]                      = js.undefined,
-    clazz:       js.UndefOr[Css]                         = js.undefined,
-    content:     js.UndefOr[VdomNode]                    = js.undefined,
+    as:          js.UndefOr[AsC] = js.undefined,
+    className:   js.UndefOr[String] = js.undefined,
+    clazz:       js.UndefOr[Css] = js.undefined,
+    content:     js.UndefOr[VdomNode] = js.undefined,
     description: js.UndefOr[ShorthandS[ItemDescription]] = js.undefined,
-    extra:       js.UndefOr[ShorthandS[ItemExtra]]       = js.undefined,
-    header:      js.UndefOr[ShorthandS[ItemHeader]]      = js.undefined,
-    image:       js.UndefOr[ShorthandS[ItemImage]]       = js.undefined,
-    meta:        js.UndefOr[ShorthandS[ItemMeta]]        = js.undefined
+    extra:       js.UndefOr[ShorthandS[ItemExtra]] = js.undefined,
+    header:      js.UndefOr[ShorthandS[ItemHeader]] = js.undefined,
+    image:       js.UndefOr[ShorthandS[ItemImage]] = js.undefined,
+    meta:        js.UndefOr[ShorthandS[ItemMeta]] = js.undefined
   ): ItemProps = {
     val p = as.toJsObject[ItemProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    description.toJs.foreach(v => p.description      = v)
-    extra.toJs.foreach(v => p.extra                  = v)
-    header.toJs.foreach(v => p.header                = v)
-    image.toJs.foreach(v => p.image                  = v)
-    meta.toJs.foreach(v => p.meta                    = v)
+    content.toJs.foreach(v => p.content = v)
+    description.toJs.foreach(v => p.description = v)
+    extra.toJs.foreach(v => p.extra = v)
+    header.toJs.foreach(v => p.header = v)
+    image.toJs.foreach(v => p.image = v)
+    meta.toJs.foreach(v => p.meta = v)
     p
   }
 

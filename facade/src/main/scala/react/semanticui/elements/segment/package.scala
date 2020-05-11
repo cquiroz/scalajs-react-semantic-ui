@@ -7,8 +7,8 @@ package segment {
   object SegmentAttached {
     implicit val enum: EnumValueB[SegmentAttached] = EnumValueB.toLowerCaseStringT(Attached)
     case object Attached extends SegmentAttached
-    case object Top extends SegmentAttached
-    case object Bottom extends SegmentAttached
+    case object Top      extends SegmentAttached
+    case object Bottom   extends SegmentAttached
   }
 
   sealed trait SegmentPadded extends Product with Serializable
@@ -16,7 +16,7 @@ package segment {
   object SegmentPadded {
     implicit val enum: EnumValueB[SegmentPadded] = EnumValueB.toLowerCaseStringT(Padded)
     case object Padded extends SegmentPadded
-    case object Very extends SegmentPadded
+    case object Very   extends SegmentPadded
   }
 }
 

@@ -5,15 +5,14 @@ import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.JsFnComponent
 import react.semanticui._
-import react.common.style._
 import react.common._
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class DropdownDivider(
-  as:                     js.UndefOr[AsC]    = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
   className:              js.UndefOr[String] = js.undefined,
-  clazz:                  js.UndefOr[Css]    = js.undefined,
-  override val modifiers: Seq[TagMod]        = Seq.empty
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[DropdownDivider.DropdownDividerProps, DropdownDivider] {
   override protected def cprops    = DropdownDivider.props(this)
   override protected val component = DropdownDivider.component
@@ -46,12 +45,12 @@ object DropdownDivider {
     rawprops(q.as, q.className, q.clazz)
 
   def rawprops(
-    as:        js.UndefOr[AsC]    = js.undefined,
+    as:        js.UndefOr[AsC] = js.undefined,
     className: js.UndefOr[String] = js.undefined,
-    clazz:     js.UndefOr[Css]    = js.undefined
+    clazz:     js.UndefOr[Css] = js.undefined
   ): DropdownDividerProps = {
     val p = as.toJsObject[DropdownDividerProps]
-    as.toJs.foreach(v => p.as                        = v)
+    as.toJs.foreach(v => p.as = v)
     (className, clazz).toJs.foreach(v => p.className = v)
     p
   }

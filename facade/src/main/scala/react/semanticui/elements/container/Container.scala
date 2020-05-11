@@ -4,7 +4,6 @@ import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui._
@@ -12,14 +11,14 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class Container(
-  as:                     js.UndefOr[AsC]                   = js.undefined,
-  className:              js.UndefOr[String]                = js.undefined,
-  clazz:                  js.UndefOr[Css]                   = js.undefined,
-  content:                js.UndefOr[ShorthandS[VdomNode]]  = js.undefined,
-  fluid:                  js.UndefOr[Boolean]               = js.undefined,
-  text:                   js.UndefOr[Boolean]               = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
+  content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
+  fluid:                  js.UndefOr[Boolean] = js.undefined,
+  text:                   js.UndefOr[Boolean] = js.undefined,
   textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
-  override val modifiers: Seq[TagMod]                       = Seq.empty
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Container.ContainerProps, Container] {
   override protected def cprops    = Container.props(this)
   override protected val component = Container.component
@@ -68,10 +67,10 @@ object Container {
   ): ContainerProps = {
     val p = q.as.toJsObject[ContainerProps]
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
-    q.fluid.foreach(v => p.fluid                         = v)
-    q.text.foreach(v => p.text                           = v)
-    q.textAlign.toJs.foreach(v => p.textAlign            = v)
+    q.content.toJs.foreach(v => p.content = v)
+    q.fluid.foreach(v => p.fluid = v)
+    q.text.foreach(v => p.text = v)
+    q.textAlign.toJs.foreach(v => p.textAlign = v)
     p
   }
 

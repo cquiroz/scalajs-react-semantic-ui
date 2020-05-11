@@ -2,7 +2,6 @@ package react.semanticui.elements.icon
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
-import react.common.style._
 import react.common._
 import react.semanticui._
 import scala.scalajs.js
@@ -11,12 +10,12 @@ import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class IconGroup(
-  as:                     js.UndefOr[AsC]                  = js.undefined,
-  className:              js.UndefOr[String]               = js.undefined,
-  clazz:                  js.UndefOr[Css]                  = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
-  size:                   js.UndefOr[SemanticSize]         = js.undefined,
-  override val modifiers: Seq[TagMod]                      = Seq.empty
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[IconGroup.IconGroupProps, IconGroup] {
   override protected def cprops    = IconGroup.props(this)
   override protected val component = IconGroup.component
@@ -38,10 +37,10 @@ object IconGroup {
     q: IconGroup
   ): IconGroupProps = {
     val p = q.as.toJsObject[IconGroupProps]
-    q.as.toJs.foreach(v => p.as                          = v)
+    q.as.toJs.foreach(v => p.as = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
-    q.content.toJs.foreach(v => p.content                = v)
-    q.size.toJs.foreach(v => p.size                      = v)
+    q.content.toJs.foreach(v => p.content = v)
+    q.size.toJs.foreach(v => p.size = v)
     p
   }
 

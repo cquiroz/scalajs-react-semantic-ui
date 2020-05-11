@@ -8,7 +8,6 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.raw.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
-import react.common.style._
 import react.common._
 import react.semanticui._
 import react.semanticui.sizes._
@@ -16,31 +15,31 @@ import react.semanticui.{ raw => suiraw }
 import japgolly.scalajs.react.vdom.TagMod
 
 final case class Popup(
-  as:                     js.UndefOr[AsC]                      = js.undefined,
-  basic:                  js.UndefOr[Boolean]                  = js.undefined,
-  className:              js.UndefOr[String]                   = js.undefined,
-  clazz:                  js.UndefOr[Css]                      = js.undefined,
+  as:                     js.UndefOr[AsC] = js.undefined,
+  basic:                  js.UndefOr[Boolean] = js.undefined,
+  className:              js.UndefOr[String] = js.undefined,
+  clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[PopupContent]] = js.undefined,
-  disabled:               js.UndefOr[Boolean]                  = js.undefined,
-  flowing:                js.UndefOr[Boolean]                  = js.undefined,
-  header:                 js.UndefOr[ShorthandS[PopupHeader]]  = js.undefined,
-  hideOnScroll:           js.UndefOr[Boolean]                  = js.undefined,
-  hoverable:              js.UndefOr[Boolean]                  = js.undefined,
-  inverted:               js.UndefOr[Boolean]                  = js.undefined,
-  offset:                 js.UndefOr[JsNumber | String]        = js.undefined,
-  on:                     js.UndefOr[PopupOn | List[PopupOn]]  = js.undefined,
-  onCloseE:               js.UndefOr[Popup.OnClose]            = js.undefined,
-  onClose:                js.UndefOr[Callback]                 = js.undefined,
-  onOpenE:                js.UndefOr[Popup.OnOpen]             = js.undefined,
-  onOpen:                 js.UndefOr[Callback]                 = js.undefined,
-  pinned:                 js.UndefOr[Boolean]                  = js.undefined,
-  position:               js.UndefOr[PopupPosition]            = js.undefined,
-  popperModifiers:        js.UndefOr[js.Object]                = js.undefined,
-  size:                   js.UndefOr[SemanticSize]             = js.undefined,
-  style:                  js.UndefOr[Style]                    = js.undefined,
-  trigger:                js.UndefOr[VdomNode]                 = js.undefined,
-  wide:                   js.UndefOr[PopupWide]                = js.undefined,
-  override val modifiers: Seq[TagMod]                          = Seq.empty
+  disabled:               js.UndefOr[Boolean] = js.undefined,
+  flowing:                js.UndefOr[Boolean] = js.undefined,
+  header:                 js.UndefOr[ShorthandS[PopupHeader]] = js.undefined,
+  hideOnScroll:           js.UndefOr[Boolean] = js.undefined,
+  hoverable:              js.UndefOr[Boolean] = js.undefined,
+  inverted:               js.UndefOr[Boolean] = js.undefined,
+  offset:                 js.UndefOr[JsNumber | String] = js.undefined,
+  on:                     js.UndefOr[PopupOn | List[PopupOn]] = js.undefined,
+  onCloseE:               js.UndefOr[Popup.OnClose] = js.undefined,
+  onClose:                js.UndefOr[Callback] = js.undefined,
+  onOpenE:                js.UndefOr[Popup.OnOpen] = js.undefined,
+  onOpen:                 js.UndefOr[Callback] = js.undefined,
+  pinned:                 js.UndefOr[Boolean] = js.undefined,
+  position:               js.UndefOr[PopupPosition] = js.undefined,
+  popperModifiers:        js.UndefOr[js.Object] = js.undefined,
+  size:                   js.UndefOr[SemanticSize] = js.undefined,
+  style:                  js.UndefOr[Style] = js.undefined,
+  trigger:                js.UndefOr[VdomNode] = js.undefined,
+  wide:                   js.UndefOr[PopupWide] = js.undefined,
+  override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Popup.PopupProps, Popup] {
   override protected def cprops    = Popup.props(this)
   override protected val component = Popup.component
@@ -200,59 +199,59 @@ object Popup {
     )
 
   def rawprops(
-    as:              js.UndefOr[AsC]                      = js.undefined,
-    basic:           js.UndefOr[Boolean]                  = js.undefined,
-    className:       js.UndefOr[String]                   = js.undefined,
-    clazz:           js.UndefOr[Css]                      = js.undefined,
+    as:              js.UndefOr[AsC] = js.undefined,
+    basic:           js.UndefOr[Boolean] = js.undefined,
+    className:       js.UndefOr[String] = js.undefined,
+    clazz:           js.UndefOr[Css] = js.undefined,
     content:         js.UndefOr[ShorthandS[PopupContent]] = js.undefined,
-    disabled:        js.UndefOr[Boolean]                  = js.undefined,
-    flowing:         js.UndefOr[Boolean]                  = js.undefined,
-    header:          js.UndefOr[ShorthandS[PopupHeader]]  = js.undefined,
-    hideOnScroll:    js.UndefOr[Boolean]                  = js.undefined,
-    hoverable:       js.UndefOr[Boolean]                  = js.undefined,
-    inverted:        js.UndefOr[Boolean]                  = js.undefined,
-    offset:          js.UndefOr[JsNumber | String]        = js.undefined,
-    on:              js.UndefOr[PopupOn | List[PopupOn]]  = js.undefined,
-    onCloseE:        js.UndefOr[OnClose]                  = js.undefined,
-    onClose:         js.UndefOr[Callback]                 = js.undefined,
-    onOpenE:         js.UndefOr[OnOpen]                   = js.undefined,
-    onOpen:          js.UndefOr[Callback]                 = js.undefined,
-    pinned:          js.UndefOr[Boolean]                  = js.undefined,
-    position:        js.UndefOr[PopupPosition]            = js.undefined,
-    popperModifiers: js.UndefOr[js.Object]                = js.undefined,
-    size:            js.UndefOr[SemanticSize]             = js.undefined,
-    style:           js.UndefOr[Style]                    = js.undefined,
-    trigger:         js.UndefOr[VdomNode]                 = js.undefined,
-    wide:            js.UndefOr[PopupWide]                = js.undefined
+    disabled:        js.UndefOr[Boolean] = js.undefined,
+    flowing:         js.UndefOr[Boolean] = js.undefined,
+    header:          js.UndefOr[ShorthandS[PopupHeader]] = js.undefined,
+    hideOnScroll:    js.UndefOr[Boolean] = js.undefined,
+    hoverable:       js.UndefOr[Boolean] = js.undefined,
+    inverted:        js.UndefOr[Boolean] = js.undefined,
+    offset:          js.UndefOr[JsNumber | String] = js.undefined,
+    on:              js.UndefOr[PopupOn | List[PopupOn]] = js.undefined,
+    onCloseE:        js.UndefOr[OnClose] = js.undefined,
+    onClose:         js.UndefOr[Callback] = js.undefined,
+    onOpenE:         js.UndefOr[OnOpen] = js.undefined,
+    onOpen:          js.UndefOr[Callback] = js.undefined,
+    pinned:          js.UndefOr[Boolean] = js.undefined,
+    position:        js.UndefOr[PopupPosition] = js.undefined,
+    popperModifiers: js.UndefOr[js.Object] = js.undefined,
+    size:            js.UndefOr[SemanticSize] = js.undefined,
+    style:           js.UndefOr[Style] = js.undefined,
+    trigger:         js.UndefOr[VdomNode] = js.undefined,
+    wide:            js.UndefOr[PopupWide] = js.undefined
   ): PopupProps = {
     val p = as.toJsObject[PopupProps]
-    as.toJs.foreach(v => p.as                        = v)
-    basic.foreach(v => p.basic                       = v)
+    as.toJs.foreach(v => p.as = v)
+    basic.foreach(v => p.basic = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    content.toJs.foreach(v => p.content              = v)
-    disabled.foreach(v => p.disabled                 = v)
-    flowing.foreach(v => p.flowing                   = v)
-    header.toJs.foreach(v => p.header                = v)
-    hideOnScroll.foreach(v => p.hideOnScroll         = v)
-    hoverable.foreach(v => p.hoverable               = v)
-    inverted.foreach(v => p.inverted                 = v)
-    offset.foreach(v => p.offset                     = v)
+    content.toJs.foreach(v => p.content = v)
+    disabled.foreach(v => p.disabled = v)
+    flowing.foreach(v => p.flowing = v)
+    header.toJs.foreach(v => p.header = v)
+    hideOnScroll.foreach(v => p.hideOnScroll = v)
+    hoverable.foreach(v => p.hoverable = v)
+    inverted.foreach(v => p.inverted = v)
+    offset.foreach(v => p.offset = v)
     on.map[String | js.Array[String]] { x =>
         (x: Any) match {
           case p: PopupOn => p.toJs
           case p          => p.asInstanceOf[List[PopupOn]].map(_.toJs).toJSArray
         }
       }
-      .foreach(v => p.on                            = v)
+      .foreach(v => p.on = v)
     (onCloseE, onClose).toJs.foreach(v => p.onClose = v)
-    (onOpenE, onOpen).toJs.foreach(v => p.onOpen    = v)
-    pinned.foreach(v => p.pinned                    = v)
-    position.toJs.foreach(v => p.position           = v)
-    popperModifiers.foreach(v => p.popperModifiers  = v)
-    size.toJs.foreach(v => p.size                   = v)
-    style.map(_.toJsObject).foreach(v => p.style    = v)
-    trigger.toJs.foreach(v => p.trigger             = v)
-    wide.toJs.foreach(v => p.wide                   = v)
+    (onOpenE, onOpen).toJs.foreach(v => p.onOpen = v)
+    pinned.foreach(v => p.pinned = v)
+    position.toJs.foreach(v => p.position = v)
+    popperModifiers.foreach(v => p.popperModifiers = v)
+    size.toJs.foreach(v => p.size = v)
+    style.map(_.toJsObject).foreach(v => p.style = v)
+    trigger.toJs.foreach(v => p.trigger = v)
+    wide.toJs.foreach(v => p.wide = v)
     p
   }
 
