@@ -18,6 +18,7 @@ final case class FormField(
   control:                js.UndefOr[String] = js.undefined,
   disabled:               js.UndefOr[Boolean] = js.undefined,
   error:                  js.UndefOr[ShorthandB[Label]] = js.undefined,
+  id:                     js.UndefOr[String] = js.undefined,
   inline:                 js.UndefOr[Boolean] = js.undefined,
   label:                  js.UndefOr[ShorthandS[String]] = js.undefined,
   required:               js.UndefOr[Boolean] = js.undefined,
@@ -68,6 +69,9 @@ object FormField {
     /** Individual fields may display an error state along with a message. */
     var error: js.UndefOr[suiraw.SemanticShorthandItemB[Label.LabelProps]] = js.native
 
+    /** The id of the control */
+    var id: js.UndefOr[String] = js.native
+
     /** A field can have its label next to instead of above it. */
     var inline: js.UndefOr[Boolean] = js.native
 
@@ -93,6 +97,7 @@ object FormField {
       q.control,
       q.disabled,
       q.error,
+      q.id,
       q.inline,
       q.label,
       q.required,
@@ -108,6 +113,7 @@ object FormField {
     control:   js.UndefOr[String] = js.undefined,
     disabled:  js.UndefOr[Boolean] = js.undefined,
     error:     js.UndefOr[ShorthandB[Label]] = js.undefined,
+    id:        js.UndefOr[String] = js.undefined,
     inline:    js.UndefOr[Boolean] = js.undefined,
     label:     js.UndefOr[ShorthandS[Label]] = js.undefined,
     required:  js.UndefOr[Boolean] = js.undefined,
@@ -121,6 +127,7 @@ object FormField {
     control.foreach(v => p.control = v)
     disabled.foreach(v => p.disabled = v)
     error.toJs.foreach(v => p.error = v)
+    id.foreach(v => p.id = v)
     inline.foreach(v => p.inline = v)
     label.toJs.foreach(v => p.label = v)
     required.foreach(v => p.required = v)

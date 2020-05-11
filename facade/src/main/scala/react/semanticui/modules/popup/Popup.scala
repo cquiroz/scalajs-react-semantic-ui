@@ -21,6 +21,7 @@ final case class Popup(
   clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[PopupContent]] = js.undefined,
   disabled:               js.UndefOr[Boolean] = js.undefined,
+  eventsEnabled:          js.UndefOr[Boolean] = js.undefined,
   flowing:                js.UndefOr[Boolean] = js.undefined,
   header:                 js.UndefOr[ShorthandS[PopupHeader]] = js.undefined,
   hideOnScroll:           js.UndefOr[Boolean] = js.undefined,
@@ -34,6 +35,7 @@ final case class Popup(
   onOpen:                 js.UndefOr[Callback] = js.undefined,
   pinned:                 js.UndefOr[Boolean] = js.undefined,
   position:               js.UndefOr[PopupPosition] = js.undefined,
+  positionFixed:          js.UndefOr[Boolean] = js.undefined,
   popperModifiers:        js.UndefOr[js.Object] = js.undefined,
   size:                   js.UndefOr[SemanticSize] = js.undefined,
   style:                  js.UndefOr[Style] = js.undefined,
@@ -85,6 +87,9 @@ object Popup {
 
     /** A disabled popup only renders its trigger. */
     var disabled: js.UndefOr[Boolean] = js.native
+
+    /** Enables the Popper.js event listeners. */
+    var eventsEnabled: js.UndefOr[Boolean] = js.native
 
     /** A flowing Popup has no maximum width and continues to flow to fit its content. */
     var flowing: js.UndefOr[Boolean] = js.native
@@ -151,6 +156,9 @@ object Popup {
     /** Position for the popover. */
     var position: js.UndefOr[String] = js.native
 
+    /** Tells `Popper.js` to use the `position: fixed` strategy to position the popover. */
+    var positionFixed: js.UndefOr[Boolean] = js.native
+
     /** An object containing custom settings for the Popper.js modifiers. */
     var popperModifiers: js.UndefOr[js.Object] = js.native
 
@@ -178,6 +186,7 @@ object Popup {
       q.clazz,
       q.content,
       q.disabled,
+      q.eventsEnabled,
       q.flowing,
       q.header,
       q.hideOnScroll,
@@ -191,6 +200,7 @@ object Popup {
       q.onOpen,
       q.pinned,
       q.position,
+      q.positionFixed,
       q.popperModifiers,
       q.size,
       q.style,
@@ -205,6 +215,7 @@ object Popup {
     clazz:           js.UndefOr[Css] = js.undefined,
     content:         js.UndefOr[ShorthandS[PopupContent]] = js.undefined,
     disabled:        js.UndefOr[Boolean] = js.undefined,
+    eventsEnabled:   js.UndefOr[Boolean] = js.undefined,
     flowing:         js.UndefOr[Boolean] = js.undefined,
     header:          js.UndefOr[ShorthandS[PopupHeader]] = js.undefined,
     hideOnScroll:    js.UndefOr[Boolean] = js.undefined,
@@ -218,6 +229,7 @@ object Popup {
     onOpen:          js.UndefOr[Callback] = js.undefined,
     pinned:          js.UndefOr[Boolean] = js.undefined,
     position:        js.UndefOr[PopupPosition] = js.undefined,
+    positionFixed:   js.UndefOr[Boolean] = js.undefined,
     popperModifiers: js.UndefOr[js.Object] = js.undefined,
     size:            js.UndefOr[SemanticSize] = js.undefined,
     style:           js.UndefOr[Style] = js.undefined,
@@ -230,6 +242,7 @@ object Popup {
     (className, clazz).toJs.foreach(v => p.className = v)
     content.toJs.foreach(v => p.content = v)
     disabled.foreach(v => p.disabled = v)
+    eventsEnabled.foreach(v => p.eventsEnabled = v)
     flowing.foreach(v => p.flowing = v)
     header.toJs.foreach(v => p.header = v)
     hideOnScroll.foreach(v => p.hideOnScroll = v)
@@ -247,6 +260,7 @@ object Popup {
     (onOpenE, onOpen).toJs.foreach(v => p.onOpen = v)
     pinned.foreach(v => p.pinned = v)
     position.toJs.foreach(v => p.position = v)
+    positionFixed.foreach(v => p.positionFixed = v)
     popperModifiers.foreach(v => p.popperModifiers = v)
     size.toJs.foreach(v => p.size = v)
     style.map(_.toJsObject).foreach(v => p.style = v)
