@@ -25,4 +25,4 @@ package modal {
   }
 }
 
-package object menu
+package object modal
