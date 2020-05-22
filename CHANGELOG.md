@@ -1,5 +1,9 @@
 # Changes
 
+## 0.5.2
+
+* Updated to react-common 0.9.0
+
 ## 0.5.1
 
 * Updated to scala.js 1.1.0
