@@ -1,5 +1,9 @@
 # Changes
 
+## 0.5.3
+
+* Updated to react-common 0.9.1
+
 ## 0.5.2
 
 * Updated to react-common 0.9.0
