@@ -1,5 +1,9 @@
 # Changes
 
+## 0.5.4
+
+* Card components.
+
 ## 0.5.3
 
 * Updated to react-common 0.9.1
