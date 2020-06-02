@@ -76,7 +76,7 @@ object Button {
     var children: js.UndefOr[React.Node]                                      = js.native
     var circular: js.UndefOr[Boolean]                                         = js.native
     var className: js.UndefOr[String]                                         = js.native
-    var color: js.UndefOr[String]                                             = js.native
+    var color: js.UndefOr[suiraw.SemanticCOLORS]                              = js.native
     var compact: js.UndefOr[Boolean]                                          = js.native
     var content: js.UndefOr[suiraw.SemanticShorthandContent]                  = js.native
     var disabled: js.UndefOr[Boolean]                                         = js.native
