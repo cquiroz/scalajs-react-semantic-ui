@@ -1,5 +1,7 @@
 package react.semanticui
 
+import scala.scalajs.js
+import js.JSConverters._
 import react.common.EnumValue
 
 trait Widths {
@@ -27,6 +29,9 @@ trait Widths {
 }
 
 object Widths extends Widths {
+
+  def width(i: Int): js.UndefOr[SemanticWidth] =
+    allWidths.get(i).orUndefined
 
   val allWidths: Map[Int, SemanticWidth] =
     Map(
