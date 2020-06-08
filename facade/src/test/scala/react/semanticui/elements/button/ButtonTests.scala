@@ -8,6 +8,7 @@ import react.semanticui.elements.label.Label
 import react.semanticui.collections.form.Form
 import react.semanticui.colors._
 import react.semanticui.sizes._
+import react.semanticui.floats._
 import react.semanticui._
 
 object ButtonTests extends TestSuite {
@@ -125,7 +126,7 @@ object ButtonTests extends TestSuite {
       }
     }
     test("floated") {
-      val button = Button(floated = SemanticFloat.Right)
+      val button = Button(floated = Right)
       ReactTestUtils.withRenderedIntoDocument(button) { m =>
         assert(m.outerHtmlScrubbed() == """<button class="ui right floated button"></button>""")
       }

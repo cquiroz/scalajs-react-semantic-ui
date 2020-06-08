@@ -17,7 +17,7 @@ package semanticui {
     val props: P
   }
 
-  object As          {
+  object As               {
     import elements.segment.{ Segment => SUISegment }
     import collections.menu.{ Menu => SUIMenu }
     import collections.grid.{ Grid => SUIGrid }
@@ -147,25 +147,17 @@ package semanticui {
   }
 }
 
-package object semanticui
-    extends Floats
-    with Widths
-    with Colors
-    with Sizes
-    with TextAlignment
-    with VerticalAlignment
-    with Transitions {
+package object semanticui {
 
-  type TabIndex = Double | String
+  type SemanticWidth             = widths.SemanticWidth
+  type SemanticFloat             = floats.SemanticFloat
+  type SemanticColor             = colors.SemanticColor
+  type SemanticSize              = sizes.SemanticSize
+  type SemanticVerticalAlignment = verticalalignment.SemanticVerticalAlignment
+  type SemanticTextAlignment     = textalignment.SemanticTextAlignment
+  type SemanticTransition        = transitions.SemanticTransition
 
-  val floats            = SemanticFloat
-  val widths            = SemanticWidth
-  val colors            = SemanticColor
-  val sizes             = SemanticSize
-  val textalignment     = SemanticTextAlignment
-  val verticalalignment = SemanticVerticalAlignment
-  val transitions       = SemanticTransition
-
+  type TabIndex       = Double | String
   type ShorthandS[C]  = String | C
   type ShorthandB[C]  = Boolean | C
   type ShorthandSB[C] = String | Boolean | C

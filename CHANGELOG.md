@@ -1,5 +1,9 @@
 # Changes
 
+## 0.5.6
+
+* Change the way constants are encoded
+
 ## 0.5.4
 
 * Card components.

@@ -3,6 +3,7 @@ package react.semanticui.elements.button
 import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
+import react.semanticui.widths.widthOf
 
 object ButtonGroupTests extends TestSuite {
   val tests = Tests {
@@ -11,6 +12,16 @@ object ButtonGroupTests extends TestSuite {
       ReactTestUtils.withNewBodyElement { mountNode =>
         buttonGroup.renderIntoDOM(mountNode)
         assert(mountNode.innerHTML == """<div class="ui buttons">abc</div>""")
+      }
+    }
+    test("widths") {
+      val buttonGroup =
+        ButtonGroup(widths = widthOf(2))(Button("1"), Button("2"))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        buttonGroup.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<div class="ui two buttons"><button class="ui button">1</button><button class="ui button">2</button></div>"""
+        )
       }
     }
     test("buttons") {
