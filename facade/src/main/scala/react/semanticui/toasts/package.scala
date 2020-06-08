@@ -5,7 +5,6 @@ import japgolly.scalajs.react.Callback
 import react.common._
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.elements.icon.Icon
-import react.semanticui.colors._
 import scala.scalajs.js
 import scala.scalajs.js.annotation._
 import scala.concurrent.duration._
