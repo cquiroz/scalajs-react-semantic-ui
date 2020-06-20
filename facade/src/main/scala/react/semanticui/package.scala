@@ -287,13 +287,12 @@ package object semanticui {
 
     def toJsObject[A <: js.Object]: A =
       c.map { d =>
-          (d: Any) match {
-            case o: As     =>
-              o.props.asInstanceOf[A]
-            case _: String => (new js.Object).asInstanceOf[A]
-          }
+        (d: Any) match {
+          case o: As     =>
+            o.props.asInstanceOf[A]
+          case _: String => (new js.Object).asInstanceOf[A]
         }
-        .getOrElse((new js.Object).asInstanceOf[A])
+      }.getOrElse((new js.Object).asInstanceOf[A])
   }
 
   private[semanticui] object raw {

@@ -250,12 +250,11 @@ object Popup {
     inverted.foreach(v => p.inverted = v)
     offset.foreach(v => p.offset = v)
     on.map[String | js.Array[String]] { x =>
-        (x: Any) match {
-          case p: PopupOn => p.toJs
-          case p          => p.asInstanceOf[List[PopupOn]].map(_.toJs).toJSArray
-        }
+      (x: Any) match {
+        case p: PopupOn => p.toJs
+        case p          => p.asInstanceOf[List[PopupOn]].map(_.toJs).toJSArray
       }
-      .foreach(v => p.on = v)
+    }.foreach(v => p.on = v)
     (onCloseE, onClose).toJs.foreach(v => p.onClose = v)
     (onOpenE, onOpen).toJs.foreach(v => p.onOpen = v)
     pinned.foreach(v => p.pinned = v)
