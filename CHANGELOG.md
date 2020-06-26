@@ -1,5 +1,10 @@
 # Changes
 
+## 0.5.8
+
+* Upgrade to react-common 0.9.3
+* Add FormSelect
+
 ## 0.5.7
 
 * Upgrade to react-common 0.9.2
