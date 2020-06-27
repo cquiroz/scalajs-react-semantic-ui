@@ -160,7 +160,8 @@ lazy val commonSettings = Seq(
     Set(
       // By necessity facades will have unused params
       "-Wdead-code",
-      "-Wunused:params"
+      "-Wunused:params",
+      "-Wunused:explicits"
     )
   ))
 )
