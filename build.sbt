@@ -1,5 +1,5 @@
 val reactJS      = "16.13.1"
-val scalaJsReact = "1.7.2"
+val scalaJsReact = "1.7.3"
 val SUILess      = "2.4.1"
 val reactSUI     = "0.88.2"
 val Toasts       = "0.6.5"
