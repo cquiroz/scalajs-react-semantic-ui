@@ -25,7 +25,7 @@ final case class Checkbox(
   label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
   name:                   js.UndefOr[String] = js.undefined,
   onChangeE:              js.UndefOr[Checkbox.Event] = js.undefined,
-  onChange:               js.UndefOr[Callback] = js.undefined,
+  onChange:               js.UndefOr[Boolean => Callback] = js.undefined,
   onClickE:               js.UndefOr[Checkbox.Event] = js.undefined,
   onClick:                js.UndefOr[Callback] = js.undefined,
   onMouseDownE:           js.UndefOr[Checkbox.Event] = js.undefined,
@@ -196,7 +196,7 @@ object Checkbox {
     label:                js.UndefOr[ShorthandS[Label]] = js.undefined,
     name:                 js.UndefOr[String] = js.undefined,
     onChangeE:            js.UndefOr[Event] = js.undefined,
-    onChange:             js.UndefOr[Callback] = js.undefined,
+    onChange:             js.UndefOr[Boolean => Callback] = js.undefined,
     onClickE:             js.UndefOr[Event] = js.undefined,
     onClick:              js.UndefOr[Callback] = js.undefined,
     onMouseDownE:         js.UndefOr[Event] = js.undefined,
@@ -223,7 +223,14 @@ object Checkbox {
     indeterminate.foreach(v => p.indeterminate = v)
     label.toJs.foreach(v => p.label = v)
     name.foreach(v => p.name = v)
-    (onChangeE, onChange).toJs.foreach(v => p.onChange = v)
+    onChangeE.toJs
+      .map(v => p.onChange = v)
+      .orElse(
+        onChange.toJs.foreach(v =>
+          p.onChange =
+            ((_: ReactMouseEvent, cp: CheckboxProps) => cp.checked.foreach(v(_))): RawEvent
+        )
+      )
     (onClickE, onClick).toJs.foreach(v => p.onClick = v)
     (onMouseDownE, onMouseDown).toJs.foreach(v => p.onMouseDown = v)
     (onMouseUpE, onMouseUp).toJs.foreach(v => p.onMouseUp = v)
