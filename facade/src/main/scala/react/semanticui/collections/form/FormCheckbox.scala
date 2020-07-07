@@ -31,7 +31,7 @@ final case class FormCheckbox(
   inline:                 js.UndefOr[Boolean] = js.undefined,
   label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
   name:                   js.UndefOr[String] = js.undefined,
-  onChange:               js.UndefOr[Callback] = js.undefined,
+  onChange:               js.UndefOr[Boolean => Callback] = js.undefined,
   onChangeE:              js.UndefOr[Checkbox.Event] = js.undefined,
   onClick:                js.UndefOr[Callback] = js.undefined,
   onClickE:               js.UndefOr[Checkbox.Event] = js.undefined,
@@ -239,7 +239,7 @@ object FormCheckbox {
     inline:               js.UndefOr[Boolean] = js.undefined,
     label:                js.UndefOr[ShorthandS[Label]] = js.undefined,
     name:                 js.UndefOr[String] = js.undefined,
-    onChange:             js.UndefOr[Callback] = js.undefined,
+    onChange:             js.UndefOr[Boolean => Callback] = js.undefined,
     onChangeE:            js.UndefOr[Checkbox.Event] = js.undefined,
     onClick:              js.UndefOr[Callback] = js.undefined,
     onClickE:             js.UndefOr[Checkbox.Event] = js.undefined,
@@ -259,7 +259,18 @@ object FormCheckbox {
   ): FormCheckboxProps = {
     val p = as.toJsObject[FormCheckboxProps]
     (className, clazz).toJs.foreach(v => p.className = v)
-    (onChangeE, onChange).toJs.foreach(v => p.onChange = v)
+    onChangeE.toJs
+      .map(v => p.onChange = v)
+      .orElse(
+        onChange.toJs.foreach(v =>
+          p.onChange = (
+            (
+              _:  ReactMouseEvent,
+              cp: Checkbox.CheckboxProps
+            ) => cp.checked.foreach(v(_))
+          ): Checkbox.RawEvent
+        )
+      )
     (onClickE, onClick).toJs.foreach(v => p.onClick = v)
     (onMouseDownE, onMouseDown).toJs.foreach(v => p.onMouseDown = v)
     (onMouseUpE, onMouseUp).toJs.foreach(v => p.onMouseUp = v)
