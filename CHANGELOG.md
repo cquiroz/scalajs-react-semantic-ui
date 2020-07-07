@@ -1,5 +1,9 @@
 # Changes
 
+## 0.5.9
+
+* Improved callback for Checkbox/FormCheckbox
+
 ## 0.5.8
 
 * Upgrade to react-common 0.9.3
