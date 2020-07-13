@@ -1,6 +1,6 @@
 val reactJS      = "16.13.1"
 val scalaJsReact = "1.7.3"
-val SUILess      = "2.4.1"
+val FUILess      = "2.8.6"
 val reactSUI     = "0.88.2"
 val Toasts       = "0.6.5"
 
@@ -102,7 +102,7 @@ lazy val demo =
       npmDependencies in Compile ++= Seq(
         "react"                 -> reactJS,
         "react-dom"             -> reactJS,
-        "semantic-ui-less"      -> SUILess,
+        "fomantic-ui-less"      -> FUILess,
         "react-semantic-toasts" -> Toasts
       ),
       // don't publish the demo
