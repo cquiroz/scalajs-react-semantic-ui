@@ -152,7 +152,7 @@ object Tab {
     q.menuPosition.toJs.foreach(v => p.menuPosition = v)
     q.grid.map(_.props).foreach(v => p.grid = v)
     q.onTabChangeE.toJs
-      .orElse[RawOnTabChange](q.onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow))
+      .orElse[RawOnTabChange](q.onTabChange.map(t => (_: ReactEvent, b: TabProps) => t(b).runNow()))
       .foreach(v => p.onTabChange = v)
     p.panes = q.panes.map(RawPane.fromPane(_)).toJSArray
     q.renderActiveOnly.foreach(v => p.renderActiveOnly = v)

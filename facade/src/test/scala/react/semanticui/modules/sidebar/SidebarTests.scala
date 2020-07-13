@@ -40,13 +40,15 @@ object SidebarTests extends TestSuite {
     test("sidebar") {
       val sidebar = Sidebar(DoubleComp(1))
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
-        assert(m.outerHtmlScrubbed == """<div class="ui left sidebar"><p>1 + 1 = 2</p></div>""")
+        assert(m.outerHtmlScrubbed() == """<div class="ui left sidebar"><p>1 + 1 = 2</p></div>""")
       }
     }
     test("sidebarAs") {
       val sidebar = Sidebar(as = As.Menu(Menu(inverted = true)))("Abc")
       ReactTestUtils.withRenderedIntoDocument(sidebar) { m =>
-        assert(m.outerHtmlScrubbed == """<div class="ui inverted ui left sidebar menu">Abc</div>""")
+        assert(
+          m.outerHtmlScrubbed() == """<div class="ui inverted ui left sidebar menu">Abc</div>"""
+        )
       }
     }
     test("example") {
