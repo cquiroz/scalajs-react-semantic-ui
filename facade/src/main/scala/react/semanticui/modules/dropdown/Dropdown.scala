@@ -630,7 +630,7 @@ object Dropdown {
     (onBlurE, onBlur).toJs.foreach(v => p.onBlur = v)
     onChangeE.toJs
       .orElse[RawOnChange](
-        onChange.map(t => (_: ReactEvent, b: DropdownProps) => t(b).runNow)
+        onChange.map(t => (_: ReactEvent, b: DropdownProps) => t(b).runNow())
       )
       .foreach(v => p.onChange = v)
     (onClickE, onClick).toJs.foreach(v => p.onClick = v)
@@ -641,7 +641,7 @@ object Dropdown {
     (onOpenE, onOpen).toJs.foreach(v => p.onOpen = v)
     onSearchChangeE.toJs
       .orElse[RawOnSearchChange](
-        onSearchChange.map(t => (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow)
+        onSearchChange.map(t => (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow())
       )
       .foreach(v => p.onSearchChange = v)
     onAddItem.toJs.foreach(v => p.onAddItem = v)
@@ -653,7 +653,7 @@ object Dropdown {
     renderLabel
       .map[RawRenderLabel] {
         b => (item: DropdownItem.DropdownItemProps, index: Int, defaultProps: Label.LabelProps) =>
-          b(item, index, defaultProps).runNow
+          b(item, index, defaultProps).runNow()
       }
       .foreach(v => p.renderLabel = v)
     scrolling.foreach(v => p.scrolling = v)
@@ -664,7 +664,7 @@ object Dropdown {
           case b          =>
             val sf                     = b.asInstanceOf[SearchFunction]
             val rsf: RawSearchFunction = (l: js.Array[DropdownItem.DropdownItemProps], s: String) =>
-              sf(l.toList, s).runNow.toJSArray
+              sf(l.toList, s).runNow().toJSArray
             rsf
         }
       }

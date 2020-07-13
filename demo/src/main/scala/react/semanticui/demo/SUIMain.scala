@@ -40,11 +40,11 @@ object Routing {
     (
       trimSlashes
         | staticRoute(root, HomePage) ~>
-          render(HomeComponent.apply)
+          render(HomeComponent.apply())
         | staticRoute("elements/icons", ElementPage(IconsElement)) ~>
-          render(IconsComponent.apply)
+          render(IconsComponent.apply())
         | staticRoute("elements/labels", ElementPage(LabelsElement)) ~>
-          render(LabelsComponent.apply)
+          render(LabelsComponent.apply())
     ).notFound(redirectToPage(HomePage)(SetRouteVia.HistoryReplace))
       .renderWith(layout)
       .logToConsole

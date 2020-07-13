@@ -328,7 +328,7 @@ object FormSelect {
     (onBlurE, onBlur).toJs.foreach(v => p.onBlur = v)
     onChangeE.toJs
       .orElse[FormDropdown.RawOnChange](
-        onChange.map(t => (_: ReactEvent, b: FormDropdownProps) => t(b).runNow)
+        onChange.map(t => (_: ReactEvent, b: FormDropdownProps) => t(b).runNow())
       )
       .foreach(v => p.onChange = v)
     (onClickE, onClick).toJs.foreach(v => p.onClick = v)
@@ -340,7 +340,7 @@ object FormSelect {
     onSearchChangeE.toJs
       .orElse[RawOnSearchChange](
         onSearchChange
-          .map(t => (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow)
+          .map(t => (_: ReactEvent, b: DropdownOnSearchChangeData) => t(b).runNow())
       )
       .foreach(v => p.onSearchChange = v)
     onAddItem.toJs.foreach(v => p.onAddItem = v)
@@ -352,7 +352,7 @@ object FormSelect {
     renderLabel
       .map[RawRenderLabel] {
         b => (item: DropdownItem.DropdownItemProps, index: Int, defaultProps: Label.LabelProps) =>
-          b(item, index, defaultProps).runNow
+          b(item, index, defaultProps).runNow()
       }
       .foreach(v => p.renderLabel = v)
     scrolling.foreach(v => p.scrolling = v)
@@ -364,7 +364,7 @@ object FormSelect {
             val sf                     = b.asInstanceOf[SearchFunction]
             val rsf: RawSearchFunction =
               (l: js.Array[DropdownItem.DropdownItemProps], s: String) =>
-                sf(l.toList, s).runNow.toJSArray
+                sf(l.toList, s).runNow().toJSArray
             rsf
         }
       }
