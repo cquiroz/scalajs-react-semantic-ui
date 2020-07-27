@@ -1,5 +1,9 @@
 # Changes
 
+## 0.6.0
+
+* Upgrade react-semanticui to 1.0.0
+
 ## 0.5.10
 
 * Upgrade to react-common 0.9.4
