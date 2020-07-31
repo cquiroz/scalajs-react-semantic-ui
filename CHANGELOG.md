@@ -1,5 +1,11 @@
 # Changes
 
+## 0.6.1
+
+* Upgrade react-semanticui to 1.1.0
+* Upgrade to react-common 0.9.6
+* Upgrade to scalajs-react 1.7.4
+
 ## 0.6.0
 
 * Upgrade react-semanticui to 1.0.0
