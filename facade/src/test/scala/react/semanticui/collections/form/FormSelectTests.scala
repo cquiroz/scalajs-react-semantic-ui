@@ -15,7 +15,7 @@ object FormSelectTests extends TestSuite {
         select.renderIntoDOM(mountNode)
         val html = mountNode.outerHTML
         assert(
-          html == """<div><div class="two wide field"><div role="listbox" aria-expanded="false" class="ui selection dropdown" tabindex="0"><div class="text" role="alert" aria-live="polite" aria-atomic="true"></div><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"><div style="pointer-events: all;" role="option" aria-checked="false" aria-selected="true" class="selected item">abc</div><div style="pointer-events: all;" role="option" aria-checked="false" aria-selected="false" class="item"><span class="text">def</span></div></div></div></div></div>"""
+          html == """<div><div class="two wide field"><div role="listbox" aria-expanded="false" class="ui selection dropdown" tabindex="0"><i aria-hidden="true" class="dropdown icon"></i><div class="menu transition"><div style="pointer-events: all;" role="option" aria-checked="false" aria-selected="true" class="selected item">abc</div><div style="pointer-events: all;" role="option" aria-checked="false" aria-selected="false" class="item"><span class="text">def</span></div></div></div></div></div>"""
         )
       }
     }
