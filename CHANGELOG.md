@@ -1,5 +1,9 @@
 # Changes
 
+## 0.6.2
+
+* Upgrade react-semanticui to 1.1.1
+
 ## 0.6.1
 
 * Upgrade react-semanticui to 1.1.0
