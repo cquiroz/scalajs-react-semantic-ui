@@ -26,7 +26,7 @@ final case class Modal(
   closeOnDocumentClick:   js.UndefOr[Boolean] = js.undefined,
   content:                js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
   defaultOpen:            js.UndefOr[Boolean] = js.undefined,
-  dimmer:                 js.UndefOr[ModalDimmer] = js.undefined,
+  dimmer:                 js.UndefOr[Dimmer | ModalDimmer] = js.undefined,
   eventPool:              js.UndefOr[String] = js.undefined,
   header:                 js.UndefOr[ShorthandS[ModalHeader]] = js.undefined,
   onActionClickE:         js.UndefOr[Modal.OnActionClick] = js.undefined,
@@ -108,7 +108,9 @@ object Modal {
     var defaultOpen: js.UndefOr[Boolean] = js.native
 
     /** A modal can appear in a dimmer. */
-    var dimmer: js.UndefOr[Boolean | String] = js.native
+    var dimmer
+      : js.UndefOr[Boolean | String | suiraw.SemanticShorthandItemS[ModalDimmer.ModalDimmerProps]] =
+      js.native
 
     /** Event pool namespace that is used to handle component events */
     var eventPool: js.UndefOr[String] = js.native
@@ -215,7 +217,7 @@ object Modal {
     closeOnDocumentClick: js.UndefOr[Boolean] = js.undefined,
     content:              js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
     defaultOpen:          js.UndefOr[Boolean] = js.undefined,
-    dimmer:               js.UndefOr[ModalDimmer] = js.undefined,
+    dimmer:               js.UndefOr[Dimmer | ModalDimmer] = js.undefined,
     eventPool:            js.UndefOr[String] = js.undefined,
     header:               js.UndefOr[ShorthandS[ModalHeader]] = js.undefined,
     onActionClickE:       js.UndefOr[OnActionClick] = js.undefined,
@@ -242,7 +244,13 @@ object Modal {
     closeOnDocumentClick.foreach(v => p.closeOnDocumentClick = v)
     content.toJs.foreach(v => p.content = v)
     defaultOpen.foreach(v => p.defaultOpen = v)
-    dimmer.toJs.foreach(v => p.dimmer = v)
+    dimmer.foreach { v =>
+      (v: Any) match {
+        case x: Dimmer => x.toJs
+        case x         => x
+      }
+    }
+
     eventPool.foreach(v => p.eventPool = v)
     header.toJs.foreach(v => p.header = v)
     (onActionClickE, onActionClick).toJs.foreach(v => p.onActionClick = v)

@@ -4,13 +4,13 @@ import react.common.EnumValue
 import react.common.EnumValueB
 
 package modal {
-  sealed trait ModalDimmer extends Product with Serializable
-  object ModalDimmer {
-    implicit val enum: EnumValueB[ModalDimmer] = EnumValueB.toLowerCaseStringT(Dimmer)
+  sealed trait Dimmer extends Product with Serializable
+  object Dimmer {
+    implicit val enum: EnumValueB[Dimmer] = EnumValueB.toLowerCaseStringT(Dimmer)
 
-    case object Dimmer   extends ModalDimmer
-    case object Blurring extends ModalDimmer
-    case object Inverted extends ModalDimmer
+    case object Dimmer   extends Dimmer
+    case object Blurring extends Dimmer
+    case object Inverted extends Dimmer
   }
 
   sealed trait ModalSize extends Product with Serializable
