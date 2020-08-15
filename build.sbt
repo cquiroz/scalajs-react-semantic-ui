@@ -1,7 +1,7 @@
 val reactJS      = "16.13.1"
-val scalaJsReact = "1.7.4"
+val scalaJsReact = "1.7.5"
 val FUILess      = "2.8.6"
-val reactSUI     = "1.1.1"
+val reactSUI     = "1.2.0"
 val Toasts       = "0.6.5"
 
 parallelExecution in (ThisBuild, Test) := false
@@ -142,7 +142,7 @@ lazy val facade =
         "com.github.japgolly.scalajs-react" %%% "core"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"     % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"      % scalaJsReact % Test,
-        "io.github.cquiroz.react"           %%% "common"    % "0.9.6",
+        "io.github.cquiroz.react"           %%% "common"    % "0.9.7",
         "com.lihaoyi"                       %%% "utest"     % "0.7.4"      % Test,
         "org.typelevel"                     %%% "cats-core" % "2.1.1"      % Test
       ),
