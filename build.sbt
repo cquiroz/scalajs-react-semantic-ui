@@ -71,8 +71,6 @@ lazy val demo =
       webpackMonitoredDirectories += (resourceDirectory in Compile).value,
       webpackResources := (baseDirectory.value / "webpack") * "*.js",
       includeFilter in webpackMonitoredFiles := "*",
-      webpackExtraArgs := Seq("--progress"),
-      // webpackExtraArgs                       := Seq("--progress", "--display", "verbose"),
       useYarn := true,
       webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly(),
       webpackBundlingMode in fullOptJS := BundlingMode.Application,
@@ -103,7 +101,8 @@ lazy val demo =
         "react"                 -> reactJS,
         "react-dom"             -> reactJS,
         "fomantic-ui-less"      -> FUILess,
-        "create-react-context" -> "0.3.0",
+        "create-react-context"  -> "0.3.0",
+        "prop-types"            -> "15.7.2",
         "react-semantic-toasts" -> Toasts
       ),
       // don't publish the demo
@@ -132,12 +131,13 @@ lazy val facade =
       //   build.JSDOMNodeJSEnv.Config((Test / installJsdom).value)
       // ),
       // Compile tests to JS using fast-optimisation
-      // scalaJSStage in Test            := FastOptStage,
+      scalaJSStage in Test := FastOptStage,
       npmDependencies in Compile ++= Seq(
         "react"                 -> reactJS,
         "react-dom"             -> reactJS,
         "semantic-ui-react"     -> reactSUI,
-        "react-semantic-toasts" -> Toasts
+        "react-semantic-toasts" -> Toasts,
+        "chokidar"              -> "3.4.2"
       ),
       libraryDependencies ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"      % scalaJsReact,

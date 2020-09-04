@@ -1,5 +1,10 @@
 # Changes
 
+## 0.6.4
+
+* Update cats to 2.2.0
+* Upgrade to react-common 0.9.8
+
 ## 0.6.3
 
 * Upgrade react-semanticui to 1.2.0
