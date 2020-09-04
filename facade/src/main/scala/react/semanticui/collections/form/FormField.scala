@@ -56,10 +56,10 @@ object FormField {
       js.undefined
 
     /**
-      * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
-      * Extra FormField props are passed to the control component.
-      * Mutually exclusive with children.
-      */
+     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
+     * Extra FormField props are passed to the control component.
+     * Mutually exclusive with children.
+     */
     // control?: any
     var control: js.UndefOr[String]
 

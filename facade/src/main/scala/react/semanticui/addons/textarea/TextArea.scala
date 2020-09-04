@@ -45,19 +45,19 @@ object TextArea {
     var as: js.UndefOr[AsT] = js.native
 
     /**
-      * Called on change.
-      *
-      * @param {SyntheticEvent} event - The React SyntheticEvent object
-      * @param {object} data - All props and the event value.
-      */
+     * Called on change.
+     *
+     * @param {SyntheticEvent} event - The React SyntheticEvent object
+     * @param {object} data - All props and the event value.
+     */
     var onChange: js.UndefOr[RawEvent] = js.undefined
 
     /**
-      * Called on input.
-      *
-      * @param {SyntheticEvent} event - The React SyntheticEvent object
-      * @param {object} data - All props and the event value.
-      */
+     * Called on input.
+     *
+     * @param {SyntheticEvent} event - The React SyntheticEvent object
+     * @param {object} data - All props and the event value.
+     */
     var onInput: js.UndefOr[RawEvent] = js.undefined
 
     /** Indicates row count for a TextArea. */

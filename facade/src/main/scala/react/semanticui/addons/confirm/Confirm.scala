@@ -71,19 +71,19 @@ object Confirm {
     var confirmButton: js.UndefOr[suiraw.SemanticShorthandItemS[Button.ButtonProps]] = js.native
 
     /**
-      * Called when the Modal is closed without clicking confirm.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when the Modal is closed without clicking confirm.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onCancel: js.UndefOr[RawOnCancel] = js.native
 
     /**
-      * Called when the OK button is clicked.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when the OK button is clicked.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onConfirm: js.UndefOr[RawOnCancel] = js.native
 
   }
