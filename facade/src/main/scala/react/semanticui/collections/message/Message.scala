@@ -111,12 +111,12 @@ object Message {
     var negative: js.UndefOr[Boolean] = js.undefined
 
     /**
-      * A message that the user can choose to hide.
-      * Called when the user clicks the "x" icon. This also adds the "x" icon.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * A message that the user can choose to hide.
+     * Called when the user clicks the "x" icon. This also adds the "x" icon.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onDismiss: js.UndefOr[js.Function2[ReactEvent, MessageProps, Unit]] = js.undefined
 
     /** A message may be formatted to display a positive message.  Same as `success`. */

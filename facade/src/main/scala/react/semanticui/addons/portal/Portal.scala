@@ -72,10 +72,10 @@ object Portal {
     var closeOnEscape: js.UndefOr[Boolean] = js.undefined
 
     /**
-      * Controls whether or not the portal should close when mousing out of the portal.
-      * NOTE: This will prevent `closeOnTriggerMouseLeave` when mousing over the
-      * gap from the trigger to the portal.
-      */
+     * Controls whether or not the portal should close when mousing out of the portal.
+     * NOTE: This will prevent `closeOnTriggerMouseLeave` when mousing over the
+     * gap from the trigger to the portal.
+     */
     var closeOnPortalMouseLeave: js.UndefOr[Boolean] = js.undefined
 
     /** Controls whether or not the portal should close on blur of the trigger. */
@@ -103,35 +103,35 @@ object Portal {
     var mouseLeaveDelay: js.UndefOr[JsNumber] = js.undefined
 
     /**
-      * Called when a close event happens
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when a close event happens
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onClose: js.UndefOr[RawOnClose] = js.undefined
 
     /**
-      * Called when the portal is mounted on the DOM
-      *
-      * @param {null}
-      * @param {object} data - All props.
-      */
+     * Called when the portal is mounted on the DOM
+     *
+     * @param {null}
+     * @param {object} data - All props.
+     */
     var onMount: js.UndefOr[RawOnMount] = js.native
 
     /**
-      * Called when an open event happens
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when an open event happens
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onOpen: js.UndefOr[RawOnOpen] = js.undefined
 
     /**
-      * Called when the portal is unmounted from the DOM
-      *
-      * @param {null}
-      * @param {object} data - All props.
-      */
+     * Called when the portal is unmounted from the DOM
+     *
+     * @param {null}
+     * @param {object} data - All props.
+     */
     var onUnmount: js.UndefOr[RawOnUnmount]
 
     /** Controls whether or not the portal is displayed. */

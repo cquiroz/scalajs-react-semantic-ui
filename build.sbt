@@ -103,6 +103,7 @@ lazy val demo =
         "react"                 -> reactJS,
         "react-dom"             -> reactJS,
         "fomantic-ui-less"      -> FUILess,
+        "create-react-context" -> "0.3.0",
         "react-semantic-toasts" -> Toasts
       ),
       // don't publish the demo
@@ -120,16 +121,16 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name := "react-semantic-ui",
-      version in webpack := "4.43.0",
+      version in webpack := "4.44.1",
       version in startWebpackDevServer := "3.11.0",
-      version in installJsdom := "16.2.2",
+      version in installJsdom := "16.4.0",
       // Requires the DOM for tests
       requireJsDomEnv in Test := true,
       // Remove the following when a new scalajs-bundler is released.
       // See https://github.com/scalacenter/scalajs-bundler/issues/332
-      Test / jsEnv := new build.JSDOMNodeJSEnv(
-        build.JSDOMNodeJSEnv.Config((Test / installJsdom).value)
-      ),
+      // Test / jsEnv := new build.JSDOMNodeJSEnv(
+      //   build.JSDOMNodeJSEnv.Config((Test / installJsdom).value)
+      // ),
       // Compile tests to JS using fast-optimisation
       // scalaJSStage in Test            := FastOptStage,
       npmDependencies in Compile ++= Seq(
@@ -142,9 +143,9 @@ lazy val facade =
         "com.github.japgolly.scalajs-react" %%% "core"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"     % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"      % scalaJsReact % Test,
-        "io.github.cquiroz.react"           %%% "common"    % "0.9.7",
-        "com.lihaoyi"                       %%% "utest"     % "0.7.4"      % Test,
-        "org.typelevel"                     %%% "cats-core" % "2.1.1"      % Test
+        "io.github.cquiroz.react"           %%% "common"    % "0.9.8",
+        "com.lihaoyi"                       %%% "utest"     % "0.7.5"      % Test,
+        "org.typelevel"                     %%% "cats-core" % "2.2.0"      % Test
       ),
       webpackConfigFile in Test := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks += new TestFramework("utest.runner.Framework")

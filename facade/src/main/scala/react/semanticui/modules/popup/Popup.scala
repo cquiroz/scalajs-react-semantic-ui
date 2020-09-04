@@ -106,48 +106,49 @@ object Popup {
     /** Invert the colors of the popup */
     var inverted: js.UndefOr[Boolean] = js.native
 
-    /** Offset value to apply to rendered popup. Accepts the following units:
-      * - px or unit-less, interpreted as pixels
-      * - %, percentage relative to the length of the trigger element
-      * - %p, percentage relative to the length of the popup element
-      * - vw, CSS viewport width unit
-      * - vh, CSS viewport height unit
-      */
+    /**
+     * Offset value to apply to rendered popup. Accepts the following units:
+     * - px or unit-less, interpreted as pixels
+     * - %, percentage relative to the length of the trigger element
+     * - %p, percentage relative to the length of the popup element
+     * - vw, CSS viewport width unit
+     * - vh, CSS viewport height unit
+     */
     var offset: js.UndefOr[JsNumber | String] = js.native
 
     /** Events triggering the popup. */
     var on: js.UndefOr[String | js.Array[String]] = js.native
 
     /**
-      * Called when a close event happens.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when a close event happens.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onClose: js.UndefOr[RawOnClose] = js.native
 
     /**
-      * Called when the portal is mounted on the DOM.
-      *
-      * @param {null}
-      * @param {object} data - All props.
-      */
+     * Called when the portal is mounted on the DOM.
+     *
+     * @param {null}
+     * @param {object} data - All props.
+     */
     // onMount?: (nothing: null, data: PopupProps) => void
 
     /**
-      * Called when an open event happens.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when an open event happens.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onOpen: js.UndefOr[RawOnOpen] = js.native
 
     /**
-      * Called when the portal is unmounted from the DOM.
-      *
-      * @param {null}
-      * @param {object} data - All props.
-      */
+     * Called when the portal is unmounted from the DOM.
+     *
+     * @param {null}
+     * @param {object} data - All props.
+     */
     // onUnmount?: (nothing: null, data: PopupProps) => void
 
     /** Disables automatic repositioning of the component, it will always be placed according to the position value. */

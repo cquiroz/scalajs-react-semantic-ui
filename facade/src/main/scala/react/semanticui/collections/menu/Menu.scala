@@ -107,11 +107,11 @@ object Menu {
     // items: customPropTypes.collectionShorthand,
 
     /**
-      * onClick handler for MenuItem. Mutually exclusive with children.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All item props.
-      */
+     * onClick handler for MenuItem. Mutually exclusive with children.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All item props.
+     */
     var onItemClick: js.UndefOr[js.Function1[ReactEvent, Unit]] = js.native
 
     /** A pagination menu is specially formatted to present links to pages of content. */

@@ -132,10 +132,10 @@ object FormDropdown {
       js.undefined
 
     /**
-      * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
-      * Extra FormDropdown props are passed to the control component.
-      * Mutually exclusive with children.
-      */
+     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
+     * Extra FormDropdown props are passed to the control component.
+     * Mutually exclusive with children.
+     */
     // control?: any
     var control: js.UndefOr[String]
 
@@ -158,9 +158,9 @@ object FormDropdown {
     var additionPosition: js.UndefOr[String]
 
     /**
-      * Allow user additions to the list of options (boolean).
-      * Requires the use of `selection`, `options` and `search`.
-      */
+     * Allow user additions to the list of options (boolean).
+     * Requires the use of `selection`, `options` and `search`.
+     */
     var allowAdditions: js.UndefOr[Boolean] = js.native
 
     /** A Dropdown can reduce its complexity. */
@@ -182,10 +182,10 @@ object FormDropdown {
     var closeOnEscape: js.UndefOr[Boolean] = js.native
 
     /**
-      * Whether or not the menu should close when a value is selected from the dropdown.
-      * By default, multiple selection dropdowns will remain open on change, while single
-      * selection dropdowns will close on change.
-      */
+     * Whether or not the menu should close when a value is selected from the dropdown.
+     * By default, multiple selection dropdowns will remain open on change, while single
+     * selection dropdowns will close on change.
+     */
     var closeOnChange: js.UndefOr[Boolean] = js.native
 
     /** A compact dropdown has no minimum width. */
@@ -255,83 +255,83 @@ object FormDropdown {
     var noResultsMessage: js.UndefOr[React.Node] = js.native
 
     /**
-      * Called when a user adds a new item. Use this to update the options list.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props and the new item's value.
-      */
+     * Called when a user adds a new item. Use this to update the options list.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props and the new item's value.
+     */
     var onAddItem: js.UndefOr[Dropdown.RawOnAddItem] = js.native
 
     /**
-      * Called on blur.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called on blur.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onBlur: js.UndefOr[Dropdown.RawOnBlur] = js.native
 
     /**
-      * Called when the user attempts to change the value.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props and proposed value.
-      */
+     * Called when the user attempts to change the value.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props and proposed value.
+     */
     var onChange: js.UndefOr[FormDropdown.RawOnChange] = js.undefined
 
     /**
-      * Called on click.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called on click.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onClick: js.UndefOr[Dropdown.RawOnClick]
 
     /**
-      * Called when a close event happens.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when a close event happens.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onClose: js.UndefOr[Dropdown.RawOnClose] = js.undefined
 
     /**
-      * Called on focus.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called on focus.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onFocus: js.UndefOr[Dropdown.RawOnFocus] = js.undefined
 
     /**
-      * Called when a multi-select label is clicked.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All label props.
-      */
+     * Called when a multi-select label is clicked.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All label props.
+     */
     var onLabelClick: js.UndefOr[Dropdown.RawOnLabelClick] = js.undefined
 
     /**
-      * Called on mousedown.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called on mousedown.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onMouseDown: js.UndefOr[Dropdown.RawOnMouseDown] = js.undefined
 
     /**
-      * Called when an open event happens.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when an open event happens.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onOpen: js.UndefOr[Dropdown.RawOnOpen] = js.undefined
 
     /**
-      * Called on search input change.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props, includes current value of searchQuery.
-      */
+     * Called on search input change.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props, includes current value of searchQuery.
+     */
     var onSearchChange: js.UndefOr[Dropdown.RawOnSearchChange] = js.undefined
 
     /** Controls whether or not the dropdown menu is displayed. */
@@ -350,23 +350,23 @@ object FormDropdown {
     var pointing: js.UndefOr[Boolean | String] = js.native
 
     /**
-      * Mapped over the active items and returns shorthand for the active item Labels.
-      * Only applies to `multiple` Dropdowns.
-      *
-      * @param {object} item - A currently active dropdown item.
-      * @param {number} index - The current index.
-      * @param {props} defaultLabelProps - The default props for an active item Label.
-      * @return {*} Shorthand for a Label.
-      */
+     * Mapped over the active items and returns shorthand for the active item Labels.
+     * Only applies to `multiple` Dropdowns.
+     *
+     * @param {object} item - A currently active dropdown item.
+     * @param {number} index - The current index.
+     * @param {props} defaultLabelProps - The default props for an active item Label.
+     * @return {*} Shorthand for a Label.
+     */
     var renderLabel: js.UndefOr[Dropdown.RawRenderLabel] = js.native
 
     /** A dropdown can have its menu scroll. */
     var scrolling: js.UndefOr[Boolean] = js.native
 
     /**
-      * A selection dropdown can allow a user to search through a large list of choices.
-      * Pass a function here to replace the default search.
-      */
+     * A selection dropdown can allow a user to search through a large list of choices.
+     * Pass a function here to replace the default search.
+     */
     var search: js.UndefOr[Boolean | Dropdown.RawSearchFunction] = js.native
 
     /** A shorthand for a search input. */
@@ -406,9 +406,9 @@ object FormDropdown {
     var upward: js.UndefOr[Boolean] = js.native
 
     /**
-      * A dropdown will go to the last element when ArrowUp is pressed on the first,
-      * or go to the first when ArrowDown is pressed on the last( aka infinite selection )
-      */
+     * A dropdown will go to the last element when ArrowUp is pressed on the first,
+     * or go to the first when ArrowDown is pressed on the last( aka infinite selection )
+     */
     var wrapSelection: js.UndefOr[Boolean] = js.native
   }
 

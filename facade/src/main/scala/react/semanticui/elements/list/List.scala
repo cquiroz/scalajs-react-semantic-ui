@@ -97,11 +97,11 @@ object List {
     var link: js.UndefOr[Boolean] = js.native
 
     /**
-      * onClick handler for ListItem. Mutually exclusive with children.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All item props.
-      */
+     * onClick handler for ListItem. Mutually exclusive with children.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All item props.
+     */
     var onItemClick: js.UndefOr[js.Function2[ReactMouseEvent, ListItem.ListItemProps, Unit]] =
       js.native
 

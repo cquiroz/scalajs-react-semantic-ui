@@ -70,19 +70,19 @@ object DimmerInner {
     var disabled: js.UndefOr[Boolean] = js.native
 
     /**
-      * Called when the dimmer is clicked.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called when the dimmer is clicked.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onClick: js.UndefOr[RawOnClick] = js.native
 
     /**
-      * Handles click outside Dimmer's content, but inside Dimmer area.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Handles click outside Dimmer's content, but inside Dimmer area.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onClickOutside: js.UndefOr[RawOnClickOutside] = js.native
 
     /** A dimmer can be formatted to have its colors inverted. */

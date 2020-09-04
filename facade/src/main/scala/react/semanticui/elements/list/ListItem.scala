@@ -81,11 +81,11 @@ object ListItem {
     var image: js.UndefOr[suiraw.SemanticShorthandItemS[Image.ImageProps]] = js.native
 
     /**
-      * Called on click.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All props.
-      */
+     * Called on click.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All props.
+     */
     var onClick: js.UndefOr[js.Function2[ReactMouseEvent, ListItemProps, Unit]] = js.native
 
     /** A value for an ordered list. */

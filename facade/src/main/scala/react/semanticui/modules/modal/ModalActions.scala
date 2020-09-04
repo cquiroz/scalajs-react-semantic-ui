@@ -58,11 +58,11 @@ object ModalActions {
     var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
 
     /**
-      * onClick handler for an action. Mutually exclusive with children.
-      *
-      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-      * @param {object} data - All item props.
-      */
+     * onClick handler for an action. Mutually exclusive with children.
+     *
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {object} data - All item props.
+     */
     var onActionClick: js.UndefOr[RawOnActionClick] = js.native
   }
 
