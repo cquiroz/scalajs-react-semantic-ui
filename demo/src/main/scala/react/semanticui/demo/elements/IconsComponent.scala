@@ -73,68 +73,63 @@ object IconsComponent {
             )
           ),
           section("Samples", "An icon set contains an arbitrary number of glyphs.") {
-            sampleIcons.map {
-              case (name, icon) =>
-                <.div(
-                  ^.cls := "column docs-icon-set-column",
-                  icon.size(Big),
-                  <.p(
-                    ^.cls := "name",
-                    name
-                  )
+            sampleIcons.map { case (name, icon) =>
+              <.div(
+                ^.cls := "column docs-icon-set-column",
+                icon.size(Big),
+                <.p(
+                  ^.cls := "name",
+                  name
                 )
+              )
             }.toTagMod
           },
           section("Sizes", "An icon can vary in size") {
-            AllSizes.map {
-              case s =>
-                <.div(
-                  ^.cls := "column docs-icon-set-column",
-                  IconFeed.size(s),
-                  <.p(
-                    ^.cls := "name",
-                    s.toJs
-                  )
+            AllSizes.map { case s =>
+              <.div(
+                ^.cls := "column docs-icon-set-column",
+                IconFeed.size(s),
+                <.p(
+                  ^.cls := "name",
+                  s.toJs
                 )
+              )
             }.toTagMod
           },
           section("Flipped", "An icon can be flipped") {
-            List(Horizontally, Vertically).map {
-              case o =>
-                <.div(
-                  ^.cls := "column docs-icon-set-column",
-                  IconCloudUpload.flipped(o),
-                  <.p(
-                    ^.cls := "name",
-                    o.toJs
-                  )
+            List(Horizontally, Vertically).map { case o =>
+              <.div(
+                ^.cls := "column docs-icon-set-column",
+                IconCloudUpload.flipped(o),
+                <.p(
+                  ^.cls := "name",
+                  o.toJs
                 )
+              )
             }.toTagMod
           },
           section("Colors", "Icons support colors") {
-            AllColors.map {
-              case o =>
-                <.div(
-                  ^.cls := "column docs-icon-set-column",
-                  IconEdit.color(o),
-                  <.p(
-                    ^.cls := "name",
-                    o.toJs
-                  )
+            AllColors.map { case o =>
+              <.div(
+                ^.cls := "column docs-icon-set-column",
+                IconEdit.color(o),
+                <.p(
+                  ^.cls := "name",
+                  o.toJs
                 )
+              )
             }.toTagMod
           },
           section("Rotated", "Icons can be rotated") {
-            List(Clockwise, CounterClockwise).map {
-              case o =>
-                <.div(
-                  ^.cls := "column docs-icon-set-column",
-                  IconDashboard.rotated(o),
-                  <.p(
-                    ^.cls := "name",
-                    o.toJs
-                  )
+            List(Clockwise, CounterClockwise).map { case o =>
+              <.div(
+                ^.cls := "column docs-icon-set-column",
+                IconDashboard.rotated(o),
+                <.p(
+                  ^.cls := "name",
+                  o.toJs
                 )
+              )
             }.toTagMod
           },
           section("Bordered", "Icons can have a border") {
