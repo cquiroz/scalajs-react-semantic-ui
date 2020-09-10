@@ -1,7 +1,7 @@
 val reactJS      = "16.13.1"
 val scalaJsReact = "1.7.5"
-val FUILess      = "2.8.6"
-val reactSUI     = "1.2.0"
+val FUILess      = "2.8.7"
+val reactSUI     = "1.2.1"
 val Toasts       = "0.6.5"
 
 parallelExecution in (ThisBuild, Test) := false
@@ -60,8 +60,8 @@ lazy val demo =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      version in webpack := "4.43.0",
-      version in startWebpackDevServer := "3.11.0",
+      webpack / version := "4.44.1",
+      startWebpackDevServer / version := "3.11.0",
       webpackConfigFile in fastOptJS := Some(
         baseDirectory.value / "webpack" / "dev.webpack.config.js"
       ),
@@ -120,16 +120,12 @@ lazy val facade =
     .settings(commonSettings: _*)
     .settings(
       name := "react-semantic-ui",
-      version in webpack := "4.44.1",
-      version in startWebpackDevServer := "3.11.0",
-      version in installJsdom := "16.4.0",
+      webpack / version := "4.44.1",
+      startWebpackDevServer / version := "3.11.0",
+      installJsdom / version := "16.4.0",
+      webpackCliVersion / version := "3.3.11",
       // Requires the DOM for tests
       requireJsDomEnv in Test := true,
-      // Remove the following when a new scalajs-bundler is released.
-      // See https://github.com/scalacenter/scalajs-bundler/issues/332
-      // Test / jsEnv := new build.JSDOMNodeJSEnv(
-      //   build.JSDOMNodeJSEnv.Config((Test / installJsdom).value)
-      // ),
       // Compile tests to JS using fast-optimisation
       scalaJSStage in Test := FastOptStage,
       npmDependencies in Compile ++= Seq(
@@ -143,12 +139,14 @@ lazy val facade =
         "com.github.japgolly.scalajs-react" %%% "core"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"     % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"      % scalaJsReact % Test,
-        "io.github.cquiroz.react"           %%% "common"    % "0.9.8",
+        "io.github.cquiroz.react"           %%% "common"    % "0.10.0",
+        "org.scalameta"                     %%% "munit"     % "0.7.12"     % Test,
         "com.lihaoyi"                       %%% "utest"     % "0.7.5"      % Test,
         "org.typelevel"                     %%% "cats-core" % "2.2.0"      % Test
       ),
       webpackConfigFile in Test := Some(baseDirectory.value / "test.webpack.config.js"),
-      testFrameworks += new TestFramework("utest.runner.Framework")
+      testFrameworks += new TestFramework("utest.runner.Framework"),
+      testFrameworks += new TestFramework("munit.Framework")
     )
 
 lazy val commonSettings = Seq(

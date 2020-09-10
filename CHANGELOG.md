@@ -1,5 +1,11 @@
 # Changes
 
+## 0.7.0
+
+* Upgrade scala.js to 1.2.0
+* Upgrade react-common to 0.10.0
+* Upgrade semantic ui react to 1.2.1
+
 ## 0.6.4
 
 * Update cats to 2.2.0
