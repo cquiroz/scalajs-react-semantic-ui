@@ -47,7 +47,7 @@ final case class FormDropdown(
   icon:                   js.UndefOr[ShorthandS[Icon]] = js.undefined,
   inline:                 js.UndefOr[Boolean] = js.undefined,
   item:                   js.UndefOr[Boolean] = js.undefined,
-  label:                  js.UndefOr[ShorthandS[String]] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
   labeled:                js.UndefOr[Boolean] = js.undefined,
   lazyLoad:               js.UndefOr[Boolean] = js.undefined,
   loading:                js.UndefOr[Boolean] = js.undefined,
