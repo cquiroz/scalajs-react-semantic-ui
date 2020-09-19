@@ -20,7 +20,7 @@ final case class FormField(
   error:                  js.UndefOr[ShorthandB[Label]] = js.undefined,
   id:                     js.UndefOr[String] = js.undefined,
   inline:                 js.UndefOr[Boolean] = js.undefined,
-  label:                  js.UndefOr[ShorthandS[String]] = js.undefined,
+  label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
   required:               js.UndefOr[Boolean] = js.undefined,
   tpe:                    js.UndefOr[String] = js.undefined,
   width:                  js.UndefOr[SemanticWidth] = js.undefined,
