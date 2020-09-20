@@ -1,5 +1,9 @@
 # Changes
 
+## 0.7.1
+
+* Fixes label types on Form elements
+
 ## 0.7.0
 
 * Upgrade scala.js to 1.2.0
