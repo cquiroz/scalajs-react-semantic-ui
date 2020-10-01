@@ -1,5 +1,9 @@
 # Changes
 
+## 0.7.3
+
+* Split events for Form and Text Area changes
+
 ## 0.7.2
 
 * Update react-semanticui to 1.3.1
