@@ -5,10 +5,10 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.JsNumber
+import japgolly.scalajs.react.vdom.TagMod
 import react.common._
 import react.semanticui._
-import japgolly.scalajs.react.vdom.TagMod
-import react.semanticui.collections.form.Form
+import org.scalajs.dom
 
 final case class TextArea(
   as:                     js.UndefOr[AsC] = js.undefined,
@@ -26,8 +26,9 @@ final case class TextArea(
 }
 
 object TextArea {
-  type Event    = (Form.ReactChangeEvent, TextAreaProps) => Callback
-  type RawEvent = js.Function2[Form.ReactChangeEvent, TextAreaProps, Unit]
+  final type ReactChangeEvent = ReactEventFrom[dom.Node]
+  type Event                  = (ReactChangeEvent, TextAreaProps) => Callback
+  type RawEvent               = js.Function2[ReactChangeEvent, TextAreaProps, Unit]
 
   @js.native
   @JSImport("semantic-ui-react", "TextArea")
