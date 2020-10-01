@@ -1,5 +1,9 @@
 # Changes
 
+## 0.7.2
+
+* Update react-semanticui to 1.3.1
+
 ## 0.7.1
 
 * Fixes label types on Form elements

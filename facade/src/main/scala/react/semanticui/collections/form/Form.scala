@@ -34,9 +34,9 @@ final case class Form(
 }
 
 object Form {
-  final type ReactFormEvent = ReactEventFrom[dom.Node]
-  type OnRawSubmit          = js.Function2[ReactFormEvent, FormProps, Unit]
-  type OnSubmitE            = (ReactFormEvent, FormProps) => Callback
+  final type ReactChangeEvent = ReactEventFrom[dom.Node]
+  type OnRawSubmit            = js.Function2[ReactChangeEvent, FormProps, Unit]
+  type OnSubmitE              = (ReactChangeEvent, FormProps) => Callback
 
   @js.native
   @JSImport("semantic-ui-react", "Form")
