@@ -26,8 +26,8 @@ final case class TextArea(
 }
 
 object TextArea {
-  type Event    = (Form.ReactFormEvent, TextAreaProps) => Callback
-  type RawEvent = js.Function2[Form.ReactFormEvent, TextAreaProps, Unit]
+  type Event    = (Form.ReactChangeEvent, TextAreaProps) => Callback
+  type RawEvent = js.Function2[Form.ReactChangeEvent, TextAreaProps, Unit]
 
   @js.native
   @JSImport("semantic-ui-react", "TextArea")

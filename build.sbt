@@ -1,7 +1,7 @@
 val reactJS      = "16.13.1"
 val scalaJsReact = "1.7.5"
 val FUILess      = "2.8.7"
-val reactSUI     = "1.2.1"
+val reactSUI     = "1.3.1"
 val Toasts       = "0.6.5"
 
 parallelExecution in (ThisBuild, Test) := false
