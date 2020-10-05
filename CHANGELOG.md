@@ -1,5 +1,10 @@
 # Changes
 
+## 0.8.0
+
+* Add LabelGroup
+* Update to SemanticUI React 2.0.0
+
 ## 0.7.3
 
 * Split events for Form and Text Area changes
