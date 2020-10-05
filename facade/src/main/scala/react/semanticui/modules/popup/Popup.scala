@@ -27,7 +27,7 @@ final case class Popup(
   hideOnScroll:           js.UndefOr[Boolean] = js.undefined,
   hoverable:              js.UndefOr[Boolean] = js.undefined,
   inverted:               js.UndefOr[Boolean] = js.undefined,
-  offset:                 js.UndefOr[JsNumber | String] = js.undefined,
+  offset:                 js.UndefOr[(JsNumber, JsNumber)] = js.undefined,
   on:                     js.UndefOr[PopupOn | List[PopupOn]] = js.undefined,
   onCloseE:               js.UndefOr[Popup.OnClose] = js.undefined,
   onClose:                js.UndefOr[Callback] = js.undefined,
@@ -49,6 +49,10 @@ final case class Popup(
 }
 
 object Popup {
+  // TODO Implement this if needed but it needs a facade for Popper
+  // @js.native
+  // trait PopperOffsetFunctionParams extends js.Object
+  // private type RawPoperOffset = js.Function1[PopperOffsetFunctionParams, js.Array[JsNumber]]
   private type RawOnClose = js.Function2[ReactMouseEvent, PopupProps, Unit]
   type OnClose            = (ReactMouseEvent, PopupProps) => Callback
   private type RawOnOpen  = RawOnClose
@@ -107,14 +111,14 @@ object Popup {
     var inverted: js.UndefOr[Boolean] = js.native
 
     /**
-     * Offset value to apply to rendered popup. Accepts the following units:
-     * - px or unit-less, interpreted as pixels
-     * - %, percentage relative to the length of the trigger element
-     * - %p, percentage relative to the length of the popup element
-     * - vw, CSS viewport width unit
-     * - vh, CSS viewport height unit
+     * Offset values in px unit to apply to rendered popup. The basic offset accepts an
+     * array with two numbers in the form [skidding, distance]:
+     * - `skidding` displaces the Popup along the reference element
+     * - `distance` displaces the Popup away from, or toward, the reference element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the reference.
+     *
+     * @see https://popper.js.org/docs/v2/modifiers/offset/
      */
-    var offset: js.UndefOr[JsNumber | String] = js.native
+    var offset: js.UndefOr[js.Array[JsNumber]] = js.native
 
     /** Events triggering the popup. */
     var on: js.UndefOr[String | js.Array[String]] = js.native
@@ -222,7 +226,7 @@ object Popup {
     hideOnScroll:    js.UndefOr[Boolean] = js.undefined,
     hoverable:       js.UndefOr[Boolean] = js.undefined,
     inverted:        js.UndefOr[Boolean] = js.undefined,
-    offset:          js.UndefOr[JsNumber | String] = js.undefined,
+    offset:          js.UndefOr[(JsNumber, JsNumber)] = js.undefined,
     on:              js.UndefOr[PopupOn | List[PopupOn]] = js.undefined,
     onCloseE:        js.UndefOr[OnClose] = js.undefined,
     onClose:         js.UndefOr[Callback] = js.undefined,
@@ -249,7 +253,7 @@ object Popup {
     hideOnScroll.foreach(v => p.hideOnScroll = v)
     hoverable.foreach(v => p.hoverable = v)
     inverted.foreach(v => p.inverted = v)
-    offset.foreach(v => p.offset = v)
+    offset.foreach(v => p.offset = js.Array(v._1, v._2))
     on.map[String | js.Array[String]] { x =>
       (x: Any) match {
         case p: PopupOn => p.toJs
