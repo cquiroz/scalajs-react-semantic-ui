@@ -1,5 +1,10 @@
 # Changes
 
+## 0.9.0
+
+* Add Accordion
+* Update to scala.js 1.3.0
+
 ## 0.8.0
 
 * Add LabelGroup
