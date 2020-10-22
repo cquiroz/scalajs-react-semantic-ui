@@ -17,4 +17,4 @@ jobs:
       - name: Checking your code format
         run: csbt scalafmtCheckAll
       - name: Run tests
-        run: csbt facade/test facade/fastOptJS facade/fullOptJS demo/fastOptJS::webpack
+        run: csbt facade/test demo/fastOptJS::webpack
