@@ -1,5 +1,10 @@
 # Changes
 
+## 0.9.1
+
+* Update to react-common 0.10.1
+* Update to scalajs-react 1.7.6
+
 ## 0.9.0
 
 * Add Accordion
