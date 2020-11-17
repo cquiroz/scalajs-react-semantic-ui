@@ -1,8 +1,6 @@
 package react.semanticui.collections.table
 
 import japgolly.scalajs.react.test._
-// import japgolly.scalajs.react.vdom.html_<^._
-// import react.semanticui.verticalalignment
 import utest._
 
 object TableTests extends TestSuite {
