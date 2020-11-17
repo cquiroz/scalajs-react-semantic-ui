@@ -14,7 +14,7 @@ final case class Table(
   as:                     js.UndefOr[AsC] = js.undefined,
   attached:               js.UndefOr[TableAttached] = js.undefined,
   basic:                  js.UndefOr[TableBasic] = js.undefined,
-  celled:                 js.UndefOr[TableCelled] = js.undefined,
+  celled:                 js.UndefOr[Boolean] = js.undefined,
   className:              js.UndefOr[String] = js.undefined,
   clazz:                  js.UndefOr[Css] = js.undefined,
   collapsing:             js.UndefOr[Boolean] = js.undefined,
@@ -65,7 +65,7 @@ object Table {
     var basic: js.UndefOr[Boolean | String] = js.native
 
     /** A table may be divided each row into separate cells. */
-    var celled: js.UndefOr[Boolean | String] = js.native
+    var celled: js.UndefOr[Boolean] = js.native
 
     /** Primary content. */
     var children: js.UndefOr[React.Node] = js.native
@@ -135,7 +135,7 @@ object Table {
     q.as.toJs.foreach(v => p.as = v)
     q.attached.toJs.foreach(v => p.attached = v)
     q.basic.toJs.foreach(v => p.basic = v)
-    q.celled.toJs.foreach(v => p.celled = v)
+    q.celled.foreach(v => p.celled = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
     q.collapsing.foreach(v => p.collapsing = v)
     q.color.toJs.foreach(v => p.color = v)

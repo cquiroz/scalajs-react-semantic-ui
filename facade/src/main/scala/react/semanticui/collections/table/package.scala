@@ -37,14 +37,6 @@ package table {
     case object Very     extends TableBasic
   }
 
-  sealed trait TableCelled
-  object TableCelled {
-    implicit val enum: EnumValueB[TableCelled] = EnumValueB.toLowerCaseStringTF(Celled, NotCelled)
-    case object Celled     extends TableCelled
-    case object NotCelled  extends TableCelled
-    case object Internally extends TableCelled
-  }
-
   sealed trait TableCompact
   object TableCompact {
     implicit val enum: EnumValueB[TableCompact] =

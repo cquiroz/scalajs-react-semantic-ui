@@ -17,7 +17,7 @@ final case class TableGenerator[A](
   as:                     js.UndefOr[AsC] = js.undefined,
   attached:               js.UndefOr[TableAttached] = js.undefined,
   basic:                  js.UndefOr[TableBasic] = js.undefined,
-  celled:                 js.UndefOr[TableCelled] = js.undefined,
+  celled:                 js.UndefOr[Boolean] = js.undefined,
   className:              js.UndefOr[String] = js.undefined,
   clazz:                  js.UndefOr[Css] = js.undefined,
   collapsing:             js.UndefOr[Boolean] = js.undefined,
@@ -27,7 +27,6 @@ final case class TableGenerator[A](
   definition:             js.UndefOr[Boolean] = js.undefined,
   fixed:                  js.UndefOr[Boolean] = js.undefined,
   footerRow:              js.UndefOr[TableRow] = js.undefined,
-  // headerRow:              js.UndefOr[TableRow] = js.undefined,
   headerRows:             js.UndefOr[Seq[TableRow]] = js.undefined,
   inverted:               js.UndefOr[Boolean] = js.undefined,
   padded:                 js.UndefOr[TablePadded] = js.undefined,
@@ -74,7 +73,7 @@ object TableGenerator {
     var basic: js.UndefOr[Boolean | String] = js.native
 
     /** A table may be divided each row into separate cells. */
-    var celled: js.UndefOr[Boolean | String] = js.native
+    var celled: js.UndefOr[Boolean] = js.native
 
     /** Additional classes. */
     var className: js.UndefOr[String] = js.native
@@ -159,7 +158,7 @@ object TableGenerator {
     q.as.toJs.foreach(v => p.as = v)
     q.attached.toJs.foreach(v => p.attached = v)
     q.basic.toJs.foreach(v => p.basic = v)
-    q.celled.toJs.foreach(v => p.celled = v)
+    q.celled.foreach(v => p.celled = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
     q.collapsing.foreach(v => p.collapsing = v)
     q.color.toJs.foreach(v => p.color = v)

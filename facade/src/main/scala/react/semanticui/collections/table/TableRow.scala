@@ -13,7 +13,6 @@ final case class TableRow(
   as:                     js.UndefOr[AsC] = js.undefined,
   active:                 js.UndefOr[Boolean] = js.undefined,
   cellAs:                 js.UndefOr[AsC] = js.undefined,
-  // cells:                  js.UndefOr[Seq[TableCell]] = js.undefined,
   className:              js.UndefOr[String] = js.undefined,
   clazz:                  js.UndefOr[Css] = js.undefined,
   disabled:               js.UndefOr[Boolean] = js.undefined,
