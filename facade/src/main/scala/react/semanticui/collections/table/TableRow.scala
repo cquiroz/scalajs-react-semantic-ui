@@ -2,6 +2,8 @@ package react.semanticui.collections.table
 
 import scala.scalajs.js
 import js.annotation._
+import js.|
+import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom.html_<^._
@@ -13,6 +15,7 @@ final case class TableRow(
   as:                     js.UndefOr[AsC] = js.undefined,
   active:                 js.UndefOr[Boolean] = js.undefined,
   cellAs:                 js.UndefOr[AsC] = js.undefined,
+  cells:                  js.UndefOr[Seq[TableCell | TableHeaderCell]] = js.undefined,
   className:              js.UndefOr[String] = js.undefined,
   clazz:                  js.UndefOr[Css] = js.undefined,
   disabled:               js.UndefOr[Boolean] = js.undefined,
@@ -51,6 +54,11 @@ object TableRow {
     /** An element type to render as (string or function). */
     var cellAs: js.UndefOr[AsT] = js.native
 
+    /** Shorthand array of props for TableCell. */
+    var cells
+      : js.UndefOr[js.Array[TableCell.TableCellProps | TableHeaderCell.TableHeaderCellProps]] =
+      js.native
+
     /** Primary content. */
     var children: js.UndefOr[React.Node] = js.native
 
@@ -84,6 +92,14 @@ object TableRow {
     q.as.toJs.foreach(v => p.as = v)
     q.active.foreach(v => p.active = v)
     q.cellAs.toJs.foreach(v => p.cellAs = v)
+    q.cells
+      .map(_.map[TableCell.TableCellProps | TableHeaderCell.TableHeaderCellProps] { x =>
+        (x: Any) match {
+          case tc: TableCell        => tc.props
+          case thc: TableHeaderCell => thc.props
+        }
+      }.toJSArray)
+      .foreach(v => p.cells = v)
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
     q.disabled.foreach(v => p.disabled = v)
     q.error.foreach(v => p.error = v)

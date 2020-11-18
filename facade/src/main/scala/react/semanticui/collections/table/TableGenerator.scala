@@ -27,6 +27,7 @@ final case class TableGenerator[A](
   definition:             js.UndefOr[Boolean] = js.undefined,
   fixed:                  js.UndefOr[Boolean] = js.undefined,
   footerRow:              js.UndefOr[TableRow] = js.undefined,
+  headerRow:              js.UndefOr[TableRow] = js.undefined,
   headerRows:             js.UndefOr[Seq[TableRow]] = js.undefined,
   inverted:               js.UndefOr[Boolean] = js.undefined,
   padded:                 js.UndefOr[TablePadded] = js.undefined,
@@ -101,6 +102,9 @@ object TableGenerator {
     /** Shorthand for a TableRow to be placed within Table.Footer. */
     var footerRow: js.UndefOr[TableRow.TableRowProps] = js.native
 
+    /** Shorthand for a TableRow to be placed within Table.Header. */
+    var headerRow: js.UndefOr[TableRow.TableRowProps] = js.native
+
     /** Shorthand for multiple TableRows to be placed within Table.Header. */
     var headerRows: js.UndefOr[js.Array[TableRow.TableRowProps]] = js.native
 
@@ -167,6 +171,7 @@ object TableGenerator {
     q.definition.foreach(v => p.definition = v)
     q.fixed.foreach(v => p.fixed = v)
     q.footerRow.foreach(v => p.footerRow = v.props)
+    q.headerRow.foreach(v => p.headerRow = v.props)
     q.headerRows.map(_.map(_.props).toJSArray).foreach(v => p.headerRows = v)
     q.inverted.foreach(v => p.inverted = v)
     q.padded.toJs.foreach(v => p.padded = v)

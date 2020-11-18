@@ -32,6 +32,39 @@ object TableRowTests extends TestSuite {
         )
       }
     }
+    test("Two header cells") {
+      val cell1 = TableHeaderCell(content = "High")
+      val cell2 = TableHeaderCell("Low")
+      val row   = TableRow(cell1, cell2)
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        row.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<tr class=""><th class="">High</th><th class="">Low</th></tr>"""
+        )
+      }
+    }
+    test("cells property TableCell") {
+      val cell1 = TableCell(content = "High")
+      val cell2 = TableCell(content = "Low")
+      val row   = TableRow(cells = Seq(cell1, cell2))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        row.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<tr class=""><td class="">High</td><td class="">Low</td></tr>"""
+        )
+      }
+    }
+    test("cells property TableHeaderCell") {
+      val cell1 = TableHeaderCell(content = "High")
+      val cell2 = TableHeaderCell(content = "Low")
+      val row   = TableRow(cells = Seq(cell1, cell2))
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        row.renderIntoDOM(mountNode)
+        assert(
+          mountNode.innerHTML == """<tr class=""><th class="">High</th><th class="">Low</th></tr>"""
+        )
+      }
+    }
     test("object apply") {
       val cell1 = TableCell(content = "High")
       val cell2 = TableCell(content = "Low")
