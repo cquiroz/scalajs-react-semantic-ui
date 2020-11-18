@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: olafurpg/setup-scala@v2
+      - name: Set up Scala
+        uses: olafurpg/setup-scala@v10
         with:
-          java-version: 1.8
+          java-version: adopt@1.11
       - name: version
         run: node --version
       - name: Checking your code format
