@@ -119,7 +119,7 @@ object TableGenerator {
      *
      * @param {*} data - An element in the `tableData` array.
      * @param {number} index - The index of the current element in `tableData`.
-     * @returns {*} Shorthand for a Table.Row.
+     * @return {*} Shorthand for a Table.Row.
      */
     var renderBodyRow: RawRenderBodyRow = js.native
 
