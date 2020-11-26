@@ -1,5 +1,11 @@
 # Changes
 
+## 0.10.1
+
+* Update to react-common 0.11.1
+* Update to scalajs-react 1.7.7
+* Update to cats 2.3.0
+
 ## 0.9.1
 
 * Update to react-common 0.10.1
