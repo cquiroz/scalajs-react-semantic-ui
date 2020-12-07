@@ -6,7 +6,7 @@ import japgolly.scalajs.react.extra.router._
 import scala.scalajs.js
 import js.annotation._
 
-@JSImport("resources/images/logo.png", JSImport.Default)
+@JSImport("@images/logo.png", JSImport.Default)
 @js.native
 object Logo extends js.Object
 

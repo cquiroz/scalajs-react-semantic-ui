@@ -11,7 +11,7 @@ object WebpackResources {
     def resource: String = r.toString
   }
 
-  @JSImport("images/avatar/small/ade.jpg", JSImport.Default)
   @js.native
-  object AdaAvatar extends WebpackResource
+  @JSImport("@images/avatar/small/ade.jpg", JSImport.Namespace)
+  val AdaAvatar: String = js.native
 }

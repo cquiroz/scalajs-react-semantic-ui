@@ -64,7 +64,7 @@ object LabelsComponent {
               <.div(
                 ^.cls := "column docs-icon-set-column",
                 Label(as = "a", image = true)(<.img(
-                                                ^.src := WebpackResources.AdaAvatar.resource
+                                                ^.src := WebpackResources.AdaAvatar
                                               ),
                                               "Ade"
                 )
@@ -73,7 +73,7 @@ object LabelsComponent {
                 ^.cls := "column docs-icon-set-column",
                 Label(as = "a", image = true, color = Blue)(
                   <.img(
-                    ^.src := WebpackResources.AdaAvatar.resource
+                    ^.src := WebpackResources.AdaAvatar
                   ),
                   "Ade",
                   LabelDetail("Friend")
@@ -82,7 +82,7 @@ object LabelsComponent {
               <.div(
                 ^.cls := "column docs-icon-set-column",
                 Label(as = "a", image = true)(<.img(
-                                                ^.src := WebpackResources.AdaAvatar.resource
+                                                ^.src := WebpackResources.AdaAvatar
                                               ),
                                               "Ade",
                                               IconDelete
