@@ -272,8 +272,8 @@ package object semanticui {
   type AsT   = String | AsFn | AsObj
   type AsC   = String | As
 
-  implicit def tagOf2AsC[N <: TopNode](tagOf: TagOf[N]): js.UndefOr[AsC] =
-    As.AsTag(tagOf)
+  implicit def tagOf2AsC[T, N <: TopNode](tagOf: T)(implicit ev: T => TagOf[N]): js.UndefOr[AsC] =
+    As.AsTag(ev(tagOf))
 
   implicit class AsCUndef[T](val c: js.UndefOr[AsC]) extends AnyVal {
     def toJs: js.UndefOr[AsT] =

@@ -24,6 +24,8 @@ local.*
 node_modules/
 package-lock.json
 yarn.lock
+.bsp/
+.vscode/
 
 # Hydra
 .hydra/

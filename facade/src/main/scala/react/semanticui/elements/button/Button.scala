@@ -41,7 +41,7 @@ final case class Button(
   onClick:                js.UndefOr[Callback] = js.undefined,
   positive:               js.UndefOr[Boolean] = js.undefined,
   primary:                js.UndefOr[Boolean] = js.undefined,
-  role:                   js.UndefOr[Boolean] = js.undefined,
+  role:                   js.UndefOr[String] = js.undefined,
   secondary:              js.UndefOr[Boolean] = js.undefined,
   size:                   js.UndefOr[SemanticSize] = js.undefined,
   tabIndex:               js.UndefOr[TabIndex] = js.undefined,
@@ -91,7 +91,7 @@ object Button {
     var onClick: js.UndefOr[js.Function2[ReactMouseEvent, ButtonProps, Unit]] = js.native
     var positive: js.UndefOr[Boolean]                                         = js.native
     var primary: js.UndefOr[Boolean]                                          = js.native
-    var role: js.UndefOr[Boolean]                                             = js.native
+    var role: js.UndefOr[String]                                              = js.native
     var secondary: js.UndefOr[Boolean]                                        = js.native
     var size: js.UndefOr[suiraw.SemanticSIZES]                                = js.native
     var tabIndex: js.UndefOr[Double | String]                                 = js.native
@@ -156,7 +156,7 @@ object Button {
     onClick:       js.UndefOr[Callback] = js.undefined,
     positive:      js.UndefOr[Boolean] = js.undefined,
     primary:       js.UndefOr[Boolean] = js.undefined,
-    role:          js.UndefOr[Boolean] = js.undefined,
+    role:          js.UndefOr[String] = js.undefined,
     secondary:     js.UndefOr[Boolean] = js.undefined,
     size:          js.UndefOr[SemanticSize] = js.undefined,
     tabIndex:      js.UndefOr[TabIndex] = js.undefined,

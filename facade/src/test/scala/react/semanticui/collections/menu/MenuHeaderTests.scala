@@ -20,5 +20,12 @@ object MenuHeaderTests extends TestSuite {
         assert(mountNode.innerHTML == """<a class="header"></a>""")
       }
     }
+    test("renderAsHTMLTag") {
+      val menuHeader = MenuHeader(as = <.div)
+      ReactTestUtils.withNewBodyElement { mountNode =>
+        menuHeader.renderIntoDOM(mountNode)
+        assert(mountNode.innerHTML == """<div class="header"></div>""")
+      }
+    }
   }
 }
