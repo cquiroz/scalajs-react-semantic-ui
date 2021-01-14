@@ -46,8 +46,6 @@ final case class Segment(
 }
 
 object Segment {
-  type OnHide = ReactEvent => Callback
-
   @js.native
   @JSImport("semantic-ui-react", "Segment")
   object RawComponent extends js.Function1[js.Any, js.Any] {

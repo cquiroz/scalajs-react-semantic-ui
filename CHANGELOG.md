@@ -1,5 +1,9 @@
 # Changes
 
+## 0.10.4
+
+* Add `SegmentGroup` and `SegmentInline`.
+
 ## 0.10.3
 
 * Update to scala.js 1.4.0
