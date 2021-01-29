@@ -36,6 +36,7 @@ final case class Popup(
   pinned:                 js.UndefOr[Boolean] = js.undefined,
   position:               js.UndefOr[PopupPosition] = js.undefined,
   positionFixed:          js.UndefOr[Boolean] = js.undefined,
+  popper:                 js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   popperModifiers:        js.UndefOr[js.Object] = js.undefined,
   size:                   js.UndefOr[SemanticSize] = js.undefined,
   style:                  js.UndefOr[Style] = js.undefined,
@@ -164,6 +165,9 @@ object Popup {
     /** Tells `Popper.js` to use the `position: fixed` strategy to position the popover. */
     var positionFixed: js.UndefOr[Boolean] = js.native
 
+    /** A wrapping element for an actual content that will be used for positioning. */
+    var popper: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
+
     /** An object containing custom settings for the Popper.js modifiers. */
     var popperModifiers: js.UndefOr[js.Object] = js.native
 
@@ -206,6 +210,7 @@ object Popup {
       q.pinned,
       q.position,
       q.positionFixed,
+      q.popper,
       q.popperModifiers,
       q.size,
       q.style,
@@ -235,6 +240,7 @@ object Popup {
     pinned:          js.UndefOr[Boolean] = js.undefined,
     position:        js.UndefOr[PopupPosition] = js.undefined,
     positionFixed:   js.UndefOr[Boolean] = js.undefined,
+    popper:          js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
     popperModifiers: js.UndefOr[js.Object] = js.undefined,
     size:            js.UndefOr[SemanticSize] = js.undefined,
     style:           js.UndefOr[Style] = js.undefined,
@@ -265,6 +271,7 @@ object Popup {
     pinned.foreach(v => p.pinned = v)
     position.toJs.foreach(v => p.position = v)
     positionFixed.foreach(v => p.positionFixed = v)
+    popper.toJs.foreach(v => p.popper = v)
     popperModifiers.foreach(v => p.popperModifiers = v)
     size.toJs.foreach(v => p.size = v)
     style.map(_.toJsObject).foreach(v => p.style = v)
