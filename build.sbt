@@ -123,7 +123,6 @@ lazy val facade =
       webpack / version := "4.44.1",
       startWebpackDevServer / version := "3.11.0",
       installJsdom / version := "16.4.0",
-      webpackCliVersion / version := "3.3.11",
       // Requires the DOM for tests
       requireJsDomEnv in Test := true,
       // Compile tests to JS using fast-optimisation

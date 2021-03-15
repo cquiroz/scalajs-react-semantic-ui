@@ -19,7 +19,7 @@ final case class AccordionPanel(
 ) extends GenericComponentP[AccordionPanel.AccordionPanelProps] {
   override protected def cprops                                                = AccordionPanel.props(this)
   override def render: react.common.Render[AccordionPanel.AccordionPanelProps] =
-    AccordionPanel.component.applyGeneric(rawProps)()
+    AccordionPanel.component.applyGeneric(cprops)()
 }
 
 object AccordionPanel {
