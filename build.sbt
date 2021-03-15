@@ -1,3 +1,5 @@
+import org.scalajs.linker.interface.ModuleSplitStyle
+
 val reactJS      = "16.13.1"
 val scalaJsReact = "1.7.7"
 val FUILess      = "2.8.7"
@@ -57,54 +59,57 @@ val root =
 lazy val demo =
   project
     .in(file("demo"))
-    .enablePlugins(ScalaJSBundlerPlugin)
+    .enablePlugins(ScalaJSPlugin)
     .settings(commonSettings: _*)
     .settings(
-      webpack / version := "4.44.1",
-      startWebpackDevServer / version := "3.11.0",
-      webpackConfigFile in fastOptJS := Some(
-        baseDirectory.value / "webpack" / "dev.webpack.config.js"
-      ),
-      webpackConfigFile in fullOptJS := Some(
-        baseDirectory.value / "webpack" / "prod.webpack.config.js"
-      ),
-      webpackMonitoredDirectories += (resourceDirectory in Compile).value,
-      webpackResources := (baseDirectory.value / "webpack") * "*.js",
-      includeFilter in webpackMonitoredFiles := "*",
-      useYarn := true,
-      webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly(),
-      webpackBundlingMode in fullOptJS := BundlingMode.Application,
+      // webpack / version := "4.44.1",
+      // startWebpackDevServer / version := "3.11.0",
+      // webpackConfigFile in fastOptJS := Some(
+      //   baseDirectory.value / "webpack" / "dev.webpack.config.js"
+      // ),
+      // webpackConfigFile in fullOptJS := Some(
+      //   baseDirectory.value / "webpack" / "prod.webpack.config.js"
+      // ),
+      // webpackMonitoredDirectories += (resourceDirectory in Compile).value,
+      // webpackResources := (baseDirectory.value / "webpack") * "*.js",
+      // includeFilter in webpackMonitoredFiles := "*",
+      // useYarn := true,
+      // webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly(),
+      // webpackBundlingMode in fullOptJS := BundlingMode.Application,
       test := {},
       scalaJSLinkerConfig in (Compile, fastOptJS) ~= { _.withSourceMap(false) },
       scalaJSLinkerConfig in (Compile, fullOptJS) ~= { _.withSourceMap(false) },
-      // NPM libs for development, mostly to let webpack do its magic
-      npmDevDependencies in Compile ++= Seq(
-        "postcss-loader"                     -> "3.0.0",
-        "autoprefixer"                       -> "9.7.6",
-        "url-loader"                         -> "4.1.0",
-        "file-loader"                        -> "6.0.0",
-        "css-loader"                         -> "3.5.3",
-        "style-loader"                       -> "1.2.1",
-        "less"                               -> "3.11.1",
-        "less-loader"                        -> "6.1.0",
-        "webpack-merge"                      -> "4.2.2",
-        "mini-css-extract-plugin"            -> "0.9.0",
-        "webpack-dev-server-status-bar"      -> "1.1.2",
-        "cssnano"                            -> "4.1.10",
-        "uglifyjs-webpack-plugin"            -> "2.2.0",
-        "html-webpack-plugin"                -> "4.3.0",
-        "optimize-css-assets-webpack-plugin" -> "5.0.3",
-        "favicons-webpack-plugin"            -> "3.0.1",
-        "why-did-you-update"                 -> "1.0.8"
-      ),
-      npmDependencies in Compile ++= Seq(
-        "react"                 -> reactJS,
-        "react-dom"             -> reactJS,
-        "fomantic-ui-less"      -> FUILess,
-        "create-react-context"  -> "0.3.0",
-        "prop-types"            -> "15.7.2",
-        "react-semantic-toasts" -> Toasts
-      ),
+      scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.ESModule) },
+      scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.SmallestModules)),
+      publish / skip := true,
+      // // NPM libs for development, mostly to let webpack do its magic
+      // npmDevDependencies in Compile ++= Seq(
+      //   "postcss-loader"                     -> "3.0.0",
+      //   "autoprefixer"                       -> "9.7.6",
+      //   "url-loader"                         -> "4.1.0",
+      //   "file-loader"                        -> "6.0.0",
+      //   "css-loader"                         -> "3.5.3",
+      //   "style-loader"                       -> "1.2.1",
+      //   "less"                               -> "3.11.1",
+      //   "less-loader"                        -> "6.1.0",
+      //   "webpack-merge"                      -> "4.2.2",
+      //   "mini-css-extract-plugin"            -> "0.9.0",
+      //   "webpack-dev-server-status-bar"      -> "1.1.2",
+      //   "cssnano"                            -> "4.1.10",
+      //   "uglifyjs-webpack-plugin"            -> "2.2.0",
+      //   "html-webpack-plugin"                -> "4.3.0",
+      //   "optimize-css-assets-webpack-plugin" -> "5.0.3",
+      //   "favicons-webpack-plugin"            -> "3.0.1",
+      //   "why-did-you-update"                 -> "1.0.8"
+      // ),
+      // npmDependencies in Compile ++= Seq(
+      //   "react"                 -> reactJS,
+      //   "react-dom"             -> reactJS,
+      //   "fomantic-ui-less"      -> FUILess,
+      //   "create-react-context"  -> "0.3.0",
+      //   "prop-types"            -> "15.7.2",
+      //   "react-semantic-toasts" -> Toasts
+      // ),
       // don't publish the demo
       publish := {},
       publishLocal := {},
