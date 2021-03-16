@@ -4,6 +4,7 @@ import scala.scalajs.js
 import js.annotation.JSImport
 import js.|
 import js.JSConverters._
+import japgolly.scalajs.react.component.Generic
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
 import react.common.filterProps
@@ -162,6 +163,14 @@ package object semanticui {
   type ShorthandB[C]  = Boolean | C
   type ShorthandSB[C] = String | Boolean | C
 
+  protected def shorthandObject[P <: js.Object](c: Generic.UnmountedSimple[P, _]): c.Props = {
+    // We need a copy, since original c.props is unmodifiable.
+    val p = js.Object.assign(js.Object(), c.props).asInstanceOf[js.Dynamic]
+    c.key.foreach(key => p.updateDynamic("key")(key.asInstanceOf[js.Any]))
+    c.ref.foreach(ref => p.updateDynamic("ref")(ref.asInstanceOf[js.Any]))
+    p.asInstanceOf[c.Props]
+  }
+
   implicit class CompFnToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(implicit
     render:                                           C => RenderFn[P]
   ) {
@@ -169,7 +178,7 @@ package object semanticui {
       c.map { d =>
         (d: Any) match {
           case s: String => s
-          case c         => c.asInstanceOf[C].props
+          case c         => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
@@ -181,7 +190,7 @@ package object semanticui {
       c.map { d =>
         (d: Any) match {
           case b: Boolean => b
-          case c          => c.asInstanceOf[C].props
+          case c          => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
@@ -194,7 +203,7 @@ package object semanticui {
         (d: Any) match {
           case s: String  => s
           case b: Boolean => b
-          case c          => c.asInstanceOf[C].props
+          case c          => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
@@ -204,7 +213,7 @@ package object semanticui {
   ): raw.SemanticShorthandItemS[P] =
     (c: Any) match {
       case s: String => s
-      case _         => c.asInstanceOf[C].props
+      case _         => shorthandObject(c.asInstanceOf[C])
     }
 
   implicit class CompToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(implicit
@@ -221,7 +230,7 @@ package object semanticui {
       c.map { d =>
         (d: Any) match {
           case b: Boolean => b
-          case c          => c.asInstanceOf[C].props
+          case c          => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
@@ -234,7 +243,7 @@ package object semanticui {
         (d: Any) match {
           case s: String  => s
           case b: Boolean => b
-          case c          => c.asInstanceOf[C].props
+          case c          => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
