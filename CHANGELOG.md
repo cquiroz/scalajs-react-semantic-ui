@@ -1,8 +1,13 @@
 # Changes
 
+## 0.10.6
+
+* Pass `key` and `ref` to objects when using shorthand notation.
+* Several library updates.
 ## 0.10.5
 
 * Update to Semantic-UI-React 2.0.3
+
 ## 0.10.4
 
 * Add `SegmentGroup` and `SegmentInline`.
