@@ -97,6 +97,7 @@ object TableRow {
         (x: Any) match {
           case tc: TableCell        => tc.props
           case thc: TableHeaderCell => thc.props
+          case _                    => sys.error("Shouldn't happen")
         }
       }.toJSArray)
       .foreach(v => p.cells = v)

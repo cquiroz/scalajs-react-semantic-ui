@@ -261,6 +261,7 @@ package object semanticui {
         (d: Any) match {
           case s: String   => s
           case v: VdomNode => v.rawNode
+          case _           => sys.error("Not allowed")
         }
       }
   }
@@ -272,6 +273,7 @@ package object semanticui {
           case s: String   => s
           case b: Boolean  => b
           case v: VdomNode => v.rawNode
+          case _           => sys.error("Not allowed")
         }
       }
   }
@@ -291,6 +293,7 @@ package object semanticui {
           case o: As     =>
             As.asFn(o)
           case f: String => f
+          case _         => sys.error("Not allowed")
         }
       }
 
@@ -300,6 +303,7 @@ package object semanticui {
           case o: As     =>
             o.props.asInstanceOf[A]
           case _: String => (new js.Object).asInstanceOf[A]
+          case _         => sys.error("Not allowed")
         }
       }.getOrElse((new js.Object).asInstanceOf[A])
   }
