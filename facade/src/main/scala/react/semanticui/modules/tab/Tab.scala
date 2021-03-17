@@ -68,6 +68,7 @@ object Tab {
           (d: Any) match {
             case s: String   => s
             case m: MenuItem => m.props
+            case _           => sys.error("Shouldn't happen")
           }
         )
         .foreach(v => p.menuItem = v)

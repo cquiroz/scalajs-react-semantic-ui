@@ -592,6 +592,7 @@ object Dropdown {
           case b: Double   => b
           case b: VdomNode =>
             b.rawNode.asInstanceOf[RawAdditionLabel]
+          case _           => sys.error("Shouldn't happen")
         }
       }
       .foreach(v => p.additionLabel = v)

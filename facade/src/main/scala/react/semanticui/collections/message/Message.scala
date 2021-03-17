@@ -205,6 +205,7 @@ object Message {
             s.map(item => compToPropS(item.asInstanceOf[ShorthandS[MessageItem]])).toJSArray
           // .asInstanceOf[raw.SemanticShorthandOrArray[T]]
           case l: MessageList => l.props
+          case _              => sys.error("Shouldn't happen")
         }
       )
       .foreach(v => p.list = v)
