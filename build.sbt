@@ -12,11 +12,6 @@ cancelable in Global := true
 
 resolvers in Global += Resolver.sonatypeRepo("public")
 
-addCommandAlias(
-  "restartWDS",
-  "; demo/fastOptJS::stopWebpackDevServer; demo/fastOptJS::startWebpackDevServer; ~demo/fastOptJS"
-)
-
 ThisBuild / turbo := true
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
@@ -62,25 +57,12 @@ lazy val demo =
     .enablePlugins(ScalaJSPlugin)
     .settings(commonSettings: _*)
     .settings(
-      // webpack / version := "4.44.1",
-      // startWebpackDevServer / version := "3.11.0",
-      // webpackConfigFile in fastOptJS := Some(
-      //   baseDirectory.value / "webpack" / "dev.webpack.config.js"
-      // ),
-      // webpackConfigFile in fullOptJS := Some(
-      //   baseDirectory.value / "webpack" / "prod.webpack.config.js"
-      // ),
-      // webpackMonitoredDirectories += (resourceDirectory in Compile).value,
-      // webpackResources := (baseDirectory.value / "webpack") * "*.js",
-      // includeFilter in webpackMonitoredFiles := "*",
-      // useYarn := true,
-      // webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly(),
-      // webpackBundlingMode in fullOptJS := BundlingMode.Application,
       test := {},
-      scalaJSLinkerConfig in (Compile, fastOptJS) ~= { _.withSourceMap(false) },
-      scalaJSLinkerConfig in (Compile, fullOptJS) ~= { _.withSourceMap(false) },
+      scalaJSLinkerConfig in (Compile, fastLinkJS) ~= { _.withSourceMap(false) },
+      scalaJSLinkerConfig in (Compile, fullLinkJS) ~= { _.withSourceMap(false) },
       scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.ESModule) },
-      scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.SmallestModules)),
+      Compile / fastLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.SmallestModules)),
+      Compile / fullLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.FewestModules)),
       publish / skip := true,
       // // NPM libs for development, mostly to let webpack do its magic
       // npmDevDependencies in Compile ++= Seq(

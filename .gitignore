@@ -31,3 +31,4 @@ yarn.lock
 .hydra/
 demo/public/
 demo/build/
+demo/dist/
