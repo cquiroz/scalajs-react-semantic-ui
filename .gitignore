@@ -29,3 +29,6 @@ yarn.lock
 
 # Hydra
 .hydra/
+demo/public/
+demo/build/
+demo/dist/
