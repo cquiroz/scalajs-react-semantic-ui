@@ -1,3 +1,4 @@
+import "./css/font.css";
 import "./theme/semantic.less";
 import "./less/style.less";
 import "react-semantic-toasts/styles/react-semantic-alert.css";
