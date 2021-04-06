@@ -6,8 +6,6 @@ val FUILess      = "2.8.7"
 val reactSUI     = "2.0.3"
 val Toasts       = "0.6.5"
 
-parallelExecution in (ThisBuild, Test) := false
-
 cancelable in Global := true
 
 resolvers in Global += Resolver.sonatypeRepo("public")
@@ -58,8 +56,8 @@ lazy val demo =
     .settings(commonSettings: _*)
     .settings(
       test := {},
-      scalaJSLinkerConfig in (Compile, fastLinkJS) ~= { _.withSourceMap(false) },
-      scalaJSLinkerConfig in (Compile, fullLinkJS) ~= { _.withSourceMap(false) },
+      Compile / fastLinkJS / scalaJSLinkerConfig ~= { _.withSourceMap(false) },
+      Compile / fullLinkJS / scalaJSLinkerConfig ~= { _.withSourceMap(false) },
       scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.ESModule) },
       Compile / fastLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.SmallestModules)),
       Compile / fullLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.FewestModules)),
@@ -111,10 +109,10 @@ lazy val facade =
       startWebpackDevServer / version := "3.11.0",
       installJsdom / version := "16.4.0",
       // Requires the DOM for tests
-      requireJsDomEnv in Test := true,
+      Test / requireJsDomEnv := true,
       // Compile tests to JS using fast-optimisation
-      scalaJSStage in Test := FastOptStage,
-      npmDependencies in Compile ++= Seq(
+      Test / scalaJSStage := FastOptStage,
+      Compile / npmDependencies ++= Seq(
         "react"                 -> reactJS,
         "react-dom"             -> reactJS,
         "semantic-ui-react"     -> reactSUI,
@@ -130,7 +128,7 @@ lazy val facade =
         "com.lihaoyi"                       %%% "utest"     % "0.7.8"      % Test,
         "org.typelevel"                     %%% "cats-core" % "2.5.0"      % Test
       ),
-      webpackConfigFile in Test := Some(baseDirectory.value / "test.webpack.config.js"),
+      Test / webpackConfigFile := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks += new TestFramework("utest.runner.Framework"),
       testFrameworks += new TestFramework("munit.Framework")
     )
@@ -140,7 +138,7 @@ lazy val commonSettings = Seq(
   organization := "io.github.cquiroz.react",
   sonatypeProfileName := "io.github.cquiroz",
   description := "scala.js facade for react-semanticui",
-  publishArtifact in Test := false,
+  Test / publishArtifact := false,
   scalacOptions ~= (_.filterNot(
     Set(
       // By necessity facades will have unused params
