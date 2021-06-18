@@ -7,9 +7,7 @@ import js.JSConverters._
 import japgolly.scalajs.react.component.Generic
 import japgolly.scalajs.react.raw.React
 import japgolly.scalajs.react.vdom._
-import react.common.filterProps
-import react.common.Render
-import react.common.RenderFn
+import react.common._
 
 package semanticui {
 
@@ -159,9 +157,9 @@ package object semanticui {
   type SemanticTransition        = transitions.SemanticTransition
 
   type TabIndex       = Double | String
-  type ShorthandS[C]  = String | C
-  type ShorthandB[C]  = Boolean | C
-  type ShorthandSB[C] = String | Boolean | C
+  type ShorthandS[C]  = String | VdomNode | C
+  type ShorthandB[C]  = Boolean | VdomNode | C
+  type ShorthandSB[C] = String | Boolean | VdomNode | C
 
   protected def shorthandObject[P <: js.Object](c: Generic.UnmountedSimple[P, _]): c.Props = {
     // We need a copy, since original c.props is unmodifiable.
@@ -177,8 +175,9 @@ package object semanticui {
     def toJs: js.UndefOr[raw.SemanticShorthandItemS[P]] =
       c.map { d =>
         (d: Any) match {
-          case s: String => s
-          case c         => shorthandObject(c.asInstanceOf[C])
+          case s: String   => s
+          case s: VdomNode => s.rawNode
+          case c           => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
@@ -189,8 +188,9 @@ package object semanticui {
     def toJs: js.UndefOr[raw.SemanticShorthandItemB[P]] =
       c.map { d =>
         (d: Any) match {
-          case b: Boolean => b
-          case c          => shorthandObject(c.asInstanceOf[C])
+          case b: Boolean  => b
+          case s: VdomNode => s.rawNode
+          case c           => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
@@ -201,9 +201,10 @@ package object semanticui {
     def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
       c.map { d =>
         (d: Any) match {
-          case s: String  => s
-          case b: Boolean => b
-          case c          => shorthandObject(c.asInstanceOf[C])
+          case s: String   => s
+          case b: Boolean  => b
+          case s: VdomNode => s.rawNode
+          case c           => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
@@ -212,9 +213,132 @@ package object semanticui {
     render:                             C => Render[P]
   ): raw.SemanticShorthandItemS[P] =
     (c: Any) match {
-      case s: String => s
-      case _         => shorthandObject(c.asInstanceOf[C])
+      case s: String   => s
+      case s: VdomNode => s.rawNode
+      case _           => shorthandObject(c.asInstanceOf[C])
     }
+
+  object shorthand {
+    implicit def shorthandBSFnProps2VdomNodeP[P <: js.Object, C](
+      p: GenericFnComponentP[P]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBSFnProps2VdomNodePC[P <: js.Object, C](
+      p: GenericFnComponentPC[P, _]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBSProps2VdomNodePA[P <: js.Object, C](
+      p: GenericFnComponentPA[P, _]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBSFnProps2VdomNodePAC[P <: js.Object, C](
+      p: GenericFnComponentPAC[P, _]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBSProps2VdomNodeP[P <: js.Object, C](
+      p: GenericComponentP[P]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBSProps2VdomNodePC[P <: js.Object, C](
+      p: GenericComponentPC[P, _]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBSProps2VdomNodePA[P <: js.Object, C](
+      p: GenericComponentPA[P, _]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBSProps2VdomNodePAC[P <: js.Object, C](
+      p: GenericComponentPAC[P, _]
+    ): js.UndefOr[ShorthandSB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBFnProps2VdomNodeP[P <: js.Object, C](
+      p: GenericFnComponentP[P]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBFnProps2VdomNodePC[P <: js.Object, C](
+      p: GenericFnComponentPC[P, _]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBProps2VdomNodePA[P <: js.Object, C](
+      p: GenericFnComponentPA[P, _]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBFnProps2VdomNodePAC[P <: js.Object, C](
+      p: GenericFnComponentPAC[P, _]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBProps2VdomNodeP[P <: js.Object, C](
+      p: GenericComponentP[P]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBProps2VdomNodePC[P <: js.Object, C](
+      p: GenericComponentPC[P, _]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBProps2VdomNodePA[P <: js.Object, C](
+      p: GenericComponentPA[P, _]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandBProps2VdomNodePAC[P <: js.Object, C](
+      p: GenericComponentPAC[P, _]
+    ): js.UndefOr[ShorthandB[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandFnProps2VdomNodeP[P <: js.Object, C](
+      p: GenericFnComponentP[P]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandFnProps2VdomNodePC[P <: js.Object, C](
+      p: GenericFnComponentPC[P, _]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandProps2VdomNodePA[P <: js.Object, C](
+      p: GenericFnComponentPA[P, _]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandFnProps2VdomNodePAC[P <: js.Object, C](
+      p: GenericFnComponentPAC[P, _]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandProps2VdomNodeP[P <: js.Object, C](
+      p: GenericComponentP[P]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandProps2VdomNodePC[P <: js.Object, C](
+      p: GenericComponentPC[P, _]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandProps2VdomNodePA[P <: js.Object, C](
+      p: GenericComponentPA[P, _]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+
+    implicit def shorthandProps2VdomNodePAC[P <: js.Object, C](
+      p: GenericComponentPAC[P, _]
+    ): js.UndefOr[ShorthandS[C]] =
+      p.render: VdomNode
+  }
 
   implicit class CompToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(implicit
     render:                                         C => Render[P]
@@ -319,9 +443,9 @@ package object semanticui {
     type SemanticVERTICALALIGNMENTS  = String
     type SemanticShorthandContent    = React.Node
     type SemanticShorthandContentB   = Boolean | React.Node
-    type SemanticShorthandItemS[T]   = String | T
-    type SemanticShorthandItemB[T]   = Boolean | T
-    type SemanticShorthandItemSB[T]  = String | Boolean | T
+    type SemanticShorthandItemS[T]   = String | React.Node | T
+    type SemanticShorthandItemB[T]   = Boolean | React.Node | T
+    type SemanticShorthandItemSB[T]  = String | Boolean | React.Node | T
     type SemanticShorthandArray[T]   = js.Array[SemanticShorthandItemS[T]]
     type SemanticShorthandOrArray[T] = js.Array[React.Node] | T
 
