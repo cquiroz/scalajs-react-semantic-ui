@@ -365,9 +365,10 @@ package object semanticui {
     def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
       c.map { d =>
         (d: Any) match {
-          case s: String  => s
-          case b: Boolean => b
-          case c          => shorthandObject(c.asInstanceOf[C])
+          case s: String   => s
+          case b: Boolean  => b
+          case b: VdomNode => b.rawNode
+          case c           => shorthandObject(c.asInstanceOf[C])
         }
       }
   }
