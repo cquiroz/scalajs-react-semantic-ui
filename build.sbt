@@ -62,35 +62,6 @@ lazy val demo =
       Compile / fastLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.SmallestModules)),
       Compile / fullLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.FewestModules)),
       publish / skip := true,
-      // // NPM libs for development, mostly to let webpack do its magic
-      // npmDevDependencies in Compile ++= Seq(
-      //   "postcss-loader"                     -> "3.0.0",
-      //   "autoprefixer"                       -> "9.7.6",
-      //   "url-loader"                         -> "4.1.0",
-      //   "file-loader"                        -> "6.0.0",
-      //   "css-loader"                         -> "3.5.3",
-      //   "style-loader"                       -> "1.2.1",
-      //   "less"                               -> "3.11.1",
-      //   "less-loader"                        -> "6.1.0",
-      //   "webpack-merge"                      -> "4.2.2",
-      //   "mini-css-extract-plugin"            -> "0.9.0",
-      //   "webpack-dev-server-status-bar"      -> "1.1.2",
-      //   "cssnano"                            -> "4.1.10",
-      //   "uglifyjs-webpack-plugin"            -> "2.2.0",
-      //   "html-webpack-plugin"                -> "4.3.0",
-      //   "optimize-css-assets-webpack-plugin" -> "5.0.3",
-      //   "favicons-webpack-plugin"            -> "3.0.1",
-      //   "why-did-you-update"                 -> "1.0.8"
-      // ),
-      // npmDependencies in Compile ++= Seq(
-      //   "react"                 -> reactJS,
-      //   "react-dom"             -> reactJS,
-      //   "fomantic-ui-less"      -> FUILess,
-      //   "create-react-context"  -> "0.3.0",
-      //   "prop-types"            -> "15.7.2",
-      //   "react-semantic-toasts" -> Toasts
-      // ),
-      // don't publish the demo
       publish := {},
       publishLocal := {},
       publishArtifact := false,
