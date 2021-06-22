@@ -21,7 +21,7 @@ final case class Modal(
   centered:               js.UndefOr[Boolean] = js.undefined,
   className:              js.UndefOr[String] = js.undefined,
   clazz:                  js.UndefOr[Css] = js.undefined,
-  closeIcon:              js.UndefOr[Icon] = js.undefined,
+  closeIcon:              js.UndefOr[ShorthandS[Icon]] = js.undefined,
   closeOnDimmerClick:     js.UndefOr[Boolean] = js.undefined,
   closeOnDocumentClick:   js.UndefOr[Boolean] = js.undefined,
   content:                js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
@@ -212,7 +212,7 @@ object Modal {
     centered:             js.UndefOr[Boolean] = js.undefined,
     className:            js.UndefOr[String] = js.undefined,
     clazz:                js.UndefOr[Css] = js.undefined,
-    closeIcon:            js.UndefOr[Icon] = js.undefined,
+    closeIcon:            js.UndefOr[ShorthandS[Icon]] = js.undefined,
     closeOnDimmerClick:   js.UndefOr[Boolean] = js.undefined,
     closeOnDocumentClick: js.UndefOr[Boolean] = js.undefined,
     content:              js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
@@ -239,7 +239,7 @@ object Modal {
     basic.foreach(v => p.basic = v)
     centered.foreach(v => p.centered = v)
     (className, clazz).toJs.foreach(v => p.className = v)
-    closeIcon.map(_.props).foreach(v => p.closeIcon = v)
+    closeIcon.toJs.foreach(v => p.closeIcon = v)
     closeOnDimmerClick.foreach(v => p.closeOnDimmerClick = v)
     closeOnDocumentClick.foreach(v => p.closeOnDocumentClick = v)
     content.toJs.foreach(v => p.content = v)
