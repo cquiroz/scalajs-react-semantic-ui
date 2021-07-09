@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Scala
-        uses: olafurpg/setup-scala@v11
+        uses: olafurpg/setup-scala@v12
         with:
           java-version: adopt@1.11
       - name: version
@@ -17,6 +17,7 @@ jobs:
       - name: Checking your code format
         run: sbt scalafmtCheckAll
       - name: Run tests
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
         run: |
-          sbt facade/test demo/fullLinkJS
-          cd demo; npm install; npm run build
+          sbt facade/test demo/fastLinkJS
