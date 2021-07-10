@@ -1,10 +1,9 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
 
-val reactJS      = "16.13.1"
-val scalaJsReact = "1.7.7"
+val reactJS      = "17.0.2"
+val scalaJsReact = "2.0.0-RC2"
 val FUILess      = "2.8.7"
 val reactSUI     = "2.0.3"
-val Toasts       = "0.6.5"
 
 cancelable in Global := true
 
@@ -87,16 +86,14 @@ lazy val facade =
         "react"                 -> reactJS,
         "react-dom"             -> reactJS,
         "semantic-ui-react"     -> reactSUI,
-        "react-semantic-toasts" -> Toasts,
         "chokidar"              -> "3.4.2"
       ),
       libraryDependencies ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"     % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"      % scalaJsReact % Test,
-        "io.github.cquiroz.react"           %%% "common"    % "0.11.3",
+        "io.github.cquiroz.react"           %%% "common"    % "0.13.0",
         "org.scalameta"                     %%% "munit"     % "0.7.27"     % Test,
-        "com.lihaoyi"                       %%% "utest"     % "0.7.10"      % Test,
         "org.typelevel"                     %%% "cats-core" % "2.6.1"      % Test
       ),
       Test / webpackConfigFile := Some(baseDirectory.value / "test.webpack.config.js"),

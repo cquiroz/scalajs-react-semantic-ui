@@ -4,7 +4,7 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.raw.JsNumber
+import japgolly.scalajs.react.facade.JsNumber
 import react.semanticui._
 import react.common._
 import japgolly.scalajs.react.vdom.TagMod

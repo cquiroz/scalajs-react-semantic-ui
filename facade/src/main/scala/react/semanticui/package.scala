@@ -5,7 +5,7 @@ import js.annotation.JSImport
 import js.|
 import js.JSConverters._
 import japgolly.scalajs.react.component.Generic
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 import japgolly.scalajs.react.vdom._
 import react.common._
 

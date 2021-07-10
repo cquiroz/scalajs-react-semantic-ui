@@ -1,28 +1,28 @@
 package react.semanticui.modules.dropdown
 
-import utest._
 import japgolly.scalajs.react.test._
 import japgolly.scalajs.react.vdom.html_<^._
+import react.common.syntax.vdom._
 
-object DropdownMenuTests extends TestSuite {
-  val tests = Tests {
-    test("menu") {
-      val menu = DropdownMenu()
-      ReactTestUtils.withNewBodyElement { mountNode =>
-        menu.renderIntoDOM(mountNode)
-        assert(
-          mountNode.innerHTML == """<div class="menu transition"></div>"""
-        )
-      }
+class DropdownMenuSuite extends munit.FunSuite {
+  test("menu") {
+    val menu = DropdownMenu()
+    ReactTestUtils.withNewBodyElement { mountNode =>
+      menu.renderIntoDOM(mountNode)
+      assertEquals(
+        mountNode.innerHTML,
+        """<div class="menu transition"></div>"""
+      )
     }
-    test("menuContent") {
-      val menu = DropdownMenu("content")
-      ReactTestUtils.withNewBodyElement { mountNode =>
-        menu.renderIntoDOM(mountNode)
-        assert(
-          mountNode.innerHTML == """<div class="menu transition">content</div>"""
-        )
-      }
+  }
+  test("menuContent") {
+    val menu = DropdownMenu("content")
+    ReactTestUtils.withNewBodyElement { mountNode =>
+      menu.renderIntoDOM(mountNode)
+      assertEquals(
+        mountNode.innerHTML,
+        """<div class="menu transition">content</div>"""
+      )
     }
   }
 }
