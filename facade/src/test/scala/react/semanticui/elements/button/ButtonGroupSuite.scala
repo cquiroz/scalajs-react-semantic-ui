@@ -5,7 +5,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 import react.semanticui.widths.widthOf
 import react.common.syntax.vdom._
 
-class ButtonGroupTests extends munit.FunSuite {
+class ButtonGroupSuite extends munit.FunSuite {
   test("render") {
     val buttonGroup = ButtonGroup("abc")
     ReactTestUtils.withNewBodyElement { mountNode =>

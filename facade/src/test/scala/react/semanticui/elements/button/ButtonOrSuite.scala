@@ -3,7 +3,7 @@ package react.semanticui.elements.button
 import japgolly.scalajs.react.test._
 import react.common.syntax.vdom._
 
-class ButtonOrTests extends munit.FunSuite {
+class ButtonOrSuite extends munit.FunSuite {
   test("render") {
     val buttonOr = ButtonOr()
     ReactTestUtils.withNewBodyElement { mountNode =>

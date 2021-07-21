@@ -11,7 +11,7 @@ import react.semanticui.floats._
 import react.semanticui._
 import react.common.syntax.vdom._
 
-class ButtonTests extends munit.FunSuite {
+class ButtonSuite extends munit.FunSuite {
   test("render") {
     val button = Button()
     ReactTestUtils.withNewBodyElement { mountNode =>
