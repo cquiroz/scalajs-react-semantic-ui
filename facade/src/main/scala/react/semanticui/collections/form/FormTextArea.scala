@@ -10,7 +10,7 @@ import react.semanticui.elements.label.Label
 import react.semanticui.{ raw => suiraw }
 import react.semanticui.addons.textarea.TextArea
 import japgolly.scalajs.react.vdom.TagMod
-import japgolly.scalajs.react.raw.JsNumber
+import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 
 final case class FormTextArea(

@@ -10,7 +10,7 @@ import react.semanticui._
 import react.semanticui.elements.label.Label
 import react.semanticui.elements.icon.Icon
 import react.semanticui.{ raw => suiraw }
-import japgolly.scalajs.react.raw.JsNumber
+import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 import react.semanticui.addons.select.Select

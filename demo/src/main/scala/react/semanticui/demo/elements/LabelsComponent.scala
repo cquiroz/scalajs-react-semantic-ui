@@ -2,6 +2,7 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
+import react.common.syntax.all._
 import react.semanticui.elements.icon._
 import react.semanticui.elements.label.Label
 import react.semanticui.elements.label.LabelDetail

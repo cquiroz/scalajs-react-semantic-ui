@@ -3,7 +3,7 @@ package react.semanticui.elements.label
 import scala.scalajs.js
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 import react.semanticui._
 import react.semanticui.raw._
 import react.common._

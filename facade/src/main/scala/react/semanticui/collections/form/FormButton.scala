@@ -4,7 +4,7 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.raw.React
+import japgolly.scalajs.react.facade.React
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.label.Label

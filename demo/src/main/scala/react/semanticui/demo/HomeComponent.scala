@@ -2,8 +2,6 @@ package react.semanticui.demo
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-import react.semanticui.toasts._
-import react.semanticui.elements.button.Button
 
 object HomeComponent {
   private val component =
@@ -33,11 +31,7 @@ object HomeComponent {
                 "Semantic React UI"
               )
             )
-          ),
-          Button(onClick = toastCB(ToastOptions("Greetings"), onClose = Callback.log("here")))(
-            "Toast"
-          ),
-          SemanticToastContainer()
+          )
         )
       }
       .build

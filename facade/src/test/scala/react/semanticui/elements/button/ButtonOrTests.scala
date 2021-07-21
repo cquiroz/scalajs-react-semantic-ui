@@ -1,16 +1,14 @@
 package react.semanticui.elements.button
 
-import utest._
 import japgolly.scalajs.react.test._
+import react.common.syntax.vdom._
 
-object ButtonOrTests extends TestSuite {
-  val tests = Tests {
-    test("render") {
-      val buttonOr = ButtonOr()
-      ReactTestUtils.withNewBodyElement { mountNode =>
-        buttonOr.renderIntoDOM(mountNode)
-        assert(mountNode.innerHTML == """<div class="or"></div>""")
-      }
+class ButtonOrTests extends munit.FunSuite {
+  test("render") {
+    val buttonOr = ButtonOr()
+    ReactTestUtils.withNewBodyElement { mountNode =>
+      buttonOr.renderIntoDOM(mountNode)
+      assertEquals(mountNode.innerHTML, """<div class="or"></div>""")
     }
   }
 }
