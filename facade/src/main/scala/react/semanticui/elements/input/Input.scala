@@ -112,8 +112,10 @@ object Input {
     /**
      * Called on change.
      *
-     * @param {ChangeEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props and a proposed value.
+     * @param {ChangeEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props and a proposed value.
      */
     var onChange: js.UndefOr[js.Function1[ReactEventFromInput, Unit]]
 

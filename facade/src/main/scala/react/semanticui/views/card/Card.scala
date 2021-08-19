@@ -95,8 +95,8 @@ object Card {
     var meta: js.UndefOr[suiraw.SemanticShorthandItemS[CardMeta.CardMetaProps]] = js.native
 
     /**
-     * Called on click. When passed, the component renders as an `a`
-     * tag by default instead of a `div`.
+     * Called on click. When passed, the component renders as an `a` tag by default instead of a
+     * `div`.
      */
     var onClick: js.UndefOr[js.Function2[ReactMouseEvent, CardProps, Unit]] = js.native
 

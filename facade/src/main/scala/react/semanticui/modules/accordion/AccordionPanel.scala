@@ -48,8 +48,10 @@ object AccordionPanel {
     /**
      * Called when a panel title is clicked.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {AccordionTitleProps} data - All item props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {AccordionTitleProps}
+     *   data - All item props.
      */
     var onTitleClick: js.UndefOr[AccordionTitle.RawOnClick]
 

@@ -99,8 +99,10 @@ object List {
     /**
      * onClick handler for ListItem. Mutually exclusive with children.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All item props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All item props.
      */
     var onItemClick: js.UndefOr[js.Function2[ReactMouseEvent, ListItem.ListItemProps, Unit]] =
       js.native

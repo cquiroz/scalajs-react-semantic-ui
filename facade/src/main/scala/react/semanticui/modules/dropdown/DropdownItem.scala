@@ -96,14 +96,15 @@ object DropdownItem {
     /**
      * Called on click.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onClick: js.UndefOr[js.Function2[ReactMouseEvent, DropdownItemProps, Unit]] = js.native
 
     /**
-     * The item currently selected by keyboard shortcut.
-     * This is not the active item.
+     * The item currently selected by keyboard shortcut. This is not the active item.
      */
     var selected: js.UndefOr[Boolean] = js.native
 

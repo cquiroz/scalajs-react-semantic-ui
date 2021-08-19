@@ -124,16 +124,20 @@ object Modal {
     /**
      * Action onClick handler when using shorthand `actions`.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onActionClick: js.UndefOr[RawOnActionClick] = js.native
 
     /**
      * Called when a close event happens.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onClose: js.UndefOr[RawOnClose] = js.native
 
@@ -141,15 +145,18 @@ object Modal {
      * Called when the portal is mounted on the DOM.
      *
      * @param {null}
-     * @param {object} data - All props.
+     * @param {object}
+     *   data - All props.
      */
     var onMount: js.UndefOr[RawOnMount] = js.native
 
     /**
      * Called when an open event happens.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onOpen: js.UndefOr[RawOnClose] = js.native
 
@@ -157,7 +164,8 @@ object Modal {
      * Called when the portal is unmounted from the DOM.
      *
      * @param {null}
-     * @param {object} data - All props.
+     * @param {object}
+     *   data - All props.
      */
     var onUnmount: js.UndefOr[RawOnUnmount] = js.native
 

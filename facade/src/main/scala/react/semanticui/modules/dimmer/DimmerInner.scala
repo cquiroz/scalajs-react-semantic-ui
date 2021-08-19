@@ -72,16 +72,20 @@ object DimmerInner {
     /**
      * Called when the dimmer is clicked.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onClick: js.UndefOr[RawOnClick] = js.native
 
     /**
      * Handles click outside Dimmer's content, but inside Dimmer area.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onClickOutside: js.UndefOr[RawOnClickOutside] = js.native
 

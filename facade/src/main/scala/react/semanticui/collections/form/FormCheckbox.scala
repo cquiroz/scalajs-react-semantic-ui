@@ -85,9 +85,8 @@ object FormCheckbox {
       js.undefined
 
     /**
-     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
-     * Extra FormField props are passed to the control component.
-     * Mutually exclusive with children.
+     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input'). Extra FormField
+     * props are passed to the control component. Mutually exclusive with children.
      */
     // control?: any
     var control: js.UndefOr[String]
@@ -134,32 +133,40 @@ object FormCheckbox {
     /**
      * Called when the user attempts to change the checked state.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props and proposed checked/indeterminate state.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props and proposed checked/indeterminate state.
      */
     var onChange: js.UndefOr[Checkbox.RawEvent] = js.native
 
     /**
      * Called when the checkbox or label is clicked.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props and current checked/indeterminate state.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props and current checked/indeterminate state.
      */
     var onClick: js.UndefOr[Checkbox.RawEvent] = js.native
 
     /**
      * Called when the user presses down on the mouse.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props and current checked/indeterminate state.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props and current checked/indeterminate state.
      */
     var onMouseDown: js.UndefOr[Checkbox.RawEvent] = js.native
 
     /**
      * Called when the user releases the mouse.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props and current checked/indeterminate state.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props and current checked/indeterminate state.
      */
     var onMouseUp: js.UndefOr[Checkbox.RawEvent] = js.native
 

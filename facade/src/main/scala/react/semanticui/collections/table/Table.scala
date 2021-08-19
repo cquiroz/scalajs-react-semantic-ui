@@ -89,7 +89,8 @@ object Table {
     var definition: js.UndefOr[Boolean] = js.native
 
     /**
-     * A table can use fixed a special faster form of table rendering that does not resize table cells based on content.
+     * A table can use fixed a special faster form of table rendering that does not resize table
+     * cells based on content.
      */
     var fixed: js.UndefOr[Boolean] = js.native
 

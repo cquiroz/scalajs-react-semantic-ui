@@ -41,7 +41,7 @@ class JSDOMNodeJSEnv(config: JSDOMNodeJSEnv.Config) extends JSEnv {
       case Input.Script(script) =>
         script
 
-      case _                    =>
+      case _ =>
         throw new UnsupportedInputException(input)
     }.toList
 
@@ -244,14 +244,15 @@ object JSDOMNodeJSEnv {
 
   object Config {
 
-    /** Returns a default configuration for a [[JSDOMNodeJSEnv]].
-      *
-      *  The defaults are:
-      *
-      *  - `executable`: `"node"`
-      *  - `args`: `Nil`
-      *  - `env`: `Map.empty`
-      */
+    /**
+     * Returns a default configuration for a [[JSDOMNodeJSEnv]].
+     *
+     * The defaults are:
+     *
+     *   - `executable`: `"node"`
+     *   - `args`: `Nil`
+     *   - `env`: `Map.empty`
+     */
     def apply(jsDomDirectory: File): Config = new Config(jsDomDirectory)
   }
 }

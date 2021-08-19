@@ -62,7 +62,10 @@ object FormGroup {
     /** A form group can prevent itself from stacking on mobile. */
     var unstackable: js.UndefOr[Boolean] = js.native
 
-    /** Fields Groups can specify their width in grid columns or automatically divide fields to be equal width. */
+    /**
+     * Fields Groups can specify their width in grid columns or automatically divide fields to be
+     * equal width.
+     */
     var widths: js.UndefOr[String] = js.native
   }
 

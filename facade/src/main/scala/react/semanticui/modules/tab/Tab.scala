@@ -115,24 +115,20 @@ object Tab {
     /**
      * Called on tab change.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {data} data - The proposed new Tab.Pane.
-     * @param {activeIndex} data.activeIndex - The new proposed activeIndex.
-     * @param {panes} data.panes - Props of the new proposed active pane.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {data}
+     *   data - The proposed new Tab.Pane.
+     * @param {activeIndex}
+     *   data.activeIndex - The new proposed activeIndex.
+     * @param {panes}
+     *   data.panes - Props of the new proposed active pane.
      */
     var onTabChange: js.UndefOr[RawOnTabChange]
 
     /**
-     * Array of objects describing each Menu.Item and Tab.Pane:
-     * {
-     *   menuItem: 'Home',
-     *   render: () => <Tab.Pane>Welcome!</Tab.Pane>,
-     * }
-     * or
-     * {
-     *   menuItem: 'Home',
-     *   pane: 'Welcome',
-     * }
+     * Array of objects describing each Menu.Item and Tab.Pane: { menuItem: 'Home', render: () =>
+     * <Tab.Pane>Welcome!</Tab.Pane>, } or { menuItem: 'Home', pane: 'Welcome', }
      */
     var panes: js.UndefOr[js.Array[RawPane]] = js.native
 
