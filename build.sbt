@@ -16,8 +16,8 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 // sbt-release-early
 inThisBuild(
   List(
-    homepage := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
-    licenses := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
+    homepage   := Some(url("https://github.com/cquiroz/scalajs-react-semantic-ui")),
+    licenses   := Seq("BSD 3-Clause License" -> url("https://opensource.org/licenses/BSD-3-Clause")),
     developers := List(
       Developer("cquiroz",
                 "Carlos Quiroz",
@@ -25,7 +25,7 @@ inThisBuild(
                 url("https://github.com/cquiroz")
       )
     ),
-    scmInfo := Some(
+    scmInfo    := Some(
       ScmInfo(url("https://github.com/cquiroz/scalajs-react-semantic-ui"),
               "scm:git:git@github.com:cquiroz/scalajs-react-semantic-ui.git"
       )
@@ -39,13 +39,13 @@ val root =
     .settings(commonSettings: _*)
     .aggregate(facade, demo)
     .settings(
-      name := "scalajs-react-semantic-ui",
+      name            := "scalajs-react-semantic-ui",
       // No, SBT, we don't want any artifacts for root.
       // No, not even an empty jar.
-      publish := {},
-      publishLocal := {},
+      publish         := {},
+      publishLocal    := {},
       publishArtifact := false,
-      Keys.`package` := file("")
+      Keys.`package`  := file("")
     )
 
 lazy val demo =
@@ -54,17 +54,21 @@ lazy val demo =
     .enablePlugins(ScalaJSPlugin)
     .settings(commonSettings: _*)
     .settings(
-      test := {},
+      test            := {},
       Compile / fastLinkJS / scalaJSLinkerConfig ~= { _.withSourceMap(false) },
       Compile / fullLinkJS / scalaJSLinkerConfig ~= { _.withSourceMap(false) },
       scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.ESModule) },
-      Compile / fastLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.SmallestModules)),
-      Compile / fullLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(ModuleSplitStyle.FewestModules)),
-      publish / skip := true,
-      publish := {},
-      publishLocal := {},
+      Compile / fastLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(
+        ModuleSplitStyle.SmallestModules
+      )),
+      Compile / fullLinkJS / scalaJSLinkerConfig ~= (_.withModuleSplitStyle(
+        ModuleSplitStyle.FewestModules
+      )),
+      publish / skip  := true,
+      publish         := {},
+      publishLocal    := {},
       publishArtifact := false,
-      Keys.`package` := file("")
+      Keys.`package`  := file("")
     )
     .dependsOn(facade)
 
@@ -74,19 +78,19 @@ lazy val facade =
     .enablePlugins(ScalaJSBundlerPlugin)
     .settings(commonSettings: _*)
     .settings(
-      name := "react-semantic-ui",
-      webpack / version := "4.44.1",
+      name                            := "react-semantic-ui",
+      webpack / version               := "4.44.1",
       startWebpackDevServer / version := "3.11.0",
-      installJsdom / version := "16.4.0",
+      installJsdom / version          := "16.4.0",
       // Requires the DOM for tests
-      Test / requireJsDomEnv := true,
+      Test / requireJsDomEnv          := true,
       // Compile tests to JS using fast-optimisation
-      Test / scalaJSStage := FastOptStage,
+      Test / scalaJSStage             := FastOptStage,
       Compile / npmDependencies ++= Seq(
-        "react"                 -> reactJS,
-        "react-dom"             -> reactJS,
-        "semantic-ui-react"     -> reactSUI,
-        "chokidar"              -> "3.4.2"
+        "react"             -> reactJS,
+        "react-dom"         -> reactJS,
+        "semantic-ui-react" -> reactSUI,
+        "chokidar"          -> "3.4.2"
       ),
       libraryDependencies ++= Seq(
         "com.github.japgolly.scalajs-react" %%% "core"      % scalaJsReact,
@@ -96,16 +100,16 @@ lazy val facade =
         "org.scalameta"                     %%% "munit"     % "0.7.28"     % Test,
         "org.typelevel"                     %%% "cats-core" % "2.6.1"      % Test
       ),
-      Test / webpackConfigFile := Some(baseDirectory.value / "test.webpack.config.js"),
+      Test / webpackConfigFile        := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks += new TestFramework("utest.runner.Framework"),
       testFrameworks += new TestFramework("munit.Framework")
     )
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.13.6",
-  organization := "io.github.cquiroz.react",
-  sonatypeProfileName := "io.github.cquiroz",
-  description := "scala.js facade for react-semanticui",
+  scalaVersion           := "2.13.6",
+  organization           := "io.github.cquiroz.react",
+  sonatypeProfileName    := "io.github.cquiroz",
+  description            := "scala.js facade for react-semanticui",
   Test / publishArtifact := false,
   scalacOptions ~= (_.filterNot(
     Set(

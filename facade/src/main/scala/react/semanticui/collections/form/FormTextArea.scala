@@ -64,9 +64,8 @@ object FormTextArea {
       js.undefined
 
     /**
-     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
-     * Extra FormTextArea props are passed to the control component.
-     * Mutually exclusive with children.
+     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input'). Extra FormTextArea
+     * props are passed to the control component. Mutually exclusive with children.
      */
     var control: js.UndefOr[String]
 
@@ -94,16 +93,20 @@ object FormTextArea {
     /**
      * Called on change.
      *
-     * @param {SyntheticEvent} event - The React SyntheticEvent object
-     * @param {object} data - All props and the event value.
+     * @param {SyntheticEvent}
+     *   event - The React SyntheticEvent object
+     * @param {object}
+     *   data - All props and the event value.
      */
     var onChange: js.UndefOr[TextArea.RawEvent] = js.undefined
 
     /**
      * Called on input.
      *
-     * @param {SyntheticEvent} event - The React SyntheticEvent object
-     * @param {object} data - All props and the event value.
+     * @param {SyntheticEvent}
+     *   event - The React SyntheticEvent object
+     * @param {object}
+     *   data - All props and the event value.
      */
     var onInput: js.UndefOr[TextArea.RawEvent] = js.undefined
 

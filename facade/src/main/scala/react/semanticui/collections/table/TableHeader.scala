@@ -48,7 +48,10 @@ object TableHeader {
     /** Shorthand for primary content. */
     var content: js.UndefOr[suiraw.SemanticShorthandContent] = js.native
 
-    /** A definition table can have a full width header or footer, filling in the gap left by the first column. */
+    /**
+     * A definition table can have a full width header or footer, filling in the gap left by the
+     * first column.
+     */
     var fullWidth: js.UndefOr[Boolean] = js.native
   }
 

@@ -112,12 +112,15 @@ object Popup {
     var inverted: js.UndefOr[Boolean] = js.native
 
     /**
-     * Offset values in px unit to apply to rendered popup. The basic offset accepts an
-     * array with two numbers in the form [skidding, distance]:
-     * - `skidding` displaces the Popup along the reference element
-     * - `distance` displaces the Popup away from, or toward, the reference element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the reference.
+     * Offset values in px unit to apply to rendered popup. The basic offset accepts an array with
+     * two numbers in the form [skidding, distance]:
+     *   - `skidding` displaces the Popup along the reference element
+     *   - `distance` displaces the Popup away from, or toward, the reference element in the
+     *     direction of its placement. A positive number displaces it further away, while a negative
+     *     number lets it overlap the reference.
      *
-     * @see https://popper.js.org/docs/v2/modifiers/offset/
+     * @see
+     *   https://popper.js.org/docs/v2/modifiers/offset/
      */
     var offset: js.UndefOr[js.Array[JsNumber]] = js.native
 
@@ -127,8 +130,10 @@ object Popup {
     /**
      * Called when a close event happens.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onClose: js.UndefOr[RawOnClose] = js.native
 
@@ -136,15 +141,18 @@ object Popup {
      * Called when the portal is mounted on the DOM.
      *
      * @param {null}
-     * @param {object} data - All props.
+     * @param {object}
+     *   data - All props.
      */
     // onMount?: (nothing: null, data: PopupProps) => void
 
     /**
      * Called when an open event happens.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onOpen: js.UndefOr[RawOnOpen] = js.native
 
@@ -152,11 +160,15 @@ object Popup {
      * Called when the portal is unmounted from the DOM.
      *
      * @param {null}
-     * @param {object} data - All props.
+     * @param {object}
+     *   data - All props.
      */
     // onUnmount?: (nothing: null, data: PopupProps) => void
 
-    /** Disables automatic repositioning of the component, it will always be placed according to the position value. */
+    /**
+     * Disables automatic repositioning of the component, it will always be placed according to the
+     * position value.
+     */
     var pinned: js.UndefOr[Boolean] = js.native
 
     /** Position for the popover. */

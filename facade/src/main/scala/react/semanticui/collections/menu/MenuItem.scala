@@ -94,11 +94,13 @@ object MenuItem {
     var name: js.UndefOr[String] = js.native
 
     /**
-     * Called on click. When passed, the component will render as an `a`
-     * tag by default instead of a `div`.
+     * Called on click. When passed, the component will render as an `a` tag by default instead of a
+     * `div`.
      *
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props.
+     * @param {SyntheticEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props.
      */
     var onClick: js.UndefOr[js.Function1[ReactEvent, Unit]] = js.native
 

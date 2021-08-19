@@ -95,7 +95,8 @@ object TableGenerator {
     var definition: js.UndefOr[Boolean] = js.native
 
     /**
-     * A table can use fixed a special faster form of table rendering that does not resize table cells based on content.
+     * A table can use fixed a special faster form of table rendering that does not resize table
+     * cells based on content.
      */
     var fixed: js.UndefOr[Boolean] = js.native
 
@@ -115,11 +116,15 @@ object TableGenerator {
     var padded: js.UndefOr[Boolean | String] = js.native
 
     /**
-     * Mapped over `tableData` and should return shorthand for each Table.Row to be placed within Table.Body.
+     * Mapped over `tableData` and should return shorthand for each Table.Row to be placed within
+     * Table.Body.
      *
-     * @param {*} data - An element in the `tableData` array.
-     * @param {number} index - The index of the current element in `tableData`.
-     * @return {*} Shorthand for a Table.Row.
+     * @param {*}
+     *   data - An element in the `tableData` array.
+     * @param {number}
+     *   index - The index of the current element in `tableData`.
+     * @return
+     *   {*} Shorthand for a Table.Row.
      */
     var renderBodyRow: RawRenderBodyRow = js.native
 

@@ -113,10 +113,14 @@ object Progress {
     /** A progress bar can show a success state. */
     var success: js.UndefOr[Boolean] = js.native
 
-    /** For use with value. Together, these will calculate the percent. Mutually excludes percent. */
+    /**
+     * For use with value. Together, these will calculate the percent. Mutually excludes percent.
+     */
     var total: js.UndefOr[JsNumber | String] = js.native
 
-    /** For use with total. Together, these will calculate the percent. Mutually excludes percent. */
+    /**
+     * For use with total. Together, these will calculate the percent. Mutually excludes percent.
+     */
     var value: js.UndefOr[JsNumber | String] = js.native
 
     /** A progress bar can show a warning state. */

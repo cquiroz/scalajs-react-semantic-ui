@@ -48,16 +48,20 @@ object TextArea {
     /**
      * Called on change.
      *
-     * @param {SyntheticEvent} event - The React SyntheticEvent object
-     * @param {object} data - All props and the event value.
+     * @param {SyntheticEvent}
+     *   event - The React SyntheticEvent object
+     * @param {object}
+     *   data - All props and the event value.
      */
     var onChange: js.UndefOr[RawEvent] = js.undefined
 
     /**
      * Called on input.
      *
-     * @param {SyntheticEvent} event - The React SyntheticEvent object
-     * @param {object} data - All props and the event value.
+     * @param {SyntheticEvent}
+     *   event - The React SyntheticEvent object
+     * @param {object}
+     *   data - All props and the event value.
      */
     var onInput: js.UndefOr[RawEvent] = js.undefined
 

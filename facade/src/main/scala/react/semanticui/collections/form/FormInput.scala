@@ -76,9 +76,8 @@ object FormInput {
       js.undefined
 
     /**
-     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
-     * Extra FormInput props are passed to the control component.
-     * Mutually exclusive with children.
+     * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input'). Extra FormInput
+     * props are passed to the control component. Mutually exclusive with children.
      */
     // control?: any
     var control: js.UndefOr[String]
@@ -140,8 +139,10 @@ object FormInput {
     /**
      * Called on change.
      *
-     * @param {ChangeEvent} event - React's original SyntheticEvent.
-     * @param {object} data - All props and a proposed value.
+     * @param {ChangeEvent}
+     *   event - React's original SyntheticEvent.
+     * @param {object}
+     *   data - All props and a proposed value.
      */
     var onChange: js.UndefOr[js.Function1[ReactEventFromInput, Unit]]
 

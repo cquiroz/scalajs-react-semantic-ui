@@ -114,7 +114,9 @@ object Image {
     /** An image may appear at different sizes. */
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
 
-    /** An image can specify that it needs an additional spacing to separate it from nearby content. */
+    /**
+     * An image can specify that it needs an additional spacing to separate it from nearby content.
+     */
     var spaced: js.UndefOr[Boolean | String] = js.native
 
     var src: js.UndefOr[String] = js.native
