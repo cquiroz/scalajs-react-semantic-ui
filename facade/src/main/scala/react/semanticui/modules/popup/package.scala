@@ -27,7 +27,7 @@ package popup {
   }
 
   sealed trait PopupOn extends Product with Serializable
-  object PopupOn {
+  object PopupOn       {
     implicit val enum: EnumValue[PopupOn] = EnumValue.toLowerCaseString
 
     case object Hover extends PopupOn
@@ -36,7 +36,7 @@ package popup {
   }
 
   sealed trait PopupWide extends Product with Serializable
-  object PopupWide {
+  object PopupWide     {
     implicit val enum: EnumValueB[PopupWide] = EnumValueB.toLowerCaseStringTF(WideTrue, WideFalse)
     case object WideTrue  extends PopupWide
     case object WideFalse extends PopupWide

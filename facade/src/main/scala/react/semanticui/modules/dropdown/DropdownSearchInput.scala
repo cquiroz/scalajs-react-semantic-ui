@@ -19,8 +19,8 @@ final case class DropdownSearchInput(
   value:                  js.UndefOr[JsNumber | String] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[DropdownSearchInput.DropdownSearchInputProps, DropdownSearchInput] {
-  override protected def cprops = DropdownSearchInput.props(this)
-  override val component        = DropdownSearchInput.component
+  override protected def cprops                     = DropdownSearchInput.props(this)
+  override val component                            = DropdownSearchInput.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -78,7 +78,7 @@ object DropdownSearchInput {
     p
   }
 
-  private val component =
+  private val component                                       =
     JsComponent[DropdownSearchInputProps, Children.None, Null](RawComponent)
 
   def apply(modifiers: TagMod*): DropdownSearchInput =

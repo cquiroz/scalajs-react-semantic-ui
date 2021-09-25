@@ -38,13 +38,13 @@ package semanticui {
     protected def removeAs[P <: js.Object](p: P): P =
       filterProps(p, "as")
 
-    final case class AsTag[N <: TopNode](tagOf: TagOf[N]) extends As {
+    final case class AsTag[N <: TopNode](tagOf: TagOf[N])                         extends As {
       override type P = js.Object
       override val props =
         js.Object.assign(js.Object(), tagOf.rawElement.asInstanceOf[React.DomElement].props)
     }
 
-    final case class Segment(segment: SUISegment = SUISegment.Default) extends As {
+    final case class Segment(segment: SUISegment = SUISegment.Default)            extends As {
       override type P = SUISegment.SegmentProps
       override val props = removeAs(segment.props)
     }
@@ -53,38 +53,38 @@ package semanticui {
       override type P = SUISidebarPushable.SidebarPushableProps
       override val props = removeAs(pushable.props)
     }
-    final case class SidebarPusher(pusher: SUISidebarPusher) extends As {
+    final case class SidebarPusher(pusher: SUISidebarPusher)                      extends As {
       override type P = SUISidebarPusher.SidebarPusherProps
       override val props = removeAs(pusher.props)
     }
-    final case class Header(props: SUIHeader.HeaderProps) extends As {
+    final case class Header(props: SUIHeader.HeaderProps)                         extends As {
       override type P = SUIHeader.HeaderProps
     }
-    final case class Menu(menu: SUIMenu = SUIMenu.Default) extends As {
+    final case class Menu(menu: SUIMenu = SUIMenu.Default)                        extends As {
       override type P = SUIMenu.MenuProps
       override val props = removeAs(menu.props)
     }
-    final case class Grid(grid: SUIGrid = SUIGrid.Default) extends As {
+    final case class Grid(grid: SUIGrid = SUIGrid.Default)                        extends As {
       override type P = SUIGrid.GridProps
       override val props = removeAs(grid.props)
     }
-    final case class Form(form: SUIForm = SUIForm.Default) extends As {
+    final case class Form(form: SUIForm = SUIForm.Default)                        extends As {
       override type P = SUIForm.FormProps
       override val props = removeAs(form.props)
     }
-    final case class Image(image: SUIImage = SUIImage.Default) extends As {
+    final case class Image(image: SUIImage = SUIImage.Default)                    extends As {
       override type P = SUIImage.ImageProps
       override val props = removeAs(image.props)
     }
-    final case class Divider(divider: SUIDivider = SUIDivider.Default) extends As {
+    final case class Divider(divider: SUIDivider = SUIDivider.Default)            extends As {
       override type P = SUIDivider.DividerProps
       override val props = removeAs(divider.props)
     }
-    final case class Checkbox(check: SUICheckbox = SUICheckbox.Default) extends As {
+    final case class Checkbox(check: SUICheckbox = SUICheckbox.Default)           extends As {
       override type P = SUICheckbox.CheckboxProps
       override val props = removeAs(check.props)
     }
-    final case class Loader(loader: SUILoader = SUILoader.Default) extends As {
+    final case class Loader(loader: SUILoader = SUILoader.Default)                extends As {
       override type P = SUILoader.LoaderProps
       override val props = removeAs(loader.props)
     }
@@ -218,7 +218,7 @@ package object semanticui {
       case _           => shorthandObject(c.asInstanceOf[C])
     }
 
-  object shorthand {
+  object shorthand                                                                           {
     implicit def shorthandBSFnProps2VdomNodeP[P <: js.Object, C](
       p: GenericFnComponentP[P]
     ): js.UndefOr[ShorthandSB[C]] =
@@ -380,7 +380,7 @@ package object semanticui {
       c.map(_.map(d => compToPropS(d)(render)).toJSArray)
   }
 
-  implicit class VdomNodeToReactNodeS[P <: js.Object](c: js.UndefOr[ShorthandS[VdomNode]]) {
+  implicit class VdomNodeToReactNodeS[P <: js.Object](c: js.UndefOr[ShorthandS[VdomNode]])   {
     def toJs: js.UndefOr[raw.SemanticShorthandContent] =
       c.map { d =>
         (d: Any) match {

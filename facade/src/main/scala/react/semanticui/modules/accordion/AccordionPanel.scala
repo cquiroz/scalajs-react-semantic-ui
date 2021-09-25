@@ -70,5 +70,5 @@ object AccordionPanel {
     p
   }
 
-  private val component = JsComponent[AccordionPanelProps, Children.None, Null](RawComponent)
+  private val component                             = JsComponent[AccordionPanelProps, Children.None, Null](RawComponent)
 }

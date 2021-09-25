@@ -16,8 +16,8 @@ final case class MessageList(
   items:                  js.UndefOr[Seq[ShorthandS[MessageItem]]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[MessageList.MessageListProps, MessageList] {
-  override protected def cprops    = MessageList.props(this)
-  override protected val component = MessageList.component
+  override protected def cprops                     = MessageList.props(this)
+  override protected val component                  = MessageList.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -71,7 +71,7 @@ object MessageList {
     p
   }
 
-  private val component =
+  private val component                       =
     JsComponent[MessageListProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): MessageList =

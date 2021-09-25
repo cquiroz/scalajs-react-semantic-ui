@@ -27,8 +27,8 @@ final case class GridColumn(
   width:                  js.UndefOr[SemanticWidth] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[GridColumn.GridColumnProps, GridColumn] {
-  override protected def cprops    = GridColumn.props(this)
-  override protected val component = GridColumn.component
+  override protected def cprops                     = GridColumn.props(this)
+  override protected val component                  = GridColumn.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -147,7 +147,7 @@ object GridColumn {
     p
   }
 
-  private val component =
+  private val component                     =
     JsFnComponent[GridColumnProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): GridColumn =

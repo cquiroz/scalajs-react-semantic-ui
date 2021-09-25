@@ -9,8 +9,8 @@ import react.semanticui.elements.label.LabelDetail
 import react.semanticui.colors._
 
 object LabelsComponent {
-  private val IconNewspaper = Icon(name = "newspaper")
-  private val IconDelete    = Icon(name = "delete")
+  private val IconNewspaper                                              = Icon(name = "newspaper")
+  private val IconDelete                                                 = Icon(name = "delete")
   def section(title: String, description: String)(items: TagMod): TagMod =
     <.div(
       ^.cls := "equal width row",
@@ -34,7 +34,7 @@ object LabelsComponent {
       )
     )
 
-  private val component =
+  private val component                                                  =
     ScalaComponent
       .builder[Unit]("Labels")
       .render { _ =>

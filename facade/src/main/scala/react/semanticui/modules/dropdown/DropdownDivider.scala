@@ -14,8 +14,8 @@ final case class DropdownDivider(
   clazz:                  js.UndefOr[Css] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[DropdownDivider.DropdownDividerProps, DropdownDivider] {
-  override protected def cprops    = DropdownDivider.props(this)
-  override protected val component = DropdownDivider.component
+  override protected def cprops                     = DropdownDivider.props(this)
+  override protected val component                  = DropdownDivider.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -55,7 +55,7 @@ object DropdownDivider {
     p
   }
 
-  private val component =
+  private val component                               =
     JsFnComponent[DropdownDividerProps, Children.Varargs](RawComponent)
 
   def apply(children: TagMod*): DropdownDivider =

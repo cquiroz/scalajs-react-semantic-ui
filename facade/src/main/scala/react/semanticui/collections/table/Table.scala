@@ -37,8 +37,8 @@ final case class Table(
   verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Table.TableProps, Table] {
-  override protected def cprops    = Table.props((this))
-  override protected val component = Table.component
+  override protected def cprops                     = Table.props((this))
+  override protected val component                  = Table.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -158,7 +158,7 @@ object Table {
     p
   }
 
-  private val component = JsComponent[TableProps, Children.Varargs, Null](RawComponent)
+  private val component              = JsComponent[TableProps, Children.Varargs, Null](RawComponent)
 
   def apply[A](mods: TagMod*): Table = Table(modifiers = mods)
 

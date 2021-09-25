@@ -40,8 +40,8 @@ final case class Segment(
   vertical:               js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[Segment.SegmentProps, Segment] {
-  override protected def cprops    = Segment.props(this)
-  override protected val component = Segment.component
+  override protected def cprops                     = Segment.props(this)
+  override protected val component                  = Segment.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 

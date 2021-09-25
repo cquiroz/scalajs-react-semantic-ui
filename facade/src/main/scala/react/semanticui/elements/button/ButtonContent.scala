@@ -19,19 +19,19 @@ final case class ButtonContent(
   visible:                js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[ButtonContent.ButtonContentProps, ButtonContent] {
-  override protected def cprops    = ButtonContent.props(this)
-  override protected val component = ButtonContent.component
+  override protected def cprops                     = ButtonContent.props(this)
+  override protected val component                  = ButtonContent.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
 object ButtonContent {
   @js.native
   @JSImport("semantic-ui-react", "ButtonContent")
-  object RawComponent      extends js.Function1[js.Any, js.Any] {
+  object RawComponent extends js.Function1[js.Any, js.Any] {
     def apply(i: js.Any): js.Any = js.native
   }
   @js.native
-  trait ButtonContentProps extends js.Object                    {
+  trait ButtonContentProps extends js.Object {
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 

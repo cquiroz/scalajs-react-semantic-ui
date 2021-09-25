@@ -24,8 +24,8 @@ final case class CardGroup(
   textAlign:              js.UndefOr[SemanticTextAlignment] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[CardGroup.CardGroupProps, CardGroup] {
-  override protected def cprops    = CardGroup.props(this)
-  override protected val component = CardGroup.component
+  override protected def cprops                     = CardGroup.props(this)
+  override protected val component                  = CardGroup.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -114,7 +114,7 @@ object CardGroup {
     p
   }
 
-  private val component =
+  private val component                   =
     JsFnComponent[CardGroupProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): CardGroup =

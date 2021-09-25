@@ -24,7 +24,7 @@ final case class Pane private (
 object Pane {
   def apply(menuItem: js.UndefOr[String | MenuItem], render: => VdomNode): Pane =
     new Pane(pane = js.undefined, menuItem = menuItem, render = () => render.rawNode)
-  def apply(menuItem: js.UndefOr[String | MenuItem], pane:   TabPane): Pane     =
+  def apply(menuItem: js.UndefOr[String | MenuItem], pane: TabPane): Pane       =
     new Pane(pane = pane, menuItem = menuItem, render = js.undefined)
 }
 
@@ -42,8 +42,8 @@ final case class Tab(
   vertical:               js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[Tab.TabProps, Tab] {
-  override protected def cprops    = Tab.props(this)
-  override protected val component = Tab.component
+  override protected def cprops                     = Tab.props(this)
+  override protected val component                  = Tab.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 

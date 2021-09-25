@@ -17,8 +17,8 @@ final case class ModalDescription(
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ModalDescription.ModalDescriptionProps, ModalDescription] {
-  override protected def cprops    = ModalDescription.props(this)
-  override protected val component = ModalDescription.component
+  override protected def cprops                     = ModalDescription.props(this)
+  override protected val component                  = ModalDescription.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -66,7 +66,7 @@ object ModalDescription {
     p
   }
 
-  private val component =
+  private val component                                 =
     JsFnComponent[ModalDescriptionProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ModalDescription =

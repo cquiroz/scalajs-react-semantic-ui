@@ -17,8 +17,8 @@ final case class ModalHeader(
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ModalHeader.ModalHeaderProps, ModalHeader] {
-  override protected def cprops    = ModalHeader.props(this)
-  override protected val component = ModalHeader.component
+  override protected def cprops                     = ModalHeader.props(this)
+  override protected val component                  = ModalHeader.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -66,7 +66,7 @@ object ModalHeader {
     p
   }
 
-  private val component =
+  private val component                       =
     JsFnComponent[ModalHeaderProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ModalHeader =

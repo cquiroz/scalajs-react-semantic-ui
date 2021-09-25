@@ -34,8 +34,8 @@ final case class FormTextArea(
   width:                  js.UndefOr[SemanticWidth] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[FormTextArea.FormFieldProps, FormTextArea] {
-  override protected def cprops    = FormTextArea.props(this)
-  override protected val component = FormTextArea.component
+  override protected def cprops                     = FormTextArea.props(this)
+  override protected val component                  = FormTextArea.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -178,7 +178,7 @@ object FormTextArea {
     p
   }
 
-  private val component =
+  private val component                      =
     JsComponent[FormFieldProps, Children.None, Null](RawComponent)
 
   def apply(modifiers: TagMod*): FormTextArea =

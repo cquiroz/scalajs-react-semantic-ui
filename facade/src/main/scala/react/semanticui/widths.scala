@@ -10,7 +10,7 @@ object widths {
     implicit val enum: EnumValue[SemanticWidth] = EnumValue.toLowerCaseString
   }
 
-  case object One      extends SemanticWidth
+  case object One extends SemanticWidth
   case object Two      extends SemanticWidth
   case object Three    extends SemanticWidth
   case object Four     extends SemanticWidth

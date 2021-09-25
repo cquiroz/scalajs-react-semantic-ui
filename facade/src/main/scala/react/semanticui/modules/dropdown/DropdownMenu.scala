@@ -20,8 +20,8 @@ final case class DropdownMenu(
   scrolling:              js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[DropdownMenu.DropdownMenuProps, DropdownMenu] {
-  override protected def cprops    = DropdownMenu.props(this)
-  override protected val component = DropdownMenu.component
+  override protected def cprops                     = DropdownMenu.props(this)
+  override protected val component                  = DropdownMenu.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -84,7 +84,7 @@ object DropdownMenu {
     p
   }
 
-  private val component =
+  private val component                         =
     JsComponent[DropdownMenuProps, Children.Varargs, Null](RawComponent)
 
   def apply(children: TagMod*): DropdownMenu =

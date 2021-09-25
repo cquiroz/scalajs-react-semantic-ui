@@ -31,8 +31,8 @@ final case class Card(
   raised:                 js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Card.CardProps, Card] {
-  override protected def cprops    = Card.props(this)
-  override protected val component = Card.component
+  override protected def cprops                     = Card.props(this)
+  override protected val component                  = Card.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -163,7 +163,7 @@ object Card {
     p
   }
 
-  private val component =
+  private val component         =
     JsComponent[CardProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): Card =

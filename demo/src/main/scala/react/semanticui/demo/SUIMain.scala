@@ -30,11 +30,11 @@ case object IconsElement  extends ElementItem
 case object LabelsElement extends ElementItem
 
 sealed trait Page
-case object HomePage extends Page
+case object HomePage                         extends Page
 final case class ElementPage(e: ElementItem) extends Page
 
 object Routing {
-  val config: RouterConfig[Page] = RouterConfigDsl[Page].buildConfig { dsl =>
+  val config: RouterConfig[Page]                              = RouterConfigDsl[Page].buildConfig { dsl =>
     import dsl._
 
     (

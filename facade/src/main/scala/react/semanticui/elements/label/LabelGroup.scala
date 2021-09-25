@@ -22,8 +22,8 @@ final case class LabelGroup(
   tag:                    js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[LabelGroup.LabelGroupProps, LabelGroup] {
-  override protected def cprops    = LabelGroup.props(this)
-  override protected val component = LabelGroup.component
+  override protected def cprops                     = LabelGroup.props(this)
+  override protected val component                  = LabelGroup.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -98,7 +98,7 @@ object LabelGroup {
     p
   }
 
-  private val component =
+  private val component                     =
     JsComponent[LabelGroupProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): LabelGroup =

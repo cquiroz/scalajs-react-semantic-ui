@@ -13,14 +13,14 @@ package table {
   }
 
   sealed trait TableSorted
-  object TableSorted {
+  object TableSorted    {
     implicit val enum: EnumValue[TableSorted] = EnumValue.toLowerCaseString
     case object Ascending  extends TableSorted
     case object Descending extends TableSorted
   }
 
   sealed trait TableAttached
-  object TableAttached {
+  object TableAttached  {
     implicit val enum: EnumValueB[TableAttached] =
       EnumValueB.toLowerCaseStringTF(Attached, NotAttached)
     case object Attached    extends TableAttached
@@ -30,7 +30,7 @@ package table {
   }
 
   sealed trait TableBasic
-  object TableBasic {
+  object TableBasic     {
     implicit val enum: EnumValueB[TableBasic] = EnumValueB.toLowerCaseStringTF(Basic, NotBasic)
     case object Basic    extends TableBasic
     case object NotBasic extends TableBasic
@@ -38,7 +38,7 @@ package table {
   }
 
   sealed trait TableCompact
-  object TableCompact {
+  object TableCompact   {
     implicit val enum: EnumValueB[TableCompact] =
       EnumValueB.toLowerCaseStringTF(Compact, NotCompact)
     case object Compact    extends TableCompact
@@ -47,7 +47,7 @@ package table {
   }
 
   sealed trait TablePadded
-  object TablePadded {
+  object TablePadded    {
     implicit val enum: EnumValueB[TablePadded] = EnumValueB.toLowerCaseStringTF(Padded, NotPadded)
     case object Padded    extends TablePadded
     case object NotPadded extends TablePadded
@@ -55,7 +55,7 @@ package table {
   }
 
   sealed trait TableSize
-  object TableSize {
+  object TableSize      {
     implicit val enum: EnumValue[TableSize] = EnumValue.toLowerCaseString
     case object Small extends TableSize
     case object Large extends TableSize

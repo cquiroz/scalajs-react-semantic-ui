@@ -37,8 +37,8 @@ final case class ButtonGroup(
   widths:                 js.UndefOr[SemanticWidth] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[ButtonGroup.ButtonGroupProps, ButtonGroup] {
-  override protected def cprops    = ButtonGroup.props(this)
-  override protected val component = ButtonGroup.component
+  override protected def cprops                     = ButtonGroup.props(this)
+  override protected val component                  = ButtonGroup.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -196,7 +196,7 @@ object ButtonGroup {
     p
   }
 
-  private val component =
+  private val component                       =
     JsComponent[ButtonGroupProps, Children.Varargs, Null](RawComponent)
 
   def apply(button: Button, buttons: Button*): ButtonGroup =

@@ -25,8 +25,8 @@ final case class GridRow(
   verticalAlign:          js.UndefOr[SemanticVerticalAlignment] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[GridRow.GridRowProps, GridRow] {
-  override protected def cprops    = GridRow.props(this)
-  override protected val component = GridRow.component
+  override protected def cprops                     = GridRow.props(this)
+  override protected val component                  = GridRow.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -131,7 +131,7 @@ object GridRow {
     p
   }
 
-  private val component =
+  private val component               =
     JsFnComponent[GridRowProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): GridRow =

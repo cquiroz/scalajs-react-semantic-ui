@@ -17,8 +17,8 @@ final case class ItemDescription(
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ItemDescription.ItemDescriptionProps, ItemDescription] {
-  override protected def cprops    = ItemDescription.props(this)
-  override protected val component = ItemDescription.component
+  override protected def cprops                     = ItemDescription.props(this)
+  override protected val component                  = ItemDescription.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -66,7 +66,7 @@ object ItemDescription {
     p
   }
 
-  private val component =
+  private val component                               =
     JsFnComponent[ItemDescriptionProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ItemDescription =
