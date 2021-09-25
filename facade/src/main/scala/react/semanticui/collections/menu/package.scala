@@ -5,7 +5,7 @@ import react.common.EnumValueB
 
 package menu {
   sealed trait MenuItemFitted extends Product with Serializable
-  object MenuItemFitted {
+  object MenuItemFitted   {
     implicit val enum: EnumValueB[MenuItemFitted] = EnumValueB.toLowerCaseStringT(Fitted)
 
     case object Fitted       extends MenuItemFitted
@@ -22,7 +22,7 @@ package menu {
   }
 
   sealed trait MenuAttached extends Product with Serializable
-  object MenuAttached {
+  object MenuAttached     {
     implicit val enum: EnumValueB[MenuAttached] = EnumValueB.toLowerCaseStringT(Attached)
 
     case object Attached extends MenuAttached
@@ -31,7 +31,7 @@ package menu {
   }
 
   sealed trait MenuFloated extends Product with Serializable
-  object MenuFloated {
+  object MenuFloated      {
     implicit val enum: EnumValueB[MenuFloated] = EnumValueB.toLowerCaseStringT(Floated)
 
     case object Floated extends MenuFloated
@@ -39,7 +39,7 @@ package menu {
   }
 
   sealed trait MenuFixed extends Product with Serializable
-  object MenuFixed {
+  object MenuFixed        {
     implicit val enum: EnumValue[MenuFixed] = EnumValue.toLowerCaseString
 
     case object Left   extends MenuFixed
@@ -57,7 +57,7 @@ package menu {
   }
 
   sealed trait MenuIcon extends Product with Serializable
-  object MenuIcon {
+  object MenuIcon         {
     implicit val enum: EnumValueB[MenuIcon] = EnumValueB.toLowerCaseStringT(Icon)
 
     case object Icon    extends MenuIcon
@@ -65,7 +65,7 @@ package menu {
   }
 
   sealed trait MenuTabular extends Product with Serializable
-  object MenuTabular {
+  object MenuTabular      {
     implicit val enum: EnumValueB[MenuTabular] = EnumValueB.toLowerCaseStringT(Tabular)
 
     case object Tabular extends MenuTabular

@@ -29,8 +29,8 @@ final case class Sidebar(
   width:                  js.UndefOr[SidebarWidth] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Sidebar.SidebarProps, Sidebar] {
-  override protected def cprops    = Sidebar.props(this)
-  override protected val component = Sidebar.component
+  override protected def cprops                     = Sidebar.props(this)
+  override protected val component                  = Sidebar.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -112,7 +112,7 @@ object Sidebar {
     p
   }
 
-  private val component =
+  private val component               =
     JsComponent[SidebarProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): Sidebar =

@@ -5,7 +5,7 @@ import react.common.EnumValueB
 
 package progress {
   sealed trait Attached extends Product with Serializable
-  object Attached {
+  object Attached     {
     implicit val enum: EnumValue[Attached] = EnumValue.toLowerCaseString
     case object Top    extends Attached
     case object Bottom extends Attached

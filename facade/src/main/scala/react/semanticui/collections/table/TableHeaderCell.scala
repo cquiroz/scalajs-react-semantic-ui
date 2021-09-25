@@ -32,8 +32,8 @@ final case class TableHeaderCell(
   width:                  js.UndefOr[SemanticWidth] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[TableHeaderCell.TableHeaderCellProps, TableHeaderCell] {
-  override protected def cprops    = TableHeaderCell.props(this)
-  override protected val component = TableHeaderCell.component
+  override protected def cprops                     = TableHeaderCell.props(this)
+  override protected val component                  = TableHeaderCell.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -127,7 +127,7 @@ object TableHeaderCell {
     p
   }
 
-  private val component = JsComponent[TableHeaderCellProps, Children.Varargs, Null](RawComponent)
+  private val component                               = JsComponent[TableHeaderCellProps, Children.Varargs, Null](RawComponent)
 
   def apply(c: ShorthandS[VdomNode]): TableHeaderCell = TableHeaderCell(content = c)
 }

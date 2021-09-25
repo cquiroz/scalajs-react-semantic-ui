@@ -22,8 +22,8 @@ final case class DropdownHeader(
   icon:                   js.UndefOr[ShorthandS[Icon]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[DropdownHeader.DropdownHeaderProps, DropdownHeader] {
-  override protected def cprops    = DropdownHeader.props(this)
-  override protected val component = DropdownHeader.component
+  override protected def cprops                     = DropdownHeader.props(this)
+  override protected val component                  = DropdownHeader.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -76,7 +76,7 @@ object DropdownHeader {
     p
   }
 
-  private val component =
+  private val component                             =
     JsComponent[DropdownHeaderProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): DropdownHeader =

@@ -18,8 +18,8 @@ final case class DropdownText(
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[DropdownText.DropdownTextProps, DropdownText] {
-  override protected def cprops    = DropdownText.props(this)
-  override protected val component = DropdownText.component
+  override protected def cprops                     = DropdownText.props(this)
+  override protected val component                  = DropdownText.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -68,7 +68,7 @@ object DropdownText {
     p
   }
 
-  private val component =
+  private val component                         =
     JsFnComponent[DropdownTextProps, Children.Varargs](RawComponent)
 
   def apply(children: TagMod*): DropdownText =

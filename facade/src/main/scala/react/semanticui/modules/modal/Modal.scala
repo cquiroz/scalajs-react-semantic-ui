@@ -43,8 +43,8 @@ final case class Modal(
   trigger:                js.UndefOr[VdomNode] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Modal.ModalProps, Modal] {
-  override protected def cprops    = Modal.props(this)
-  override protected val component = Modal.component
+  override protected def cprops                     = Modal.props(this)
+  override protected val component                  = Modal.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -273,7 +273,7 @@ object Modal {
     p
   }
 
-  private val component =
+  private val component           =
     JsComponent[ModalProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): Modal =

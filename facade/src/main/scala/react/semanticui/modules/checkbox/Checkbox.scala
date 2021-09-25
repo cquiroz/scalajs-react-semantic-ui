@@ -41,8 +41,8 @@ final case class Checkbox(
   value:                  js.UndefOr[String | JsNumber] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[Checkbox.CheckboxProps, Checkbox] {
-  override protected def cprops = Checkbox.props(this)
-  override val component        = Checkbox.component
+  override protected def cprops                     = Checkbox.props(this)
+  override val component                            = Checkbox.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -252,7 +252,7 @@ object Checkbox {
     p
   }
 
-  private val component =
+  private val component                 =
     JsComponent[CheckboxProps, Children.None, Null](RawComponent)
 
   val Default: Checkbox = Checkbox()

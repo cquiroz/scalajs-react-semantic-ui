@@ -21,8 +21,8 @@ final case class ModalActions(
   onActionClick:          js.UndefOr[Callback] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[ModalActions.ModalActionsProps, ModalActions] {
-  override protected def cprops    = ModalActions.props(this)
-  override protected val component = ModalActions.component
+  override protected def cprops                     = ModalActions.props(this)
+  override protected val component                  = ModalActions.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -89,7 +89,7 @@ object ModalActions {
     p
   }
 
-  private val component =
+  private val component                         =
     JsComponent[ModalActionsProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): ModalActions =

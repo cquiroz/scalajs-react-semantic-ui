@@ -5,7 +5,7 @@ import react.common.EnumValueB
 
 package dropdown {
   sealed trait MenuDirection extends Product with Serializable
-  object MenuDirection {
+  object MenuDirection    {
     implicit val enum: EnumValue[MenuDirection] = EnumValue.toLowerCaseString
     case object Left  extends MenuDirection
     case object Right extends MenuDirection
@@ -19,14 +19,14 @@ package dropdown {
   }
 
   sealed trait Direction extends Product with Serializable
-  object Direction {
+  object Direction        {
     implicit val enum: EnumValue[Direction] = EnumValue.toLowerCaseString
     case object Left  extends Direction
     case object Right extends Direction
   }
 
   sealed trait Pointing extends Product with Serializable
-  object Pointing {
+  object Pointing         {
     implicit val enum: EnumValueB[Pointing] = EnumValueB.instance {
       case Left        => "left"
       case Right       => "right"

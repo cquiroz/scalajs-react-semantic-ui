@@ -17,8 +17,8 @@ final case class SidebarPushable(
   content:                js.UndefOr[VdomNode] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[SidebarPushable.SidebarPushableProps, SidebarPushable] {
-  override protected def cprops    = SidebarPushable.props(this)
-  override protected val component = SidebarPushable.component
+  override protected def cprops                     = SidebarPushable.props(this)
+  override protected val component                  = SidebarPushable.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -57,7 +57,7 @@ object SidebarPushable {
     p
   }
 
-  private val component =
+  private val component                               =
     JsFnComponent[SidebarPushableProps, Children.Varargs](RawComponent)
 
   val Default: SidebarPushable = SidebarPushable()

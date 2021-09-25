@@ -16,8 +16,8 @@ final case class PortalInner(
   onUnmount:              js.UndefOr[Callback] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[PortalInner.PortalInnerProps, PortalInner] {
-  override protected def cprops    = PortalInner.props(this)
-  override protected val component = PortalInner.component
+  override protected def cprops                     = PortalInner.props(this)
+  override protected val component                  = PortalInner.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -90,7 +90,7 @@ object PortalInner {
     p
   }
 
-  private val component =
+  private val component                       =
     JsComponent[PortalInnerProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): PortalInner =

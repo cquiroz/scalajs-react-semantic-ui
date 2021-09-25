@@ -18,8 +18,8 @@ final case class TableFooter(
   fullWidth:              js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[TableFooter.TableFooterProps, TableFooter] {
-  override protected def cprops    = TableFooter.props(this)
-  override protected val component = TableFooter.component
+  override protected def cprops                     = TableFooter.props(this)
+  override protected val component                  = TableFooter.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -64,7 +64,7 @@ object TableFooter {
     p
   }
 
-  private val component = JsComponent[TableFooterProps, Children.Varargs, Null](RawComponent)
+  private val component                       = JsComponent[TableFooterProps, Children.Varargs, Null](RawComponent)
 
   def apply(mods: TagMod*): TableFooter = TableFooter(modifiers = mods)
 }

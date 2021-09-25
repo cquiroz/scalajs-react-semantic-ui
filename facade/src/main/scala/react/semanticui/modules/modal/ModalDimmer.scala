@@ -21,8 +21,8 @@ final case class ModalDimmer(
   scrolling:              js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ModalDimmer.ModalDimmerProps, ModalDimmer] {
-  override protected def cprops    = ModalDimmer.props(this)
-  override protected val component = ModalDimmer.component
+  override protected def cprops                     = ModalDimmer.props(this)
+  override protected val component                  = ModalDimmer.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -93,7 +93,7 @@ object ModalDimmer {
     p
   }
 
-  private val component =
+  private val component                       =
     JsFnComponent[ModalDimmerProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ModalDimmer =

@@ -18,8 +18,8 @@ final case class SegmentInline(
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[SegmentInline.SegmentInlineProps, SegmentInline] {
-  override protected def cprops    = SegmentInline.props(this)
-  override protected val component = SegmentInline.component
+  override protected def cprops                     = SegmentInline.props(this)
+  override protected val component                  = SegmentInline.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 

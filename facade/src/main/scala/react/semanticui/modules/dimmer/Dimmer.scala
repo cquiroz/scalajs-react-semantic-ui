@@ -11,8 +11,8 @@ final case class Dimmer(
   page:                   js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[Dimmer.DimmerProps, Dimmer] {
-  override protected def cprops    = Dimmer.props(this)
-  override protected val component = Dimmer.component
+  override protected def cprops                     = Dimmer.props(this)
+  override protected val component                  = Dimmer.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -49,7 +49,7 @@ object Dimmer {
     p
   }
 
-  private val component =
+  private val component             =
     JsComponent[DimmerProps, Children.None, Null](RawComponent)
 
 }

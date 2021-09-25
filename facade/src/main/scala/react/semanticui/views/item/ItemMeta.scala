@@ -17,8 +17,8 @@ final case class ItemMeta(
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericFnComponentPAC[ItemMeta.ItemMetaProps, ItemMeta] {
-  override protected def cprops    = ItemMeta.props(this)
-  override protected val component = ItemMeta.component
+  override protected def cprops                     = ItemMeta.props(this)
+  override protected val component                  = ItemMeta.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -66,7 +66,7 @@ object ItemMeta {
     p
   }
 
-  private val component =
+  private val component                 =
     JsFnComponent[ItemMetaProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ItemMeta =

@@ -52,7 +52,7 @@ object IconsComponent {
       )
     )
 
-  private val component =
+  private val component                                                  =
     ScalaComponent
       .builder[Unit]("Home")
       .render { _ =>

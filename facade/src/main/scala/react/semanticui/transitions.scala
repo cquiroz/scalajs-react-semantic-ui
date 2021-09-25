@@ -41,7 +41,7 @@ object transitions {
     }
   }
 
-  case object Browse         extends SemanticTransition
+  case object Browse extends SemanticTransition
   case object BrowseRight    extends SemanticTransition
   case object Drop           extends SemanticTransition
   case object Fade           extends SemanticTransition

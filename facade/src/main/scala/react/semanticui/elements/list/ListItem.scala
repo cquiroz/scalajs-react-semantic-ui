@@ -27,8 +27,8 @@ final case class ListItem(
   value:                  js.UndefOr[String] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[ListItem.ListItemProps, ListItem] {
-  override protected def cprops    = ListItem.props(this)
-  override protected val component = ListItem.component
+  override protected def cprops                     = ListItem.props(this)
+  override protected val component                  = ListItem.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -140,7 +140,7 @@ object ListItem {
     p
   }
 
-  private val component =
+  private val component                 =
     JsComponent[ListItemProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: VdomNode*): ListItem =
