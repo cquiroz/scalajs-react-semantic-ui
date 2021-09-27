@@ -28,7 +28,7 @@ final case class DropdownItem(
   clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   description:            js.UndefOr[String] = js.undefined,
-  disable:                js.UndefOr[Boolean] = js.undefined,
+  disabled:               js.UndefOr[Boolean] = js.undefined,
   flag:                   js.UndefOr[ShorthandS[Flag]] = js.undefined,
   icon:                   js.UndefOr[ShorthandS[Icon]] = js.undefined,
   image:                  js.UndefOr[ShorthandS[Image]] = js.undefined,
@@ -79,7 +79,7 @@ object DropdownItem {
     var description: js.UndefOr[suiraw.SemanticShorthandItemS[String]] = js.native
 
     /** A dropdown item can be disabled. */
-    var disable: js.UndefOr[Boolean] = js.native
+    var disabled: js.UndefOr[Boolean] = js.native
 
     /** Shorthand for Flag. */
     var flag: js.UndefOr[suiraw.SemanticShorthandItemS[FlagProps]] = js.native
@@ -124,7 +124,7 @@ object DropdownItem {
     (q.className, q.clazz).toJs.foreach(v => p.className = v)
     q.content.toJs.foreach(v => p.content = v)
     q.description.foreach(v => p.description = v)
-    q.disable.foreach(v => p.disable = v)
+    q.disabled.foreach(v => p.disabled = v)
     q.flag.toJs.foreach(v => p.flag = v)
     q.icon.toJs.foreach(v => p.icon = v)
     q.image.toJs.foreach(v => p.image = v)
