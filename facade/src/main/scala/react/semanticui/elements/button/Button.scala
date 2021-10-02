@@ -193,7 +193,7 @@ object Button {
     p
   }
 
-  private val component             =
+  private val component =
     JsComponent[ButtonProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): Button =

@@ -226,7 +226,7 @@ object Menu {
     p
   }
 
-  private val component         =
+  private val component =
     JsComponent[MenuProps, Children.Varargs, Null](RawComponent)
 
   val Default: Menu = Menu()

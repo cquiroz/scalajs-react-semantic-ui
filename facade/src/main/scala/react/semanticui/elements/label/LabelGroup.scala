@@ -98,7 +98,7 @@ object LabelGroup {
     p
   }
 
-  private val component                     =
+  private val component =
     JsComponent[LabelGroupProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): LabelGroup =

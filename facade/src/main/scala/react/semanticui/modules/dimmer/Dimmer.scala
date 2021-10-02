@@ -49,7 +49,7 @@ object Dimmer {
     p
   }
 
-  private val component             =
+  private val component =
     JsComponent[DimmerProps, Children.None, Null](RawComponent)
 
 }

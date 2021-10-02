@@ -146,7 +146,7 @@ object Form {
     p
   }
 
-  private lazy val component    =
+  private lazy val component =
     JsComponent[FormProps, Children.Varargs, Null](RawComponent)
 
   val Default: Form = Form()

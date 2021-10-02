@@ -36,7 +36,7 @@ class JSDOMNodeJSEnv(config: JSDOMNodeJSEnv.Config) extends JSEnv {
     }
   }
 
-  private def validateInput(input: Seq[Input]): List[Path]                                       =
+  private def validateInput(input: Seq[Input]): List[Path] =
     input.map {
       case Input.Script(script) =>
         script
@@ -45,7 +45,7 @@ class JSDOMNodeJSEnv(config: JSDOMNodeJSEnv.Config) extends JSEnv {
         throw new UnsupportedInputException(input)
     }.toList
 
-  private def internalStart(files: List[Path], runConfig: RunConfig): JSRun                      = {
+  private def internalStart(files: List[Path], runConfig: RunConfig): JSRun = {
     val command        = config.executable :: config.args
     val externalConfig = ExternalJSRun
       .Config()
@@ -54,10 +54,10 @@ class JSDOMNodeJSEnv(config: JSDOMNodeJSEnv.Config) extends JSEnv {
     ExternalJSRun.start(command, externalConfig)(JSDOMNodeJSEnv.write(files))
   }
 
-  private def env: Map[String, String]                                                           =
+  private def env: Map[String, String] =
     Map("NODE_MODULE_CONTEXTS" -> "0") ++ config.env
 
-  private def codeWithJSDOMContext(scripts: List[Path]): List[Path]                              = {
+  private def codeWithJSDOMContext(scripts: List[Path]): List[Path] = {
     val scriptsURIs            = scripts.map(JSDOMNodeJSEnv.materialize(_))
     val scriptsURIsAsJSStrings =
       scriptsURIs.map(uri => "\"" + escapeJS(uri.toASCIIString) + "\"")
@@ -203,7 +203,7 @@ object JSDOMNodeJSEnv {
       f.toURI()
     } finally in.close()
 
-  private def materialize(path: Path): URI                =
+  private def materialize(path: Path): URI =
     try path.toFile.toURI
     catch {
       case _: UnsupportedOperationException =>

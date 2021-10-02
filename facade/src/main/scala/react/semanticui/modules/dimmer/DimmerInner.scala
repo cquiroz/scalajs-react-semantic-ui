@@ -150,7 +150,7 @@ object DimmerInner {
     p
   }
 
-  private val component                       =
+  private val component =
     JsComponent[DimmerInnerProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): DimmerInner =

@@ -114,7 +114,7 @@ object CardGroup {
     p
   }
 
-  private val component                   =
+  private val component =
     JsFnComponent[CardGroupProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): CardGroup =

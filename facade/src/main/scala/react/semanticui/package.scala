@@ -38,7 +38,7 @@ package semanticui {
     protected def removeAs[P <: js.Object](p: P): P =
       filterProps(p, "as")
 
-    final case class AsTag[N <: TopNode](tagOf: TagOf[N])                         extends As {
+    final case class AsTag[N <: TopNode](tagOf: TagOf[N]) extends As {
       override type P = js.Object
       override val props =
         js.Object.assign(js.Object(), tagOf.rawElement.asInstanceOf[React.DomElement].props)
@@ -218,7 +218,7 @@ package object semanticui {
       case _           => shorthandObject(c.asInstanceOf[C])
     }
 
-  object shorthand                                                                           {
+  object shorthand {
     implicit def shorthandBSFnProps2VdomNodeP[P <: js.Object, C](
       p: GenericFnComponentP[P]
     ): js.UndefOr[ShorthandSB[C]] =
@@ -380,7 +380,7 @@ package object semanticui {
       c.map(_.map(d => compToPropS(d)(render)).toJSArray)
   }
 
-  implicit class VdomNodeToReactNodeS[P <: js.Object](c: js.UndefOr[ShorthandS[VdomNode]])   {
+  implicit class VdomNodeToReactNodeS[P <: js.Object](c: js.UndefOr[ShorthandS[VdomNode]]) {
     def toJs: js.UndefOr[raw.SemanticShorthandContent] =
       c.map { d =>
         (d: Any) match {

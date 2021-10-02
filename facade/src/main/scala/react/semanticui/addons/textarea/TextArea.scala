@@ -102,7 +102,7 @@ object TextArea {
     p
   }
 
-  private val component                 =
+  private val component =
     JsComponent[TextAreaProps, Children.None, Null](RawComponent)
 
   val Default: TextArea = TextArea()

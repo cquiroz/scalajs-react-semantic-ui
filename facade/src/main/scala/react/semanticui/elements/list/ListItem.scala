@@ -140,7 +140,7 @@ object ListItem {
     p
   }
 
-  private val component                 =
+  private val component =
     JsComponent[ListItemProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: VdomNode*): ListItem =

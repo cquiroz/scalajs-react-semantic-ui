@@ -162,7 +162,7 @@ object Grid {
     p
   }
 
-  private val component         =
+  private val component =
     JsFnComponent[GridProps, Children.Varargs](RawComponent)
 
   val Default: Grid = Grid()

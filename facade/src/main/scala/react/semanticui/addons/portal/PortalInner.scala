@@ -90,7 +90,7 @@ object PortalInner {
     p
   }
 
-  private val component                       =
+  private val component =
     JsComponent[PortalInnerProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): PortalInner =

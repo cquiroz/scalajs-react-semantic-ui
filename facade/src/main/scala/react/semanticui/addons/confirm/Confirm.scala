@@ -189,7 +189,7 @@ object Confirm {
     p
   }
 
-  private val component               =
+  private val component =
     JsComponent[ConfirmProps, Children.None, Null](RawComponent)
 
   def apply(modifiers: TagMod*): Confirm =

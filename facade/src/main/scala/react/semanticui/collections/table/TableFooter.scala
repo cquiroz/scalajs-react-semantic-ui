@@ -64,7 +64,7 @@ object TableFooter {
     p
   }
 
-  private val component                       = JsComponent[TableFooterProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[TableFooterProps, Children.Varargs, Null](RawComponent)
 
   def apply(mods: TagMod*): TableFooter = TableFooter(modifiers = mods)
 }

@@ -49,7 +49,7 @@ object TableBody {
     p
   }
 
-  private val component                   = JsComponent[TableBodyProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[TableBodyProps, Children.Varargs, Null](RawComponent)
 
   def apply(mods: TagMod*): TableBody = TableBody(modifiers = mods)
 }

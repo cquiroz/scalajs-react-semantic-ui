@@ -66,7 +66,7 @@ object ItemDescription {
     p
   }
 
-  private val component                               =
+  private val component =
     JsFnComponent[ItemDescriptionProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ItemDescription =

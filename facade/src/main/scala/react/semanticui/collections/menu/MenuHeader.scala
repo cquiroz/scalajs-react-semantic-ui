@@ -66,7 +66,7 @@ object MenuHeader {
     p
   }
 
-  private val component                     =
+  private val component =
     JsFnComponent[MenuHeaderProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): MenuHeader =

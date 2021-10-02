@@ -84,7 +84,7 @@ object DropdownMenu {
     p
   }
 
-  private val component                         =
+  private val component =
     JsComponent[DropdownMenuProps, Children.Varargs, Null](RawComponent)
 
   def apply(children: TagMod*): DropdownMenu =

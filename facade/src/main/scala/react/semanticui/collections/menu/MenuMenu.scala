@@ -72,7 +72,7 @@ object MenuMenu {
     p
   }
 
-  private val component                 =
+  private val component =
     JsFnComponent[MenuMenuProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): MenuMenu =

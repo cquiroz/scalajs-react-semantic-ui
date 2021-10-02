@@ -66,7 +66,7 @@ object ModalDescription {
     p
   }
 
-  private val component                                 =
+  private val component =
     JsFnComponent[ModalDescriptionProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ModalDescription =

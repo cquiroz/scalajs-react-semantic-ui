@@ -34,7 +34,7 @@ object LabelsComponent {
       )
     )
 
-  private val component                                                  =
+  private val component =
     ScalaComponent
       .builder[Unit]("Labels")
       .render { _ =>

@@ -106,7 +106,7 @@ object Item {
     p
   }
 
-  private val component         =
+  private val component =
     JsFnComponent[ItemProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): Item =

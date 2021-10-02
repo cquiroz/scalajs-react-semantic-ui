@@ -167,7 +167,7 @@ object Header {
     p
   }
 
-  private val component             =
+  private val component =
     JsFnComponent[HeaderProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): Header =

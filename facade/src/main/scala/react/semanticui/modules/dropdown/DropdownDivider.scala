@@ -55,7 +55,7 @@ object DropdownDivider {
     p
   }
 
-  private val component                               =
+  private val component =
     JsFnComponent[DropdownDividerProps, Children.Varargs](RawComponent)
 
   def apply(children: TagMod*): DropdownDivider =

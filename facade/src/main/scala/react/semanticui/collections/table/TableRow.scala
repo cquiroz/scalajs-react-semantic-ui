@@ -112,7 +112,7 @@ object TableRow {
     p
   }
 
-  private val component                 = JsComponent[TableRowProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[TableRowProps, Children.Varargs, Null](RawComponent)
 
   def apply(mods: TagMod*): TableRow = TableRow(modifiers = mods)
 }

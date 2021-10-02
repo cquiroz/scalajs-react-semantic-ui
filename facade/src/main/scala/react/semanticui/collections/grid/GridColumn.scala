@@ -147,7 +147,7 @@ object GridColumn {
     p
   }
 
-  private val component                     =
+  private val component =
     JsFnComponent[GridColumnProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): GridColumn =

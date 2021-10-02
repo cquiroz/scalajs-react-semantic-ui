@@ -109,7 +109,7 @@ object FormGroup {
     p
   }
 
-  private val component                   =
+  private val component =
     JsComponent[FormGroupProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): FormGroup =

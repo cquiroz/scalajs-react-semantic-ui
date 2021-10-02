@@ -64,7 +64,7 @@ object TableHeader {
     p
   }
 
-  private val component                       = JsComponent[TableHeaderProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[TableHeaderProps, Children.Varargs, Null](RawComponent)
 
   def apply(mods: TagMod*): TableHeader = TableHeader(modifiers = mods)
 }

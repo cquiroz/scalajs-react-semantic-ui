@@ -196,7 +196,7 @@ object ButtonGroup {
     p
   }
 
-  private val component                       =
+  private val component =
     JsComponent[ButtonGroupProps, Children.Varargs, Null](RawComponent)
 
   def apply(button: Button, buttons: Button*): ButtonGroup =
