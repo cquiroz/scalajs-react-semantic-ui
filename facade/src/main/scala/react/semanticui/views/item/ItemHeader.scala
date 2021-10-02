@@ -66,7 +66,7 @@ object ItemHeader {
     p
   }
 
-  private val component                     =
+  private val component =
     JsFnComponent[ItemHeaderProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ItemHeader =

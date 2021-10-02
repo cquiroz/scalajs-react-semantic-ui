@@ -72,7 +72,7 @@ object CardDescription {
     p
   }
 
-  private val component                               =
+  private val component =
     JsFnComponent[CardDescriptionProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): CardDescription =

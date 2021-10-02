@@ -66,7 +66,7 @@ object ItemMeta {
     p
   }
 
-  private val component                 =
+  private val component =
     JsFnComponent[ItemMetaProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ItemMeta =

@@ -256,7 +256,7 @@ object FormInput {
     p
   }
 
-  private val component                   =
+  private val component =
     JsComponent[FormInputProps, Children.None, Null](RawComponent)
 
   def apply(modifiers: TagMod*): FormInput =

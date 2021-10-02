@@ -66,7 +66,7 @@ object ModalHeader {
     p
   }
 
-  private val component                       =
+  private val component =
     JsFnComponent[ModalHeaderProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ModalHeader =

@@ -244,7 +244,7 @@ object Radio {
     p
   }
 
-  private val component           =
+  private val component =
     JsComponent[RadioProps, Children.None, Null](RawComponent)
 
   val Default: Radio = Radio()

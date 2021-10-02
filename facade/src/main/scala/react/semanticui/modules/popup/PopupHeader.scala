@@ -66,7 +66,7 @@ object PopupHeader {
     p
   }
 
-  private val component                       =
+  private val component =
     JsFnComponent[PopupHeaderProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): PopupHeader =

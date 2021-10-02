@@ -91,7 +91,7 @@ object AccordionTitle {
     p
   }
 
-  private val component                             =
+  private val component =
     JsComponent[AccordionTitleProps, Children.Varargs, Null](RawComponent)
 
   def apply(c: ShorthandS[VdomNode]): AccordionTitle =

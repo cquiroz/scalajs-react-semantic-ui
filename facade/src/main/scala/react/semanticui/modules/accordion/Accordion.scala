@@ -108,7 +108,7 @@ object Accordion {
     p
   }
 
-  private val component                   = JsComponent[AccordionProps, Children.None, Null](RawComponent)
+  private val component = JsComponent[AccordionProps, Children.None, Null](RawComponent)
 
   def apply(ps: AccordionPanel*): Accordion =
     new Accordion(panels = ps)

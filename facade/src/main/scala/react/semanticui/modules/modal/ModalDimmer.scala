@@ -93,7 +93,7 @@ object ModalDimmer {
     p
   }
 
-  private val component                       =
+  private val component =
     JsFnComponent[ModalDimmerProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ModalDimmer =

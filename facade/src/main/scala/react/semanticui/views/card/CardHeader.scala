@@ -72,7 +72,7 @@ object CardHeader {
     p
   }
 
-  private val component                     =
+  private val component =
     JsFnComponent[CardHeaderProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): CardHeader =

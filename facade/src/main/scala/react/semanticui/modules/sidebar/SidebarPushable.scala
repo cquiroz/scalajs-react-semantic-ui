@@ -57,7 +57,7 @@ object SidebarPushable {
     p
   }
 
-  private val component                               =
+  private val component =
     JsFnComponent[SidebarPushableProps, Children.Varargs](RawComponent)
 
   val Default: SidebarPushable = SidebarPushable()

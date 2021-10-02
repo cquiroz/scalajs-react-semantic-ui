@@ -107,7 +107,7 @@ object ItemGroup {
     p
   }
 
-  private val component                   =
+  private val component =
     JsFnComponent[ItemGroupProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): ItemGroup =

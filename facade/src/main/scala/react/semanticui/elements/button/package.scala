@@ -23,7 +23,7 @@ package button {
   }
 
   sealed trait LabelPosition extends Product with Serializable
-  object LabelPosition  {
+  object LabelPosition {
     implicit val enum: EnumValue[LabelPosition] = EnumValue.toLowerCaseString
     case object Right extends LabelPosition
     case object Left  extends LabelPosition

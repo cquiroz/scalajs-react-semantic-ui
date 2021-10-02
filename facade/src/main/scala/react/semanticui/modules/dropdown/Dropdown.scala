@@ -713,7 +713,7 @@ object Dropdown {
     p
   }
 
-  private val component                 =
+  private val component =
     JsComponent[DropdownProps, Children.Varargs, Null](RawComponent)
 
 }

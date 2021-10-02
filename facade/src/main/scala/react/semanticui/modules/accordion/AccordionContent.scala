@@ -61,7 +61,7 @@ object AccordionContent {
     p
   }
 
-  private val component                                 = JsComponent[AccordionContentProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[AccordionContentProps, Children.Varargs, Null](RawComponent)
 
   def apply(c: ShorthandS[VdomNode]): AccordionContent =
     new AccordionContent(content = c)

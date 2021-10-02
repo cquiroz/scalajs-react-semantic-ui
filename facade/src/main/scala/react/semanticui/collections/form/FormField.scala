@@ -135,7 +135,7 @@ object FormField {
     p
   }
 
-  private val component                   =
+  private val component =
     JsComponent[FormFieldProps, Children.None, Null](RawComponent)
 
   def apply(modifiers: TagMod*): FormField =

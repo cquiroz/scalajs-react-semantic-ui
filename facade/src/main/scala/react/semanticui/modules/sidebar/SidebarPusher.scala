@@ -61,7 +61,7 @@ object SidebarPusher {
     p
   }
 
-  private val component                           =
+  private val component =
     JsFnComponent[SidebarPusherProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): SidebarPusher =

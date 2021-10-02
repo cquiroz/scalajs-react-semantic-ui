@@ -394,6 +394,6 @@ object FormSelect {
     p
   }
 
-  private val component                     =
+  private val component =
     JsComponent[FormSelectProps, Children.None, Null](RawComponent)
 }

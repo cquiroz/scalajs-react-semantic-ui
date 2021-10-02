@@ -76,7 +76,7 @@ object DropdownHeader {
     p
   }
 
-  private val component                             =
+  private val component =
     JsComponent[DropdownHeaderProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): DropdownHeader =

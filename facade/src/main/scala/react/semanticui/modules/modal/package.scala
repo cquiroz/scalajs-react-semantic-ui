@@ -5,7 +5,7 @@ import react.common.EnumValueB
 
 package modal {
   sealed trait Dimmer extends Product with Serializable
-  object Dimmer    {
+  object Dimmer {
     implicit val enum: EnumValueB[Dimmer] = EnumValueB.toLowerCaseStringT(Dimmer)
 
     case object Dimmer   extends Dimmer

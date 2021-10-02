@@ -251,7 +251,7 @@ object FormButton {
     p
   }
 
-  private val component                     =
+  private val component =
     JsComponent[FormButtonProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): FormButton =

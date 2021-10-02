@@ -78,7 +78,7 @@ object DimmerDimmable {
     p
   }
 
-  private val component                             =
+  private val component =
     JsFnComponent[DimmerDimmableProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): DimmerDimmable =

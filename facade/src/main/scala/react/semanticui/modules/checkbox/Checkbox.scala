@@ -252,7 +252,7 @@ object Checkbox {
     p
   }
 
-  private val component                 =
+  private val component =
     JsComponent[CheckboxProps, Children.None, Null](RawComponent)
 
   val Default: Checkbox = Checkbox()

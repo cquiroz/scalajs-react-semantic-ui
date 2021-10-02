@@ -5,7 +5,7 @@ import react.semanticui._
 
 package icon {
   sealed trait IconFlip extends Product with Serializable
-  object IconFlip    {
+  object IconFlip {
     implicit val enum: EnumValue[IconFlip] = EnumValue.toLowerCaseString
 
     case object Horizontally extends IconFlip
@@ -20,7 +20,7 @@ package icon {
   }
 
   sealed trait IconCorner extends Product with Serializable
-  object IconCorner  {
+  object IconCorner {
     implicit val enum: EnumValueB[IconCorner] = EnumValueB.instance {
       case BottomRight => "bottom right"
       case TopRight    => "top right"
@@ -29,13 +29,13 @@ package icon {
     }
 
     case object BottomRight extends IconCorner
-    case object TopRight   extends IconCorner
-    case object TopLeft    extends IconCorner
-    case object BottomLeft extends IconCorner
+    case object TopRight    extends IconCorner
+    case object TopLeft     extends IconCorner
+    case object BottomLeft  extends IconCorner
   }
 }
 
-package object icon  {
+package object icon {
   implicit class CopyIconOps(val i: Icon) extends AnyVal {
     def bordered(s: Boolean = true): Icon =
       i.copy(bordered = s)

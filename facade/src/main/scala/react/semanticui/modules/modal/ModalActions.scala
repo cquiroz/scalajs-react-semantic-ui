@@ -89,7 +89,7 @@ object ModalActions {
     p
   }
 
-  private val component                         =
+  private val component =
     JsComponent[ModalActionsProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): ModalActions =

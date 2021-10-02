@@ -367,6 +367,6 @@ object Select {
     p
   }
 
-  private val component             =
+  private val component =
     JsComponent[SelectProps, Children.None, Null](RawComponent)
 }

@@ -32,7 +32,7 @@ package sidebar {
   }
 
   sealed trait SidebarWidth extends Product with Serializable
-  object SidebarWidth     {
+  object SidebarWidth {
     implicit val enum: EnumValue[SidebarWidth] = EnumValue.instance {
       case VeryThin => "very thin"
       case Thin     => "thin"

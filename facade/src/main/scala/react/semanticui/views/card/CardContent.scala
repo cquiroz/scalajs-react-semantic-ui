@@ -106,7 +106,7 @@ object CardContent {
     p
   }
 
-  protected[views] val component              =
+  protected[views] val component =
     JsFnComponent[CardContentProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): CardContent =

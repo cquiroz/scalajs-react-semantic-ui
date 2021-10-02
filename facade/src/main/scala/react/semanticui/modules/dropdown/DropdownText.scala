@@ -68,7 +68,7 @@ object DropdownText {
     p
   }
 
-  private val component                         =
+  private val component =
     JsFnComponent[DropdownTextProps, Children.Varargs](RawComponent)
 
   def apply(children: TagMod*): DropdownText =

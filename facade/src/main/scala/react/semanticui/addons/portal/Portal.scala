@@ -234,7 +234,7 @@ object Portal {
     p
   }
 
-  private val component             =
+  private val component =
     JsComponent[PortalProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): Portal =

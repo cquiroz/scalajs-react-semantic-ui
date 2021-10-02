@@ -72,7 +72,7 @@ object CardMeta {
     p
   }
 
-  private val component                 =
+  private val component =
     JsFnComponent[CardMetaProps, Children.Varargs](RawComponent)
 
   def apply(modifiers: TagMod*): CardMeta =

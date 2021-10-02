@@ -127,7 +127,7 @@ object TableHeaderCell {
     p
   }
 
-  private val component                               = JsComponent[TableHeaderCellProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[TableHeaderCellProps, Children.Varargs, Null](RawComponent)
 
   def apply(c: ShorthandS[VdomNode]): TableHeaderCell = TableHeaderCell(content = c)
 }

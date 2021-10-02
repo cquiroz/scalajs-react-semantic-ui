@@ -122,7 +122,7 @@ object TableCell {
     p
   }
 
-  private val component                   = JsComponent[TableCellProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[TableCellProps, Children.Varargs, Null](RawComponent)
 
   def apply(c: ShorthandS[VdomNode]): TableCell = TableCell(content = c)
 }

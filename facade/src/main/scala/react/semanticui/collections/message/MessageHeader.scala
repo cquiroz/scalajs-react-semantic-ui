@@ -72,7 +72,7 @@ object MessageHeader {
     p
   }
 
-  private val component                           =
+  private val component =
     JsComponent[MessageHeaderProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): MessageHeader =

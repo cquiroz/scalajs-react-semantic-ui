@@ -71,7 +71,7 @@ object MessageContent {
     p
   }
 
-  private val component                             =
+  private val component =
     JsComponent[MessageContentProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): MessageContent =

@@ -158,7 +158,7 @@ object Table {
     p
   }
 
-  private val component              = JsComponent[TableProps, Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[TableProps, Children.Varargs, Null](RawComponent)
 
   def apply[A](mods: TagMod*): Table = Table(modifiers = mods)
 

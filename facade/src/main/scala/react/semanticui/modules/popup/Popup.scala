@@ -292,7 +292,7 @@ object Popup {
     p
   }
 
-  private val component           =
+  private val component =
     JsComponent[PopupProps, Children.Varargs, Null](RawComponent)
 
   def apply(modifiers: TagMod*): Popup =

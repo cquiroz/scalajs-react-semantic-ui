@@ -195,5 +195,5 @@ object TableGenerator {
     p
   }
 
-  private val component                                   = JsComponent[TableGeneratorProps, Children.None, Null](RawComponent)
+  private val component = JsComponent[TableGeneratorProps, Children.None, Null](RawComponent)
 }
