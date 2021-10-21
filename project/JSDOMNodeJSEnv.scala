@@ -216,14 +216,13 @@ object JSDOMNodeJSEnv {
     val args:           List[String],
     val env:            Map[String, String]
   ) {
-    private def this(jsDomDirectory: File) = {
+    private def this(jsDomDirectory: File) =
       this(
         jsDomDirectory,
         executable = "node",
         args = Nil,
         env = Map.empty
       )
-    }
 
     def withExecutable(executable: String): Config =
       copy(executable = executable)
