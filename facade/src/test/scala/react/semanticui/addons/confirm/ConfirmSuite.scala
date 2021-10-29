@@ -5,7 +5,7 @@ package react.semanticui.addons.confirm
 
 class ConfirmSuite extends munit.FunSuite {
   test("render") {
-    //Modal cannot be tested without anmiationFrame
+    // Modal cannot be tested without anmiationFrame
     // val pusher = Confirm(content = "Abc")
     // ReactTestUtils.withNewBodyElement { mountNode =>
     //   pusher.renderIntoDOM(mountNode)

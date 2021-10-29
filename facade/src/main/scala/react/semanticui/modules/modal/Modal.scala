@@ -173,7 +173,7 @@ object Modal {
     var open: js.UndefOr[Boolean] = js.native
 
     /** A modal can vary in size. */
-    //size?: 'mini' | 'tiny' | 'small' | 'large' | 'fullscreen'
+    // size?: 'mini' | 'tiny' | 'small' | 'large' | 'fullscreen'
     var size: js.UndefOr[String] = js.native
 
     /** Custom styles. */
