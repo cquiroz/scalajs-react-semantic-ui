@@ -155,7 +155,7 @@ object Portal {
     /** Element to be rendered in-place where the portal is defined. */
     var trigger: js.UndefOr[React.Node] = js.undefined
 
-    ///** Called with a ref to the trigger node. */
+    // /** Called with a ref to the trigger node. */
     // var triggerRef: js.UndefOr[Ref]
   }
 

@@ -184,7 +184,7 @@ object Popup {
     var popperModifiers: js.UndefOr[js.Object] = js.native
 
     /** A popup can have dependencies which update will schedule a position update. */
-    //popperDependencies?: any[]
+    // popperDependencies?: any[]
 
     /** Popup size. */
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
