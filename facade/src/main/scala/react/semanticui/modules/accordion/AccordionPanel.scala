@@ -17,9 +17,8 @@ final case class AccordionPanel(
   onTitleClick:  js.UndefOr[Callback] = js.undefined,
   title:         js.UndefOr[ShorthandS[AccordionTitle]] = js.undefined
 ) extends GenericComponentP[AccordionPanel.AccordionPanelProps] {
-  override protected def cprops                                                = AccordionPanel.props(this)
-  override def render: react.common.Render[AccordionPanel.AccordionPanelProps] =
-    AccordionPanel.component.applyGeneric(cprops)()
+  override protected def cprops    = AccordionPanel.props(this)
+  override protected val component = AccordionPanel.component
 }
 
 object AccordionPanel {
