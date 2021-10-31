@@ -1,9 +1,13 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
 
-val reactJS      = "17.0.2"
-val scalaJsReact = "2.0.0-RC3"
-val FUILess      = "2.8.7"
-val reactSUI     = "2.0.3"
+val reactJS  = "17.0.2"
+val FUILess  = "2.8.7"
+val reactSUI = "2.0.3"
+
+val scalaJsReact       = "2.0.0-RC5"
+val scalaJSReactCommon = "0.14.6"
+val cats               = "2.6.1"
+val munit              = "0.7.29"
 
 cancelable in Global := true
 
@@ -96,9 +100,9 @@ lazy val facade =
         "com.github.japgolly.scalajs-react" %%% "core"      % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "extra"     % scalaJsReact,
         "com.github.japgolly.scalajs-react" %%% "test"      % scalaJsReact % Test,
-        "io.github.cquiroz.react"           %%% "common"    % "0.13.1",
-        "org.scalameta"                     %%% "munit"     % "0.7.29"     % Test,
-        "org.typelevel"                     %%% "cats-core" % "2.6.1"      % Test
+        "io.github.cquiroz.react"           %%% "common"    % scalaJSReactCommon,
+        "org.scalameta"                     %%% "munit"     % munit        % Test,
+        "org.typelevel"                     %%% "cats-core" % cats         % Test
       ),
       Test / webpackConfigFile        := Some(baseDirectory.value / "test.webpack.config.js"),
       testFrameworks += new TestFramework("utest.runner.Framework"),
