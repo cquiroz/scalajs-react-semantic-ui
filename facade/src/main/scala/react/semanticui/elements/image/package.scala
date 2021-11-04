@@ -5,7 +5,7 @@ import react.common.EnumValueB
 package image {
   sealed trait ImageSpaced extends Product with Serializable
   object ImageSpaced {
-    implicit val enum: EnumValueB[ImageSpaced] = EnumValueB.toLowerCaseStringT(Spaced)
+    implicit val enumValue: EnumValueB[ImageSpaced] = EnumValueB.toLowerCaseStringT(Spaced)
     case object Spaced extends ImageSpaced
     case object Left   extends ImageSpaced
     case object Right  extends ImageSpaced

@@ -6,7 +6,7 @@ object colors {
   sealed trait SemanticColor extends Product with Serializable
 
   object SemanticColor {
-    implicit val enum: EnumValue[SemanticColor] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[SemanticColor] = EnumValue.toLowerCaseString
   }
   case object Red extends SemanticColor
   case object Orange extends SemanticColor

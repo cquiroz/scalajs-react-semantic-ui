@@ -6,7 +6,7 @@ import react.common.EnumValueB
 package table {
   sealed trait TableTextAlign
   object TableTextAlign {
-    implicit val enum: EnumValue[TableTextAlign] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[TableTextAlign] = EnumValue.toLowerCaseString
     case object Center extends TableTextAlign
     case object Left   extends TableTextAlign
     case object Right  extends TableTextAlign
@@ -14,14 +14,14 @@ package table {
 
   sealed trait TableSorted
   object TableSorted {
-    implicit val enum: EnumValue[TableSorted] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[TableSorted] = EnumValue.toLowerCaseString
     case object Ascending  extends TableSorted
     case object Descending extends TableSorted
   }
 
   sealed trait TableAttached
   object TableAttached {
-    implicit val enum: EnumValueB[TableAttached] =
+    implicit val enumValue: EnumValueB[TableAttached] =
       EnumValueB.toLowerCaseStringTF(Attached, NotAttached)
     case object Attached    extends TableAttached
     case object NotAttached extends TableAttached
@@ -31,7 +31,7 @@ package table {
 
   sealed trait TableBasic
   object TableBasic {
-    implicit val enum: EnumValueB[TableBasic] = EnumValueB.toLowerCaseStringTF(Basic, NotBasic)
+    implicit val enumValue: EnumValueB[TableBasic] = EnumValueB.toLowerCaseStringTF(Basic, NotBasic)
     case object Basic    extends TableBasic
     case object NotBasic extends TableBasic
     case object Very     extends TableBasic
@@ -39,7 +39,7 @@ package table {
 
   sealed trait TableCompact
   object TableCompact {
-    implicit val enum: EnumValueB[TableCompact] =
+    implicit val enumValue: EnumValueB[TableCompact] =
       EnumValueB.toLowerCaseStringTF(Compact, NotCompact)
     case object Compact    extends TableCompact
     case object NotCompact extends TableCompact
@@ -48,7 +48,8 @@ package table {
 
   sealed trait TablePadded
   object TablePadded {
-    implicit val enum: EnumValueB[TablePadded] = EnumValueB.toLowerCaseStringTF(Padded, NotPadded)
+    implicit val enumValue: EnumValueB[TablePadded] =
+      EnumValueB.toLowerCaseStringTF(Padded, NotPadded)
     case object Padded    extends TablePadded
     case object NotPadded extends TablePadded
     case object Very      extends TablePadded
@@ -56,7 +57,7 @@ package table {
 
   sealed trait TableSize
   object TableSize {
-    implicit val enum: EnumValue[TableSize] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[TableSize] = EnumValue.toLowerCaseString
     case object Small extends TableSize
     case object Large extends TableSize
   }

@@ -7,7 +7,7 @@ import react.common.EnumValue
 object widths {
   sealed trait SemanticWidth extends Product with Serializable
   object SemanticWidth {
-    implicit val enum: EnumValue[SemanticWidth] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[SemanticWidth] = EnumValue.toLowerCaseString
   }
 
   case object One      extends SemanticWidth

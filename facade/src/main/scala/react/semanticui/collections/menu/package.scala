@@ -6,7 +6,7 @@ import react.common.EnumValueB
 package menu {
   sealed trait MenuItemFitted extends Product with Serializable
   object MenuItemFitted {
-    implicit val enum: EnumValueB[MenuItemFitted] = EnumValueB.toLowerCaseStringT(Fitted)
+    implicit val enumValue: EnumValueB[MenuItemFitted] = EnumValueB.toLowerCaseStringT(Fitted)
 
     case object Fitted       extends MenuItemFitted
     case object Horizontally extends MenuItemFitted
@@ -15,7 +15,7 @@ package menu {
 
   sealed trait MenuMenuPosition extends Product with Serializable
   object MenuMenuPosition {
-    implicit val enum: EnumValue[MenuMenuPosition] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[MenuMenuPosition] = EnumValue.toLowerCaseString
 
     case object Left  extends MenuMenuPosition
     case object Right extends MenuMenuPosition
@@ -23,7 +23,7 @@ package menu {
 
   sealed trait MenuAttached extends Product with Serializable
   object MenuAttached {
-    implicit val enum: EnumValueB[MenuAttached] = EnumValueB.toLowerCaseStringT(Attached)
+    implicit val enumValue: EnumValueB[MenuAttached] = EnumValueB.toLowerCaseStringT(Attached)
 
     case object Attached extends MenuAttached
     case object Top      extends MenuAttached
@@ -32,7 +32,7 @@ package menu {
 
   sealed trait MenuFloated extends Product with Serializable
   object MenuFloated {
-    implicit val enum: EnumValueB[MenuFloated] = EnumValueB.toLowerCaseStringT(Floated)
+    implicit val enumValue: EnumValueB[MenuFloated] = EnumValueB.toLowerCaseStringT(Floated)
 
     case object Floated extends MenuFloated
     case object Right   extends MenuFloated
@@ -40,7 +40,7 @@ package menu {
 
   sealed trait MenuFixed extends Product with Serializable
   object MenuFixed {
-    implicit val enum: EnumValue[MenuFixed] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[MenuFixed] = EnumValue.toLowerCaseString
 
     case object Left   extends MenuFixed
     case object Right  extends MenuFixed
@@ -50,7 +50,7 @@ package menu {
 
   sealed trait MenuItemPosition extends Product with Serializable
   object MenuItemPosition {
-    implicit val enum: EnumValue[MenuItemPosition] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[MenuItemPosition] = EnumValue.toLowerCaseString
 
     case object Left  extends MenuItemPosition
     case object Right extends MenuItemPosition
@@ -58,7 +58,7 @@ package menu {
 
   sealed trait MenuIcon extends Product with Serializable
   object MenuIcon {
-    implicit val enum: EnumValueB[MenuIcon] = EnumValueB.toLowerCaseStringT(Icon)
+    implicit val enumValue: EnumValueB[MenuIcon] = EnumValueB.toLowerCaseStringT(Icon)
 
     case object Icon    extends MenuIcon
     case object Labeled extends MenuIcon
@@ -66,7 +66,7 @@ package menu {
 
   sealed trait MenuTabular extends Product with Serializable
   object MenuTabular {
-    implicit val enum: EnumValueB[MenuTabular] = EnumValueB.toLowerCaseStringT(Tabular)
+    implicit val enumValue: EnumValueB[MenuTabular] = EnumValueB.toLowerCaseStringT(Tabular)
 
     case object Tabular extends MenuTabular
     case object Right   extends MenuTabular

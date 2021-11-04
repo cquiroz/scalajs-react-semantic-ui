@@ -5,7 +5,7 @@ import react.common.EnumValue
 package checkbox {
   sealed trait CheckboxType extends Product with Serializable
   object CheckboxType {
-    implicit val enum: EnumValue[CheckboxType] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[CheckboxType] = EnumValue.toLowerCaseString
     case object Checkbox extends CheckboxType
     case object Radio    extends CheckboxType
   }

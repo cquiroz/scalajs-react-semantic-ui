@@ -6,7 +6,7 @@ import react.common.EnumValueB
 package message {
   sealed trait MessageAttached extends Product with Serializable
   object MessageAttached {
-    implicit val enum: EnumValueB[MessageAttached] = EnumValueB.toLowerCaseStringT(Attached)
+    implicit val enumValue: EnumValueB[MessageAttached] = EnumValueB.toLowerCaseStringT(Attached)
 
     case object Attached extends MessageAttached
     case object Top      extends MessageAttached
@@ -16,7 +16,7 @@ package message {
   // MessageSize cannot be Medium, thus we define a new enum.
   sealed trait MessageSize extends Product with Serializable
   object MessageSize     {
-    implicit val enum: EnumValue[MessageSize] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[MessageSize] = EnumValue.toLowerCaseString
 
     case object Mini    extends MessageSize
     case object Tiny    extends MessageSize

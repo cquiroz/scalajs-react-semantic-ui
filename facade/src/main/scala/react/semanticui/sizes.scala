@@ -5,7 +5,7 @@ import react.common.EnumValue
 object sizes {
   sealed trait SemanticSize extends Product with Serializable
   object SemanticSize {
-    implicit val enum: EnumValue[SemanticSize] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[SemanticSize] = EnumValue.toLowerCaseString
   }
   case object Mini extends SemanticSize
   case object Tiny    extends SemanticSize

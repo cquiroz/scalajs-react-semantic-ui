@@ -5,7 +5,7 @@ import react.common.EnumValue
 object transitions {
   sealed trait SemanticTransition extends Product with Serializable
   object SemanticTransition {
-    implicit val enum: EnumValue[SemanticTransition] = EnumValue.instance {
+    implicit val enumValue: EnumValue[SemanticTransition] = EnumValue.instance {
 
       case Browse         => "browse"
       case BrowseRight    => "browse right"

@@ -5,7 +5,7 @@ import react.common.EnumValue
 package tab {
   sealed trait TabMenuPosition extends Product with Serializable
   object TabMenuPosition {
-    implicit val enum: EnumValue[TabMenuPosition] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[TabMenuPosition] = EnumValue.toLowerCaseString
     case object Left  extends TabMenuPosition
     case object Right extends TabMenuPosition
   }

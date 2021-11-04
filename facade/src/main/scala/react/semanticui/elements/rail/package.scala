@@ -5,7 +5,7 @@ import react.common.EnumValueB
 package rail {
   sealed trait RailClose extends Product with Serializable
   object RailClose  {
-    implicit val enum: EnumValueB[RailClose] = EnumValueB.toLowerCaseStringT(Close)
+    implicit val enumValue: EnumValueB[RailClose] = EnumValueB.toLowerCaseStringT(Close)
 
     case object Close extends RailClose
     case object Very  extends RailClose

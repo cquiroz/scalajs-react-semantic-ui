@@ -5,7 +5,7 @@ import react.common.EnumValueB
 package item {
   sealed trait ItemRelaxed extends Product with Serializable
   object ItemRelaxed {
-    implicit val enum: EnumValueB[ItemRelaxed] = EnumValueB.toLowerCaseStringT(Relaxed)
+    implicit val enumValue: EnumValueB[ItemRelaxed] = EnumValueB.toLowerCaseStringT(Relaxed)
     case object Relaxed extends ItemRelaxed
     case object Very    extends ItemRelaxed
   }

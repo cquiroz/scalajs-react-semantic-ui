@@ -6,7 +6,7 @@ import react.common.EnumValueB
 package popup {
   sealed trait PopupPosition extends Product with Serializable
   object PopupPosition {
-    implicit val enum: EnumValue[PopupPosition] = EnumValue.instance {
+    implicit val enumValue: EnumValue[PopupPosition] = EnumValue.instance {
       case TopLeft      => "top left"
       case TopRight     => "top right"
       case BottomRight  => "bottom right"
@@ -28,7 +28,7 @@ package popup {
 
   sealed trait PopupOn extends Product with Serializable
   object PopupOn {
-    implicit val enum: EnumValue[PopupOn] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[PopupOn] = EnumValue.toLowerCaseString
 
     case object Hover extends PopupOn
     case object Click extends PopupOn
@@ -37,7 +37,8 @@ package popup {
 
   sealed trait PopupWide extends Product with Serializable
   object PopupWide {
-    implicit val enum: EnumValueB[PopupWide] = EnumValueB.toLowerCaseStringTF(WideTrue, WideFalse)
+    implicit val enumValue: EnumValueB[PopupWide] =
+      EnumValueB.toLowerCaseStringTF(WideTrue, WideFalse)
     case object WideTrue  extends PopupWide
     case object WideFalse extends PopupWide
     case object Very      extends PopupWide

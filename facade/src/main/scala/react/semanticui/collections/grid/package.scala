@@ -6,7 +6,7 @@ import react.common.EnumValueB
 package grid {
   sealed trait GridOnly extends Product with Serializable
   object GridOnly {
-    implicit val enum: EnumValue[GridOnly] = EnumValue.instance {
+    implicit val enumValue: EnumValue[GridOnly] = EnumValue.instance {
       case Value(str)   => str
       case Computer     => "computer"
       case LargeScreen  => "largeScreen"
@@ -27,7 +27,7 @@ package grid {
 
   sealed trait GridReversed extends Product with Serializable
   object GridReversed {
-    implicit val enum: EnumValue[GridReversed] = EnumValue.instance {
+    implicit val enumValue: EnumValue[GridReversed] = EnumValue.instance {
       case Value(str)         => str
       case Computer           => "computer"
       case ComputerVertically => "computer vertically"
@@ -48,7 +48,8 @@ package grid {
 
   sealed trait GridPadded extends Product with Serializable
   object GridPadded {
-    implicit val enum: EnumValueB[GridPadded] = EnumValueB.toLowerCaseStringTF(Padded, NotPadded)
+    implicit val enumValue: EnumValueB[GridPadded] =
+      EnumValueB.toLowerCaseStringTF(Padded, NotPadded)
 
     case object Padded       extends GridPadded
     case object NotPadded    extends GridPadded
@@ -58,7 +59,8 @@ package grid {
 
   sealed trait GridRelaxed extends Product with Serializable
   object GridRelaxed {
-    implicit val enum: EnumValueB[GridRelaxed] = EnumValueB.toLowerCaseStringTF(Relaxed, NotRelaxed)
+    implicit val enumValue: EnumValueB[GridRelaxed] =
+      EnumValueB.toLowerCaseStringTF(Relaxed, NotRelaxed)
 
     case object Relaxed    extends GridRelaxed
     case object NotRelaxed extends GridRelaxed
@@ -67,7 +69,8 @@ package grid {
 
   sealed trait GridCelled extends Product with Serializable
   object GridCelled {
-    implicit val enum: EnumValueB[GridCelled] = EnumValueB.toLowerCaseStringTF(Celled, NotCelled)
+    implicit val enumValue: EnumValueB[GridCelled] =
+      EnumValueB.toLowerCaseStringTF(Celled, NotCelled)
 
     case object Celled     extends GridCelled
     case object NotCelled  extends GridCelled
@@ -76,7 +79,8 @@ package grid {
 
   sealed trait GridDivided extends Product with Serializable
   object GridDivided {
-    implicit val enum: EnumValueB[GridDivided] = EnumValueB.toLowerCaseStringTF(Divided, NotDivided)
+    implicit val enumValue: EnumValueB[GridDivided] =
+      EnumValueB.toLowerCaseStringTF(Divided, NotDivided)
 
     case object Divided    extends GridDivided
     case object NotDivided extends GridDivided
@@ -85,7 +89,7 @@ package grid {
 
   sealed trait GridColumns extends Product with Serializable
   object GridColumns {
-    implicit val enum: EnumValue[GridColumns] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[GridColumns] = EnumValue.toLowerCaseString
 
     case object Equal extends GridColumns
   }

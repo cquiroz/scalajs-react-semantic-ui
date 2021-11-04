@@ -6,7 +6,7 @@ import react.semanticui._
 package icon {
   sealed trait IconFlip extends Product with Serializable
   object IconFlip {
-    implicit val enum: EnumValue[IconFlip] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[IconFlip] = EnumValue.toLowerCaseString
 
     case object Horizontally extends IconFlip
     case object Vertically   extends IconFlip
@@ -14,14 +14,14 @@ package icon {
 
   sealed trait IconRotated extends Product with Serializable
   object IconRotated {
-    implicit val enum: EnumValue[IconRotated] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[IconRotated] = EnumValue.toLowerCaseString
     case object Clockwise        extends IconRotated
     case object CounterClockwise extends IconRotated
   }
 
   sealed trait IconCorner extends Product with Serializable
   object IconCorner {
-    implicit val enum: EnumValueB[IconCorner] = EnumValueB.instance {
+    implicit val enumValue: EnumValueB[IconCorner] = EnumValueB.instance {
       case BottomRight => "bottom right"
       case TopRight    => "top right"
       case TopLeft     => "top left"

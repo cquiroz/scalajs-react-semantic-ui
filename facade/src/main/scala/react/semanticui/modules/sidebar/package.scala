@@ -5,7 +5,7 @@ import react.common.EnumValue
 package sidebar {
   sealed trait SidebarAnimation extends Product with Serializable
   object SidebarAnimation {
-    implicit val enum: EnumValue[SidebarAnimation] = EnumValue.instance {
+    implicit val enumValue: EnumValue[SidebarAnimation] = EnumValue.instance {
       case Overlay    => "overlay"
       case Push       => "push"
       case ScaleDown  => "scale down"
@@ -23,7 +23,7 @@ package sidebar {
 
   sealed trait SidebarDirection extends Product with Serializable
   object SidebarDirection {
-    implicit val enum: EnumValue[SidebarDirection] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[SidebarDirection] = EnumValue.toLowerCaseString
 
     case object Top    extends SidebarDirection
     case object Right  extends SidebarDirection
@@ -33,7 +33,7 @@ package sidebar {
 
   sealed trait SidebarWidth extends Product with Serializable
   object SidebarWidth {
-    implicit val enum: EnumValue[SidebarWidth] = EnumValue.instance {
+    implicit val enumValue: EnumValue[SidebarWidth] = EnumValue.instance {
       case VeryThin => "very thin"
       case Thin     => "thin"
       case Wide     => "wide"

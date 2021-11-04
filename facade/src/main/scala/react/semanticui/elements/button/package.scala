@@ -6,7 +6,7 @@ import react.common.EnumValue
 package button {
   sealed trait ButtonAnimated extends Product with Serializable
   object ButtonAnimated {
-    implicit val enum: EnumValueB[ButtonAnimated] = EnumValueB.toLowerCaseStringT(Animated)
+    implicit val enumValue: EnumValueB[ButtonAnimated] = EnumValueB.toLowerCaseStringT(Animated)
     case object Animated extends ButtonAnimated
     case object Fade     extends ButtonAnimated
     case object Vertical extends ButtonAnimated
@@ -14,7 +14,7 @@ package button {
 
   sealed trait ButtonAttached extends Product with Serializable
   object ButtonAttached {
-    implicit val enum: EnumValueB[ButtonAttached] = EnumValueB.toLowerCaseStringT(Attached)
+    implicit val enumValue: EnumValueB[ButtonAttached] = EnumValueB.toLowerCaseStringT(Attached)
     case object Attached extends ButtonAttached
     case object Top      extends ButtonAttached
     case object Bottom   extends ButtonAttached
@@ -24,7 +24,7 @@ package button {
 
   sealed trait LabelPosition extends Product with Serializable
   object LabelPosition {
-    implicit val enum: EnumValue[LabelPosition] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[LabelPosition] = EnumValue.toLowerCaseString
     case object Right extends LabelPosition
     case object Left  extends LabelPosition
   }

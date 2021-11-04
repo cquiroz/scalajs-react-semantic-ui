@@ -5,7 +5,7 @@ import react.common.EnumValueB
 package segment {
   sealed trait SegmentAttached extends Product with Serializable
   object SegmentAttached {
-    implicit val enum: EnumValueB[SegmentAttached] = EnumValueB.toLowerCaseStringT(Attached)
+    implicit val enumValue: EnumValueB[SegmentAttached] = EnumValueB.toLowerCaseStringT(Attached)
     case object Attached extends SegmentAttached
     case object Top      extends SegmentAttached
     case object Bottom   extends SegmentAttached
@@ -14,7 +14,7 @@ package segment {
   sealed trait SegmentPadded extends Product with Serializable
 
   object SegmentPadded {
-    implicit val enum: EnumValueB[SegmentPadded] = EnumValueB.toLowerCaseStringT(Padded)
+    implicit val enumValue: EnumValueB[SegmentPadded] = EnumValueB.toLowerCaseStringT(Padded)
     case object Padded extends SegmentPadded
     case object Very   extends SegmentPadded
   }

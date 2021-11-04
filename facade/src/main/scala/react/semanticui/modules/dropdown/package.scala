@@ -6,28 +6,28 @@ import react.common.EnumValueB
 package dropdown {
   sealed trait MenuDirection extends Product with Serializable
   object MenuDirection {
-    implicit val enum: EnumValue[MenuDirection] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[MenuDirection] = EnumValue.toLowerCaseString
     case object Left  extends MenuDirection
     case object Right extends MenuDirection
   }
 
   sealed trait AdditionPosition extends Product with Serializable
   object AdditionPosition {
-    implicit val enum: EnumValue[AdditionPosition] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[AdditionPosition] = EnumValue.toLowerCaseString
     case object Top    extends AdditionPosition
     case object Bottom extends AdditionPosition
   }
 
   sealed trait Direction extends Product with Serializable
   object Direction {
-    implicit val enum: EnumValue[Direction] = EnumValue.toLowerCaseString
+    implicit val enumValue: EnumValue[Direction] = EnumValue.toLowerCaseString
     case object Left  extends Direction
     case object Right extends Direction
   }
 
   sealed trait Pointing extends Product with Serializable
   object Pointing {
-    implicit val enum: EnumValueB[Pointing] = EnumValueB.instance {
+    implicit val enumValue: EnumValueB[Pointing] = EnumValueB.instance {
       case Left        => "left"
       case Right       => "right"
       case Top         => "top"
