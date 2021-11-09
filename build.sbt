@@ -1,11 +1,10 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
 
 val reactJS  = "17.0.2"
-val FUILess  = "2.8.7"
-val reactSUI = "2.0.3"
+val reactSUI = "2.0.4"
 
-val scalaJsReact       = "2.0.0-RC5"
-val scalaJSReactCommon = "0.14.6"
+val scalaJsReact       = "2.0.0"
+val scalaJSReactCommon = "0.14.7"
 val cats               = "2.6.1"
 val munit              = "0.7.29"
 
