@@ -36,7 +36,7 @@ object SegmentInline {
     def apply(key: String): js.Any = js.native
 
     @JSBracketAccess
-    def update(key: String, v: js.Any): Unit = js.native
+    def update(key: String, v: js.Any): Unit          = js.native
     var as: js.UndefOr[AsT]                           = js.native
     var children: js.UndefOr[React.Node]              = js.native
     var className: js.UndefOr[String]                 = js.native

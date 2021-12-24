@@ -58,7 +58,7 @@ object Segment {
     def apply(key: String): js.Any = js.native
 
     @JSBracketAccess
-    def update(key: String, v: js.Any): Unit = js.native
+    def update(key: String, v: js.Any): Unit                 = js.native
     var as: js.UndefOr[AsT]                                  = js.native
     var attached: js.UndefOr[Boolean | String]               = js.native
     var basic: js.UndefOr[Boolean]                           = js.native
