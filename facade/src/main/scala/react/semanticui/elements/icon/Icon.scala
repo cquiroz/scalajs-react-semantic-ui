@@ -45,7 +45,7 @@ object Icon {
     def apply(key: String): js.Any = js.native
 
     @JSBracketAccess
-    def update(key: String, v: js.Any): Unit = js.native
+    def update(key: String, v: js.Any): Unit     = js.native
     var as: js.UndefOr[AsT]                      = js.native
     var bordered: js.UndefOr[Boolean]            = js.native
     var circular: js.UndefOr[Boolean]            = js.native
