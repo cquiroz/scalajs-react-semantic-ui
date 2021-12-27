@@ -27,11 +27,11 @@ final case class ButtonContent(
 object ButtonContent {
   @js.native
   @JSImport("semantic-ui-react", "ButtonContent")
-  object RawComponent extends js.Function1[js.Any, js.Any] {
+  object RawComponent      extends js.Function1[js.Any, js.Any] {
     def apply(i: js.Any): js.Any = js.native
   }
   @js.native
-  trait ButtonContentProps extends js.Object {
+  trait ButtonContentProps extends js.Object                    {
     @JSBracketAccess
     def apply(key: String): js.Any = js.native
 
