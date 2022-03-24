@@ -4,7 +4,6 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.facade.React
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
@@ -21,7 +20,7 @@ final case class AccordionTitle(
   clazz:                  js.UndefOr[Css] = js.undefined,
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   icon:                   js.UndefOr[ShorthandS[Icon]] = js.undefined,
-  index:                  js.UndefOr[JsNumber | String] = js.undefined,
+  index:                  js.UndefOr[Double | String] = js.undefined,
   onClickE:               js.UndefOr[AccordionTitle.OnClick] = js.undefined,
   onClick:                js.UndefOr[Callback] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
@@ -66,7 +65,7 @@ object AccordionTitle {
     var icon: js.UndefOr[SemanticShorthandItemS[IconProps]] = js.native
 
     /** AccordionTitle index inside Accordion. */
-    var index: js.UndefOr[JsNumber | String] = js.native
+    var index: js.UndefOr[Double | String] = js.native
 
     /**
      * Called on click.

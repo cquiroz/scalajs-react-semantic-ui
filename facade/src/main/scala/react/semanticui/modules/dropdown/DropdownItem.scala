@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.facade.React
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.html_<^._
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -37,7 +36,7 @@ final case class DropdownItem(
   onClick:                js.UndefOr[Callback] = js.undefined,
   selected:               js.UndefOr[Boolean] = js.undefined,
   text:                   js.UndefOr[String] = js.undefined,
-  value:                  js.UndefOr[Boolean | JsNumber | String] = js.undefined,
+  value:                  js.UndefOr[Boolean | Double | String] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[DropdownItem.DropdownItemProps, DropdownItem] {
   override protected def cprops                     = DropdownItem.props(this)
@@ -112,7 +111,7 @@ object DropdownItem {
     var text: js.UndefOr[SemanticShorthandContent] = js.native
 
     /** Stored value. */
-    var value: js.UndefOr[Boolean | JsNumber | String] = js.native
+    var value: js.UndefOr[Boolean | Double | String] = js.native
   }
 
   def props(
@@ -139,7 +138,7 @@ object DropdownItem {
   private val component =
     JsComponent[DropdownItemProps, Children.Varargs, Null](RawComponent)
 
-  def apply(v: Boolean | JsNumber | String): DropdownItem =
+  def apply(v: Boolean | Double | String): DropdownItem =
     new DropdownItem(value = v, modifiers = Seq(v.toString))
 
 }
