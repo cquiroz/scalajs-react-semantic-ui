@@ -4,7 +4,6 @@ import scala.scalajs.js
 import js.annotation._
 import js.|
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.TagMod
 import react.common._
 import react.semanticui._
@@ -17,7 +16,7 @@ final case class TextArea(
   onInputE:               js.UndefOr[TextArea.Event] = js.undefined,
   onInput:                js.UndefOr[Callback] = js.undefined,
   rows:                   js.UndefOr[Int | String] = js.undefined,
-  value:                  js.UndefOr[String | JsNumber] = js.undefined,
+  value:                  js.UndefOr[String | Double] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[TextArea.TextAreaProps, TextArea] {
   override protected def cprops                     = TextArea.props(this)
@@ -66,10 +65,10 @@ object TextArea {
     var onInput: js.UndefOr[RawEvent] = js.undefined
 
     /** Indicates row count for a TextArea. */
-    var rows: js.UndefOr[JsNumber | String] = js.undefined
+    var rows: js.UndefOr[Double | String] = js.undefined
 
     /** The value of the textarea. */
-    var value: js.UndefOr[JsNumber | String] = js.undefined
+    var value: js.UndefOr[Double | String] = js.undefined
 
   }
 
@@ -91,7 +90,7 @@ object TextArea {
     onInputE:  js.UndefOr[TextArea.Event] = js.undefined,
     onInput:   js.UndefOr[Callback] = js.undefined,
     rows:      js.UndefOr[Int | String] = js.undefined,
-    value:     js.UndefOr[String | JsNumber] = js.undefined
+    value:     js.UndefOr[String | Double] = js.undefined
   ): TextAreaProps = {
     val p = as.toJsObject[TextAreaProps]
     as.toJs.foreach(v => p.as = v)

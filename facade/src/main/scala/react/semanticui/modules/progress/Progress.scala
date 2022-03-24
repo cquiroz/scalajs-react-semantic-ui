@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.facade.React
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -27,13 +26,13 @@ final case class Progress(
   indicating:             js.UndefOr[Boolean] = js.undefined,
   inverted:               js.UndefOr[Boolean] = js.undefined,
   label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
-  percent:                js.UndefOr[JsNumber | String] = js.undefined,
-  precision:              js.UndefOr[JsNumber] = js.undefined,
+  percent:                js.UndefOr[Double | String] = js.undefined,
+  precision:              js.UndefOr[Double] = js.undefined,
   progress:               js.UndefOr[Boolean | String] = js.undefined,
   size:                   js.UndefOr[SemanticSize] = js.undefined,
   success:                js.UndefOr[Boolean] = js.undefined,
-  total:                  js.UndefOr[JsNumber | String] = js.undefined,
-  value:                  js.UndefOr[JsNumber | String] = js.undefined,
+  total:                  js.UndefOr[Double | String] = js.undefined,
+  value:                  js.UndefOr[Double | String] = js.undefined,
   warning:                js.UndefOr[Boolean] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[Progress.ProgressProps, Progress] {
@@ -99,10 +98,10 @@ object Progress {
     var label: js.UndefOr[suiraw.SemanticShorthandItemS[Label.LabelProps]] = js.native
 
     /** Current percent complete. */
-    var percent: js.UndefOr[JsNumber | String] = js.native
+    var percent: js.UndefOr[Double | String] = js.native
 
     /** Decimal point precision for calculated progress. */
-    var precision: js.UndefOr[JsNumber] = js.native
+    var precision: js.UndefOr[Double] = js.native
 
     /** A progress bar can contain a text value indicating current progress. */
     var progress: js.UndefOr[Boolean | String] = js.native
@@ -116,12 +115,12 @@ object Progress {
     /**
      * For use with value. Together, these will calculate the percent. Mutually excludes percent.
      */
-    var total: js.UndefOr[JsNumber | String] = js.native
+    var total: js.UndefOr[Double | String] = js.native
 
     /**
      * For use with total. Together, these will calculate the percent. Mutually excludes percent.
      */
-    var value: js.UndefOr[JsNumber | String] = js.native
+    var value: js.UndefOr[Double | String] = js.native
 
     /** A progress bar can show a warning state. */
     var warning: js.UndefOr[Boolean] = js.native
@@ -164,13 +163,13 @@ object Progress {
     indicating:  js.UndefOr[Boolean] = js.undefined,
     inverted:    js.UndefOr[Boolean] = js.undefined,
     label:       js.UndefOr[ShorthandS[Label]] = js.undefined,
-    percent:     js.UndefOr[JsNumber | String] = js.undefined,
-    precision:   js.UndefOr[JsNumber] = js.undefined,
+    percent:     js.UndefOr[Double | String] = js.undefined,
+    precision:   js.UndefOr[Double] = js.undefined,
     progress:    js.UndefOr[Boolean | String] = js.undefined,
     size:        js.UndefOr[SemanticSize] = js.undefined,
     success:     js.UndefOr[Boolean] = js.undefined,
-    total:       js.UndefOr[JsNumber | String] = js.undefined,
-    value:       js.UndefOr[JsNumber | String] = js.undefined,
+    total:       js.UndefOr[Double | String] = js.undefined,
+    value:       js.UndefOr[Double | String] = js.undefined,
     warning:     js.UndefOr[Boolean] = js.undefined
   ): ProgressProps = {
     val p = as.toJsObject[ProgressProps]

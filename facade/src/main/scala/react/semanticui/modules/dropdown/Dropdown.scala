@@ -6,7 +6,6 @@ import js.|
 import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.facade.React
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -35,7 +34,7 @@ final case class Dropdown(
   deburr:                 js.UndefOr[Boolean] = js.undefined,
   defaultOpen:            js.UndefOr[Boolean] = js.undefined,
   defaultSearchQuery:     js.UndefOr[String] = js.undefined,
-  defaultSelectedLabel:   js.UndefOr[JsNumber | String] = js.undefined,
+  defaultSelectedLabel:   js.UndefOr[Double | String] = js.undefined,
   defaultUpward:          js.UndefOr[Boolean] = js.undefined,
   defaultValue:           js.UndefOr[Dropdown.Value] = js.undefined,
   direction:              js.UndefOr[Direction] = js.undefined,
@@ -50,7 +49,7 @@ final case class Dropdown(
   labeled:                js.UndefOr[Boolean] = js.undefined,
   lazyLoad:               js.UndefOr[Boolean] = js.undefined,
   loading:                js.UndefOr[Boolean] = js.undefined,
-  minCharacters:          js.UndefOr[JsNumber] = js.undefined,
+  minCharacters:          js.UndefOr[Double] = js.undefined,
   multiple:               js.UndefOr[Boolean] = js.undefined,
   noResultsMessage:       js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   onAddItem:              js.UndefOr[Dropdown.OnAddItem] = js.undefined,
@@ -84,10 +83,10 @@ final case class Dropdown(
   searchQuery:            js.UndefOr[String] = js.undefined,
   selectOnBlur:           js.UndefOr[Boolean] = js.undefined,
   selectOnNavigation:     js.UndefOr[Boolean] = js.undefined,
-  selectedLabel:          js.UndefOr[JsNumber | String] = js.undefined,
+  selectedLabel:          js.UndefOr[Double | String] = js.undefined,
   selection:              js.UndefOr[Boolean] = js.undefined,
   simple:                 js.UndefOr[Boolean] = js.undefined,
-  tabIndex:               js.UndefOr[String | JsNumber] = js.undefined,
+  tabIndex:               js.UndefOr[String | Double] = js.undefined,
   text:                   js.UndefOr[String] = js.undefined,
   trigger:                js.UndefOr[VdomNode] = js.undefined,
   value:                  js.UndefOr[Dropdown.Value] = js.undefined,
@@ -102,9 +101,9 @@ final case class Dropdown(
 
 object Dropdown {
   type Value             =
-    String | JsNumber | Boolean | js.Array[JsNumber] | js.Array[String] | js.Array[Boolean]
-  type RawAdditionLabel  = JsNumber | String | SemanticShorthandContent
-  type AdditionLabel     = JsNumber | String | VdomNode
+    String | Double | Boolean | js.Array[Double] | js.Array[String] | js.Array[Boolean]
+  type RawAdditionLabel  = Double | String | SemanticShorthandContent
+  type AdditionLabel     = Double | String | VdomNode
   type RawSearchFunction =
     js.Function2[js.Array[DropdownItem.DropdownItemProps], String, js.Array[
       DropdownItem.DropdownItemProps
@@ -162,7 +161,7 @@ object Dropdown {
     var as: js.UndefOr[AsT] = js.native
 
     /** Label prefixed to an option added by a user. */
-    var additionLabel: js.UndefOr[JsNumber | String | SemanticShorthandContent] = js.native
+    var additionLabel: js.UndefOr[Double | String | SemanticShorthandContent] = js.native
 
     /** Position of the `Add: ...` option in the dropdown list ('top' or 'bottom'). */
     var additionPosition: js.UndefOr[String]
@@ -214,7 +213,7 @@ object Dropdown {
     var defaultSearchQuery: js.UndefOr[String] = js.native
 
     /** Currently selected label in multi-select. */
-    var defaultSelectedLabel: js.UndefOr[JsNumber | String] = js.native
+    var defaultSelectedLabel: js.UndefOr[Double | String] = js.native
 
     /** Initial value of upward. */
     var defaultUpward: js.UndefOr[Boolean] = js.native
@@ -259,7 +258,7 @@ object Dropdown {
     var loading: js.UndefOr[Boolean] = js.native
 
     /** The minimum characters for a search to begin showing results. */
-    var minCharacters: js.UndefOr[JsNumber] = js.native
+    var minCharacters: js.UndefOr[Double] = js.native
 
     /** A selection dropdown can allow multiple selections. */
     var multiple: js.UndefOr[Boolean] = js.native
@@ -422,7 +421,7 @@ object Dropdown {
     var selectOnNavigation: js.UndefOr[Boolean] = js.native
 
     /** Currently selected label in multi-select. */
-    var selectedLabel: js.UndefOr[JsNumber | String]
+    var selectedLabel: js.UndefOr[Double | String]
 
     /** A dropdown can be used to select between choices in a form. */
     var selection: js.UndefOr[Boolean]
@@ -431,7 +430,7 @@ object Dropdown {
     var simple: js.UndefOr[Boolean] = js.native
 
     /** A dropdown can receive focus. */
-    var tabIndex: js.UndefOr[String | JsNumber] = js.native
+    var tabIndex: js.UndefOr[String | Double] = js.native
 
     /** The text displayed in the dropdown, usually for the active item. */
     var text: js.UndefOr[String] = js.native
@@ -547,7 +546,7 @@ object Dropdown {
     deburr:               js.UndefOr[Boolean] = js.undefined,
     defaultOpen:          js.UndefOr[Boolean] = js.undefined,
     defaultSearchQuery:   js.UndefOr[String] = js.undefined,
-    defaultSelectedLabel: js.UndefOr[JsNumber | String] = js.undefined,
+    defaultSelectedLabel: js.UndefOr[Double | String] = js.undefined,
     defaultUpward:        js.UndefOr[Boolean] = js.undefined,
     defaultValue:         js.UndefOr[Value] = js.undefined,
     direction:            js.UndefOr[Direction] = js.undefined,
@@ -562,7 +561,7 @@ object Dropdown {
     labeled:              js.UndefOr[Boolean] = js.undefined,
     lazyLoad:             js.UndefOr[Boolean] = js.undefined,
     loading:              js.UndefOr[Boolean] = js.undefined,
-    minCharacters:        js.UndefOr[JsNumber] = js.undefined,
+    minCharacters:        js.UndefOr[Double] = js.undefined,
     multiple:             js.UndefOr[Boolean] = js.undefined,
     noResultsMessage:     js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
     onAddItem:            js.UndefOr[OnAddItem] = js.undefined,
@@ -596,10 +595,10 @@ object Dropdown {
     searchQuery:          js.UndefOr[String] = js.undefined,
     selectOnBlur:         js.UndefOr[Boolean] = js.undefined,
     selectOnNavigation:   js.UndefOr[Boolean] = js.undefined,
-    selectedLabel:        js.UndefOr[JsNumber | String] = js.undefined,
+    selectedLabel:        js.UndefOr[Double | String] = js.undefined,
     selection:            js.UndefOr[Boolean] = js.undefined,
     simple:               js.UndefOr[Boolean] = js.undefined,
-    tabIndex:             js.UndefOr[String | JsNumber] = js.undefined,
+    tabIndex:             js.UndefOr[String | Double] = js.undefined,
     text:                 js.UndefOr[String] = js.undefined,
     trigger:              js.UndefOr[VdomNode] = js.undefined,
     value:                js.UndefOr[Value] = js.undefined,
@@ -609,7 +608,7 @@ object Dropdown {
     val p = as.toJsObject[DropdownProps]
     as.toJs.foreach(v => p.as = v)
     additionLabel
-      .map[JsNumber | String | SemanticShorthandContent] {
+      .map[Double | String | SemanticShorthandContent] {
         (_: Any) match {
           case b: String   => b
           case b: Byte     => b

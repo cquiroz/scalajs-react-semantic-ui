@@ -5,7 +5,6 @@ import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.facade.React
-import japgolly.scalajs.react.facade.JsNumber
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.label.Label
@@ -26,7 +25,7 @@ final case class FormCheckbox(
   disabled:               js.UndefOr[Boolean] = js.undefined,
   error:                  js.UndefOr[ShorthandB[Label]] = js.undefined,
   fitted:                 js.UndefOr[Boolean] = js.undefined,
-  id:                     js.UndefOr[JsNumber | String] = js.undefined,
+  id:                     js.UndefOr[Double | String] = js.undefined,
   indeterminate:          js.UndefOr[Boolean] = js.undefined,
   inline:                 js.UndefOr[Boolean] = js.undefined,
   label:                  js.UndefOr[ShorthandS[Label]] = js.undefined,
@@ -43,10 +42,10 @@ final case class FormCheckbox(
   readOnly:               js.UndefOr[Boolean] = js.undefined,
   required:               js.UndefOr[Boolean] = js.undefined,
   slider:                 js.UndefOr[Boolean] = js.undefined,
-  tabIndex:               js.UndefOr[JsNumber | String] = js.undefined,
+  tabIndex:               js.UndefOr[Double | String] = js.undefined,
   toggle:                 js.UndefOr[Boolean] = js.undefined,
   tpe:                    js.UndefOr[CheckboxType] = CheckboxType.Checkbox,
-  value:                  js.UndefOr[String | JsNumber] = js.undefined,
+  value:                  js.UndefOr[String | Double] = js.undefined,
   width:                  js.UndefOr[SemanticWidth] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[FormCheckbox.FormCheckboxProps, FormCheckbox] {
@@ -122,7 +121,7 @@ object FormCheckbox {
     var fitted: js.UndefOr[Boolean] = js.native
 
     /** A unique identifier. */
-    var id: js.UndefOr[JsNumber | String] = js.native
+    var id: js.UndefOr[Double | String] = js.native
 
     /** Whether or not checkbox is indeterminate. */
     var indeterminate: js.UndefOr[Boolean] = js.native
@@ -180,7 +179,7 @@ object FormCheckbox {
     var slider: js.UndefOr[Boolean] = js.native
 
     /** A checkbox can receive focus. */
-    var tabIndex: js.UndefOr[JsNumber | String] = js.native
+    var tabIndex: js.UndefOr[Double | String] = js.native
 
     /** Format to show an on or off choice. */
     var toggle: js.UndefOr[Boolean] = js.native
@@ -189,7 +188,7 @@ object FormCheckbox {
     var `type`: js.UndefOr[String] = js.native
 
     /** The HTML input value. */
-    var value: js.UndefOr[String | JsNumber] = js.native
+    var value: js.UndefOr[String | Double] = js.native
   }
 
   def props(q: FormCheckbox): FormCheckboxProps =
@@ -241,7 +240,7 @@ object FormCheckbox {
     disabled:             js.UndefOr[Boolean] = js.undefined,
     error:                js.UndefOr[ShorthandB[Label]] = js.undefined,
     fitted:               js.UndefOr[Boolean] = js.undefined,
-    id:                   js.UndefOr[JsNumber | String] = js.undefined,
+    id:                   js.UndefOr[Double | String] = js.undefined,
     indeterminate:        js.UndefOr[Boolean] = js.undefined,
     inline:               js.UndefOr[Boolean] = js.undefined,
     label:                js.UndefOr[ShorthandS[Label]] = js.undefined,
@@ -258,10 +257,10 @@ object FormCheckbox {
     readOnly:             js.UndefOr[Boolean] = js.undefined,
     required:             js.UndefOr[Boolean] = js.undefined,
     slider:               js.UndefOr[Boolean] = js.undefined,
-    tabIndex:             js.UndefOr[JsNumber | String] = js.undefined,
+    tabIndex:             js.UndefOr[Double | String] = js.undefined,
     toggle:               js.UndefOr[Boolean] = js.undefined,
     tpe:                  js.UndefOr[CheckboxType] = CheckboxType.Checkbox,
-    value:                js.UndefOr[String | JsNumber] = js.undefined,
+    value:                js.UndefOr[String | Double] = js.undefined,
     width:                js.UndefOr[SemanticWidth] = js.undefined
   ): FormCheckboxProps = {
     val p = as.toJsObject[FormCheckboxProps]

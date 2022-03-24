@@ -1,7 +1,6 @@
 package react.semanticui.addons.select
 
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.TagMod
 import japgolly.scalajs.react.vdom.VdomNode
 import scala.scalajs.js
@@ -33,7 +32,7 @@ final case class Select(
   deburr:                 js.UndefOr[Boolean] = js.undefined,
   defaultOpen:            js.UndefOr[Boolean] = js.undefined,
   defaultSearchQuery:     js.UndefOr[String] = js.undefined,
-  defaultSelectedLabel:   js.UndefOr[JsNumber | String] = js.undefined,
+  defaultSelectedLabel:   js.UndefOr[Double | String] = js.undefined,
   defaultUpward:          js.UndefOr[Boolean] = js.undefined,
   defaultValue:           js.UndefOr[Value] = js.undefined,
   direction:              js.UndefOr[Direction] = js.undefined,
@@ -48,7 +47,7 @@ final case class Select(
   labeled:                js.UndefOr[Boolean] = js.undefined,
   lazyLoad:               js.UndefOr[Boolean] = js.undefined,
   loading:                js.UndefOr[Boolean] = js.undefined,
-  minCharacters:          js.UndefOr[JsNumber] = js.undefined,
+  minCharacters:          js.UndefOr[Double] = js.undefined,
   multiple:               js.UndefOr[Boolean] = js.undefined,
   noResultsMessage:       js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   onAddItem:              js.UndefOr[OnAddItem] = js.undefined,
@@ -82,9 +81,9 @@ final case class Select(
   searchQuery:            js.UndefOr[String] = js.undefined,
   selectOnBlur:           js.UndefOr[Boolean] = js.undefined,
   selectOnNavigation:     js.UndefOr[Boolean] = js.undefined,
-  selectedLabel:          js.UndefOr[JsNumber | String] = js.undefined,
+  selectedLabel:          js.UndefOr[Double | String] = js.undefined,
   simple:                 js.UndefOr[Boolean] = js.undefined,
-  tabIndex:               js.UndefOr[String | JsNumber] = js.undefined,
+  tabIndex:               js.UndefOr[String | Double] = js.undefined,
   text:                   js.UndefOr[String] = js.undefined,
   trigger:                js.UndefOr[VdomNode] = js.undefined,
   value:                  js.UndefOr[Value] = js.undefined,
@@ -203,7 +202,7 @@ object Select {
     deburr:               js.UndefOr[Boolean] = js.undefined,
     defaultOpen:          js.UndefOr[Boolean] = js.undefined,
     defaultSearchQuery:   js.UndefOr[String] = js.undefined,
-    defaultSelectedLabel: js.UndefOr[JsNumber | String] = js.undefined,
+    defaultSelectedLabel: js.UndefOr[Double | String] = js.undefined,
     defaultUpward:        js.UndefOr[Boolean] = js.undefined,
     defaultValue:         js.UndefOr[Value] = js.undefined,
     direction:            js.UndefOr[Direction] = js.undefined,
@@ -218,7 +217,7 @@ object Select {
     labeled:              js.UndefOr[Boolean] = js.undefined,
     lazyLoad:             js.UndefOr[Boolean] = js.undefined,
     loading:              js.UndefOr[Boolean] = js.undefined,
-    minCharacters:        js.UndefOr[JsNumber] = js.undefined,
+    minCharacters:        js.UndefOr[Double] = js.undefined,
     multiple:             js.UndefOr[Boolean] = js.undefined,
     noResultsMessage:     js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
     onAddItem:            js.UndefOr[OnAddItem] = js.undefined,
@@ -252,9 +251,9 @@ object Select {
     searchQuery:          js.UndefOr[String] = js.undefined,
     selectOnBlur:         js.UndefOr[Boolean] = js.undefined,
     selectOnNavigation:   js.UndefOr[Boolean] = js.undefined,
-    selectedLabel:        js.UndefOr[JsNumber | String] = js.undefined,
+    selectedLabel:        js.UndefOr[Double | String] = js.undefined,
     simple:               js.UndefOr[Boolean] = js.undefined,
-    tabIndex:             js.UndefOr[String | JsNumber] = js.undefined,
+    tabIndex:             js.UndefOr[String | Double] = js.undefined,
     text:                 js.UndefOr[String] = js.undefined,
     trigger:              js.UndefOr[VdomNode] = js.undefined,
     value:                js.UndefOr[Value] = js.undefined,
@@ -264,7 +263,7 @@ object Select {
     val p = as.toJsObject[SelectProps]
     as.toJs.foreach(v => p.as = v)
     additionLabel
-      .map[JsNumber | String | SemanticShorthandContent] {
+      .map[Double | String | SemanticShorthandContent] {
         (_: Any) match {
           case b: String   => b
           case b: Byte     => b

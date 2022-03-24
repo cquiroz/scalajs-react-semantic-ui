@@ -6,7 +6,6 @@ import js.|
 import js.JSConverters._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.facade.React
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
 import react.semanticui._
@@ -27,7 +26,7 @@ final case class Popup(
   hideOnScroll:           js.UndefOr[Boolean] = js.undefined,
   hoverable:              js.UndefOr[Boolean] = js.undefined,
   inverted:               js.UndefOr[Boolean] = js.undefined,
-  offset:                 js.UndefOr[(JsNumber, JsNumber)] = js.undefined,
+  offset:                 js.UndefOr[(Double, Double)] = js.undefined,
   on:                     js.UndefOr[PopupOn | List[PopupOn]] = js.undefined,
   onCloseE:               js.UndefOr[Popup.OnClose] = js.undefined,
   onClose:                js.UndefOr[Callback] = js.undefined,
@@ -53,7 +52,7 @@ object Popup {
   // TODO Implement this if needed but it needs a facade for Popper
   // @js.native
   // trait PopperOffsetFunctionParams extends js.Object
-  // private type RawPoperOffset = js.Function1[PopperOffsetFunctionParams, js.Array[JsNumber]]
+  // private type RawPoperOffset = js.Function1[PopperOffsetFunctionParams, js.Array[Double]]
   private type RawOnClose = js.Function2[ReactMouseEvent, PopupProps, Unit]
   type OnClose            = (ReactMouseEvent, PopupProps) => Callback
   private type RawOnOpen  = RawOnClose
@@ -122,7 +121,7 @@ object Popup {
      * @see
      *   https://popper.js.org/docs/v2/modifiers/offset/
      */
-    var offset: js.UndefOr[js.Array[JsNumber]] = js.native
+    var offset: js.UndefOr[js.Array[Double]] = js.native
 
     /** Events triggering the popup. */
     var on: js.UndefOr[String | js.Array[String]] = js.native
@@ -243,7 +242,7 @@ object Popup {
     hideOnScroll:    js.UndefOr[Boolean] = js.undefined,
     hoverable:       js.UndefOr[Boolean] = js.undefined,
     inverted:        js.UndefOr[Boolean] = js.undefined,
-    offset:          js.UndefOr[(JsNumber, JsNumber)] = js.undefined,
+    offset:          js.UndefOr[(Double, Double)] = js.undefined,
     on:              js.UndefOr[PopupOn | List[PopupOn]] = js.undefined,
     onCloseE:        js.UndefOr[OnClose] = js.undefined,
     onClose:         js.UndefOr[Callback] = js.undefined,

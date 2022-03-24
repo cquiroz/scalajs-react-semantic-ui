@@ -5,7 +5,6 @@ import js.annotation._
 import js.|
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.facade.React
-import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.vdom.VdomNode
 import react.common._
 import react.semanticui.{ raw => suiraw }
@@ -35,7 +34,7 @@ final case class Input(
   onChangeE:              js.UndefOr[Input.OnChange] = js.undefined,
   onChange:               js.UndefOr[Callback] = js.undefined,
   size:                   js.UndefOr[SemanticSize] = js.undefined,
-  tabIndex:               js.UndefOr[String | JsNumber] = js.undefined,
+  tabIndex:               js.UndefOr[String | Double] = js.undefined,
   transparent:            js.UndefOr[Boolean] = js.undefined,
   tpe:                    js.UndefOr[String] = js.undefined,
   value:                  js.UndefOr[String] = js.undefined,
@@ -123,7 +122,7 @@ object Input {
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
 
     /** An Input can receive focus. */
-    var tabIndex: js.UndefOr[String | JsNumber] = js.native
+    var tabIndex: js.UndefOr[String | Double] = js.native
 
     /** Transparent Input has no background. */
     var transparent: js.UndefOr[Boolean] = js.native

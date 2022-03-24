@@ -5,7 +5,6 @@ import scala.scalajs.js.|
 import js.annotation._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.facade.React
-import japgolly.scalajs.react.facade.JsNumber
 import react.common._
 import react.semanticui._
 import react.semanticui.elements.label.Label
@@ -39,7 +38,7 @@ final case class FormInput(
   onChangeE:              js.UndefOr[Input.OnChange] = js.undefined,
   required:               js.UndefOr[Boolean] = js.undefined,
   size:                   js.UndefOr[SemanticSize] = js.undefined,
-  tabIndex:               js.UndefOr[String | JsNumber] = js.undefined,
+  tabIndex:               js.UndefOr[String | Double] = js.undefined,
   tpe:                    js.UndefOr[String] = js.undefined,
   transparent:            js.UndefOr[Boolean] = js.undefined,
   width:                  js.UndefOr[SemanticWidth] = js.undefined,
@@ -150,7 +149,7 @@ object FormInput {
     var size: js.UndefOr[suiraw.SemanticSIZES] = js.native
 
     /** An Input can receive focus. */
-    var tabIndex: js.UndefOr[String | JsNumber] = js.native
+    var tabIndex: js.UndefOr[String | Double] = js.native
 
     /** Transparent Input has no background. */
     var transparent: js.UndefOr[Boolean] = js.native
@@ -215,7 +214,7 @@ object FormInput {
     onChangeE:      js.UndefOr[Input.OnChange] = js.undefined,
     required:       js.UndefOr[Boolean] = js.undefined,
     size:           js.UndefOr[SemanticSize] = js.undefined,
-    tabIndex:       js.UndefOr[String | JsNumber] = js.undefined,
+    tabIndex:       js.UndefOr[String | Double] = js.undefined,
     tpe:            js.UndefOr[String] = js.undefined,
     transparent:    js.UndefOr[Boolean] = js.undefined,
     width:          js.UndefOr[SemanticWidth] = js.undefined,
