@@ -24,6 +24,7 @@ final case class Modal(
   closeIcon:              js.UndefOr[ShorthandS[Icon]] = js.undefined,
   closeOnDimmerClick:     js.UndefOr[Boolean] = js.undefined,
   closeOnDocumentClick:   js.UndefOr[Boolean] = js.undefined,
+  closeOnEscape:          js.UndefOr[Boolean] = js.undefined,
   content:                js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
   defaultOpen:            js.UndefOr[Boolean] = js.undefined,
   dimmer:                 js.UndefOr[Dimmer | ModalDimmer] = js.undefined,
@@ -99,6 +100,9 @@ object Modal {
 
     /** Whether or not the Modal should close when the document is clicked. */
     var closeOnDocumentClick: js.UndefOr[Boolean] = js.native
+
+    /** Whether or not the Modal should close when escape is pressed. */
+    var closeOnEscape: js.UndefOr[Boolean] = js.native
 
     /** A Modal can be passed content via shorthand. */
     var content: js.UndefOr[suiraw.SemanticShorthandItemS[ModalContent.ModalContentProps]] =
@@ -194,6 +198,7 @@ object Modal {
       q.closeIcon,
       q.closeOnDimmerClick,
       q.closeOnDocumentClick,
+      q.closeOnEscape,
       q.content,
       q.defaultOpen,
       q.dimmer,
@@ -223,6 +228,7 @@ object Modal {
     closeIcon:            js.UndefOr[ShorthandS[Icon]] = js.undefined,
     closeOnDimmerClick:   js.UndefOr[Boolean] = js.undefined,
     closeOnDocumentClick: js.UndefOr[Boolean] = js.undefined,
+    closeOnEscape:        js.UndefOr[Boolean] = js.undefined,
     content:              js.UndefOr[ShorthandS[ModalContent]] = js.undefined,
     defaultOpen:          js.UndefOr[Boolean] = js.undefined,
     dimmer:               js.UndefOr[Dimmer | ModalDimmer] = js.undefined,
@@ -250,6 +256,7 @@ object Modal {
     closeIcon.toJs.foreach(v => p.closeIcon = v)
     closeOnDimmerClick.foreach(v => p.closeOnDimmerClick = v)
     closeOnDocumentClick.foreach(v => p.closeOnDocumentClick = v)
+    closeOnEscape.foreach(v => p.closeOnEscape = v)
     content.toJs.foreach(v => p.content = v)
     defaultOpen.foreach(v => p.defaultOpen = v)
     dimmer.foreach { v =>
