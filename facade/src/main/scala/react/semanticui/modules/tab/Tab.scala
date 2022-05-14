@@ -60,7 +60,7 @@ object Tab {
 
   object RawPane {
     def fromPane(q: Pane): RawPane = {
-      val p = (new js.Object()).asInstanceOf[RawPane]
+      val p = (new js.Object).asInstanceOf[RawPane]
       q.pane.map(_.props).foreach(v => p.pane = v)
       q.menuItem
         .map[String | MenuItem.MenuItemProps](d =>
