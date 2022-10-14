@@ -109,7 +109,7 @@ lazy val facade =
     )
 
 lazy val commonSettings = Seq(
-  scalaVersion           := "2.13.8",
+  scalaVersion           := "2.13.10",
   organization           := "io.github.cquiroz.react",
   sonatypeProfileName    := "io.github.cquiroz",
   description            := "scala.js facade for react-semanticui",
