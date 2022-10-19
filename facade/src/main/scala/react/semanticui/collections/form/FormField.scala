@@ -26,8 +26,8 @@ final case class FormField(
   width:                  js.UndefOr[SemanticWidth] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[FormField.FormFieldProps, FormField] {
-  override protected def cprops                     = FormField.props(this)
-  override protected val component                  = FormField.component
+  override protected def cprops    = FormField.props(this)
+  override protected val component = FormField.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
