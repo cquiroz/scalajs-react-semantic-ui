@@ -15,8 +15,8 @@ final case class ButtonOr(
   text:                   js.UndefOr[Double | String] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[ButtonOr.ButtonOrProps, ButtonOr] {
-  override protected def cprops                     = ButtonOr.props(this)
-  override protected val component                  = ButtonOr.component
+  override protected def cprops    = ButtonOr.props(this)
+  override protected val component = ButtonOr.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
