@@ -5,7 +5,7 @@ val reactSUI = "2.0.4"
 
 val scalaJsReact       = "2.1.1"
 val scalaJSReactCommon = "0.17.0"
-val cats               = "2.8.0"
+val cats               = "2.9.0"
 val munit              = "0.7.29"
 
 cancelable in Global := true
