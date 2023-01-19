@@ -17,8 +17,8 @@ final case class LabelDetail(
   content:                js.UndefOr[ShorthandS[VdomNode]] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPAC[LabelDetail.LabelDetailProps, LabelDetail] {
-  override protected def cprops                     = LabelDetail.props(this)
-  override protected val component                  = LabelDetail.component
+  override protected def cprops    = LabelDetail.props(this)
+  override protected val component = LabelDetail.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -33,7 +33,7 @@ object LabelDetail {
     def apply(key: String): js.Any = js.native
 
     @JSBracketAccess
-    def update(key: String, v: js.Any): Unit          = js.native
+    def update(key: String, v: js.Any): Unit = js.native
     var as: js.UndefOr[AsT]                           = js.native
     var children: js.UndefOr[React.Node]              = js.native
     var className: js.UndefOr[String]                 = js.native

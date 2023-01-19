@@ -16,7 +16,7 @@ package semanticui {
     val props: P
   }
 
-  object As               {
+  object As {
     import elements.segment.{ Segment => SUISegment }
     import collections.menu.{ Menu => SUIMenu }
     import collections.grid.{ Grid => SUIGrid }
@@ -170,7 +170,7 @@ package object semanticui {
   }
 
   implicit class CompFnToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(implicit
-    render:                                           C => RenderFn[P]
+    render: C => RenderFn[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemS[P]] =
       c.map { d =>
@@ -183,7 +183,7 @@ package object semanticui {
   }
 
   implicit class CompFnToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(implicit
-    render:                                           C => RenderFn[P]
+    render: C => RenderFn[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemB[P]] =
       c.map { d =>
@@ -196,7 +196,7 @@ package object semanticui {
   }
 
   implicit class CompFnToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(implicit
-    render:                                            C => RenderFn[P]
+    render: C => RenderFn[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
       c.map { d =>
@@ -210,7 +210,7 @@ package object semanticui {
   }
 
   def compToPropS[P <: js.Object, C](c: ShorthandS[C])(implicit
-    render:                             C => Render[P]
+    render: C => Render[P]
   ): raw.SemanticShorthandItemS[P] =
     (c: Any) match {
       case s: String   => s
@@ -341,14 +341,14 @@ package object semanticui {
   }
 
   implicit class CompToPropsS[P <: js.Object, C](c: js.UndefOr[ShorthandS[C]])(implicit
-    render:                                         C => Render[P]
+    render: C => Render[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemS[P]] =
       c.map(d => compToPropS(d)(render))
   }
 
   implicit class CompToPropsB[P <: js.Object, C](c: js.UndefOr[ShorthandB[C]])(implicit
-    render:                                         C => Render[P]
+    render: C => Render[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemB[P]] =
       c.map { d =>
@@ -360,7 +360,7 @@ package object semanticui {
   }
 
   implicit class CompToPropsSB[P <: js.Object, C](c: js.UndefOr[ShorthandSB[C]])(implicit
-    render:                                          C => Render[P]
+    render: C => Render[P]
   ) {
     def toJs: js.UndefOr[raw.SemanticShorthandItemSB[P]] =
       c.map { d =>
@@ -374,7 +374,7 @@ package object semanticui {
   }
 
   implicit class CompSeqToArray[P <: js.Object, C](val c: js.UndefOr[Seq[ShorthandS[C]]])(implicit
-    render:                                               C => Render[P]
+    render: C => Render[P]
   ) {
     def toJs: js.UndefOr[js.Array[raw.SemanticShorthandItemS[P]]] =
       c.map(_.map(d => compToPropS(d)(render)).toJSArray)
