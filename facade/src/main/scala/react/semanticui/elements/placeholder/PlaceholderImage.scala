@@ -22,8 +22,8 @@ final case class PlaceholderImage(
       PlaceholderImage.PlaceholderImageProps,
       PlaceholderImage
     ] {
-  override protected def cprops                     = PlaceholderImage.props(this)
-  override protected val component                  = PlaceholderImage.component
+  override protected def cprops    = PlaceholderImage.props(this)
+  override protected val component = PlaceholderImage.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 

@@ -29,8 +29,8 @@ final case class Icon(
   ariaLabel:              js.UndefOr[String] = js.undefined,
   override val modifiers: Seq[TagMod] = Seq.empty
 ) extends GenericComponentPA[Icon.IconProps, Icon] {
-  override protected def cprops                     = Icon.props(this)
-  override val component                            = Icon.component
+  override protected def cprops = Icon.props(this)
+  override val component        = Icon.component
   override def addModifiers(modifiers: Seq[TagMod]) = copy(modifiers = this.modifiers ++ modifiers)
 }
 
@@ -45,7 +45,7 @@ object Icon {
     def apply(key: String): js.Any = js.native
 
     @JSBracketAccess
-    def update(key: String, v: js.Any): Unit     = js.native
+    def update(key: String, v: js.Any): Unit = js.native
     var as: js.UndefOr[AsT]                      = js.native
     var bordered: js.UndefOr[Boolean]            = js.native
     var circular: js.UndefOr[Boolean]            = js.native

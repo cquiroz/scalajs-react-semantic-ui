@@ -11,4 +11,4 @@ package list {
   }
 }
 
-package object list  {}
+package object list {}
